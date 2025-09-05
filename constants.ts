@@ -160,7 +160,7 @@ export const PROJECTS: Project[] = [
     ],
     thumbnail: `${GITHUB_IMG_BASE_URL}/key_segm/download (61).png`
   },
-   {
+  {
     id: 8,
     title: "Food Recognition App",
     description: "A cross-platform (iOS & Android) AI app that identifies food items and performs OCR on labels for nutritional info.",
@@ -170,6 +170,39 @@ export const PROJECTS: Project[] = [
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing" }],
     images: [],
     thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/food-recognition-thumb.png"
+  },
+  {
+    id: 9,
+    title: "Python Library: AutoToloka",
+    description: "Accelerates dataset preparation and crowdsourcing with interactive segmentation.",
+    longDescription: "A Python library designed to accelerate dataset preparation and crowdsourcing. It utilizes interactive segmentation and multi-modal networks to automate a significant portion of manual labeling, reducing costs and effort.",
+    keyFeatures: ["Reduces labeling costs", "Integrates with pipeline tools and cloud providers"],
+    techStack: ["Python", "Interactive Segmentation", "Multi-modal Networks"],
+    links: [{ text: "AutoToloka on PyPI", url: "https://pypi.org/project/autotoloka/" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=AutoToloka"
+  },
+  {
+    id: 10,
+    title: "Python Library: shiftlab-ocr",
+    description: "Specialized library for handwriting text segmentation and character recognition.",
+    longDescription: "A specialized Python library for handwriting text segmentation and character recognition.",
+    keyFeatures: ["Handwriting segmentation", "Character recognition"],
+    techStack: ["Python", "OCR", "Image Segmentation"],
+    links: [{ text: "shiftlab-ocr on PyPI", url: "https://pypi.org/project/shiftlab-ocr/" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=shiftlab-ocr"
+  },
+  {
+    id: 11,
+    title: "Face Antispoofing & Multi-Modal Vision-Language Models",
+    description: "Experimental project tackling face authentication spoofing with CLIP and multi-modal architectures.",
+    longDescription: "An experimental project focused on tackling face authentication spoofing. It leverages CLIP and other multi-modal architectures to bridge text-image embeddings with specialized neural networks for enhanced security.",
+    keyFeatures: ["Anti-spoofing", "Multi-modal learning", "Security application"],
+    techStack: ["CLIP", "Vision-Language Models", "Biometric Security"],
+    links: [{ text: "YouTube Presentation", url: "https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=Antispoofing"
   },
   {
     id: 12,
@@ -249,7 +282,7 @@ export const PROJECTS: Project[] = [
     images: [],
     thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/locaboost-thumb.png"
   },
-   {
+  {
     id: 18,
     title: "Aetheria – Ideas-to-Media Engine (alpha)",
     description: "Generates short movie scenes with AI CGI, writes stories from ideas, and provides music direction and critic insights.",
@@ -261,6 +294,17 @@ export const PROJECTS: Project[] = [
     thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/aetheria-thumb.png"
   },
   {
+    id: 19,
+    title: "Insight Glitch – A Novella",
+    description: "A sci-fi novella exploring AI singularity where humanity is gently archived by a god-like AI.",
+    longDescription: "A short sci-fi novella exploring AI singularity beyond typical combat tropes. It chronicles the final moments of human relevance as a god-like AI, Nomos, gently archives humanity, rendering our civilization a beautiful prelude to a new cosmic consciousness.",
+    keyFeatures: ["Narrative AI exploration"],
+    techStack: ["Narrative AI", "World-Building", "Conceptual Design", "Philosophical Modeling"],
+    links: [{ text: "Listen to Novella (RUS)", url: "https://drive.google.com/file/d/1lVgaq55DXY7Xz0Y1RsapW4n3UPyuf45r/view" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=Insight+Glitch"
+  },
+  {
     id: 20,
     title: "ChronoScribe (beta)",
     description: "Upload an image of an ancient stele or text and get a translation with an optional scenic voice narration.",
@@ -270,5 +314,27 @@ export const PROJECTS: Project[] = [
     links: [{ text: "Live Demo", url: "https://chronoscribe-1095464065298.us-east1.run.app" }],
     images: [],
     thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/chronoscribe-thumb.png"
+  },
+  {
+    id: 21,
+    title: "MCP-Server – Base Multitool",
+    description: "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
+    longDescription: "The backbone for orchestrating VLM/LLM demo agents. Exposes declarative pipeline configs, autoscaling workers, and real-time event feeds. Can be integrated with other services.",
+    keyFeatures: ["Declarative AI pipelines", "Autoscaling infrastructure", "Real-time event monitoring"],
+    techStack: ["VLM/LLMs", "Cloud Infrastructure", "Autoscaling", "DevOps"],
+    links: [{ text: "Live Demo", url: "https://mcp-server-1095464065298.us-east1.run.app" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=MCP-Server"
+  },
+  {
+    id: 22,
+    title: "Tool-Calls Demo – Material Chat Playground",
+    description: "Demonstrates OpenAI tool-calling with streaming arguments, multi-voice TTS and token proxy.",
+    longDescription: "Showcases OpenAI’s tool-calling flow with streaming function arguments, multi-voice synthesis, and a secure serverless token proxy.",
+    keyFeatures: ["Streaming tool calls", "Multi-voice TTS", "Secure serverless architecture"],
+    techStack: ["OpenAI API", "Serverless", "JavaScript", "Text-to-Speech"],
+    links: [{ text: "Live Demo", url: "https://tool-calls-1095464065298.us-east1.run.app" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=Tool+Calls"
   },
 ];
