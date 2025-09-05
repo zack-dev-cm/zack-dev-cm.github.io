@@ -45,8 +45,17 @@ const App: React.FC = () => {
             <Section id="experience" title="Collaborations">
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center">
                 {COMPANIES.map((company) => (
-                  <div key={company.name} className="p-4 bg-slate-800/50 rounded-lg flex justify-center items-center h-24 transition-transform duration-300 hover:scale-105 hover:bg-slate-800">
-                    <img src={company.logoUrl} alt={`${company.name} Logo`} className="max-h-16 max-w-full object-contain" />
+                  <div
+                    key={company.name}
+                    tabIndex={0}
+                    title={company.name}
+                    className="p-4 bg-slate-800 rounded-lg flex justify-center items-center h-24 border border-slate-700 shadow-sm transition duration-300 hover:scale-105 hover:bg-slate-700 hover:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                  >
+                    <img
+                      src={company.logoUrl}
+                      alt={`${company.name} Logo`}
+                      className="max-h-16 max-w-full object-contain"
+                    />
                   </div>
                 ))}
               </div>
