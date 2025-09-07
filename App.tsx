@@ -49,7 +49,8 @@ const App: React.FC = () => {
                     key={company.name}
                     tabIndex={0}
                     title={company.name}
-                    className="p-4 bg-slate-800 rounded-lg flex justify-center items-center h-24 border border-slate-700 shadow-sm transition duration-300 hover:scale-105 hover:bg-slate-700 hover:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                    aria-label={company.name}
+                    className="p-4 bg-white rounded-lg flex justify-center items-center h-24 border border-slate-200 shadow transition-transform duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-slate-900"
                   >
                     <img
                       src={company.logoUrl}
