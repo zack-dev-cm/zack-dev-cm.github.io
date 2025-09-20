@@ -122,6 +122,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           </div>
 
+          {project.topologySnapshot && (
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold text-slate-200">ASCII Topology Snapshot</h3>
+              <pre className="mt-2 whitespace-pre-wrap rounded-lg border border-slate-700 bg-slate-900/60 p-4 font-mono text-sm text-slate-300 overflow-x-auto">
+                {project.topologySnapshot}
+              </pre>
+            </div>
+          )}
+
           {project.links.length > 0 && (
             <div className="mt-6">
               <h3 className="text-lg font-semibold text-slate-200">Links</h3>
