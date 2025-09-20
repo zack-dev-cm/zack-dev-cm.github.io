@@ -20,6 +20,7 @@ export interface Project {
   links: ProjectLink[];
   images: ProjectImage[];
   thumbnail: string;
+  topologySnapshot?: string;
 }
 
 export interface Company {
