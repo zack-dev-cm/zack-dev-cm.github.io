@@ -1,0 +1,57 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--no-package-lock',
+1 verbose cli   '--cache',
+1 verbose cli   './.npm-cache'
+1 verbose cli ]
+2 info using npm@6.14.13
+3 info using node@v14.17.2
+4 verbose npm-session 47b9b6f5bf2780b4
+5 silly install runPreinstallTopLevelLifecycles
+6 silly preinstall zakhar-pashkin-ai-computer-vision-portfolio@0.0.0
+7 info lifecycle zakhar-pashkin-ai-computer-vision-portfolio@0.0.0~preinstall: zakhar-pashkin-ai-computer-vision-portfolio@0.0.0
+8 silly install loadCurrentTree
+9 silly install readLocalPackageData
+10 timing stage:loadCurrentTree Completed in 22ms
+11 silly install loadIdealTree
+12 silly install cloneCurrentTreeToIdealTree
+13 timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms
+14 silly install loadShrinkwrap
+15 timing stage:loadIdealTree:loadShrinkwrap Completed in 2ms
+16 silly install loadAllDepsIntoIdealTree
+17 silly fetchPackageMetaData error for @types/node@^22.14.0 request to https://registry.npmjs.org/@types%2fnode failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+18 silly fetchPackageMetaData error for typescript@~5.8.2 request to https://registry.npmjs.org/typescript failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+19 silly fetchPackageMetaData error for vite@^6.2.0 request to https://registry.npmjs.org/vite failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+20 silly fetchPackageMetaData error for react@^19.1.1 request to https://registry.npmjs.org/react failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+21 silly fetchPackageMetaData error for react-dom@^19.1.1 request to https://registry.npmjs.org/react-dom failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+22 silly fetchPackageMetaData error for react@^19.1.1 request to https://registry.npmjs.org/react failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+23 silly fetchPackageMetaData error for react-dom@^19.1.1 request to https://registry.npmjs.org/react-dom failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+24 timing stage:rollbackFailedOptional Completed in 0ms
+25 timing stage:runTopLevelLifecycles Completed in 138ms
+26 silly saveTree zakhar-pashkin-ai-computer-vision-portfolio@0.0.0
+27 verbose type system
+28 verbose stack FetchError: request to https://registry.npmjs.org/react failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+28 verbose stack     at ClientRequest.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/node-fetch-npm/src/index.js:68:14)
+28 verbose stack     at ClientRequest.emit (events.js:375:28)
+28 verbose stack     at TLSSocket.socketErrorListener (_http_client.js:475:9)
+28 verbose stack     at TLSSocket.emit (events.js:375:28)
+28 verbose stack     at emitErrorNT (internal/streams/destroy.js:106:8)
+28 verbose stack     at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+28 verbose stack     at processTicksAndRejections (internal/process/task_queues.js:82:21)
+29 verbose cwd /Users/zack/Documents/GitHub/zack-dev-cm.github.io
+30 verbose Darwin 23.3.0
+31 verbose argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--no-package-lock" "--cache" "./.npm-cache"
+32 verbose node v14.17.2
+33 verbose npm  v6.14.13
+34 error code ENOTFOUND
+35 error errno ENOTFOUND
+36 error network request to https://registry.npmjs.org/react failed, reason: getaddrinfo ENOTFOUND registry.npmjs.org
+37 error network This is a problem related to network connectivity.
+37 error network In most cases you are behind a proxy or have bad network settings.
+37 error network
+37 error network If you are behind a proxy, please make sure that the
+37 error network 'proxy' config is set properly.  See: 'npm help config'
+38 verbose exit [ 1, true ]

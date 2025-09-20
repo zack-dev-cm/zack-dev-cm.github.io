@@ -14,10 +14,73 @@
         font-family: 'Inter', sans-serif;
       }
     </style>
-    <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module">
+      const bootstrap = async () => {
+        const hostname = window.location.hostname || '';
+        const isLocalhost = ['localhost', '127.0.0.1', '::1', ''].includes(hostname);
+
+        if (isLocalhost) {
+          await import('/index.tsx');
+          return;
+        }
+
+        const manifestResponse = await fetch('./docs/manifest.json', { cache: 'no-store' });
+        if (!manifestResponse.ok) {
+          console.error('Failed to load Vite manifest', manifestResponse.status, manifestResponse.statusText);
+          const root = document.getElementById('root');
+          if (root && root.childNodes.length === 0) {
+            root.textContent = 'Unable to load site assets. Please try again later.';
+          }
+          return;
+        }
+
+        const manifest = await manifestResponse.json();
+        const candidateKeys = ['index.tsx', 'index.html', 'src/index.tsx'];
+        let entry;
+        for (const key of candidateKeys) {
+          if (manifest[key]) {
+            entry = manifest[key];
+            break;
+          }
+        }
+
+        if (!entry || !entry.file) {
+          console.error('Expected entry not found in Vite manifest.', manifest);
+          const root = document.getElementById('root');
+          if (root && root.childNodes.length === 0) {
+            root.textContent = 'Application bundle missing from manifest.';
+          }
+          return;
+        }
+
+        const toAssetUrl = (assetPath) => `./docs/${assetPath}`;
+
+        if (Array.isArray(entry.css)) {
+          for (const cssPath of entry.css) {
+            const linkEl = document.createElement('link');
+            linkEl.rel = 'stylesheet';
+            linkEl.href = toAssetUrl(cssPath);
+            document.head.appendChild(linkEl);
+          }
+        }
+
+        const scriptEl = document.createElement('script');
+        scriptEl.type = 'module';
+        scriptEl.src = toAssetUrl(entry.file);
+        scriptEl.crossOrigin = 'anonymous';
+        document.body.appendChild(scriptEl);
+      };
+
+      bootstrap().catch((error) => {
+        console.error('Failed to bootstrap application', error);
+        const root = document.getElementById('root');
+        if (root && root.childNodes.length === 0) {
+          root.textContent = 'An unexpected error occurred while loading the site.';
+        }
+      });
+    </script>
   </body>
 </html>
