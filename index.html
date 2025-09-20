@@ -27,9 +27,9 @@
           return;
         }
 
-        const manifestResponse = await fetch('./docs/manifest.json', { cache: 'no-store' });
-        if (!manifestResponse.ok) {
-          console.error('Failed to load Vite manifest', manifestResponse.status, manifestResponse.statusText);
+        const docsIndexResponse = await fetch('./docs/index.html', { cache: 'no-store' });
+        if (!docsIndexResponse.ok) {
+          console.error('Failed to load built index.html', docsIndexResponse.status, docsIndexResponse.statusText);
           const root = document.getElementById('root');
           if (root && root.childNodes.length === 0) {
             root.textContent = 'Unable to load site assets. Please try again later.';
@@ -37,40 +37,55 @@
           return;
         }
 
-        const manifest = await manifestResponse.json();
-        const candidateKeys = ['index.tsx', 'index.html', 'src/index.tsx'];
-        let entry;
-        for (const key of candidateKeys) {
-          if (manifest[key]) {
-            entry = manifest[key];
-            break;
-          }
-        }
+        const htmlText = await docsIndexResponse.text();
+        const parser = new DOMParser();
+        const parsedDocument = parser.parseFromString(htmlText, 'text/html');
+        const docsBaseUrl = new URL('./docs/', window.location.href);
 
-        if (!entry || !entry.file) {
-          console.error('Expected entry not found in Vite manifest.', manifest);
+        const transferLink = (sourceLink) => {
+          const href = sourceLink.getAttribute('href');
+          if (!href) {
+            return;
+          }
+          const resolvedUrl = new URL(href, docsBaseUrl);
+          const linkEl = document.createElement('link');
+          linkEl.rel = sourceLink.getAttribute('rel') || 'stylesheet';
+          if (sourceLink.hasAttribute('crossorigin')) {
+            linkEl.crossOrigin = sourceLink.getAttribute('crossorigin') || '';
+          }
+          linkEl.href = resolvedUrl.pathname + resolvedUrl.search + resolvedUrl.hash;
+          document.head.appendChild(linkEl);
+        };
+
+        parsedDocument.querySelectorAll('link[rel="stylesheet"]').forEach(transferLink);
+
+        const builtScript = parsedDocument.querySelector('script[type="module"]');
+        if (!builtScript) {
+          console.error('Unable to locate built module script tag.');
           const root = document.getElementById('root');
           if (root && root.childNodes.length === 0) {
-            root.textContent = 'Application bundle missing from manifest.';
+            root.textContent = 'Client bundle not found in built output.';
           }
           return;
         }
 
-        const toAssetUrl = (assetPath) => `./docs/${assetPath}`;
-
-        if (Array.isArray(entry.css)) {
-          for (const cssPath of entry.css) {
-            const linkEl = document.createElement('link');
-            linkEl.rel = 'stylesheet';
-            linkEl.href = toAssetUrl(cssPath);
-            document.head.appendChild(linkEl);
+        const src = builtScript.getAttribute('src');
+        if (!src) {
+          console.error('Built module script is missing a src attribute.');
+          const root = document.getElementById('root');
+          if (root && root.childNodes.length === 0) {
+            root.textContent = 'Client bundle src attribute missing.';
           }
+          return;
         }
 
+        const resolvedScriptUrl = new URL(src, docsBaseUrl);
         const scriptEl = document.createElement('script');
         scriptEl.type = 'module';
-        scriptEl.src = toAssetUrl(entry.file);
-        scriptEl.crossOrigin = 'anonymous';
+        scriptEl.src = resolvedScriptUrl.pathname + resolvedScriptUrl.search + resolvedScriptUrl.hash;
+        if (builtScript.hasAttribute('crossorigin')) {
+          scriptEl.crossOrigin = builtScript.getAttribute('crossorigin') || '';
+        }
         document.body.appendChild(scriptEl);
       };
 
