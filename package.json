@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite index.dev.html",
+    "dev": "vite",
     "build": "vite build",
+    "postbuild": "node scripts/postbuild.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
