@@ -337,4 +337,19 @@ export const PROJECTS: Project[] = [
     images: [],
     thumbnail: "https://placehold.co/600x400?text=Tool+Calls"
   },
+  {
+    id: 23,
+    title: "Project18 Automation Stack",
+    description: "Gives B2B teams a ready-to-launch Telegram bot, Mini App, and lead funnel powered by agentic workflows.",
+    longDescription: "Project18 delivers a full automation stack that launches a Telegram bot, companion Mini App, and AI-routed lead funnel in minutes. Under the hood it unifies GPT-5 orchestration, reusable MCP tools, multi-tenant data stores, and telemetry guardrails to keep every customer touchpoint observable and adaptive.",
+    keyFeatures: [
+      "Instant Telegram bot & Mini App deployment",
+      "Agentic workflows nurturing inbound leads",
+      "Unified telemetry and safety guardrails"
+    ],
+    techStack: ["GPT-5 orchestration", "MCP tools", "Multi-tenant data stores", "Telemetry guardrails"],
+    links: [{ text: "Live Demo", url: "https://project018-mcp-1095464065298.us-east1.run.app/" }],
+    images: [],
+    thumbnail: "https://placehold.co/600x400?text=Project18"
+  },
 ];
