@@ -35,11 +35,10 @@
           }
         };
 
-        try {
+        const loadFromManifest = async () => {
           const manifestResponse = await fetch('./docs/manifest.json', { cache: 'no-store' });
           if (!manifestResponse.ok) {
-            showError(`Failed to load manifest: ${manifestResponse.status}`);
-            return;
+            throw new Error(`Failed to load manifest: ${manifestResponse.status}`);
           }
 
           const manifest = await manifestResponse.json();
@@ -54,14 +53,55 @@
           });
 
           if (!entry?.file) {
-            showError('Manifest missing entry file.');
-            return;
+            throw new Error('Manifest missing entry file.');
           }
 
           const scriptEl = document.createElement('script');
           scriptEl.type = 'module';
           scriptEl.src = `./docs/${entry.file}`;
           document.body.appendChild(scriptEl);
+        };
+
+        const loadFromBuiltIndex = async () => {
+          const docsIndexResponse = await fetch('./docs/index.html', { cache: 'no-store' });
+          if (!docsIndexResponse.ok) {
+            throw new Error(`Failed to load built index.html: ${docsIndexResponse.status}`);
+          }
+
+          const htmlText = await docsIndexResponse.text();
+          const parser = new DOMParser();
+          const parsedDocument = parser.parseFromString(htmlText, 'text/html');
+
+          parsedDocument.querySelectorAll('link[rel="stylesheet"]').forEach((sourceLink) => {
+            const linkEl = document.createElement('link');
+            linkEl.rel = 'stylesheet';
+            linkEl.href = sourceLink.getAttribute('href');
+            document.head.appendChild(linkEl);
+          });
+
+          const builtScript = parsedDocument.querySelector('script[type="module"]');
+          if (!builtScript) {
+            throw new Error('Unable to locate built module script tag.');
+          }
+          const src = builtScript.getAttribute('src');
+          if (!src) {
+            throw new Error('Built module script is missing a src attribute.');
+          }
+
+          const scriptEl = document.createElement('script');
+          scriptEl.type = 'module';
+          scriptEl.src = src;
+          if (builtScript.hasAttribute('crossorigin')) {
+            scriptEl.crossOrigin = builtScript.getAttribute('crossorigin') || '';
+          }
+          document.body.appendChild(scriptEl);
+        };
+
+        try {
+          await loadFromManifest().catch(async (e) => {
+            console.warn('Manifest load failed, falling back to built index.', e);
+            await loadFromBuiltIndex();
+          });
         } catch (error) {
           showError(error);
         }
