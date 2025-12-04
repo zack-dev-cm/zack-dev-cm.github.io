@@ -36,7 +36,7 @@
         };
 
         const loadFromManifest = async () => {
-          const manifestResponse = await fetch('./docs/manifest.json', { cache: 'no-store' });
+          const manifestResponse = await fetch('./manifest.json', { cache: 'no-store' });
           if (!manifestResponse.ok) {
             throw new Error(`Failed to load manifest: ${manifestResponse.status}`);
           }
@@ -48,7 +48,7 @@
           cssEntries.forEach((cssPath) => {
             const linkEl = document.createElement('link');
             linkEl.rel = 'stylesheet';
-            linkEl.href = `./docs/${cssPath}`;
+            linkEl.href = `./${cssPath}`;
             document.head.appendChild(linkEl);
           });
 
@@ -58,12 +58,12 @@
 
           const scriptEl = document.createElement('script');
           scriptEl.type = 'module';
-          scriptEl.src = `./docs/${entry.file}`;
+          scriptEl.src = `./${entry.file}`;
           document.body.appendChild(scriptEl);
         };
 
         const loadFromBuiltIndex = async () => {
-          const docsIndexResponse = await fetch('./docs/index.html', { cache: 'no-store' });
+          const docsIndexResponse = await fetch('./index.html', { cache: 'no-store' });
           if (!docsIndexResponse.ok) {
             throw new Error(`Failed to load built index.html: ${docsIndexResponse.status}`);
           }
