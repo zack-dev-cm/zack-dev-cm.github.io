@@ -18,11 +18,34 @@
   <body>
     <div id="root"></div>
     <script type="module">
-      const bootstrap = async () => {
-        const hostname = window.location.hostname || '';
-        const isLocalhost = ['localhost', '127.0.0.1', '::1', ''].includes(hostname);
+      const joinPaths = (base, path) => {
+        const normalizedBase = (base || '.').replace(/\/+$/, '') || '.';
+        const normalizedPath = (path || '').replace(/^\.?\//, '');
+        return `${normalizedBase}/${normalizedPath}`;
+      };
 
-        if (isLocalhost) {
+      const tryAssetBases = async (loader) => {
+        const bases = ['./docs', './'];
+        let lastError = null;
+
+        for (const base of bases) {
+          try {
+            await loader(base);
+            return;
+          } catch (error) {
+            lastError = error;
+          }
+        }
+
+        if (lastError) {
+          throw lastError;
+        }
+      };
+
+      const bootstrap = async () => {
+        const isDev = typeof import.meta !== 'undefined' && import.meta?.env?.DEV;
+
+        if (isDev) {
           await import('/index.tsx');
           return;
         }
@@ -35,75 +58,65 @@
           }
         };
 
-        const loadFromManifest = async () => {
-          const manifestResponse = await fetch('./docs/manifest.json', { cache: 'no-store' });
+        const findAppEntry = (manifest) => {
+          const candidates = ['index.tsx', 'src/index.tsx', 'main.tsx', 'src/main.tsx'];
+          for (const key of candidates) {
+            if (manifest[key]?.file) {
+              return manifest[key];
+            }
+          }
+
+          const indexHtmlEntry = manifest['index.html'];
+          if (indexHtmlEntry?.dynamicImports?.length) {
+            const fallbackKey = indexHtmlEntry.dynamicImports[0];
+            if (manifest[fallbackKey]?.file) {
+              return manifest[fallbackKey];
+            }
+          }
+
+          return Object.values(manifest).find((entry) => entry?.isEntry && entry.file) || null;
+        };
+
+        const loadScript = (src) => new Promise((resolve, reject) => {
+          const scriptEl = document.createElement('script');
+          scriptEl.type = 'module';
+          scriptEl.src = src;
+          scriptEl.onload = resolve;
+          scriptEl.onerror = () => reject(new Error(`Failed to load app bundle (${src}).`));
+          document.body.appendChild(scriptEl);
+        });
+
+        const loadFromManifest = async (assetBase) => {
+          const manifestUrl = joinPaths(assetBase, 'manifest.json');
+          const manifestResponse = await fetch(manifestUrl, { cache: 'no-store' });
           if (!manifestResponse.ok) {
-            throw new Error(`Failed to load manifest: ${manifestResponse.status}`);
+            throw new Error(`Failed to load manifest (${manifestUrl}): ${manifestResponse.status}`);
           }
 
           const manifest = await manifestResponse.json();
-          const entry = manifest['index.html'];
-          const cssEntries = manifest['index.tsx']?.css || [];
+          const entry = findAppEntry(manifest);
+
+          if (!entry?.file) {
+            throw new Error('Manifest missing app entry file.');
+          }
+
+          const cssEntries = entry.css || [];
 
           cssEntries.forEach((cssPath) => {
             const linkEl = document.createElement('link');
             linkEl.rel = 'stylesheet';
-            linkEl.href = `./docs/${cssPath}`;
+            linkEl.href = joinPaths(assetBase, cssPath);
             document.head.appendChild(linkEl);
           });
 
-          if (!entry?.file) {
-            throw new Error('Manifest missing entry file.');
-          }
-
-          const scriptEl = document.createElement('script');
-          scriptEl.type = 'module';
-          scriptEl.src = `./docs/${entry.file}`;
-          document.body.appendChild(scriptEl);
-        };
-
-        const loadFromBuiltIndex = async () => {
-          const docsIndexResponse = await fetch('./docs/index.html', { cache: 'no-store' });
-          if (!docsIndexResponse.ok) {
-            throw new Error(`Failed to load built index.html: ${docsIndexResponse.status}`);
-          }
-
-          const htmlText = await docsIndexResponse.text();
-          const parser = new DOMParser();
-          const parsedDocument = parser.parseFromString(htmlText, 'text/html');
-
-          parsedDocument.querySelectorAll('link[rel="stylesheet"]').forEach((sourceLink) => {
-            const linkEl = document.createElement('link');
-            linkEl.rel = 'stylesheet';
-            linkEl.href = sourceLink.getAttribute('href');
-            document.head.appendChild(linkEl);
-          });
-
-          const builtScript = parsedDocument.querySelector('script[type="module"]');
-          if (!builtScript) {
-            throw new Error('Unable to locate built module script tag.');
-          }
-          const src = builtScript.getAttribute('src');
-          if (!src) {
-            throw new Error('Built module script is missing a src attribute.');
-          }
-
-          const scriptEl = document.createElement('script');
-          scriptEl.type = 'module';
-          scriptEl.src = src;
-          if (builtScript.hasAttribute('crossorigin')) {
-            scriptEl.crossOrigin = builtScript.getAttribute('crossorigin') || '';
-          }
-          document.body.appendChild(scriptEl);
+          await loadScript(joinPaths(assetBase, entry.file));
         };
 
         try {
-          await loadFromManifest().catch(async (e) => {
-            console.warn('Manifest load failed, falling back to built index.', e);
-            await loadFromBuiltIndex();
-          });
-        } catch (error) {
-          showError(error);
+          await tryAssetBases(loadFromManifest);
+        } catch (manifestError) {
+          console.warn('Manifest load failed.', manifestError);
+          showError(manifestError);
         }
       };
 
