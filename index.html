@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <meta http-equiv="refresh" content="0; url=./docs/">
-    <link rel="canonical" href="./docs/">
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -29,70 +27,44 @@
           return;
         }
 
-        // On production, just serve the built site from /docs to avoid loader issues.
-        window.location.replace('./docs/');
-        return;
-
-        const docsIndexResponse = await fetch('./docs/index.html', { cache: 'no-store' });
-        if (!docsIndexResponse.ok) {
-          console.error('Failed to load built index.html', docsIndexResponse.status, docsIndexResponse.statusText);
-          const root = document.getElementById('root');
+        const root = document.getElementById('root');
+        const showError = (msg) => {
+          console.error(msg);
           if (root && root.childNodes.length === 0) {
             root.textContent = 'Unable to load site assets. Please try again later.';
           }
-          return;
-        }
-
-        const htmlText = await docsIndexResponse.text();
-        const parser = new DOMParser();
-        const parsedDocument = parser.parseFromString(htmlText, 'text/html');
-        const docsBaseUrl = new URL('./docs/', window.location.href);
-
-        const transferLink = (sourceLink) => {
-          const href = sourceLink.getAttribute('href');
-          if (!href) {
-            return;
-          }
-          const resolvedUrl = new URL(href, docsBaseUrl);
-          const linkEl = document.createElement('link');
-          linkEl.rel = sourceLink.getAttribute('rel') || 'stylesheet';
-          if (sourceLink.hasAttribute('crossorigin')) {
-            linkEl.crossOrigin = sourceLink.getAttribute('crossorigin') || '';
-          }
-          linkEl.href = resolvedUrl.pathname + resolvedUrl.search + resolvedUrl.hash;
-          document.head.appendChild(linkEl);
         };
 
-        parsedDocument.querySelectorAll('link[rel="stylesheet"]').forEach(transferLink);
-
-        const builtScript = parsedDocument.querySelector('script[type="module"]');
-        if (!builtScript) {
-          console.error('Unable to locate built module script tag.');
-          const root = document.getElementById('root');
-          if (root && root.childNodes.length === 0) {
-            root.textContent = 'Client bundle not found in built output.';
+        try {
+          const manifestResponse = await fetch('./docs/.vite/manifest.json', { cache: 'no-store' });
+          if (!manifestResponse.ok) {
+            showError(`Failed to load manifest: ${manifestResponse.status}`);
+            return;
           }
-          return;
-        }
 
-        const src = builtScript.getAttribute('src');
-        if (!src) {
-          console.error('Built module script is missing a src attribute.');
-          const root = document.getElementById('root');
-          if (root && root.childNodes.length === 0) {
-            root.textContent = 'Client bundle src attribute missing.';
+          const manifest = await manifestResponse.json();
+          const entry = manifest['index.html'];
+          const cssEntries = manifest['index.tsx']?.css || [];
+
+          cssEntries.forEach((cssPath) => {
+            const linkEl = document.createElement('link');
+            linkEl.rel = 'stylesheet';
+            linkEl.href = `./docs/${cssPath}`;
+            document.head.appendChild(linkEl);
+          });
+
+          if (!entry?.file) {
+            showError('Manifest missing entry file.');
+            return;
           }
-          return;
-        }
 
-        const resolvedScriptUrl = new URL(src, docsBaseUrl);
-        const scriptEl = document.createElement('script');
-        scriptEl.type = 'module';
-        scriptEl.src = resolvedScriptUrl.pathname + resolvedScriptUrl.search + resolvedScriptUrl.hash;
-        if (builtScript.hasAttribute('crossorigin')) {
-          scriptEl.crossOrigin = builtScript.getAttribute('crossorigin') || '';
+          const scriptEl = document.createElement('script');
+          scriptEl.type = 'module';
+          scriptEl.src = `./docs/${entry.file}`;
+          document.body.appendChild(scriptEl);
+        } catch (error) {
+          showError(error);
         }
-        document.body.appendChild(scriptEl);
       };
 
       bootstrap().catch((error) => {

@@ -56,7 +56,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
 ];
 
 const GITHUB_IMG_BASE_URL = "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples";
-const LOCAL_IMG_BASE = "images";
+const BASE_PATH = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "");
+const LOCAL_IMG_BASE = `${BASE_PATH}/images`;
 
 export const PROJECTS: Project[] = [
   {
