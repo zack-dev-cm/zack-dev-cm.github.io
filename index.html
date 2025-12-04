@@ -27,6 +27,10 @@
           return;
         }
 
+        // On production, just serve the built site from /docs to avoid loader issues.
+        window.location.replace('./docs/');
+        return;
+
         const docsIndexResponse = await fetch('./docs/index.html', { cache: 'no-store' });
         if (!docsIndexResponse.ok) {
           console.error('Failed to load built index.html', docsIndexResponse.status, docsIndexResponse.statusText);
