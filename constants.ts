@@ -40,8 +40,11 @@ export const TECH_STACK: string[] = [
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "URL → Markdown Worker (Cloudflare)",
-    description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback and MCP SSE endpoint.",
-    links: [{ text: "GitHub", url: "https://github.com/zack-dev-cm/micro10" }]
+    description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
+    links: [
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/micro10" },
+      { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" }
+    ]
   },
   {
     title: "Beauty Visual Inbox mini-app",
@@ -442,5 +445,19 @@ Integration Layer (Connectors via MCP)
         |
         v
 Operations Layer (Console, Alerts, Runbooks)`
+  },
+  {
+    id: 29,
+    title: "URL → Markdown Worker (RapidAPI + Cloudflare)",
+    description: "Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.",
+    longDescription: "Cloudflare Worker monetized through RapidAPI and bundled with an MCP SSE endpoint for agent integrations. Streams Markdown with Google Cache fallback and solid error handling.",
+    keyFeatures: ["RapidAPI monetization", "Streaming HTML→Markdown", "MCP SSE endpoint"],
+    techStack: ["Cloudflare Workers", "RapidAPI", "TypeScript"],
+    links: [
+      { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/micro10" }
+    ],
+    images: [{ url: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`, alt: "RapidAPI URL-to-Markdown worker" }],
+    thumbnail: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`
   }
 ];
