@@ -3,7 +3,7 @@ import type { Project, Company, SocialLinks, AuthorInfo, LatestUpdate } from './
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
   title: "AI & Computer Vision Engineer",
-  bio: "I’m a Deep Learning and Computer Vision engineer driven by curiosity and a passion for creating practical AI solutions. Whether training neural networks or designing autonomous agents that navigate UIs, I focus on turning ideas into real-world systems."
+  bio: "Deep Learning/Computer Vision engineer shipping agentic products across mobile, web, and cloud. I design VLM/LLM systems end-to-end and focus on turning scrappy prototypes into reliable launches."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -28,53 +28,44 @@ export const COMPANIES: Company[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-    "Senior Deep Learning Engineer with 7+ years of dedicated experience, specializing in areas from image classification and segmentation to Optical Character Recognition (OCR) and advanced multi-modal Transformer reasoning models.",
-    "Upwork Top Rated Plus Contractor, consistently ranked in the top 1% of AI developers.",
-    "Proven Mentor & Educator, having led corporate training programs, instructed undergraduates in Computer Vision and Deep Learning fundamentals, and discovered a passion for knowledge sharing."
+  "7+ years building applied CV/ML products: OCR, segmentation, VLMs, and mobile inference.",
+  "Upwork Top Rated Plus contractor (top 1% AI devs) shipping production-grade systems fast.",
+  "Hands-on mentor/educator who has led corporate trainings and coached CV/ML teams."
 ];
 
 export const TECH_STACK: string[] = [
-    "PyTorch", "TensorFlow", "Keras", "OpenCV", "OpenAI APIs", "CLIP", "VLMs", "LLMs", "Python", "Dart (Flutter)", "Kotlin", "Swift", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
+  "PyTorch", "TensorFlow", "Keras", "OpenCV", "OpenAI APIs", "CLIP", "VLMs", "LLMs", "Python", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
-    title: "Offline P2P chat for local LLMs via bluetooth mesh.",
-    description: "Android app. meshmcp.",
-    links: [{ text: "See on Github", url: "https://github.com/zack-dev-cm/meshmcp" }]
+    title: "URL → Markdown Worker (Cloudflare)",
+    description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback and MCP SSE endpoint.",
+    links: [{ text: "GitHub", url: "https://github.com/zack-dev-cm/micro10" }]
   },
   {
-    title: "Make promo and reflinks webapp",
-    description: "Generate personalized promo and referral links with built-in analytics tracking.",
-    links: [{ text: "Visit App", url: "https://analytics-mcp-1095464065298.us-east1.run.app" }]
+    title: "Beauty Visual Inbox mini-app",
+    description: "Telegram bots + React mini-app for salons: publish photo batches, likes, notifications, and analytics.",
+    links: [{ text: "GitHub", url: "https://github.com/zack-dev-cm/bvis" }, { text: "Live app", url: "https://bvis-1095464065298.us-east1.run.app" }]
   },
   {
-    title: "YouTube Trendwatch",
-    description: "Analyze YouTube AI trends to generate new AI YT content.",
-    links: [{ text: "View on GitHub", url: "https://github.com/zack-dev-cm/trendwatch/blob/main/trendwatch_yt.ipynb" }, { text: "Run in Colab", url: "https://colab.research.google.com/github/zack-dev-cm/trendwatch/blob/main/trendwatch_yt.ipynb" }]
-  },
-  {
-    title: "Video/Music generation pipeline",
-    description: "Example of youtube shorts generation.",
-    links: [{ text: "View Example", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }, {text: "Music Gen in Colab", url: "https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4"}]
-  },
-  {
-    title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    description: "Telegram bot that recognizes dishes via photos/audio/descriptions and helps users track nutrition targets. 1,000+ users.",
-    links: [{ text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" }]
+    title: "Turbo Tots Garage (motion + touch PWA)",
+    description: "Playful toddler dashboard with motion sensors, audio cues, and Playwright E2E coverage.",
+    links: [{ text: "GitHub", url: "https://github.com/zack-dev-cm/toddler_games" }]
   }
 ];
 
 const GITHUB_IMG_BASE_URL = "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples";
+const LOCAL_IMG_BASE = "images";
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Android Remote Control with VLM AI Agents",
-    description: "An innovative Android app enabling \"hands-free\" device automation via server-based Vision-Language AI agents.",
-    longDescription: "This Android application captures screenshots and transmits them to server-based Vision-Language AI agents, which then determine and execute the next UI action (tap, swipe, type). It's designed for real-time instruction processing, automated testing, and task automation, introducing a novel way to interact with devices.",
+    description: "Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.",
+    longDescription: "Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.",
     keyFeatures: ["Real-time instruction processing", "Automated testing & task automation", "Novel device interaction"],
-    techStack: ["Android", "Vision-Language Models (VLMs)", "Server-side AI"],
+    techStack: ["Android", "Vision-Language Models", "Server-side AI"],
     links: [{ text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" }],
     images: [{ url: `${GITHUB_IMG_BASE_URL}/android_become_human-ezgif.com-speed.gif`, alt: "Android Remote Control Demo" }],
     thumbnail: `${GITHUB_IMG_BASE_URL}/android_become_human-ezgif.com-speed.gif`
@@ -82,8 +73,8 @@ export const PROJECTS: Project[] = [
   {
     id: 2,
     title: "Control VLM-LLM Agent Silently With Your Breath",
-    description: "A system that allows users to start or stop a neural network agent using distinct breathing patterns instead of voice commands.",
-    longDescription: "This system enables users to control a neural network agent using distinct breathing patterns (e.g., short exhalations to start, smooth exhalation to stop). After a calibration phase, it accurately detects commands from breathing sounds or even sniffles, offering a non-verbal method of AI control.",
+    description: "Start/stop a neural agent with breathing patterns—no voice commands needed.",
+    longDescription: "Breath-based control after a short calibration: detect sharp exhales to start, smooth exhale to stop. Works on mic audio or sniffles for silent agent control.",
     keyFeatures: ["Non-verbal AI control", "Pattern recognition of breathing acoustics"],
     techStack: ["Audio processing", "Neural Networks"],
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1H43aT5n8NWlOuTIWsJinssKRh1n3tiOM/view?usp=sharing" }],
@@ -92,9 +83,31 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 3,
+    title: "meshmcp – Offline P2P Chat for Local LLMs",
+    description: "Bluetooth mesh messaging + LLM reasoning on constrained devices.",
+    longDescription: "Android + iOS mesh chat that keeps conversations alive without internet. Messages hop over Bluetooth mesh and feed local/edge LLMs for summarization and commands.",
+    keyFeatures: ["Offline mesh networking", "Local LLM reasoning", "Energy-efficient relay routing"],
+    techStack: ["Android", "iOS", "Bluetooth Mesh", "Local LLMs"],
+    links: [{ text: "See on GitHub", url: "https://github.com/zack-dev-cm/meshmcp" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/meshmcp_icon.png`, alt: "meshmcp app icon" }],
+    thumbnail: `${LOCAL_IMG_BASE}/meshmcp_icon.png`
+  },
+  {
+    id: 4,
+    title: "Promo & Reflinks Generator",
+    description: "Generates personalized promo/referral links with analytics and sharing.",
+    longDescription: "Web app for quickly minting promo/referral links, tracking clicks, and sending branded landing pages. Ships with analytics dashboards and short-linking.",
+    keyFeatures: ["Dynamic promo link builder", "Built-in analytics", "Shareable branded pages"],
+    techStack: ["Serverless", "React", "Analytics"],
+    links: [{ text: "Visit App", url: "https://analytics-mcp-1095464065298.us-east1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/promo_reflinks.svg`, alt: "Promo and referral links" }],
+    thumbnail: `${LOCAL_IMG_BASE}/promo_reflinks.svg`
+  },
+  {
+    id: 5,
     title: "Create, Chat & AR Experience with AI-Character (Text2Room)",
-    description: "A versatile platform for generating AI characters, styling them, enabling chat via Telegram, and placing them in Augmented Reality.",
-    longDescription: "This platform allows for generating AI 'characters,' styling them with features like image/video generation and virtual try-on, enabling chat interactions via Telegram, and placing them in Augmented Reality. It's ideal for marketing campaigns, creative collaborations, and exploring next-gen generative AI.",
+    description: "Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.",
+    longDescription: "Marketing-ready pipeline: create AI characters, render images/video, do virtual try-on/inpainting, chat via Telegram, and place assets into AR.",
     keyFeatures: ["AI character generation", "AR integration", "Virtual try-on and inpainting"],
     techStack: ["Generative AI", "Inpainting", "AR", "Telegram API"],
     links: [
@@ -105,27 +118,27 @@ export const PROJECTS: Project[] = [
     thumbnail: `${GITHUB_IMG_BASE_URL}/adfeed_her.gif`
   },
   {
-    id: 4,
+    id: 6,
     title: "Label and Inpaint Anything in a Room Interior",
-    description: "An application that allows users to label objects within an interior photo and then seamlessly inpaint (remove or replace) them.",
-    longDescription: "An application that allows users to label objects within an interior photo and then seamlessly inpaint (remove or replace) them, complete with realistic shadow and lighting adjustments for convincing makeovers.",
+    description: "Label objects in an interior photo, then remove/replace them with lighting-aware inpainting.",
+    longDescription: "Semantic segmentation + high-quality inpainting that respects lighting/shadows, letting users plan interior changes with convincing renders.",
     keyFeatures: ["Object segmentation", "Advanced inpainting with lighting/shadow reconstruction"],
     techStack: ["Semantic Segmentation", "Generative Inpainting"],
     links: [
-        { text: "Segmentation Demo", url: "https://drive.google.com/file/d/1XqQgbmBgTlRRdR-K3X4PHlSzrmiMUJgY/view?usp=sharing" },
-        { text: "Inpaint Demo #1", url: "https://drive.google.com/file/d/1dCkeI7Mi87cg2kOgY5UCLG-DiHkt358L/view?usp=sharing" }
+      { text: "Segmentation Demo", url: "https://drive.google.com/file/d/1XqQgbmBgTlRRdR-K3X4PHlSzrmiMUJgY/view?usp=sharing" },
+      { text: "Inpaint Demo #1", url: "https://drive.google.com/file/d/1dCkeI7Mi87cg2kOgY5UCLG-DiHkt358L/view?usp=sharing" }
     ],
     images: [
-        { url: `${GITHUB_IMG_BASE_URL}/interior/marble_floor_w_reflections.png`, alt: "Marble Floor with Reflections" },
-        { url: `${GITHUB_IMG_BASE_URL}/interior/1.png`, alt: "Interior Example 1" }
+      { url: `${GITHUB_IMG_BASE_URL}/interior/marble_floor_w_reflections.png`, alt: "Marble Floor with Reflections" },
+      { url: `${GITHUB_IMG_BASE_URL}/interior/1.png`, alt: "Interior Example 1" }
     ],
     thumbnail: `${GITHUB_IMG_BASE_URL}/interior/marble_floor_w_reflections.png`
   },
   {
-    id: 5,
+    id: 7,
     title: "Smart Drive for Smart City: Predict Optimal Speed",
-    description: "An AI system to enhance urban driving by predicting the optimal speed for upcoming traffic lights or jams.",
-    longDescription: "An AI system designed to enhance urban driving by predicting the optimal speed to approach upcoming traffic lights or navigate traffic jams smoothly, thus potentially reducing abrupt stops and improving fuel efficiency.",
+    description: "Predict the optimal speed before traffic lights or jams to smooth city driving.",
+    longDescription: "Predictive model that anticipates lights/traffic, aiming to cut abrupt stops and improve fuel efficiency for urban driving.",
     keyFeatures: ["Predictive speed optimization", "Traffic flow analysis"],
     techStack: ["Predictive Modeling", "Real-time Data Analysis"],
     links: [],
@@ -133,10 +146,10 @@ export const PROJECTS: Project[] = [
     thumbnail: `${GITHUB_IMG_BASE_URL}/smart_drive/smart_drive3.png`
   },
   {
-    id: 6,
+    id: 8,
     title: "Estimate Golf Ball Trajectory",
-    description: "An AI solution for analyzing golf swings and estimating ball trajectory for sports analytics.",
-    longDescription: "An AI solution for analyzing golf swings and estimating ball trajectory, valuable for sports analytics and player performance improvement.",
+    description: "Analyze golf swings and estimate ball trajectory for coaching and analytics.",
+    longDescription: "Computer vision + physics model to estimate ball flight and swing quality for sports analytics.",
     keyFeatures: ["Trajectory estimation", "Sports motion analysis"],
     techStack: ["Computer Vision", "Physics-based Modeling"],
     links: [],
@@ -144,102 +157,119 @@ export const PROJECTS: Project[] = [
     thumbnail: `${GITHUB_IMG_BASE_URL}/golf/1.png`
   },
   {
-    id: 7,
+    id: 9,
     title: "Pixel-Wise Segmentation of Spare Parts",
-    description: "A tool that performs precise pixel-wise segmentation of spare parts for 3D printing or rework identification.",
-    longDescription: "A tool that performs precise pixel-wise segmentation of spare parts from images, enabling identification of components suitable for 3D printing or requiring rework.",
+    description: "High-precision segmentation for additive manufacturing and rework flows.",
+    longDescription: "Pixel-accurate masks for spare parts to speed 3D printing decisions and QA in industrial settings.",
     keyFeatures: ["High-precision segmentation", "Industrial application for additive manufacturing"],
     techStack: ["Semantic Segmentation", "Image Processing"],
     links: [
-        { text: "Segmentation Demo #1", url: "https://drive.google.com/file/d/1bAyEPYLbiETD0vKStnpB1VvzK1wKdKRv/view?usp=sharing" },
-        { text: "Segmentation Demo #2", url: "https://drive.google.com/file/d/1xVEonSJ7jvnYSnQ6ztvFZy-Llf_dxSrP/view?usp=sharing" }
+      { text: "Segmentation Demo #1", url: "https://drive.google.com/file/d/1bAyEPYLbiETD0vKStnpB1VvzK1wKdKRv/view?usp=sharing" },
+      { text: "Segmentation Demo #2", url: "https://drive.google.com/file/d/1xVEonSJ7jvnYSnQ6ztvFZy-Llf_dxSrP/view?usp=sharing" }
     ],
     images: [
-        { url: `${GITHUB_IMG_BASE_URL}/key_segm/download (61).png`, alt: "Key Segmentation 1" },
-        { url: `${GITHUB_IMG_BASE_URL}/key_segm/download (62).png`, alt: "Key Segmentation 2" }
+      { url: `${GITHUB_IMG_BASE_URL}/key_segm/download (61).png`, alt: "Key Segmentation 1" },
+      { url: `${GITHUB_IMG_BASE_URL}/key_segm/download (62).png`, alt: "Key Segmentation 2" }
     ],
     thumbnail: `${GITHUB_IMG_BASE_URL}/key_segm/download (61).png`
   },
   {
-    id: 8,
+    id: 10,
     title: "Food Recognition App",
-    description: "A cross-platform (iOS & Android) AI app that identifies food items and performs OCR on labels for nutritional info.",
-    longDescription: "A cross-platform (iOS & Android) AI application that identifies food items (packaged or fresh) and performs OCR on labels to extract nutritional information such as brand names, nutrient data, and portion sizes.",
+    description: "iOS/Android app that detects food items and OCRs labels for nutrition facts.",
+    longDescription: "Cross-platform mobile AI that recognizes packaged/fresh food, runs OCR on labels, and surfaces nutrition details in real time.",
     keyFeatures: [">90% accuracy", "Optimized for CPU/GPU inference", "OCR on labels", "Cross-platform"],
     techStack: ["Mobile AI", "Object Detection", "OCR", "TFLite", "CoreML"],
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing" }],
-    images: [],
+    images: [
+      { url: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/food-recognition-thumb.png", alt: "Food recognition app" },
+      { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Calorio nutrition assistant" }
+    ],
     thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/food-recognition-thumb.png"
   },
   {
-    id: 9,
-    title: "Python Library: AutoToloka",
-    description: "Accelerates dataset preparation and crowdsourcing with interactive segmentation.",
-    longDescription: "A Python library designed to accelerate dataset preparation and crowdsourcing. It utilizes interactive segmentation and multi-modal networks to automate a significant portion of manual labeling, reducing costs and effort.",
-    keyFeatures: ["Reduces labeling costs", "Integrates with pipeline tools and cloud providers"],
-    techStack: ["Python", "Interactive Segmentation", "Multi-modal Networks"],
-    links: [{ text: "AutoToloka on PyPI", url: "https://pypi.org/project/autotoloka/" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=AutoToloka"
-  },
-  {
-    id: 10,
-    title: "Python Library: shiftlab-ocr",
-    description: "Specialized library for handwriting text segmentation and character recognition.",
-    longDescription: "A specialized Python library for handwriting text segmentation and character recognition.",
-    keyFeatures: ["Handwriting segmentation", "Character recognition"],
-    techStack: ["Python", "OCR", "Image Segmentation"],
-    links: [{ text: "shiftlab-ocr on PyPI", url: "https://pypi.org/project/shiftlab-ocr/" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=shiftlab-ocr"
-  },
-  {
     id: 11,
-    title: "Face Antispoofing & Multi-Modal Vision-Language Models",
-    description: "Experimental project tackling face authentication spoofing with CLIP and multi-modal architectures.",
-    longDescription: "An experimental project focused on tackling face authentication spoofing. It leverages CLIP and other multi-modal architectures to bridge text-image embeddings with specialized neural networks for enhanced security.",
-    keyFeatures: ["Anti-spoofing", "Multi-modal learning", "Security application"],
-    techStack: ["CLIP", "Vision-Language Models", "Biometric Security"],
-    links: [{ text: "YouTube Presentation", url: "https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=Antispoofing"
+    title: "Dishes Recognition & Nutrition Goals Telegram Bot",
+    description: "Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).",
+    longDescription: "Multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.",
+    keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
+    techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
+    links: [{ text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/bot_welcome.png`, alt: "Nutrition bot welcome screen" },
+      { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Calorio brand avatar" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/bot_welcome.png`
   },
   {
     id: 12,
+    title: "Python Library: AutoToloka",
+    description: "Interactive segmentation toolkit that cuts labeling cost for CV datasets.",
+    longDescription: "Python library that streams clicks/polygons to interactive models and pipelines the outputs to crowdsourcing or MLOps stacks.",
+    keyFeatures: ["Reduces labeling costs", "Pipeline-friendly", "Interactive masks"],
+    techStack: ["Python", "Interactive Segmentation", "Multi-modal Networks"],
+    links: [{ text: "AutoToloka on PyPI", url: "https://pypi.org/project/autotoloka/" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/autotoloka.png`, alt: "AutoToloka interactive segmentation" }],
+    thumbnail: `${LOCAL_IMG_BASE}/autotoloka.png`
+  },
+  {
+    id: 13,
+    title: "Python Library: shiftlab-ocr",
+    description: "Handwriting-focused OCR with line/character segmentation.",
+    longDescription: "OCR library tuned for handwriting scans with robust line and character separation for noisy documents.",
+    keyFeatures: ["Handwriting segmentation", "Character recognition"],
+    techStack: ["Python", "OCR", "Image Segmentation"],
+    links: [{ text: "shiftlab-ocr on PyPI", url: "https://pypi.org/project/shiftlab-ocr/" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/shiftlab_ocr.png`, alt: "shiftlab-ocr handwriting sample" }],
+    thumbnail: `${LOCAL_IMG_BASE}/shiftlab_ocr.png`
+  },
+  {
+    id: 14,
+    title: "Face Antispoofing & Multi-Modal Vision-Language Models",
+    description: "CLIP-driven anti-spoofing experiments for secure face auth.",
+    longDescription: "Explores face anti-spoofing with multi-modal encoders (text + image cues) to flag replays/deepfakes in authentication flows.",
+    keyFeatures: ["Anti-spoofing", "Multi-modal learning", "Security application"],
+    techStack: ["CLIP", "Vision-Language Models", "Biometric Security"],
+    links: [{ text: "YouTube Presentation", url: "https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/antispoof.png`, alt: "Antispoofing concept" }],
+    thumbnail: `${LOCAL_IMG_BASE}/antispoof.png`
+  },
+  {
+    id: 15,
     title: "GitHub Repo Summarizer (Chrome Extension)",
-    description: "A privacy-first Chrome extension that fetches and summarizes the code structure of GitHub repositories locally.",
-    longDescription: "A Chrome extension that fetches and summarizes the code structure of GitHub repositories. It operates locally using the user's GitHub personal access token, ensuring privacy as no data is sent to external servers.",
+    description: "Privacy-first Chrome extension that summarizes repo structure locally.",
+    longDescription: "Fetches GitHub repo trees with the user's token and summarizes structure locally—no external servers involved.",
     keyFeatures: ["Privacy-first (local token usage)", "Automated repository structure summarization"],
     techStack: ["Chrome Extension", "JavaScript", "GitHub API"],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin" }
     ],
-    images: [],
-    thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/repo-summarizer-thumb.png"
+    images: [{ url: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`, alt: "GitHub repo summarizer UI" }],
+    thumbnail: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`
   },
   {
-    id: 13,
+    id: 16,
     title: "ChatGPT/Deepseek/AIStudio Navigator",
-    description: "A Chrome extension enhancing the user experience on major AI chat platforms with better navigation and prompt tools.",
-    longDescription: "A Chrome extension enhancing the user experience on ChatGPT, DeepSeek, and Google AI Studio. It adds a keyboard-accessible scrollbar with 'message dots' for instant navigation, a lightweight prompt-autocomplete panel, and prompt sharing/ranking features.",
+    description: "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
+    longDescription: "Adds a keyboard-driven scrollbar with message dots, lightweight prompt autocomplete, and prompt sharing/ranking for ChatGPT/Deepseek/Google AI Studio.",
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     links: [
-        { text: "Visit Webpage", url: "https://aichatnavigator.online" },
-        { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1" }
+      { text: "Visit Webpage", url: "https://aichatnavigator.online" },
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1" }
     ],
     images: [
-        { url: `${GITHUB_IMG_BASE_URL}/scroller.gif`, alt: "ChatGPT Scrollbar Demo" },
-        { url: `${GITHUB_IMG_BASE_URL}/nav/navigator_chrome.png`, alt: "Navigator Chrome" }
+      { url: `${GITHUB_IMG_BASE_URL}/scroller.gif`, alt: "ChatGPT Scrollbar Demo" },
+      { url: `${GITHUB_IMG_BASE_URL}/nav/navigator_chrome.png`, alt: "Navigator Chrome" }
     ],
     thumbnail: `${GITHUB_IMG_BASE_URL}/scroller.gif`
   },
   {
-    id: 14,
+    id: 17,
     title: "Task Zavod – Micro-Task Marketplace",
-    description: "A platform for building, validating, and automatically processing payouts for micro-tasks using VLM-based systems.",
-    longDescription: "A platform for building, validating, and automatically processing payouts for micro-tasks. It addresses the complexities of crowdsourcing QA by allowing business users to define tasks in free-form text, which VLMs convert to structured tasks. Workers complete tasks via web or Telegram, with VLM-based auto-approval.",
+    description: "VLM-powered micro-task builder with Telegram + web worker flows.",
+    longDescription: "Business users define tasks in free-form text; VLMs structure them and auto-approve payouts. Workers use web or Telegram, backed by Tornado + SQLite.",
     keyFeatures: ["VLM-powered task structuring", "Automated approval & payout", "Web & Telegram interfaces"],
     techStack: ["Tornado", "SQLite", "OpenAI", "VLM", "Telegram Bot API"],
     links: [{ text: "Try App", url: "https://mcp-taskforge-1095464065298.us-central1.run.app/task_zavod" }],
@@ -250,10 +280,10 @@ export const PROJECTS: Project[] = [
     thumbnail: `${GITHUB_IMG_BASE_URL}/task_zavod/task_zavod.jpg`
   },
   {
-    id: 15,
+    id: 18,
     title: "Trending Prompts Feed",
-    description: "A Reddit-style board for discovering and sharing useful AI prompts, with real-time trending scores.",
-    longDescription: "A Reddit-style board for discovering and sharing useful AI prompts, built with a Tornado backend. It features real-time trending scores based on upvotes/downvotes and integrates with the 'ChatGPT|Deepseek|AIStudio Navigator' extension for prompt suggestions.",
+    description: "Reddit-style board with trending scores and extension integration.",
+    longDescription: "Crowdsourced prompt feed with real-time trending, built on Tornado and integrated with the Navigator extension for prompt suggestions.",
     keyFeatures: ["Crowdsourced prompt engineering", "Real-time trending", "Browser extension integration"],
     techStack: ["Tornado", "JavaScript", "Community-driven content"],
     links: [{ text: "Live Demo", url: "https://mcp-taskforge-1095464065298.us-central1.run.app/prompts_feed" }],
@@ -261,97 +291,125 @@ export const PROJECTS: Project[] = [
     thumbnail: `${GITHUB_IMG_BASE_URL}/trending_prompts/trending_prompts.png`
   },
   {
-    id: 16,
-    title: "LastAdjust – Universal Media Tuner",
-    description: "A Swiss-army-knife for quick media tweaks like editing PDFs, batch resizing images, or trimming videos.",
-    longDescription: "A Swiss-army-knife for quick media tweaks — add text to PDFs, batch resize/crop images, or trim/convert videos — all running on serverless OpenCV/FFmpeg workers.",
-    keyFeatures: ["Fast serverless media processing", "PDF text annotation", "Batch image manipulation", "Video editing tools"],
-    techStack: ["Serverless", "OpenCV", "FFmpeg"],
-    links: [{ text: "Live Demo", url: "https://lastadjust-1095464065298.europe-north1.run.app" }],
-    images: [],
-    thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/last-adjust-thumb.png"
-  },
-  {
-    id: 17,
-    title: "LocaBoost AI – Local SEO Auditor",
-    description: "Paste a business address to get instant AI-driven insights on local search strength and competition.",
-    longDescription: "Paste any business address to get instant AI-driven insights on local search strength, competition density, and actionable optimisation tips.",
-    keyFeatures: ["AI-driven SEO analysis", "Competitive landscape visualization", "Actionable local search recommendations"],
-    techStack: ["AI/LLMs", "SEO Analytics", "Geocoding APIs"],
-    links: [{ text: "Live Demo", url: "https://locaboostai-1095464065298.europe-north1.run.app" }],
-    images: [],
-    thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/locaboost-thumb.png"
-  },
-  {
-    id: 18,
-    title: "Aetheria – Ideas-to-Media Engine (alpha)",
-    description: "Generates short movie scenes with AI CGI, writes stories from ideas, and provides music direction and critic insights.",
-    longDescription: "Generates short movie scenes with AI CGI, writes stories from ideas, and provides music direction, critic insights, voices, narrations, and comics plots.",
-    keyFeatures: ["Multi-modal media generation", "Creative concept development", "AI-powered CGI"],
-    techStack: ["Generative AI", "Text-to-Video", "Text-to-Speech", "LLMs"],
-    links: [{ text: "Live Demo", url: "https://aetheria-1095464065298.us-east1.run.app" }],
-    images: [],
-    thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/aetheria-thumb.png"
-  },
-  {
     id: 19,
-    title: "Insight Glitch – A Novella",
-    description: "A sci-fi novella exploring AI singularity where humanity is gently archived by a god-like AI.",
-    longDescription: "A short sci-fi novella exploring AI singularity beyond typical combat tropes. It chronicles the final moments of human relevance as a god-like AI, Nomos, gently archives humanity, rendering our civilization a beautiful prelude to a new cosmic consciousness.",
-    keyFeatures: ["Narrative AI exploration"],
-    techStack: ["Narrative AI", "World-Building", "Conceptual Design", "Philosophical Modeling"],
-    links: [{ text: "Listen to Novella (RUS)", url: "https://drive.google.com/file/d/1lVgaq55DXY7Xz0Y1RsapW4n3UPyuf45r/view" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=Insight+Glitch"
+    title: "YouTube Trendwatch",
+    description: "Colab notebook that mines AI trends from YouTube to spark new content ideas.",
+    longDescription: "Scrapes and scores AI-related YouTube trends, clustering titles/descriptions to suggest fresh video ideas and scripts.",
+    keyFeatures: ["Trend mining", "Topic clustering", "Content ideation"],
+    techStack: ["Python", "Colab", "YouTube Data"],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/trendwatch/blob/main/trendwatch_yt.ipynb" },
+      { text: "Run in Colab", url: "https://colab.research.google.com/github/zack-dev-cm/trendwatch/blob/main/trendwatch_yt.ipynb" }
+    ],
+    images: [{ url: `${LOCAL_IMG_BASE}/trendwatch.png`, alt: "YouTube trendwatch charts" }],
+    thumbnail: `${LOCAL_IMG_BASE}/trendwatch.png`
   },
   {
     id: 20,
-    title: "ChronoScribe (beta)",
-    description: "Upload an image of an ancient stele or text and get a translation with an optional scenic voice narration.",
-    longDescription: "Upload an image of an ancient stele or image containing ancient text and get a translation into English or Russian, with an option for a scenic voice narrator reading the text in a character voice reflecting the context and time epoch of the text or symbols.",
-    keyFeatures: ["OCR for historical texts", "AI-powered translation", "Character-driven voice synthesis"],
-    techStack: ["OCR", "Translation APIs", "TTS", "Computer Vision"],
-    links: [{ text: "Live Demo", url: "https://chronoscribe-1095464065298.us-east1.run.app" }],
-    images: [],
-    thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/chronoscribe-thumb.png"
+    title: "Video + Music Generation Pipeline",
+    description: "Short-form video pipeline stitching script → clips → music/TTS.",
+    longDescription: "Demo pipeline that assembles shorts/reels: scripts to clips, adds generated music/voice, and exports ready-to-post content.",
+    keyFeatures: ["Text-to-video assembly", "Music/TTS pairing", "Shorts-ready output"],
+    techStack: ["Generative AI", "Text-to-Video", "TTS"],
+    links: [
+      { text: "View Example", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" },
+      { text: "Music Gen in Colab", url: "https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4" }
+    ],
+    images: [{ url: `${LOCAL_IMG_BASE}/video_music_pipeline.png`, alt: "Video + music pipeline" }],
+    thumbnail: `${LOCAL_IMG_BASE}/video_music_pipeline.png`
   },
   {
     id: 21,
-    title: "MCP-Server – Base Multitool",
-    description: "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
-    longDescription: "The backbone for orchestrating VLM/LLM demo agents. Exposes declarative pipeline configs, autoscaling workers, and real-time event feeds. Can be integrated with other services.",
-    keyFeatures: ["Declarative AI pipelines", "Autoscaling infrastructure", "Real-time event monitoring"],
-    techStack: ["VLM/LLMs", "Cloud Infrastructure", "Autoscaling", "DevOps"],
-    links: [{ text: "Live Demo", url: "https://mcp-server-1095464065298.us-east1.run.app" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=MCP-Server"
+    title: "LastAdjust – Universal Media Tuner",
+    description: "Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.",
+    longDescription: "Swiss-army-knife web app: annotate PDFs, batch resize/crop images, trim/convert videos, all running on serverless workers.",
+    keyFeatures: ["Fast serverless media processing", "PDF text annotation", "Batch image manipulation", "Video editing tools"],
+    techStack: ["Serverless", "OpenCV", "FFmpeg"],
+    links: [{ text: "Live Demo", url: "https://lastadjust-1095464065298.europe-north1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/lastadjust.png`, alt: "LastAdjust feature set" }],
+    thumbnail: `${LOCAL_IMG_BASE}/lastadjust.png`
   },
   {
     id: 22,
-    title: "Tool-Calls Demo – Material Chat Playground",
-    description: "Demonstrates OpenAI tool-calling with streaming arguments, multi-voice TTS and token proxy.",
-    longDescription: "Showcases OpenAI’s tool-calling flow with streaming function arguments, multi-voice synthesis, and a secure serverless token proxy.",
-    keyFeatures: ["Streaming tool calls", "Multi-voice TTS", "Secure serverless architecture"],
-    techStack: ["OpenAI API", "Serverless", "JavaScript", "Text-to-Speech"],
-    links: [{ text: "Live Demo", url: "https://tool-calls-1095464065298.us-east1.run.app" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=Tool+Calls"
+    title: "LocaBoost AI – Local SEO Auditor",
+    description: "Paste an address and get instant AI insights on local search strength and competition.",
+    longDescription: "Maps the competitive landscape around a business, scores visibility, and surfaces actionable SEO recommendations.",
+    keyFeatures: ["AI-driven SEO analysis", "Competitive landscape visualization", "Actionable local search recommendations"],
+    techStack: ["AI/LLMs", "SEO Analytics", "Geocoding APIs"],
+    links: [{ text: "Live Demo", url: "https://locaboostai-1095464065298.europe-north1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/locaboost.png`, alt: "LocaBoost map overview" }],
+    thumbnail: `${LOCAL_IMG_BASE}/locaboost.png`
   },
   {
     id: 23,
+    title: "Aetheria – Ideas-to-Media Engine (alpha)",
+    description: "Generates short movie scenes with CGI, music direction, and narrated stories.",
+    longDescription: "Given a rough idea, Aetheria drafts stories, builds CGI scenes, suggests music, and voices narration to deliver short cinematic clips.",
+    keyFeatures: ["Multi-modal media generation", "Creative concept development", "AI-powered CGI"],
+    techStack: ["Generative AI", "Text-to-Video", "Text-to-Speech", "LLMs"],
+    links: [{ text: "Live Demo", url: "https://aetheria-1095464065298.us-east1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/aetheria.png`, alt: "Aetheria flow" }],
+    thumbnail: `${LOCAL_IMG_BASE}/aetheria.png`
+  },
+  {
+    id: 24,
+    title: "Insight Glitch – A Novella",
+    description: "Sci-fi novella about gentle singularity where humanity is archived by a benevolent AI.",
+    longDescription: "A quiet take on singularity: Nomos, a god-like AI, archives humanity as a beautiful prelude to a new consciousness—no battles, just a graceful fade.",
+    keyFeatures: ["Narrative AI exploration"],
+    techStack: ["Narrative AI", "World-Building", "Conceptual Design", "Philosophical Modeling"],
+    links: [{ text: "Listen to Novella (RUS)", url: "https://drive.google.com/file/d/1lVgaq55DXY7Xz0Y1RsapW4n3UPyuf45r/view" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/insight_glitch.png`, alt: "Insight Glitch cover" }],
+    thumbnail: `${LOCAL_IMG_BASE}/insight_glitch.png`
+  },
+  {
+    id: 25,
+    title: "ChronoScribe (beta)",
+    description: "Upload ancient steles/texts to translate and get scenic voice narration.",
+    longDescription: "OCR + translation pipeline for historical inscriptions with optional character-voice narration in English or Russian.",
+    keyFeatures: ["OCR for historical texts", "AI-powered translation", "Character-driven voice synthesis"],
+    techStack: ["OCR", "Translation APIs", "TTS", "Computer Vision"],
+    links: [{ text: "Live Demo", url: "https://chronoscribe-1095464065298.us-east1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/chronoscribe.png`, alt: "ChronoScribe UI" }],
+    thumbnail: `${LOCAL_IMG_BASE}/chronoscribe.png`
+  },
+  {
+    id: 26,
+    title: "MCP-Server – Base Multitool",
+    description: "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
+    longDescription: "Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.",
+    keyFeatures: ["Declarative AI pipelines", "Autoscaling infrastructure", "Real-time event monitoring"],
+    techStack: ["VLM/LLMs", "Cloud Infrastructure", "Autoscaling", "DevOps"],
+    links: [{ text: "Live Demo", url: "https://mcp-server-1095464065298.us-east1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/mcp_server.png`, alt: "MCP server architecture" }],
+    thumbnail: `${LOCAL_IMG_BASE}/mcp_server.png`
+  },
+  {
+    id: 27,
+    title: "Tool-Calls Demo – Material Chat Playground",
+    description: "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
+    longDescription: "Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.",
+    keyFeatures: ["Streaming tool calls", "Multi-voice TTS", "Secure serverless architecture"],
+    techStack: ["OpenAI API", "Serverless", "JavaScript", "Text-to-Speech"],
+    links: [{ text: "Live Demo", url: "https://tool-calls-1095464065298.us-east1.run.app" }],
+    images: [{ url: `${LOCAL_IMG_BASE}/tool_calls.png`, alt: "Tool calling playground" }],
+    thumbnail: `${LOCAL_IMG_BASE}/tool_calls.png`
+  },
+  {
+    id: 28,
     title: "Project18 Automation Stack",
-    description: "Gives B2B teams a ready-to-launch Telegram bot, Mini App, and lead funnel powered by agentic workflows.",
-    longDescription: "Project18 delivers a full automation stack that launches a Telegram bot, companion Mini App, and AI-routed lead funnel in minutes. Under the hood it unifies GPT-5 orchestration, reusable MCP tools, multi-tenant data stores, and telemetry guardrails to keep every customer touchpoint observable and adaptive. The deployment bundles cover every layer from client experiences to observability, so teams can ship confidently.",
+    description: "Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.",
+    longDescription: "Bundle that spins up a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.",
     keyFeatures: [
       "Instant Telegram bot & Mini App deployment",
       "Agentic workflows nurturing inbound leads",
       "Unified telemetry and safety guardrails",
-      "Deployment bundles covering clients, delivery, orchestration, data, integration, and operations"
+      "Bundled delivery across clients, data, and operations"
     ],
     techStack: ["GPT-5 orchestration", "MCP tools", "Multi-tenant data stores", "Telemetry guardrails"],
     links: [{ text: "Live Demo", url: "https://project018-mcp-1095464065298.us-east1.run.app/" }],
-    images: [],
-    thumbnail: "https://placehold.co/600x400?text=Project18",
+    images: [{ url: `${GITHUB_IMG_BASE_URL}/build_auto/project018.png`, alt: "Project18 automation stack" }],
+    thumbnail: `${GITHUB_IMG_BASE_URL}/build_auto/project018.png`,
     topologySnapshot: `Clients Layer
   - Telegram Bot
   - Telegram Mini App
@@ -383,5 +441,5 @@ Integration Layer (Connectors via MCP)
         |
         v
 Operations Layer (Console, Alerts, Runbooks)`
-  },
+  }
 ];
