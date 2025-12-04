@@ -36,7 +36,7 @@
         };
 
         try {
-          const manifestResponse = await fetch('./docs/.vite/manifest.json', { cache: 'no-store' });
+          const manifestResponse = await fetch('./docs/manifest.json', { cache: 'no-store' });
           if (!manifestResponse.ok) {
             showError(`Failed to load manifest: ${manifestResponse.status}`);
             return;
