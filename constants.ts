@@ -1,5 +1,9 @@
 import type { Project, Company, SocialLinks, AuthorInfo, LatestUpdate } from './types';
 
+const BASE_PATH = (import.meta.env.BASE_URL || "").replace(/\/+$/, "");
+const LOCAL_IMG_BASE = `${BASE_PATH}/images`;
+const LOCAL_COMPANY_LOGO_BASE = `${BASE_PATH}/company-logos`;
+
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
   title: "AI & Computer Vision Engineer",
@@ -15,16 +19,16 @@ export const SOCIAL_LINKS: SocialLinks = {
 };
 
 export const COMPANIES: Company[] = [
-  { name: "Entrust", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Entrust_textlogo.svg" },
-  { name: "Lumenis", logoUrl: "https://iconape.com/wp-content/png_logo_vector/lumenis-ltd-logo.png" },
-  { name: "Carb Manager", logoUrl: "https://logotyp.us/file/carb-manager.svg" },
-  { name: "Gorillas", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Logo_Gorillas_(delivery_company)_color.svg" },
-  { name: "Stellarix", logoUrl: "https://stellarix.com/wp-content/themes/stellarix/assets/images/logo.png" },
-  { name: "Synoptic Technologies", logoUrl: "https://assets.adityatrading.in/media/images/ipo/stocklogo/Synoptics%20Technologies%20Limited%20Logo/Synoptics_Technologies_Limited_Logo.png" },
-  { name: "Milliken & Company", logoUrl: "https://www.pngkey.com/png/full/568-5688498_next-milliken-company-logo.png" },
-  { name: "CFT", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cft_logo_ru.png" },
-  { name: "Korona Pay", logoUrl: "https://logotic.me/system/assets/uploads/vector-files/koronapay-1669936470-logotic-brand.svg" },
-  { name: "Curv Innovation", logoUrl: "https://cdn0.trampos.co/companies/logos/1139740/ea11bdb2d783c2563c6dd26e9267d10db671ab49/original/CURV_-_WHITE_BACKGROUNG.png" }
+  { name: "Entrust", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/entrust.svg` },
+  { name: "Lumenis", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/lumenis.png` },
+  { name: "Carb Manager", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/carb-manager.svg` },
+  { name: "Gorillas", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/gorillas.svg` },
+  { name: "Stellarix", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/stellarix.png` },
+  { name: "Synoptic Technologies", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/synoptic.png` },
+  { name: "Milliken & Company", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/milliken.png` },
+  { name: "CFT", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/cft.png` },
+  { name: "Korona Pay", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/koronapay.svg` },
+  { name: "Curv Innovation", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/curv.png` }
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
@@ -38,6 +42,15 @@ export const TECH_STACK: string[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "Olfactory Ultrasound Coach (web + Telegram mini app)",
+    description: "Telegram mini app and Web Audio placement coach mirroring the 1200 Hz pulse trains, placement guide, and safety caps from the olfactory tFUS writeup.",
+    links: [
+      { text: "Open Mini App", url: "https://t.me/olfacto_bot/app" },
+      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/olfactory" }
+    ]
+  },
   {
     title: "URL → Markdown Worker (Cloudflare)",
     description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
@@ -58,10 +71,6 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   }
 ];
 
-const GITHUB_IMG_BASE_URL = "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples";
-const BASE_PATH = (import.meta.env.BASE_URL || "").replace(/\/+$/, "");
-const LOCAL_IMG_BASE = `${BASE_PATH}/images`;
-
 export const PROJECTS: Project[] = [
   {
     id: 1,
@@ -71,8 +80,8 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Real-time instruction processing", "Automated testing & task automation", "Novel device interaction"],
     techStack: ["Android", "Vision-Language Models", "Server-side AI"],
     links: [{ text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" }],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/android_become_human-ezgif.com-speed.gif`, alt: "Android Remote Control Demo" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/android_become_human-ezgif.com-speed.gif`
+    images: [{ url: `${LOCAL_IMG_BASE}/android-remote.gif`, alt: "Android Remote Control Demo" }],
+    thumbnail: `${LOCAL_IMG_BASE}/android-remote.gif`
   },
   {
     id: 2,
@@ -82,8 +91,8 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Non-verbal AI control", "Pattern recognition of breathing acoustics"],
     techStack: ["Audio processing", "Neural Networks"],
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1H43aT5n8NWlOuTIWsJinssKRh1n3tiOM/view?usp=sharing" }],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/mlbreath.gif`, alt: "Breathing Control Demo" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/mlbreath.gif`
+    images: [{ url: `${LOCAL_IMG_BASE}/breath-control.gif`, alt: "Breathing Control Demo" }],
+    thumbnail: `${LOCAL_IMG_BASE}/breath-control.gif`
   },
   {
     id: 3,
@@ -118,8 +127,8 @@ export const PROJECTS: Project[] = [
       { text: "Live Demo", url: "https://adfeed-1095464065298.us-central1.run.app/" },
       { text: "View Demo Video", url: "https://drive.google.com/file/d/1kvg4gjCNFPmrI3URPsM3eIyQ_vqSk1Ow/view?usp=sharing" }
     ],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/adfeed_her.gif`, alt: "Create, Chat & AR Experience with AI-Character" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/adfeed_her.gif`
+    images: [{ url: `${LOCAL_IMG_BASE}/adfeed.png`, alt: "Text2Room web experience" }],
+    thumbnail: `${LOCAL_IMG_BASE}/adfeed.png`
   },
   {
     id: 6,
@@ -133,10 +142,10 @@ export const PROJECTS: Project[] = [
       { text: "Inpaint Demo #1", url: "https://drive.google.com/file/d/1dCkeI7Mi87cg2kOgY5UCLG-DiHkt358L/view?usp=sharing" }
     ],
     images: [
-      { url: `${GITHUB_IMG_BASE_URL}/interior/marble_floor_w_reflections.png`, alt: "Marble Floor with Reflections" },
-      { url: `${GITHUB_IMG_BASE_URL}/interior/1.png`, alt: "Interior Example 1" }
+      { url: `${LOCAL_IMG_BASE}/interior-marble.png`, alt: "Marble Floor with Reflections" },
+      { url: `${LOCAL_IMG_BASE}/interior-1.png`, alt: "Interior Example 1" }
     ],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/interior/marble_floor_w_reflections.png`
+    thumbnail: `${LOCAL_IMG_BASE}/interior-marble.png`
   },
   {
     id: 7,
@@ -146,8 +155,8 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Predictive speed optimization", "Traffic flow analysis"],
     techStack: ["Predictive Modeling", "Real-time Data Analysis"],
     links: [],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/smart_drive/smart_drive3.png`, alt: "Smart Drive Prediction" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/smart_drive/smart_drive3.png`
+    images: [{ url: `${LOCAL_IMG_BASE}/smart-drive.png`, alt: "Smart Drive Prediction" }],
+    thumbnail: `${LOCAL_IMG_BASE}/smart-drive.png`
   },
   {
     id: 8,
@@ -157,8 +166,8 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Trajectory estimation", "Sports motion analysis"],
     techStack: ["Computer Vision", "Physics-based Modeling"],
     links: [],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/golf/1.png`, alt: "Estimate Golf Ball Trajectory" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/golf/1.png`
+    images: [{ url: `${LOCAL_IMG_BASE}/golf-trajectory.png`, alt: "Estimate Golf Ball Trajectory" }],
+    thumbnail: `${LOCAL_IMG_BASE}/golf-trajectory.png`
   },
   {
     id: 9,
@@ -172,10 +181,10 @@ export const PROJECTS: Project[] = [
       { text: "Segmentation Demo #2", url: "https://drive.google.com/file/d/1xVEonSJ7jvnYSnQ6ztvFZy-Llf_dxSrP/view?usp=sharing" }
     ],
     images: [
-      { url: `${GITHUB_IMG_BASE_URL}/key_segm/download (61).png`, alt: "Key Segmentation 1" },
-      { url: `${GITHUB_IMG_BASE_URL}/key_segm/download (62).png`, alt: "Key Segmentation 2" }
+      { url: `${LOCAL_IMG_BASE}/spare-parts-1.png`, alt: "Key Segmentation 1" },
+      { url: `${LOCAL_IMG_BASE}/spare-parts-2.png`, alt: "Key Segmentation 2" }
     ],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/key_segm/download (61).png`
+    thumbnail: `${LOCAL_IMG_BASE}/spare-parts-1.png`
   },
   {
     id: 10,
@@ -186,10 +195,10 @@ export const PROJECTS: Project[] = [
     techStack: ["Mobile AI", "Object Detection", "OCR", "TFLite", "CoreML"],
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing" }],
     images: [
-      { url: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/food-recognition-thumb.png", alt: "Food recognition app" },
+      { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Food recognition app" },
       { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Calorio nutrition assistant" }
     ],
-    thumbnail: "https://raw.githubusercontent.com/zack-dev-cm/github-repo-sum.github.io/main/samples/food-recognition-thumb.png"
+    thumbnail: `${LOCAL_IMG_BASE}/food_avatar.png`
   },
   {
     id: 11,
@@ -264,10 +273,10 @@ export const PROJECTS: Project[] = [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1" }
     ],
     images: [
-      { url: `${GITHUB_IMG_BASE_URL}/scroller.gif`, alt: "ChatGPT Scrollbar Demo" },
-      { url: `${GITHUB_IMG_BASE_URL}/nav/navigator_chrome.png`, alt: "Navigator Chrome" }
+      { url: `${LOCAL_IMG_BASE}/navigator.png`, alt: "Chat navigation overlay" },
+      { url: `${LOCAL_IMG_BASE}/navigator-chrome.png`, alt: "Navigator Chrome" }
     ],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/scroller.gif`
+    thumbnail: `${LOCAL_IMG_BASE}/navigator.png`
   },
   {
     id: 17,
@@ -278,10 +287,11 @@ export const PROJECTS: Project[] = [
     techStack: ["Tornado", "SQLite", "OpenAI", "VLM", "Telegram Bot API"],
     links: [{ text: "Try App", url: "https://mcp-taskforge-1095464065298.us-central1.run.app/task_zavod" }],
     images: [
-      { url: `${GITHUB_IMG_BASE_URL}/task_zavod/task_zavod.jpg`, alt: "Task Zavod example" },
-      { url: `${GITHUB_IMG_BASE_URL}/task_zavod/task_zavod2.jpg`, alt: "Task Zavod example 2" }
+      { url: `${LOCAL_IMG_BASE}/task_zavod.png`, alt: "Task Zavod live demo" },
+      { url: `${LOCAL_IMG_BASE}/task-zavod-1.jpg`, alt: "Task Zavod example" },
+      { url: `${LOCAL_IMG_BASE}/task-zavod-2.jpg`, alt: "Task Zavod example 2" }
     ],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/task_zavod/task_zavod.jpg`
+    thumbnail: `${LOCAL_IMG_BASE}/task_zavod.png`
   },
   {
     id: 18,
@@ -291,8 +301,8 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Crowdsourced prompt engineering", "Real-time trending", "Browser extension integration"],
     techStack: ["Tornado", "JavaScript", "Community-driven content"],
     links: [{ text: "Live Demo", url: "https://mcp-taskforge-1095464065298.us-central1.run.app/prompts_feed" }],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/trending_prompts/trending_prompts.png`, alt: "Prompts Feed" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/trending_prompts/trending_prompts.png`
+    images: [{ url: `${LOCAL_IMG_BASE}/trending_prompts.png`, alt: "Prompts Feed" }],
+    thumbnail: `${LOCAL_IMG_BASE}/trending_prompts.png`
   },
   {
     id: 19,
@@ -412,8 +422,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["GPT-5 orchestration", "MCP tools", "Multi-tenant data stores", "Telemetry guardrails"],
     links: [{ text: "Live Demo", url: "https://project018-mcp-1095464065298.us-east1.run.app/" }],
-    images: [{ url: `${GITHUB_IMG_BASE_URL}/build_auto/project018.png`, alt: "Project18 automation stack" }],
-    thumbnail: `${GITHUB_IMG_BASE_URL}/build_auto/project018.png`,
+    images: [{ url: `${LOCAL_IMG_BASE}/project018.png`, alt: "Project18 automation stack" }],
+    thumbnail: `${LOCAL_IMG_BASE}/project018.png`,
     topologySnapshot: `Clients Layer
   - Telegram Bot
   - Telegram Mini App
@@ -459,5 +469,28 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     images: [{ url: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`, alt: "RapidAPI URL-to-Markdown worker" }],
     thumbnail: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`
+  },
+  {
+    id: 30,
+    title: "Olfactory Ultrasound Coach (Web + Telegram Mini App)",
+    description: "Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.",
+    longDescription: "Telegram mini app plus web placement coach for the olfactory tFUS pilot. Ships the doc’s 1200 Hz pulse trains on an 18–20 kHz carrier, placement walk-through (50–55° tilt, ±2–4 mm steer), gain/duty/session caps, logging, and the reference illustration for quick setup.",
+    keyFeatures: [
+      "Preset pulse trains for the four reported scent sensations",
+      "Placement guide with tilt/steer coaching and safety caps",
+      "Telegram bot that opens the mini app + reference guide"
+    ],
+    techStack: ["React", "Vite", "Web Audio API", "Telegram Bot API", "Cloud Run"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/olfacto_bot/app" },
+      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/olfactory" },
+      { text: "Reference writeup", url: "https://writetobrain.com/olfactory" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/olfactory-guide.jpg`, alt: "Olfactory placement guide" },
+      { url: `${LOCAL_IMG_BASE}/olfactory.png`, alt: "Olfactory ultrasound web app" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/olfactory-guide.jpg`
   }
 ];
