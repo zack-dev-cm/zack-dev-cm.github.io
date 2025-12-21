@@ -21,6 +21,9 @@ export interface Project {
   images: ProjectImage[];
   thumbnail: string;
   topologySnapshot?: string;
+  repoFullName?: string;
+  repoId?: number;
+  createdAt?: string;
 }
 
 export interface Company {
@@ -46,4 +49,14 @@ export interface LatestUpdate {
   title: string;
   description?: string;
   links: ProjectLink[];
+  repoFullName?: string;
+  repoId?: number;
+  createdAt?: string;
+}
+
+export interface PortfolioUpdates {
+  version?: number;
+  lastSyncedAt?: string | null;
+  latestUpdates: LatestUpdate[];
+  projects: Project[];
 }

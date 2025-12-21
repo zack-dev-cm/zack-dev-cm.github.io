@@ -80,7 +80,10 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Real-time instruction processing", "Automated testing & task automation", "Novel device interaction"],
     techStack: ["Android", "Vision-Language Models", "Server-side AI"],
     links: [{ text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" }],
-    images: [{ url: `${LOCAL_IMG_BASE}/android-remote.gif`, alt: "Android Remote Control Demo" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/android-remote.gif`, alt: "Android Remote Control Demo" },
+      { url: `${LOCAL_IMG_BASE}/android-remote-alt.gif`, alt: "Android Remote Control alternate view" }
+    ],
     thumbnail: `${LOCAL_IMG_BASE}/android-remote.gif`
   },
   {
@@ -91,7 +94,10 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Non-verbal AI control", "Pattern recognition of breathing acoustics"],
     techStack: ["Audio processing", "Neural Networks"],
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1H43aT5n8NWlOuTIWsJinssKRh1n3tiOM/view?usp=sharing" }],
-    images: [{ url: `${LOCAL_IMG_BASE}/breath-control.gif`, alt: "Breathing Control Demo" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/breath-control.gif`, alt: "Breathing Control Demo" },
+      { url: `${LOCAL_IMG_BASE}/breath-control-alt.gif`, alt: "Breathing control waveform preview" }
+    ],
     thumbnail: `${LOCAL_IMG_BASE}/breath-control.gif`
   },
   {
@@ -127,7 +133,10 @@ export const PROJECTS: Project[] = [
       { text: "Live Demo", url: "https://adfeed-1095464065298.us-central1.run.app/" },
       { text: "View Demo Video", url: "https://drive.google.com/file/d/1kvg4gjCNFPmrI3URPsM3eIyQ_vqSk1Ow/view?usp=sharing" }
     ],
-    images: [{ url: `${LOCAL_IMG_BASE}/adfeed.png`, alt: "Text2Room web experience" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/adfeed.png`, alt: "Text2Room web experience" },
+      { url: `${LOCAL_IMG_BASE}/adfeed-hero.gif`, alt: "Text2Room motion preview" }
+    ],
     thumbnail: `${LOCAL_IMG_BASE}/adfeed.png`
   },
   {
@@ -155,7 +164,10 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Predictive speed optimization", "Traffic flow analysis"],
     techStack: ["Predictive Modeling", "Real-time Data Analysis"],
     links: [],
-    images: [{ url: `${LOCAL_IMG_BASE}/smart-drive.png`, alt: "Smart Drive Prediction" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/smart-drive.png`, alt: "Smart Drive Prediction" },
+      { url: `${LOCAL_IMG_BASE}/smart-drive-alt.png`, alt: "Smart Drive telemetry view" }
+    ],
     thumbnail: `${LOCAL_IMG_BASE}/smart-drive.png`
   },
   {
@@ -166,7 +178,10 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Trajectory estimation", "Sports motion analysis"],
     techStack: ["Computer Vision", "Physics-based Modeling"],
     links: [],
-    images: [{ url: `${LOCAL_IMG_BASE}/golf-trajectory.png`, alt: "Estimate Golf Ball Trajectory" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/golf-trajectory.png`, alt: "Estimate Golf Ball Trajectory" },
+      { url: `${LOCAL_IMG_BASE}/golf-trajectory-alt.png`, alt: "Golf trajectory analysis overlay" }
+    ],
     thumbnail: `${LOCAL_IMG_BASE}/golf-trajectory.png`
   },
   {

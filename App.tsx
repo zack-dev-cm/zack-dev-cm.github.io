@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
@@ -7,10 +7,76 @@ import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
 import { GitHubIcon, LinkedInIcon, MailIcon } from './components/Icons';
 import { PROJECTS, COMPANIES, LATEST_UPDATES, TECH_STACK, KEY_HIGHLIGHTS, AUTHOR_INFO, SOCIAL_LINKS } from './constants';
-import type { Project } from './types';
+import type { Project, PortfolioUpdates } from './types';
+
+const BASE_PATH = (import.meta.env.BASE_URL || "").replace(/\/+$/, "");
+const DEFAULT_PROJECT_IMAGE = `${BASE_PATH}/images/project-placeholder.svg`;
+
+const isAbsoluteUrl = (url: string) => /^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('data:');
+
+const resolveAssetUrl = (url: string) => {
+  if (!url) return DEFAULT_PROJECT_IMAGE;
+  if (isAbsoluteUrl(url) || url.startsWith(`${BASE_PATH}/`)) return url;
+  if (url.startsWith('/')) return `${BASE_PATH}${url}`;
+  return `${BASE_PATH}/${url}`;
+};
+
+const parseGithubRepo = (url?: string) => {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== 'github.com') return null;
+    const [owner, repo] = parsed.pathname.split('/').filter(Boolean);
+    if (!owner || !repo) return null;
+    return `${owner}/${repo}`;
+  } catch {
+    return null;
+  }
+};
+
+const getRepoKeyFromLinks = (links: { url: string }[]) => {
+  for (const link of links) {
+    const key = parseGithubRepo(link.url);
+    if (key) return key;
+  }
+  return null;
+};
+
+const dedupeByKey = <T,>(items: T[], getKey: (item: T) => string) => {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    const key = getKey(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+};
+
+const sortByCreatedAtDesc = <T extends { createdAt?: string }>(items: T[]) => {
+  return [...items].sort((a, b) => {
+    const aTime = a.createdAt ? Date.parse(a.createdAt) : 0;
+    const bTime = b.createdAt ? Date.parse(b.createdAt) : 0;
+    return bTime - aTime;
+  });
+};
+
+const normalizeProject = (project: Project): Project => {
+  const thumbnail = resolveAssetUrl(project.thumbnail || DEFAULT_PROJECT_IMAGE);
+  const rawImages = project.images ?? [];
+  const images = rawImages
+    .map((image) => ({ ...image, url: resolveAssetUrl(image.url) }))
+    .filter((image) => Boolean(image.url));
+  if (images.length === 0) {
+    images.push({ url: thumbnail, alt: `${project.title} preview` });
+  }
+  const techStack = project.techStack?.length ? project.techStack : ['Product'];
+  const keyFeatures = project.keyFeatures?.length ? project.keyFeatures : ['Recently launched', 'Active development'];
+  return { ...project, thumbnail, images, techStack, keyFeatures };
+};
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [portfolioUpdates, setPortfolioUpdates] = useState<PortfolioUpdates | null>(null);
 
   useEffect(() => {
     if (selectedProject) {
@@ -19,6 +85,44 @@ const App: React.FC = () => {
       document.body.style.overflow = 'auto';
     }
   }, [selectedProject]);
+
+  useEffect(() => {
+    let active = true;
+    const loadUpdates = async () => {
+      try {
+        const response = await fetch(`${BASE_PATH}/portfolio-updates.json`, { cache: 'no-store' });
+        if (!response.ok) return;
+        const data = (await response.json()) as PortfolioUpdates;
+        if (active) {
+          setPortfolioUpdates(data);
+        }
+      } catch {
+        // Silent fallback to bundled data if updates are unavailable.
+      }
+    };
+    loadUpdates();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const updateLatest = useMemo(() => sortByCreatedAtDesc(portfolioUpdates?.latestUpdates ?? []), [portfolioUpdates]);
+  const updateProjects = useMemo(
+    () => sortByCreatedAtDesc((portfolioUpdates?.projects ?? []).map(normalizeProject)),
+    [portfolioUpdates]
+  );
+
+  const mergedLatestUpdates = useMemo(() => {
+    return dedupeByKey([...updateLatest, ...LATEST_UPDATES], (update) => {
+      return update.repoFullName || (update.repoId ? `${update.repoId}` : '') || getRepoKeyFromLinks(update.links) || update.title;
+    });
+  }, [updateLatest]);
+
+  const mergedProjects = useMemo(() => {
+    return dedupeByKey([...updateProjects, ...PROJECTS], (project) => {
+      return project.repoFullName || (project.repoId ? `${project.repoId}` : '') || getRepoKeyFromLinks(project.links) || project.title;
+    });
+  }, [updateProjects]);
 
   return (
     <div className="bg-slate-900 min-h-screen text-slate-300 font-sans leading-relaxed">
@@ -72,7 +176,7 @@ const App: React.FC = () => {
             
             <Section id="latest" title="Latest Updates">
                <ul className="space-y-4 text-slate-400">
-                {LATEST_UPDATES.map((update, index) => (
+                {mergedLatestUpdates.map((update, index) => (
                   <li key={index} className="flex items-start">
                     <span className="text-teal-400 mr-3 text-xl">&#8627;</span>
                     <div>
@@ -93,8 +197,13 @@ const App: React.FC = () => {
 
             <Section id="projects" title="Projects">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {PROJECTS.map((project) => (
-                  <ProjectCard key={project.id} project={project} onSelectProject={() => setSelectedProject(project)} />
+                {mergedProjects.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
+                    onSelectProject={() => setSelectedProject(project)}
+                  />
                 ))}
               </div>
             </Section>
@@ -127,7 +236,13 @@ const App: React.FC = () => {
         </main>
       </div>
       
-      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
       <FloatingButtons telegramUrl={SOCIAL_LINKS.telegram} />
     </div>
   );

@@ -4,9 +4,10 @@ import type { Project } from '../types';
 interface ProjectCardProps {
   project: Project;
   onSelectProject: () => void;
+  fallbackImageUrl?: string;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProject }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProject, fallbackImageUrl }) => {
   return (
     <div 
       className="group relative cursor-pointer overflow-hidden rounded-lg bg-slate-800/50 transition-all duration-300 hover:bg-slate-800/80 hover:shadow-2xl hover:shadow-teal-500/10"
@@ -16,7 +17,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
       <img 
         src={project.thumbnail} 
         alt={`${project.title} thumbnail`} 
-        className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105" 
+        className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        onError={(event) => {
+          if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
+            event.currentTarget.src = fallbackImageUrl;
+          }
+        }}
       />
       <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
         <h3 className="text-lg font-bold text-slate-100">{project.title}</h3>

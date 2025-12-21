@@ -5,9 +5,10 @@ import { ExternalLinkIcon, XIcon, ChevronLeftIcon, ChevronRightIcon } from './Ic
 interface ProjectModalProps {
   project: Project;
   onClose: () => void;
+  fallbackImageUrl?: string;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, fallbackImageUrl }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -66,6 +67,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 alt={project.images[currentImageIndex].alt} 
                 className="w-full h-full object-contain transition-opacity duration-300"
                 key={project.images[currentImageIndex].url}
+                onError={(event) => {
+                  if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
+                    event.currentTarget.src = fallbackImageUrl;
+                  }
+                }}
             />
             {project.images.length > 1 && (
                 <>
