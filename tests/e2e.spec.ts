@@ -13,25 +13,38 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   const cards = page.locator('[aria-label="Project"] , [data-testid="project-card"] , .group.relative.cursor-pointer');
   await expect(cards.first()).toBeVisible();
 
-  const expectImageLoaded = async (locator: Locator) => {
+  const expectImageLoaded = async (locator: Locator, label: string) => {
     await expect(locator).toBeVisible();
-    await expect
-      .poll(() => locator.evaluate((img) => (img as HTMLImageElement).naturalWidth))
-      .toBeGreaterThan(0);
+    await expect.poll(
+      async () =>
+        locator.evaluate((img) => {
+          const element = img as HTMLImageElement;
+          return element.complete;
+        }),
+      { message: `Expected ${label} image to finish loading` }
+    ).toBe(true);
+    await expect.poll(
+      async () =>
+        locator.evaluate((img) => {
+          const element = img as HTMLImageElement;
+          return element.naturalWidth;
+        }),
+      { message: `Expected ${label} image to have natural width` }
+    ).toBeGreaterThan(0);
   };
 
   const logoImages = page.locator('#experience img');
   const logoCount = await logoImages.count();
   expect(logoCount).toBeGreaterThan(0);
   for (let i = 0; i < Math.min(3, logoCount); i += 1) {
-    await expectImageLoaded(logoImages.nth(i));
+    await expectImageLoaded(logoImages.nth(i), `logo ${i + 1}`);
   }
 
   const projectImages = page.locator('#projects img');
   const projectCount = await projectImages.count();
   expect(projectCount).toBeGreaterThan(0);
   for (let i = 0; i < Math.min(3, projectCount); i += 1) {
-    await expectImageLoaded(projectImages.nth(i));
+    await expectImageLoaded(projectImages.nth(i), `project ${i + 1}`);
   }
 
   const latestSection = page.locator('#latest');
