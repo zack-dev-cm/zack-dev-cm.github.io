@@ -4,21 +4,7 @@ const normalizeBasePath = (value: string) => {
   return trimmed;
 };
 
-const getAssetBasePath = () => {
-  const envBase = (import.meta.env?.BASE_URL || '/').toString();
-  if (import.meta.env?.DEV) {
-    return normalizeBasePath(envBase);
-  }
-
-  try {
-    const baseUrl = new URL('../', import.meta.url);
-    return normalizeBasePath(baseUrl.pathname);
-  } catch {
-    return normalizeBasePath(envBase);
-  }
-};
-
-const ASSET_BASE_PATH = getAssetBasePath();
+const ASSET_BASE_PATH = normalizeBasePath((import.meta.env?.BASE_URL || '').toString());
 
 const stripRelativePrefix = (value: string) => value.replace(/^\.?\//, '');
 

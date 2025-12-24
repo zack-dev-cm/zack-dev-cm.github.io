@@ -43,31 +43,63 @@ export const TECH_STACK: string[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
+    description: "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }
+    ]
+  },
+  {
+    title: "Blacksock – Telegram Liquidity & Index Vaults",
+    description: "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
+      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
+    ]
+  },
+  {
+    title: "Beauty Visual Inbox – Telegram Mini App",
+    description: "Telegram bots + React mini-app for salons: publish photo batches, likes, notifications, and analytics.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
+      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
+    ]
+  },
+  {
+    title: "Dalshe – Circular Clothing Pickup Mini App",
+    description: "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
+      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
+    ]
+  },
+  {
+    title: "Probes – AI Magazine Mini App",
+    description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
+      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
+    ]
+  },
+  {
     title: "Olfactory Ultrasound Coach (web + Telegram mini app)",
     description: "Telegram mini app and Web Audio placement coach mirroring the 1200 Hz pulse trains, placement guide, and safety caps from the olfactory tFUS writeup.",
     links: [
       { text: "Open Mini App", url: "https://t.me/olfacto_bot/app" },
-      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/olfactory" }
+      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" }
     ]
   },
   {
     title: "URL → Markdown Worker (Cloudflare)",
     description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
     links: [
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/micro10" },
       { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" }
     ]
   },
   {
-    title: "Beauty Visual Inbox mini-app",
-    description: "Telegram bots + React mini-app for salons: publish photo batches, likes, notifications, and analytics.",
-    links: [{ text: "GitHub", url: "https://github.com/zack-dev-cm/bvis" }, { text: "Live app", url: "https://bvis-1095464065298.us-east1.run.app" }]
-  },
-  {
     title: "Turbo Tots Garage (motion + touch PWA)",
     description: "Playful toddler dashboard with motion sensors, audio cues, and Playwright E2E coverage.",
-    links: [{ text: "GitHub", url: "https://github.com/zack-dev-cm/toddler_games" }]
+    links: []
   }
 ];
 
@@ -479,8 +511,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     keyFeatures: ["RapidAPI monetization", "Streaming HTML→Markdown", "MCP SSE endpoint"],
     techStack: ["Cloudflare Workers", "RapidAPI", "TypeScript"],
     links: [
-      { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/micro10" }
+      { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" }
     ],
     images: [{ url: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`, alt: "RapidAPI URL-to-Markdown worker" }],
     thumbnail: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`
@@ -499,7 +530,6 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/olfacto_bot/app" },
       { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/olfactory" },
       { text: "Reference writeup", url: "https://writetobrain.com/olfactory" }
     ],
     images: [
@@ -516,8 +546,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     keyFeatures: ["SSR landing pages with JSON-LD", "startapp deep links + attribution tracking", "Channel directory + LLM-friendly endpoints"],
     techStack: ["TypeScript", "Express", "SSR", "Telegram Web Apps", "Firestore", "JSON-LD"],
     links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/seogeo" }
+      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/seogeo-bridge.svg`, alt: "seogeo SEO/GEO bridge hub" }
@@ -533,8 +562,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram WebApp", "TON Connect"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
-      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/blacksock" }
+      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/blacksock-hero.png`, alt: "Blacksock mini app hero" },
@@ -551,8 +579,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
-      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/bvis" }
+      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/bvis-telegram.jpg`, alt: "Beauty Visual Inbox mini app feed" }
@@ -568,8 +595,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API", "Cloud Run"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" },
-      { text: "GitHub", url: "https://github.com/zack-dev-cm/dalshe" }
+      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/dalshe-hero.jpg`, alt: "Dalshe donation mini app" },
