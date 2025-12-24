@@ -7,19 +7,8 @@ import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
 import { GitHubIcon, LinkedInIcon, MailIcon } from './components/Icons';
 import { PROJECTS, COMPANIES, LATEST_UPDATES, TECH_STACK, KEY_HIGHLIGHTS, AUTHOR_INFO, SOCIAL_LINKS } from './constants';
+import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates } from './types';
-
-const BASE_PATH = (import.meta.env.BASE_URL || "").replace(/\/+$/, "");
-const DEFAULT_PROJECT_IMAGE = `${BASE_PATH}/images/project-placeholder.svg`;
-
-const isAbsoluteUrl = (url: string) => /^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('data:');
-
-const resolveAssetUrl = (url: string) => {
-  if (!url) return DEFAULT_PROJECT_IMAGE;
-  if (isAbsoluteUrl(url) || url.startsWith(`${BASE_PATH}/`)) return url;
-  if (url.startsWith('/')) return `${BASE_PATH}${url}`;
-  return `${BASE_PATH}/${url}`;
-};
 
 const parseGithubRepo = (url?: string) => {
   if (!url) return null;
@@ -74,6 +63,8 @@ const normalizeProject = (project: Project): Project => {
   return { ...project, thumbnail, images, techStack, keyFeatures };
 };
 
+const STATIC_PROJECTS = PROJECTS.map(normalizeProject);
+
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [portfolioUpdates, setPortfolioUpdates] = useState<PortfolioUpdates | null>(null);
@@ -90,7 +81,7 @@ const App: React.FC = () => {
     let active = true;
     const loadUpdates = async () => {
       try {
-        const response = await fetch(`${BASE_PATH}/portfolio-updates.json`, { cache: 'no-store' });
+        const response = await fetch(resolveAssetUrl('portfolio-updates.json'), { cache: 'no-store' });
         if (!response.ok) return;
         const data = (await response.json()) as PortfolioUpdates;
         if (active) {
@@ -119,7 +110,7 @@ const App: React.FC = () => {
   }, [updateLatest]);
 
   const mergedProjects = useMemo(() => {
-    return dedupeByKey([...updateProjects, ...PROJECTS], (project) => {
+    return dedupeByKey([...updateProjects, ...STATIC_PROJECTS], (project) => {
       return project.repoFullName || (project.repoId ? `${project.repoId}` : '') || getRepoKeyFromLinks(project.links) || project.title;
     });
   }, [updateProjects]);

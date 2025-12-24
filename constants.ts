@@ -1,8 +1,8 @@
+import { resolveAssetUrl } from './utils/assets';
 import type { Project, Company, SocialLinks, AuthorInfo, LatestUpdate } from './types';
 
-const BASE_PATH = (import.meta.env.BASE_URL || "").replace(/\/+$/, "");
-const LOCAL_IMG_BASE = `${BASE_PATH}/images`;
-const LOCAL_COMPANY_LOGO_BASE = `${BASE_PATH}/company-logos`;
+const LOCAL_IMG_BASE = resolveAssetUrl('images');
+const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
@@ -507,5 +507,92 @@ Operations Layer (Console, Alerts, Runbooks)`
       { url: `${LOCAL_IMG_BASE}/olfactory.png`, alt: "Olfactory ultrasound web app" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/olfactory-guide.jpg`
+  },
+  {
+    id: 31,
+    title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
+    description: "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
+    longDescription: "Server-rendered hub and per-app bridge pages with OG/Twitter meta, JSON-LD schema, startapp deep links, and attribution tracking for Telegram mini apps.",
+    keyFeatures: ["SSR landing pages with JSON-LD", "startapp deep links + attribution tracking", "Channel directory + LLM-friendly endpoints"],
+    techStack: ["TypeScript", "Express", "SSR", "Telegram Web Apps", "Firestore", "JSON-LD"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/seogeo" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/seogeo-bridge.svg`, alt: "seogeo SEO/GEO bridge hub" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/seogeo-bridge.svg`
+  },
+  {
+    id: 32,
+    title: "Blacksock – Telegram Liquidity & Index Vaults",
+    description: "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
+    longDescription: "Mini app + API stack that quotes star-factoring, handles index vault subscribe/redeem flows, and runs governance proposals and votes with optional TON wallet linking.",
+    keyFeatures: ["Star-factoring quotes + request lifecycle", "Index vault subscriptions and NAV tracking", "Governance proposals + votes"],
+    techStack: ["React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram WebApp", "TON Connect"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
+      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/blacksock" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/blacksock-hero.png`, alt: "Blacksock mini app hero" },
+      { url: `${LOCAL_IMG_BASE}/blacksock-glyph.png`, alt: "Blacksock brand glyph" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/blacksock-hero.png`
+  },
+  {
+    id: 33,
+    title: "Beauty Visual Inbox – Telegram Mini App",
+    description: "Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.",
+    longDescription: "Admin and client bots manage submissions and broadcasts, while the mini app ships a vertical feed with batch navigation, likes, and engagement stats.",
+    keyFeatures: ["Admin + client bot workflows", "Vertical feed with batch navigation", "Likes + notification analytics"],
+    techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
+      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/bvis" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/bvis-telegram.jpg`, alt: "Beauty Visual Inbox mini app feed" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/bvis-telegram.jpg`
+  },
+  {
+    id: 34,
+    title: "Dalshe – Circular Clothing Pickup Mini App",
+    description: "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
+    longDescription: "Users submit a short form, couriers collect items, and the bot delivers status updates while admins track pickup requests.",
+    keyFeatures: ["Telegram pickup request form", "Courier status updates via bot", "Admin pickup tracking API"],
+    techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API", "Cloud Run"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
+      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/dalshe" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/dalshe-hero.jpg`, alt: "Dalshe donation mini app" },
+      { url: `${LOCAL_IMG_BASE}/dalshe-illustration.png`, alt: "Dalshe circular donation visual" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/dalshe-hero.jpg`
+  },
+  {
+    id: 35,
+    title: "DoctorAI – Dermatology Triage Mini App",
+    description: "Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.",
+    longDescription: "FastAPI service with image-aware triage, a verification pass for safety, and a lightweight Telegram Web App UI built for fast patient intake.",
+    keyFeatures: ["Image-aware dermatology triage + verifier", "Therapist mode toggle", "Telegram Web App UI + bot entry point"],
+    techStack: ["Python", "FastAPI", "OpenAI API", "Telegram Web Apps", "Playwright"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/doctorai_bot/app" },
+      { text: "Live App", url: "https://doctorai-1095464065298.us-east1.run.app" },
+      { text: "GitHub", url: "https://github.com/zack-dev-cm/doctorai" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/doctorai-cover.png`, alt: "DoctorAI triage cover" },
+      { url: `${LOCAL_IMG_BASE}/doctorai-hero.png`, alt: "DoctorAI hero UI" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/doctorai-cover.png`
   }
 ];
