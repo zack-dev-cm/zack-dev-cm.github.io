@@ -92,9 +92,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "URL → Markdown Worker (Cloudflare)",
     description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
-    links: [
-      { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" }
-    ]
+    links: []
   },
   {
     title: "Turbo Tots Garage (motion + touch PWA)",
@@ -162,14 +160,12 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["AI character generation", "AR integration", "Virtual try-on and inpainting"],
     techStack: ["Generative AI", "Inpainting", "AR", "Telegram API"],
     links: [
-      { text: "Live Demo", url: "https://adfeed-1095464065298.us-central1.run.app/" },
       { text: "View Demo Video", url: "https://drive.google.com/file/d/1kvg4gjCNFPmrI3URPsM3eIyQ_vqSk1Ow/view?usp=sharing" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/adfeed.png`, alt: "Text2Room web experience" },
-      { url: `${LOCAL_IMG_BASE}/adfeed-hero.gif`, alt: "Text2Room motion preview" }
+      { url: `${LOCAL_IMG_BASE}/adfeed-hero.gif`, alt: "Text2Room gallery preview" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/adfeed.png`
+    thumbnail: `${LOCAL_IMG_BASE}/adfeed-hero.gif`
   },
   {
     id: 6,
@@ -242,10 +238,9 @@ export const PROJECTS: Project[] = [
     techStack: ["Mobile AI", "Object Detection", "OCR", "TFLite", "CoreML"],
     links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing" }],
     images: [
-      { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Food recognition app" },
-      { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Calorio nutrition assistant" }
+      { url: `${LOCAL_IMG_BASE}/food-recognition-ui.png`, alt: "Food recognition app UI" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/food_avatar.png`
+    thumbnail: `${LOCAL_IMG_BASE}/food-recognition-ui.png`
   },
   {
     id: 11,
@@ -316,7 +311,6 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     links: [
-      { text: "Visit Webpage", url: "https://aichatnavigator.online" },
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1" }
     ],
     images: [
@@ -332,7 +326,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Business users define tasks in free-form text; VLMs structure them and auto-approve payouts. Workers use web or Telegram, backed by Tornado + SQLite.",
     keyFeatures: ["VLM-powered task structuring", "Automated approval & payout", "Web & Telegram interfaces"],
     techStack: ["Tornado", "SQLite", "OpenAI", "VLM", "Telegram Bot API"],
-    links: [{ text: "Try App", url: "https://mcp-taskforge-1095464065298.us-central1.run.app/task_zavod" }],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/task_zavod.png`, alt: "Task Zavod live demo" },
       { url: `${LOCAL_IMG_BASE}/task-zavod-1.jpg`, alt: "Task Zavod example" },
@@ -347,7 +341,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Crowdsourced prompt feed with real-time trending, built on Tornado and integrated with the Navigator extension for prompt suggestions.",
     keyFeatures: ["Crowdsourced prompt engineering", "Real-time trending", "Browser extension integration"],
     techStack: ["Tornado", "JavaScript", "Community-driven content"],
-    links: [{ text: "Live Demo", url: "https://mcp-taskforge-1095464065298.us-central1.run.app/prompts_feed" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/trending_prompts.png`, alt: "Prompts Feed" }],
     thumbnail: `${LOCAL_IMG_BASE}/trending_prompts.png`
   },
@@ -386,7 +380,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Swiss-army-knife web app: annotate PDFs, batch resize/crop images, trim/convert videos, all running on serverless workers.",
     keyFeatures: ["Fast serverless media processing", "PDF text annotation", "Batch image manipulation", "Video editing tools"],
     techStack: ["Serverless", "OpenCV", "FFmpeg"],
-    links: [{ text: "Live Demo", url: "https://lastadjust-1095464065298.europe-north1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/lastadjust.png`, alt: "LastAdjust feature set" }],
     thumbnail: `${LOCAL_IMG_BASE}/lastadjust.png`
   },
@@ -397,7 +391,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Maps the competitive landscape around a business, scores visibility, and surfaces actionable SEO recommendations.",
     keyFeatures: ["AI-driven SEO analysis", "Competitive landscape visualization", "Actionable local search recommendations"],
     techStack: ["AI/LLMs", "SEO Analytics", "Geocoding APIs"],
-    links: [{ text: "Live Demo", url: "https://locaboostai-1095464065298.europe-north1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/locaboost.png`, alt: "LocaBoost map overview" }],
     thumbnail: `${LOCAL_IMG_BASE}/locaboost.png`
   },
@@ -408,7 +402,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Given a rough idea, Aetheria drafts stories, builds CGI scenes, suggests music, and voices narration to deliver short cinematic clips.",
     keyFeatures: ["Multi-modal media generation", "Creative concept development", "AI-powered CGI"],
     techStack: ["Generative AI", "Text-to-Video", "Text-to-Speech", "LLMs"],
-    links: [{ text: "Live Demo", url: "https://aetheria-1095464065298.us-east1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/aetheria.png`, alt: "Aetheria flow" }],
     thumbnail: `${LOCAL_IMG_BASE}/aetheria.png`
   },
@@ -430,7 +424,7 @@ export const PROJECTS: Project[] = [
     longDescription: "OCR + translation pipeline for historical inscriptions with optional character-voice narration in English or Russian.",
     keyFeatures: ["OCR for historical texts", "AI-powered translation", "Character-driven voice synthesis"],
     techStack: ["OCR", "Translation APIs", "TTS", "Computer Vision"],
-    links: [{ text: "Live Demo", url: "https://chronoscribe-1095464065298.us-east1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/chronoscribe.png`, alt: "ChronoScribe UI" }],
     thumbnail: `${LOCAL_IMG_BASE}/chronoscribe.png`
   },
@@ -441,7 +435,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.",
     keyFeatures: ["Declarative AI pipelines", "Autoscaling infrastructure", "Real-time event monitoring"],
     techStack: ["VLM/LLMs", "Cloud Infrastructure", "Autoscaling", "DevOps"],
-    links: [{ text: "Live Demo", url: "https://mcp-server-1095464065298.us-east1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/mcp_server.png`, alt: "MCP server architecture" }],
     thumbnail: `${LOCAL_IMG_BASE}/mcp_server.png`
   },
@@ -452,7 +446,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.",
     keyFeatures: ["Streaming tool calls", "Multi-voice TTS", "Secure serverless architecture"],
     techStack: ["OpenAI API", "Serverless", "JavaScript", "Text-to-Speech"],
-    links: [{ text: "Live Demo", url: "https://tool-calls-1095464065298.us-east1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/tool_calls.png`, alt: "Tool calling playground" }],
     thumbnail: `${LOCAL_IMG_BASE}/tool_calls.png`
   },
@@ -510,9 +504,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Cloudflare Worker monetized through RapidAPI and bundled with an MCP SSE endpoint for agent integrations. Streams Markdown with Google Cache fallback and solid error handling.",
     keyFeatures: ["RapidAPI monetization", "Streaming HTML→Markdown", "MCP SSE endpoint"],
     techStack: ["Cloudflare Workers", "RapidAPI", "TypeScript"],
-    links: [
-      { text: "RapidAPI Live", url: "https://url-to-markdown.rapidapis.workers.dev" }
-    ],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`, alt: "RapidAPI URL-to-Markdown worker" }],
     thumbnail: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`
   },
