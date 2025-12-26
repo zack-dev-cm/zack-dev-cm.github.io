@@ -59,6 +59,11 @@ const sortByCreatedAtDesc = <T extends { createdAt?: string }>(items: T[]) => {
   });
 };
 
+const isVideoUrl = (url: string) => {
+  const normalized = url.split('?')[0].split('#')[0].toLowerCase();
+  return normalized.endsWith('.mp4') || normalized.endsWith('.webm') || normalized.endsWith('.ogg');
+};
+
 const slugify = (value: string) => {
   const slug = value
     .toLowerCase()
@@ -444,7 +449,18 @@ const App: React.FC = () => {
                     <li
                       key={updateSlug}
                       data-latest-slug={updateSlug}
-                      className={`flex items-start rounded-lg p-3 scroll-mt-24 transition ${
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={isExpanded}
+                      title="Click to expand"
+                      onClick={() => toggleLatestExpanded(updateSlug)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          toggleLatestExpanded(updateSlug);
+                        }
+                      }}
+                      className={`flex cursor-pointer items-start rounded-lg p-3 scroll-mt-24 transition ${
                         isLatestActive ? 'bg-teal-400/10 ring-1 ring-teal-400/40' : 'hover:bg-slate-800/40'
                       }`}
                     >
@@ -455,21 +471,14 @@ const App: React.FC = () => {
                           <div className="flex flex-wrap items-center justify-end gap-2">
                             <button
                               type="button"
-                              onClick={() => {
+                              onClick={(event) => {
+                                event.stopPropagation();
                                 void handleShareLatest(updateSlug);
                               }}
                               className="whitespace-nowrap rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
                               aria-label={`Copy link for ${update.title}`}
                             >
                               {isLatestCopied ? 'Copied' : 'Copy link'}
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => toggleLatestExpanded(updateSlug)}
-                              aria-expanded={isExpanded}
-                              className="whitespace-nowrap rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
-                            >
-                              {isExpanded ? 'Hide details' : 'Details'}
                             </button>
                           </div>
                         </div>
@@ -482,6 +491,7 @@ const App: React.FC = () => {
                                 key={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={(event) => event.stopPropagation()}
                                 className="text-teal-400 hover:text-teal-300 text-sm mr-4 transition-colors duration-300"
                               >
                                 {link.text} &rarr;
@@ -490,7 +500,10 @@ const App: React.FC = () => {
                           </div>
                         )}
                         {isExpanded && (
-                          <div className="mt-4 rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+                          <div
+                            className="mt-4 rounded-lg border border-slate-800 bg-slate-900/50 p-4"
+                            onClick={(event) => event.stopPropagation()}
+                          >
                             {detailProject ? (
                               <>
                                 <p className="text-sm text-slate-400">
@@ -519,16 +532,26 @@ const App: React.FC = () => {
                                   <div className="mt-4 grid gap-4 md:grid-cols-2">
                                     {detailProject.images.slice(0, 2).map((image) => (
                                       <div key={image.url} className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70">
-                                        <img
-                                          src={image.url}
-                                          alt={image.alt}
-                                          className="h-40 w-full object-cover"
-                                          onError={(event) => {
-                                            if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
-                                              event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
-                                            }
-                                          }}
-                                        />
+                                        {isVideoUrl(image.url) ? (
+                                          <video
+                                            src={image.url}
+                                            controls
+                                            playsInline
+                                            preload="metadata"
+                                            className="h-40 w-full object-cover"
+                                          />
+                                        ) : (
+                                          <img
+                                            src={image.url}
+                                            alt={image.alt}
+                                            className="h-40 w-full object-cover"
+                                            onError={(event) => {
+                                              if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
+                                                event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
+                                              }
+                                            }}
+                                          />
+                                        )}
                                       </div>
                                     ))}
                                   </div>
@@ -540,6 +563,7 @@ const App: React.FC = () => {
                                       href={link.url}
                                       target="_blank"
                                       rel="noopener noreferrer"
+                                      onClick={(event) => event.stopPropagation()}
                                       className="rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
                                     >
                                       {link.text}
@@ -547,7 +571,10 @@ const App: React.FC = () => {
                                   ))}
                                   <button
                                     type="button"
-                                    onClick={() => handleSelectProject(detailProject)}
+                                    onClick={(event) => {
+                                      event.stopPropagation();
+                                      handleSelectProject(detailProject);
+                                    }}
                                     className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-300 transition hover:bg-teal-400/20"
                                   >
                                     View project

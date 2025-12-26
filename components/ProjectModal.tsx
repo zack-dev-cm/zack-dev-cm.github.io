@@ -10,6 +10,11 @@ interface ProjectModalProps {
   fallbackImageUrl?: string;
 }
 
+const isVideoUrl = (url: string) => {
+  const normalized = url.split('?')[0].split('#')[0].toLowerCase();
+  return normalized.endsWith('.mp4') || normalized.endsWith('.webm') || normalized.endsWith('.ogg');
+};
+
 export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   onClose,
@@ -70,17 +75,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
         {project.images.length > 0 && (
           <div className="relative w-full aspect-video bg-slate-900 rounded-t-lg overflow-hidden group">
-            <img 
-                src={project.images[currentImageIndex].url} 
-                alt={project.images[currentImageIndex].alt} 
+            {isVideoUrl(project.images[currentImageIndex].url) ? (
+              <video
+                src={project.images[currentImageIndex].url}
                 className="w-full h-full object-contain transition-opacity duration-300"
                 key={project.images[currentImageIndex].url}
-                onError={(event) => {
-                  if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
-                    event.currentTarget.src = fallbackImageUrl;
-                  }
-                }}
-            />
+                controls
+                playsInline
+                preload="metadata"
+                poster={fallbackImageUrl}
+              />
+            ) : (
+              <img 
+                  src={project.images[currentImageIndex].url} 
+                  alt={project.images[currentImageIndex].alt} 
+                  className="w-full h-full object-contain transition-opacity duration-300"
+                  key={project.images[currentImageIndex].url}
+                  onError={(event) => {
+                    if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
+                      event.currentTarget.src = fallbackImageUrl;
+                    }
+                  }}
+              />
+            )}
             {project.images.length > 1 && (
                 <>
                     <button 

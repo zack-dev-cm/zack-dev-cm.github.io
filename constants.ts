@@ -54,7 +54,10 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Project Steer - Bio-Print Creator Studio",
     description: "Cyberpunk Telegram mini app + MCP connector for bio-print memory activation and creator studio generation.",
-    links: [],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
+      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
+    ],
     projectId: 38
   },
   {
@@ -673,9 +676,13 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service.",
     keyFeatures: ["Telegram mini app + bot", "MCP connector with OAuth issuer", "QR activation + print storage pipeline"],
     techStack: ["Node.js", "Express", "Telegraf", "Prisma", "Postgres", "Vite", "React", "TypeScript", "Cloud Run", "MCP"],
-    links: [],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
+      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
+    ],
     images: [
       { url: `${LOCAL_IMG_BASE}/steer-loading-screen.png`, alt: "Project Steer loading screen" },
+      { url: `${LOCAL_IMG_BASE}/steer-loading-screen.mp4`, alt: "Project Steer loading screen video" },
       { url: `${LOCAL_IMG_BASE}/steer-finetune-architecture.png`, alt: "Project Steer finetune architecture" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/steer-loading-screen.png`
