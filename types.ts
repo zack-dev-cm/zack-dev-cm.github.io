@@ -49,6 +49,7 @@ export interface LatestUpdate {
   title: string;
   description?: string;
   links: ProjectLink[];
+  projectId?: number;
   repoFullName?: string;
   repoId?: number;
   createdAt?: string;

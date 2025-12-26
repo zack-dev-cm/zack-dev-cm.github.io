@@ -52,11 +52,18 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Project Steer - Bio-Print Creator Studio",
+    description: "Cyberpunk Telegram mini app + MCP connector for bio-print memory activation and creator studio generation.",
+    links: [],
+    projectId: 38
+  },
+  {
     title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
     description: "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }
-    ]
+    ],
+    projectId: 31
   },
   {
     title: "Blacksock – Telegram Liquidity & Index Vaults",
@@ -64,7 +71,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
       { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
-    ]
+    ],
+    projectId: 32
   },
   {
     title: "Beauty Visual Inbox – Telegram Mini App",
@@ -72,7 +80,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
       { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
-    ]
+    ],
+    projectId: 33
   },
   {
     title: "Dalshe – Circular Clothing Pickup Mini App",
@@ -80,7 +89,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
       { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
-    ]
+    ],
+    projectId: 34
   },
   {
     title: "Probes – AI Magazine Mini App",
@@ -88,7 +98,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
       { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
-    ]
+    ],
+    projectId: 36
   },
   {
     title: "Olfactory Ultrasound Coach (web + Telegram mini app)",
@@ -96,17 +107,20 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "Open Mini App", url: "https://t.me/olfacto_bot/app" },
       { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" }
-    ]
+    ],
+    projectId: 30
   },
   {
     title: "URL → Markdown Worker (Cloudflare)",
     description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
-    links: []
+    links: [],
+    projectId: 29
   },
   {
     title: "Turbo Tots Garage (motion + touch PWA)",
     description: "Playful toddler dashboard with motion sensors, audio cues, and Playwright E2E coverage.",
-    links: []
+    links: [],
+    projectId: 37
   }
 ];
 
@@ -621,5 +635,49 @@ Operations Layer (Console, Alerts, Runbooks)`
       { url: `${LOCAL_IMG_BASE}/doctorai-hero.png`, alt: "DoctorAI hero UI" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/doctorai-cover.png`
+  },
+  {
+    id: 36,
+    title: "Probes – AI Magazine Mini App",
+    description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
+    longDescription: "Telegram mini app with a daily AI magazine feed: articles + cover images, likes/bookmarks/comments, and a bot + API pipeline that powers content generation.",
+    keyFeatures: ["Telegram mini app magazine feed", "Automated article + cover generation", "Engagement stats with likes/bookmarks/comments"],
+    techStack: ["Vite", "React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram Bot API"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
+      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/probes-logo.svg`, alt: "Probes mini app mark" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/probes-logo.svg`
+  },
+  {
+    id: 37,
+    title: "Turbo Tots Garage (motion + touch PWA)",
+    description: "Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.",
+    longDescription: "Touch-first toddler dashboard with a turbo gauge, glowing clock, motion-sensor boosts, and playful engine/tick sounds.",
+    keyFeatures: ["Touch + motion sensor controls", "Playful audio cues and animations", "Large, stroller-friendly controls"],
+    techStack: ["Vite", "React", "TypeScript", "Web Audio", "Device Motion", "Playwright"],
+    links: [],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/turbo-tots-1.jpg`, alt: "Turbo Tots dashboard" },
+      { url: `${LOCAL_IMG_BASE}/turbo-tots-2.jpg`, alt: "Turbo Tots control panel" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/turbo-tots-1.jpg`
+  },
+  {
+    id: 38,
+    title: "Project Steer - Bio-Print Creator Studio",
+    description: "Cyberpunk Telegram mini app + MCP connector for bio-print memory activation and creator studio generation.",
+    longDescription: "Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service.",
+    keyFeatures: ["Telegram mini app + bot", "MCP connector with OAuth issuer", "QR activation + print storage pipeline"],
+    techStack: ["Node.js", "Express", "Telegraf", "Prisma", "Postgres", "Vite", "React", "TypeScript", "Cloud Run", "MCP"],
+    links: [],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/steer-loading-screen.png`, alt: "Project Steer loading screen" },
+      { url: `${LOCAL_IMG_BASE}/steer-finetune-architecture.png`, alt: "Project Steer finetune architecture" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/steer-loading-screen.png`
   }
 ];

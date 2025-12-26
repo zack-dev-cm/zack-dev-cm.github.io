@@ -140,6 +140,7 @@ const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [portfolioUpdates, setPortfolioUpdates] = useState<PortfolioUpdates | null>(null);
   const [activeLatestSlug, setActiveLatestSlug] = useState<string | null>(null);
+  const [expandedLatestSlugs, setExpandedLatestSlugs] = useState<string[]>([]);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const copyTimeoutRef = useRef<number | null>(null);
 
@@ -205,6 +206,18 @@ const App: React.FC = () => {
     });
   }, [updateProjects]);
 
+  const projectById = useMemo(() => {
+    return new Map(mergedProjects.map((project) => [project.id, project]));
+  }, [mergedProjects]);
+
+  const projectByRepoFullName = useMemo(() => {
+    return new Map(
+      mergedProjects
+        .filter((project) => project.repoFullName)
+        .map((project) => [project.repoFullName!.toLowerCase(), project])
+    );
+  }, [mergedProjects]);
+
   const projectBySlug = useMemo(() => {
     return new Map(mergedProjects.map((project) => [getProjectSlug(project), project]));
   }, [mergedProjects]);
@@ -251,6 +264,14 @@ const App: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [activeLatestSlug, mergedLatestUpdates]);
+
+  useEffect(() => {
+    if (!activeLatestSlug) return;
+    setExpandedLatestSlugs((current) => {
+      if (current.includes(activeLatestSlug)) return current;
+      return [...current, activeLatestSlug];
+    });
+  }, [activeLatestSlug]);
 
   const markCopied = useCallback((key: string) => {
     setCopiedKey(key);
@@ -347,6 +368,12 @@ const App: React.FC = () => {
     [buildShareUrl, copyToClipboard, updateUrlParams]
   );
 
+  const toggleLatestExpanded = useCallback((slug: string) => {
+    setExpandedLatestSlugs((current) =>
+      current.includes(slug) ? current.filter((item) => item !== slug) : [...current, slug]
+    );
+  }, []);
+
   const selectedProjectSlug = selectedProject ? getProjectSlug(selectedProject) : null;
   const isProjectCopied = selectedProjectSlug ? copiedKey === `project:${selectedProjectSlug}` : false;
 
@@ -406,6 +433,13 @@ const App: React.FC = () => {
                   const updateSlug = getLatestSlug(update);
                   const isLatestCopied = copiedKey === `latest:${updateSlug}`;
                   const isLatestActive = activeLatestSlug === updateSlug;
+                  const isExpanded = expandedLatestSlugs.includes(updateSlug);
+                  const detailProject =
+                    (update.projectId ? projectById.get(update.projectId) : null) ||
+                    (update.repoId ? projectById.get(update.repoId) : null) ||
+                    (update.repoFullName ? projectByRepoFullName.get(update.repoFullName.toLowerCase()) : null) ||
+                    null;
+                  const summary = update.description || detailProject?.description;
                   return (
                     <li
                       key={updateSlug}
@@ -418,18 +452,28 @@ const App: React.FC = () => {
                       <div className="flex-1">
                         <div className="flex items-start justify-between gap-3">
                           <h4 className="font-semibold text-slate-200">{update.title}</h4>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              void handleShareLatest(updateSlug);
-                            }}
-                            className="whitespace-nowrap rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
-                            aria-label={`Copy link for ${update.title}`}
-                          >
-                            {isLatestCopied ? 'Copied' : 'Copy link'}
-                          </button>
+                          <div className="flex flex-wrap items-center justify-end gap-2">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                void handleShareLatest(updateSlug);
+                              }}
+                              className="whitespace-nowrap rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
+                              aria-label={`Copy link for ${update.title}`}
+                            >
+                              {isLatestCopied ? 'Copied' : 'Copy link'}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => toggleLatestExpanded(updateSlug)}
+                              aria-expanded={isExpanded}
+                              className="whitespace-nowrap rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
+                            >
+                              {isExpanded ? 'Hide details' : 'Details'}
+                            </button>
+                          </div>
                         </div>
-                        {update.description && <p className="text-sm">{update.description}</p>}
+                        {summary && <p className="text-sm">{summary}</p>}
                         {update.links.length > 0 && (
                           <div className="mt-1">
                             {update.links.map((link) => (
@@ -443,6 +487,76 @@ const App: React.FC = () => {
                                 {link.text} &rarr;
                               </a>
                             ))}
+                          </div>
+                        )}
+                        {isExpanded && (
+                          <div className="mt-4 rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+                            {detailProject ? (
+                              <>
+                                <p className="text-sm text-slate-400">
+                                  {detailProject.longDescription || detailProject.description}
+                                </p>
+                                {detailProject.keyFeatures.length > 0 && (
+                                  <div className="mt-4">
+                                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Highlights</p>
+                                    <ul className="mt-2 list-disc list-inside space-y-1 text-sm text-slate-400">
+                                      {detailProject.keyFeatures.slice(0, 4).map((feature) => (
+                                        <li key={feature}>{feature}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                {detailProject.techStack.length > 0 && (
+                                  <div className="mt-4 flex flex-wrap gap-2">
+                                    {detailProject.techStack.slice(0, 8).map((tech) => (
+                                      <span key={tech} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
+                                        {tech}
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
+                                {detailProject.images.length > 0 && (
+                                  <div className="mt-4 grid gap-4 md:grid-cols-2">
+                                    {detailProject.images.slice(0, 2).map((image) => (
+                                      <div key={image.url} className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70">
+                                        <img
+                                          src={image.url}
+                                          alt={image.alt}
+                                          className="h-40 w-full object-cover"
+                                          onError={(event) => {
+                                            if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
+                                              event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
+                                            }
+                                          }}
+                                        />
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                                <div className="mt-4 flex flex-wrap items-center gap-3">
+                                  {detailProject.links.map((link) => (
+                                    <a
+                                      key={link.url}
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
+                                    >
+                                      {link.text}
+                                    </a>
+                                  ))}
+                                  <button
+                                    type="button"
+                                    onClick={() => handleSelectProject(detailProject)}
+                                    className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-300 transition hover:bg-teal-400/20"
+                                  >
+                                    View project
+                                  </button>
+                                </div>
+                              </>
+                            ) : (
+                              <p className="text-sm text-slate-500">More details coming soon.</p>
+                            )}
                           </div>
                         )}
                       </div>
