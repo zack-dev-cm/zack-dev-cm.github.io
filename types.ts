@@ -15,6 +15,7 @@ export interface Project {
   title: string;
   description: string;
   longDescription?: string;
+  hideImages?: boolean;
   keyFeatures: string[];
   techStack: string[];
   links: ProjectLink[];

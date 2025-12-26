@@ -567,9 +567,9 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/seogeo-bridge.svg`, alt: "seogeo SEO/GEO bridge hub" }
+      { url: `${LOCAL_IMG_BASE}/seogeo.png`, alt: "seogeo bridge preview" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/seogeo-bridge.svg`
+    thumbnail: `${LOCAL_IMG_BASE}/seogeo.png`
   },
   {
     id: 32,
@@ -583,10 +583,9 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/blacksock-hero.png`, alt: "Blacksock mini app hero" },
-      { url: `${LOCAL_IMG_BASE}/blacksock-glyph.png`, alt: "Blacksock brand glyph" }
+      { url: `${LOCAL_IMG_BASE}/blacksock.png`, alt: "Blacksock mini app preview" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/blacksock-hero.png`
+    thumbnail: `${LOCAL_IMG_BASE}/blacksock.png`
   },
   {
     id: 33,
@@ -599,10 +598,9 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
       { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
     ],
-    images: [
-      { url: `${LOCAL_IMG_BASE}/bvis-telegram.jpg`, alt: "Beauty Visual Inbox mini app feed" }
-    ],
-    thumbnail: `${LOCAL_IMG_BASE}/bvis-telegram.jpg`
+    images: [],
+    thumbnail: "",
+    hideImages: true
   },
   {
     id: 34,
@@ -616,10 +614,10 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/dalshe-hero.jpg`, alt: "Dalshe donation mini app" },
-      { url: `${LOCAL_IMG_BASE}/dalshe-illustration.png`, alt: "Dalshe circular donation visual" }
+      { url: `${LOCAL_IMG_BASE}/dalshe-1.png`, alt: "Dalshe donation mini app" },
+      { url: `${LOCAL_IMG_BASE}/dalshe-2.png`, alt: "Dalshe circular donation visual" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/dalshe-hero.jpg`
+    thumbnail: `${LOCAL_IMG_BASE}/dalshe-1.png`
   },
   {
     id: 35,
@@ -651,9 +649,9 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/probes-logo.svg`, alt: "Probes mini app mark" }
+      { url: `${LOCAL_IMG_BASE}/probes.png`, alt: "Probes mini app preview" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/probes-logo.svg`
+    thumbnail: `${LOCAL_IMG_BASE}/probes.png`
   },
   {
     id: 37,

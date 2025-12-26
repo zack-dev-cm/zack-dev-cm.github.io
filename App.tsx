@@ -126,12 +126,13 @@ const isExcludedLatestUpdate = (update: LatestUpdate) => {
 };
 
 const normalizeProject = (project: Project): Project => {
-  const thumbnail = resolveAssetUrl(project.thumbnail || DEFAULT_PROJECT_IMAGE);
+  const rawThumbnail = project.thumbnail || '';
+  const thumbnail = project.hideImages ? '' : resolveAssetUrl(rawThumbnail || DEFAULT_PROJECT_IMAGE);
   const rawImages = project.images ?? [];
   const images = rawImages
     .map((image) => ({ ...image, url: resolveAssetUrl(image.url) }))
     .filter((image) => Boolean(image.url));
-  if (images.length === 0) {
+  if (images.length === 0 && !project.hideImages) {
     images.push({ url: thumbnail, alt: `${project.title} preview` });
   }
   const techStack = project.techStack?.length ? project.techStack : ['Product'];
@@ -528,7 +529,7 @@ const App: React.FC = () => {
                                     ))}
                                   </div>
                                 )}
-                                {detailProject.images.length > 0 && (
+                                {detailProject.images.length > 0 && !detailProject.hideImages && (
                                   <div className="mt-4 grid gap-4 md:grid-cols-2">
                                     {detailProject.images.slice(0, 2).map((image) => (
                                       <div key={image.url} className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70">
