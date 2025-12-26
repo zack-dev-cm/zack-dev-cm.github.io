@@ -1,14 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { Project } from '../types';
-import { ExternalLinkIcon, XIcon, ChevronLeftIcon, ChevronRightIcon } from './Icons';
+import { ExternalLinkIcon, XIcon, ChevronLeftIcon, ChevronRightIcon, LinkIcon } from './Icons';
 
 interface ProjectModalProps {
   project: Project;
   onClose: () => void;
+  onCopyShare?: () => void;
+  isShareCopied?: boolean;
   fallbackImageUrl?: string;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, fallbackImageUrl }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({
+  project,
+  onClose,
+  onCopyShare,
+  isShareCopied,
+  fallbackImageUrl
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -105,7 +113,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, fa
         )}
 
         <div className="p-8">
-          <h2 className="text-3xl font-bold text-slate-100">{project.title}</h2>
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <h2 className="text-3xl font-bold text-slate-100">{project.title}</h2>
+            {onCopyShare && (
+              <button
+                type="button"
+                onClick={onCopyShare}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-300 transition hover:border-teal-400/70 hover:text-teal-200"
+                aria-label="Copy project link"
+              >
+                <LinkIcon className="h-4 w-4" />
+                <span>{isShareCopied ? 'Copied' : 'Copy link'}</span>
+              </button>
+            )}
+          </div>
           <p className="mt-4 text-slate-400">{project.longDescription || project.description}</p>
 
           <div className="mt-6">

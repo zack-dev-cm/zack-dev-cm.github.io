@@ -41,6 +41,15 @@ export const TECH_STACK: string[] = [
   "PyTorch", "TensorFlow", "Keras", "OpenCV", "OpenAI APIs", "CLIP", "VLMs", "LLMs", "Python", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
 ];
 
+export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
+  "zack-dev-cm/zack-dev-cm.github.io"
+];
+
+export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
+  /inside\s+zack-dev-cm\.github\.io/i,
+  /inside\s+zakhar\s+pashkin/i
+];
+
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
@@ -75,7 +84,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Probes – AI Magazine Mini App",
-    description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
+    description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and synced engagement stats (likes, views, comments).",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
       { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }

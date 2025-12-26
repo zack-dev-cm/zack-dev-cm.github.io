@@ -317,7 +317,12 @@ exports.githubPortfolioSync = async (req, res) => {
     updatesData.projects = Array.isArray(updatesData.projects) ? updatesData.projects : [];
     updatesData.version = updatesData.version || 1;
 
-    const baseRepoKeys = new Set([...extractGithubRepoKeys(constantsText), ...parseExcludeRepos(EXCLUDE_REPOS, GITHUB_OWNER)]);
+    const portfolioRepoKey = `${GITHUB_OWNER}/${GITHUB_REPO}`;
+    const baseRepoKeys = new Set([
+      ...extractGithubRepoKeys(constantsText),
+      ...parseExcludeRepos(EXCLUDE_REPOS, GITHUB_OWNER),
+      portfolioRepoKey,
+    ]);
     const repos = await listRepos(token, GITHUB_OWNER);
     const now = Date.now();
     const lookbackMs = DEFAULT_LOOKBACK_DAYS * 24 * 60 * 60 * 1000;

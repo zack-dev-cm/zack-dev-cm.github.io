@@ -51,3 +51,9 @@ export const ChevronRightIcon: React.FC<IconProps> = (props) => (
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
     </svg>
 );
+
+export const LinkIcon: React.FC<IconProps> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 010 6.364l-3.182 3.182a4.5 4.5 0 01-6.364-6.364l1.59-1.59m7.536-1.59l1.59-1.59a4.5 4.5 0 116.364 6.364l-3.182 3.182a4.5 4.5 0 01-6.364 0" />
+    </svg>
+);
