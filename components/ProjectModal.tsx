@@ -82,7 +82,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 key={project.images[currentImageIndex].url}
                 controls
                 playsInline
-                preload="metadata"
+                preload="auto"
                 poster={fallbackImageUrl}
               />
             ) : (

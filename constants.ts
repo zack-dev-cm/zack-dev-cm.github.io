@@ -53,7 +53,7 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Project Steer - Bio-Print Creator Studio",
-    description: "Cyberpunk Telegram mini app + MCP connector for bio-print memory activation and creator studio generation.",
+    description: "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
       { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
@@ -276,11 +276,8 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     links: [{ text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" }],
-    images: [
-      { url: `${LOCAL_IMG_BASE}/bot_welcome.png`, alt: "Nutrition bot welcome screen" },
-      { url: `${LOCAL_IMG_BASE}/food_avatar.png`, alt: "Calorio brand avatar" }
-    ],
-    thumbnail: `${LOCAL_IMG_BASE}/bot_welcome.png`
+    images: [],
+    thumbnail: ""
   },
   {
     id: 12,
@@ -670,8 +667,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 38,
     title: "Project Steer - Bio-Print Creator Studio",
-    description: "Cyberpunk Telegram mini app + MCP connector for bio-print memory activation and creator studio generation.",
-    longDescription: "Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service.",
+    description: "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
+    longDescription: "Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service. Inspired by the Eiffel Tower LLaMA space (https://huggingface.co/spaces/dlouapre/eiffel-tower-llama) and the paper \"General Agentic Memory Via Deep Research\" by B.Y. Yan, Chaofan Li, Hongjin Qian, Shuqi Lu, and Zheng Liu (https://arxiv.org/abs/2511.18423).",
     keyFeatures: ["Telegram mini app + bot", "MCP connector with OAuth issuer", "QR activation + print storage pipeline"],
     techStack: ["Node.js", "Express", "Telegraf", "Prisma", "Postgres", "Vite", "React", "TypeScript", "Cloud Run", "MCP"],
     links: [
@@ -679,10 +676,8 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/steer-loading-screen.png`, alt: "Project Steer loading screen" },
-      { url: `${LOCAL_IMG_BASE}/steer-loading-screen.mp4`, alt: "Project Steer loading screen video" },
-      { url: `${LOCAL_IMG_BASE}/steer-finetune-architecture.png`, alt: "Project Steer finetune architecture" }
+      { url: `${LOCAL_IMG_BASE}/steer-loading-screen.webm`, alt: "Project Steer loading screen video" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/steer-loading-screen.png`
+    thumbnail: `${LOCAL_IMG_BASE}/steer-loading-screen.webm`
   }
 ];

@@ -538,7 +538,7 @@ const App: React.FC = () => {
                                             src={image.url}
                                             controls
                                             playsInline
-                                            preload="metadata"
+                                            preload="auto"
                                             className="h-40 w-full object-cover"
                                           />
                                         ) : (
