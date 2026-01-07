@@ -1,19 +1,28 @@
 # Zakhar Pashkin - AI Product Engineer Portfolio
 
-Portfolio for Zakhar Pashkin, an AI product engineer focused on Python/PyTorch/OpenAI VLM/LLM systems, computer vision, and full-stack delivery across web, mobile, and cloud.
+> Python-first AI product engineer specializing in PyTorch/OpenAI VLM/LLM systems, computer vision, FastAPI services, Open MCP tooling, and full-stack delivery across web, mobile, and cloud.
 
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
-## Focus Areas
-- Python/PyTorch/OpenAI for VLM/LLM systems, computer vision, and agentic workflows.
-- Open MCP and FastAPI for AI services, orchestration, and delivery.
-- Full-stack delivery: React, TypeScript, Node.js, Cloud Run, and MLOps.
-- Project portfolio with demos, links, and tech stacks.
+Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.
 
-## Sections
-- https://zack-dev-cm.github.io/#about
-- https://zack-dev-cm.github.io/#stack
-- https://zack-dev-cm.github.io/#latest
-- https://zack-dev-cm.github.io/#projects
-- https://zack-dev-cm.github.io/#contact
+## Core Pages
+- [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.
+- [About](https://zack-dev-cm.github.io/#about): Bio and positioning.
+- [Tech Stack](https://zack-dev-cm.github.io/#stack): Tools and frameworks used across projects.
+- [Projects](https://zack-dev-cm.github.io/#projects): Project cards with descriptions and tech stacks.
+
+## Latest Updates
+- [Latest](https://zack-dev-cm.github.io/#latest): Recently shipped work and updates.
+
+## Contact
+- [Contact](https://zack-dev-cm.github.io/#contact): Email and social links.
+
+## Profiles
+- [GitHub](https://github.com/zack-dev-cm): Primary repositories and open-source work.
+- [GitHub (Alt)](https://github.com/ZackPashkin): Secondary repositories.
+- [LinkedIn](https://www.linkedin.com/in/zakhar-pashkin-a524a6163/): Professional profile and experience.
+
+## Optional
+- [Telegram](https://t.me/rheuiii): Fast contact channel.
