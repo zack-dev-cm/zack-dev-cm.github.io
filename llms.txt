@@ -6,7 +6,7 @@ Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
 ## Highlights
-- VLM/LLM systems, computer vision, and agentic workflows.
+- Python/PyTorch/OpenAI for VLM/LLM systems, computer vision, and agentic workflows.
 - Full-stack delivery: React, TypeScript, Node.js, Cloud Run, and MLOps.
 - Project portfolio with demos, links, and tech stacks.
 
