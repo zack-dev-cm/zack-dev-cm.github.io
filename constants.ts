@@ -32,13 +32,13 @@ export const COMPANIES: Company[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "7+ years building applied CV/ML products: OCR, segmentation, VLMs, and mobile inference.",
+  "7+ years building Python/PyTorch CV/ML products (OCR, segmentation, VLMs) and OpenAI-powered workflows.",
   "Upwork Top Rated Plus contractor (top 1% AI devs) shipping production-grade systems fast.",
   "Hands-on mentor/educator who has led corporate trainings and coached CV/ML teams."
 ];
 
 export const TECH_STACK: string[] = [
-  "PyTorch", "TensorFlow", "Keras", "OpenCV", "OpenAI APIs", "CLIP", "VLMs", "LLMs", "Python", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
+  "Python", "PyTorch", "OpenAI APIs", "VLMs", "LLMs", "OpenCV", "TensorFlow", "Keras", "CLIP", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
 ];
 
 export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
