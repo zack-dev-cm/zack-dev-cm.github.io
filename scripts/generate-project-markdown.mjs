@@ -1,0 +1,310 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const ROOT_DIR = path.resolve(__dirname, '..');
+const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
+const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
+const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
+const SITE_BASE = 'https://zack-dev-cm.github.io';
+const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
+
+const ASCII_REPLACEMENTS = new Map([
+  ['–', ' - '],
+  ['—', ' - '],
+  ['‑', ' - '],
+  ['−', ' - '],
+  ['“', '"'],
+  ['”', '"'],
+  ['‘', '\''],
+  ['’', '\''],
+  ['…', '...'],
+  ['→', '->'],
+  ['←', '<-'],
+  ['±', '+/-'],
+  ['×', 'x'],
+  ['°', ' deg'],
+  ['•', '-']
+]);
+
+const toAscii = (value) => {
+  if (!value) return '';
+  let output = value;
+  for (const [from, to] of ASCII_REPLACEMENTS.entries()) {
+    output = output.split(from).join(to);
+  }
+  return output.replace(/[^\x00-\x7F]/g, '').replace(/\s{2,}/g, ' ').trim();
+};
+
+const slugify = (value) => {
+  const ascii = toAscii(value).toLowerCase();
+  const slug = ascii.replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  return slug || 'project';
+};
+
+const parseString = (node) => {
+  if (!node) return '';
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
+    return node.text;
+  }
+  if (ts.isTemplateExpression(node)) {
+    let text = node.head.text;
+    for (const span of node.templateSpans) {
+      if (ts.isStringLiteral(span.expression) || ts.isNoSubstitutionTemplateLiteral(span.expression)) {
+        text += span.expression.text;
+      } else if (ts.isIdentifier(span.expression)) {
+        text += span.expression.text;
+      } else {
+        text += span.expression.getText();
+      }
+      text += span.literal.text;
+    }
+    return text;
+  }
+  return '';
+};
+
+const parseStringArray = (node) => {
+  if (!node || !ts.isArrayLiteralExpression(node)) return [];
+  return node.elements
+    .map((element) => parseString(element))
+    .filter(Boolean);
+};
+
+const getPropertyName = (nameNode) => {
+  if (!nameNode) return '';
+  if (ts.isIdentifier(nameNode)) return nameNode.text;
+  if (ts.isStringLiteral(nameNode)) return nameNode.text;
+  return nameNode.getText();
+};
+
+const getPropertyValue = (objectNode, key) => {
+  const property = objectNode.properties.find((prop) => {
+    if (!ts.isPropertyAssignment(prop)) return false;
+    return getPropertyName(prop.name) === key;
+  });
+  if (!property || !ts.isPropertyAssignment(property)) return null;
+  return property.initializer;
+};
+
+const parseLinks = (node) => {
+  if (!node || !ts.isArrayLiteralExpression(node)) return [];
+  return node.elements
+    .map((element) => {
+      if (!ts.isObjectLiteralExpression(element)) return null;
+      const text = parseString(getPropertyValue(element, 'text'));
+      const url = parseString(getPropertyValue(element, 'url'));
+      if (!text || !url) return null;
+      return { text, url };
+    })
+    .filter(Boolean);
+};
+
+const extractProjects = (sourceFile) => {
+  let projectsNode = null;
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && node.name.getText() === 'PROJECTS') {
+      if (node.initializer && ts.isArrayLiteralExpression(node.initializer)) {
+        projectsNode = node.initializer;
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+
+  if (!projectsNode) {
+    throw new Error('Could not find PROJECTS array in constants.ts');
+  }
+
+  return projectsNode.elements
+    .filter((element) => ts.isObjectLiteralExpression(element))
+    .map((element) => {
+      const idNode = getPropertyValue(element, 'id');
+      const id = idNode && ts.isNumericLiteral(idNode) ? Number(idNode.text) : null;
+      const title = parseString(getPropertyValue(element, 'title'));
+      const description = parseString(getPropertyValue(element, 'description'));
+      const longDescription = parseString(getPropertyValue(element, 'longDescription'));
+      const keyFeatures = parseStringArray(getPropertyValue(element, 'keyFeatures'));
+      const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
+      const links = parseLinks(getPropertyValue(element, 'links'));
+      const topologySnapshot = parseString(getPropertyValue(element, 'topologySnapshot'));
+
+      return {
+        id,
+        title,
+        description,
+        longDescription,
+        keyFeatures,
+        techStack,
+        links,
+        topologySnapshot
+      };
+    });
+};
+
+const buildMarkdown = (project, markdownUrl) => {
+  const title = toAscii(project.title);
+  const description = toAscii(project.description);
+  const longDescription = toAscii(project.longDescription);
+  const keyFeatures = project.keyFeatures.map((item) => toAscii(item));
+  const techStack = project.techStack.map((item) => toAscii(item));
+  const links = project.links.map((link) => ({
+    text: toAscii(link.text),
+    url: link.url
+  }));
+  const topologySnapshot = toAscii(project.topologySnapshot);
+
+  const lines = [`# ${title}`];
+  if (description) {
+    lines.push('', `> ${description}`);
+  }
+  const summary = longDescription && longDescription !== description ? longDescription : '';
+  if (summary) {
+    lines.push('', '## Summary', summary);
+  }
+  lines.push('', '## Project Link', markdownUrl);
+  if (keyFeatures.length) {
+    lines.push('', '## Key Features');
+    keyFeatures.forEach((feature) => {
+      lines.push(`- ${feature}`);
+    });
+  }
+  if (techStack.length) {
+    lines.push('', '## Tech Stack');
+    techStack.forEach((item) => {
+      lines.push(`- ${item}`);
+    });
+  }
+  if (links.length) {
+    lines.push('', '## Links');
+    links.forEach((link) => {
+      lines.push(`- [${link.text}](${link.url})`);
+    });
+  }
+  if (topologySnapshot) {
+    lines.push('', '## Topology Snapshot', '```', topologySnapshot, '```');
+  }
+  lines.push('');
+  return lines.join('\n');
+};
+
+const formatLinkLine = (title, url, description) => {
+  const safeTitle = toAscii(title);
+  const safeDescription = toAscii(description);
+  return `- [${safeTitle}](${url}): ${safeDescription}`;
+};
+
+const formatTopProjectLine = (project) => {
+  const markdownUrl = project.markdownUrl;
+  const baseDescription = project.description || project.longDescription || 'Project summary.';
+  const asciiDescription = toAscii(baseDescription);
+  const linkNotes = project.links
+    .slice(0, 2)
+    .map((link) => `${toAscii(link.text)}: ${link.url}`)
+    .join(' | ');
+  const suffix = linkNotes ? ` ${linkNotes}` : '';
+  const trimmedDescription = asciiDescription.replace(/[.!?]+$/, '') || 'Project summary';
+  return `- [${toAscii(project.title)}](${markdownUrl}): ${trimmedDescription}.${suffix}`;
+};
+
+const buildLlms = (projects, topProjects) => {
+  const lines = [
+    '# Zakhar Pashkin - AI Product Engineer Portfolio',
+    '',
+    '> Python-first AI product engineer specializing in PyTorch/OpenAI VLM/LLM systems, computer vision, FastAPI services, Open MCP tooling, and full-stack delivery across web, mobile, and cloud.',
+    '',
+    `Primary URL: ${SITE_BASE}/`,
+    `Contact: mailto:${CONTACT_EMAIL}`,
+    '',
+    'Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.',
+    '',
+    '## Top 5 Projects',
+    ...topProjects.map(formatTopProjectLine),
+    '',
+    '## Projects (Markdown)',
+    ...projects.map((project) =>
+      formatLinkLine(project.title, project.markdownUrl, project.description || project.longDescription || 'Project detail page.')
+    ),
+    '',
+    '## Core Pages',
+    formatLinkLine('Home', `${SITE_BASE}/`, 'Overview of the portfolio, highlights, and navigation.'),
+    formatLinkLine('About', `${SITE_BASE}/#about`, 'Bio and positioning.'),
+    formatLinkLine('Tech Stack', `${SITE_BASE}/#stack`, 'Tools and frameworks used across projects.'),
+    formatLinkLine('Projects', `${SITE_BASE}/#projects`, 'Project cards with descriptions and tech stacks.'),
+    '',
+    '## Latest Updates',
+    formatLinkLine('Latest', `${SITE_BASE}/#latest`, 'Recently shipped work and updates.'),
+    '',
+    '## Contact',
+    formatLinkLine('Contact', `${SITE_BASE}/#contact`, 'Email and social links.'),
+    '',
+    '## Profiles',
+    formatLinkLine('GitHub', 'https://github.com/zack-dev-cm', 'Primary repositories and open-source work.'),
+    formatLinkLine('GitHub (Alt)', 'https://github.com/ZackPashkin', 'Secondary repositories.'),
+    formatLinkLine('LinkedIn', 'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/', 'Professional profile and experience.'),
+    '',
+    '## Optional',
+    formatLinkLine('Telegram', 'https://t.me/rheuiii', 'Fast contact channel.'),
+    ''
+  ];
+
+  return lines.join('\n');
+};
+
+const main = async () => {
+  const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
+  const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
+  const projects = extractProjects(sourceFile);
+
+  await fs.mkdir(OUTPUT_DIR, { recursive: true });
+
+  const slugCounts = new Map();
+  const projectEntries = [];
+
+  for (const project of projects) {
+    const baseSlug = slugify(project.title || 'project');
+    const count = (slugCounts.get(baseSlug) || 0) + 1;
+    slugCounts.set(baseSlug, count);
+    const slug = count > 1 && project.id ? `${baseSlug}-${project.id}` : baseSlug;
+    const fileName = `${slug}.md`;
+    const markdownUrl = `${SITE_BASE}/projects/${fileName}`;
+    const outputPath = path.resolve(OUTPUT_DIR, fileName);
+    const markdown = buildMarkdown(project, markdownUrl);
+    await fs.writeFile(outputPath, markdown, 'utf8');
+    projectEntries.push({
+      ...project,
+      slug,
+      markdownUrl
+    });
+  }
+
+  const topProjectTitles = [
+    'Android Remote Control with VLM AI Agents',
+    'Project Steer - Bio-Print Creator Studio',
+    'DoctorAI - Dermatology Triage Mini App',
+    'seogeo - SEO/GEO Bridge for Telegram Mini Apps',
+    'MCP-Server - Base Multitool'
+  ].map(toAscii);
+
+  const topProjects = topProjectTitles.map((title) =>
+    projectEntries.find((project) => toAscii(project.title) === title)
+  );
+  const missing = topProjects
+    .map((project, index) => (project ? null : topProjectTitles[index]))
+    .filter(Boolean);
+  if (missing.length) {
+    throw new Error(`Missing top project entries: ${missing.join(', ')}`);
+  }
+
+  const llmsContent = buildLlms(projectEntries, topProjects);
+  await fs.writeFile(LLMS_PATH, llmsContent, 'utf8');
+};
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
