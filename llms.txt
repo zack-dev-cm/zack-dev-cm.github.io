@@ -1,0 +1,18 @@
+# Zakhar Pashkin - AI Product Engineer Portfolio
+
+This site is a personal portfolio for Zakhar Pashkin, an AI product engineer focused on VLM/LLM systems, computer vision, and full-stack delivery across web, mobile, and cloud.
+
+Primary URL: https://zack-dev-cm.github.io/
+Contact: mailto:kaisenaiko@gmail.com
+
+## Highlights
+- VLM/LLM systems, computer vision, and agentic workflows.
+- Full-stack delivery: React, TypeScript, Node.js, Cloud Run, and MLOps.
+- Project portfolio with demos, links, and tech stacks.
+
+## Sections
+- https://zack-dev-cm.github.io/#about
+- https://zack-dev-cm.github.io/#stack
+- https://zack-dev-cm.github.io/#latest
+- https://zack-dev-cm.github.io/#projects
+- https://zack-dev-cm.github.io/#contact

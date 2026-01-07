@@ -6,8 +6,8 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "AI & Computer Vision Engineer",
-  bio: "Deep Learning/Computer Vision engineer shipping agentic products across mobile, web, and cloud. I design VLM/LLM systems end-to-end and focus on turning scrappy prototypes into reliable launches."
+  title: "AI Product Engineer - VLM/LLM Systems, Computer Vision, Full-Stack",
+  bio: "AI product engineer shipping VLM/LLM and computer vision systems across mobile, web, and cloud. I design agentic pipelines end-to-end and turn prototypes into reliable launches."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {

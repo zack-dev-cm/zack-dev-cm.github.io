@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zack-dev-cm.github.io/sitemap.xml
+Host: zack-dev-cm.github.io
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
+User-agent: Yandex
+Allow: /
