@@ -10,6 +10,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
+const GEO_PATH = path.resolve(ROOT_DIR, 'geo.txt');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 
@@ -255,6 +256,27 @@ const buildLlms = (projects, topProjects) => {
   return lines.join('\n');
 };
 
+const buildGeo = (projects) => {
+  const lines = [
+    '# GEO - Project Index',
+    '',
+    `Primary URL: ${SITE_BASE}/`,
+    `Contact: mailto:${CONTACT_EMAIL}`,
+    '',
+    '## Projects',
+    ...projects.map((project) =>
+      formatLinkLine(
+        project.title,
+        project.markdownUrl,
+        project.description || project.longDescription || 'Project detail page.'
+      )
+    ),
+    ''
+  ];
+
+  return lines.join('\n');
+};
+
 const main = async () => {
   const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
@@ -302,6 +324,8 @@ const main = async () => {
 
   const llmsContent = buildLlms(projectEntries, topProjects);
   await fs.writeFile(LLMS_PATH, llmsContent, 'utf8');
+  const geoContent = buildGeo(projectEntries);
+  await fs.writeFile(GEO_PATH, geoContent, 'utf8');
 };
 
 main().catch((error) => {
