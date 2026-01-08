@@ -25,5 +25,17 @@ Allow: /
 User-agent: GoogleOther-Video
 Allow: /
 
+User-agent: Gemini-Deep-Research
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 User-agent: Yandex
 Allow: /

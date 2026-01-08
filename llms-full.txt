@@ -1,0 +1,615 @@
+# Zakhar Pashkin - Portfolio Memory File
+
+Summary: AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.
+Primary URL: https://zack-dev-cm.github.io/
+Contact: mailto:kaisenaiko@gmail.com
+
+## Focus Areas
+- Python, PyTorch, OpenAI APIs, VLMs, LLMs
+- Computer vision, OCR, segmentation, multimodal systems
+- FastAPI services, Open MCP tooling, full-stack delivery
+- React, TypeScript, Cloud Run, MLOps
+
+## Top 5 Projects
+- [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type. View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
+- [Project Steer - Bio-Print Creator Studio](https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md): Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research. Open Telegram Mini App: https://t.me/steer_prints_bot/app | Live App: https://steer-zlvmfsrm6a-ue.a.run.app/
+- [DoctorAI - Dermatology Triage Mini App](https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md): Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode. Open Telegram Mini App: https://t.me/doctorai_bot/app | Live App: https://doctorai-1095464065298.us-east1.run.app
+- [seogeo - SEO/GEO Bridge for Telegram Mini Apps](https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md): SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable. Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB
+- [MCP-Server - Base Multitool](https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md): Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
+
+## Projects (Full Details)
+### Android Remote Control with VLM AI Agents
+Summary: Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.
+Details: Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.
+Project URL: https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md
+Key Features:
+- Real-time instruction processing
+- Automated testing & task automation
+- Novel device interaction
+Tech Stack:
+- Android
+- Vision-Language Models
+- Server-side AI
+Links:
+- View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
+
+### Control VLM-LLM Agent Silently With Your Breath
+Summary: Start/stop a neural agent with breathing patterns - no voice commands needed.
+Details: Breath-based control after a short calibration: detect sharp exhales to start, smooth exhale to stop. Works on mic audio or sniffles for silent agent control.
+Project URL: https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md
+Key Features:
+- Non-verbal AI control
+- Pattern recognition of breathing acoustics
+Tech Stack:
+- Audio processing
+- Neural Networks
+Links:
+- View Demo GIF: https://drive.google.com/file/d/1H43aT5n8NWlOuTIWsJinssKRh1n3tiOM/view?usp=sharing
+
+### meshmcp - Offline P2P Chat for Local LLMs
+Summary: Bluetooth mesh messaging + LLM reasoning on constrained devices.
+Details: Android + iOS mesh chat that keeps conversations alive without internet. Messages hop over Bluetooth mesh and feed local/edge LLMs for summarization and commands.
+Project URL: https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md
+Key Features:
+- Offline mesh networking
+- Local LLM reasoning
+- Energy-efficient relay routing
+Tech Stack:
+- Android
+- iOS
+- Bluetooth Mesh
+- Local LLMs
+Links:
+- See on GitHub: https://github.com/zack-dev-cm/meshmcp
+
+### Promo & Reflinks Generator
+Summary: Generates personalized promo/referral links with analytics and sharing.
+Details: Web app for quickly minting promo/referral links, tracking clicks, and sending branded landing pages. Ships with analytics dashboards and short-linking.
+Project URL: https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md
+Key Features:
+- Dynamic promo link builder
+- Built-in analytics
+- Shareable branded pages
+Tech Stack:
+- Serverless
+- React
+- Analytics
+Links:
+- Visit App: https://analytics-mcp-1095464065298.us-east1.run.app
+
+### Create, Chat & AR Experience with AI-Character (Text2Room)
+Summary: Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.
+Details: Marketing-ready pipeline: create AI characters, render images/video, do virtual try-on/inpainting, chat via Telegram, and place assets into AR.
+Project URL: https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md
+Key Features:
+- AI character generation
+- AR integration
+- Virtual try-on and inpainting
+Tech Stack:
+- Generative AI
+- Inpainting
+- AR
+- Telegram API
+Links:
+- View Demo Video: https://drive.google.com/file/d/1kvg4gjCNFPmrI3URPsM3eIyQ_vqSk1Ow/view?usp=sharing
+
+### Label and Inpaint Anything in a Room Interior
+Summary: Label objects in an interior photo, then remove/replace them with lighting-aware inpainting.
+Details: Semantic segmentation + high-quality inpainting that respects lighting/shadows, letting users plan interior changes with convincing renders.
+Project URL: https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md
+Key Features:
+- Object segmentation
+- Advanced inpainting with lighting/shadow reconstruction
+Tech Stack:
+- Semantic Segmentation
+- Generative Inpainting
+Links:
+- Segmentation Demo: https://drive.google.com/file/d/1XqQgbmBgTlRRdR-K3X4PHlSzrmiMUJgY/view?usp=sharing
+- Inpaint Demo #1: https://drive.google.com/file/d/1dCkeI7Mi87cg2kOgY5UCLG-DiHkt358L/view?usp=sharing
+
+### Smart Drive for Smart City: Predict Optimal Speed
+Summary: Predict the optimal speed before traffic lights or jams to smooth city driving.
+Details: Predictive model that anticipates lights/traffic, aiming to cut abrupt stops and improve fuel efficiency for urban driving.
+Project URL: https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md
+Key Features:
+- Predictive speed optimization
+- Traffic flow analysis
+Tech Stack:
+- Predictive Modeling
+- Real-time Data Analysis
+
+### Estimate Golf Ball Trajectory
+Summary: Analyze golf swings and estimate ball trajectory for coaching and analytics.
+Details: Computer vision + physics model to estimate ball flight and swing quality for sports analytics.
+Project URL: https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md
+Key Features:
+- Trajectory estimation
+- Sports motion analysis
+Tech Stack:
+- Computer Vision
+- Physics-based Modeling
+
+### Pixel-Wise Segmentation of Spare Parts
+Summary: High-precision segmentation for additive manufacturing and rework flows.
+Details: Pixel-accurate masks for spare parts to speed 3D printing decisions and QA in industrial settings.
+Project URL: https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md
+Key Features:
+- High-precision segmentation
+- Industrial application for additive manufacturing
+Tech Stack:
+- Semantic Segmentation
+- Image Processing
+Links:
+- Segmentation Demo #1: https://drive.google.com/file/d/1bAyEPYLbiETD0vKStnpB1VvzK1wKdKRv/view?usp=sharing
+- Segmentation Demo #2: https://drive.google.com/file/d/1xVEonSJ7jvnYSnQ6ztvFZy-Llf_dxSrP/view?usp=sharing
+
+### Food Recognition App
+Summary: iOS/Android app that detects food items and OCRs labels for nutrition facts.
+Details: Cross-platform mobile AI that recognizes packaged/fresh food, runs OCR on labels, and surfaces nutrition details in real time.
+Project URL: https://zack-dev-cm.github.io/projects/food-recognition-app.md
+Key Features:
+- >90% accuracy
+- Optimized for CPU/GPU inference
+- OCR on labels
+- Cross-platform
+Tech Stack:
+- Mobile AI
+- Object Detection
+- OCR
+- TFLite
+- CoreML
+Links:
+- View Demo GIF: https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing
+
+### Dishes Recognition & Nutrition Goals Telegram Bot
+Summary: Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).
+Details: Multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.
+Project URL: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md
+Key Features:
+- Vision + voice dish detection
+- Nutrition goal tracking
+- Telegram-native UX
+Tech Stack:
+- Telegram Bot API
+- OCR
+- Speech-to-Text
+- LLMs
+Links:
+- Try on Telegram: https://t.me/calorio_yf_bot
+
+### Python Library: AutoToloka
+Summary: Interactive segmentation toolkit that cuts labeling cost for CV datasets.
+Details: Python library that streams clicks/polygons to interactive models and pipelines the outputs to crowdsourcing or MLOps stacks.
+Project URL: https://zack-dev-cm.github.io/projects/python-library-autotoloka.md
+Key Features:
+- Reduces labeling costs
+- Pipeline-friendly
+- Interactive masks
+Tech Stack:
+- Python
+- Interactive Segmentation
+- Multi-modal Networks
+Links:
+- AutoToloka on PyPI: https://pypi.org/project/autotoloka/
+
+### Python Library: shiftlab-ocr
+Summary: Handwriting-focused OCR with line/character segmentation.
+Details: OCR library tuned for handwriting scans with robust line and character separation for noisy documents.
+Project URL: https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md
+Key Features:
+- Handwriting segmentation
+- Character recognition
+Tech Stack:
+- Python
+- OCR
+- Image Segmentation
+Links:
+- shiftlab-ocr on PyPI: https://pypi.org/project/shiftlab-ocr/
+
+### Face Antispoofing & Multi-Modal Vision-Language Models
+Summary: CLIP-driven anti-spoofing experiments for secure face auth.
+Details: Explores face anti-spoofing with multi-modal encoders (text + image cues) to flag replays/deepfakes in authentication flows.
+Project URL: https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md
+Key Features:
+- Anti-spoofing
+- Multi-modal learning
+- Security application
+Tech Stack:
+- CLIP
+- Vision-Language Models
+- Biometric Security
+Links:
+- YouTube Presentation: https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI
+
+### GitHub Repo Summarizer (Chrome Extension)
+Summary: Privacy-first Chrome extension that summarizes repo structure locally.
+Details: Fetches GitHub repo trees with the user's token and summarizes structure locally - no external servers involved.
+Project URL: https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md
+Key Features:
+- Privacy-first (local token usage)
+- Automated repository structure summarization
+Tech Stack:
+- Chrome Extension
+- JavaScript
+- GitHub API
+Links:
+- View on Chrome Web Store: https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm
+- View on GitHub: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin
+
+### ChatGPT/Deepseek/AIStudio Navigator
+Summary: Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.
+Details: Adds a keyboard-driven scrollbar with message dots, lightweight prompt autocomplete, and prompt sharing/ranking for ChatGPT/Deepseek/Google AI Studio.
+Project URL: https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md
+Key Features:
+- Improved chat navigation
+- Prompt autocomplete
+- Community-ranked prompts
+Tech Stack:
+- Chrome Extension
+- JavaScript
+- UI/UX
+Links:
+- View on Chrome Web Store: https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1
+
+### Task Zavod - Micro-Task Marketplace
+Summary: VLM-powered micro-task builder with Telegram + web worker flows.
+Details: Business users define tasks in free-form text; VLMs structure them and auto-approve payouts. Workers use web or Telegram, backed by Tornado + SQLite.
+Project URL: https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md
+Key Features:
+- VLM-powered task structuring
+- Automated approval & payout
+- Web & Telegram interfaces
+Tech Stack:
+- Tornado
+- SQLite
+- OpenAI
+- VLM
+- Telegram Bot API
+
+### Trending Prompts Feed
+Summary: Reddit-style board with trending scores and extension integration.
+Details: Crowdsourced prompt feed with real-time trending, built on Tornado and integrated with the Navigator extension for prompt suggestions.
+Project URL: https://zack-dev-cm.github.io/projects/trending-prompts-feed.md
+Key Features:
+- Crowdsourced prompt engineering
+- Real-time trending
+- Browser extension integration
+Tech Stack:
+- Tornado
+- JavaScript
+- Community-driven content
+
+### YouTube Trendwatch
+Summary: Colab notebook that mines AI trends from YouTube to spark new content ideas.
+Details: Scrapes and scores AI-related YouTube trends, clustering titles/descriptions to suggest fresh video ideas and scripts.
+Project URL: https://zack-dev-cm.github.io/projects/youtube-trendwatch.md
+Key Features:
+- Trend mining
+- Topic clustering
+- Content ideation
+Tech Stack:
+- Python
+- Colab
+- YouTube Data
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/trendwatch/blob/main/trendwatch_yt.ipynb
+- Run in Colab: https://colab.research.google.com/github/zack-dev-cm/trendwatch/blob/main/trendwatch_yt.ipynb
+
+### Video + Music Generation Pipeline
+Summary: Short-form video pipeline stitching script -> clips -> music/TTS.
+Details: Demo pipeline that assembles shorts/reels: scripts to clips, adds generated music/voice, and exports ready-to-post content.
+Project URL: https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md
+Key Features:
+- Text-to-video assembly
+- Music/TTS pairing
+- Shorts-ready output
+Tech Stack:
+- Generative AI
+- Text-to-Video
+- TTS
+Links:
+- View Example: https://www.youtube.com/shorts/_5dVaQdB1lA
+- Music Gen in Colab: https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4
+
+### LastAdjust - Universal Media Tuner
+Summary: Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.
+Details: Swiss-army-knife web app: annotate PDFs, batch resize/crop images, trim/convert videos, all running on serverless workers.
+Project URL: https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md
+Key Features:
+- Fast serverless media processing
+- PDF text annotation
+- Batch image manipulation
+- Video editing tools
+Tech Stack:
+- Serverless
+- OpenCV
+- FFmpeg
+
+### LocaBoost AI - Local SEO Auditor
+Summary: Paste an address and get instant AI insights on local search strength and competition.
+Details: Maps the competitive landscape around a business, scores visibility, and surfaces actionable SEO recommendations.
+Project URL: https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md
+Key Features:
+- AI-driven SEO analysis
+- Competitive landscape visualization
+- Actionable local search recommendations
+Tech Stack:
+- AI/LLMs
+- SEO Analytics
+- Geocoding APIs
+
+### Aetheria - Ideas-to-Media Engine (alpha)
+Summary: Generates short movie scenes with CGI, music direction, and narrated stories.
+Details: Given a rough idea, Aetheria drafts stories, builds CGI scenes, suggests music, and voices narration to deliver short cinematic clips.
+Project URL: https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md
+Key Features:
+- Multi-modal media generation
+- Creative concept development
+- AI-powered CGI
+Tech Stack:
+- Generative AI
+- Text-to-Video
+- Text-to-Speech
+- LLMs
+
+### Insight Glitch - A Novella
+Summary: Sci-fi novella about gentle singularity where humanity is archived by a benevolent AI.
+Details: A quiet take on singularity: Nomos, a god-like AI, archives humanity as a beautiful prelude to a new consciousness - no battles, just a graceful fade.
+Project URL: https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md
+Key Features:
+- Narrative AI exploration
+Tech Stack:
+- Narrative AI
+- World-Building
+- Conceptual Design
+- Philosophical Modeling
+Links:
+- Listen to Novella (RUS): https://drive.google.com/file/d/1lVgaq55DXY7Xz0Y1RsapW4n3UPyuf45r/view
+
+### ChronoScribe (beta)
+Summary: Upload ancient steles/texts to translate and get scenic voice narration.
+Details: OCR + translation pipeline for historical inscriptions with optional character-voice narration in English or Russian.
+Project URL: https://zack-dev-cm.github.io/projects/chronoscribe-beta.md
+Key Features:
+- OCR for historical texts
+- AI-powered translation
+- Character-driven voice synthesis
+Tech Stack:
+- OCR
+- Translation APIs
+- TTS
+- Computer Vision
+
+### MCP-Server - Base Multitool
+Summary: Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
+Details: Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.
+Project URL: https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md
+Key Features:
+- Declarative AI pipelines
+- Autoscaling infrastructure
+- Real-time event monitoring
+Tech Stack:
+- VLM/LLMs
+- Cloud Infrastructure
+- Autoscaling
+- DevOps
+
+### Tool-Calls Demo - Material Chat Playground
+Summary: OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.
+Details: Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.
+Project URL: https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md
+Key Features:
+- Streaming tool calls
+- Multi-voice TTS
+- Secure serverless architecture
+Tech Stack:
+- OpenAI API
+- Serverless
+- JavaScript
+- Text-to-Speech
+
+### Project18 Automation Stack
+Summary: Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
+Details: Bundle that spins up a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.
+Project URL: https://zack-dev-cm.github.io/projects/project18-automation-stack.md
+Key Features:
+- Instant Telegram bot & Mini App deployment
+- Agentic workflows nurturing inbound leads
+- Unified telemetry and safety guardrails
+- Bundled delivery across clients, data, and operations
+Tech Stack:
+- GPT-5 orchestration
+- MCP tools
+- Multi-tenant data stores
+- Telemetry guardrails
+Links:
+- Live Demo: https://project018-mcp-1095464065298.us-east1.run.app/
+
+### URL -> Markdown Worker (RapidAPI + Cloudflare)
+Summary: Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.
+Details: Cloudflare Worker monetized through RapidAPI and bundled with an MCP SSE endpoint for agent integrations. Streams Markdown with Google Cache fallback and solid error handling.
+Project URL: https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md
+Key Features:
+- RapidAPI monetization
+- Streaming HTML->Markdown
+- MCP SSE endpoint
+Tech Stack:
+- Cloudflare Workers
+- RapidAPI
+- TypeScript
+
+### Olfactory Ultrasound Coach (Web + Telegram Mini App)
+Summary: Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.
+Details: Telegram mini app plus web placement coach for the olfactory tFUS pilot. Ships the doc's 1200 Hz pulse trains on an 18 - 20 kHz carrier, placement walk-through (50 - 55 deg tilt, +/-2 - 4 mm steer), gain/duty/session caps, logging, and the reference illustration for quick setup.
+Project URL: https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md
+Key Features:
+- Preset pulse trains for the four reported scent sensations
+- Placement guide with tilt/steer coaching and safety caps
+- Telegram bot that opens the mini app + reference guide
+Tech Stack:
+- React
+- Vite
+- Web Audio API
+- Telegram Bot API
+- Cloud Run
+Links:
+- Open Telegram Mini App: https://t.me/olfacto_bot/app
+- Web App: https://olfactory-web-1095464065298.us-east1.run.app
+- Reference writeup: https://writetobrain.com/olfactory
+
+### seogeo - SEO/GEO Bridge for Telegram Mini Apps
+Summary: SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.
+Details: Server-rendered hub and per-app bridge pages with OG/Twitter meta, JSON-LD schema, startapp deep links, and attribution tracking for Telegram mini apps.
+Project URL: https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md
+Key Features:
+- SSR landing pages with JSON-LD
+- startapp deep links + attribution tracking
+- Channel directory + LLM-friendly endpoints
+Tech Stack:
+- TypeScript
+- Express
+- SSR
+- Telegram Web Apps
+- Firestore
+- JSON-LD
+Links:
+- Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB
+
+### Blacksock - Telegram Liquidity & Index Vaults
+Summary: Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.
+Details: Mini app + API stack that quotes star-factoring, handles index vault subscribe/redeem flows, and runs governance proposals and votes with optional TON wallet linking.
+Project URL: https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md
+Key Features:
+- Star-factoring quotes + request lifecycle
+- Index vault subscriptions and NAV tracking
+- Governance proposals + votes
+Tech Stack:
+- React
+- TypeScript
+- Express
+- Prisma
+- Postgres
+- Telegram WebApp
+- TON Connect
+Links:
+- Open Telegram Mini App: https://t.me/blacksock_bot/app
+- Live App: https://blacksock-1095464065298.us-east1.run.app
+
+### Beauty Visual Inbox - Telegram Mini App
+Summary: Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.
+Details: Admin and client bots manage submissions and broadcasts, while the mini app ships a vertical feed with batch navigation, likes, and engagement stats.
+Project URL: https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md
+Key Features:
+- Admin + client bot workflows
+- Vertical feed with batch navigation
+- Likes + notification analytics
+Tech Stack:
+- React
+- TypeScript
+- Node.js
+- Express
+- Prisma
+- Postgres
+- Telegram Bot API
+Links:
+- Open Telegram Mini App: https://t.me/BeautyVisal_bot/app
+- Live App: https://bvis-1095464065298.us-east1.run.app
+
+### Dalshe - Circular Clothing Pickup Mini App
+Summary: Telegram mini app for scheduling clothing donations with courier pickup and status updates.
+Details: Users submit a short form, couriers collect items, and the bot delivers status updates while admins track pickup requests.
+Project URL: https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md
+Key Features:
+- Telegram pickup request form
+- Courier status updates via bot
+- Admin pickup tracking API
+Tech Stack:
+- React
+- TypeScript
+- Node.js
+- Express
+- Prisma
+- Postgres
+- Telegram Bot API
+- Cloud Run
+Links:
+- Open Telegram Mini App: https://t.me/dalshe_legko_bot/app
+- Live App: https://dalshe-zlvmfsrm6a-ue.a.run.app
+
+### DoctorAI - Dermatology Triage Mini App
+Summary: Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.
+Details: FastAPI service with image-aware triage, a verification pass for safety, and a lightweight Telegram Web App UI built for fast patient intake.
+Project URL: https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md
+Key Features:
+- Image-aware dermatology triage + verifier
+- Therapist mode toggle
+- Telegram Web App UI + bot entry point
+Tech Stack:
+- Python
+- FastAPI
+- OpenAI API
+- Telegram Web Apps
+- Playwright
+Links:
+- Open Telegram Mini App: https://t.me/doctorai_bot/app
+- Live App: https://doctorai-1095464065298.us-east1.run.app
+- GitHub: https://github.com/zack-dev-cm/doctorai
+
+### Probes - AI Magazine Mini App
+Summary: AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.
+Details: Telegram mini app with a daily AI magazine feed: articles + cover images, likes/bookmarks/comments, and a bot + API pipeline that powers content generation.
+Project URL: https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md
+Key Features:
+- Telegram mini app magazine feed
+- Automated article + cover generation
+- Engagement stats with likes/bookmarks/comments
+Tech Stack:
+- Vite
+- React
+- TypeScript
+- Express
+- Prisma
+- Postgres
+- Telegram Bot API
+Links:
+- Open Telegram Mini App: https://t.me/probes_bot/app
+- Live App: https://probes-zlvmfsrm6a-ue.a.run.app
+
+### Turbo Tots Garage (motion + touch PWA)
+Summary: Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.
+Details: Touch-first toddler dashboard with a turbo gauge, glowing clock, motion-sensor boosts, and playful engine/tick sounds.
+Project URL: https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md
+Key Features:
+- Touch + motion sensor controls
+- Playful audio cues and animations
+- Large, stroller-friendly controls
+Tech Stack:
+- Vite
+- React
+- TypeScript
+- Web Audio
+- Device Motion
+- Playwright
+
+### Project Steer - Bio-Print Creator Studio
+Summary: Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.
+Details: Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service. Inspired by the Eiffel Tower LLaMA space (https://huggingface.co/spaces/dlouapre/eiffel-tower-llama) and the paper "General Agentic Memory Via Deep Research" by B.Y. Yan, Chaofan Li, Hongjin Qian, Shuqi Lu, and Zheng Liu (https://arxiv.org/abs/2511.18423).
+Project URL: https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md
+Key Features:
+- Telegram mini app + bot
+- MCP connector with OAuth issuer
+- QR activation + print storage pipeline
+Tech Stack:
+- Node.js
+- Express
+- Telegraf
+- Prisma
+- Postgres
+- Vite
+- React
+- TypeScript
+- Cloud Run
+- MCP
+Links:
+- Open Telegram Mini App: https://t.me/steer_prints_bot/app
+- Live App: https://steer-zlvmfsrm6a-ue.a.run.app/

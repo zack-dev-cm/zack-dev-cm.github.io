@@ -1,0 +1,549 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin",
+      "name": "Zakhar Pashkin",
+      "jobTitle": "AI Product Engineer",
+      "url": "https://zack-dev-cm.github.io/",
+      "email": "mailto:kaisenaiko@gmail.com",
+      "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
+      "sameAs": [
+        "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
+        "https://github.com/zack-dev-cm",
+        "https://github.com/ZackPashkin",
+        "https://t.me/rheuiii"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://zack-dev-cm.github.io/#website",
+      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
+      "url": "https://zack-dev-cm.github.io/",
+      "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://zack-dev-cm.github.io/#webpage",
+      "url": "https://zack-dev-cm.github.io/",
+      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
+      "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
+      "inLanguage": "en",
+      "dateModified": "2026-01-08",
+      "isPartOf": {
+        "@id": "https://zack-dev-cm.github.io/#website"
+      },
+      "about": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://zack-dev-cm.github.io/#project-list",
+      "name": "Projects",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 38,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Android Remote Control with VLM AI Agents",
+            "description": "Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.",
+            "url": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Control VLM-LLM Agent Silently With Your Breath",
+            "description": "Start/stop a neural agent with breathing patterns - no voice commands needed.",
+            "url": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "meshmcp - Offline P2P Chat for Local LLMs",
+            "description": "Bluetooth mesh messaging + LLM reasoning on constrained devices.",
+            "url": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Promo & Reflinks Generator",
+            "description": "Generates personalized promo/referral links with analytics and sharing.",
+            "url": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Create, Chat & AR Experience with AI-Character (Text2Room)",
+            "description": "Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.",
+            "url": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Label and Inpaint Anything in a Room Interior",
+            "description": "Label objects in an interior photo, then remove/replace them with lighting-aware inpainting.",
+            "url": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Smart Drive for Smart City: Predict Optimal Speed",
+            "description": "Predict the optimal speed before traffic lights or jams to smooth city driving.",
+            "url": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Estimate Golf Ball Trajectory",
+            "description": "Analyze golf swings and estimate ball trajectory for coaching and analytics.",
+            "url": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Pixel-Wise Segmentation of Spare Parts",
+            "description": "High-precision segmentation for additive manufacturing and rework flows.",
+            "url": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Food Recognition App",
+            "description": "iOS/Android app that detects food items and OCRs labels for nutrition facts.",
+            "url": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
+            "description": "Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).",
+            "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Python Library: AutoToloka",
+            "description": "Interactive segmentation toolkit that cuts labeling cost for CV datasets.",
+            "url": "https://zack-dev-cm.github.io/projects/python-library-autotoloka.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Python Library: shiftlab-ocr",
+            "description": "Handwriting-focused OCR with line/character segmentation.",
+            "url": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Face Antispoofing & Multi-Modal Vision-Language Models",
+            "description": "CLIP-driven anti-spoofing experiments for secure face auth.",
+            "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "GitHub Repo Summarizer (Chrome Extension)",
+            "description": "Privacy-first Chrome extension that summarizes repo structure locally.",
+            "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "ChatGPT/Deepseek/AIStudio Navigator",
+            "description": "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
+            "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Task Zavod - Micro-Task Marketplace",
+            "description": "VLM-powered micro-task builder with Telegram + web worker flows.",
+            "url": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Trending Prompts Feed",
+            "description": "Reddit-style board with trending scores and extension integration.",
+            "url": "https://zack-dev-cm.github.io/projects/trending-prompts-feed.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "YouTube Trendwatch",
+            "description": "Colab notebook that mines AI trends from YouTube to spark new content ideas.",
+            "url": "https://zack-dev-cm.github.io/projects/youtube-trendwatch.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Video + Music Generation Pipeline",
+            "description": "Short-form video pipeline stitching script -> clips -> music/TTS.",
+            "url": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "LastAdjust - Universal Media Tuner",
+            "description": "Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.",
+            "url": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "LocaBoost AI - Local SEO Auditor",
+            "description": "Paste an address and get instant AI insights on local search strength and competition.",
+            "url": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Aetheria - Ideas-to-Media Engine (alpha)",
+            "description": "Generates short movie scenes with CGI, music direction, and narrated stories.",
+            "url": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Insight Glitch - A Novella",
+            "description": "Sci-fi novella about gentle singularity where humanity is archived by a benevolent AI.",
+            "url": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "ChronoScribe (beta)",
+            "description": "Upload ancient steles/texts to translate and get scenic voice narration.",
+            "url": "https://zack-dev-cm.github.io/projects/chronoscribe-beta.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "MCP-Server - Base Multitool",
+            "description": "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
+            "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Tool-Calls Demo - Material Chat Playground",
+            "description": "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
+            "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Project18 Automation Stack",
+            "description": "Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.",
+            "url": "https://zack-dev-cm.github.io/projects/project18-automation-stack.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "URL -> Markdown Worker (RapidAPI + Cloudflare)",
+            "description": "Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.",
+            "url": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Olfactory Ultrasound Coach (Web + Telegram Mini App)",
+            "description": "Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.",
+            "url": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
+            "description": "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
+            "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Blacksock - Telegram Liquidity & Index Vaults",
+            "description": "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
+            "url": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Beauty Visual Inbox - Telegram Mini App",
+            "description": "Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.",
+            "url": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Dalshe - Circular Clothing Pickup Mini App",
+            "description": "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
+            "url": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "DoctorAI - Dermatology Triage Mini App",
+            "description": "Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.",
+            "url": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Probes - AI Magazine Mini App",
+            "description": "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
+            "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Turbo Tots Garage (motion + touch PWA)",
+            "description": "Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.",
+            "url": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Project Steer - Bio-Print Creator Studio",
+            "description": "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
+            "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

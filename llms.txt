@@ -7,6 +7,12 @@ Contact: mailto:kaisenaiko@gmail.com
 
 Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.
 
+## AI Memory Files
+- [llms-full.txt](https://zack-dev-cm.github.io/llms-full.txt): Full portfolio memory file with all project details.
+- [agent-context.md](https://zack-dev-cm.github.io/agent-context.md): Quick facts, contact info, and key project highlights.
+- [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
+- [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
+
 ## Top 5 Projects
 - [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type. View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
 - [Project Steer - Bio-Print Creator Studio](https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md): Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research. Open Telegram Mini App: https://t.me/steer_prints_bot/app | Live App: https://steer-zlvmfsrm6a-ue.a.run.app/

@@ -11,8 +11,22 @@ const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
 const GEO_PATH = path.resolve(ROOT_DIR, 'geo.txt');
+const LLMS_FULL_PATH = path.resolve(ROOT_DIR, 'llms-full.txt');
+const AGENT_CONTEXT_PATH = path.resolve(ROOT_DIR, 'agent-context.md');
+const SCHEMA_JSONLD_PATH = path.resolve(ROOT_DIR, 'schema.jsonld');
+const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
+const AUTHOR_NAME = 'Zakhar Pashkin';
+const AUTHOR_TITLE = 'AI Product Engineer';
+const AUTHOR_DESCRIPTION =
+  'AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.';
+const AUTHOR_SAME_AS = [
+  'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/',
+  'https://github.com/zack-dev-cm',
+  'https://github.com/ZackPashkin',
+  'https://t.me/rheuiii'
+];
 
 const ASCII_REPLACEMENTS = new Map([
   ['–', ' - '],
@@ -214,7 +228,7 @@ const formatTopProjectLine = (project) => {
 
 const buildLlms = (projects, topProjects) => {
   const lines = [
-    '# Zakhar Pashkin - AI Product Engineer Portfolio',
+    `# ${AUTHOR_NAME} - AI Product Engineer Portfolio`,
     '',
     '> Python-first AI product engineer specializing in PyTorch/OpenAI VLM/LLM systems, computer vision, FastAPI services, Open MCP tooling, and full-stack delivery across web, mobile, and cloud.',
     '',
@@ -222,6 +236,12 @@ const buildLlms = (projects, topProjects) => {
     `Contact: mailto:${CONTACT_EMAIL}`,
     '',
     'Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.',
+    '',
+    '## AI Memory Files',
+    formatLinkLine('llms-full.txt', `${SITE_BASE}/llms-full.txt`, 'Full portfolio memory file with all project details.'),
+    formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
+    formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
+    formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -277,6 +297,172 @@ const buildGeo = (projects) => {
   return lines.join('\n');
 };
 
+const buildLlmsFull = (projects, topProjects) => {
+  const lines = [
+    '# Zakhar Pashkin - Portfolio Memory File',
+    '',
+    `Summary: ${AUTHOR_DESCRIPTION}`,
+    `Primary URL: ${SITE_BASE}/`,
+    `Contact: mailto:${CONTACT_EMAIL}`,
+    '',
+    '## Focus Areas',
+    '- Python, PyTorch, OpenAI APIs, VLMs, LLMs',
+    '- Computer vision, OCR, segmentation, multimodal systems',
+    '- FastAPI services, Open MCP tooling, full-stack delivery',
+    '- React, TypeScript, Cloud Run, MLOps',
+    '',
+    '## Top 5 Projects',
+    ...topProjects.map(formatTopProjectLine),
+    '',
+    '## Projects (Full Details)',
+    ...projects.flatMap((project) => {
+      const title = toAscii(project.title);
+      const description = toAscii(project.description);
+      const longDescription = toAscii(project.longDescription);
+      const keyFeatures = project.keyFeatures.map((item) => toAscii(item)).filter(Boolean);
+      const techStack = project.techStack.map((item) => toAscii(item)).filter(Boolean);
+      const links = project.links.map((link) => ({
+        text: toAscii(link.text),
+        url: link.url
+      }));
+
+      const block = [`### ${title}`];
+      if (description) block.push(`Summary: ${description}`);
+      if (longDescription && longDescription !== description) block.push(`Details: ${longDescription}`);
+      block.push(`Project URL: ${project.markdownUrl}`);
+      if (keyFeatures.length) {
+        block.push('Key Features:');
+        keyFeatures.forEach((feature) => block.push(`- ${feature}`));
+      }
+      if (techStack.length) {
+        block.push('Tech Stack:');
+        techStack.forEach((item) => block.push(`- ${item}`));
+      }
+      if (links.length) {
+        block.push('Links:');
+        links.forEach((link) => block.push(`- ${link.text}: ${link.url}`));
+      }
+      block.push('');
+      return block;
+    })
+  ];
+
+  return lines.join('\n');
+};
+
+const buildAgentContext = (topProjects) => {
+  const lines = [
+    '# Agent Context - Zakhar Pashkin Portfolio',
+    '',
+    `Summary: ${AUTHOR_DESCRIPTION}`,
+    `Primary URL: ${SITE_BASE}/`,
+    `Contact: mailto:${CONTACT_EMAIL}`,
+    '',
+    '## Identity',
+    `Name: ${AUTHOR_NAME}`,
+    `Role: ${AUTHOR_TITLE}`,
+    '',
+    '## Key Files',
+    `- ${SITE_BASE}/llms.txt`,
+    `- ${SITE_BASE}/llms-full.txt`,
+    `- ${SITE_BASE}/geo.txt`,
+    `- ${SITE_BASE}/schema.jsonld`,
+    '',
+    '## Top Projects',
+    ...topProjects.map(formatTopProjectLine),
+    ''
+  ];
+
+  return lines.join('\n');
+};
+
+const buildSchemaJsonld = (projects) => {
+  const today = new Date().toISOString().split('T')[0];
+  const graph = [
+    {
+      '@type': 'Person',
+      '@id': `${SITE_BASE}/#zakhar-pashkin`,
+      name: AUTHOR_NAME,
+      jobTitle: AUTHOR_TITLE,
+      url: `${SITE_BASE}/`,
+      email: `mailto:${CONTACT_EMAIL}`,
+      description: AUTHOR_DESCRIPTION,
+      sameAs: AUTHOR_SAME_AS
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_BASE}/#website`,
+      name: `${AUTHOR_NAME} - AI Product Engineer Portfolio`,
+      url: `${SITE_BASE}/`,
+      description: AUTHOR_DESCRIPTION,
+      inLanguage: 'en',
+      publisher: { '@id': `${SITE_BASE}/#zakhar-pashkin` }
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE_BASE}/#webpage`,
+      url: `${SITE_BASE}/`,
+      name: `${AUTHOR_NAME} - AI Product Engineer Portfolio`,
+      description: AUTHOR_DESCRIPTION,
+      inLanguage: 'en',
+      dateModified: today,
+      isPartOf: { '@id': `${SITE_BASE}/#website` },
+      about: { '@id': `${SITE_BASE}/#zakhar-pashkin` }
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${SITE_BASE}/#project-list`,
+      name: 'Projects',
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      numberOfItems: projects.length,
+      itemListElement: projects.map((project, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: toAscii(project.title),
+          description: toAscii(project.description || project.longDescription || 'Project summary.'),
+          url: project.markdownUrl,
+          author: { '@id': `${SITE_BASE}/#zakhar-pashkin` }
+        }
+      }))
+    }
+  ];
+
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
+};
+
+const buildSitemap = (projects) => {
+  const today = new Date().toISOString().split('T')[0];
+  const urls = [
+    { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE_BASE}/llms.txt`, lastmod: today, changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_BASE}/llms-full.txt`, lastmod: today, changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_BASE}/agent-context.md`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
+    { loc: `${SITE_BASE}/geo.txt`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
+    { loc: `${SITE_BASE}/schema.jsonld`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
+    ...projects.map((project) => ({
+      loc: project.markdownUrl,
+      lastmod: today,
+      changefreq: 'monthly',
+      priority: '0.7'
+    }))
+  ];
+
+  const lines = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...urls.map(
+      ({ loc, lastmod, changefreq, priority }) =>
+        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
+    ),
+    '</urlset>',
+    ''
+  ];
+
+  return lines.join('\n');
+};
+
 const main = async () => {
   const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
@@ -326,6 +512,14 @@ const main = async () => {
   await fs.writeFile(LLMS_PATH, llmsContent, 'utf8');
   const geoContent = buildGeo(projectEntries);
   await fs.writeFile(GEO_PATH, geoContent, 'utf8');
+  const llmsFullContent = buildLlmsFull(projectEntries, topProjects);
+  await fs.writeFile(LLMS_FULL_PATH, llmsFullContent, 'utf8');
+  const agentContextContent = buildAgentContext(topProjects);
+  await fs.writeFile(AGENT_CONTEXT_PATH, agentContextContent, 'utf8');
+  const schemaJsonldContent = buildSchemaJsonld(projectEntries);
+  await fs.writeFile(SCHEMA_JSONLD_PATH, schemaJsonldContent, 'utf8');
+  const sitemapContent = buildSitemap(projectEntries);
+  await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');
 };
 
 main().catch((error) => {
