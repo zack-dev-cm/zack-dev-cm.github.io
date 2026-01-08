@@ -271,10 +271,20 @@ export const PROJECTS: Project[] = [
   {
     id: 11,
     title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    description: "Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).",
-    longDescription: "Multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.",
+    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (2,754 users).",
+    longDescription: "Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.",
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
+    benchmarks: [
+      { label: "Data as of", value: "2026-01-08" },
+      { label: "Total users", value: "2,754" },
+      { label: "DAU / WAU / MAU", value: "29 / 93 / 472" },
+      { label: "Stickiness (DAU/MAU)", value: "6.1%" },
+      { label: "Returning users", value: "696" },
+      { label: "Events logged", value: "87,698" },
+      { label: "Referral conversion", value: "80% (8/10)" },
+      { label: "Referral depth avg / max", value: "16.99 / 251" }
+    ],
     links: [{ text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" }],
     images: [],
     thumbnail: ""
@@ -475,9 +485,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 28,
-    title: "Project18 Automation Stack",
+    title: "ZackAutoStack Automation Stack",
     description: "Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.",
-    longDescription: "Bundle that spins up a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.",
+    longDescription: "ZackAutoStack bundles a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.",
     keyFeatures: [
       "Instant Telegram bot & Mini App deployment",
       "Agentic workflows nurturing inbound leads",
@@ -486,8 +496,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ["GPT-5 orchestration", "MCP tools", "Multi-tenant data stores", "Telemetry guardrails"],
     links: [{ text: "Live Demo", url: "https://project018-mcp-1095464065298.us-east1.run.app/" }],
-    images: [{ url: `${LOCAL_IMG_BASE}/project018.png`, alt: "Project18 automation stack" }],
-    thumbnail: `${LOCAL_IMG_BASE}/project018.png`,
+    images: [{ url: `${LOCAL_IMG_BASE}/zackautostack.png`, alt: "ZackAutoStack automation stack" }],
+    thumbnail: `${LOCAL_IMG_BASE}/zackautostack.png`,
     topologySnapshot: `Clients Layer
   - Telegram Bot
   - Telegram Mini App

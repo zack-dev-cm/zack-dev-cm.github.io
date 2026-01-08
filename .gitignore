@@ -5,3 +5,4 @@ package-lock.json
 test-results/
 scripts/capture-remote-screenshots.mjs
 .npm-cache/
+critical.md

@@ -55,6 +55,15 @@ const toAscii = (value) => {
   return output.replace(/[^\x00-\x7F]/g, '').replace(/\s{2,}/g, ' ').trim();
 };
 
+const toAsciiBlock = (value) => {
+  if (!value) return '';
+  let output = value;
+  for (const [from, to] of ASCII_REPLACEMENTS.entries()) {
+    output = output.split(from).join(to);
+  }
+  return output.replace(/[^\x00-\x7F]/g, '');
+};
+
 const slugify = (value) => {
   const ascii = toAscii(value).toLowerCase();
   const slug = ascii.replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -119,6 +128,20 @@ const parseLinks = (node) => {
     .filter(Boolean);
 };
 
+const parseBenchmarks = (node) => {
+  if (!node || !ts.isArrayLiteralExpression(node)) return [];
+  return node.elements
+    .map((element) => {
+      if (!ts.isObjectLiteralExpression(element)) return null;
+      const label = parseString(getPropertyValue(element, 'label'));
+      const value = parseString(getPropertyValue(element, 'value'));
+      const context = parseString(getPropertyValue(element, 'context'));
+      if (!label || !value) return null;
+      return { label, value, context };
+    })
+    .filter(Boolean);
+};
+
 const extractProjects = (sourceFile) => {
   let projectsNode = null;
   const visit = (node) => {
@@ -147,6 +170,7 @@ const extractProjects = (sourceFile) => {
       const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
       const links = parseLinks(getPropertyValue(element, 'links'));
       const topologySnapshot = parseString(getPropertyValue(element, 'topologySnapshot'));
+      const benchmarks = parseBenchmarks(getPropertyValue(element, 'benchmarks'));
 
       return {
         id,
@@ -156,7 +180,8 @@ const extractProjects = (sourceFile) => {
         keyFeatures,
         techStack,
         links,
-        topologySnapshot
+        topologySnapshot,
+        benchmarks
       };
     });
 };
@@ -171,7 +196,12 @@ const buildMarkdown = (project, markdownUrl) => {
     text: toAscii(link.text),
     url: link.url
   }));
-  const topologySnapshot = toAscii(project.topologySnapshot);
+  const benchmarks = (project.benchmarks || []).map((item) => ({
+    label: toAscii(item.label),
+    value: toAscii(item.value),
+    context: toAscii(item.context)
+  }));
+  const topologySnapshot = toAsciiBlock(project.topologySnapshot);
 
   const lines = [`# ${title}`];
   if (description) {
@@ -192,6 +222,13 @@ const buildMarkdown = (project, markdownUrl) => {
     lines.push('', '## Tech Stack');
     techStack.forEach((item) => {
       lines.push(`- ${item}`);
+    });
+  }
+  if (benchmarks.length) {
+    lines.push('', '## Benchmarks & Analytics');
+    benchmarks.forEach((item) => {
+      const suffix = item.context ? ` (${item.context})` : '';
+      lines.push(`- ${item.label}: ${item.value}${suffix}`);
     });
   }
   if (links.length) {
@@ -277,6 +314,23 @@ const buildLlms = (projects, topProjects) => {
 };
 
 const buildGeo = (projects) => {
+  const formatBenchmarksInline = (benchmarks) => {
+    return (benchmarks || [])
+      .map((item) => {
+        if (!item?.label || !item?.value) return '';
+        const context = item.context ? ` (${item.context})` : '';
+        return `${item.label}: ${item.value}${context}`;
+      })
+      .filter(Boolean)
+      .join('; ');
+  };
+  const buildGeoDescription = (project) => {
+    const base = (project.description || project.longDescription || 'Project detail page.').trim();
+    const benchmarkLine = formatBenchmarksInline(project.benchmarks);
+    if (!benchmarkLine) return base;
+    const normalizedBase = base.replace(/[.!?]+$/, '');
+    return `${normalizedBase}. Benchmarks: ${benchmarkLine}.`;
+  };
   const lines = [
     '# GEO - Project Index',
     '',
@@ -288,7 +342,7 @@ const buildGeo = (projects) => {
       formatLinkLine(
         project.title,
         project.markdownUrl,
-        project.description || project.longDescription || 'Project detail page.'
+        buildGeoDescription(project)
       )
     ),
     ''
@@ -321,6 +375,11 @@ const buildLlmsFull = (projects, topProjects) => {
       const longDescription = toAscii(project.longDescription);
       const keyFeatures = project.keyFeatures.map((item) => toAscii(item)).filter(Boolean);
       const techStack = project.techStack.map((item) => toAscii(item)).filter(Boolean);
+      const benchmarks = (project.benchmarks || []).map((item) => ({
+        label: toAscii(item.label),
+        value: toAscii(item.value),
+        context: toAscii(item.context)
+      }));
       const links = project.links.map((link) => ({
         text: toAscii(link.text),
         url: link.url
@@ -337,6 +396,13 @@ const buildLlmsFull = (projects, topProjects) => {
       if (techStack.length) {
         block.push('Tech Stack:');
         techStack.forEach((item) => block.push(`- ${item}`));
+      }
+      if (benchmarks.length) {
+        block.push('Benchmarks & Analytics:');
+        benchmarks.forEach((item) => {
+          const suffix = item.context ? ` (${item.context})` : '';
+          block.push(`- ${item.label}: ${item.value}${suffix}`);
+        });
       }
       if (links.length) {
         block.push('Links:');

@@ -172,6 +172,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
           </div>
 
+          {project.benchmarks && project.benchmarks.length > 0 && (
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold text-slate-200">Benchmarks & Analytics</h3>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {project.benchmarks.map((benchmark, index) => (
+                  <div
+                    key={`${benchmark.label}-${index}`}
+                    className="rounded-lg border border-slate-700 bg-slate-900/60 p-3"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">{benchmark.label}</p>
+                    <p className="mt-1 text-lg font-semibold text-slate-200">{benchmark.value}</p>
+                    {benchmark.context && <p className="mt-1 text-xs text-slate-500">{benchmark.context}</p>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {project.topologySnapshot && (
             <div className="mt-6">
               <h3 className="text-lg font-semibold text-slate-200">ASCII Topology Snapshot</h3>

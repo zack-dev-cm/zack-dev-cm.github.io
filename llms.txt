@@ -31,7 +31,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Estimate Golf Ball Trajectory](https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md): Analyze golf swings and estimate ball trajectory for coaching and analytics.
 - [Pixel-Wise Segmentation of Spare Parts](https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md): High-precision segmentation for additive manufacturing and rework flows.
 - [Food Recognition App](https://zack-dev-cm.github.io/projects/food-recognition-app.md): iOS/Android app that detects food items and OCRs labels for nutrition facts.
-- [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).
+- [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (2,754 users).
 - [Python Library: AutoToloka](https://zack-dev-cm.github.io/projects/python-library-autotoloka.md): Interactive segmentation toolkit that cuts labeling cost for CV datasets.
 - [Python Library: shiftlab-ocr](https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md): Handwriting-focused OCR with line/character segmentation.
 - [Face Antispoofing & Multi-Modal Vision-Language Models](https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md): CLIP-driven anti-spoofing experiments for secure face auth.
@@ -48,7 +48,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [ChronoScribe (beta)](https://zack-dev-cm.github.io/projects/chronoscribe-beta.md): Upload ancient steles/texts to translate and get scenic voice narration.
 - [MCP-Server - Base Multitool](https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md): Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
 - [Tool-Calls Demo - Material Chat Playground](https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md): OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.
-- [Project18 Automation Stack](https://zack-dev-cm.github.io/projects/project18-automation-stack.md): Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
+- [ZackAutoStack Automation Stack](https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md): Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
 - [URL -> Markdown Worker (RapidAPI + Cloudflare)](https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md): Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.
 - [Olfactory Ultrasound Coach (Web + Telegram Mini App)](https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md): Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.
 - [seogeo - SEO/GEO Bridge for Telegram Mini Apps](https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md): SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.

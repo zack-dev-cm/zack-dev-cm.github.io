@@ -162,8 +162,8 @@ Links:
 - View Demo GIF: https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing
 
 ### Dishes Recognition & Nutrition Goals Telegram Bot
-Summary: Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).
-Details: Multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.
+Summary: Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (2,754 users).
+Details: Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.
 Project URL: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md
 Key Features:
 - Vision + voice dish detection
@@ -174,6 +174,15 @@ Tech Stack:
 - OCR
 - Speech-to-Text
 - LLMs
+Benchmarks & Analytics:
+- Data as of: 2026-01-08
+- Total users: 2,754
+- DAU / WAU / MAU: 29 / 93 / 472
+- Stickiness (DAU/MAU): 6.1%
+- Returning users: 696
+- Events logged: 87,698
+- Referral conversion: 80% (8/10)
+- Referral depth avg / max: 16.99 / 251
 Links:
 - Try on Telegram: https://t.me/calorio_yf_bot
 
@@ -408,10 +417,10 @@ Tech Stack:
 - JavaScript
 - Text-to-Speech
 
-### Project18 Automation Stack
+### ZackAutoStack Automation Stack
 Summary: Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
-Details: Bundle that spins up a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.
-Project URL: https://zack-dev-cm.github.io/projects/project18-automation-stack.md
+Details: ZackAutoStack bundles a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.
+Project URL: https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md
 Key Features:
 - Instant Telegram bot & Mini App deployment
 - Agentic workflows nurturing inbound leads

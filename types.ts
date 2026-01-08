@@ -10,6 +10,12 @@ export interface ProjectImage {
   caption?: string;
 }
 
+export interface ProjectBenchmark {
+  label: string;
+  value: string;
+  context?: string;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -22,6 +28,7 @@ export interface Project {
   images: ProjectImage[];
   thumbnail: string;
   topologySnapshot?: string;
+  benchmarks?: ProjectBenchmark[];
   repoFullName?: string;
   repoId?: number;
   createdAt?: string;

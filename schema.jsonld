@@ -185,7 +185,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
-            "description": "Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,000+ users).",
+            "description": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (2,754 users).",
             "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -405,9 +405,9 @@
           "position": 28,
           "item": {
             "@type": "CreativeWork",
-            "name": "Project18 Automation Stack",
+            "name": "ZackAutoStack Automation Stack",
             "description": "Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.",
-            "url": "https://zack-dev-cm.github.io/projects/project18-automation-stack.md",
+            "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }
