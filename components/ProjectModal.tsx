@@ -24,6 +24,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const titleId = `project-modal-title-${project.id}`;
+  const descriptionId = `project-modal-description-${project.id}`;
 
   // Reset image index when project changes
   useEffect(() => {
@@ -60,6 +62,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       onClick={handleBackdropClick}
       aria-modal="true"
       role="dialog"
+      aria-labelledby={titleId}
+      aria-describedby={descriptionId}
     >
       <div 
         ref={modalRef}
@@ -90,6 +94,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   src={project.images[currentImageIndex].url} 
                   alt={project.images[currentImageIndex].alt} 
                   className="w-full h-full object-contain transition-opacity duration-300"
+                  loading="lazy"
+                  decoding="async"
                   key={project.images[currentImageIndex].url}
                   onError={(event) => {
                     if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
@@ -131,7 +137,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
         <div className="p-8">
           <div className="flex flex-wrap items-start justify-between gap-4">
-            <h2 className="text-3xl font-bold text-slate-100">{project.title}</h2>
+            <h2 id={titleId} className="text-3xl font-bold text-slate-100">{project.title}</h2>
             {onCopyShare && (
               <button
                 type="button"
@@ -144,7 +150,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </button>
             )}
           </div>
-          <p className="mt-4 text-slate-400">{project.longDescription || project.description}</p>
+          <p id={descriptionId} className="mt-4 text-slate-400">{project.longDescription || project.description}</p>
 
           <div className="mt-6">
             <h3 className="text-lg font-semibold text-slate-200">Key Features</h3>

@@ -20,6 +20,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
     <div 
       className="group relative cursor-pointer overflow-hidden rounded-lg bg-slate-800/50 transition-all duration-300 hover:bg-slate-800/80 hover:shadow-2xl hover:shadow-teal-500/10"
       onClick={onSelectProject}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          onSelectProject();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`Open project: ${project.title}`}
     >
       {showImage ? (
         <>
@@ -45,6 +54,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
               src={project.thumbnail} 
               alt={`${project.title} thumbnail`} 
               className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
               onError={(event) => {
                 if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
                   event.currentTarget.src = fallbackImageUrl;

@@ -419,6 +419,8 @@ const App: React.FC = () => {
                       src={company.logoUrl}
                       alt={`${company.name} Logo`}
                       className="max-h-16 max-w-full object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ))}
@@ -546,6 +548,8 @@ const App: React.FC = () => {
                                             src={image.url}
                                             alt={image.alt}
                                             className="h-40 w-full object-cover"
+                                            loading="lazy"
+                                            decoding="async"
                                             onError={(event) => {
                                               if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
                                                 event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
