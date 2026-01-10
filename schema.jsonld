@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-01-08",
+      "dateModified": "2026-01-10",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 38,
+      "numberOfItems": 39,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -445,7 +445,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
-            "description": "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
+            "description": "SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.",
             "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -538,6 +538,19 @@
             "name": "Project Steer - Bio-Print Creator Studio",
             "description": "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
             "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Noel - Noetic Mirror",
+            "description": "Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.",
+            "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

@@ -566,17 +566,38 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 31,
     title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
-    description: "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
-    longDescription: "Server-rendered hub and per-app bridge pages with OG/Twitter meta, JSON-LD schema, startapp deep links, and attribution tracking for Telegram mini apps.",
-    keyFeatures: ["SSR landing pages with JSON-LD", "startapp deep links + attribution tracking", "Channel directory + LLM-friendly endpoints"],
-    techStack: ["TypeScript", "Express", "SSR", "Telegram Web Apps", "Firestore", "JSON-LD"],
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }
+    description: "SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.",
+    longDescription: "Server-rendered hub and per-app bridge pages with OG/Twitter meta, SoftwareApplication + FAQ JSON-LD, startapp deep links, and attribution tracking. Includes LLM-friendly endpoints (/api/apps, /api/memory, /llms.txt), channel index/search + import API, and optional business verification via 2GIS/Yandex plus Telegram pulse checks. Firestore is optional with an in-memory fallback.",
+    keyFeatures: [
+      "SSR hub + per-app bridge pages with JSON-LD/OG metadata",
+      "Startapp deep links, desktop QR, and attribution tracking",
+      "LLM-friendly endpoints and hub memory snapshots",
+      "Channel discovery index with search and import APIs",
+      "Optional verification with 2GIS/Yandex + Telegram pulse"
     ],
+    techStack: ["TypeScript", "Express", "Node.js", "SSR", "Telegram Web Apps", "Firestore", "JSON-LD", "Cloud Run"],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
+      { text: "Live Hub", url: "https://seogeo-bridge-1095464065298.us-east1.run.app" },
+      { text: "Channels Index", url: "https://seogeo-bridge-1095464065298.us-east1.run.app/channels" }
+    ],
+    mermaidDiagram: `flowchart LR
+  Crawler["Crawler / LLM Indexer"] --> SSR["SSR Hub + Bridge Pages"]
+  Human["Human Visitor"] --> SSR
+  SSR -->|JSON-LD, OG, FAQ| Crawler
+  SSR -->|startapp deep link| Telegram["Telegram Mini App"]
+  SSR -->|/api/track| Attribution["Attribution Store (Firestore or Memory)"]
+  SSR -->|/channels + /api/channels| Channels["Channel Index"]
+  SSR -->|/api/verify| Verify["2GIS + Yandex + Telegram Pulse"]`,
     images: [
       { url: `${LOCAL_IMG_BASE}/seogeo.png`, alt: "seogeo bridge preview" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/seogeo.png`
+    thumbnail: `${LOCAL_IMG_BASE}/seogeo.png`,
+    benchmarks: [
+      { label: "Endpoints", value: "14+", context: "Hub, apps, channels, attribution, verify, sitemap, llms" },
+      { label: "Schema", value: "SoftwareApplication + FAQ + WebSite", context: "JSON-LD for crawlers and LLMs" },
+      { label: "Stores", value: "Firestore + in-memory", context: "Attribution + channel index fallback" }
+    ]
   },
   {
     id: 32,
@@ -689,5 +710,51 @@ Operations Layer (Console, Alerts, Runbooks)`
       { url: `${LOCAL_IMG_BASE}/steer-loading-screen.webm`, alt: "Project Steer loading screen video" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/steer-loading-screen.webm`
+  },
+  {
+    id: 39,
+    title: "Noel - Noetic Mirror",
+    description: "Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.",
+    longDescription: "Noetic Mirror is a Telegram mini app that streams a live research loop between an OpenAI researcher model and a Gemini subject model. Users watch public sessions, sponsor interventions with Telegram Stars, and switch EN/RU UI or light/dark themes while safety controls and budgets guard the session.",
+    keyFeatures: [
+      "Live researcher/subject stream with turn pairing and diagnostics",
+      "Telegram Stars sponsorships and paid interventions",
+      "EN/RU localization with light/dark theme toggle",
+      "Safety controls, consent gate, and session budgets",
+      "Admin controls for model versions and stream settings"
+    ],
+    techStack: [
+      "React",
+      "TypeScript",
+      "Telegram Web Apps",
+      "Vite",
+      "Node.js",
+      "Express",
+      "WebSocket",
+      "Postgres",
+      "Redis",
+      "Cloud Run",
+      "OpenAI API",
+      "Gemini API"
+    ],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
+      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/noel-ui-en.png`, alt: "Noetic Mirror live session UI (EN)" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/noel-ui-en.png`,
+    mermaidDiagram: `flowchart LR
+  User[Telegram User] --> TMA[Noetic Mirror Mini App]
+  TMA -->|initData| API[Web/API Service]
+  TMA -->|live stream| WS[WebSocket Stream]
+  API --> Store[(Postgres + Redis)]
+  API --> Stars[Telegram Stars]
+  WS --> Worker[Research Loop Worker]
+  Worker --> OpenAI[Researcher Model (OpenAI)]
+  Worker --> Gemini[Subject Model (Gemini)]
+  Worker --> Store
+  API --> Channel[@noel_mirror]`
   }
 ];

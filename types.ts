@@ -28,6 +28,7 @@ export interface Project {
   images: ProjectImage[];
   thumbnail: string;
   topologySnapshot?: string;
+  mermaidDiagram?: string;
   benchmarks?: ProjectBenchmark[];
   repoFullName?: string;
   repoId?: number;

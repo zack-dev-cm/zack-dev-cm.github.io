@@ -170,6 +170,7 @@ const extractProjects = (sourceFile) => {
       const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
       const links = parseLinks(getPropertyValue(element, 'links'));
       const topologySnapshot = parseString(getPropertyValue(element, 'topologySnapshot'));
+      const mermaidDiagram = parseString(getPropertyValue(element, 'mermaidDiagram'));
       const benchmarks = parseBenchmarks(getPropertyValue(element, 'benchmarks'));
 
       return {
@@ -181,6 +182,7 @@ const extractProjects = (sourceFile) => {
         techStack,
         links,
         topologySnapshot,
+        mermaidDiagram,
         benchmarks
       };
     });
@@ -202,6 +204,7 @@ const buildMarkdown = (project, markdownUrl) => {
     context: toAscii(item.context)
   }));
   const topologySnapshot = toAsciiBlock(project.topologySnapshot);
+  const mermaidDiagram = toAsciiBlock(project.mermaidDiagram);
 
   const lines = [`# ${title}`];
   if (description) {
@@ -236,6 +239,9 @@ const buildMarkdown = (project, markdownUrl) => {
     links.forEach((link) => {
       lines.push(`- [${link.text}](${link.url})`);
     });
+  }
+  if (mermaidDiagram) {
+    lines.push('', '## Architecture Diagram', '```mermaid', mermaidDiagram, '```');
   }
   if (topologySnapshot) {
     lines.push('', '## Topology Snapshot', '```', topologySnapshot, '```');

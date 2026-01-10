@@ -14,7 +14,7 @@ Contact: mailto:kaisenaiko@gmail.com
 - [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type. View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
 - [Project Steer - Bio-Print Creator Studio](https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md): Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research. Open Telegram Mini App: https://t.me/steer_prints_bot/app | Live App: https://steer-zlvmfsrm6a-ue.a.run.app/
 - [DoctorAI - Dermatology Triage Mini App](https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md): Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode. Open Telegram Mini App: https://t.me/doctorai_bot/app | Live App: https://doctorai-1095464065298.us-east1.run.app
-- [seogeo - SEO/GEO Bridge for Telegram Mini Apps](https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md): SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable. Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB
+- [seogeo - SEO/GEO Bridge for Telegram Mini Apps](https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md): SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery. Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB | Live Hub: https://seogeo-bridge-1095464065298.us-east1.run.app
 - [MCP-Server - Base Multitool](https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md): Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
 
 ## Projects (Full Details)
@@ -467,22 +467,32 @@ Links:
 - Reference writeup: https://writetobrain.com/olfactory
 
 ### seogeo - SEO/GEO Bridge for Telegram Mini Apps
-Summary: SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.
-Details: Server-rendered hub and per-app bridge pages with OG/Twitter meta, JSON-LD schema, startapp deep links, and attribution tracking for Telegram mini apps.
+Summary: SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.
+Details: Server-rendered hub and per-app bridge pages with OG/Twitter meta, SoftwareApplication + FAQ JSON-LD, startapp deep links, and attribution tracking. Includes LLM-friendly endpoints (/api/apps, /api/memory, /llms.txt), channel index/search + import API, and optional business verification via 2GIS/Yandex plus Telegram pulse checks. Firestore is optional with an in-memory fallback.
 Project URL: https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md
 Key Features:
-- SSR landing pages with JSON-LD
-- startapp deep links + attribution tracking
-- Channel directory + LLM-friendly endpoints
+- SSR hub + per-app bridge pages with JSON-LD/OG metadata
+- Startapp deep links, desktop QR, and attribution tracking
+- LLM-friendly endpoints and hub memory snapshots
+- Channel discovery index with search and import APIs
+- Optional verification with 2GIS/Yandex + Telegram pulse
 Tech Stack:
 - TypeScript
 - Express
+- Node.js
 - SSR
 - Telegram Web Apps
 - Firestore
 - JSON-LD
+- Cloud Run
+Benchmarks & Analytics:
+- Endpoints: 14+ (Hub, apps, channels, attribution, verify, sitemap, llms)
+- Schema: SoftwareApplication + FAQ + WebSite (JSON-LD for crawlers and LLMs)
+- Stores: Firestore + in-memory (Attribution + channel index fallback)
 Links:
 - Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB
+- Live Hub: https://seogeo-bridge-1095464065298.us-east1.run.app
+- Channels Index: https://seogeo-bridge-1095464065298.us-east1.run.app/channels
 
 ### Blacksock - Telegram Liquidity & Index Vaults
 Summary: Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.
@@ -622,3 +632,30 @@ Tech Stack:
 Links:
 - Open Telegram Mini App: https://t.me/steer_prints_bot/app
 - Live App: https://steer-zlvmfsrm6a-ue.a.run.app/
+
+### Noel - Noetic Mirror
+Summary: Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.
+Details: Noetic Mirror is a Telegram mini app that streams a live research loop between an OpenAI researcher model and a Gemini subject model. Users watch public sessions, sponsor interventions with Telegram Stars, and switch EN/RU UI or light/dark themes while safety controls and budgets guard the session.
+Project URL: https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md
+Key Features:
+- Live researcher/subject stream with turn pairing and diagnostics
+- Telegram Stars sponsorships and paid interventions
+- EN/RU localization with light/dark theme toggle
+- Safety controls, consent gate, and session budgets
+- Admin controls for model versions and stream settings
+Tech Stack:
+- React
+- TypeScript
+- Telegram Web Apps
+- Vite
+- Node.js
+- Express
+- WebSocket
+- Postgres
+- Redis
+- Cloud Run
+- OpenAI API
+- Gemini API
+Links:
+- Open Telegram Mini App: https://t.me/noetic_mirror_bot/app
+- Live App: https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/
