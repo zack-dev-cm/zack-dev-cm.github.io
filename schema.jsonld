@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-01-10",
+      "dateModified": "2026-01-11",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -549,7 +549,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Noel - Noetic Mirror",
-            "description": "Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.",
+            "description": "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions.",
             "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

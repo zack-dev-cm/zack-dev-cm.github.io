@@ -52,6 +52,15 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Noel - Noetic Mirror",
+    description: "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions and EN/RU UI.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
+      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
+    ],
+    projectId: 39
+  },
+  {
     title: "Project Steer - Bio-Print Creator Studio",
     description: "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
     links: [
@@ -714,13 +723,14 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 39,
     title: "Noel - Noetic Mirror",
-    description: "Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.",
-    longDescription: "Noetic Mirror is a Telegram mini app that streams a live research loop between an OpenAI researcher model and a Gemini subject model. Users watch public sessions, sponsor interventions with Telegram Stars, and switch EN/RU UI or light/dark themes while safety controls and budgets guard the session.",
+    description: "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions.",
+    longDescription: "Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that crafts probing prompts and a Subject (Gemini) that responds with long-context reasoning. The loop streams to a Telegram mini app with paired turns, diagnostics, and EN/RU + light/dark themes. Users sponsor interventions with Telegram Stars while operators enforce consent, safety thresholds, and session budgets.",
     keyFeatures: [
-      "Live researcher/subject stream with turn pairing and diagnostics",
+      "Two-model loop: OpenAI Researcher probes, Gemini Subject replies in paired turns",
+      "Live stream with turn pairing, diagnostics, and session telemetry",
       "Telegram Stars sponsorships and paid interventions",
       "EN/RU localization with light/dark theme toggle",
-      "Safety controls, consent gate, and session budgets",
+      "Consent gates, safety thresholds, and budget controls",
       "Admin controls for model versions and stream settings"
     ],
     techStack: [
@@ -742,19 +752,22 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/noel-ui-en.png`, alt: "Noetic Mirror live session UI (EN)" }
+      { url: `${LOCAL_IMG_BASE}/noel-live.png`, alt: "Noetic Mirror live session UI" },
+      { url: `${LOCAL_IMG_BASE}/noel-architecture.png`, alt: "Noetic Mirror architecture flow diagram" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/noel-ui-en.png`,
+    thumbnail: `${LOCAL_IMG_BASE}/noel-live.png`,
     mermaidDiagram: `flowchart LR
   User[Telegram User] --> TMA[Noetic Mirror Mini App]
-  TMA -->|initData| API[Web/API Service]
+  TMA -->|initData| API[Web API Service]
   TMA -->|live stream| WS[WebSocket Stream]
   API --> Store[(Postgres + Redis)]
   API --> Stars[Telegram Stars]
   WS --> Worker[Research Loop Worker]
-  Worker --> OpenAI[Researcher Model (OpenAI)]
-  Worker --> Gemini[Subject Model (Gemini)]
+  Worker --> Researcher[Researcher Model OpenAI]
+  Worker --> Subject[Subject Model Gemini]
+  Researcher -->|prompts| Subject
+  Subject -->|responses| Researcher
   Worker --> Store
-  API --> Channel[@noel_mirror]`
+  API --> Channel[Noel Mirror Channel]`
   }
 ];

@@ -1,18 +1,19 @@
 # Noel - Noetic Mirror
 
-> Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.
+> Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions.
 
 ## Summary
-Noetic Mirror is a Telegram mini app that streams a live research loop between an OpenAI researcher model and a Gemini subject model. Users watch public sessions, sponsor interventions with Telegram Stars, and switch EN/RU UI or light/dark themes while safety controls and budgets guard the session.
+Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that crafts probing prompts and a Subject (Gemini) that responds with long-context reasoning. The loop streams to a Telegram mini app with paired turns, diagnostics, and EN/RU + light/dark themes. Users sponsor interventions with Telegram Stars while operators enforce consent, safety thresholds, and session budgets.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md
 
 ## Key Features
-- Live researcher/subject stream with turn pairing and diagnostics
+- Two-model loop: OpenAI Researcher probes, Gemini Subject replies in paired turns
+- Live stream with turn pairing, diagnostics, and session telemetry
 - Telegram Stars sponsorships and paid interventions
 - EN/RU localization with light/dark theme toggle
-- Safety controls, consent gate, and session budgets
+- Consent gates, safety thresholds, and budget controls
 - Admin controls for model versions and stream settings
 
 ## Tech Stack
@@ -37,13 +38,15 @@ https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md
 ```mermaid
 flowchart LR
   User[Telegram User] --> TMA[Noetic Mirror Mini App]
-  TMA -->|initData| API[Web/API Service]
+  TMA -->|initData| API[Web API Service]
   TMA -->|live stream| WS[WebSocket Stream]
   API --> Store[(Postgres + Redis)]
   API --> Stars[Telegram Stars]
   WS --> Worker[Research Loop Worker]
-  Worker --> OpenAI[Researcher Model (OpenAI)]
-  Worker --> Gemini[Subject Model (Gemini)]
+  Worker --> Researcher[Researcher Model OpenAI]
+  Worker --> Subject[Subject Model Gemini]
+  Researcher -->|prompts| Subject
+  Subject -->|responses| Researcher
   Worker --> Store
-  API --> Channel[@noel_mirror]
+  API --> Channel[Noel Mirror Channel]
 ```

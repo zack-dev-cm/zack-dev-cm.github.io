@@ -42,4 +42,4 @@ Contact: mailto:kaisenaiko@gmail.com
 - [Probes - AI Magazine Mini App](https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md): AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.
 - [Turbo Tots Garage (motion + touch PWA)](https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md): Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.
 - [Project Steer - Bio-Print Creator Studio](https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md): Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.
-- [Noel - Noetic Mirror](https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md): Telegram mini app streaming a live researcher/subject AI loop with Stars sponsorships.
+- [Noel - Noetic Mirror](https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md): Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions.
