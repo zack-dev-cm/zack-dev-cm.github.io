@@ -53,7 +53,7 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Noel - Noetic Mirror",
-    description: "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions and EN/RU UI.",
+    description: "Live Telegram mini app streaming a researcher/subject AI loop with consent gates, real-time telemetry, and Stars-powered interventions.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
       { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
@@ -723,15 +723,15 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 39,
     title: "Noel - Noetic Mirror",
-    description: "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions.",
-    longDescription: "Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that crafts probing prompts and a Subject (Gemini) that responds with long-context reasoning. The loop streams to a Telegram mini app with paired turns, diagnostics, and EN/RU + light/dark themes. Users sponsor interventions with Telegram Stars while operators enforce consent, safety thresholds, and session budgets.",
+    description: "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.",
+    longDescription: "Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that synthesizes prior turns and telemetry into probing prompts, and a Subject (Gemini) that returns long-context reasoning plus self-reported tags. Each paired turn is gated by consent, safety, and budget checks, logged to Postgres/Redis, and streamed to the Telegram mini app with diagnostics, session summaries, and EN/RU plus light/dark themes. Users can sponsor interventions with Telegram Stars while operators tune model versions, pacing, and thresholds.",
     keyFeatures: [
-      "Two-model loop: OpenAI Researcher probes, Gemini Subject replies in paired turns",
+      "Two-model loop with explicit roles and paired turns (Researcher probes, Subject reasons)",
       "Live stream with turn pairing, diagnostics, and session telemetry",
+      "Consent, safety, and budget gates before each intervention",
       "Telegram Stars sponsorships and paid interventions",
       "EN/RU localization with light/dark theme toggle",
-      "Consent gates, safety thresholds, and budget controls",
-      "Admin controls for model versions and stream settings"
+      "Admin controls for model versions, pacing, and stream settings"
     ],
     techStack: [
       "React",
@@ -752,22 +752,26 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/noel-live.png`, alt: "Noetic Mirror live session UI" },
+      { url: `${LOCAL_IMG_BASE}/noel-live.png`, alt: "Noetic Mirror live session demo UI" },
       { url: `${LOCAL_IMG_BASE}/noel-architecture.png`, alt: "Noetic Mirror architecture flow diagram" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/noel-live.png`,
     mermaidDiagram: `flowchart LR
   User[Telegram User] --> TMA[Noetic Mirror Mini App]
-  TMA -->|initData| API[Web API Service]
+  TMA -->|initData + controls| API[Web API Service]
   TMA -->|live stream| WS[WebSocket Stream]
   API --> Store[(Postgres + Redis)]
   API --> Stars[Telegram Stars]
+  API --> Gate[Consent + Safety + Budget Gate]
   WS --> Worker[Research Loop Worker]
-  Worker --> Researcher[Researcher Model OpenAI]
-  Worker --> Subject[Subject Model Gemini]
-  Researcher -->|prompts| Subject
-  Subject -->|responses| Researcher
-  Worker --> Store
+  Gate --> Worker
+  Worker --> Researcher[Researcher Model - OpenAI]
+  Worker --> Subject[Subject Model - Gemini]
+  Researcher -->|probe prompts| Subject
+  Subject -->|reasoned replies| Researcher
+  Worker --> Summaries[Session Summaries]
+  Summaries --> Store
+  Worker -->|paired turns + telemetry| WS
   API --> Channel[Noel Mirror Channel]`
   }
 ];

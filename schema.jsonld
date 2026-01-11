@@ -549,7 +549,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Noel - Noetic Mirror",
-            "description": "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions.",
+            "description": "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.",
             "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
