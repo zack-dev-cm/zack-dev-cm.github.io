@@ -52,6 +52,15 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "GeoFix - AI Visibility Memorizer Mini App",
+    description: "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" },
+      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" }
+    ],
+    projectId: 40
+  },
+  {
     title: "Noel - Noetic Mirror",
     description: "Live Telegram mini app streaming a researcher/subject AI loop with consent gates, real-time telemetry, and Stars-powered interventions.",
     links: [
@@ -773,5 +782,58 @@ Operations Layer (Console, Alerts, Runbooks)`
   Summaries --> Store
   Worker -->|paired turns + telemetry| WS
   API --> Channel[Noel Mirror Channel]`
+  },
+  {
+    id: 40,
+    title: "GeoFix - AI Visibility Memorizer Mini App",
+    description: "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
+    longDescription: "GeoFix runs AI visibility scans, surfaces a scorecard with GEO diagnostics, and generates Server-Side Memorizer assets (llms.txt, llms-full.txt, schema.jsonld). The unified Cloud Run service ships a React web app, FastAPI API, and Celery worker with Redis-backed jobs, plus Telegram bot delivery and hosted previews.",
+    keyFeatures: [
+      "AI visibility scorecard with GEO diagnostics",
+      "Memorizer generation for llms.txt, llms-full.txt, and schema.jsonld",
+      "Telegram bot delivery with hosted previews",
+      "Unified Cloud Run deployment for web, API, and worker services"
+    ],
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Python",
+      "FastAPI",
+      "Celery",
+      "Redis",
+      "OpenAI API",
+      "Telegram Web Apps",
+      "Cloud Run",
+      "GCS"
+    ],
+    links: [
+      { text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" },
+      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/geofix-architecture.png`, alt: "GeoFix architecture diagram" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/geofix-architecture.png`,
+    mermaidDiagram: `flowchart TB
+  subgraph GCP
+    FE[Cloud Run: web]
+    API[Cloud Run: api]
+    WORKER[Cloud Run: worker]
+    REDIS[(Redis)]
+    GCS[(GCS bucket)]
+    LOGS[Cloud Logging]
+  end
+  FE --> API
+  API --> REDIS
+  REDIS --> WORKER
+  WORKER --> GCS
+  API --> GCS
+  API --> LOGS
+  WORKER --> LOGS
+  API --> TGAPI[Telegram Bot API]
+  WORKER --> OPENAI[OpenAI API]
+  WORKER --> SITE[Target Website]
+  API --> MEDA[ Medaudit GEO API ]`
   }
 ];

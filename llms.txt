@@ -60,6 +60,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Turbo Tots Garage (motion + touch PWA)](https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md): Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.
 - [Project Steer - Bio-Print Creator Studio](https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md): Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.
 - [Noel - Noetic Mirror](https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md): Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 
 ## Core Pages
 - [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.
