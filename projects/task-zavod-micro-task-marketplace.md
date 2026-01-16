@@ -19,3 +19,6 @@ https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md
 - OpenAI
 - VLM
 - Telegram Bot API
+
+## Links
+- [Live App](https://aichatnavigator.online/task_zavod)

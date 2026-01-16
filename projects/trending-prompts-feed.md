@@ -17,3 +17,6 @@ https://zack-dev-cm.github.io/projects/trending-prompts-feed.md
 - Tornado
 - JavaScript
 - Community-driven content
+
+## Links
+- [Live Feed](https://aichatnavigator.online/prompts_feed)

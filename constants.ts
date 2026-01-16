@@ -362,13 +362,15 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     links: [
-      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1" }
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" },
+      { text: "Landing page", url: "https://aichatnavigator.online" }
     ],
     images: [
+      { url: `${LOCAL_IMG_BASE}/aichatnavigator_webstore.jpg`, alt: "AI Chat Navigator Chrome Web Store listing" },
       { url: `${LOCAL_IMG_BASE}/navigator.png`, alt: "Chat navigation overlay" },
       { url: `${LOCAL_IMG_BASE}/navigator-chrome.png`, alt: "Navigator Chrome" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/navigator.png`
+    thumbnail: `${LOCAL_IMG_BASE}/aichatnavigator_webstore.jpg`
   },
   {
     id: 17,
@@ -377,13 +379,14 @@ export const PROJECTS: Project[] = [
     longDescription: "Business users define tasks in free-form text; VLMs structure them and auto-approve payouts. Workers use web or Telegram, backed by Tornado + SQLite.",
     keyFeatures: ["VLM-powered task structuring", "Automated approval & payout", "Web & Telegram interfaces"],
     techStack: ["Tornado", "SQLite", "OpenAI", "VLM", "Telegram Bot API"],
-    links: [],
+    links: [{ text: "Live App", url: "https://aichatnavigator.online/task_zavod" }],
     images: [
+      { url: `${LOCAL_IMG_BASE}/task_zavod_ui.png`, alt: "Task Zavod marketplace interface" },
       { url: `${LOCAL_IMG_BASE}/task_zavod.png`, alt: "Task Zavod live demo" },
       { url: `${LOCAL_IMG_BASE}/task-zavod-1.jpg`, alt: "Task Zavod example" },
       { url: `${LOCAL_IMG_BASE}/task-zavod-2.jpg`, alt: "Task Zavod example 2" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/task_zavod.png`
+    thumbnail: `${LOCAL_IMG_BASE}/task_zavod_ui.png`
   },
   {
     id: 18,
@@ -392,9 +395,12 @@ export const PROJECTS: Project[] = [
     longDescription: "Crowdsourced prompt feed with real-time trending, built on Tornado and integrated with the Navigator extension for prompt suggestions.",
     keyFeatures: ["Crowdsourced prompt engineering", "Real-time trending", "Browser extension integration"],
     techStack: ["Tornado", "JavaScript", "Community-driven content"],
-    links: [],
-    images: [{ url: `${LOCAL_IMG_BASE}/trending_prompts.png`, alt: "Prompts Feed" }],
-    thumbnail: `${LOCAL_IMG_BASE}/trending_prompts.png`
+    links: [{ text: "Live Feed", url: "https://aichatnavigator.online/prompts_feed" }],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/prompts_feed.jpg`, alt: "Trending prompts feed" },
+      { url: `${LOCAL_IMG_BASE}/trending_prompts.png`, alt: "Prompts Feed" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/prompts_feed.jpg`
   },
   {
     id: 19,

@@ -258,7 +258,8 @@ Tech Stack:
 - JavaScript
 - UI/UX
 Links:
-- View on Chrome Web Store: https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1
+- View on Chrome Web Store: https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en
+- Landing page: https://aichatnavigator.online
 
 ### Task Zavod - Micro-Task Marketplace
 Summary: VLM-powered micro-task builder with Telegram + web worker flows.
@@ -274,6 +275,8 @@ Tech Stack:
 - OpenAI
 - VLM
 - Telegram Bot API
+Links:
+- Live App: https://aichatnavigator.online/task_zavod
 
 ### Trending Prompts Feed
 Summary: Reddit-style board with trending scores and extension integration.
@@ -287,6 +290,8 @@ Tech Stack:
 - Tornado
 - JavaScript
 - Community-driven content
+Links:
+- Live Feed: https://aichatnavigator.online/prompts_feed
 
 ### YouTube Trendwatch
 Summary: Colab notebook that mines AI trends from YouTube to spark new content ideas.

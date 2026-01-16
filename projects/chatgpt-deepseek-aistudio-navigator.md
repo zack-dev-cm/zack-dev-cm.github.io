@@ -19,4 +19,5 @@ https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md
 - UI/UX
 
 ## Links
-- [View on Chrome Web Store](https://chromewebstore.google.com/detail/chatgpt-scrollbar/jnoonpeekddinkiecaonhocaflcgbhap?pli=1)
+- [View on Chrome Web Store](https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en)
+- [Landing page](https://aichatnavigator.online)
