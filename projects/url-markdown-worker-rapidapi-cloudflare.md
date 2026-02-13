@@ -17,6 +17,3 @@ https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.m
 - Cloudflare Workers
 - RapidAPI
 - TypeScript
-
-## Links
-- [View on GitHub](https://github.com/zack-dev-cm/url-to-markdown-worker)

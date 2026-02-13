@@ -30,7 +30,6 @@ https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.m
 ## Links
 - [Open Telegram Mini App](https://t.me/geofix_app_bot/launch)
 - [Live App](https://geofix-app-zlvmfsrm6a-ue.a.run.app/)
-- [View on GitHub](https://github.com/zack-dev-cm/geofix)
 
 ## Architecture Diagram
 ```mermaid

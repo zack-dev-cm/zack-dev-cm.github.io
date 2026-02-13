@@ -28,4 +28,3 @@ https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegr
 
 ## Links
 - [Try on Telegram](https://t.me/calorio_yf_bot)
-- [View on GitHub](https://github.com/zack-dev-cm/food_n_bot_server)

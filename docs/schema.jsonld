@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 40,
+      "numberOfItems": 41,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -564,6 +564,19 @@
             "name": "GeoFix - AI Visibility Memorizer Mini App",
             "description": "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
             "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Pores & Wrinkles Detection Service",
+            "description": "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
+            "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }
