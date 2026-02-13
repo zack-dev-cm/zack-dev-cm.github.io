@@ -56,7 +56,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" },
-      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" }
+      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/geofix" }
     ],
     projectId: 40
   },
@@ -65,7 +66,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Live Telegram mini app streaming a researcher/subject AI loop with consent gates, real-time telemetry, and Stars-powered interventions.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
-      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
+      { text: "Telegram Channel", url: "https://t.me/noel_mirror" },
+      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/noel" }
     ],
     projectId: 39
   },
@@ -74,7 +77,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
-      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
+      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/steer" }
     ],
     projectId: 38
   },
@@ -82,7 +86,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
     description: "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
     links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }
+      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
+      { text: "Live Hub", url: "https://seogeo-bridge-1095464065298.us-east1.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/seogeo" }
     ],
     projectId: 31
   },
@@ -91,7 +97,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
-      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
+      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/blacksock" }
     ],
     projectId: 32
   },
@@ -100,7 +107,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Telegram bots + React mini-app for salons: publish photo batches, likes, notifications, and analytics.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
-      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
+      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/bvis" }
     ],
     projectId: 33
   },
@@ -109,7 +117,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" },
+      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/dalshe" }
     ],
     projectId: 34
   },
@@ -118,7 +128,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and synced engagement stats (likes, views, comments).",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
-      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Channel", url: "https://t.me/pr0bes" },
+      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes" }
     ],
     projectId: 36
   },
@@ -127,20 +139,25 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Telegram mini app and Web Audio placement coach mirroring the 1200 Hz pulse trains, placement guide, and safety caps from the olfactory tFUS writeup.",
     links: [
       { text: "Open Mini App", url: "https://t.me/olfacto_bot/app" },
-      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" }
+      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/olfactory-web" }
     ],
     projectId: 30
   },
   {
     title: "URL → Markdown Worker (Cloudflare)",
     description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
-    links: [],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/url-to-markdown-worker" }
+    ],
     projectId: 29
   },
   {
     title: "Turbo Tots Garage (motion + touch PWA)",
     description: "Playful toddler dashboard with motion sensors, audio cues, and Playwright E2E coverage.",
-    links: [],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/toddler-games" }
+    ],
     projectId: 37
   }
 ];
@@ -153,7 +170,10 @@ export const PROJECTS: Project[] = [
     longDescription: "Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.",
     keyFeatures: ["Real-time instruction processing", "Automated testing & task automation", "Novel device interaction"],
     techStack: ["Android", "Vision-Language Models", "Server-side AI"],
-    links: [{ text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" }],
+    links: [
+      { text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/RemoteScreen" }
+    ],
     images: [
       { url: `${LOCAL_IMG_BASE}/android-remote.gif`, alt: "Android Remote Control Demo" },
       { url: `${LOCAL_IMG_BASE}/android-remote-alt.gif`, alt: "Android Remote Control alternate view" }
@@ -289,21 +309,21 @@ export const PROJECTS: Project[] = [
   {
     id: 11,
     title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (2,754 users).",
-    longDescription: "Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets.",
+    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,795 users).",
+    longDescription: "Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile + diary management and analytics.",
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     benchmarks: [
-      { label: "Data as of", value: "2026-01-08" },
-      { label: "Total users", value: "2,754" },
-      { label: "DAU / WAU / MAU", value: "29 / 93 / 472" },
-      { label: "Stickiness (DAU/MAU)", value: "6.1%" },
-      { label: "Returning users", value: "696" },
-      { label: "Events logged", value: "87,698" },
-      { label: "Referral conversion", value: "80% (8/10)" },
-      { label: "Referral depth avg / max", value: "16.99 / 251" }
+      { label: "Data as of", value: "2026-02-13" },
+      { label: "Total users (profiles)", value: "1,795" },
+      { label: "DAU / WAU / MAU", value: "88 / 464 / 1,214" },
+      { label: "Stickiness (DAU/MAU)", value: "7.2%" },
+      { label: "Meal-log DAU / WAU / MAU", value: "90 / 265 / 546" }
     ],
-    links: [{ text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" }],
+    links: [
+      { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/food_n_bot_server" }
+    ],
     images: [],
     thumbnail: ""
   },
@@ -366,11 +386,9 @@ export const PROJECTS: Project[] = [
       { text: "Landing page", url: "https://aichatnavigator.online" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/aichatnavigator_webstore.jpg`, alt: "AI Chat Navigator Chrome Web Store listing" },
-      { url: `${LOCAL_IMG_BASE}/navigator.png`, alt: "Chat navigation overlay" },
       { url: `${LOCAL_IMG_BASE}/navigator-chrome.png`, alt: "Navigator Chrome" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/aichatnavigator_webstore.jpg`
+    thumbnail: `${LOCAL_IMG_BASE}/navigator-chrome.png`
   },
   {
     id: 17,
@@ -381,12 +399,10 @@ export const PROJECTS: Project[] = [
     techStack: ["Tornado", "SQLite", "OpenAI", "VLM", "Telegram Bot API"],
     links: [{ text: "Live App", url: "https://aichatnavigator.online/task_zavod" }],
     images: [
-      { url: `${LOCAL_IMG_BASE}/task_zavod_ui.png`, alt: "Task Zavod marketplace interface" },
-      { url: `${LOCAL_IMG_BASE}/task_zavod.png`, alt: "Task Zavod live demo" },
       { url: `${LOCAL_IMG_BASE}/task-zavod-1.jpg`, alt: "Task Zavod example" },
       { url: `${LOCAL_IMG_BASE}/task-zavod-2.jpg`, alt: "Task Zavod example 2" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/task_zavod_ui.png`
+    thumbnail: `${LOCAL_IMG_BASE}/task-zavod-1.jpg`
   },
   {
     id: 18,
@@ -561,7 +577,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Cloudflare Worker monetized through RapidAPI and bundled with an MCP SSE endpoint for agent integrations. Streams Markdown with Google Cache fallback and solid error handling.",
     keyFeatures: ["RapidAPI monetization", "Streaming HTML→Markdown", "MCP SSE endpoint"],
     techStack: ["Cloudflare Workers", "RapidAPI", "TypeScript"],
-    links: [],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/url-to-markdown-worker" }
+    ],
     images: [{ url: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`, alt: "RapidAPI URL-to-Markdown worker" }],
     thumbnail: `${LOCAL_IMG_BASE}/micro10-rapidapi.png`
   },
@@ -579,7 +597,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/olfacto_bot/app" },
       { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
-      { text: "Reference writeup", url: "https://writetobrain.com/olfactory" }
+      { text: "Reference writeup", url: "https://writetobrain.com/olfactory" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/olfactory-web" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/olfactory-guide.jpg`, alt: "Olfactory placement guide" },
@@ -603,7 +622,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
       { text: "Live Hub", url: "https://seogeo-bridge-1095464065298.us-east1.run.app" },
-      { text: "Channels Index", url: "https://seogeo-bridge-1095464065298.us-east1.run.app/channels" }
+      { text: "Channels Index", url: "https://seogeo-bridge-1095464065298.us-east1.run.app/channels" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/seogeo" }
     ],
     mermaidDiagram: `flowchart LR
   Crawler["Crawler / LLM Indexer"] --> SSR["SSR Hub + Bridge Pages"]
@@ -632,7 +652,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram WebApp", "TON Connect"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
-      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
+      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/blacksock" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/blacksock.png`, alt: "Blacksock mini app preview" }
@@ -648,7 +669,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
-      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
+      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/bvis" }
     ],
     images: [],
     thumbnail: "",
@@ -663,7 +685,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API", "Cloud Run"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" },
+      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/dalshe" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/dalshe-1.png`, alt: "Dalshe donation mini app" },
@@ -698,7 +722,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["Vite", "React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
-      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Channel", url: "https://t.me/pr0bes" },
+      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/probes.png`, alt: "Probes mini app preview" }
@@ -712,7 +738,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Touch-first toddler dashboard with a turbo gauge, glowing clock, motion-sensor boosts, and playful engine/tick sounds.",
     keyFeatures: ["Touch + motion sensor controls", "Playful audio cues and animations", "Large, stroller-friendly controls"],
     techStack: ["Vite", "React", "TypeScript", "Web Audio", "Device Motion", "Playwright"],
-    links: [],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/toddler-games" }
+    ],
     images: [
       { url: `${LOCAL_IMG_BASE}/turbo-tots-1.jpg`, alt: "Turbo Tots dashboard" },
       { url: `${LOCAL_IMG_BASE}/turbo-tots-2.jpg`, alt: "Turbo Tots control panel" }
@@ -728,7 +756,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["Node.js", "Express", "Telegraf", "Prisma", "Postgres", "Vite", "React", "TypeScript", "Cloud Run", "MCP"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
-      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
+      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/steer" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/steer-loading-screen.webm`, alt: "Project Steer loading screen video" }
@@ -764,7 +793,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
-      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" }
+      { text: "Telegram Channel", url: "https://t.me/noel_mirror" },
+      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/noel" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/noel-live.png`, alt: "Noetic Mirror live session demo UI" },
@@ -815,7 +846,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" },
-      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" }
+      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/geofix" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/geofix-architecture.png`, alt: "GeoFix architecture diagram" }

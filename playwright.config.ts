@@ -14,7 +14,8 @@ const config: PlaywrightTestConfig = {
   },
   webServer: isLocalBase
     ? {
-        command: 'npm run preview -- --host --port 4173',
+        // Serve repo root so GitHub Pages-style `/docs/*` assets resolve in local E2E.
+        command: 'npm run build && python3 -m http.server 4173 --bind 127.0.0.1 --directory .',
         url: 'http://127.0.0.1:4173',
         timeout: 120_000,
         reuseExistingServer

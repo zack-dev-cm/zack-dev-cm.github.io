@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TelegramIcon } from './Icons';
 
 interface FloatingButtonsProps {
@@ -54,3 +54,4 @@ export const FloatingButtons: React.FC<FloatingButtonsProps> = ({ telegramUrl })
     </>
   );
 };
+

@@ -24,4 +24,6 @@ https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md
 
 ## Links
 - [Open Telegram Mini App](https://t.me/probes_bot/app)
+- [Telegram Channel](https://t.me/pr0bes)
 - [Live App](https://probes-zlvmfsrm6a-ue.a.run.app)
+- [View on GitHub](https://github.com/zack-dev-cm/probes)

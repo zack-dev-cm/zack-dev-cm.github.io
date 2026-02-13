@@ -1,8 +1,14 @@
 import { test, expect, type Locator } from '@playwright/test';
 
 test('homepage renders core sections and takes screenshot', async ({ page }) => {
-  // Root should bootstrap the built app (manifest or fallback) and render About/Projects
-  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
+  const isCloudflare = baseUrl.includes('pages.dev');
+  const expectedPath = isCloudflare ? '/docs/' : '/';
+
+  const response = await page.goto(expectedPath, { waitUntil: 'domcontentloaded' });
+  if (isCloudflare && response && response.status() >= 400) {
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+  }
 
   // Wait for main title and a couple of sections to ensure hydration
   await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });

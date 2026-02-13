@@ -564,10 +564,10 @@ const main = async () => {
 
   const topProjectTitles = [
     'Android Remote Control with VLM AI Agents',
-    'Project Steer - Bio-Print Creator Studio',
-    'DoctorAI - Dermatology Triage Mini App',
-    'seogeo - SEO/GEO Bridge for Telegram Mini Apps',
-    'MCP-Server - Base Multitool'
+    'Noel - Noetic Mirror',
+    'MCP-Server - Base Multitool',
+    'GeoFix - AI Visibility Memorizer Mini App',
+    'seogeo - SEO/GEO Bridge for Telegram Mini Apps'
   ].map(toAscii);
 
   const topProjects = topProjectTitles.map((title) =>

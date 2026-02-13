@@ -32,7 +32,9 @@ https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md
 
 ## Links
 - [Open Telegram Mini App](https://t.me/noetic_mirror_bot/app)
+- [Telegram Channel](https://t.me/noel_mirror)
 - [Live App](https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/)
+- [View on GitHub](https://github.com/zack-dev-cm/noel)
 
 ## Architecture Diagram
 ```mermaid

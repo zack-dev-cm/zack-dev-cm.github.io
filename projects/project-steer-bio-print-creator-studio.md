@@ -28,3 +28,4 @@ https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md
 ## Links
 - [Open Telegram Mini App](https://t.me/steer_prints_bot/app)
 - [Live App](https://steer-zlvmfsrm6a-ue.a.run.app/)
+- [View on GitHub](https://github.com/zack-dev-cm/steer)

@@ -25,3 +25,4 @@ https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md
 ## Links
 - [Open Telegram Mini App](https://t.me/BeautyVisal_bot/app)
 - [Live App](https://bvis-1095464065298.us-east1.run.app)
+- [View on GitHub](https://github.com/zack-dev-cm/bvis)
