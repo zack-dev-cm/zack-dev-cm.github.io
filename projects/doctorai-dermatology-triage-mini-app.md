@@ -20,6 +20,12 @@ https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md
 - Telegram Web Apps
 - Playwright
 
+## Benchmarks & Analytics
+- As of: 2026-02-13 (GitHub snapshot)
+- GitHub stars: 0
+- Open issues: 0
+- Last push: 2025-12-05
+
 ## Links
 - [Open Telegram Mini App](https://t.me/doctorai_bot/app)
 - [Live App](https://doctorai-1095464065298.us-east1.run.app)

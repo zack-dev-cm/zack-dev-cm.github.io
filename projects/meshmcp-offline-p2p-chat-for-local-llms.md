@@ -19,5 +19,11 @@ https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.m
 - Bluetooth Mesh
 - Local LLMs
 
+## Benchmarks & Analytics
+- Platforms: 2 (Android + iOS)
+- As of: 2026-02-13 (GitHub snapshot)
+- GitHub stars: 0
+- Last push: 2025-08-27
+
 ## Links
 - [See on GitHub](https://github.com/zack-dev-cm/meshmcp)

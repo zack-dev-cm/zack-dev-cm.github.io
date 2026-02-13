@@ -41,6 +41,16 @@ export const TECH_STACK: string[] = [
   "Python", "PyTorch", "OpenAI APIs", "VLMs", "LLMs", "OpenCV", "TensorFlow", "Keras", "CLIP", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
 ];
 
+export const TOP_PROJECT_IDS: number[] = [
+  11, // Calorio
+  39, // Noel
+  1, // Android Remote Control
+  31, // seogeo
+  35, // DoctorAI
+  41, // Pores & Wrinkles
+  3 // meshmcp
+];
+
 export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
   "zack-dev-cm/zack-dev-cm.github.io"
 ];
@@ -164,6 +174,11 @@ export const PROJECTS: Project[] = [
     longDescription: "Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.",
     keyFeatures: ["Real-time instruction processing", "Automated testing & task automation", "Novel device interaction"],
     techStack: ["Android", "Vision-Language Models", "Server-side AI"],
+    benchmarks: [
+      { label: "Components", value: "2", context: "Android client + Python server" },
+      { label: "Supported actions", value: "7", context: "tap/scroll/text/home/back/overview/screenshot" },
+      { label: "API endpoints", value: "8+", context: "healthz, metrics, devices, actions, screenshots, debug" }
+    ],
     links: [
       { text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" }
     ],
@@ -194,6 +209,12 @@ export const PROJECTS: Project[] = [
     longDescription: "Android + iOS mesh chat that keeps conversations alive without internet. Messages hop over Bluetooth mesh and feed local/edge LLMs for summarization and commands.",
     keyFeatures: ["Offline mesh networking", "Local LLM reasoning", "Energy-efficient relay routing"],
     techStack: ["Android", "iOS", "Bluetooth Mesh", "Local LLMs"],
+    benchmarks: [
+      { label: "Platforms", value: "2", context: "Android + iOS" },
+      { label: "As of", value: "2026-02-13", context: "GitHub snapshot" },
+      { label: "GitHub stars", value: "0" },
+      { label: "Last push", value: "2025-08-27" }
+    ],
     links: [{ text: "See on GitHub", url: "https://github.com/zack-dev-cm/meshmcp" }],
     images: [{ url: `${LOCAL_IMG_BASE}/meshmcp_icon.png`, alt: "meshmcp app icon" }],
     thumbnail: `${LOCAL_IMG_BASE}/meshmcp_icon.png`
@@ -687,6 +708,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "FastAPI service with image-aware triage, a verification pass for safety, and a lightweight Telegram Web App UI built for fast patient intake.",
     keyFeatures: ["Image-aware dermatology triage + verifier", "Therapist mode toggle", "Telegram Web App UI + bot entry point"],
     techStack: ["Python", "FastAPI", "OpenAI API", "Telegram Web Apps", "Playwright"],
+    benchmarks: [
+      { label: "As of", value: "2026-02-13", context: "GitHub snapshot" },
+      { label: "GitHub stars", value: "0" },
+      { label: "Open issues", value: "0" },
+      { label: "Last push", value: "2025-12-05" }
+    ],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/doctorai_bot/app" },
       { text: "Live App", url: "https://doctorai-1095464065298.us-east1.run.app" },
@@ -771,6 +798,12 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Cloud Run",
       "OpenAI API",
       "Gemini API"
+    ],
+    benchmarks: [
+      { label: "As of", value: "2026-02-13", context: "GitHub snapshot" },
+      { label: "GitHub stars", value: "0" },
+      { label: "Open issues", value: "0" },
+      { label: "Last push", value: "2026-01-30" }
     ],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
@@ -866,6 +899,12 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Flutter demo client and Telegram Mini App UI"
     ],
     techStack: ["Python", "FastAPI", "MediaPipe", "YOLO", "ONNX", "Cloud Run", "Flutter", "MLflow"],
+    benchmarks: [
+      { label: "API endpoints", value: "8", context: "/, /app, /tma, /v1/*, /healthz" },
+      { label: "Tasks", value: "3", context: "pores, wrinkles, pores+wrinkles" },
+      { label: "Image types", value: "5", context: "jpeg/png/webp/tiff/bmp" },
+      { label: "Default imgsz", value: "1280", context: "segment endpoint default" }
+    ],
     links: [],
     images: [],
     thumbnail: "",

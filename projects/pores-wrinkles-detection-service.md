@@ -23,3 +23,9 @@ https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md
 - Cloud Run
 - Flutter
 - MLflow
+
+## Benchmarks & Analytics
+- API endpoints: 8 (/, /app, /tma, /v1/*, /healthz)
+- Tasks: 3 (pores, wrinkles, pores+wrinkles)
+- Image types: 5 (jpeg/png/webp/tiff/bmp)
+- Default imgsz: 1280 (segment endpoint default)

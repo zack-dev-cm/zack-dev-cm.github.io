@@ -30,6 +30,10 @@ Tech Stack:
 - Android
 - Vision-Language Models
 - Server-side AI
+Benchmarks & Analytics:
+- Components: 2 (Android client + Python server)
+- Supported actions: 7 (tap/scroll/text/home/back/overview/screenshot)
+- API endpoints: 8+ (healthz, metrics, devices, actions, screenshots, debug)
 Links:
 - View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
 
@@ -59,6 +63,11 @@ Tech Stack:
 - iOS
 - Bluetooth Mesh
 - Local LLMs
+Benchmarks & Analytics:
+- Platforms: 2 (Android + iOS)
+- As of: 2026-02-13 (GitHub snapshot)
+- GitHub stars: 0
+- Last push: 2025-08-27
 Links:
 - See on GitHub: https://github.com/zack-dev-cm/meshmcp
 
@@ -572,6 +581,11 @@ Tech Stack:
 - OpenAI API
 - Telegram Web Apps
 - Playwright
+Benchmarks & Analytics:
+- As of: 2026-02-13 (GitHub snapshot)
+- GitHub stars: 0
+- Open issues: 0
+- Last push: 2025-12-05
 Links:
 - Open Telegram Mini App: https://t.me/doctorai_bot/app
 - Live App: https://doctorai-1095464065298.us-east1.run.app
@@ -661,6 +675,11 @@ Tech Stack:
 - Cloud Run
 - OpenAI API
 - Gemini API
+Benchmarks & Analytics:
+- As of: 2026-02-13 (GitHub snapshot)
+- GitHub stars: 0
+- Open issues: 0
+- Last push: 2026-01-30
 Links:
 - Open Telegram Mini App: https://t.me/noetic_mirror_bot/app
 - Telegram Channel: https://t.me/noel_mirror
@@ -710,3 +729,8 @@ Tech Stack:
 - Cloud Run
 - Flutter
 - MLflow
+Benchmarks & Analytics:
+- API endpoints: 8 (/, /app, /tma, /v1/*, /healthz)
+- Tasks: 3 (pores, wrinkles, pores+wrinkles)
+- Image types: 5 (jpeg/png/webp/tiff/bmp)
+- Default imgsz: 1280 (segment endpoint default)

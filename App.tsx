@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { FloatingButtons } from './components/FloatingButtons';
+import { TopProjectCard } from './components/TopProjectCard';
 import { Section } from './components/Section';
 import { GitHubIcon, LinkedInIcon, MailIcon } from './components/Icons';
 import {
@@ -14,6 +15,7 @@ import {
   KEY_HIGHLIGHTS,
   AUTHOR_INFO,
   SOCIAL_LINKS,
+  TOP_PROJECT_IDS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
   LATEST_UPDATE_EXCLUDE_PATTERNS
 } from './constants';
@@ -215,6 +217,10 @@ const App: React.FC = () => {
   const projectById = useMemo(() => {
     return new Map(mergedProjects.map((project) => [project.id, project]));
   }, [mergedProjects]);
+
+  const topProjects = useMemo(() => {
+    return TOP_PROJECT_IDS.map((id) => projectById.get(id)).filter(Boolean) as Project[];
+  }, [projectById]);
 
   const projectByRepoFullName = useMemo(() => {
     return new Map(
@@ -433,6 +439,21 @@ const App: React.FC = () => {
                         <span key={index} className="bg-teal-400/10 text-teal-300 text-sm font-medium px-3 py-1.5 rounded-full">{tech}</span>
                     ))}
                 </div>
+            </Section>
+
+            <Section id="top" title="Top Projects (Hard Metrics)">
+              <p className="mb-6 text-slate-400">
+                Selected launches with measurable usage signals, scorecard-style metrics, and quick links.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {topProjects.map((project) => (
+                  <TopProjectCard
+                    key={project.id}
+                    project={project}
+                    onSelectProject={() => handleSelectProject(project)}
+                  />
+                ))}
+              </div>
             </Section>
             
             <Section id="latest" title="Latest Updates">

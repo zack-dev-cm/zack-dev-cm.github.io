@@ -30,6 +30,12 @@ https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md
 - OpenAI API
 - Gemini API
 
+## Benchmarks & Analytics
+- As of: 2026-02-13 (GitHub snapshot)
+- GitHub stars: 0
+- Open issues: 0
+- Last push: 2026-01-30
+
 ## Links
 - [Open Telegram Mini App](https://t.me/noetic_mirror_bot/app)
 - [Telegram Channel](https://t.me/noel_mirror)

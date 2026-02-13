@@ -12,7 +12,7 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
 
   // Wait for main title and a couple of sections to ensure hydration
   await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
-  await expect(page.getByRole('heading', { name: 'Projects' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
   await expect(page.getByText('Latest Updates')).toBeVisible();
 
   // Card presence: ensure at least one project card renders
@@ -21,6 +21,7 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
 
   const expectImageLoaded = async (locator: Locator, label: string, timeoutMs = 10000) => {
     await expect(locator).toBeVisible();
+    await locator.scrollIntoViewIfNeeded();
     await expect.poll(
       async () =>
         locator.evaluate((img) => {
