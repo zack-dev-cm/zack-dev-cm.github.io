@@ -6,7 +6,6 @@ const NAV_ITEMS = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Stack', href: '#stack'},
-  { name: 'Top', href: '#top' },
   { name: 'Latest', href: '#latest' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },

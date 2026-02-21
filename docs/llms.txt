@@ -31,7 +31,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Estimate Golf Ball Trajectory](https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md): Analyze golf swings and estimate ball trajectory for coaching and analytics.
 - [Pixel-Wise Segmentation of Spare Parts](https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md): High-precision segmentation for additive manufacturing and rework flows.
 - [Food Recognition App](https://zack-dev-cm.github.io/projects/food-recognition-app.md): iOS/Android app that detects food items and OCRs labels for nutrition facts.
-- [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,795 users).
+- [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 users).
 - [Python Library: AutoToloka](https://zack-dev-cm.github.io/projects/python-library-autotoloka.md): Interactive segmentation toolkit that cuts labeling cost for CV datasets.
 - [Python Library: shiftlab-ocr](https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md): Handwriting-focused OCR with line/character segmentation.
 - [Face Antispoofing & Multi-Modal Vision-Language Models](https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md): CLIP-driven anti-spoofing experiments for secure face auth.
@@ -62,6 +62,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Noel - Noetic Mirror](https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md): Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
+- [OpenClaw - Autonomous Agents Platform](https://zack-dev-cm.github.io/projects/openclaw-autonomous-agents-platform.md): Open-source autonomous assistant runtime for multi-channel messaging, tools, and persistent agent workflows.
 
 ## Core Pages
 - [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.

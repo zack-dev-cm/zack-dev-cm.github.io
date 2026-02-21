@@ -41,16 +41,6 @@ export const TECH_STACK: string[] = [
   "Python", "PyTorch", "OpenAI APIs", "VLMs", "LLMs", "OpenCV", "TensorFlow", "Keras", "CLIP", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
 ];
 
-export const TOP_PROJECT_IDS: number[] = [
-  11, // Calorio
-  39, // Noel
-  1, // Android Remote Control
-  31, // seogeo
-  35, // DoctorAI
-  41, // Pores & Wrinkles
-  3 // meshmcp
-];
-
 export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
   "zack-dev-cm/zack-dev-cm.github.io"
 ];
@@ -61,6 +51,16 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "OpenClaw - Autonomous Agents Platform",
+    description: "Open-source autonomous assistant platform with multi-channel messaging, tools, and long-running workflows.",
+    links: [
+      { text: "Website", url: "https://openclaw.ai" },
+      { text: "Docs", url: "https://docs.openclaw.ai" },
+      { text: "View on GitHub", url: "https://github.com/openclaw/openclaw" }
+    ],
+    projectId: 42
+  },
   {
     title: "Pores & Wrinkles Detection Service",
     description: "High-resolution facial texture analysis with labeled pores/wrinkles overlays, async job progress, and a Telegram Mini App + Flutter demo client.",
@@ -323,16 +323,16 @@ export const PROJECTS: Project[] = [
   {
     id: 11,
     title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,795 users).",
+    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 users).",
     longDescription: "Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile + diary management and analytics.",
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     benchmarks: [
-      { label: "Data as of", value: "2026-02-13" },
-      { label: "Total users (profiles)", value: "1,795" },
-      { label: "DAU / WAU / MAU", value: "88 / 464 / 1,214" },
-      { label: "Stickiness (DAU/MAU)", value: "7.2%" },
-      { label: "Meal-log DAU / WAU / MAU", value: "90 / 265 / 546" }
+      { label: "Data as of", value: "2026-02-21" },
+      { label: "Total users (profiles)", value: "36" },
+      { label: "DAU / WAU / MAU", value: "17 / 17 / 30" },
+      { label: "Stickiness (DAU/MAU)", value: "56.7%" },
+      { label: "Meal-log DAU / WAU / MAU", value: "6 / 8 / 13" }
     ],
     links: [
       { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
@@ -906,6 +906,30 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Default imgsz", value: "1280", context: "segment endpoint default" }
     ],
     links: [],
+    images: [],
+    thumbnail: "",
+    hideImages: true
+  },
+  {
+    id: 42,
+    title: "OpenClaw - Autonomous Agents Platform",
+    description: "Open-source autonomous assistant runtime for multi-channel messaging, tools, and persistent agent workflows.",
+    longDescription: "OpenClaw is a local-first autonomous agent platform that routes messages from popular chat channels into a unified control plane, with tool execution, session memory, and configurable workflows. This portfolio entry intentionally keeps scope high-level and public-only.",
+    keyFeatures: [
+      "Multi-channel agent inbox with routing controls",
+      "Local-first gateway for tools, sessions, and automation",
+      "CLI and web controls for autonomous assistant operations"
+    ],
+    techStack: ["Node.js", "TypeScript", "React", "WebSocket", "CLI", "Automation"],
+    benchmarks: [
+      { label: "Runtime", value: "Node.js >= 22", context: "public docs requirement" },
+      { label: "License", value: "MIT", context: "public repository metadata" }
+    ],
+    links: [
+      { text: "Website", url: "https://openclaw.ai" },
+      { text: "Docs", url: "https://docs.openclaw.ai" },
+      { text: "View on GitHub", url: "https://github.com/openclaw/openclaw" }
+    ],
     images: [],
     thumbnail: "",
     hideImages: true

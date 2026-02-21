@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-02-13",
+      "dateModified": "2026-02-21",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 41,
+      "numberOfItems": 42,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -185,7 +185,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
-            "description": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (1,795 users).",
+            "description": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 users).",
             "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -577,6 +577,19 @@
             "name": "Pores & Wrinkles Detection Service",
             "description": "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
             "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "OpenClaw - Autonomous Agents Platform",
+            "description": "Open-source autonomous assistant runtime for multi-channel messaging, tools, and persistent agent workflows.",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-autonomous-agents-platform.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }
