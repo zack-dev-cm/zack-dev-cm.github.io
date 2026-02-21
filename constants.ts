@@ -52,12 +52,12 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
-    title: "OpenClaw - Autonomous Agents Platform",
-    description: "Open-source autonomous assistant platform with multi-channel messaging, tools, and long-running workflows.",
+    title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
+    description: "Hands-on OpenClaw execution for Telegram mini app QA, reproducible launch runbooks, and evidence-driven UI iterations.",
     links: [
-      { text: "Website", url: "https://openclaw.ai" },
-      { text: "Docs", url: "https://docs.openclaw.ai" },
-      { text: "View on GitHub", url: "https://github.com/openclaw/openclaw" }
+      { text: "Minigames Repo", url: "https://github.com/zack-dev-cm/minigames" },
+      { text: "Toybox TMA OpenClaw Runbook", url: "https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md" },
+      { text: "Trends to Mini App Pipeline", url: "https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md" }
     ],
     projectId: 42
   },
@@ -323,16 +323,16 @@ export const PROJECTS: Project[] = [
   {
     id: 11,
     title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 users).",
+    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 profiles).",
     longDescription: "Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile + diary management and analytics.",
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     benchmarks: [
-      { label: "Data as of", value: "2026-02-21" },
+      { label: "Data as of", value: "2026-02-21", context: "production DB, UTC rolling windows" },
       { label: "Total users (profiles)", value: "36" },
-      { label: "DAU / WAU / MAU", value: "17 / 17 / 30" },
-      { label: "Stickiness (DAU/MAU)", value: "56.7%" },
-      { label: "Meal-log DAU / WAU / MAU", value: "6 / 8 / 13" }
+      { label: "DAU / WAU / MAU", value: "18 / 18 / 30" },
+      { label: "Stickiness (DAU/MAU)", value: "60.0%" },
+      { label: "Meal-log DAU / WAU / MAU", value: "8 / 9 / 14" }
     ],
     links: [
       { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
@@ -912,23 +912,27 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     id: 42,
-    title: "OpenClaw - Autonomous Agents Platform",
-    description: "Open-source autonomous assistant runtime for multi-channel messaging, tools, and persistent agent workflows.",
-    longDescription: "OpenClaw is a local-first autonomous agent platform that routes messages from popular chat channels into a unified control plane, with tool execution, session memory, and configurable workflows. This portfolio entry intentionally keeps scope high-level and public-only.",
+    title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
+    description: "OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.",
+    longDescription: "This project captures my OpenClaw delivery scope for Telegram mini apps: reproducible browser E2E validation (including launch/auth and request-flow checks), gateway/runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It is intentionally focused on my execution work from minigames and outline artifacts, not a generic OpenClaw platform overview.",
     keyFeatures: [
-      "Multi-channel agent inbox with routing controls",
-      "Local-first gateway for tools, sessions, and automation",
-      "CLI and web controls for autonomous assistant operations"
+      "Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows",
+      "OpenClaw gateway reliability hardening and runtime compatibility fixes",
+      "Desktop + mobile GUI evidence capture for fast UI redesign and regression review",
+      "Runbook-first launch operations for bot + Mini App setup and QA handoff"
     ],
-    techStack: ["Node.js", "TypeScript", "React", "WebSocket", "CLI", "Automation"],
+    techStack: ["OpenClaw", "Telegram Web", "Playwright", "Node.js", "Python", "Runbooks", "Mini Apps"],
     benchmarks: [
-      { label: "Runtime", value: "Node.js >= 22", context: "public docs requirement" },
-      { label: "License", value: "MIT", context: "public repository metadata" }
+      { label: "Reproducible E2E actions", value: "8", context: "AI-Humans Mini App OpenClaw log (2026-02-06)" },
+      { label: "GUI evidence assets", value: "26 files", context: "screens + moodboard + Midjourney packs" },
+      { label: "Latest regression run", value: "6/6 passed", context: "Task 7.2 pytest report (2026-02-15)" },
+      { label: "UI redesign cycles", value: "2", context: "Task 7.1 and Task 7.2" }
     ],
     links: [
-      { text: "Website", url: "https://openclaw.ai" },
-      { text: "Docs", url: "https://docs.openclaw.ai" },
-      { text: "View on GitHub", url: "https://github.com/openclaw/openclaw" }
+      { text: "Minigames Repo", url: "https://github.com/zack-dev-cm/minigames" },
+      { text: "Toybox TMA OpenClaw Runbook", url: "https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md" },
+      { text: "Trends to Mini App Pipeline", url: "https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md" },
+      { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
     ],
     images: [],
     thumbnail: "",

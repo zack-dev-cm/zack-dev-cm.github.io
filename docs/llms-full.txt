@@ -171,7 +171,7 @@ Links:
 - View Demo GIF: https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing
 
 ### Dishes Recognition & Nutrition Goals Telegram Bot
-Summary: Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 users).
+Summary: Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 profiles).
 Details: Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile + diary management and analytics.
 Project URL: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md
 Key Features:
@@ -184,11 +184,11 @@ Tech Stack:
 - Speech-to-Text
 - LLMs
 Benchmarks & Analytics:
-- Data as of: 2026-02-21
+- Data as of: 2026-02-21 (production DB, UTC rolling windows)
 - Total users (profiles): 36
-- DAU / WAU / MAU: 17 / 17 / 30
-- Stickiness (DAU/MAU): 56.7%
-- Meal-log DAU / WAU / MAU: 6 / 8 / 13
+- DAU / WAU / MAU: 18 / 18 / 30
+- Stickiness (DAU/MAU): 60.0%
+- Meal-log DAU / WAU / MAU: 8 / 9 / 14
 Links:
 - Try on Telegram: https://t.me/calorio_yf_bot
 
@@ -735,25 +735,30 @@ Benchmarks & Analytics:
 - Image types: 5 (jpeg/png/webp/tiff/bmp)
 - Default imgsz: 1280 (segment endpoint default)
 
-### OpenClaw - Autonomous Agents Platform
-Summary: Open-source autonomous assistant runtime for multi-channel messaging, tools, and persistent agent workflows.
-Details: OpenClaw is a local-first autonomous agent platform that routes messages from popular chat channels into a unified control plane, with tool execution, session memory, and configurable workflows. This portfolio entry intentionally keeps scope high-level and public-only.
-Project URL: https://zack-dev-cm.github.io/projects/openclaw-autonomous-agents-platform.md
+### OpenClaw Workstream - Telegram Mini App E2E & Launch Ops
+Summary: OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.
+Details: This project captures my OpenClaw delivery scope for Telegram mini apps: reproducible browser E2E validation (including launch/auth and request-flow checks), gateway/runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It is intentionally focused on my execution work from minigames and outline artifacts, not a generic OpenClaw platform overview.
+Project URL: https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md
 Key Features:
-- Multi-channel agent inbox with routing controls
-- Local-first gateway for tools, sessions, and automation
-- CLI and web controls for autonomous assistant operations
+- Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows
+- OpenClaw gateway reliability hardening and runtime compatibility fixes
+- Desktop + mobile GUI evidence capture for fast UI redesign and regression review
+- Runbook-first launch operations for bot + Mini App setup and QA handoff
 Tech Stack:
+- OpenClaw
+- Telegram Web
+- Playwright
 - Node.js
-- TypeScript
-- React
-- WebSocket
-- CLI
-- Automation
+- Python
+- Runbooks
+- Mini Apps
 Benchmarks & Analytics:
-- Runtime: Node.js >= 22 (public docs requirement)
-- License: MIT (public repository metadata)
+- Reproducible E2E actions: 8 (AI-Humans Mini App OpenClaw log (2026-02-06))
+- GUI evidence assets: 26 files (screens + moodboard + Midjourney packs)
+- Latest regression run: 6/6 passed (Task 7.2 pytest report (2026-02-15))
+- UI redesign cycles: 2 (Task 7.1 and Task 7.2)
 Links:
-- Website: https://openclaw.ai
-- Docs: https://docs.openclaw.ai
-- View on GitHub: https://github.com/openclaw/openclaw
+- Minigames Repo: https://github.com/zack-dev-cm/minigames
+- Toybox TMA OpenClaw Runbook: https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md
+- Trends to Mini App Pipeline: https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md
+- OpenClaw Upstream: https://github.com/openclaw/openclaw
