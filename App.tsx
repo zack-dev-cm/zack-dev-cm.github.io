@@ -141,6 +141,7 @@ const normalizeProject = (project: Project): Project => {
 };
 
 const STATIC_PROJECTS = PROJECTS.map(normalizeProject);
+type ProjectSortMode = 'impact' | 'recent' | 'alpha';
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -148,6 +149,9 @@ const App: React.FC = () => {
   const [activeLatestSlug, setActiveLatestSlug] = useState<string | null>(null);
   const [expandedLatestSlugs, setExpandedLatestSlugs] = useState<string[]>([]);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [projectQuery, setProjectQuery] = useState('');
+  const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
+  const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
   const copyTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -382,6 +386,36 @@ const App: React.FC = () => {
 
   const selectedProjectSlug = selectedProject ? getProjectSlug(selectedProject) : null;
   const isProjectCopied = selectedProjectSlug ? copiedKey === `project:${selectedProjectSlug}` : false;
+  const normalizedProjectQuery = projectQuery.trim().toLowerCase();
+
+  const filteredProjects = useMemo(() => {
+    const withFilters = mergedProjects.filter((project) => {
+      if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
+      if (!normalizedProjectQuery) return true;
+      const haystack = [
+        project.title,
+        project.description,
+        project.longDescription || '',
+        project.techStack.join(' ')
+      ]
+        .join(' ')
+        .toLowerCase();
+      return haystack.includes(normalizedProjectQuery);
+    });
+
+    if (projectSort === 'alpha') {
+      return [...withFilters].sort((a, b) => a.title.localeCompare(b.title));
+    }
+    if (projectSort === 'recent') {
+      return [...withFilters].sort((a, b) => b.id - a.id);
+    }
+    return [...withFilters].sort((a, b) => {
+      const aBenchmarks = a.benchmarks?.length ?? 0;
+      const bBenchmarks = b.benchmarks?.length ?? 0;
+      if (bBenchmarks !== aBenchmarks) return bBenchmarks - aBenchmarks;
+      return b.id - a.id;
+    });
+  }, [mergedProjects, benchmarkedOnly, normalizedProjectQuery, projectSort]);
 
   return (
     <div className="bg-slate-900 min-h-screen text-slate-300 font-sans leading-relaxed">
@@ -599,8 +633,72 @@ const App: React.FC = () => {
             </Section>
 
             <Section id="projects" title="Projects">
+              <div className="mb-6 rounded-lg border border-slate-800 bg-slate-900/40 p-4">
+                <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="flex-1">
+                    <label htmlFor="project-search" className="sr-only">Search projects</label>
+                    <input
+                      id="project-search"
+                      type="search"
+                      value={projectQuery}
+                      onChange={(event) => setProjectQuery(event.target.value)}
+                      placeholder="Search by project, tech stack, or domain..."
+                      className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500 focus:border-teal-400/70 focus:outline-none"
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setProjectSort('impact')}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
+                        projectSort === 'impact'
+                          ? 'bg-teal-400/20 text-teal-200'
+                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
+                      }`}
+                    >
+                      Impact
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setProjectSort('recent')}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
+                        projectSort === 'recent'
+                          ? 'bg-teal-400/20 text-teal-200'
+                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
+                      }`}
+                    >
+                      Recent
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setProjectSort('alpha')}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
+                        projectSort === 'alpha'
+                          ? 'bg-teal-400/20 text-teal-200'
+                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
+                      }`}
+                    >
+                      A-Z
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setBenchmarkedOnly((value) => !value)}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
+                        benchmarkedOnly
+                          ? 'bg-teal-400/20 text-teal-200'
+                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
+                      }`}
+                    >
+                      Metrics Only
+                    </button>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs uppercase tracking-widest text-slate-500">
+                  Showing {filteredProjects.length} of {mergedProjects.length} projects
+                </p>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {mergedProjects.map((project) => (
+                {filteredProjects.map((project) => (
                   <ProjectCard
                     key={project.id}
                     project={project}
@@ -609,6 +707,9 @@ const App: React.FC = () => {
                   />
                 ))}
               </div>
+              {filteredProjects.length === 0 && (
+                <p className="mt-6 text-sm text-slate-500">No projects match the current filters.</p>
+              )}
             </Section>
 
             <Section id="contact" title="Let's Connect">

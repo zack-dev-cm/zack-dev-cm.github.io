@@ -15,6 +15,8 @@ const isVideoUrl = (url: string) => {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProject, fallbackImageUrl }) => {
   const showImage = Boolean(project.thumbnail) && !project.hideImages;
   const showVideoThumbnail = showImage && isVideoUrl(project.thumbnail);
+  const firstBenchmark = project.benchmarks?.[0];
+  const hasBenchmarks = Boolean(project.benchmarks && project.benchmarks.length > 0);
 
   return (
     <div 
@@ -33,6 +35,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
       {showImage ? (
         <>
           <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent"></div>
+          {hasBenchmarks && (
+            <div className="absolute left-3 top-3 z-20 rounded-full border border-emerald-300/30 bg-emerald-400/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-emerald-100">
+              Data-backed
+            </div>
+          )}
           {showVideoThumbnail ? (
             <video
               src={project.thumbnail}
@@ -66,6 +73,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
           <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
             <h3 className="text-lg font-bold text-slate-100">{project.title}</h3>
             <p className="mt-1 text-sm text-slate-400">{project.description}</p>
+            {firstBenchmark && (
+              <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-300/90">
+                {firstBenchmark.label}: {firstBenchmark.value}
+              </p>
+            )}
             <div className="mt-3 flex flex-wrap gap-2">
               {project.techStack.slice(0, 3).map((tech) => (
                 <span key={tech} className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">
@@ -77,8 +89,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
         </>
       ) : (
         <div className="flex h-60 flex-col justify-end p-6">
+          {hasBenchmarks && (
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-emerald-200">Data-backed project</p>
+          )}
           <h3 className="text-lg font-bold text-slate-100">{project.title}</h3>
           <p className="mt-1 text-sm text-slate-400">{project.description}</p>
+          {firstBenchmark && (
+            <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+              {firstBenchmark.label}: {firstBenchmark.value}
+            </p>
+          )}
           <div className="mt-3 flex flex-wrap gap-2">
             {project.techStack.slice(0, 3).map((tech) => (
               <span key={tech} className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">
