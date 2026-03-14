@@ -774,6 +774,8 @@ Key Features:
 - OpenClaw publication hardening with leak-prevention rules for public skill distribution
 Tech Stack:
 - OpenClaw Skills
+- GitHub
+- GitHub Gist
 - Python
 - Computer Vision
 - Google Colab

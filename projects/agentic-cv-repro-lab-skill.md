@@ -16,6 +16,8 @@ https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md
 
 ## Tech Stack
 - OpenClaw Skills
+- GitHub
+- GitHub Gist
 - Python
 - Computer Vision
 - Google Colab

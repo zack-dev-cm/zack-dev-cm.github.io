@@ -957,7 +957,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Latest Kaggle and autoresearch-inspired agentic patterns adapted to real computer-vision training management",
       "OpenClaw publication hardening with leak-prevention rules for public skill distribution"
     ],
-    techStack: ["OpenClaw Skills", "Python", "Computer Vision", "Google Colab", "Kaggle", "PyTorch", "MLflow", "Reproducibility"],
+    techStack: ["OpenClaw Skills", "GitHub", "GitHub Gist", "Python", "Computer Vision", "Google Colab", "Kaggle", "PyTorch", "MLflow", "Reproducibility"],
     benchmarks: [
       { label: "Execution lanes", value: "5", context: "local debug, browser notebook, Colab GPU, VM/cluster, promotion" },
       { label: "Bundled scripts", value: "8", context: "context capture, manifests, run cards, and summary rendering" },
