@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-02-21",
+      "dateModified": "2026-03-14",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 42,
+      "numberOfItems": 43,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -590,6 +590,19 @@
             "name": "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
             "description": "OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.",
             "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Agentic CV Repro Lab Skill",
+            "description": "Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.",
+            "url": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

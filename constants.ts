@@ -52,6 +52,14 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Agentic CV Repro Lab Skill",
+    description: "Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" }
+    ],
+    projectId: 43
+  },
+  {
     title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
     description: "Hands-on OpenClaw execution for Telegram mini app QA, reproducible launch runbooks, and evidence-driven UI iterations.",
     links: [
@@ -933,6 +941,32 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Toybox TMA OpenClaw Runbook", url: "https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md" },
       { text: "Trends to Mini App Pipeline", url: "https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md" },
       { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true
+  },
+  {
+    id: 43,
+    title: "Agentic CV Repro Lab Skill",
+    description: "Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.",
+    longDescription: "I turned my DS/CV train-management workflow into a reusable public skill for OpenClaw and Codex. It packages the full reproducibility loop: bounded browser automation for Colab and Kaggle, explicit Google Colab GPU checks, custom VM bootstrap and heartbeat discipline, machine-readable dataset and run records, JSON-first release summaries, and publication-safe security guidance for third-party skill distribution.",
+    keyFeatures: [
+      "Reproducible CV execution lanes for local debug, browser notebooks, Colab GPUs, custom VMs, and promotion review",
+      "Bundled helpers for dataset manifests, browser run cards, candidate run cards, artifact manifests, VM bootstrap manifests, and markdown run summaries",
+      "Latest Kaggle and autoresearch-inspired agentic patterns adapted to real computer-vision training management",
+      "OpenClaw publication hardening with leak-prevention rules for public skill distribution"
+    ],
+    techStack: ["OpenClaw Skills", "Python", "Computer Vision", "Google Colab", "Kaggle", "PyTorch", "MLflow", "Reproducibility"],
+    benchmarks: [
+      { label: "Execution lanes", value: "5", context: "local debug, browser notebook, Colab GPU, VM/cluster, promotion" },
+      { label: "Bundled scripts", value: "8", context: "context capture, manifests, run cards, and summary rendering" },
+      { label: "Reference guides", value: "7", context: "official reproducibility, agentic patterns, Colab/VM, Kaggle, security" },
+      { label: "Machine-readable artifacts", value: "5", context: "dataset, browser run, candidate run, artifact bundle, VM bootstrap" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" },
+      { text: "Skill README", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/main/README.md" }
     ],
     images: [],
     thumbnail: "",
