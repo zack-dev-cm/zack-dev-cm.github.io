@@ -53,9 +53,9 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Agentic CV Repro Lab Skill",
-    description: "Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.",
+    description: "Public ClawHub release that packages my internal CV/MLOps operating model for reproducible training, browser validation, and promotion gating.",
     links: [
-      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" }
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
     ],
     projectId: 43
   },
@@ -949,27 +949,27 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 43,
     title: "Agentic CV Repro Lab Skill",
-    description: "Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.",
-    longDescription: "I turned my DS/CV train-management workflow into a reusable public skill for OpenClaw and Codex. It packages the full reproducibility loop: bounded browser automation for Colab and Kaggle, explicit Google Colab GPU checks, custom VM bootstrap and heartbeat discipline, machine-readable dataset and run records, JSON-first release summaries, and publication-safe security guidance for third-party skill distribution.",
+    description: "Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.",
+    longDescription: "I turned an internal DS/CV train-management workflow into a public, installable ClawHub skill for teams running browser-heavy and GPU-heavy vision work. The release packages reproducible experiment records, browser notebook evidence, heartbeat-aware VM execution, and promotion bundles that separate semantic, runtime, and product-surface checks. I also hardened the public bundle for sharing: sharable manifests redact sensitive paths and env values by default, and the published skill ships under MIT-0 with clean OpenClaw and VirusTotal scans.",
     keyFeatures: [
-      "Reproducible CV execution lanes for local debug, browser notebooks, Colab GPUs, custom VMs, and promotion review",
-      "Bundled helpers for dataset manifests, browser run cards, candidate run cards, artifact manifests, VM bootstrap manifests, and markdown run summaries",
-      "Latest Kaggle and autoresearch-inspired agentic patterns adapted to real computer-vision training management",
-      "OpenClaw publication hardening with leak-prevention rules for public skill distribution"
+      "Packages an internal CV/MLOps operating model into a public ClawHub artifact teams can install and reuse",
+      "Captures reproducible experiment state with run cards, dataset manifests, and public-safe context snapshots",
+      "Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards",
+      "Gates releases with promotion bundles across semantic quality, runtime health, and product-surface checks"
     ],
-    techStack: ["OpenClaw Skills", "GitHub", "GitHub Gist", "Python", "Computer Vision", "Google Colab", "Kaggle", "PyTorch", "MLflow", "Reproducibility"],
+    techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "Execution lanes", value: "5", context: "local debug, browser notebook, Colab GPU, VM/cluster, promotion" },
-      { label: "Bundled scripts", value: "8", context: "context capture, manifests, run cards, and summary rendering" },
-      { label: "Reference guides", value: "7", context: "official reproducibility, agentic patterns, Colab/VM, Kaggle, security" },
-      { label: "Machine-readable artifacts", value: "5", context: "dataset, browser run, candidate run, artifact bundle, VM bootstrap" }
+      { label: "Public release", value: "v1.6.1", context: "Live on ClawHub" },
+      { label: "Security review", value: "2 clean scans", context: "OpenClaw + VirusTotal benign" },
+      { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
+      { label: "Workflow helpers", value: "10 scripts", context: "scorecards, manifests, summaries, and promotion bundles" }
     ],
     links: [
-      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" },
-      { text: "Skill README", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/main/README.md" }
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
     ],
-    images: [],
-    thumbnail: "",
-    hideImages: true
+    images: [
+      { url: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`, alt: "Agentic CV Repro Lab ClawHub release preview" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`
   }
 ];

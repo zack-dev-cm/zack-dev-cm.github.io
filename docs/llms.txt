@@ -63,7 +63,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
 - [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.
-- [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.
+- [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.
 
 ## Core Pages
 - [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.
