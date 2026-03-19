@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-03-14",
+      "dateModified": "2026-03-19",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -601,7 +601,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Agentic CV Repro Lab Skill",
-            "description": "Public OpenClaw/Codex skill for reproducible CV experiments across Colab, Kaggle, custom GPU VMs, and benchmark-gated release review.",
+            "description": "Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.",
             "url": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
