@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-03-19",
+      "dateModified": "2026-03-21",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 43,
+      "numberOfItems": 44,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -603,6 +603,19 @@
             "name": "Agentic CV Repro Lab Skill",
             "description": "Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.",
             "url": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
+            "description": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

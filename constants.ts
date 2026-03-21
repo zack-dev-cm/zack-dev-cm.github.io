@@ -52,6 +52,12 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
+    description: "Anonymized deployment for a large clinic network: OpenClaw-driven sales workflows over a legacy database, operator handoff rules, and follow-up automation without exposing the client name or internal schema.",
+    links: [],
+    projectId: 44
+  },
+  {
     title: "Agentic CV Repro Lab Skill",
     description: "Public ClawHub release that packages my internal CV/MLOps operating model for reproducible training, browser validation, and promotion gating.",
     links: [
@@ -971,5 +977,30 @@ Operations Layer (Console, Alerts, Runbooks)`
       { url: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`, alt: "Agentic CV Repro Lab ClawHub release preview" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`
+  },
+  {
+    id: 44,
+    title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
+    description: "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.",
+    longDescription: "I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven workflows to qualify inbound leads, draft follow-ups, surface next actions to operators, and sync approved state changes back into the existing database layer. Public portfolio copy intentionally omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope and systems thinking behind the rollout.",
+    keyFeatures: [
+      "OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations",
+      "Legacy DB bridge that preserved the existing clinic back office instead of forcing a rewrite",
+      "Human-in-the-loop operator handoff rules for approvals, escalations, and appointment routing",
+      "Public-safe case study with client identity, schema details, and endpoint specifics removed"
+    ],
+    techStack: ["OpenClaw", "LLM Orchestration", "Legacy DB Integration", "Workflow Automation", "Operator Tooling"],
+    links: [],
+    mermaidDiagram: `flowchart LR
+  Lead["Inbound Lead"] --> Intake["OpenClaw Intake + Qualification"]
+  Intake --> Drafts["Follow-up Drafts + Next-Step Proposals"]
+  Intake --> Operator["Operator Queue"]
+  Drafts --> Review["Approval + Escalation Rules"]
+  Operator --> Review
+  Review --> Legacy["Legacy DB / CRM Layer"]
+  Legacy --> Reporting["Status Sync + Reporting"]`,
+    images: [],
+    thumbnail: "",
+    hideImages: true
   }
 ];
