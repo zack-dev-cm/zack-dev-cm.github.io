@@ -6,8 +6,8 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "AI Product Engineer - VLM/LLM Systems, Computer Vision, Full-Stack",
-  bio: "AI product engineer shipping VLM/LLM and computer vision systems across mobile, web, and cloud. I design agentic pipelines end-to-end and turn prototypes into reliable launches."
+  title: "AI Product Engineer - Agentic Systems, Computer Vision, Launch Ops",
+  bio: "I build AI products that survive contact with reality: agentic operator workflows, computer vision services, and launch-ready apps across web, mobile, and cloud."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -32,9 +32,9 @@ export const COMPANIES: Company[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "7+ years building Python/PyTorch CV/ML products (OCR, segmentation, VLMs) and OpenAI-powered workflows.",
-  "Upwork Top Rated Plus contractor (top 1% AI devs) shipping production-grade systems fast.",
-  "Hands-on mentor/educator who has led corporate trainings and coached CV/ML teams."
+  "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
+  "44 public project case studies spanning agentic automation, Telegram mini apps, mobile, and cloud delivery.",
+  "Trusted by product teams that needed working systems, not AI slideware."
 ];
 
 export const TECH_STACK: string[] = [
@@ -69,9 +69,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
     description: "Hands-on OpenClaw execution for Telegram mini app QA, reproducible launch runbooks, and evidence-driven UI iterations.",
     links: [
-      { text: "Minigames Repo", url: "https://github.com/zack-dev-cm/minigames" },
-      { text: "Toybox TMA OpenClaw Runbook", url: "https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md" },
-      { text: "Trends to Mini App Pipeline", url: "https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md" }
+      { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
     ],
     projectId: 42
   },
@@ -84,10 +82,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "GeoFix - AI Visibility Memorizer Mini App",
     description: "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" },
-      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" }],
     projectId: 40
   },
   {
@@ -96,7 +91,6 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
       { text: "Telegram Channel", url: "https://t.me/noel_mirror" },
-      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/noel" }
     ],
     projectId: 39
@@ -104,37 +98,25 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Project Steer - Bio-Print Creator Studio",
     description: "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
-      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" }],
     projectId: 38
   },
   {
     title: "seogeo – SEO/GEO Bridge for Telegram Mini Apps",
     description: "SSR hub + bridge pages that make Telegram mini apps crawlable and discoverable.",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
-      { text: "Live Hub", url: "https://seogeo-bridge-1095464065298.us-east1.run.app" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }],
     projectId: 31
   },
   {
     title: "Blacksock – Telegram Liquidity & Index Vaults",
     description: "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
-      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" }],
     projectId: 32
   },
   {
     title: "Beauty Visual Inbox – Telegram Mini App",
     description: "Telegram bots + React mini-app for salons: publish photo batches, likes, notifications, and analytics.",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
-      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" }],
     projectId: 33
   },
   {
@@ -142,8 +124,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" },
-      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" }
     ],
     projectId: 34
   },
@@ -152,18 +133,14 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and synced engagement stats (likes, views, comments).",
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
-      { text: "Telegram Channel", url: "https://t.me/pr0bes" },
-      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Channel", url: "https://t.me/pr0bes" }
     ],
     projectId: 36
   },
   {
     title: "Olfactory Ultrasound Coach (web + Telegram mini app)",
     description: "Telegram mini app and Web Audio placement coach mirroring the 1200 Hz pulse trains, placement guide, and safety caps from the olfactory tFUS writeup.",
-    links: [
-      { text: "Open Mini App", url: "https://t.me/olfacto_bot/app" },
-      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" }
-    ],
+    links: [{ text: "Open Mini App", url: "https://t.me/olfacto_bot/app" }],
     projectId: 30
   },
   {
@@ -240,7 +217,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Web app for quickly minting promo/referral links, tracking clicks, and sending branded landing pages. Ships with analytics dashboards and short-linking.",
     keyFeatures: ["Dynamic promo link builder", "Built-in analytics", "Shareable branded pages"],
     techStack: ["Serverless", "React", "Analytics"],
-    links: [{ text: "Visit App", url: "https://analytics-mcp-1095464065298.us-east1.run.app" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/promo_reflinks.svg`, alt: "Promo and referral links" }],
     thumbnail: `${LOCAL_IMG_BASE}/promo_reflinks.svg`
   },
@@ -410,7 +387,7 @@ export const PROJECTS: Project[] = [
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" },
-      { text: "Landing page", url: "https://aichatnavigator.online" }
+      { text: "Project overview", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/navigator-chrome.png`, alt: "Navigator Chrome" }
@@ -424,7 +401,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Business users define tasks in free-form text; VLMs structure them and auto-approve payouts. Workers use web or Telegram, backed by Tornado + SQLite.",
     keyFeatures: ["VLM-powered task structuring", "Automated approval & payout", "Web & Telegram interfaces"],
     techStack: ["Tornado", "SQLite", "OpenAI", "VLM", "Telegram Bot API"],
-    links: [{ text: "Live App", url: "https://aichatnavigator.online/task_zavod" }],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/task-zavod-1.jpg`, alt: "Task Zavod example" },
       { url: `${LOCAL_IMG_BASE}/task-zavod-2.jpg`, alt: "Task Zavod example 2" }
@@ -438,7 +415,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Crowdsourced prompt feed with real-time trending, built on Tornado and integrated with the Navigator extension for prompt suggestions.",
     keyFeatures: ["Crowdsourced prompt engineering", "Real-time trending", "Browser extension integration"],
     techStack: ["Tornado", "JavaScript", "Community-driven content"],
-    links: [{ text: "Live Feed", url: "https://aichatnavigator.online/prompts_feed" }],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/prompts_feed.jpg`, alt: "Trending prompts feed" },
       { url: `${LOCAL_IMG_BASE}/trending_prompts.png`, alt: "Prompts Feed" }
@@ -562,7 +539,7 @@ export const PROJECTS: Project[] = [
       "Bundled delivery across clients, data, and operations"
     ],
     techStack: ["GPT-5 orchestration", "MCP tools", "Multi-tenant data stores", "Telemetry guardrails"],
-    links: [{ text: "Live Demo", url: "https://project018-mcp-1095464065298.us-east1.run.app/" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/zackautostack.png`, alt: "ZackAutoStack automation stack" }],
     thumbnail: `${LOCAL_IMG_BASE}/zackautostack.png`,
     topologySnapshot: `Clients Layer
@@ -621,7 +598,6 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "Vite", "Web Audio API", "Telegram Bot API", "Cloud Run"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/olfacto_bot/app" },
-      { text: "Web App", url: "https://olfactory-web-1095464065298.us-east1.run.app" },
       { text: "Reference writeup", url: "https://writetobrain.com/olfactory" }
     ],
     images: [
@@ -643,11 +619,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Optional verification with 2GIS/Yandex + Telegram pulse"
     ],
     techStack: ["TypeScript", "Express", "Node.js", "SSR", "Telegram Web Apps", "Firestore", "JSON-LD", "Cloud Run"],
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" },
-      { text: "Live Hub", url: "https://seogeo-bridge-1095464065298.us-east1.run.app" },
-      { text: "Channels Index", url: "https://seogeo-bridge-1095464065298.us-east1.run.app/channels" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/se0geo_bot/app?startapp=HUB" }],
     mermaidDiagram: `flowchart LR
   Crawler["Crawler / LLM Indexer"] --> SSR["SSR Hub + Bridge Pages"]
   Human["Human Visitor"] --> SSR
@@ -673,10 +645,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Mini app + API stack that quotes star-factoring, handles index vault subscribe/redeem flows, and runs governance proposals and votes with optional TON wallet linking.",
     keyFeatures: ["Star-factoring quotes + request lifecycle", "Index vault subscriptions and NAV tracking", "Governance proposals + votes"],
     techStack: ["React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram WebApp", "TON Connect"],
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" },
-      { text: "Live App", url: "https://blacksock-1095464065298.us-east1.run.app" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/blacksock_bot/app" }],
     images: [
       { url: `${LOCAL_IMG_BASE}/blacksock.png`, alt: "Blacksock mini app preview" }
     ],
@@ -689,10 +658,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Admin and client bots manage submissions and broadcasts, while the mini app ships a vertical feed with batch navigation, likes, and engagement stats.",
     keyFeatures: ["Admin + client bot workflows", "Vertical feed with batch navigation", "Likes + notification analytics"],
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API"],
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" },
-      { text: "Live App", url: "https://bvis-1095464065298.us-east1.run.app" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" }],
     images: [],
     thumbnail: "",
     hideImages: true
@@ -706,8 +672,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API", "Cloud Run"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" },
-      { text: "Live App", url: "https://dalshe-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/dalshe-1.png`, alt: "Dalshe donation mini app" },
@@ -730,7 +695,6 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/doctorai_bot/app" },
-      { text: "Live App", url: "https://doctorai-1095464065298.us-east1.run.app" },
       { text: "GitHub", url: "https://github.com/zack-dev-cm/doctorai" }
     ],
     images: [
@@ -748,8 +712,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["Vite", "React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
-      { text: "Telegram Channel", url: "https://t.me/pr0bes" },
-      { text: "Live App", url: "https://probes-zlvmfsrm6a-ue.a.run.app" }
+      { text: "Telegram Channel", url: "https://t.me/pr0bes" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/probes.png`, alt: "Probes mini app preview" }
@@ -777,10 +740,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service. Inspired by the Eiffel Tower LLaMA space (https://huggingface.co/spaces/dlouapre/eiffel-tower-llama) and the paper \"General Agentic Memory Via Deep Research\" by B.Y. Yan, Chaofan Li, Hongjin Qian, Shuqi Lu, and Zheng Liu (https://arxiv.org/abs/2511.18423).",
     keyFeatures: ["Telegram mini app + bot", "MCP connector with OAuth issuer", "QR activation + print storage pipeline"],
     techStack: ["Node.js", "Express", "Telegraf", "Prisma", "Postgres", "Vite", "React", "TypeScript", "Cloud Run", "MCP"],
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" },
-      { text: "Live App", url: "https://steer-zlvmfsrm6a-ue.a.run.app/" }
-    ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/steer_prints_bot/app" }],
     images: [
       { url: `${LOCAL_IMG_BASE}/steer-loading-screen.webm`, alt: "Project Steer loading screen video" }
     ],
@@ -822,7 +782,6 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "Open Telegram Mini App", url: "https://t.me/noetic_mirror_bot/app" },
       { text: "Telegram Channel", url: "https://t.me/noel_mirror" },
-      { text: "Live App", url: "https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/noel" }
     ],
     images: [
@@ -872,10 +831,13 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Cloud Run",
       "GCS"
     ],
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" },
-      { text: "Live App", url: "https://geofix-app-zlvmfsrm6a-ue.a.run.app/" }
+    benchmarks: [
+      { label: "Generated assets", value: "3", context: "llms.txt, llms-full.txt, schema.jsonld" },
+      { label: "Cloud Run services", value: "3", context: "web, API, worker" },
+      { label: "Delivery channels", value: "2", context: "web previews + Telegram mini app" },
+      { label: "External integrations", value: "4", context: "OpenAI, Telegram, target site, Medaudit GEO API" }
     ],
+    links: [{ text: "Open Telegram Mini App", url: "https://t.me/geofix_app_bot/launch" }],
     images: [
       { url: `${LOCAL_IMG_BASE}/geofix-architecture.png`, alt: "GeoFix architecture diagram" }
     ],
@@ -943,9 +905,6 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "UI redesign cycles", value: "2", context: "Task 7.1 and Task 7.2" }
     ],
     links: [
-      { text: "Minigames Repo", url: "https://github.com/zack-dev-cm/minigames" },
-      { text: "Toybox TMA OpenClaw Runbook", url: "https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md" },
-      { text: "Trends to Mini App Pipeline", url: "https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md" },
       { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
     ],
     images: [],
@@ -990,6 +949,11 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Public-safe case study with client identity, schema details, and endpoint specifics removed"
     ],
     techStack: ["OpenClaw", "LLM Orchestration", "Legacy DB Integration", "Workflow Automation", "Operator Tooling"],
+    benchmarks: [
+      { label: "Workflow stages", value: "7", context: "lead, intake, drafts, operator, review, legacy, reporting" },
+      { label: "Back-office rewrites", value: "0", context: "existing clinic system preserved" },
+      { label: "Human control points", value: "3", context: "approvals, escalations, routing" }
+    ],
     links: [],
     mermaidDiagram: `flowchart LR
   Lead["Inbound Lead"] --> Intake["OpenClaw Intake + Qualification"]

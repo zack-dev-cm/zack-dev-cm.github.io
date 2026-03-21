@@ -1,6 +1,6 @@
 # Zakhar Pashkin - Portfolio Memory File
 
-Summary: AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.
+Summary: AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
@@ -11,11 +11,11 @@ Contact: mailto:kaisenaiko@gmail.com
 - React, TypeScript, Cloud Run, MLOps
 
 ## Top 5 Projects
-- [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type. View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
-- [Noel - Noetic Mirror](https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md): Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry. Open Telegram Mini App: https://t.me/noetic_mirror_bot/app | Telegram Channel: https://t.me/noel_mirror
-- [MCP-Server - Base Multitool](https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md): Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch | Live App: https://geofix-app-zlvmfsrm6a-ue.a.run.app/
-- [seogeo - SEO/GEO Bridge for Telegram Mini Apps](https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md): SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery. Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB | Live Hub: https://seogeo-bridge-1095464065298.us-east1.run.app
+- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
+- [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating. Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
+- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ## Projects (Full Details)
 ### Android Remote Control with VLM AI Agents
@@ -83,8 +83,6 @@ Tech Stack:
 - Serverless
 - React
 - Analytics
-Links:
-- Visit App: https://analytics-mcp-1095464065298.us-east1.run.app
 
 ### Create, Chat & AR Experience with AI-Character (Text2Room)
 Summary: Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.
@@ -265,7 +263,7 @@ Tech Stack:
 - UI/UX
 Links:
 - View on Chrome Web Store: https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en
-- Landing page: https://aichatnavigator.online
+- Project overview: https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en
 
 ### Task Zavod - Micro-Task Marketplace
 Summary: VLM-powered micro-task builder with Telegram + web worker flows.
@@ -281,8 +279,6 @@ Tech Stack:
 - OpenAI
 - VLM
 - Telegram Bot API
-Links:
-- Live App: https://aichatnavigator.online/task_zavod
 
 ### Trending Prompts Feed
 Summary: Reddit-style board with trending scores and extension integration.
@@ -296,8 +292,6 @@ Tech Stack:
 - Tornado
 - JavaScript
 - Community-driven content
-Links:
-- Live Feed: https://aichatnavigator.online/prompts_feed
 
 ### YouTube Trendwatch
 Summary: Colab notebook that mines AI trends from YouTube to spark new content ideas.
@@ -442,8 +436,6 @@ Tech Stack:
 - MCP tools
 - Multi-tenant data stores
 - Telemetry guardrails
-Links:
-- Live Demo: https://project018-mcp-1095464065298.us-east1.run.app/
 
 ### URL -> Markdown Worker (RapidAPI + Cloudflare)
 Summary: Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.
@@ -474,7 +466,6 @@ Tech Stack:
 - Cloud Run
 Links:
 - Open Telegram Mini App: https://t.me/olfacto_bot/app
-- Web App: https://olfactory-web-1095464065298.us-east1.run.app
 - Reference writeup: https://writetobrain.com/olfactory
 
 ### seogeo - SEO/GEO Bridge for Telegram Mini Apps
@@ -502,8 +493,6 @@ Benchmarks & Analytics:
 - Stores: Firestore + in-memory (Attribution + channel index fallback)
 Links:
 - Open Telegram Mini App: https://t.me/se0geo_bot/app?startapp=HUB
-- Live Hub: https://seogeo-bridge-1095464065298.us-east1.run.app
-- Channels Index: https://seogeo-bridge-1095464065298.us-east1.run.app/channels
 
 ### Blacksock - Telegram Liquidity & Index Vaults
 Summary: Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.
@@ -523,7 +512,6 @@ Tech Stack:
 - TON Connect
 Links:
 - Open Telegram Mini App: https://t.me/blacksock_bot/app
-- Live App: https://blacksock-1095464065298.us-east1.run.app
 
 ### Beauty Visual Inbox - Telegram Mini App
 Summary: Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.
@@ -543,7 +531,6 @@ Tech Stack:
 - Telegram Bot API
 Links:
 - Open Telegram Mini App: https://t.me/BeautyVisal_bot/app
-- Live App: https://bvis-1095464065298.us-east1.run.app
 
 ### Dalshe - Circular Clothing Pickup Mini App
 Summary: Telegram mini app for scheduling clothing donations with courier pickup and status updates.
@@ -565,7 +552,6 @@ Tech Stack:
 Links:
 - Open Telegram Mini App: https://t.me/dalshe_legko_bot/app
 - Telegram Bot: https://t.me/dalshe_legko_bot
-- Live App: https://dalshe-zlvmfsrm6a-ue.a.run.app
 
 ### DoctorAI - Dermatology Triage Mini App
 Summary: Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.
@@ -588,7 +574,6 @@ Benchmarks & Analytics:
 - Last push: 2025-12-05
 Links:
 - Open Telegram Mini App: https://t.me/doctorai_bot/app
-- Live App: https://doctorai-1095464065298.us-east1.run.app
 - GitHub: https://github.com/zack-dev-cm/doctorai
 
 ### Probes - AI Magazine Mini App
@@ -610,7 +595,6 @@ Tech Stack:
 Links:
 - Open Telegram Mini App: https://t.me/probes_bot/app
 - Telegram Channel: https://t.me/pr0bes
-- Live App: https://probes-zlvmfsrm6a-ue.a.run.app
 
 ### Turbo Tots Garage (motion + touch PWA)
 Summary: Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.
@@ -649,7 +633,6 @@ Tech Stack:
 - MCP
 Links:
 - Open Telegram Mini App: https://t.me/steer_prints_bot/app
-- Live App: https://steer-zlvmfsrm6a-ue.a.run.app/
 
 ### Noel - Noetic Mirror
 Summary: Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.
@@ -683,7 +666,6 @@ Benchmarks & Analytics:
 Links:
 - Open Telegram Mini App: https://t.me/noetic_mirror_bot/app
 - Telegram Channel: https://t.me/noel_mirror
-- Live App: https://noetic-mirror-web-zlvmfsrm6a-ue.a.run.app/
 - View on GitHub: https://github.com/zack-dev-cm/noel
 
 ### GeoFix - AI Visibility Memorizer Mini App
@@ -707,9 +689,13 @@ Tech Stack:
 - Telegram Web Apps
 - Cloud Run
 - GCS
+Benchmarks & Analytics:
+- Generated assets: 3 (llms.txt, llms-full.txt, schema.jsonld)
+- Cloud Run services: 3 (web, API, worker)
+- Delivery channels: 2 (web previews + Telegram mini app)
+- External integrations: 4 (OpenAI, Telegram, target site, Medaudit GEO API)
 Links:
 - Open Telegram Mini App: https://t.me/geofix_app_bot/launch
-- Live App: https://geofix-app-zlvmfsrm6a-ue.a.run.app/
 
 ### Pores & Wrinkles Detection Service
 Summary: Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
@@ -758,9 +744,6 @@ Benchmarks & Analytics:
 - Latest regression run: 6/6 passed (Task 7.2 pytest report (2026-02-15))
 - UI redesign cycles: 2 (Task 7.1 and Task 7.2)
 Links:
-- Minigames Repo: https://github.com/zack-dev-cm/minigames
-- Toybox TMA OpenClaw Runbook: https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md
-- Trends to Mini App Pipeline: https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md
 - OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ### Agentic CV Repro Lab Skill
@@ -805,3 +788,7 @@ Tech Stack:
 - Legacy DB Integration
 - Workflow Automation
 - Operator Tooling
+Benchmarks & Analytics:
+- Workflow stages: 7 (lead, intake, drafts, operator, review, legacy, reporting)
+- Back-office rewrites: 0 (existing clinic system preserved)
+- Human control points: 3 (approvals, escalations, routing)

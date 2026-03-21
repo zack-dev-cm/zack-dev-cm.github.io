@@ -27,14 +27,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const titleId = `project-modal-title-${project.id}`;
   const descriptionId = `project-modal-description-${project.id}`;
 
-  // Reset image index when project changes
   useEffect(() => {
     setCurrentImageIndex(0);
   }, [project]);
 
   useEffect(() => {
-    const handleKeydown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
         onClose();
       }
     };
@@ -42,8 +41,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     return () => document.removeEventListener('keydown', handleKeydown);
   }, [onClose]);
 
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
       onClose();
     }
   };
@@ -56,93 +55,86 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + project.images.length) % project.images.length);
   };
 
+  const currentImage = project.images[currentImageIndex];
+
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm animate-fade-in"
+    <div
+      className="modal-backdrop"
       onClick={handleBackdropClick}
       aria-modal="true"
       role="dialog"
       aria-labelledby={titleId}
       aria-describedby={descriptionId}
     >
-      <div 
-        ref={modalRef}
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg bg-slate-800 text-slate-300 shadow-2xl shadow-black/50 m-4"
-      >
-        <button 
-          onClick={onClose} 
-          className="absolute top-4 right-4 z-20 text-slate-400 hover:text-white transition-colors"
-          aria-label="Close project details"
-        >
-          <XIcon className="h-8 w-8" />
+      <div ref={modalRef} className="modal-card">
+        <button onClick={onClose} className="modal-close" aria-label="Close project details">
+          <XIcon className="h-6 w-6" />
         </button>
 
-        {project.images.length > 0 && (
-          <div className="relative w-full aspect-video bg-slate-900 rounded-t-lg overflow-hidden group">
-            {isVideoUrl(project.images[currentImageIndex].url) ? (
+        {currentImage && (
+          <div className="modal-media">
+            {isVideoUrl(currentImage.url) ? (
               <video
-                src={project.images[currentImageIndex].url}
-                className="w-full h-full object-contain transition-opacity duration-300"
-                key={project.images[currentImageIndex].url}
+                src={currentImage.url}
+                className="modal-media__asset"
+                key={currentImage.url}
                 controls
                 playsInline
-                preload="auto"
+                preload="metadata"
                 poster={fallbackImageUrl}
               />
             ) : (
-              <img 
-                  src={project.images[currentImageIndex].url} 
-                  alt={project.images[currentImageIndex].alt} 
-                  className="w-full h-full object-contain transition-opacity duration-300"
-                  loading="lazy"
-                  decoding="async"
-                  key={project.images[currentImageIndex].url}
-                  onError={(event) => {
-                    if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
-                      event.currentTarget.src = fallbackImageUrl;
-                    }
-                  }}
+              <img
+                src={currentImage.url}
+                alt={currentImage.alt}
+                className="modal-media__asset"
+                loading="lazy"
+                decoding="async"
+                key={currentImage.url}
+                onError={(event) => {
+                  if (fallbackImageUrl && event.currentTarget.src !== fallbackImageUrl) {
+                    event.currentTarget.src = fallbackImageUrl;
+                  }
+                }}
               />
             )}
+
             {project.images.length > 1 && (
-                <>
-                    <button 
-                        onClick={handlePrevImage} 
-                        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/40 text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-                        aria-label="Previous image"
-                    >
-                        <ChevronLeftIcon className="h-6 w-6" />
-                    </button>
-                    <button 
-                        onClick={handleNextImage} 
-                        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/40 text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-                        aria-label="Next image"
-                    >
-                        <ChevronRightIcon className="h-6 w-6" />
-                    </button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
-                        {project.images.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setCurrentImageIndex(index)}
-                                className={`h-2 w-2 rounded-full transition-colors ${index === currentImageIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/75'}`}
-                                aria-label={`Go to image ${index + 1}`}
-                            />
-                        ))}
-                    </div>
-                </>
+              <>
+                <button type="button" onClick={handlePrevImage} className="modal-media__nav modal-media__nav--prev" aria-label="Previous image">
+                  <ChevronLeftIcon className="h-5 w-5" />
+                </button>
+                <button type="button" onClick={handleNextImage} className="modal-media__nav modal-media__nav--next" aria-label="Next image">
+                  <ChevronRightIcon className="h-5 w-5" />
+                </button>
+                <div className="modal-media__dots">
+                  {project.images.map((image, index) => (
+                    <button
+                      key={image.url}
+                      type="button"
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`modal-media__dot${index === currentImageIndex ? ' is-active' : ''}`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
             )}
-        </div>
+          </div>
         )}
 
-        <div className="p-8">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <h2 id={titleId} className="text-3xl font-bold text-slate-100">{project.title}</h2>
+        <div className="modal-body">
+          <div className="modal-body__header">
+            <div>
+              <p className="modal-body__eyebrow">Case study #{project.id}</p>
+              <h2 id={titleId}>{project.title}</h2>
+            </div>
+
             {onCopyShare && (
               <button
                 type="button"
                 onClick={onCopyShare}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-300 transition hover:border-teal-400/70 hover:text-teal-200"
+                className="button button--ghost button--small"
                 aria-label="Copy project link"
               >
                 <LinkIcon className="h-4 w-4" />
@@ -150,73 +142,72 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </button>
             )}
           </div>
-          <p id={descriptionId} className="mt-4 text-slate-400">{project.longDescription || project.description}</p>
 
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold text-slate-200">Key Features</h3>
-            <ul className="mt-2 list-disc list-inside space-y-1 text-slate-400">
-              {project.keyFeatures.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
-          </div>
+          <p id={descriptionId} className="modal-body__lead">
+            {project.longDescription || project.description}
+          </p>
 
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold text-slate-200">Tech Stack</h3>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <span key={tech} className="rounded-full bg-teal-400/10 px-3 py-1 text-sm font-medium text-teal-300">
-                  {tech}
-                </span>
-              ))}
-            </div>
+          <div className="modal-body__grid">
+            <section className="panel">
+              <p className="panel__eyebrow">Highlights</p>
+              <h3>Key features</h3>
+              <ul className="bullet-list bullet-list--compact">
+                {project.keyFeatures.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="panel">
+              <p className="panel__eyebrow">Stack</p>
+              <h3>Tech stack</h3>
+              <div className="chip-row">
+                {project.techStack.map((tech) => (
+                  <span key={tech} className="pill">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </section>
           </div>
 
           {project.benchmarks && project.benchmarks.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold text-slate-200">Benchmarks & Analytics</h3>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <section className="panel">
+              <p className="panel__eyebrow">Proof</p>
+              <h3>Benchmarks and analytics</h3>
+              <div className="proof-grid">
                 {project.benchmarks.map((benchmark, index) => (
-                  <div
-                    key={`${benchmark.label}-${index}`}
-                    className="rounded-lg border border-slate-700 bg-slate-900/60 p-3"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">{benchmark.label}</p>
-                    <p className="mt-1 text-lg font-semibold text-slate-200">{benchmark.value}</p>
-                    {benchmark.context && <p className="mt-1 text-xs text-slate-500">{benchmark.context}</p>}
+                  <div key={`${benchmark.label}-${index}`} className="proof-chip">
+                    <strong>{benchmark.label}</strong>
+                    <span>{benchmark.value}</span>
+                    {benchmark.context && <em>{benchmark.context}</em>}
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           )}
 
           {project.topologySnapshot && (
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold text-slate-200">ASCII Topology Snapshot</h3>
-              <pre className="mt-2 whitespace-pre-wrap rounded-lg border border-slate-700 bg-slate-900/60 p-4 font-mono text-sm text-slate-300 overflow-x-auto">
-                {project.topologySnapshot}
-              </pre>
-            </div>
+            <section className="panel">
+              <p className="panel__eyebrow">System shape</p>
+              <h3>ASCII topology snapshot</h3>
+              <pre className="code-block">{project.topologySnapshot}</pre>
+            </section>
           )}
 
           {project.links.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold text-slate-200">Links</h3>
-              <div className="mt-2 space-y-2">
+            <section className="panel">
+              <p className="panel__eyebrow">Outbound</p>
+              <h3>Links</h3>
+              <div className="modal-links">
                 {project.links.map((link) => (
-                  <a 
-                    key={link.url} 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center text-teal-400 hover:text-teal-300 transition-colors"
-                  >
-                    <ExternalLinkIcon className="h-4 w-4 mr-2" />
+                  <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
+                    <ExternalLinkIcon className="h-4 w-4" />
                     <span>{link.text}</span>
                   </a>
                 ))}
               </div>
-            </div>
+            </section>
           )}
         </div>
       </div>

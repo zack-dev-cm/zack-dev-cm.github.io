@@ -32,8 +32,6 @@ https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-a
 
 ## Links
 - [Open Telegram Mini App](https://t.me/se0geo_bot/app?startapp=HUB)
-- [Live Hub](https://seogeo-bridge-1095464065298.us-east1.run.app)
-- [Channels Index](https://seogeo-bridge-1095464065298.us-east1.run.app/channels)
 
 ## Architecture Diagram
 ```mermaid

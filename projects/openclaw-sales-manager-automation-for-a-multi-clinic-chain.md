@@ -21,6 +21,11 @@ https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-m
 - Workflow Automation
 - Operator Tooling
 
+## Benchmarks & Analytics
+- Workflow stages: 7 (lead, intake, drafts, operator, review, legacy, reporting)
+- Back-office rewrites: 0 (existing clinic system preserved)
+- Human control points: 3 (approvals, escalations, routing)
+
 ## Architecture Diagram
 ```mermaid
 flowchart LR

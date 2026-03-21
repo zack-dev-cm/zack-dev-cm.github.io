@@ -24,4 +24,3 @@ https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults
 
 ## Links
 - [Open Telegram Mini App](https://t.me/blacksock_bot/app)
-- [Live App](https://blacksock-1095464065298.us-east1.run.app)

@@ -20,9 +20,6 @@ https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md
 - Multi-tenant data stores
 - Telemetry guardrails
 
-## Links
-- [Live Demo](https://project018-mcp-1095464065298.us-east1.run.app/)
-
 ## Topology Snapshot
 ```
 Clients Layer

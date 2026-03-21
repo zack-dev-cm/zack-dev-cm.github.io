@@ -20,7 +20,7 @@ const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
 const AUTHOR_TITLE = 'AI Product Engineer';
 const AUTHOR_DESCRIPTION =
-  'AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.';
+  'AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.';
 const AUTHOR_SAME_AS = [
   'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/',
   'https://github.com/zack-dev-cm',
@@ -563,11 +563,11 @@ const main = async () => {
   }
 
   const topProjectTitles = [
-    'Android Remote Control with VLM AI Agents',
-    'Noel - Noetic Mirror',
-    'MCP-Server - Base Multitool',
+    'OpenClaw Sales Manager Automation for a Multi-Clinic Chain',
     'GeoFix - AI Visibility Memorizer Mini App',
-    'seogeo - SEO/GEO Bridge for Telegram Mini Apps'
+    'Agentic CV Repro Lab Skill',
+    'Pores & Wrinkles Detection Service',
+    'OpenClaw Workstream - Telegram Mini App E2E & Launch Ops'
   ].map(toAscii);
 
   const topProjects = topProjectTitles.map((title) =>

@@ -3,54 +3,93 @@ import { AUTHOR_INFO, SOCIAL_LINKS } from '../constants';
 import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
 
 const NAV_ITEMS = [
+  { name: 'Intro', href: '#intro' },
   { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Stack', href: '#stack'},
+  { name: 'Collaborations', href: '#experience' },
+  { name: 'Featured', href: '#featured' },
   { name: 'Latest', href: '#latest' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Contact', href: '#contact' }
 ];
 
-export const Sidebar: React.FC = () => {
-  return (
-    <header className="lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-80 xl:w-96 lg:flex-col lg:border-r lg:border-slate-800 bg-slate-900/70 backdrop-blur-sm">
-      <div className="flex h-full w-full flex-col p-6 sm:p-10 md:p-12 lg:p-16">
-        <div className="flex-1">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-            {AUTHOR_INFO.name}
-          </h1>
-          <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-            {AUTHOR_INFO.title}
-          </h2>
-          <p className="mt-4 max-w-xs leading-normal text-slate-400">
-            {AUTHOR_INFO.bio}
-          </p>
+interface SidebarProps {
+  projectCount: number;
+  benchmarkedCount: number;
+  latestCount: number;
+}
 
-          <nav className="hidden lg:block mt-12 w-max">
-            <ul className="flex flex-col space-y-4">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.name}>
-                  <a href={item.href} className="group flex items-center py-1 transition-all">
-                    <span className="mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200"></span>
-                    <span className="text-sm font-semibold uppercase tracking-widest text-slate-500 group-hover:text-slate-200">
-                      {item.name}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+export const Sidebar: React.FC<SidebarProps> = ({ projectCount, benchmarkedCount, latestCount }) => {
+  return (
+    <header className="profile-panel">
+      <div className="profile-panel__content">
+        <div className="profile-panel__intro">
+          <a href="#intro" className="profile-panel__home">
+            {AUTHOR_INFO.name}
+          </a>
+          <p className="profile-panel__role">{AUTHOR_INFO.title}</p>
+          <p className="profile-panel__bio">{AUTHOR_INFO.bio}</p>
         </div>
 
-        <div className="flex items-center space-x-6 mt-8">
-          <a href={SOCIAL_LINKS.githubPrimary} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-400 hover:text-slate-200 transition-colors">
-            <GitHubIcon className="h-6 w-6" />
+        <div className="profile-panel__stats" aria-label="Sidebar quick stats">
+          <div className="profile-stat">
+            <strong>{projectCount}</strong>
+            <span>case studies</span>
+          </div>
+          <div className="profile-stat">
+            <strong>{benchmarkedCount}</strong>
+            <span>with proof points</span>
+          </div>
+          <div className="profile-stat">
+            <strong>{latestCount}</strong>
+            <span>latest updates</span>
+          </div>
+        </div>
+
+        <nav className="profile-nav" aria-label="Section navigation">
+          <ul>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.name}>
+                <a href={item.href}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="profile-panel__actions">
+          <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--primary button--block">
+            Email me
           </a>
-          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-400 hover:text-slate-200 transition-colors">
-            <LinkedInIcon className="h-6 w-6" />
+          <a
+            href={SOCIAL_LINKS.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button button--ghost button--block"
+          >
+            LinkedIn
           </a>
-          <a href={`mailto:${SOCIAL_LINKS.email}`} aria-label="Email" className="text-slate-400 hover:text-slate-200 transition-colors">
-            <MailIcon className="h-6 w-6" />
+        </div>
+
+        <div className="profile-panel__socials">
+          <a
+            href={SOCIAL_LINKS.githubPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="profile-social"
+          >
+            <GitHubIcon className="h-5 w-5" />
+          </a>
+          <a
+            href={SOCIAL_LINKS.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="profile-social"
+          >
+            <LinkedInIcon className="h-5 w-5" />
+          </a>
+          <a href={`mailto:${SOCIAL_LINKS.email}`} aria-label="Email" className="profile-social">
+            <MailIcon className="h-5 w-5" />
           </a>
         </div>
       </div>

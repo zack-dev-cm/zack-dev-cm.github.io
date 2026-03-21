@@ -16,7 +16,7 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   await expect(page.getByText('Latest Updates')).toBeVisible();
 
   // Card presence: ensure at least one project card renders
-  const cards = page.locator('[aria-label="Project"] , [data-testid="project-card"] , .group.relative.cursor-pointer');
+  const cards = page.locator('[aria-label="Project"], [data-testid="project-card"], .project-card');
   await expect(cards.first()).toBeVisible();
 
   const expectImageLoaded = async (locator: Locator, label: string, timeoutMs = 10000) => {

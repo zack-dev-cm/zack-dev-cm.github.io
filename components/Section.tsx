@@ -4,14 +4,19 @@ interface SectionProps {
   id: string;
   title: string;
   children: React.ReactNode;
+  eyebrow?: string;
+  description?: string;
 }
 
-export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
+export const Section: React.FC<SectionProps> = ({ id, title, children, eyebrow, description }) => {
   return (
-    <section id={id} className="py-12 scroll-mt-20">
-      <div className="flex items-center mb-8">
-        <h2 className="text-2xl font-bold tracking-tight text-slate-200 sm:text-3xl">{title}</h2>
-        <div className="ml-4 h-px flex-grow bg-slate-700"></div>
+    <section id={id} className="content-section">
+      <div className="section-header">
+        {eyebrow && <p className="section-header__eyebrow">{eyebrow}</p>}
+        <div className="section-header__body">
+          <h2>{title}</h2>
+          {description && <p>{description}</p>}
+        </div>
       </div>
       {children}
     </section>

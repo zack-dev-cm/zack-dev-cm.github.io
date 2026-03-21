@@ -8,7 +8,7 @@
       "jobTitle": "AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
+      "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "sameAs": [
         "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
         "https://github.com/zack-dev-cm",
@@ -21,7 +21,7 @@
       "@id": "https://zack-dev-cm.github.io/#website",
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
+      "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -32,7 +32,7 @@
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
-      "description": "AI product engineer building VLM/LLM and computer vision systems across web, mobile, and cloud.",
+      "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
       "dateModified": "2026-03-21",
       "isPartOf": {

@@ -17,6 +17,3 @@ https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md
 - Serverless
 - React
 - Analytics
-
-## Links
-- [Visit App](https://analytics-mcp-1095464065298.us-east1.run.app)

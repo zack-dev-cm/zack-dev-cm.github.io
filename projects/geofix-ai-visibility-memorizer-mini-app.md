@@ -27,9 +27,14 @@ https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.m
 - Cloud Run
 - GCS
 
+## Benchmarks & Analytics
+- Generated assets: 3 (llms.txt, llms-full.txt, schema.jsonld)
+- Cloud Run services: 3 (web, API, worker)
+- Delivery channels: 2 (web previews + Telegram mini app)
+- External integrations: 4 (OpenAI, Telegram, target site, Medaudit GEO API)
+
 ## Links
 - [Open Telegram Mini App](https://t.me/geofix_app_bot/launch)
-- [Live App](https://geofix-app-zlvmfsrm6a-ue.a.run.app/)
 
 ## Architecture Diagram
 ```mermaid

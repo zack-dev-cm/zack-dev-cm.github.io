@@ -1,5 +1,4 @@
-
-import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
+import React, { useMemo, useState, useEffect, useRef, useCallback, useDeferredValue } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
@@ -10,7 +9,6 @@ import {
   PROJECTS,
   COMPANIES,
   LATEST_UPDATES,
-  TECH_STACK,
   KEY_HIGHLIGHTS,
   AUTHOR_INFO,
   SOCIAL_LINKS,
@@ -19,6 +17,54 @@ import {
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates, LatestUpdate } from './types';
+
+const FEATURED_PROJECT_IDS = [44, 40, 43, 41] as const;
+const FEATURED_PROJECT_INDEX = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
+
+const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
+  44: {
+    label: 'Agentic operations',
+    summary:
+      'A strong business-side case study: AI qualification and follow-up automation layered onto a legacy clinic workflow without forcing a rewrite.',
+    proof: ['Legacy DB preserved', 'Operator approvals built in', 'Lead routing stayed human-safe']
+  },
+  40: {
+    label: 'AI visibility product',
+    summary:
+      'An end-to-end product for AI discoverability: scan a site, score it, generate memorizer assets, and deliver them through web and Telegram surfaces.',
+    proof: ['Asset generation engine', 'Three-service Cloud Run topology', 'Web plus Telegram delivery']
+  },
+  43: {
+    label: 'CV / MLOps productization',
+    summary:
+      'A public release that packages internal computer-vision experimentation discipline into an installable, reusable operational skill.',
+    proof: ['Public ClawHub release', 'Promotion gates across three surfaces', 'Security review artifacts included']
+  },
+  41: {
+    label: 'Applied computer vision',
+    summary:
+      'A production-minded vision service for dense facial texture analysis, with async jobs, landmark preprocessing, and client-ready delivery surfaces.',
+    proof: ['Async API workflow', 'MediaPipe plus YOLO pipeline', 'Flutter and Telegram client surfaces']
+  }
+};
+
+const DELIVERY_PILLARS = [
+  {
+    title: 'Agentic systems with operators in the loop',
+    description:
+      'I design automations that fit the real workflow: approvals, fallbacks, legacy constraints, and clear next actions for humans.'
+  },
+  {
+    title: 'Computer vision that ships as a product',
+    description:
+      'From OCR and segmentation to multimodal CV services, I focus on getting models into APIs, apps, and measurable user flows.'
+  },
+  {
+    title: 'Launch-ready interfaces, not lab demos',
+    description:
+      'Telegram mini apps, React fronts, mobile clients, Cloud Run services, and QA loops built to survive releases and real usage.'
+  }
+];
 
 const parseGithubRepo = (url?: string) => {
   if (!url) return null;
@@ -132,7 +178,7 @@ const normalizeProject = (project: Project): Project => {
   const images = rawImages
     .map((image) => ({ ...image, url: resolveAssetUrl(image.url) }))
     .filter((image) => Boolean(image.url));
-  if (images.length === 0 && !project.hideImages) {
+  if (images.length === 0 && !project.hideImages && thumbnail) {
     images.push({ url: thumbnail, alt: `${project.title} preview` });
   }
   const techStack = project.techStack?.length ? project.techStack : ['Product'];
@@ -152,6 +198,7 @@ const App: React.FC = () => {
   const [projectQuery, setProjectQuery] = useState('');
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
+  const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -163,11 +210,7 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    document.body.style.overflow = selectedProject ? 'hidden' : 'auto';
   }, [selectedProject]);
 
   useEffect(() => {
@@ -194,6 +237,7 @@ const App: React.FC = () => {
     const latestUpdates = portfolioUpdates?.latestUpdates ?? [];
     return sortByCreatedAtDesc(latestUpdates.filter((update) => !isExcludedLatestUpdate(update)));
   }, [portfolioUpdates]);
+
   const updateProjects = useMemo(
     () =>
       sortByCreatedAtDesc(
@@ -235,6 +279,24 @@ const App: React.FC = () => {
   const latestBySlug = useMemo(() => {
     return new Map(mergedLatestUpdates.map((update) => [getLatestSlug(update), update]));
   }, [mergedLatestUpdates]);
+
+  const benchmarkedProjectCount = useMemo(() => {
+    return mergedProjects.filter((project) => project.benchmarks && project.benchmarks.length > 0).length;
+  }, [mergedProjects]);
+
+  const featuredProjects = useMemo(() => {
+    return FEATURED_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project));
+  }, [projectById]);
+
+  const heroStats = useMemo(
+    () => [
+      { value: `${mergedProjects.length}`, label: 'public case studies' },
+      { value: '7+', label: 'years shipping CV / ML systems' },
+      { value: `${COMPANIES.length}`, label: 'recognized collaborators' },
+      { value: `${benchmarkedProjectCount}`, label: 'projects with explicit proof points' }
+    ],
+    [benchmarkedProjectCount, mergedProjects.length]
+  );
 
   const syncFromUrl = useCallback(() => {
     const params = new URLSearchParams(window.location.search);
@@ -317,7 +379,7 @@ const App: React.FC = () => {
           markCopied(key);
         }
       } catch {
-        // ignore failed fallback copy
+        // Ignore failed fallback copy.
       }
       document.body.removeChild(textarea);
     },
@@ -386,7 +448,7 @@ const App: React.FC = () => {
 
   const selectedProjectSlug = selectedProject ? getProjectSlug(selectedProject) : null;
   const isProjectCopied = selectedProjectSlug ? copiedKey === `project:${selectedProjectSlug}` : false;
-  const normalizedProjectQuery = projectQuery.trim().toLowerCase();
+  const normalizedProjectQuery = deferredProjectQuery.trim().toLowerCase();
 
   const filteredProjects = useMemo(() => {
     const withFilters = mergedProjects.filter((project) => {
@@ -396,7 +458,8 @@ const App: React.FC = () => {
         project.title,
         project.description,
         project.longDescription || '',
-        project.techStack.join(' ')
+        project.techStack.join(' '),
+        project.keyFeatures.join(' ')
       ]
         .join(' ')
         .toLowerCase();
@@ -406,340 +469,512 @@ const App: React.FC = () => {
     if (projectSort === 'alpha') {
       return [...withFilters].sort((a, b) => a.title.localeCompare(b.title));
     }
+
     if (projectSort === 'recent') {
       return [...withFilters].sort((a, b) => b.id - a.id);
     }
+
     return [...withFilters].sort((a, b) => {
+      const aFeatured = FEATURED_PROJECT_INDEX.get(a.id);
+      const bFeatured = FEATURED_PROJECT_INDEX.get(b.id);
+      if (aFeatured !== undefined || bFeatured !== undefined) {
+        if (aFeatured === undefined) return 1;
+        if (bFeatured === undefined) return -1;
+        return aFeatured - bFeatured;
+      }
+
       const aBenchmarks = a.benchmarks?.length ?? 0;
       const bBenchmarks = b.benchmarks?.length ?? 0;
       if (bBenchmarks !== aBenchmarks) return bBenchmarks - aBenchmarks;
+
+      const aLinks = a.links.length;
+      const bLinks = b.links.length;
+      if (bLinks !== aLinks) return bLinks - aLinks;
+
       return b.id - a.id;
     });
-  }, [mergedProjects, benchmarkedOnly, normalizedProjectQuery, projectSort]);
+  }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectSort]);
 
   return (
-    <div className="bg-slate-900 min-h-screen text-slate-300 font-sans leading-relaxed">
-      <div className="flex flex-col lg:flex-row">
-        <Sidebar />
+    <div className="site-shell">
+      <div className="site-layout">
+        <Sidebar
+          projectCount={mergedProjects.length}
+          benchmarkedCount={benchmarkedProjectCount}
+          latestCount={mergedLatestUpdates.length}
+        />
 
-        <main className="lg:pl-80 xl:pl-96 w-full min-w-0">
-          <div className="p-6 sm:p-10 md:p-12 lg:p-16">
-            
-            <Section id="about" title="About Me">
-              <p className="mb-6 text-slate-400">
-                {AUTHOR_INFO.bio}
-              </p>
-              <div className="space-y-4 text-slate-400">
-                  {KEY_HIGHLIGHTS.map((highlight, index) => (
-                      <p key={index} className="flex items-start">
-                           <svg className="w-4 h-4 mr-3 mt-1 flex-shrink-0 text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                          <span>{highlight}</span>
-                      </p>
-                  ))}
-              </div>
-            </Section>
-
-            <Section id="experience" title="Collaborations">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center">
-                {COMPANIES.map((company) => (
-                  <div
-                    key={company.name}
-                    tabIndex={0}
-                    title={company.name}
-                    aria-label={company.name}
-                    className="p-4 bg-white rounded-lg flex justify-center items-center h-24 border border-slate-200 shadow transition-transform duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-                  >
-                    <img
-                      src={company.logoUrl}
-                      alt={`${company.name} Logo`}
-                      className="max-h-16 max-w-full object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            <Section id="stack" title="Tech Stack">
-                <div className="flex flex-wrap gap-3">
-                    {TECH_STACK.map((tech, index) => (
-                        <span key={index} className="bg-teal-400/10 text-teal-300 text-sm font-medium px-3 py-1.5 rounded-full">{tech}</span>
-                    ))}
+        <main className="content-column">
+          <section id="intro" className="hero">
+            <p className="hero__eyebrow">AI product engineer</p>
+            <h1 className="hero__title">AI products that survive production constraints.</h1>
+            <p className="hero__lead">
+              {AUTHOR_INFO.bio} I turn messy problem statements into operator-safe automations, computer
+              vision services, and product surfaces that are actually ready to launch.
+            </p>
+            <div className="hero__actions">
+              <a href="#featured" className="button button--primary">
+                View featured solutions
+              </a>
+              <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
+                Start a project
+              </a>
+              <a
+                href={SOCIAL_LINKS.githubPrimary}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button button--ghost"
+              >
+                GitHub
+              </a>
+            </div>
+            <div className="hero__stats" aria-label="Portfolio summary statistics">
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="hero-stat">
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
                 </div>
-            </Section>
-            
-            <Section id="latest" title="Latest Updates">
-               <ul className="space-y-4 text-slate-400">
-                {mergedLatestUpdates.map((update) => {
-                  const updateSlug = getLatestSlug(update);
-                  const isLatestCopied = copiedKey === `latest:${updateSlug}`;
-                  const isLatestActive = activeLatestSlug === updateSlug;
-                  const isExpanded = expandedLatestSlugs.includes(updateSlug);
-                  const detailProject =
-                    (update.projectId ? projectById.get(update.projectId) : null) ||
-                    (update.repoId ? projectById.get(update.repoId) : null) ||
-                    (update.repoFullName ? projectByRepoFullName.get(update.repoFullName.toLowerCase()) : null) ||
-                    null;
-                  const summary = update.description || detailProject?.description;
-                  return (
-                    <li
-                      key={updateSlug}
-                      data-latest-slug={updateSlug}
-                      role="button"
-                      tabIndex={0}
-                      aria-expanded={isExpanded}
-                      title="Click to expand"
-                      onClick={() => toggleLatestExpanded(updateSlug)}
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter' || event.key === ' ') {
-                          event.preventDefault();
-                          toggleLatestExpanded(updateSlug);
-                        }
-                      }}
-                      className={`flex cursor-pointer items-start rounded-lg p-3 scroll-mt-24 transition ${
-                        isLatestActive ? 'bg-teal-400/10 ring-1 ring-teal-400/40' : 'hover:bg-slate-800/40'
-                      }`}
-                    >
-                      <span className="text-teal-400 mr-3 text-xl">&#8627;</span>
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-3">
-                          <h4 className="font-semibold text-slate-200">{update.title}</h4>
-                          <div className="flex flex-wrap items-center justify-end gap-2">
-                            <button
-                              type="button"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                void handleShareLatest(updateSlug);
-                              }}
-                              className="whitespace-nowrap rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
-                              aria-label={`Copy link for ${update.title}`}
-                            >
-                              {isLatestCopied ? 'Copied' : 'Copy link'}
-                            </button>
+              ))}
+            </div>
+          </section>
+
+          <Section
+            id="about"
+            eyebrow="Positioning"
+            title="About Me"
+            description="What clients get when they hire me and how I frame the work."
+          >
+            <div className="about-grid">
+              <article className="panel">
+                <p className="panel__eyebrow">Built for delivery</p>
+                <h3>More operating model than portfolio theater</h3>
+                <p>
+                  I work across agentic automation, applied computer vision, mini apps, and full-stack AI
+                  delivery. The common thread is not a single framework. It is getting from prototype to
+                  production without hiding the hard parts.
+                </p>
+                <p>
+                  That means human review points where they matter, measurable outputs, and systems that can
+                  live beside legacy software instead of demanding a complete rewrite.
+                </p>
+              </article>
+
+              <article className="panel panel--accent">
+                <p className="panel__eyebrow">Signal over noise</p>
+                <h3>Why this portfolio is now curated around proof</h3>
+                <ul className="bullet-list">
+                  {KEY_HIGHLIGHTS.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+
+            <div className="pillar-grid">
+              {DELIVERY_PILLARS.map((pillar) => (
+                <article key={pillar.title} className="pillar-card">
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="experience"
+            eyebrow="Proof"
+            title="Collaborations"
+            description="Some of the teams and brands I have built with."
+          >
+            <div className="logo-grid">
+              {COMPANIES.map((company) => (
+                <div
+                  key={company.name}
+                  tabIndex={0}
+                  title={company.name}
+                  aria-label={company.name}
+                  className="logo-card"
+                >
+                  <img
+                    src={company.logoUrl}
+                    alt={`${company.name} logo`}
+                    className="logo-card__image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="featured"
+            eyebrow="Best Work"
+            title="Featured Solutions"
+            description="The strongest four case studies to start with if you want range, proof, and product sense."
+          >
+            <div className="featured-grid">
+              {featuredProjects.map((project, index) => {
+                const context = FEATURED_PROJECT_CONTEXT[project.id];
+                const metrics = project.benchmarks?.slice(0, 3) ?? [];
+                const leadAsset = project.images[0];
+                const proofItems =
+                  metrics.length > 0
+                    ? metrics.map((metric) =>
+                        metric.context ? `${metric.label}: ${metric.value} (${metric.context})` : `${metric.label}: ${metric.value}`
+                      )
+                    : context?.proof ?? [];
+
+                return (
+                  <article
+                    key={project.id}
+                    className={`featured-card${index === 0 ? ' featured-card--spotlight' : ''}`}
+                  >
+                    <div className="featured-card__content">
+                      <div className="featured-card__meta">
+                        <span className="pill pill--accent">{context?.label || 'Featured project'}</span>
+                        <span className="featured-card__id">Case study #{project.id}</span>
+                      </div>
+                      <h3>{project.title}</h3>
+                      <p className="featured-card__summary">{context?.summary || project.longDescription || project.description}</p>
+                      <ul className="bullet-list bullet-list--compact">
+                        {project.keyFeatures.slice(0, 3).map((feature) => (
+                          <li key={feature}>{feature}</li>
+                        ))}
+                      </ul>
+                      <div className="proof-grid">
+                        {proofItems.slice(0, 3).map((item) => (
+                          <div key={item} className="proof-chip">
+                            {item}
                           </div>
-                        </div>
-                        {summary && <p className="text-sm">{summary}</p>}
-                        {update.links.length > 0 && (
-                          <div className="mt-1">
-                            {update.links.map((link) => (
-                              <a
-                                href={link.url}
-                                key={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={(event) => event.stopPropagation()}
-                                className="text-teal-400 hover:text-teal-300 text-sm mr-4 transition-colors duration-300"
-                              >
-                                {link.text} &rarr;
-                              </a>
-                            ))}
-                          </div>
-                        )}
-                        {isExpanded && (
-                          <div
-                            className="mt-4 rounded-lg border border-slate-800 bg-slate-900/50 p-4"
-                            onClick={(event) => event.stopPropagation()}
+                        ))}
+                      </div>
+                      <div className="button-row">
+                        <button type="button" className="button button--primary" onClick={() => handleSelectProject(project)}>
+                          Open case study
+                        </button>
+                        {project.links.slice(0, 2).map((link) => (
+                          <a
+                            key={link.url}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="button button--ghost"
                           >
-                            {detailProject ? (
-                              <>
-                                <p className="text-sm text-slate-400">
-                                  {detailProject.longDescription || detailProject.description}
-                                </p>
-                                {detailProject.keyFeatures.length > 0 && (
-                                  <div className="mt-4">
-                                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Highlights</p>
-                                    <ul className="mt-2 list-disc list-inside space-y-1 text-sm text-slate-400">
-                                      {detailProject.keyFeatures.slice(0, 4).map((feature) => (
-                                        <li key={feature}>{feature}</li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                )}
-                                {detailProject.techStack.length > 0 && (
-                                  <div className="mt-4 flex flex-wrap gap-2">
-                                    {detailProject.techStack.slice(0, 8).map((tech) => (
-                                      <span key={tech} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
-                                        {tech}
-                                      </span>
-                                    ))}
-                                  </div>
-                                )}
-                                {detailProject.images.length > 0 && !detailProject.hideImages && (
-                                  <div className="mt-4 grid gap-4 md:grid-cols-2">
-                                    {detailProject.images.slice(0, 2).map((image) => (
-                                      <div key={image.url} className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70">
-                                        {isVideoUrl(image.url) ? (
-                                          <video
-                                            src={image.url}
-                                            controls
-                                            playsInline
-                                            preload="auto"
-                                            className="h-40 w-full object-cover"
-                                          />
-                                        ) : (
-                                          <img
-                                            src={image.url}
-                                            alt={image.alt}
-                                            className="h-40 w-full object-cover"
-                                            loading="lazy"
-                                            decoding="async"
-                                            onError={(event) => {
-                                              if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
-                                                event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
-                                              }
-                                            }}
-                                          />
-                                        )}
-                                      </div>
-                                    ))}
-                                  </div>
-                                )}
-                                <div className="mt-4 flex flex-wrap items-center gap-3">
-                                  {detailProject.links.map((link) => (
-                                    <a
-                                      key={link.url}
-                                      href={link.url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      onClick={(event) => event.stopPropagation()}
-                                      className="rounded-full border border-slate-700 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-slate-400 transition hover:border-teal-400/70 hover:text-teal-200"
-                                    >
-                                      {link.text}
-                                    </a>
-                                  ))}
-                                  <button
-                                    type="button"
-                                    onClick={(event) => {
-                                      event.stopPropagation();
-                                      handleSelectProject(detailProject);
-                                    }}
-                                    className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-teal-300 transition hover:bg-teal-400/20"
-                                  >
-                                    View project
-                                  </button>
-                                </div>
-                              </>
-                            ) : (
-                              <p className="text-sm text-slate-500">More details coming soon.</p>
+                            {link.text}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="featured-card__visual">
+                      {leadAsset && !project.hideImages ? (
+                        isVideoUrl(leadAsset.url) ? (
+                          <video
+                            src={leadAsset.url}
+                            className="featured-card__asset"
+                            muted
+                            loop
+                            autoPlay
+                            playsInline
+                            preload={index === 0 ? 'auto' : 'metadata'}
+                            poster={DEFAULT_PROJECT_IMAGE}
+                          />
+                        ) : (
+                          <img
+                            src={leadAsset.url}
+                            alt={leadAsset.alt}
+                            className="featured-card__asset"
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
+                          />
+                        )
+                      ) : (
+                        <div className="featured-card__fallback">
+                          <span>{context?.label || 'Featured'}</span>
+                          <strong>{project.techStack.slice(0, 3).join(' · ')}</strong>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </Section>
+
+          <Section
+            id="latest"
+            eyebrow="Recent"
+            title="Latest Updates"
+            description="Recent launches and additions, with deep links you can share."
+          >
+            <ul className="latest-list">
+              {mergedLatestUpdates.map((update) => {
+                const updateSlug = getLatestSlug(update);
+                const isLatestCopied = copiedKey === `latest:${updateSlug}`;
+                const isLatestActive = activeLatestSlug === updateSlug;
+                const isExpanded = expandedLatestSlugs.includes(updateSlug);
+                const detailProject =
+                  (update.projectId ? projectById.get(update.projectId) : null) ||
+                  (update.repoId ? projectById.get(update.repoId) : null) ||
+                  (update.repoFullName ? projectByRepoFullName.get(update.repoFullName.toLowerCase()) : null) ||
+                  null;
+                const summary = update.description || detailProject?.description;
+
+                return (
+                  <li
+                    key={updateSlug}
+                    data-latest-slug={updateSlug}
+                    className={`latest-card${isLatestActive ? ' is-active' : ''}`}
+                  >
+                    <div className="latest-card__header">
+                      <div>
+                        <p className="latest-card__title">{update.title}</p>
+                        {summary && <p className="latest-card__summary">{summary}</p>}
+                      </div>
+                      <div className="latest-card__actions">
+                        <button
+                          type="button"
+                          className="button button--ghost button--small"
+                          onClick={() => void handleShareLatest(updateSlug)}
+                          aria-label={`Copy link for ${update.title}`}
+                        >
+                          {isLatestCopied ? 'Copied' : 'Copy link'}
+                        </button>
+                        <button
+                          type="button"
+                          className="button button--ghost button--small"
+                          onClick={() => toggleLatestExpanded(updateSlug)}
+                          aria-expanded={isExpanded}
+                        >
+                          {isExpanded ? 'Collapse' : 'Expand'}
+                        </button>
+                      </div>
+                    </div>
+
+                    {update.links.length > 0 && (
+                      <div className="latest-card__links">
+                        {update.links.map((link) => (
+                          <a
+                            href={link.url}
+                            key={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-link"
+                          >
+                            {link.text}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+
+                    {isExpanded && (
+                      <div className="latest-card__detail">
+                        {detailProject ? (
+                          <>
+                            <p>{detailProject.longDescription || detailProject.description}</p>
+                            {detailProject.keyFeatures.length > 0 && (
+                              <ul className="bullet-list bullet-list--compact">
+                                {detailProject.keyFeatures.slice(0, 4).map((feature) => (
+                                  <li key={feature}>{feature}</li>
+                                ))}
+                              </ul>
                             )}
-                          </div>
+
+                            {detailProject.techStack.length > 0 && (
+                              <div className="chip-row">
+                                {detailProject.techStack.slice(0, 8).map((tech) => (
+                                  <span key={tech} className="pill">
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+
+                            {detailProject.images.length > 0 && !detailProject.hideImages && (
+                              <div className="latest-card__media-grid">
+                                {detailProject.images.slice(0, 2).map((image) => (
+                                  <div key={image.url} className="media-tile">
+                                    {isVideoUrl(image.url) ? (
+                                      <video
+                                        src={image.url}
+                                        controls
+                                        playsInline
+                                        preload="metadata"
+                                        className="media-tile__asset"
+                                      />
+                                    ) : (
+                                      <img
+                                        src={image.url}
+                                        alt={image.alt}
+                                        className="media-tile__asset"
+                                        loading="lazy"
+                                        decoding="async"
+                                        onError={(event) => {
+                                          if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
+                                            event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
+                                          }
+                                        }}
+                                      />
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+
+                            <div className="button-row">
+                              {detailProject.links.map((link) => (
+                                <a
+                                  key={link.url}
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="button button--ghost button--small"
+                                >
+                                  {link.text}
+                                </a>
+                              ))}
+                              <button
+                                type="button"
+                                onClick={() => handleSelectProject(detailProject)}
+                                className="button button--primary button--small"
+                              >
+                                View project
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <p>More details coming soon.</p>
                         )}
                       </div>
-                    </li>
-                  );
-                })}
-               </ul>
-            </Section>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </Section>
 
-            <Section id="projects" title="Projects">
-              <div className="mb-6 rounded-lg border border-slate-800 bg-slate-900/40 p-4">
-                <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex-1">
-                    <label htmlFor="project-search" className="sr-only">Search projects</label>
-                    <input
-                      id="project-search"
-                      type="search"
-                      value={projectQuery}
-                      onChange={(event) => setProjectQuery(event.target.value)}
-                      placeholder="Search by project, tech stack, or domain..."
-                      className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500 focus:border-teal-400/70 focus:outline-none"
-                    />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setProjectSort('impact')}
-                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
-                        projectSort === 'impact'
-                          ? 'bg-teal-400/20 text-teal-200'
-                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
-                      }`}
-                    >
-                      Impact
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setProjectSort('recent')}
-                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
-                        projectSort === 'recent'
-                          ? 'bg-teal-400/20 text-teal-200'
-                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
-                      }`}
-                    >
-                      Recent
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setProjectSort('alpha')}
-                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
-                        projectSort === 'alpha'
-                          ? 'bg-teal-400/20 text-teal-200'
-                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
-                      }`}
-                    >
-                      A-Z
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setBenchmarkedOnly((value) => !value)}
-                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest transition ${
-                        benchmarkedOnly
-                          ? 'bg-teal-400/20 text-teal-200'
-                          : 'border border-slate-700 text-slate-400 hover:border-teal-400/70 hover:text-teal-200'
-                      }`}
-                    >
-                      Metrics Only
-                    </button>
-                  </div>
-                </div>
-                <p className="mt-3 text-xs uppercase tracking-widest text-slate-500">
-                  Showing {filteredProjects.length} of {mergedProjects.length} projects
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredProjects.map((project) => (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
-                    onSelectProject={() => handleSelectProject(project)}
+          <Section
+            id="projects"
+            eyebrow="Archive"
+            title="Projects"
+            description="Search the full archive. In Impact mode, featured work is pinned to the top."
+          >
+            <div className="explorer-panel">
+              <div className="explorer-panel__controls">
+                <div className="explorer-panel__search">
+                  <label htmlFor="project-search" className="sr-only">
+                    Search projects
+                  </label>
+                  <input
+                    id="project-search"
+                    type="search"
+                    value={projectQuery}
+                    onChange={(event) => setProjectQuery(event.target.value)}
+                    placeholder="Search by project, tech stack, workflow, or domain..."
+                    className="search-input"
                   />
-                ))}
-              </div>
-              {filteredProjects.length === 0 && (
-                <p className="mt-6 text-sm text-slate-500">No projects match the current filters.</p>
-              )}
-            </Section>
+                </div>
 
-            <Section id="contact" title="Let's Connect">
-               <p className="mb-6 text-slate-400">
-                I'm always excited to discuss new challenges and opportunities. Feel free to reach out.
+                <div className="chip-row">
+                  <button
+                    type="button"
+                    onClick={() => setProjectSort('impact')}
+                    className={`pill-button${projectSort === 'impact' ? ' is-active' : ''}`}
+                  >
+                    Impact
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setProjectSort('recent')}
+                    className={`pill-button${projectSort === 'recent' ? ' is-active' : ''}`}
+                  >
+                    Recent
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setProjectSort('alpha')}
+                    className={`pill-button${projectSort === 'alpha' ? ' is-active' : ''}`}
+                  >
+                    A-Z
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setBenchmarkedOnly((value) => !value)}
+                    className={`pill-button${benchmarkedOnly ? ' is-active' : ''}`}
+                  >
+                    Metrics only
+                  </button>
+                </div>
+              </div>
+
+              <p className="explorer-panel__summary">
+                Showing {filteredProjects.length} of {mergedProjects.length} projects
               </p>
-              <div className="flex items-center space-x-6">
-                 <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-400 transition-colors duration-300 flex items-center space-x-2">
-                    <LinkedInIcon className="w-6 h-6" />
-                    <span>LinkedIn</span>
-                 </a>
-                 <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-slate-400 hover:text-teal-400 transition-colors duration-300 flex items-center space-x-2">
-                    <MailIcon className="w-6 h-6" />
-                    <span>Email</span>
-                 </a>
-                 <a href={SOCIAL_LINKS.githubPrimary} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-teal-400 transition-colors duration-300 flex items-center space-x-2">
-                    <GitHubIcon className="w-6 h-6" />
-                    <span>GitHub</span>
-                 </a>
-              </div>
-            </Section>
+            </div>
 
-             <footer className="text-center mt-16 text-sm text-slate-500">
-              <p>&copy; {new Date().getFullYear()} Zakhar Pashkin. All rights reserved.</p>
-            </footer>
+            <div className="project-grid">
+              {filteredProjects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
+                  onSelectProject={() => handleSelectProject(project)}
+                />
+              ))}
+            </div>
 
-          </div>
+            {filteredProjects.length === 0 && (
+              <p className="empty-state">No projects match the current filters.</p>
+            )}
+          </Section>
+
+          <Section
+            id="contact"
+            eyebrow="Contact"
+            title="Let's Connect"
+            description="If you need an AI product engineer who can translate ambition into shipped systems, reach out."
+          >
+            <div className="contact-grid">
+              <a href={`mailto:${SOCIAL_LINKS.email}`} className="contact-card">
+                <MailIcon className="contact-card__icon" />
+                <div>
+                  <strong>Email</strong>
+                  <span>{SOCIAL_LINKS.email}</span>
+                </div>
+              </a>
+              <a
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <LinkedInIcon className="contact-card__icon" />
+                <div>
+                  <strong>LinkedIn</strong>
+                  <span>Professional profile</span>
+                </div>
+              </a>
+              <a
+                href={SOCIAL_LINKS.githubPrimary}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <GitHubIcon className="contact-card__icon" />
+                <div>
+                  <strong>GitHub</strong>
+                  <span>Public repos and case studies</span>
+                </div>
+              </a>
+            </div>
+          </Section>
+
+          <footer className="site-footer">
+            <p>&copy; {new Date().getFullYear()} Zakhar Pashkin. Built to be scanned fast and explored deeper.</p>
+          </footer>
         </main>
       </div>
-      
+
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
@@ -749,6 +984,7 @@ const App: React.FC = () => {
           isShareCopied={isProjectCopied}
         />
       )}
+
       <FloatingButtons telegramUrl={SOCIAL_LINKS.telegram} />
     </div>
   );

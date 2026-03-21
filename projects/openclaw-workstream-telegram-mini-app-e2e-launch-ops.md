@@ -30,7 +30,4 @@ https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e
 - UI redesign cycles: 2 (Task 7.1 and Task 7.2)
 
 ## Links
-- [Minigames Repo](https://github.com/zack-dev-cm/minigames)
-- [Toybox TMA OpenClaw Runbook](https://github.com/zack-dev-cm/minigames/blob/main/apps/toybox_tma/ops/openclaw_telegram_bot_tma_setup_runbook.md)
-- [Trends to Mini App Pipeline](https://github.com/zack-dev-cm/minigames/blob/main/docs/e2e_trends_to_miniapp_pipeline.md)
 - [OpenClaw Upstream](https://github.com/openclaw/openclaw)

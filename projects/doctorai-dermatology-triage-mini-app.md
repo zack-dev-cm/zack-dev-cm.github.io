@@ -28,5 +28,4 @@ https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md
 
 ## Links
 - [Open Telegram Mini App](https://t.me/doctorai_bot/app)
-- [Live App](https://doctorai-1095464065298.us-east1.run.app)
 - [GitHub](https://github.com/zack-dev-cm/doctorai)

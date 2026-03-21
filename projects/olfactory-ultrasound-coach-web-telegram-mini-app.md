@@ -22,5 +22,4 @@ https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-m
 
 ## Links
 - [Open Telegram Mini App](https://t.me/olfacto_bot/app)
-- [Web App](https://olfactory-web-1095464065298.us-east1.run.app)
 - [Reference writeup](https://writetobrain.com/olfactory)

@@ -19,48 +19,30 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
   const hasBenchmarks = Boolean(project.benchmarks && project.benchmarks.length > 0);
 
   return (
-    <div 
-      className="group relative cursor-pointer overflow-hidden rounded-lg bg-slate-800/50 transition-all duration-300 hover:bg-slate-800/80 hover:shadow-2xl hover:shadow-teal-500/10"
+    <button
+      type="button"
+      className="project-card"
       onClick={onSelectProject}
-      onKeyDown={(event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          onSelectProject();
-        }
-      }}
-      role="button"
-      tabIndex={0}
       aria-label={`Open project: ${project.title}`}
     >
-      {showImage ? (
-        <>
-          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent"></div>
-          {hasBenchmarks && (
-            <div className="absolute left-3 top-3 z-20 rounded-full border border-emerald-300/30 bg-emerald-400/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-emerald-100">
-              Data-backed
-            </div>
-          )}
-          {showVideoThumbnail ? (
+      <div className="project-card__media">
+        {showImage ? (
+          showVideoThumbnail ? (
             <video
               src={project.thumbnail}
-              className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              autoPlay
-              loop
+              className="project-card__asset"
               muted
+              loop
+              autoPlay
               playsInline
-              preload="auto"
+              preload="metadata"
               poster={fallbackImageUrl}
-              onError={(event) => {
-                if (fallbackImageUrl && event.currentTarget.poster !== fallbackImageUrl) {
-                  event.currentTarget.poster = fallbackImageUrl;
-                }
-              }}
             />
           ) : (
-            <img 
-              src={project.thumbnail} 
-              alt={`${project.title} thumbnail`} 
-              className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            <img
+              src={project.thumbnail}
+              alt={`${project.title} thumbnail`}
+              className="project-card__asset"
               loading="lazy"
               decoding="async"
               onError={(event) => {
@@ -69,45 +51,38 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
                 }
               }}
             />
-          )}
-          <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
-            <h3 className="text-lg font-bold text-slate-100">{project.title}</h3>
-            <p className="mt-1 text-sm text-slate-400">{project.description}</p>
-            {firstBenchmark && (
-              <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-300/90">
-                {firstBenchmark.label}: {firstBenchmark.value}
-              </p>
-            )}
-            <div className="mt-3 flex flex-wrap gap-2">
-              {project.techStack.slice(0, 3).map((tech) => (
-                <span key={tech} className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">
-                  {tech}
-                </span>
-              ))}
-            </div>
+          )
+        ) : (
+          <div className="project-card__fallback">
+            <span>{hasBenchmarks ? 'Data-backed case study' : 'Project archive'}</span>
+            <strong>{project.techStack.slice(0, 3).join(' · ')}</strong>
           </div>
-        </>
-      ) : (
-        <div className="flex h-60 flex-col justify-end p-6">
-          {hasBenchmarks && (
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-emerald-200">Data-backed project</p>
-          )}
-          <h3 className="text-lg font-bold text-slate-100">{project.title}</h3>
-          <p className="mt-1 text-sm text-slate-400">{project.description}</p>
-          {firstBenchmark && (
-            <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
-              {firstBenchmark.label}: {firstBenchmark.value}
-            </p>
-          )}
-          <div className="mt-3 flex flex-wrap gap-2">
-            {project.techStack.slice(0, 3).map((tech) => (
-              <span key={tech} className="rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">
-                {tech}
-              </span>
-            ))}
-          </div>
+        )}
+      </div>
+
+      <div className="project-card__body">
+        <div className="project-card__meta">
+          <span className="pill">{hasBenchmarks ? 'Proof included' : 'Case study'}</span>
+          <span className="project-card__id">#{project.id}</span>
         </div>
-      )}
-    </div>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+
+        {firstBenchmark && (
+          <div className="project-card__benchmark">
+            <strong>{firstBenchmark.label}</strong>
+            <span>{firstBenchmark.value}</span>
+          </div>
+        )}
+
+        <div className="chip-row">
+          {project.techStack.slice(0, 4).map((tech) => (
+            <span key={tech} className="pill">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </button>
   );
 };
