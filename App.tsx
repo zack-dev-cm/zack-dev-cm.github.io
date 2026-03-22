@@ -587,7 +587,7 @@ const App: React.FC = () => {
             description="Some of the teams and brands I have built with."
           >
             <div className="logo-grid">
-              {COMPANIES.map((company) => (
+              {COMPANIES.map((company, index) => (
                 <div
                   key={company.name}
                   tabIndex={0}
@@ -599,7 +599,7 @@ const App: React.FC = () => {
                     src={company.logoUrl}
                     alt={`${company.name} logo`}
                     className="logo-card__image"
-                    loading="lazy"
+                    loading={index < 4 ? 'eager' : 'lazy'}
                     decoding="async"
                   />
                 </div>
@@ -686,6 +686,11 @@ const App: React.FC = () => {
                             className="featured-card__asset"
                             loading={index === 0 ? 'eager' : 'lazy'}
                             decoding="async"
+                            onError={(event) => {
+                              if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
+                                event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
+                              }
+                            }}
                           />
                         )
                       ) : (
