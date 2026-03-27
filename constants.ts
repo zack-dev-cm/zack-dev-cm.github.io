@@ -7,7 +7,7 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
   title: "AI Product Engineer - Agentic Systems, Computer Vision, Launch Ops",
-  bio: "I build AI products that survive contact with reality: agentic operator workflows, computer vision services, and launch-ready apps across web, mobile, and cloud."
+  bio: "I build AI products and open-source tooling that survive contact with reality: agentic operator workflows, research artifact harnesses, computer vision services, and launch-ready apps across web, mobile, and cloud."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -33,7 +33,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "44 public project case studies spanning agentic automation, Telegram mini apps, mobile, and cloud delivery.",
+  "45 public project case studies spanning agentic automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
   "Trusted by product teams that needed working systems, not AI slideware."
 ];
 
@@ -42,7 +42,8 @@ export const TECH_STACK: string[] = [
 ];
 
 export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
-  "zack-dev-cm/zack-dev-cm.github.io"
+  "zack-dev-cm/zack-dev-cm.github.io",
+  "zack-dev-cm/antirot"
 ];
 
 export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
@@ -51,6 +52,15 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "AntiRot - Research Artifact Linter",
+    description: "New open-source release: a local-first CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts before they ship.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.0" }
+    ],
+    projectId: 45
+  },
   {
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
     description: "Anonymized deployment for a large clinic network: OpenClaw-driven sales workflows over a legacy database, operator handoff rules, and follow-up automation without exposing the client name or internal schema.",
@@ -966,5 +976,33 @@ Operations Layer (Console, Alerts, Runbooks)`
     images: [],
     thumbnail: "",
     hideImages: true
+  },
+  {
+    id: 45,
+    title: "AntiRot - Research Artifact Linter",
+    description: "Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.",
+    longDescription: "AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing evidence anchors, citation mismatches, comparative hype, and leftover draft markers before a paper, proposal, or lab note ships. The first public release focuses on low-friction adoption: no API key, no network dependency, text/JSON/Markdown/SARIF outputs, and a GitHub-friendly path into CI and code scanning.",
+    keyFeatures: [
+      "Catches unsupported claims, citation drift, hype language, comparative overreach, and leftover draft markers in Markdown drafts",
+      "Runs locally with no API key and no network dependency, so it fits agent loops, proposals, and paper pipelines",
+      "Emits text, JSON, Markdown, and SARIF outputs for terminal use, CI gates, and GitHub-native review flows",
+      "Ships with starter config, examples, tests, and release assets for fast adoption"
+    ],
+    techStack: ["Python", "CLI", "Markdown", "SARIF", "GitHub Actions", "Research Agents"],
+    benchmarks: [
+      { label: "Public release", value: "v0.1.0", context: "GitHub release" },
+      { label: "Output formats", value: "4", context: "text, json, markdown, sarif" },
+      { label: "Issue families", value: "6", context: "unsupported, numeric, citation, hype, comparative, draft markers" },
+      { label: "Runtime deps", value: "0", context: "standard-library CLI" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.0" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/antirot-social-card.svg`, alt: "AntiRot project preview" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/antirot-social-card.svg`,
+    repoFullName: "zack-dev-cm/antirot"
   }
 ];

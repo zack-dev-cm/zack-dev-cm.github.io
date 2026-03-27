@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-03-22",
+      "dateModified": "2026-03-27",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 44,
+      "numberOfItems": 45,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -616,6 +616,19 @@
             "name": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
             "description": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.",
             "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "AntiRot - Research Artifact Linter",
+            "description": "Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.",
+            "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

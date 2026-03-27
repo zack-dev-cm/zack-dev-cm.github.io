@@ -65,6 +65,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.
 - [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
+- [AntiRot - Research Artifact Linter](https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md): Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.
 
 ## Core Pages
 - [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.

@@ -13,7 +13,7 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   // Wait for main title and a couple of sections to ensure hydration
   await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
   await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
-  await expect(page.getByText('Latest Updates')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Latest Updates' })).toBeVisible();
 
   // Card presence: ensure at least one project card renders
   const cards = page.locator('[aria-label="Project"], [data-testid="project-card"], .project-card');
@@ -47,6 +47,8 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   }
 
   const latestSection = page.locator('#latest');
+  await expect(page.locator('#featured').getByText('AntiRot', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('AntiRot', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('seogeo', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Blacksock', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Beauty Visual Inbox', { exact: false })).toBeVisible();

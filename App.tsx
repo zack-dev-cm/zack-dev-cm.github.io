@@ -18,10 +18,16 @@ import {
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [44, 40, 43, 41] as const;
+const FEATURED_PROJECT_IDS = [45, 44, 43, 40] as const;
 const FEATURED_PROJECT_INDEX = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 
 const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
+  45: {
+    label: 'Open-source review harness',
+    summary:
+      'A public CLI that treats AI-written research as an artifact to lint, gate, and push through CI before it reaches a paper, proposal, or lab note.',
+    proof: ['4 output formats', '6 issue families', 'No network dependency']
+  },
   44: {
     label: 'Agentic operations',
     summary:
@@ -40,12 +46,6 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
       'A public release that packages internal computer-vision experimentation discipline into an installable, reusable operational skill.',
     proof: ['Public ClawHub release', 'Promotion gates across three surfaces', 'Security review artifacts included']
   },
-  41: {
-    label: 'Applied computer vision',
-    summary:
-      'A production-minded vision service for dense facial texture analysis, with async jobs, landmark preprocessing, and client-ready delivery surfaces.',
-    proof: ['Async API workflow', 'MediaPipe plus YOLO pipeline', 'Flutter and Telegram client surfaces']
-  }
 };
 
 const DELIVERY_PILLARS = [
