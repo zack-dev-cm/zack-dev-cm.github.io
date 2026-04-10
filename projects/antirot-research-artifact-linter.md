@@ -23,11 +23,11 @@ https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md
 - Research Agents
 
 ## Benchmarks & Analytics
-- Public release: v0.1.0 (GitHub release)
+- Public release: v0.1.1 (GitHub release)
 - Output formats: 4 (text, json, markdown, sarif)
 - Issue families: 6 (unsupported, numeric, citation, hype, comparative, draft markers)
 - Runtime deps: 0 (standard-library CLI)
 
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/antirot)
-- [Release v0.1.0](https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.0)
+- [Release v0.1.1](https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1)

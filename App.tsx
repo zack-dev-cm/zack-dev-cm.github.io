@@ -43,14 +43,14 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   43: {
     label: 'CV / MLOps productization',
     summary:
-      'A public release that packages internal computer-vision experimentation discipline into an installable, reusable operational skill.',
-    proof: ['Public ClawHub release', 'Promotion gates across three surfaces', 'Security review artifacts included']
+      'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
+    proof: ['2 live ClawHub packages', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
 const DELIVERY_PILLARS = [
   {
-    title: 'Agentic systems with operators in the loop',
+    title: 'Agentic systems with human review',
     description:
       'I design automations that fit the real workflow: approvals, fallbacks, legacy constraints, and clear next actions for humans.'
   },
@@ -509,7 +509,7 @@ const App: React.FC = () => {
             <p className="hero__eyebrow">AI product engineer</p>
             <h1 className="hero__title">AI products that survive production constraints.</h1>
             <p className="hero__lead">
-              {AUTHOR_INFO.bio} I turn messy problem statements into operator-safe automations, computer
+              {AUTHOR_INFO.bio} I turn messy problem statements into production-ready automations, computer
               vision services, and product surfaces that are actually ready to launch.
             </p>
             <div className="hero__actions">
@@ -547,7 +547,7 @@ const App: React.FC = () => {
             <div className="about-grid">
               <article className="panel">
                 <p className="panel__eyebrow">Built for delivery</p>
-                <h3>More operating model than portfolio theater</h3>
+                <h3>Built for delivery, not demos</h3>
                 <p>
                   I work across agentic automation, applied computer vision, mini apps, and full-stack AI
                   delivery. The common thread is not a single framework. It is getting from prototype to

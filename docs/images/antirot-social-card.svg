@@ -2,7 +2,7 @@
   <rect width="1280" height="640" fill="#101114"/>
   <rect x="48" y="48" width="1184" height="544" rx="28" fill="#151821" stroke="#2A3143" stroke-width="2"/>
   <rect x="88" y="92" width="180" height="52" rx="26" fill="#E7F0FF"/>
-  <text x="178" y="126" text-anchor="middle" font-family="Menlo, Monaco, Consolas, monospace" font-size="28" fill="#0E1525">v0.1.0</text>
+  <text x="178" y="126" text-anchor="middle" font-family="Menlo, Monaco, Consolas, monospace" font-size="28" fill="#0E1525">v0.1.1</text>
   <text x="88" y="230" font-family="Georgia, Times New Roman, serif" font-size="88" fill="#F7F4EA">AntiRot</text>
   <text x="88" y="304" font-family="Inter, Arial, sans-serif" font-size="34" fill="#D8DFEE">Harness engineering for research agents.</text>
   <text x="88" y="356" font-family="Inter, Arial, sans-serif" font-size="34" fill="#D8DFEE">Catch unsupported claims, citation drift,</text>

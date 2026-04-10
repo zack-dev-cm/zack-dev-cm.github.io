@@ -7,7 +7,7 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
   title: "AI Product Engineer - Agentic Systems, Computer Vision, Launch Ops",
-  bio: "I build AI products and open-source tooling that survive contact with reality: agentic operator workflows, research artifact harnesses, computer vision services, and launch-ready apps across web, mobile, and cloud."
+  bio: "I build AI products and open-source tooling that survive contact with reality: agentic systems with human review, research artifact harnesses, computer vision services, and launch-ready apps across web, mobile, and cloud."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -57,7 +57,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     description: "New open-source release: a local-first CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts before they ship.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
-      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.0" }
+      { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1" }
     ],
     projectId: 45
   },
@@ -69,7 +69,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Agentic CV Repro Lab Skill",
-    description: "Public ClawHub release that packages my internal CV/MLOps operating model for reproducible training, browser validation, and promotion gating.",
+    description: "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
     links: [
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
     ],
@@ -924,22 +924,23 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 43,
     title: "Agentic CV Repro Lab Skill",
-    description: "Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.",
-    longDescription: "I turned an internal DS/CV train-management workflow into a public, installable ClawHub skill for teams running browser-heavy and GPU-heavy vision work. The release packages reproducible experiment records, browser notebook evidence, heartbeat-aware VM execution, and promotion bundles that separate semantic, runtime, and product-surface checks. I also hardened the public bundle for sharing: sharable manifests redact sensitive paths and env values by default, and the published skill ships under MIT-0 with clean OpenClaw and VirusTotal scans.",
+    description: "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
+    longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.",
     keyFeatures: [
-      "Packages an internal CV/MLOps operating model into a public ClawHub artifact teams can install and reuse",
-      "Captures reproducible experiment state with run cards, dataset manifests, and public-safe context snapshots",
+      "Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse",
+      "Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and public-safe context snapshots",
       "Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards",
-      "Gates releases with promotion bundles across semantic quality, runtime health, and product-surface checks"
+      "Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence"
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "Public release", value: "v1.6.1", context: "Live on ClawHub" },
-      { label: "Security review", value: "2 clean scans", context: "OpenClaw + VirusTotal benign" },
+      { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
+      { label: "Current versions", value: "v1.9.0 / v1.4.0", context: "ClawHub releases" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
-      { label: "Workflow helpers", value: "10 scripts", context: "scorecards, manifests, summaries, and promotion bundles" }
+      { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
     ],
     links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
     ],
     images: [
@@ -990,14 +991,14 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "Markdown", "SARIF", "GitHub Actions", "Research Agents"],
     benchmarks: [
-      { label: "Public release", value: "v0.1.0", context: "GitHub release" },
+      { label: "Public release", value: "v0.1.1", context: "GitHub release" },
       { label: "Output formats", value: "4", context: "text, json, markdown, sarif" },
       { label: "Issue families", value: "6", context: "unsupported, numeric, citation, hype, comparative, draft markers" },
       { label: "Runtime deps", value: "0", context: "standard-library CLI" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
-      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.0" }
+      { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/antirot-social-card.svg`, alt: "AntiRot project preview" }

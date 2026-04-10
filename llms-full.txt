@@ -13,7 +13,7 @@ Contact: mailto:kaisenaiko@gmail.com
 ## Top 5 Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
-- [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating. Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
 - [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
@@ -747,14 +747,14 @@ Links:
 - OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ### Agentic CV Repro Lab Skill
-Summary: Public ClawHub skill that packages my internal CV/MLOps operating model for reproducible training, browser validation, and release gating.
-Details: I turned an internal DS/CV train-management workflow into a public, installable ClawHub skill for teams running browser-heavy and GPU-heavy vision work. The release packages reproducible experiment records, browser notebook evidence, heartbeat-aware VM execution, and promotion bundles that separate semantic, runtime, and product-surface checks. I also hardened the public bundle for sharing: sharable manifests redact sensitive paths and env values by default, and the published skill ships under MIT-0 with clean OpenClaw and VirusTotal scans.
+Summary: Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
+Details: I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
 Project URL: https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md
 Key Features:
-- Packages an internal CV/MLOps operating model into a public ClawHub artifact teams can install and reuse
-- Captures reproducible experiment state with run cards, dataset manifests, and public-safe context snapshots
+- Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse
+- Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and public-safe context snapshots
 - Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards
-- Gates releases with promotion bundles across semantic quality, runtime health, and product-surface checks
+- Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence
 Tech Stack:
 - ClawHub
 - OpenClaw Skills
@@ -766,11 +766,12 @@ Tech Stack:
 - MLOps
 - Release Engineering
 Benchmarks & Analytics:
-- Public release: v1.6.1 (Live on ClawHub)
-- Security review: 2 clean scans (OpenClaw + VirusTotal benign)
+- Live packages: 2 (data-science-cv-repro-lab + sota-agent)
+- Current versions: v1.9.0 / v1.4.0 (ClawHub releases)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
-- Workflow helpers: 10 scripts (scorecards, manifests, summaries, and promotion bundles)
+- Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
 Links:
+- View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 
 ### OpenClaw Sales Manager Automation for a Multi-Clinic Chain
@@ -810,10 +811,10 @@ Tech Stack:
 - GitHub Actions
 - Research Agents
 Benchmarks & Analytics:
-- Public release: v0.1.0 (GitHub release)
+- Public release: v0.1.1 (GitHub release)
 - Output formats: 4 (text, json, markdown, sarif)
 - Issue families: 6 (unsupported, numeric, citation, hype, comparative, draft markers)
 - Runtime deps: 0 (standard-library CLI)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/antirot
-- Release v0.1.0: https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.0
+- Release v0.1.1: https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1
