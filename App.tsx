@@ -582,7 +582,7 @@ const App: React.FC = () => {
 
           <Section
             id="experience"
-            eyebrow="Proof"
+            eyebrow="Selected Teams"
             title="Collaborations"
             description="Some of the teams and brands I have built with."
           >

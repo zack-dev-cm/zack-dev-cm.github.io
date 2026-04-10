@@ -37,7 +37,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, benchmarkedCount
           </div>
           <div className="profile-stat">
             <strong>{benchmarkedCount}</strong>
-            <span>with proof points</span>
+            <span>with metrics</span>
           </div>
           <div className="profile-stat">
             <strong>{latestCount}</strong>

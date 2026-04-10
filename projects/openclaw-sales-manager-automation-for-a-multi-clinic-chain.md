@@ -3,7 +3,7 @@
 > Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 
 ## Summary
-I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. Public portfolio copy omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope behind the rollout.
+I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. The published case study redacts the client name, schema details, endpoint specifics, and patient-identifying data while preserving the delivery scope behind the rollout.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md

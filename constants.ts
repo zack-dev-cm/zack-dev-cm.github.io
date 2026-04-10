@@ -77,7 +77,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     projectId: 44
   },
   {
-    title: "Agentic CV Repro Lab Skill",
+    title: "CV Repro Lab Skills",
     description: "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
     links: [
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
@@ -85,7 +85,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     projectId: 43
   },
   {
-    title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
+    title: "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
     description: "Hands-on OpenClaw automation for Telegram mini app QA, launch verification, and evidence-driven UI iterations.",
     links: [
       { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
@@ -907,7 +907,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     id: 42,
-    title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
+    title: "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
+    legacySlugs: ["openclaw-workstream-telegram-mini-app-e2e-launch-ops"],
     description: "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.",
     longDescription: "This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.",
     keyFeatures: [
@@ -932,7 +933,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     id: 43,
-    title: "Agentic CV Repro Lab Skill",
+    title: "CV Repro Lab Skills",
+    legacySlugs: ["agentic-cv-repro-lab-skill"],
     description: "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
     longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.",
     keyFeatures: [
@@ -944,7 +946,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
-      { label: "Current versions", value: "v1.9.0 / v1.4.0", context: "ClawHub releases" },
+      { label: "Current versions", value: "v1.9.1 / v1.4.1", context: "ClawHub releases" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
       { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
     ],
@@ -953,7 +955,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`, alt: "Agentic CV Repro Lab ClawHub release preview" }
+      { url: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`, alt: "CV Repro Lab ClawHub release preview" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`
   },
@@ -961,7 +963,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 44,
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
     description: "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
-    longDescription: "I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. Public portfolio copy omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope behind the rollout.",
+    longDescription: "I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. The published case study redacts the client name, schema details, endpoint specifics, and patient-identifying data while preserving the delivery scope behind the rollout.",
     keyFeatures: [
       "OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations",
       "Legacy DB bridge that preserved the existing clinic back office instead of forcing a rewrite",

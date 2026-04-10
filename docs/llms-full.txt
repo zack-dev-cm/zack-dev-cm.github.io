@@ -13,9 +13,9 @@ Contact: mailto:kaisenaiko@gmail.com
 ## Top 5 Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
-- [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
-- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
+- [OpenClaw Workstream - Telegram Mini App QA & Launch Validation](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ## Projects (Full Details)
 ### Android Remote Control with VLM AI Agents
@@ -721,10 +721,10 @@ Benchmarks & Analytics:
 - Image types: 5 (jpeg/png/webp/tiff/bmp)
 - Default imgsz: 1280 (segment endpoint default)
 
-### OpenClaw Workstream - Telegram Mini App E2E & Launch Ops
+### OpenClaw Workstream - Telegram Mini App QA & Launch Validation
 Summary: OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.
 Details: This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.
-Project URL: https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md
+Project URL: https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md
 Key Features:
 - Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows
 - OpenClaw gateway reliability hardening and runtime compatibility fixes
@@ -746,10 +746,10 @@ Benchmarks & Analytics:
 Links:
 - OpenClaw Upstream: https://github.com/openclaw/openclaw
 
-### Agentic CV Repro Lab Skill
+### CV Repro Lab Skills
 Summary: Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
 Details: I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
-Project URL: https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md
+Project URL: https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
 Key Features:
 - Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse
 - Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots
@@ -767,7 +767,7 @@ Tech Stack:
 - Release Engineering
 Benchmarks & Analytics:
 - Live packages: 2 (data-science-cv-repro-lab + sota-agent)
-- Current versions: v1.9.0 / v1.4.0 (ClawHub releases)
+- Current versions: v1.9.1 / v1.4.1 (ClawHub releases)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
 Links:
@@ -776,7 +776,7 @@ Links:
 
 ### OpenClaw Sales Manager Automation for a Multi-Clinic Chain
 Summary: Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-Details: I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. Public portfolio copy omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope behind the rollout.
+Details: I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. The published case study redacts the client name, schema details, endpoint specifics, and patient-identifying data while preserving the delivery scope behind the rollout.
 Project URL: https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md
 Key Features:
 - OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations

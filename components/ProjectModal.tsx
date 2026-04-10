@@ -173,7 +173,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
           {project.benchmarks && project.benchmarks.length > 0 && (
             <section className="panel">
-              <p className="panel__eyebrow">Proof</p>
+              <p className="panel__eyebrow">Metrics</p>
               <h3>Benchmarks and analytics</h3>
               <div className="proof-grid">
                 {project.benchmarks.map((benchmark, index) => (

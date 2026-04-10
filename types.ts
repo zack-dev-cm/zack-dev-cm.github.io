@@ -19,6 +19,7 @@ export interface ProjectBenchmark {
 export interface Project {
   id: number;
   title: string;
+  legacySlugs?: string[];
   description: string;
   longDescription?: string;
   hideImages?: boolean;

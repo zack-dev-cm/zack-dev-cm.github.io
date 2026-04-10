@@ -1,7 +1,5 @@
 # CV Repro Lab Skills
 
-> Legacy project URL kept for compatibility. Use the canonical project link below.
-
 > Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
 
 ## Summary

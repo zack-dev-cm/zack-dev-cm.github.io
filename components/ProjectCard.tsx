@@ -62,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
 
       <div className="project-card__body">
         <div className="project-card__meta">
-          <span className="pill">{hasBenchmarks ? 'Proof included' : 'Case study'}</span>
+          <span className="pill">{hasBenchmarks ? 'Metrics included' : 'Case study'}</span>
           <span className="project-card__id">#{project.id}</span>
         </div>
         <h3>{project.title}</h3>

@@ -1,7 +1,5 @@
 # OpenClaw Workstream - Telegram Mini App QA & Launch Validation
 
-> Legacy project URL kept for compatibility. Use the canonical project link below.
-
 > OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.
 
 ## Summary

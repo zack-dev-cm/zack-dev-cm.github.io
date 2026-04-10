@@ -164,6 +164,7 @@ const extractProjects = (sourceFile) => {
       const idNode = getPropertyValue(element, 'id');
       const id = idNode && ts.isNumericLiteral(idNode) ? Number(idNode.text) : null;
       const title = parseString(getPropertyValue(element, 'title'));
+      const legacySlugs = parseStringArray(getPropertyValue(element, 'legacySlugs'));
       const description = parseString(getPropertyValue(element, 'description'));
       const longDescription = parseString(getPropertyValue(element, 'longDescription'));
       const keyFeatures = parseStringArray(getPropertyValue(element, 'keyFeatures'));
@@ -176,6 +177,7 @@ const extractProjects = (sourceFile) => {
       return {
         id,
         title,
+        legacySlugs,
         description,
         longDescription,
         keyFeatures,
@@ -186,6 +188,13 @@ const extractProjects = (sourceFile) => {
         benchmarks
       };
     });
+};
+
+const buildAliasMarkdown = (project, canonicalUrl) => {
+  const markdown = buildMarkdown(project, canonicalUrl);
+  const lines = markdown.split('\n');
+  lines.splice(1, 0, '', '> Legacy project URL kept for compatibility. Use the canonical project link below.');
+  return lines.join('\n');
 };
 
 const buildMarkdown = (project, markdownUrl) => {
@@ -555,6 +564,11 @@ const main = async () => {
     const outputPath = path.resolve(OUTPUT_DIR, fileName);
     const markdown = buildMarkdown(project, markdownUrl);
     await fs.writeFile(outputPath, markdown, 'utf8');
+    for (const legacySlug of project.legacySlugs || []) {
+      const aliasOutputPath = path.resolve(OUTPUT_DIR, `${legacySlug}.md`);
+      const aliasMarkdown = buildAliasMarkdown(project, markdownUrl);
+      await fs.writeFile(aliasOutputPath, aliasMarkdown, 'utf8');
+    }
     projectEntries.push({
       ...project,
       slug,
@@ -565,9 +579,9 @@ const main = async () => {
   const topProjectTitles = [
     'OpenClaw Sales Manager Automation for a Multi-Clinic Chain',
     'GeoFix - AI Visibility Memorizer Mini App',
-    'Agentic CV Repro Lab Skill',
+    'CV Repro Lab Skills',
     'Pores & Wrinkles Detection Service',
-    'OpenClaw Workstream - Telegram Mini App E2E & Launch Ops'
+    'OpenClaw Workstream - Telegram Mini App QA & Launch Validation'
   ].map(toAscii);
 
   const topProjects = topProjectTitles.map((title) =>

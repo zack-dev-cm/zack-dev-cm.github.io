@@ -587,9 +587,9 @@
           "position": 42,
           "item": {
             "@type": "CreativeWork",
-            "name": "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
+            "name": "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
             "description": "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.",
-            "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }
@@ -600,9 +600,9 @@
           "position": 43,
           "item": {
             "@type": "CreativeWork",
-            "name": "Agentic CV Repro Lab Skill",
+            "name": "CV Repro Lab Skills",
             "description": "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
-            "url": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md",
+            "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }
