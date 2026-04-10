@@ -33,7 +33,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "47 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
+  "48 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
   "Built for teams that needed working systems, not concept decks."
 ];
 
@@ -61,6 +61,16 @@ export const LATEST_UPDATES: LatestUpdate[] = [
       { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.0" }
     ],
     projectId: 47
+  },
+  {
+    title: "Publish Guard",
+    description: "New open-source release: a small pre-release audit skill that checks leak risks, README quality, SKILL.md public fit, and launch copy before GitHub or ClawHub publish.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/publish-guard" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/public-surface-review" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.0" }
+    ],
+    projectId: 48
   },
   {
     title: "GitHub + ClawHub Launcher",
@@ -1081,5 +1091,33 @@ Operations Layer (Console, Alerts, Runbooks)`
     thumbnail: "",
     hideImages: true,
     repoFullName: "zack-dev-cm/browser-proof"
+  },
+  {
+    id: 48,
+    title: "Publish Guard",
+    description: "Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.",
+    longDescription: "Publish Guard is a small public OpenClaw skill for pre-release audits. It scans a repo for obvious leak patterns, checks whether README and SKILL copy are actually public-facing, scores launch copy near the top of the repo, and renders one concise audit that answers publish now or fix first.",
+    keyFeatures: [
+      "Scans for obvious leak patterns such as token-shaped strings, localhost URLs, websocket endpoints, and absolute paths",
+      "Checks README, SKILL.md, and public metadata for audience mismatch, buried quick starts, and operator-heavy wording",
+      "Scores the landing-page copy so the repo intro can be reviewed like a product surface instead of a private note",
+      "Renders one markdown audit that is easy to use before GitHub release or ClawHub publish"
+    ],
+    techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
+      { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
+      { label: "Decision surface", value: "publish or fix", context: "single release-ready recommendation" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/publish-guard" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/public-surface-review" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.0" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/publish-guard"
   }
 ];

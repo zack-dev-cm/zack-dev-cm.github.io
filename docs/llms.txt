@@ -68,6 +68,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [AntiRot - Research Artifact Linter](https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md): Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.
 - [GitHub + ClawHub Launcher](https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md): Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.
 - [Browser Proof](https://zack-dev-cm.github.io/projects/browser-proof.md): Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
+- [Publish Guard](https://zack-dev-cm.github.io/projects/publish-guard.md): Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.
 
 ## Core Pages
 - [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.

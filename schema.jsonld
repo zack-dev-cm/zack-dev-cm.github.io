@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 47,
+      "numberOfItems": 48,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -655,6 +655,19 @@
             "name": "Browser Proof",
             "description": "Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.",
             "url": "https://zack-dev-cm.github.io/projects/browser-proof.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Publish Guard",
+            "description": "Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.",
+            "url": "https://zack-dev-cm.github.io/projects/publish-guard.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }
