@@ -14,11 +14,11 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 
 ## Top 5 Projects
-- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
+- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
 - [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
-- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
+- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ## Projects (Markdown)
 - [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.
@@ -48,7 +48,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [ChronoScribe (beta)](https://zack-dev-cm.github.io/projects/chronoscribe-beta.md): Upload ancient steles/texts to translate and get scenic voice narration.
 - [MCP-Server - Base Multitool](https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md): Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
 - [Tool-Calls Demo - Material Chat Playground](https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md): OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.
-- [ZackAutoStack Automation Stack](https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md): Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
+- [ZackAutoStack Automation Stack](https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md): Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.
 - [URL -> Markdown Worker (RapidAPI + Cloudflare)](https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md): Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.
 - [Olfactory Ultrasound Coach (Web + Telegram Mini App)](https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md): Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.
 - [seogeo - SEO/GEO Bridge for Telegram Mini Apps](https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md): SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.
@@ -62,10 +62,11 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Noel - Noetic Mirror](https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md): Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
-- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.
+- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.
 - [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
-- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
+- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [AntiRot - Research Artifact Linter](https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md): Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.
+- [GitHub + ClawHub Launcher](https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md): Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.
 
 ## Core Pages
 - [Home](https://zack-dev-cm.github.io/): Overview of the portfolio, highlights, and navigation.

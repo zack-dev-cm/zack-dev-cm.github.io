@@ -6,8 +6,8 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "AI Product Engineer - Agentic Systems, Computer Vision, Launch Ops",
-  bio: "I build AI products and open-source tooling that survive contact with reality: agentic systems with human review, research artifact harnesses, computer vision services, and launch-ready apps across web, mobile, and cloud."
+  title: "AI Product Engineer - Automation, Computer Vision, Launch Delivery",
+  bio: "I build AI products and open-source tools for real-world deployment: automation with human review, research tooling, computer vision services, and production apps across web, mobile, and cloud."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -33,8 +33,8 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "45 public project case studies spanning agentic automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
-  "Trusted by product teams that needed working systems, not AI slideware."
+  "46 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
+  "Built for teams that needed working systems, not concept decks."
 ];
 
 export const TECH_STACK: string[] = [
@@ -53,6 +53,15 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "GitHub + ClawHub Launcher",
+    description: "New open-source release: a small launcher that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher" }
+    ],
+    projectId: 46
+  },
+  {
     title: "AntiRot - Research Artifact Linter",
     description: "New open-source release: a local-first CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts before they ship.",
     links: [
@@ -63,7 +72,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
-    description: "Anonymized deployment for a large clinic network: OpenClaw-driven sales workflows over a legacy database, operator handoff rules, and follow-up automation without exposing the client name or internal schema.",
+    description: "Anonymized deployment for a large clinic network: OpenClaw-driven sales automation over a legacy database with human approvals and follow-up automation.",
     links: [],
     projectId: 44
   },
@@ -77,7 +86,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
-    description: "Hands-on OpenClaw execution for Telegram mini app QA, reproducible launch runbooks, and evidence-driven UI iterations.",
+    description: "Hands-on OpenClaw automation for Telegram mini app QA, launch verification, and evidence-driven UI iterations.",
     links: [
       { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
     ],
@@ -540,11 +549,11 @@ export const PROJECTS: Project[] = [
   {
     id: 28,
     title: "ZackAutoStack Automation Stack",
-    description: "Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.",
+    description: "Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.",
     longDescription: "ZackAutoStack bundles a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.",
     keyFeatures: [
       "Instant Telegram bot & Mini App deployment",
-      "Agentic workflows nurturing inbound leads",
+      "Automated inbound lead nurturing",
       "Unified telemetry and safety guardrails",
       "Bundled delivery across clients, data, and operations"
     ],
@@ -760,7 +769,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 39,
     title: "Noel - Noetic Mirror",
     description: "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.",
-    longDescription: "Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that synthesizes prior turns and telemetry into probing prompts, and a Subject (Gemini) that returns long-context reasoning plus self-reported tags. Each paired turn is gated by consent, safety, and budget checks, logged to Postgres/Redis, and streamed to the Telegram mini app with diagnostics, session summaries, and EN/RU plus light/dark themes. Users can sponsor interventions with Telegram Stars while operators tune model versions, pacing, and thresholds.",
+    longDescription: "Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that synthesizes prior turns and telemetry into probing prompts, and a Subject (Gemini) that returns long-context reasoning plus self-reported tags. Each paired turn is gated by consent, safety, and budget checks, logged to Postgres/Redis, and streamed to the Telegram mini app with diagnostics, session summaries, and EN/RU plus light/dark themes. Users can sponsor interventions with Telegram Stars while the admin controls adjust model versions, pacing, and thresholds.",
     keyFeatures: [
       "Two-model loop with explicit roles and paired turns (Researcher probes, Subject reasons)",
       "Live stream with turn pairing, diagnostics, and session telemetry",
@@ -899,13 +908,13 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 42,
     title: "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
-    description: "OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.",
-    longDescription: "This project captures my OpenClaw delivery scope for Telegram mini apps: reproducible browser E2E validation (including launch/auth and request-flow checks), gateway/runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It is intentionally focused on my execution work from minigames and outline artifacts, not a generic OpenClaw platform overview.",
+    description: "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.",
+    longDescription: "This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.",
     keyFeatures: [
       "Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows",
       "OpenClaw gateway reliability hardening and runtime compatibility fixes",
       "Desktop + mobile GUI evidence capture for fast UI redesign and regression review",
-      "Runbook-first launch operations for bot + Mini App setup and QA handoff"
+      "Structured launch verification for bot + Mini App setup and QA handoff"
     ],
     techStack: ["OpenClaw", "Telegram Web", "Playwright", "Node.js", "Python", "Runbooks", "Mini Apps"],
     benchmarks: [
@@ -928,7 +937,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.",
     keyFeatures: [
       "Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse",
-      "Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and public-safe context snapshots",
+      "Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots",
       "Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards",
       "Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence"
     ],
@@ -951,17 +960,17 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 44,
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
-    description: "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.",
-    longDescription: "I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven workflows to qualify inbound leads, draft follow-ups, surface next actions to operators, and sync approved state changes back into the existing database layer. Public portfolio copy intentionally omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope and systems thinking behind the rollout.",
+    description: "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
+    longDescription: "I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. Public portfolio copy omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope behind the rollout.",
     keyFeatures: [
       "OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations",
       "Legacy DB bridge that preserved the existing clinic back office instead of forcing a rewrite",
-      "Human-in-the-loop operator handoff rules for approvals, escalations, and appointment routing",
-      "Public-safe case study with client identity, schema details, and endpoint specifics removed"
+      "Human-in-the-loop approval rules for escalations and appointment routing",
+      "Redacted public case study with client identity, schema details, and endpoint specifics removed"
     ],
-    techStack: ["OpenClaw", "LLM Orchestration", "Legacy DB Integration", "Workflow Automation", "Operator Tooling"],
+    techStack: ["OpenClaw", "LLM Orchestration", "Legacy DB Integration", "Workflow Automation", "Human Review Tooling"],
     benchmarks: [
-      { label: "Workflow stages", value: "7", context: "lead, intake, drafts, operator, review, legacy, reporting" },
+      { label: "Workflow stages", value: "7", context: "lead, intake, drafts, approval, review, legacy, reporting" },
       { label: "Back-office rewrites", value: "0", context: "existing clinic system preserved" },
       { label: "Human control points", value: "3", context: "approvals, escalations, routing" }
     ],
@@ -969,7 +978,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     mermaidDiagram: `flowchart LR
   Lead["Inbound Lead"] --> Intake["OpenClaw Intake + Qualification"]
   Intake --> Drafts["Follow-up Drafts + Next-Step Proposals"]
-  Intake --> Operator["Operator Queue"]
+  Intake --> Operator["Staff Review Queue"]
   Drafts --> Review["Approval + Escalation Rules"]
   Operator --> Review
   Review --> Legacy["Legacy DB / CRM Layer"]
@@ -1005,5 +1014,32 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     thumbnail: `${LOCAL_IMG_BASE}/antirot-social-card.svg`,
     repoFullName: "zack-dev-cm/antirot"
+  },
+  {
+    id: 46,
+    title: "GitHub + ClawHub Launcher",
+    description: "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
+    longDescription: "GitHub + ClawHub Launcher is a small public OpenClaw skill for release preparation. It creates a machine-readable launch manifest, checks the public release surface, renders GitHub release notes, and prints the exact commands needed to publish a GitHub repo and a ClawHub package from one local project folder.",
+    keyFeatures: [
+      "Creates one launch manifest for GitHub repo metadata, ClawHub package metadata, topics, tags, and changelog text",
+      "Checks README, LICENSE, SKILL.md, agents metadata, semver, slug shape, and basic description quality before publishing",
+      "Renders release notes and a publish command sheet instead of rewriting the same launch steps from memory",
+      "Pairs cleanly with Publish Guard when you want an audit before the final push"
+    ],
+    techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
+      { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
+      { label: "Validation status", value: "publish-ready", context: "launcher check + publish-guard audit" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/github-clawhub-launcher"
   }
 ];

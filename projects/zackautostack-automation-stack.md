@@ -1,6 +1,6 @@
 # ZackAutoStack Automation Stack
 
-> Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
+> Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.
 
 ## Summary
 ZackAutoStack bundles a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.
@@ -10,7 +10,7 @@ https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md
 
 ## Key Features
 - Instant Telegram bot & Mini App deployment
-- Agentic workflows nurturing inbound leads
+- Automated inbound lead nurturing
 - Unified telemetry and safety guardrails
 - Bundled delivery across clients, data, and operations
 

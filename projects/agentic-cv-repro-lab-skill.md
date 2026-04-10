@@ -10,7 +10,7 @@ https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md
 
 ## Key Features
 - Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse
-- Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and public-safe context snapshots
+- Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots
 - Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards
 - Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence
 

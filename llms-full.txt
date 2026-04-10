@@ -1,6 +1,6 @@
 # Zakhar Pashkin - Portfolio Memory File
 
-Summary: AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.
+Summary: AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
@@ -11,11 +11,11 @@ Contact: mailto:kaisenaiko@gmail.com
 - React, TypeScript, Cloud Run, MLOps
 
 ## Top 5 Projects
-- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
+- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
 - [Agentic CV Repro Lab Skill](https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
-- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
+- [OpenClaw Workstream - Telegram Mini App E2E & Launch Ops](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ## Projects (Full Details)
 ### Android Remote Control with VLM AI Agents
@@ -423,12 +423,12 @@ Tech Stack:
 - Text-to-Speech
 
 ### ZackAutoStack Automation Stack
-Summary: Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.
+Summary: Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.
 Details: ZackAutoStack bundles a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.
 Project URL: https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md
 Key Features:
 - Instant Telegram bot & Mini App deployment
-- Agentic workflows nurturing inbound leads
+- Automated inbound lead nurturing
 - Unified telemetry and safety guardrails
 - Bundled delivery across clients, data, and operations
 Tech Stack:
@@ -636,7 +636,7 @@ Links:
 
 ### Noel - Noetic Mirror
 Summary: Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.
-Details: Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that synthesizes prior turns and telemetry into probing prompts, and a Subject (Gemini) that returns long-context reasoning plus self-reported tags. Each paired turn is gated by consent, safety, and budget checks, logged to Postgres/Redis, and streamed to the Telegram mini app with diagnostics, session summaries, and EN/RU plus light/dark themes. Users can sponsor interventions with Telegram Stars while operators tune model versions, pacing, and thresholds.
+Details: Noetic Mirror runs a live research loop between two models: a Researcher (OpenAI) that synthesizes prior turns and telemetry into probing prompts, and a Subject (Gemini) that returns long-context reasoning plus self-reported tags. Each paired turn is gated by consent, safety, and budget checks, logged to Postgres/Redis, and streamed to the Telegram mini app with diagnostics, session summaries, and EN/RU plus light/dark themes. Users can sponsor interventions with Telegram Stars while the admin controls adjust model versions, pacing, and thresholds.
 Project URL: https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md
 Key Features:
 - Two-model loop with explicit roles and paired turns (Researcher probes, Subject reasons)
@@ -722,14 +722,14 @@ Benchmarks & Analytics:
 - Default imgsz: 1280 (segment endpoint default)
 
 ### OpenClaw Workstream - Telegram Mini App E2E & Launch Ops
-Summary: OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.
-Details: This project captures my OpenClaw delivery scope for Telegram mini apps: reproducible browser E2E validation (including launch/auth and request-flow checks), gateway/runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It is intentionally focused on my execution work from minigames and outline artifacts, not a generic OpenClaw platform overview.
+Summary: OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.
+Details: This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.
 Project URL: https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md
 Key Features:
 - Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows
 - OpenClaw gateway reliability hardening and runtime compatibility fixes
 - Desktop + mobile GUI evidence capture for fast UI redesign and regression review
-- Runbook-first launch operations for bot + Mini App setup and QA handoff
+- Structured launch verification for bot + Mini App setup and QA handoff
 Tech Stack:
 - OpenClaw
 - Telegram Web
@@ -752,7 +752,7 @@ Details: I turned a reproducible CV experimentation workflow into two public, in
 Project URL: https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md
 Key Features:
 - Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse
-- Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and public-safe context snapshots
+- Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots
 - Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards
 - Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence
 Tech Stack:
@@ -775,22 +775,22 @@ Links:
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 
 ### OpenClaw Sales Manager Automation for a Multi-Clinic Chain
-Summary: Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.
-Details: I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven workflows to qualify inbound leads, draft follow-ups, surface next actions to operators, and sync approved state changes back into the existing database layer. Public portfolio copy intentionally omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope and systems thinking behind the rollout.
+Summary: Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
+Details: I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. Public portfolio copy omits the client name, internal schema names, endpoint details, and any patient-identifying data while still showing the delivery scope behind the rollout.
 Project URL: https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md
 Key Features:
 - OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations
 - Legacy DB bridge that preserved the existing clinic back office instead of forcing a rewrite
-- Human-in-the-loop operator handoff rules for approvals, escalations, and appointment routing
-- Public-safe case study with client identity, schema details, and endpoint specifics removed
+- Human-in-the-loop approval rules for escalations and appointment routing
+- Redacted public case study with client identity, schema details, and endpoint specifics removed
 Tech Stack:
 - OpenClaw
 - LLM Orchestration
 - Legacy DB Integration
 - Workflow Automation
-- Operator Tooling
+- Human Review Tooling
 Benchmarks & Analytics:
-- Workflow stages: 7 (lead, intake, drafts, operator, review, legacy, reporting)
+- Workflow stages: 7 (lead, intake, drafts, approval, review, legacy, reporting)
 - Back-office rewrites: 0 (existing clinic system preserved)
 - Human control points: 3 (approvals, escalations, routing)
 
@@ -818,3 +818,27 @@ Benchmarks & Analytics:
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/antirot
 - Release v0.1.1: https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1
+
+### GitHub + ClawHub Launcher
+Summary: Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.
+Details: GitHub + ClawHub Launcher is a small public OpenClaw skill for release preparation. It creates a machine-readable launch manifest, checks the public release surface, renders GitHub release notes, and prints the exact commands needed to publish a GitHub repo and a ClawHub package from one local project folder.
+Project URL: https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md
+Key Features:
+- Creates one launch manifest for GitHub repo metadata, ClawHub package metadata, topics, tags, and changelog text
+- Checks README, LICENSE, SKILL.md, agents metadata, semver, slug shape, and basic description quality before publishing
+- Renders release notes and a publish command sheet instead of rewriting the same launch steps from memory
+- Pairs cleanly with Publish Guard when you want an audit before the final push
+Tech Stack:
+- ClawHub
+- GitHub CLI
+- Python
+- Release Engineering
+- OpenClaw Skills
+Benchmarks & Analytics:
+- Public release: v1.0.0 (GitHub + ClawHub)
+- Bundled scripts: 4 (manifest, check, notes, commands)
+- Publish surfaces: 2 (GitHub repo + ClawHub package)
+- Validation status: publish-ready (launcher check + publish-guard audit)
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/github-clawhub-launcher
+- Open on ClawHub: https://clawhub.ai/zack-dev-cm/github-clawhub-launcher

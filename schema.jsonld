@@ -8,7 +8,7 @@
       "jobTitle": "AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
+      "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "sameAs": [
         "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
         "https://github.com/zack-dev-cm",
@@ -21,7 +21,7 @@
       "@id": "https://zack-dev-cm.github.io/#website",
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
+      "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -32,7 +32,7 @@
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
-      "description": "AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
+      "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
       "dateModified": "2026-04-10",
       "isPartOf": {
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 45,
+      "numberOfItems": 46,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -406,7 +406,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "ZackAutoStack Automation Stack",
-            "description": "Ready-to-launch Telegram bot + Mini App + lead funnel powered by agentic workflows.",
+            "description": "Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.",
             "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -588,7 +588,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw Workstream - Telegram Mini App E2E & Launch Ops",
-            "description": "OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.",
+            "description": "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.",
             "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -614,7 +614,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
-            "description": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database and operator workflow.",
+            "description": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
             "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -629,6 +629,19 @@
             "name": "AntiRot - Research Artifact Linter",
             "description": "Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.",
             "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "GitHub + ClawHub Launcher",
+            "description": "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
+            "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

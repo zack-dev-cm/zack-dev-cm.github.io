@@ -29,10 +29,10 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     proof: ['4 output formats', '6 issue families', 'No network dependency']
   },
   44: {
-    label: 'Agentic operations',
+    label: 'Legacy-safe revenue automation',
     summary:
-      'A strong business-side case study: AI qualification and follow-up automation layered onto a legacy clinic workflow without forcing a rewrite.',
-    proof: ['Legacy DB preserved', 'Operator approvals built in', 'Lead routing stayed human-safe']
+      'An anonymized clinic-network deployment: AI qualification and follow-up automation layered onto a legacy stack without forcing a rewrite.',
+    proof: ['Legacy DB preserved', 'Human approvals built in', 'Lead routing stayed human-safe']
   },
   40: {
     label: 'AI visibility product',
@@ -50,9 +50,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
 
 const DELIVERY_PILLARS = [
   {
-    title: 'Agentic systems with human review',
+    title: 'Automation with human review',
     description:
-      'I design automations that fit the real workflow: approvals, fallbacks, legacy constraints, and clear next actions for humans.'
+      'I design automations that fit real operating constraints: approvals, fallbacks, legacy systems, and clear next steps for people.'
   },
   {
     title: 'Computer vision that ships as a product',
@@ -293,7 +293,7 @@ const App: React.FC = () => {
       { value: `${mergedProjects.length}`, label: 'public case studies' },
       { value: '7+', label: 'years shipping CV / ML systems' },
       { value: `${COMPANIES.length}`, label: 'recognized collaborators' },
-      { value: `${benchmarkedProjectCount}`, label: 'projects with explicit proof points' }
+      { value: `${benchmarkedProjectCount}`, label: 'projects with measurable outcomes' }
     ],
     [benchmarkedProjectCount, mergedProjects.length]
   );
@@ -507,9 +507,9 @@ const App: React.FC = () => {
         <main className="content-column">
           <section id="intro" className="hero">
             <p className="hero__eyebrow">AI product engineer</p>
-            <h1 className="hero__title">AI products that survive production constraints.</h1>
+            <h1 className="hero__title">AI products built for production constraints.</h1>
             <p className="hero__lead">
-              {AUTHOR_INFO.bio} I turn messy problem statements into production-ready automations, computer
+              {AUTHOR_INFO.bio} I turn unclear product ideas into production-ready automations, computer
               vision services, and product surfaces that are actually ready to launch.
             </p>
             <div className="hero__actions">
@@ -549,7 +549,7 @@ const App: React.FC = () => {
                 <p className="panel__eyebrow">Built for delivery</p>
                 <h3>Built for delivery, not demos</h3>
                 <p>
-                  I work across agentic automation, applied computer vision, mini apps, and full-stack AI
+                  I work across AI automation, applied computer vision, mini apps, and full-stack AI
                   delivery. The common thread is not a single framework. It is getting from prototype to
                   production without hiding the hard parts.
                 </p>
@@ -561,7 +561,7 @@ const App: React.FC = () => {
 
               <article className="panel panel--accent">
                 <p className="panel__eyebrow">Signal over noise</p>
-                <h3>Why this portfolio is now curated around proof</h3>
+                <h3>What you can evaluate quickly</h3>
                 <ul className="bullet-list">
                   {KEY_HIGHLIGHTS.map((highlight) => (
                     <li key={highlight}>{highlight}</li>
@@ -611,7 +611,7 @@ const App: React.FC = () => {
             id="featured"
             eyebrow="Best Work"
             title="Featured Solutions"
-            description="The strongest four case studies to start with if you want range, proof, and product sense."
+            description="The strongest four case studies to start with if you want range, results, and product sense."
           >
             <div className="featured-grid">
               {featuredProjects.map((project, index) => {

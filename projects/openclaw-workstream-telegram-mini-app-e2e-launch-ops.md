@@ -1,9 +1,9 @@
 # OpenClaw Workstream - Telegram Mini App E2E & Launch Ops
 
-> OpenClaw browser-agent workflows I ran for Telegram mini app E2E checks, launch operations, and rapid UI evidence loops.
+> OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.
 
 ## Summary
-This project captures my OpenClaw delivery scope for Telegram mini apps: reproducible browser E2E validation (including launch/auth and request-flow checks), gateway/runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It is intentionally focused on my execution work from minigames and outline artifacts, not a generic OpenClaw platform overview.
+This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e-launch-ops.md
@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-e2e
 - Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows
 - OpenClaw gateway reliability hardening and runtime compatibility fixes
 - Desktop + mobile GUI evidence capture for fast UI redesign and regression review
-- Runbook-first launch operations for bot + Mini App setup and QA handoff
+- Structured launch verification for bot + Mini App setup and QA handoff
 
 ## Tech Stack
 - OpenClaw

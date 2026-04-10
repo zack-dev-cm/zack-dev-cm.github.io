@@ -20,7 +20,7 @@ const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
 const AUTHOR_TITLE = 'AI Product Engineer';
 const AUTHOR_DESCRIPTION =
-  'AI product engineer shipping agentic operations, computer vision systems, and full-stack AI products across web, mobile, and cloud.';
+  'AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.';
 const AUTHOR_SAME_AS = [
   'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/',
   'https://github.com/zack-dev-cm',
