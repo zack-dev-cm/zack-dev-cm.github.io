@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 46,
+      "numberOfItems": 47,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -642,6 +642,19 @@
             "name": "GitHub + ClawHub Launcher",
             "description": "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
             "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Browser Proof",
+            "description": "Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.",
+            "url": "https://zack-dev-cm.github.io/projects/browser-proof.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

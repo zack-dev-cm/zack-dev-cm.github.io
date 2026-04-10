@@ -33,7 +33,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "46 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
+  "47 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
   "Built for teams that needed working systems, not concept decks."
 ];
 
@@ -52,6 +52,16 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "Browser Proof",
+    description: "New open-source release: a small browser QA skill that turns screenshots, console notes, and step-by-step validation into one reproducible evidence pack.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/browser-proof" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/browser-proof" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.0" }
+    ],
+    projectId: 47
+  },
   {
     title: "GitHub + ClawHub Launcher",
     description: "New open-source release: a small launcher that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
@@ -1043,5 +1053,33 @@ Operations Layer (Console, Alerts, Runbooks)`
     thumbnail: "",
     hideImages: true,
     repoFullName: "zack-dev-cm/github-clawhub-launcher"
+  },
+  {
+    id: 47,
+    title: "Browser Proof",
+    description: "Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.",
+    longDescription: "Browser Proof is a small public OpenClaw skill for browser QA and debugging. It creates a machine-readable session manifest, records expected-versus-actual browser steps, ties screenshots and logs to each step, validates the resulting bundle, and renders a markdown report that is easier to hand off than screenshots in chat.",
+    keyFeatures: [
+      "Creates one machine-readable browser session manifest with app, goal, surfaces, and run context",
+      "Appends evidence-backed steps with expected result, actual result, status, and artifact references",
+      "Checks the bundle for missing screenshots, incomplete failed steps, and absolute artifact paths before sharing",
+      "Renders a shareable markdown report for GitHub issues, release checks, and engineering handoffs"
+    ],
+    techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
+      { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
+      { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/browser-proof" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/browser-proof" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.0" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/browser-proof"
   }
 ];
