@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-04-10",
+      "dateModified": "2026-04-11",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 48,
+      "numberOfItems": 50,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -668,6 +668,32 @@
             "name": "Publish Guard",
             "description": "Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.",
             "url": "https://zack-dev-cm.github.io/projects/publish-guard.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "YouTube Creator Ops",
+            "description": "Public OpenClaw skill for planning, staging, publishing, and verifying a YouTube Shorts run through one reusable evidence bundle.",
+            "url": "https://zack-dev-cm.github.io/projects/youtube-creator-ops.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "HH OpenClaw Agent",
+            "description": "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
+            "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

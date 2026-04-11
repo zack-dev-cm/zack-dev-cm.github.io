@@ -33,7 +33,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "48 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
+  "50 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
   "Built for teams that needed working systems, not concept decks."
 ];
 
@@ -52,6 +52,26 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "YouTube Creator Ops",
+    description: "New open-source release: a public OpenClaw skill that turns a YouTube Shorts publish run into one reusable bundle with staged execution, evidence, checks, and a handoff report.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.0" }
+    ],
+    projectId: 49
+  },
+  {
+    title: "HH OpenClaw Agent",
+    description: "New open-source release: a public OpenClaw skill for reviewed hh.ru application packets, logged browser execution, approval gates, and submission reports.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.0" }
+    ],
+    projectId: 50
+  },
   {
     title: "Browser Proof",
     description: "New open-source release: a small browser QA skill that turns screenshots, console notes, and step-by-step validation into one reproducible evidence pack.",
@@ -1119,5 +1139,61 @@ Operations Layer (Console, Alerts, Runbooks)`
     thumbnail: "",
     hideImages: true,
     repoFullName: "zack-dev-cm/publish-guard"
+  },
+  {
+    id: 49,
+    title: "YouTube Creator Ops",
+    description: "Public OpenClaw skill for planning, staging, publishing, and verifying a YouTube Shorts run through one reusable evidence bundle.",
+    longDescription: "YouTube Creator Ops is a small public OpenClaw skill for YouTube Studio publishing runs. It creates a machine-readable run manifest, records evidence-backed steps, validates the resulting bundle, and renders a markdown report for launch review, debugging, or operator handoff. The public workflow defaults to dry run and keeps login, CAPTCHA, passkey, and 2FA checkpoints operator-owned.",
+    keyFeatures: [
+      "Creates one machine-readable run manifest with channel, goal, stage, surfaces, visibility, and asset references",
+      "Appends evidence-backed steps with expected result, actual result, status, issue keys, artifacts, and final published URL",
+      "Checks the bundle for missing screenshots, incomplete failed steps, and unsafe absolute artifact paths before sharing",
+      "Renders a shareable markdown report for launch review, debugging, and repeatable publishing handoffs"
+    ],
+    techStack: ["ClawHub", "Python", "YouTube", "OpenClaw Skills", "Release Engineering"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
+      { label: "Run stages", value: "2", context: "dry_run and live" },
+      { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.0" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/youtube-creator-ops"
+  },
+  {
+    id: 50,
+    title: "HH OpenClaw Agent",
+    description: "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
+    longDescription: "HH OpenClaw Agent is a small public OpenClaw skill for hh.ru application work through OpenClaw. It creates a machine-readable packet for one vacancy response flow, logs the live browser steps with evidence, validates the resulting bundle, and renders a markdown report for review, debugging, or funnel tracking. The public workflow requires an approved review state before submit and treats login, CAPTCHA, passkey, and 2FA as operator-owned interruptions.",
+    keyFeatures: [
+      "Creates one machine-readable application packet with vacancy details, cover letter content, review state, and blocked actions",
+      "Appends evidence-backed browser steps with status, effect, artifacts, issue keys, and optional outcome URL",
+      "Checks approval state, failed-step detail, screenshot coverage, and unsafe absolute artifact paths before the bundle is shared",
+      "Renders a concise markdown report for job-funnel review, debugging, and operator handoff"
+    ],
+    techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
+      { label: "Approval gate", value: "required", context: "review must be approved before submit" },
+      { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.0" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/hh-openclaw-agent"
   }
 ];
