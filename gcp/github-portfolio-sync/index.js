@@ -292,7 +292,7 @@ const commitFiles = async (token, owner, repo, branch, message, files) => {
 exports.githubPortfolioSync = async (req, res) => {
   try {
     if (SYNC_SECRET) {
-      const provided = req.get('x-sync-secret') || req.query.secret;
+      const provided = req.get('x-sync-secret');
       if (provided !== SYNC_SECRET) {
         return res.status(403).json({ ok: false, error: 'Forbidden' });
       }
@@ -300,7 +300,7 @@ exports.githubPortfolioSync = async (req, res) => {
 
     const token = process.env.DEV_CM_GITHUB_TOKEN;
     if (!token) {
-      return res.status(500).json({ ok: false, error: 'Missing DEV_CM_GITHUB_TOKEN' });
+      return res.status(500).json({ ok: false, error: 'Missing GitHub token' });
     }
 
     const dryRun = req.query.dryRun === 'true' || req.query.dryRun === '1' || (req.body && req.body.dryRun);

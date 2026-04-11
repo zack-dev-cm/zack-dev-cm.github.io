@@ -30,4 +30,4 @@ https://zack-dev-cm.github.io/projects/youtube-creator-ops.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/youtube-creator-ops)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/youtube-creator-ops)
-- [Release v1.0.0](https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.0)
+- [Release v1.0.1](https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.1)

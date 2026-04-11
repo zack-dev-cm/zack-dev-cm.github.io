@@ -58,7 +58,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.0" }
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.1" }
     ],
     projectId: 49
   },
@@ -68,7 +68,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
-      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.0" }
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.1" }
     ],
     projectId: 50
   },
@@ -1070,7 +1070,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
       { label: "Validation status", value: "publish-ready", context: "launcher check + publish-guard audit" }
@@ -1161,7 +1161,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.0" }
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.1" }
     ],
     images: [],
     thumbnail: "",
@@ -1181,7 +1181,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },
       { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
@@ -1189,7 +1189,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
-      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.0" }
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.1" }
     ],
     images: [],
     thumbnail: "",
