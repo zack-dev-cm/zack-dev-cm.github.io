@@ -14,6 +14,54 @@ const PLACEHOLDER_IMAGE = 'images/project-placeholder.svg';
 
 const ensureTrailingSlashTrimmed = (value) => value.replace(/\/+$/, '');
 
+const isPrivateHostname = (hostname) => {
+  const normalized = hostname.trim().toLowerCase();
+  if (!normalized) return true;
+  if (
+    normalized === 'localhost' ||
+    normalized === '0.0.0.0' ||
+    normalized === '::1' ||
+    normalized.endsWith('.local')
+  ) {
+    return true;
+  }
+
+  if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(normalized)) {
+    const octets = normalized.split('.').map((part) => Number(part));
+    if (octets.some((octet) => Number.isNaN(octet) || octet < 0 || octet > 255)) return true;
+    if (octets[0] === 10 || octets[0] === 127) return true;
+    if (octets[0] === 169 && octets[1] === 254) return true;
+    if (octets[0] === 192 && octets[1] === 168) return true;
+    if (octets[0] === 172 && octets[1] >= 16 && octets[1] <= 31) return true;
+  }
+
+  if (normalized.startsWith('[') && normalized.endsWith(']')) {
+    const ipv6 = normalized.slice(1, -1);
+    if (
+      ipv6 === '::1' ||
+      ipv6.startsWith('fc') ||
+      ipv6.startsWith('fd') ||
+      ipv6.startsWith('fe80:')
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const isSafePublicUrl = (value) => {
+  if (!value) return false;
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol !== 'https:') return false;
+    if (parsed.username || parsed.password) return false;
+    return !isPrivateHostname(parsed.hostname);
+  } catch {
+    return false;
+  }
+};
+
 const githubRequest = async (token, path, options = {}) => {
   const url = path.startsWith('http') ? path : `${GITHUB_API_BASE}${path}`;
   const response = await fetch(url, {
@@ -29,9 +77,7 @@ const githubRequest = async (token, path, options = {}) => {
   });
 
   if (!response.ok) {
-    const text = await response.text();
-    const message = `GitHub API error ${response.status}: ${text}`;
-    throw new Error(message);
+    throw new Error(`GitHub API request failed with status ${response.status}`);
   }
 
   if (options.raw) {
@@ -134,31 +180,6 @@ const buildTitle = (name) => {
   return name
     .replace(/[-_]+/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase());
-};
-
-const probeUrl = async (url) => {
-  if (!url || !/^https?:\/\//i.test(url)) return false;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 5000);
-  try {
-    const response = await fetch(url, { method: 'HEAD', redirect: 'follow', signal: controller.signal });
-    if (response.ok) return true;
-  } catch {
-    // Ignore and fall through to GET probe.
-  } finally {
-    clearTimeout(timeout);
-  }
-
-  const fallbackController = new AbortController();
-  const fallbackTimeout = setTimeout(() => fallbackController.abort(), 5000);
-  try {
-    const response = await fetch(url, { method: 'GET', redirect: 'follow', signal: fallbackController.signal });
-    return response.ok;
-  } catch {
-    return false;
-  } finally {
-    clearTimeout(fallbackTimeout);
-  }
 };
 
 const fetchReadmeText = async (token, owner, repo) => {
@@ -291,11 +312,13 @@ const commitFiles = async (token, owner, repo, branch, message, files) => {
 
 exports.githubPortfolioSync = async (req, res) => {
   try {
-    if (SYNC_SECRET) {
-      const provided = req.get('x-sync-secret');
-      if (provided !== SYNC_SECRET) {
-        return res.status(403).json({ ok: false, error: 'Forbidden' });
-      }
+    if (!SYNC_SECRET) {
+      return res.status(503).json({ ok: false, error: 'Sync endpoint is not configured.' });
+    }
+
+    const provided = req.get('x-sync-secret');
+    if (provided !== SYNC_SECRET) {
+      return res.status(403).json({ ok: false, error: 'Forbidden' });
     }
 
     const token = process.env.DEV_CM_GITHUB_TOKEN;
@@ -363,8 +386,8 @@ exports.githubPortfolioSync = async (req, res) => {
       const probesArticleUrl = isMiniApp ? findProbesArticleUrl(probesArticles, repo.name) : null;
 
       let liveDemoUrl = null;
-      if (repo.homepage && !/t\.me/i.test(repo.homepage)) {
-        liveDemoUrl = (await probeUrl(repo.homepage)) ? repo.homepage : null;
+      if (repo.homepage && !/t\.me/i.test(repo.homepage) && isSafePublicUrl(repo.homepage)) {
+        liveDemoUrl = repo.homepage;
       }
 
       const links = buildLinks({
@@ -453,9 +476,10 @@ exports.githubPortfolioSync = async (req, res) => {
       },
     });
   } catch (error) {
+    console.error('[githubPortfolioSync] request failed', error);
     res.status(500).json({
       ok: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: 'Sync failed.',
     });
   }
 };

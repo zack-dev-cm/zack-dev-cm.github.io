@@ -6,7 +6,7 @@ provider credentials, and internal brand voice notes.
 
 ## Files
 - `marketing/scheduled-posts.json`: Example source of truth for upcoming posts.
-- `scripts/print-openclaw-cron.mjs`: Helper that prints OpenClaw cron commands for each scheduled post.
+- `scripts/print-openclaw-cron.mjs`: Helper that prints a generic schedule preview for each post.
 
 ## Configuration
 
@@ -15,7 +15,7 @@ the public repo. Keep channel IDs, tokens, and scheduling credentials in private
 
 ## How to schedule
 1. Update dates, angles, and URLs in `marketing/scheduled-posts.json`.
-2) Print cron commands:
+2. Print a schedule preview:
    ```bash
    node scripts/print-openclaw-cron.mjs marketing/scheduled-posts.json
    ```

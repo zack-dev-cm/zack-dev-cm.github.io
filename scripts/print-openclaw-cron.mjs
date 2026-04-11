@@ -3,28 +3,26 @@ import path from 'node:path';
 
 const schedulePath = process.argv[2] ?? path.resolve('marketing', 'scheduled-posts.json');
 
-const escapeShell = (value) => value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
-
-const buildPrompt = (post, voiceStyle, channel) => {
-  const keywords = Array.isArray(post.keywords) ? post.keywords.join(', ') : '';
-  const urls = post.secondaryUrl ? `${post.primaryUrl} (secondary: ${post.secondaryUrl})` : post.primaryUrl;
-  return [
-    `Write a short ${channel} post in the "${post.voice}" voice.`,
-    voiceStyle ? `Style: ${voiceStyle}` : '',
+const buildPreview = (post, voiceStyle, channel) => {
+  const lines = [
+    `Schedule item: ${post.id}`,
+    `Publish at: ${post.publishAt}`,
+    `Channel: ${channel}`,
     `Topic: ${post.projectTitle}`,
     `Angle: ${post.angle}`,
-    keywords ? `Keywords: ${keywords}` : '',
-    `CTA: ${urls}`,
-    'Length: 500-900 chars. Use short paragraphs. No hashtags unless they are critical.'
-  ]
-    .filter(Boolean)
-    .join('\n');
+  ];
+  if (voiceStyle) lines.push(`Style: ${voiceStyle}`);
+  if (Array.isArray(post.keywords) && post.keywords.length) lines.push(`Keywords: ${post.keywords.join(', ')}`);
+  if (post.primaryUrl) lines.push(`Primary URL: ${post.primaryUrl}`);
+  if (post.secondaryUrl) lines.push(`Secondary URL: ${post.secondaryUrl}`);
+  lines.push('Next step: map this item into your own scheduler or delivery system.');
+  return lines.join('\n');
 };
 
 const main = async () => {
   const schedule = JSON.parse(await fs.readFile(schedulePath, 'utf8'));
-  const defaultChannel = schedule.defaultChannel || 'telegram';
-  const defaultTarget = schedule.defaultTarget || 'channel:${TELEGRAM_CHANNEL_ID}';
+  const defaultChannel = schedule.defaultChannel || 'example';
+  const defaultTarget = schedule.defaultTarget || 'replace-with-your-target';
   const voices = schedule.voices || {};
   const posts = schedule.posts || [];
 
@@ -35,27 +33,11 @@ const main = async () => {
 
   for (const post of posts) {
     const channel = post.channel || defaultChannel;
-    const target = post.target || defaultTarget;
     const voiceStyle = voices[post.voice]?.style || '';
-    const prompt = buildPrompt(post, voiceStyle, channel);
-    const safePrompt = escapeShell(prompt);
-
-    const name = `Social: ${post.id}`;
-    const at = post.publishAt;
-
-    console.log(
-      [
-        'openclaw cron add \\',
-        `  --name "${name}" \\`,
-        `  --at "${at}" \\`,
-        '  --session isolated \\',
-        `  --message "${safePrompt}" \\`,
-        '  --deliver \\',
-        `  --channel ${channel} \\`,
-        `  --to "${target}"`,
-        ''
-      ].join('\n')
-    );
+    const target = post.target || defaultTarget;
+    console.log(buildPreview(post, voiceStyle, channel));
+    console.log(`Configured target placeholder: ${target}`);
+    console.log('');
   }
 };
 

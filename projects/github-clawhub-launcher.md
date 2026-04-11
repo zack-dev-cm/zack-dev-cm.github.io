@@ -22,7 +22,7 @@ https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md
 - OpenClaw Skills
 
 ## Benchmarks & Analytics
-- Public release: v1.0.1 (GitHub + ClawHub)
+- Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
 - Validation status: publish-ready (launcher check + publish-guard audit)
