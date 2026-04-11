@@ -22,7 +22,7 @@ https://zack-dev-cm.github.io/projects/youtube-creator-ops.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- Public release: v1.0.0 (GitHub + ClawHub)
+- Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Run stages: 2 (dry_run and live)
 - Validation status: publish-ready (smoke test + publish-guard audit)
@@ -30,4 +30,4 @@ https://zack-dev-cm.github.io/projects/youtube-creator-ops.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/youtube-creator-ops)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/youtube-creator-ops)
-- [Release v1.0.2](https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.2)
+- [Release v1.0.3](https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.3)
