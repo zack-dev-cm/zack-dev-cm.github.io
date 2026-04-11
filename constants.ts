@@ -1070,7 +1070,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
       { label: "Validation status", value: "publish-ready", context: "launcher check + publish-guard audit" }
