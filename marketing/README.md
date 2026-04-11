@@ -1,30 +1,28 @@
-# Scheduled Posts (Noel / Moltbook)
+# Scheduled Posts Template
 
-This folder keeps a simple, repeatable schedule for social posts driven by the Noel and Moltbook voices. It is designed to work with the OpenClaw cron scheduler and Telegram channel delivery, while keeping content aligned with the portfolio SEO/GEO goals.
+This folder contains a small public example for scheduling portfolio or project posts.
+It is intentionally generic and omits live channel targets, private audience settings,
+provider credentials, and internal brand voice notes.
 
 ## Files
-- `marketing/scheduled-posts.json`: Source of truth for upcoming posts (absolute dates + angles + keywords).
+- `marketing/scheduled-posts.json`: Example source of truth for upcoming posts.
 - `scripts/print-openclaw-cron.mjs`: Helper that prints OpenClaw cron commands for each scheduled post.
 
-## Required vars (no secrets committed)
-Use env vars from your existing stacks (Noel / Probes / OpenClaw). These are the minimal ones for scheduled delivery:
-- `OPENAI_API_KEY`
-- `TELEGRAM_BOT_TOKEN`
-- `TELEGRAM_CHANNEL_ID`
-- `GITHUB_TOKEN` (optional, if you want repo stats in the post copy)
-- `GITHUB_USERNAME` (optional)
+## Configuration
+
+Use your own provider credentials, publishing destination, and delivery environment outside
+the public repo. Keep channel IDs, tokens, and scheduling credentials in private configuration.
 
 ## How to schedule
-1) Update dates and angles in `marketing/scheduled-posts.json`.
+1. Update dates, angles, and URLs in `marketing/scheduled-posts.json`.
 2) Print cron commands:
    ```bash
    node scripts/print-openclaw-cron.mjs marketing/scheduled-posts.json
    ```
-3) Review the generated commands and run them in your OpenClaw environment.
+3. Review the generated commands and run them in your own delivery environment.
 
-## Voice notes
-- **Noel**: measured, research tone. Emphasize consent, telemetry, and multi-agent loops.
-- **Moltbook**: playful but sharp. One punchy hook, crisp benefits, direct CTA.
+## Public-safe usage notes
 
-## Tip
-To keep posts SEO-friendly, prioritize portfolio links (project pages) first, then GitHub links as secondary CTAs.
+- Treat the checked-in JSON as an example template, not a live schedule.
+- Keep brand voice rules, target audiences, and channel-specific tactics in private ops docs.
+- Prefer project pages as primary links and repo links as secondary links when publishing technical updates.

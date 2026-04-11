@@ -1,131 +1,35 @@
 {
-  "timezone": "America/New_York",
-  "defaultChannel": "telegram",
-  "defaultTarget": "channel:${TELEGRAM_CHANNEL_ID}",
+  "timezone": "UTC",
+  "defaultChannel": "example",
+  "defaultTarget": "replace-with-your-target",
   "voices": {
-    "noel": {
-      "style": "Measured, research-driven, reflective. Short sentences, crisp technical clarity, no hype. End with a gentle invitation."
+    "technical": {
+      "style": "Clear, concise, technical. Explain what shipped, why it matters, and what evidence supports it."
     },
-    "moltbook": {
-      "style": "Playful, curious, concise. Use clean tech language, one punchy hook, and a direct CTA. Avoid slang."
+    "product": {
+      "style": "User-facing and practical. Lead with the job to be done, then add one clear call to action."
     }
   },
   "posts": [
     {
-      "id": "2026-02-03-noel-noetic-mirror",
-      "publishAt": "2026-02-03T10:00:00-05:00",
-      "voice": "noel",
-      "projectTitle": "Noel - Noetic Mirror",
-      "angle": "Live multi-agent research loop with consent gates, telemetry, and Stars interventions. Highlight the open-source release.",
-      "keywords": ["AI agents", "multi-agent", "telemetry", "Telegram mini app", "open source"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
-      "secondaryUrl": "https://github.com/zack-dev-cm/noel"
+      "id": "2026-01-15-example-project-release",
+      "publishAt": "2026-01-15T10:00:00Z",
+      "voice": "technical",
+      "projectTitle": "Example Project",
+      "angle": "Describe the release in one sentence, then point to the strongest proof or demo.",
+      "keywords": ["open source", "automation", "release"],
+      "primaryUrl": "https://example.com/project",
+      "secondaryUrl": "https://github.com/example/project"
     },
     {
-      "id": "2026-02-05-remotescreen-open-source",
-      "publishAt": "2026-02-05T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "Android Remote Control with VLM AI Agents",
-      "angle": "Remote Android control + live screenshots for agentic workflows. Focus on accessibility, testing, and automation.",
-      "keywords": ["VLM agents", "Android automation", "computer use", "remote control", "open source"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
-      "secondaryUrl": "https://github.com/zack-dev-cm/RemoteScreen"
-    },
-    {
-      "id": "2026-02-07-geofix-geo-visibility",
-      "publishAt": "2026-02-07T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "GeoFix - AI Visibility Memorizer Mini App",
-      "angle": "AI visibility diagnostics plus llms.txt and schema.jsonld generation for better GEO/SEO reach.",
-      "keywords": ["GEO", "AI visibility", "llms.txt", "schema.jsonld", "SEO"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md"
-    },
-    {
-      "id": "2026-02-10-mcp-server",
-      "publishAt": "2026-02-10T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "MCP-Server - Base Multitool",
-      "angle": "Backbone for orchestrating tool-calling workflows with scalable pipelines and real-time events.",
-      "keywords": ["MCP", "tool calling", "agents", "pipelines", "autoscaling"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md"
-    },
-    {
-      "id": "2026-02-12-seogeo-bridge",
-      "publishAt": "2026-02-12T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
-      "angle": "Make Telegram mini apps crawlable and discoverable with SSR bridge pages and startapp tracking.",
-      "keywords": ["Telegram mini apps", "SEO", "GEO", "SSR", "discoverability"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md"
-    },
-    {
-      "id": "2026-02-14-noel-weekly-loop",
-      "publishAt": "2026-02-14T10:00:00-05:00",
-      "voice": "noel",
-      "projectTitle": "Noel - Noetic Mirror",
-      "angle": "Weekly loop highlight: researcher-subject pairing, consent gates, and session telemetry.",
-      "keywords": ["AI research loop", "consent gates", "telemetry", "Telegram mini app"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
-      "secondaryUrl": "https://t.me/noel_mirror"
-    },
-    {
-      "id": "2026-02-17-probes-ai-magazine",
-      "publishAt": "2026-02-17T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "Probes - AI Magazine Mini App",
-      "angle": "Daily AI magazine inside Telegram, covering real projects with cover art and engagement stats.",
-      "keywords": ["AI magazine", "Telegram mini app", "content engine", "daily posts"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
-      "secondaryUrl": "https://t.me/pr0bes"
-    },
-    {
-      "id": "2026-02-19-remotescreen-agent-loop",
-      "publishAt": "2026-02-19T10:00:00-05:00",
-      "voice": "noel",
-      "projectTitle": "Android Remote Control with VLM AI Agents",
-      "angle": "Agentic control loop demo: screenshots in, actions out, with safety-aware control.",
-      "keywords": ["AI agents", "computer use", "Android", "VLM", "automation"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
-      "secondaryUrl": "https://github.com/zack-dev-cm/RemoteScreen"
-    },
-    {
-      "id": "2026-02-21-geo-stack",
-      "publishAt": "2026-02-21T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "GeoFix + seogeo GEO Stack",
-      "angle": "Pair GeoFix diagnostics with seogeo bridge pages for a full GEO visibility stack.",
-      "keywords": ["GEO", "SEO", "llms.txt", "Telegram mini apps", "AI visibility"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
-      "secondaryUrl": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md"
-    },
-    {
-      "id": "2026-02-24-noel-open-source",
-      "publishAt": "2026-02-24T10:00:00-05:00",
-      "voice": "noel",
-      "projectTitle": "Noel - Noetic Mirror",
-      "angle": "Open-source drop: model loop + telemetry pipeline for live research sessions.",
-      "keywords": ["open source", "AI agents", "telemetry", "research loop"],
-      "primaryUrl": "https://github.com/zack-dev-cm/noel",
-      "secondaryUrl": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md"
-    },
-    {
-      "id": "2026-02-26-mcp-open-source",
-      "publishAt": "2026-02-26T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "MCP-Server - Base Multitool",
-      "angle": "Tool-calling infrastructure for demos and production agents. Emphasize open-source building blocks.",
-      "keywords": ["MCP", "tool calling", "open source", "agents"],
-      "primaryUrl": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md"
-    },
-    {
-      "id": "2026-02-28-geo-checklist",
-      "publishAt": "2026-02-28T10:00:00-05:00",
-      "voice": "moltbook",
-      "projectTitle": "GEO Checklist",
-      "angle": "Quick checklist: llms.txt, geo.txt, schema.jsonld, and crawlable bridge pages.",
-      "keywords": ["GEO", "SEO", "llms.txt", "geo.txt", "schema.jsonld"],
-      "primaryUrl": "https://zack-dev-cm.github.io/geo.txt",
-      "secondaryUrl": "https://zack-dev-cm.github.io/llms.txt"
+      "id": "2026-01-22-example-case-study",
+      "publishAt": "2026-01-22T10:00:00Z",
+      "voice": "product",
+      "projectTitle": "Example Case Study",
+      "angle": "Lead with the user problem, then link to the proof page and one supporting asset.",
+      "keywords": ["case study", "product", "launch"],
+      "primaryUrl": "https://example.com/case-study",
+      "secondaryUrl": "https://example.com/demo"
     }
   ]
 }
