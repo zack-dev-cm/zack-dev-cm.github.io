@@ -54,11 +54,11 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "OpenClaw YouTube Publisher",
-    description: "Updated open-source release: a public OpenClaw skill for publishing a YouTube Short through a logged-in browser profile and exporting a reusable run report.",
+    description: "Updated open-source release: a public OpenClaw skill for publishing a YouTube Short through a logged-in browser profile while keeping Midjourney/Suno provenance and credits in the same run bundle.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.0.6", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.6" },
+      { text: "Release v1.1.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.0" },
       { text: "Reference Short (Adjacent Pipeline)", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
     ],
     projectId: 49
@@ -1145,25 +1145,26 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 49,
     legacySlugs: ["youtube-creator-ops"],
     title: "OpenClaw YouTube Publisher",
-    description: "Open-source OpenClaw workflow for publishing a YouTube Short and exporting a reusable run report.",
-    longDescription: "This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, validates the bundle, and renders a public-safe report with private paths redacted. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.",
+    description: "Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.",
+    longDescription: "This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, keeps structured provenance for Midjourney, Suno, and local edit stages, validates the bundle, and renders a public-safe report with private paths and non-public URLs redacted. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.",
     keyFeatures: [
       "Initializes one run manifest with channel, goal, stage, visibility, and file references",
+      "Carries structured provenance for Midjourney visuals, Suno audio, local edit stages, and required public credits",
       "Logs upload, metadata, checks, and publish steps with status, notes, screenshots, and final public URL",
       "Validates the bundle before sharing so missing screenshots and unsafe artifact paths are caught early",
       "Renders a reusable markdown report for review, debugging, and future repeat runs"
     ],
-    techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "GitHub Actions"],
+    techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.6", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.1.0", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
-      { label: "Outputs", value: "JSON + Markdown", context: "run manifest and shareable report" }
+      { label: "Outputs", value: "JSON + Markdown", context: "run manifest, provenance block, and shareable report" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.0.6", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.6" },
+      { text: "Release v1.1.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.0" },
       { text: "Reference Short (Adjacent Pipeline)", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
     ],
     images: [],

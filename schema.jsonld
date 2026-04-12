@@ -679,7 +679,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw YouTube Publisher",
-            "description": "Open-source OpenClaw workflow for publishing a YouTube Short and exporting a reusable run report.",
+            "description": "Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.",
             "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
