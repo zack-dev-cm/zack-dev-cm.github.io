@@ -893,30 +893,31 @@ Links:
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/public-surface-review
 - Release v1.0.0: https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.0
 
-### YouTube Creator Ops
-Summary: Public OpenClaw skill for planning, staging, publishing, and verifying a YouTube Shorts run through one reusable evidence bundle.
-Details: YouTube Creator Ops is a small public OpenClaw skill for YouTube Studio publishing runs. It creates a machine-readable run manifest, records evidence-backed steps, validates the resulting bundle, and renders a markdown report for launch review, debugging, or operator handoff. The public workflow defaults to dry run and keeps login, CAPTCHA, passkey, and 2FA checkpoints operator-owned.
-Project URL: https://zack-dev-cm.github.io/projects/youtube-creator-ops.md
+### OpenClaw YouTube Publisher
+Summary: Open-source OpenClaw workflow for publishing a YouTube Short and exporting a reusable run report.
+Details: This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, validates the bundle, and renders a public-safe report with private paths redacted. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.
+Project URL: https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md
 Key Features:
-- Creates one machine-readable run manifest with channel, goal, stage, surfaces, visibility, and asset references
-- Appends evidence-backed steps with expected result, actual result, status, issue keys, artifacts, and final published URL
-- Checks the bundle for missing screenshots, incomplete failed steps, and unsafe absolute artifact paths before sharing
-- Renders a shareable markdown report for launch review, debugging, and repeatable publishing handoffs
+- Initializes one run manifest with channel, goal, stage, visibility, and file references
+- Logs upload, metadata, checks, and publish steps with status, notes, screenshots, and final public URL
+- Validates the bundle before sharing so missing screenshots and unsafe artifact paths are caught early
+- Renders a reusable markdown report for review, debugging, and future repeat runs
 Tech Stack:
 - ClawHub
 - Python
-- YouTube
-- OpenClaw Skills
-- Release Engineering
+- YouTube Studio
+- OpenClaw
+- GitHub Actions
 Benchmarks & Analytics:
-- Public release: v1.0.3 (GitHub + ClawHub)
-- Bundled scripts: 4 (init, append, check, render)
-- Run stages: 2 (dry_run and live)
-- Validation status: publish-ready (smoke test + publish-guard audit)
+- Public release: v1.0.4 (GitHub + ClawHub)
+- Platform: YouTube Studio (browser-based publish flow)
+- Modes: dry_run + live (same manifest, different publish intent)
+- Outputs: JSON + Markdown (run manifest and shareable report)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/youtube-creator-ops
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/youtube-creator-ops
-- Release v1.0.3: https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.3
+- Release v1.0.4: https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.4
+- Reference Short (Adjacent Pipeline): https://www.youtube.com/shorts/_5dVaQdB1lA
 
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.

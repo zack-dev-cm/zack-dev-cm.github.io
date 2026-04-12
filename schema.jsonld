@@ -678,9 +678,9 @@
           "position": 49,
           "item": {
             "@type": "CreativeWork",
-            "name": "YouTube Creator Ops",
-            "description": "Public OpenClaw skill for planning, staging, publishing, and verifying a YouTube Shorts run through one reusable evidence bundle.",
-            "url": "https://zack-dev-cm.github.io/projects/youtube-creator-ops.md",
+            "name": "OpenClaw YouTube Publisher",
+            "description": "Open-source OpenClaw workflow for publishing a YouTube Short and exporting a reusable run report.",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             }

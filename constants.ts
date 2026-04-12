@@ -53,12 +53,13 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
-    title: "YouTube Creator Ops",
-    description: "New open-source release: a public OpenClaw skill that turns a YouTube Shorts publish run into one reusable bundle with staged execution, evidence, checks, and a handoff report.",
+    title: "OpenClaw YouTube Publisher",
+    description: "Updated open-source release: a public OpenClaw skill for publishing a YouTube Short through a logged-in browser profile and exporting a reusable run report.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.0.3", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.3" }
+      { text: "Release v1.0.4", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.4" },
+      { text: "Reference Short (Adjacent Pipeline)", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
     ],
     projectId: 49
   },
@@ -1142,26 +1143,28 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     id: 49,
-    title: "YouTube Creator Ops",
-    description: "Public OpenClaw skill for planning, staging, publishing, and verifying a YouTube Shorts run through one reusable evidence bundle.",
-    longDescription: "YouTube Creator Ops is a small public OpenClaw skill for YouTube Studio publishing runs. It creates a machine-readable run manifest, records evidence-backed steps, validates the resulting bundle, and renders a markdown report for launch review, debugging, or operator handoff. The public workflow defaults to dry run and keeps login, CAPTCHA, passkey, and 2FA checkpoints operator-owned.",
+    legacySlugs: ["youtube-creator-ops"],
+    title: "OpenClaw YouTube Publisher",
+    description: "Open-source OpenClaw workflow for publishing a YouTube Short and exporting a reusable run report.",
+    longDescription: "This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, validates the bundle, and renders a public-safe report with private paths redacted. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.",
     keyFeatures: [
-      "Creates one machine-readable run manifest with channel, goal, stage, surfaces, visibility, and asset references",
-      "Appends evidence-backed steps with expected result, actual result, status, issue keys, artifacts, and final published URL",
-      "Checks the bundle for missing screenshots, incomplete failed steps, and unsafe absolute artifact paths before sharing",
-      "Renders a shareable markdown report for launch review, debugging, and repeatable publishing handoffs"
+      "Initializes one run manifest with channel, goal, stage, visibility, and file references",
+      "Logs upload, metadata, checks, and publish steps with status, notes, screenshots, and final public URL",
+      "Validates the bundle before sharing so missing screenshots and unsafe artifact paths are caught early",
+      "Renders a reusable markdown report for review, debugging, and future repeat runs"
     ],
-    techStack: ["ClawHub", "Python", "YouTube", "OpenClaw Skills", "Release Engineering"],
+    techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "GitHub Actions"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
-      { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
-      { label: "Run stages", value: "2", context: "dry_run and live" },
-      { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
+      { label: "Public release", value: "v1.0.4", context: "GitHub + ClawHub" },
+      { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
+      { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
+      { label: "Outputs", value: "JSON + Markdown", context: "run manifest and shareable report" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.0.3", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.3" }
+      { text: "Release v1.0.4", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.0.4" },
+      { text: "Reference Short (Adjacent Pipeline)", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
     ],
     images: [],
     thumbnail: "",

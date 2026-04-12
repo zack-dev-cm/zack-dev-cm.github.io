@@ -1,7 +1,5 @@
 # OpenClaw YouTube Publisher
 
-> Legacy project URL kept for compatibility. Use the canonical project link below.
-
 > Open-source OpenClaw workflow for publishing a YouTube Short and exporting a reusable run report.
 
 ## Summary
