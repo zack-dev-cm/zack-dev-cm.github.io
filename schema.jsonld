@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 50,
+      "numberOfItems": 51,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -689,6 +689,19 @@
         {
           "@type": "ListItem",
           "position": 50,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Artifact Redactor",
+            "description": "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+            "url": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

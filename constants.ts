@@ -53,6 +53,16 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Artifact Redactor",
+    description: "New open-source release: a text-artifact redaction skill that strips private paths, secret-like strings, private URLs, and common PII before a bundle is shared.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.0" }
+    ],
+    projectId: 51
+  },
+  {
     title: "OpenClaw YouTube Publisher",
     description: "Updated open-source release: a public OpenClaw skill for publishing a YouTube Short through a logged-in browser profile while keeping Midjourney/Suno provenance and credits in the same run bundle.",
     links: [
@@ -1169,6 +1179,35 @@ Operations Layer (Console, Alerts, Runbooks)`
     thumbnail: "",
     hideImages: true,
     repoFullName: "zack-dev-cm/youtube-creator-ops"
+  },
+  {
+    id: 51,
+    title: "Artifact Redactor",
+    description: "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.0: text artifacts are handled automatically, while binary files are explicitly flagged instead of being silently copied and misrepresented as safe.",
+    keyFeatures: [
+      "Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for private paths, private URLs, secret-like strings, email addresses, and phone numbers",
+      "Writes a redacted copy into a separate output directory so the raw bundle stays untouched",
+      "Strips query strings from public URLs while redacting localhost, private hosts, and credentialed URLs",
+      "Flags binary or unsupported files for manual review instead of pretending they were auto-sanitized",
+      "Renders a concise markdown report for bug reports, vendor handoffs, release reviews, and public issues"
+    ],
+    techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
+      { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
+      { label: "Binary policy", value: "manual review", context: "unsupported files are flagged, not silently copied" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
+      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.0" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/artifact-redactor"
   },
   {
     id: 50,
