@@ -33,7 +33,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "50 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
+  "51 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
   "Built for teams that needed working systems, not concept decks."
 ];
 
@@ -58,7 +58,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
-      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.0" }
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.1" }
     ],
     projectId: 51
   },
@@ -1184,7 +1184,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 51,
     title: "Artifact Redactor",
     description: "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
-    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.0: text artifacts are handled automatically, while binary files are explicitly flagged instead of being silently copied and misrepresented as safe.",
+    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.1: text artifacts are handled automatically, while binary files are explicitly flagged instead of being silently copied and misrepresented as safe.",
     keyFeatures: [
       "Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for private paths, private URLs, secret-like strings, email addresses, and phone numbers",
       "Writes a redacted copy into a separate output directory so the raw bundle stays untouched",
@@ -1202,7 +1202,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
-      { text: "Release v1.0.0", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.0" }
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.1" }
     ],
     images: [],
     thumbnail: "",

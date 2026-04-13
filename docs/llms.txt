@@ -70,6 +70,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Browser Proof](https://zack-dev-cm.github.io/projects/browser-proof.md): Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
 - [Publish Guard](https://zack-dev-cm.github.io/projects/publish-guard.md): Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.
 - [OpenClaw YouTube Publisher](https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md): Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.
+- [Artifact Redactor](https://zack-dev-cm.github.io/projects/artifact-redactor.md): Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
 - [HH OpenClaw Agent](https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md): Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 
 ## Core Pages
