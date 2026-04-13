@@ -25,7 +25,7 @@ https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md
 - GitHub Actions
 
 ## Benchmarks & Analytics
-- Public release: v1.1.0 (GitHub + ClawHub)
+- Public release: v1.1.1 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)
 - Outputs: JSON + Markdown (run manifest, provenance block, and shareable report)
@@ -33,5 +33,4 @@ https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/youtube-creator-ops)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/youtube-creator-ops)
-- [Release v1.1.0](https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.0)
-- [Reference Short (Adjacent Pipeline)](https://www.youtube.com/shorts/_5dVaQdB1lA)
+- [Release v1.1.1](https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.1)

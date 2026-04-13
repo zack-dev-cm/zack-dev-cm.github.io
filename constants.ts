@@ -58,8 +58,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.1.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.0" },
-      { text: "Reference Short (Adjacent Pipeline)", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
+      { text: "Release v1.1.1", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.1" }
     ],
     projectId: 49
   },
@@ -1156,7 +1155,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "Public release", value: "v1.1.0", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.1.1", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
       { label: "Outputs", value: "JSON + Markdown", context: "run manifest, provenance block, and shareable report" }
@@ -1164,8 +1163,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.1.0", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.0" },
-      { text: "Reference Short (Adjacent Pipeline)", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
+      { text: "Release v1.1.1", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.1" }
     ],
     images: [],
     thumbnail: "",
