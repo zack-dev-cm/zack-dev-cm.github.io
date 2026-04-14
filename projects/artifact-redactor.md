@@ -3,7 +3,7 @@
 > Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
 
 ## Summary
-Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.2: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared.
+Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.3: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/artifact-redactor.md
@@ -24,7 +24,7 @@ https://zack-dev-cm.github.io/projects/artifact-redactor.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- Public release: v1.0.2 (GitHub + ClawHub)
+- Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (private url, path, secret, email, phone, public-url query cleanup)
 - Binary policy: manual review (unsupported files are flagged, not silently copied)
@@ -32,4 +32,4 @@ https://zack-dev-cm.github.io/projects/artifact-redactor.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/artifact-redactor)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/artifact-redactor)
-- [Release v1.0.2](https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.2)
+- [Release v1.0.3](https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.3)

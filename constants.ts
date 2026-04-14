@@ -58,7 +58,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
-      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.2" }
+      { text: "Release v1.0.3", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.3" }
     ],
     projectId: 51
   },
@@ -1080,7 +1080,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.0", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
       { label: "Validation status", value: "publish-ready", context: "launcher check + publish-guard audit" }
@@ -1184,7 +1184,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 51,
     title: "Artifact Redactor",
     description: "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
-    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.2: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared.",
+    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.3: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.",
     keyFeatures: [
       "Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for private paths, private URLs, secret-like strings, email addresses, and phone numbers",
       "Writes a redacted copy into a separate output directory so the raw bundle stays untouched",
@@ -1194,7 +1194,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
       { label: "Binary policy", value: "manual review", context: "unsupported files are flagged, not silently copied" }
@@ -1202,7 +1202,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
-      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.2" }
+      { text: "Release v1.0.3", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.3" }
     ],
     images: [],
     thumbnail: "",
