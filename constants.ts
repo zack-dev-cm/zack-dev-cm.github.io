@@ -124,10 +124,10 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "AntiRot - Research Artifact Linter",
-    description: "New open-source release: a local-first CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts before they ship.",
+    description: "New open-source release: a local-first CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts before they ship.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
-      { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1" }
+      { text: "Release v0.2.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.2.0" }
     ],
     projectId: 45
   },
@@ -1053,24 +1053,24 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 45,
     title: "AntiRot - Research Artifact Linter",
-    description: "Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.",
-    longDescription: "AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing evidence anchors, citation mismatches, comparative hype, and leftover draft markers before a paper, proposal, or lab note ships. The first public release focuses on low-friction adoption: no API key, no network dependency, text/JSON/Markdown/SARIF outputs, and a GitHub-friendly path into CI and code scanning.",
+    description: "Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.",
+    longDescription: "AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing evidence anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.",
     keyFeatures: [
-      "Catches unsupported claims, citation drift, hype language, comparative overreach, and leftover draft markers in Markdown drafts",
+      "Catches unsupported claims, citation drift, hype language, comparative overreach, absolute claims, and leftover draft markers in Markdown drafts",
+      "Supports paragraph-aware evidence carry, footnotes, inline links, DOIs, arXiv ids, and in-document references sections",
       "Runs locally with no API key and no network dependency, so it fits agent loops, proposals, and paper pipelines",
-      "Emits text, JSON, Markdown, and SARIF outputs for terminal use, CI gates, and GitHub-native review flows",
-      "Ships with starter config, examples, tests, and release assets for fast adoption"
+      "Emits text, JSON, Markdown, and SARIF outputs for terminal use, CI gates, and GitHub-native review flows"
     ],
     techStack: ["Python", "CLI", "Markdown", "SARIF", "GitHub Actions", "Research Agents"],
     benchmarks: [
-      { label: "Public release", value: "v0.1.1", context: "GitHub release" },
+      { label: "Public release", value: "v0.2.0", context: "GitHub release" },
       { label: "Output formats", value: "4", context: "text, json, markdown, sarif" },
-      { label: "Issue families", value: "6", context: "unsupported, numeric, citation, hype, comparative, draft markers" },
+      { label: "Issue families", value: "8", context: "unsupported, numeric, citation-not-found, citation-unverified, hype, comparative, absolute, draft markers" },
       { label: "Runtime deps", value: "0", context: "standard-library CLI" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
-      { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1" }
+      { text: "Release v0.2.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.2.0" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/antirot-social-card.svg`, alt: "AntiRot project preview" }
