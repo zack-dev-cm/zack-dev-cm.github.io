@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalLens Support</title>
+    <meta name="description" content="Support, troubleshooting, and reviewer guidance for LocalLens: Private AI Summaries." />
+    <link rel="stylesheet" href="../locallens.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="kicker">Support <span>troubleshooting</span> <span>reviewer notes</span></div>
+        <h1>Support for LocalLens</h1>
+        <p class="lead">Use this page for user support, reviewer guidance, and quick verification steps for the current LocalLens release.</p>
+        <div class="button-row">
+          <a class="button button--primary" href="https://github.com/zack-dev-cm/openclaw-cws-publisher/issues" target="_blank" rel="noopener noreferrer">Open issue tracker</a>
+          <a class="button button--secondary" href="../">Product page</a>
+          <a class="button button--secondary" href="../privacy/">Privacy policy</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Compatibility</h2>
+        <ul>
+          <li>Desktop Chrome 138 or newer.</li>
+          <li>Chrome built-in AI must be available and, on first use, may need a short local model warm-up download.</li>
+          <li>LocalLens works on the active tab only and requires readable page text or a user selection.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="reviewer-checklist">
+        <h2>Reviewer checklist</h2>
+        <ul>
+          <li>Open a text-heavy page in Chrome 138+.</li>
+          <li>Click the LocalLens action and run <strong>Summarize page</strong>.</li>
+          <li>Select text on the page and run <strong>Summarize selection</strong>, <strong>Simplify selection</strong>, <strong>Translate selection</strong>, and <strong>Safe-share selection</strong>.</li>
+          <li>If Chrome downloads a local model on first use, wait for the progress indicator to finish and repeat the action.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Troubleshooting</h2>
+        <div class="grid">
+          <article class="card"><strong>No result appears</strong><span>Reload the page, reopen the popup, and confirm the current tab contains readable text.</span></article>
+          <article class="card"><strong>First-run delay</strong><span>Chrome may still be downloading the built-in model locally. Wait for the popup progress state to clear.</span></article>
+          <article class="card"><strong>Selection actions seem empty</strong><span>Highlight the text again before reopening the popup so the active selection is still present.</span></article>
+          <article class="card"><strong>Need help</strong><span>Open a public issue with the Chrome version, the page type, and the action you ran.</span></article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <strong>LocalLens support</strong>
+        <p>For bugs, compatibility issues, or feedback, use the public issue tracker.</p>
+        <div class="footer-nav">
+          <a href="../">Home</a>
+          <a href="../privacy/">Privacy policy</a>
+          <a href="https://github.com/zack-dev-cm/openclaw-cws-publisher/issues" target="_blank" rel="noopener noreferrer">Issue tracker</a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
