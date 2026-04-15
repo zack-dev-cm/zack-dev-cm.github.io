@@ -33,7 +33,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
-  "51 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
+  "52 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
   "Built for teams that needed working systems, not concept decks."
 ];
 
@@ -52,6 +52,16 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "Artifact Deck",
+    description: "New open-source release: a public OpenClaw skill that turns curated notes, status bullets, and screenshots into one reproducible PPTX deck with a share-safe summary.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-deck" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-deck" },
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.1" }
+    ],
+    projectId: 52
+  },
   {
     title: "Artifact Redactor",
     description: "New open-source release: a text-artifact redaction skill that strips private paths, secret-like strings, private URLs, and common PII before a bundle is shared.",
@@ -1208,6 +1218,35 @@ Operations Layer (Console, Alerts, Runbooks)`
     thumbnail: "",
     hideImages: true,
     repoFullName: "zack-dev-cm/artifact-redactor"
+  },
+  {
+    id: 52,
+    title: "Artifact Deck",
+    description: "Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.",
+    longDescription: "Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.1: curated notes and screenshots in, one default stakeholder layout out.",
+    keyFeatures: [
+      "Builds one reproducible PPTX deck from markdown-backed sections, direct bullet slides, and optional screenshot appendix entries",
+      "Validates missing content, empty slides, and broken image paths before deck generation starts",
+      "Keeps the layout simple and deterministic for weekly updates, launch reviews, and client status decks",
+      "Renders a share-safe markdown summary with slide titles, slide counts, and a rebuild command template",
+      "Ships with GitHub Actions smoke coverage for the manifest, validation, build, and summary flow"
+    ],
+    techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
+    benchmarks: [
+      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
+      { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
+      { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
+      { label: "Summary mode", value: "share-safe", context: "no absolute local paths in the markdown output" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-deck" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-deck" },
+      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.1" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/artifact-deck"
   },
   {
     id: 50,

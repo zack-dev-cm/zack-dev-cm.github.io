@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-04-14",
+      "dateModified": "2026-04-15",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 51,
+      "numberOfItems": 52,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -702,6 +702,19 @@
         {
           "@type": "ListItem",
           "position": 51,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Artifact Deck",
+            "description": "Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.",
+            "url": "https://zack-dev-cm.github.io/projects/artifact-deck.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",
