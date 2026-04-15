@@ -22,7 +22,7 @@ https://zack-dev-cm.github.io/projects/publish-guard.md
 - GitHub
 
 ## Benchmarks & Analytics
-- Public release: v1.0.0 (GitHub + ClawHub)
+- Public release: v1.0.1 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)
 - Decision surface: publish or fix (single release-ready recommendation)
@@ -30,4 +30,4 @@ https://zack-dev-cm.github.io/projects/publish-guard.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/publish-guard)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/public-surface-review)
-- [Release v1.0.0](https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.0)
+- [Release v1.0.1](https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.1)
