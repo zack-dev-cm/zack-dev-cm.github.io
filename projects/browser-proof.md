@@ -22,7 +22,7 @@ https://zack-dev-cm.github.io/projects/browser-proof.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- Public release: v1.0.1 (GitHub + ClawHub)
+- Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Evidence fields: 5 (screenshot, dom, console, network, video)
 - Validation status: publish-ready (smoke test + publish-guard audit)
@@ -30,4 +30,4 @@ https://zack-dev-cm.github.io/projects/browser-proof.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/browser-proof)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/browser-proof)
-- [Release v1.0.1](https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.1)
+- [Release v1.0.2](https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.2)

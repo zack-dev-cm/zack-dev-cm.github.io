@@ -3,7 +3,7 @@
 > Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.
 
 ## Summary
-Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.2: curated notes and screenshots in, one default stakeholder layout out.
+Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.3: curated notes and screenshots in, one default stakeholder layout out.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/artifact-deck.md
@@ -24,7 +24,7 @@ https://zack-dev-cm.github.io/projects/artifact-deck.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- Public release: v1.0.2 (GitHub + ClawHub)
+- Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)
 - Summary mode: share-safe (no absolute local paths in the markdown output)
@@ -32,4 +32,4 @@ https://zack-dev-cm.github.io/projects/artifact-deck.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/artifact-deck)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/artifact-deck)
-- [Release v1.0.2](https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.2)
+- [Release v1.0.3](https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3)

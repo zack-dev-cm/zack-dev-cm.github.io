@@ -58,7 +58,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-deck" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-deck" },
-      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.2" }
+      { text: "Release v1.0.3", url: "https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3" }
     ],
     projectId: 52
   },
@@ -68,7 +68,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
-      { text: "Release v1.0.4", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.4" }
+      { text: "Release v1.0.5", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.5" }
     ],
     projectId: 51
   },
@@ -78,7 +78,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.1.2", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.2" }
+      { text: "Release v1.1.3", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.3" }
     ],
     projectId: 49
   },
@@ -88,7 +88,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
-      { text: "Release v1.0.4", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.4" }
+      { text: "Release v1.0.5", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.5" }
     ],
     projectId: 50
   },
@@ -98,7 +98,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/browser-proof" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/browser-proof" },
-      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.1" }
+      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.2" }
     ],
     projectId: 47
   },
@@ -108,7 +108,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/publish-guard" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/public-surface-review" },
-      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.1" }
+      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.2" }
     ],
     projectId: 48
   },
@@ -118,7 +118,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher" },
-      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.1" }
+      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2" }
     ],
     projectId: 46
   },
@@ -1091,7 +1091,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
       { label: "Validation status", value: "publish-ready", context: "launcher check + publish-guard audit" }
@@ -1099,7 +1099,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher" },
-      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.1" }
+      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2" }
     ],
     images: [],
     thumbnail: "",
@@ -1119,7 +1119,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
       { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
@@ -1127,7 +1127,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/browser-proof" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/browser-proof" },
-      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.1" }
+      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.2" }
     ],
     images: [],
     thumbnail: "",
@@ -1147,7 +1147,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.1", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
       { label: "Decision surface", value: "publish or fix", context: "single release-ready recommendation" }
@@ -1155,7 +1155,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/publish-guard" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/public-surface-review" },
-      { text: "Release v1.0.1", url: "https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.1" }
+      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.2" }
     ],
     images: [],
     thumbnail: "",
@@ -1177,7 +1177,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "Public release", value: "v1.1.2", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
       { label: "Outputs", value: "JSON + Markdown", context: "run manifest, provenance block, and shareable report" }
@@ -1185,7 +1185,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/youtube-creator-ops" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops" },
-      { text: "Release v1.1.2", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.2" }
+      { text: "Release v1.1.3", url: "https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.3" }
     ],
     images: [],
     thumbnail: "",
@@ -1196,7 +1196,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 51,
     title: "Artifact Redactor",
     description: "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
-    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.4: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.",
+    longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.5: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.",
     keyFeatures: [
       "Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for private paths, private URLs, secret-like strings, email addresses, and phone numbers",
       "Writes a redacted copy into a separate output directory so the raw bundle stays untouched",
@@ -1206,7 +1206,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.4", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
       { label: "Binary policy", value: "manual review", context: "unsupported files are flagged, not silently copied" }
@@ -1214,7 +1214,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
-      { text: "Release v1.0.4", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.4" }
+      { text: "Release v1.0.5", url: "https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.5" }
     ],
     images: [],
     thumbnail: "",
@@ -1225,7 +1225,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 52,
     title: "Artifact Deck",
     description: "Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.",
-    longDescription: "Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.2: curated notes and screenshots in, one default stakeholder layout out.",
+    longDescription: "Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.3: curated notes and screenshots in, one default stakeholder layout out.",
     keyFeatures: [
       "Builds one reproducible PPTX deck from markdown-backed sections, direct bullet slides, and optional screenshot appendix entries",
       "Validates missing content, empty slides, and broken image paths before deck generation starts",
@@ -1235,7 +1235,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
       { label: "Summary mode", value: "share-safe", context: "no absolute local paths in the markdown output" }
@@ -1243,7 +1243,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-deck" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-deck" },
-      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.2" }
+      { text: "Release v1.0.3", url: "https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3" }
     ],
     images: [],
     thumbnail: "",
@@ -1263,7 +1263,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
-      { label: "Public release", value: "v1.0.4", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },
       { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
@@ -1271,7 +1271,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
-      { text: "Release v1.0.4", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.4" }
+      { text: "Release v1.0.5", url: "https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.5" }
     ],
     images: [],
     thumbnail: "",

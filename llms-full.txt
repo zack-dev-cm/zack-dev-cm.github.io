@@ -835,14 +835,14 @@ Tech Stack:
 - Release Engineering
 - OpenClaw Skills
 Benchmarks & Analytics:
-- Public release: v1.0.1 (GitHub + ClawHub)
+- Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
 - Validation status: publish-ready (launcher check + publish-guard audit)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/github-clawhub-launcher
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/github-clawhub-launcher
-- Release v1.0.1: https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.1
+- Release v1.0.2: https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2
 
 ### Browser Proof
 Summary: Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
@@ -860,14 +860,14 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- Public release: v1.0.1 (GitHub + ClawHub)
+- Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Evidence fields: 5 (screenshot, dom, console, network, video)
 - Validation status: publish-ready (smoke test + publish-guard audit)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/browser-proof
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/browser-proof
-- Release v1.0.1: https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.1
+- Release v1.0.2: https://github.com/zack-dev-cm/browser-proof/releases/tag/v1.0.2
 
 ### Publish Guard
 Summary: Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.
@@ -885,14 +885,14 @@ Tech Stack:
 - OpenClaw Skills
 - GitHub
 Benchmarks & Analytics:
-- Public release: v1.0.1 (GitHub + ClawHub)
+- Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)
 - Decision surface: publish or fix (single release-ready recommendation)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/publish-guard
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/public-surface-review
-- Release v1.0.1: https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.1
+- Release v1.0.2: https://github.com/zack-dev-cm/publish-guard/releases/tag/v1.0.2
 
 ### OpenClaw YouTube Publisher
 Summary: Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.
@@ -913,18 +913,18 @@ Tech Stack:
 - Suno
 - GitHub Actions
 Benchmarks & Analytics:
-- Public release: v1.1.2 (GitHub + ClawHub)
+- Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)
 - Outputs: JSON + Markdown (run manifest, provenance block, and shareable report)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/youtube-creator-ops
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/youtube-creator-ops
-- Release v1.1.2: https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.2
+- Release v1.1.3: https://github.com/zack-dev-cm/youtube-creator-ops/releases/tag/v1.1.3
 
 ### Artifact Redactor
 Summary: Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
-Details: Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.4: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.
+Details: Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.5: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.
 Project URL: https://zack-dev-cm.github.io/projects/artifact-redactor.md
 Key Features:
 - Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for private paths, private URLs, secret-like strings, email addresses, and phone numbers
@@ -940,18 +940,18 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- Public release: v1.0.4 (GitHub + ClawHub)
+- Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (private url, path, secret, email, phone, public-url query cleanup)
 - Binary policy: manual review (unsupported files are flagged, not silently copied)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/artifact-redactor
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/artifact-redactor
-- Release v1.0.4: https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.4
+- Release v1.0.5: https://github.com/zack-dev-cm/artifact-redactor/releases/tag/v1.0.5
 
 ### Artifact Deck
 Summary: Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.
-Details: Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.2: curated notes and screenshots in, one default stakeholder layout out.
+Details: Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.3: curated notes and screenshots in, one default stakeholder layout out.
 Project URL: https://zack-dev-cm.github.io/projects/artifact-deck.md
 Key Features:
 - Builds one reproducible PPTX deck from markdown-backed sections, direct bullet slides, and optional screenshot appendix entries
@@ -967,14 +967,14 @@ Tech Stack:
 - PPTX
 - Release Engineering
 Benchmarks & Analytics:
-- Public release: v1.0.2 (GitHub + ClawHub)
+- Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)
 - Summary mode: share-safe (no absolute local paths in the markdown output)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/artifact-deck
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/artifact-deck
-- Release v1.0.2: https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.2
+- Release v1.0.3: https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3
 
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
@@ -992,11 +992,11 @@ Tech Stack:
 - OpenClaw Skills
 - Career Automation
 Benchmarks & Analytics:
-- Public release: v1.0.4 (GitHub + ClawHub)
+- Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Approval gate: required (review must be approved before submit)
 - Validation status: publish-ready (smoke test + publish-guard audit)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/hh-openclaw-agent
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/hh-openclaw-agent
-- Release v1.0.4: https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.4
+- Release v1.0.5: https://github.com/zack-dev-cm/hh-openclaw-agent/releases/tag/v1.0.5
