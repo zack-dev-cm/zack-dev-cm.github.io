@@ -193,8 +193,8 @@ const normalizeProject = (project: Project): Project => {
   if (images.length === 0 && !project.hideImages && thumbnail) {
     images.push({ url: thumbnail, alt: `${project.title} preview` });
   }
-  const techStack = project.techStack?.length ? project.techStack : ['Product'];
-  const keyFeatures = project.keyFeatures?.length ? project.keyFeatures : ['Recently launched', 'Active development'];
+  const techStack = (project.techStack ?? []).filter(Boolean);
+  const keyFeatures = (project.keyFeatures ?? []).filter(Boolean);
   return { ...project, thumbnail, images, techStack, keyFeatures };
 };
 
@@ -218,6 +218,10 @@ const hasRealUserMetrics = (project: Project) => {
       `${benchmark.label} ${benchmark.context ?? ''}`
     )
   );
+};
+
+const hasCanonicalPublicSurface = (project: Project) => {
+  return Object.values(project.canonicalLinks ?? {}).some((url) => Boolean(url?.trim()));
 };
 
 const getProjectSearchText = (project: Project) => {
@@ -249,10 +253,7 @@ const getProjectSignals = (project: Project) => {
   const hasClawHub = urls.some((url) => url.includes('clawhub.ai/'));
   const isOpenSource = project.projectKind === 'open-source' || hasGitHub || hasClawHub;
   const isRealUsers =
-    project.projectKind === 'user-product' ||
-    hasTelegram ||
-    hasChromeWebStore ||
-    hasRealUserMetrics(project);
+    (project.projectKind === 'user-product' && hasCanonicalPublicSurface(project)) || hasRealUserMetrics(project);
   const isMobile =
     project.mobileReady === true ||
     surfaceTags.has('mobile') ||
@@ -1104,7 +1105,7 @@ const App: React.FC = () => {
             id="projects"
             eyebrow="Explorer"
             title="Projects"
-            description="Search by project name, bot handle, alias, stack, or delivery surface. Real user products are now separated from the broader archive."
+            description="Search by project name, bot handle, alias, stack, or delivery surface. The Real users filter is now limited to curated user products and metric-backed launches, not every Telegram case study."
           >
             <div className="explorer-panel">
               <div className="explorer-panel__controls">

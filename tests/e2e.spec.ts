@@ -61,6 +61,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const realUsersFilter = page.getByRole('button', { name: /Real users/i });
   await realUsersFilter.click();
   await expect(realUsersFilter).toHaveAttribute('aria-pressed', 'true');
+  await expect(
+    page.getByRole('button', { name: /Open project: Dalshe – Circular Clothing Pickup Mini App/i })
+  ).toHaveCount(0);
 
   await projectSearch.fill('pr0bes_bot');
   const probesCard = page.getByRole('button', { name: /Open project: Probes/i });

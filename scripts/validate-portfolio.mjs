@@ -11,6 +11,8 @@ const PUBLIC_UPDATES_PATH = path.resolve(ROOT_DIR, 'public', 'portfolio-updates.
 const DOCS_UPDATES_PATH = path.resolve(ROOT_DIR, 'docs', 'portfolio-updates.json');
 
 const PLACEHOLDER_PATTERNS = [/new project added from github/i, /recently launched/i, /active development/i];
+const GENERIC_KEY_FEATURES = new Set(['recently launched', 'active development']);
+const GENERIC_TECH_STACK = new Set(['product']);
 const USER_METRIC_PATTERN = /\b(users?|profiles?|installs?|dau|wau|mau|retention|adoption)\b/i;
 const TELEGRAM_LINK_PATTERN = /^https:\/\/t\.me\/[A-Za-z0-9_]+(?:\/(?:app|launch))?(?:\?.*)?$/;
 const TELEGRAM_APP_PATTERN = /^https:\/\/t\.me\/[A-Za-z0-9_]+\/(?:app|launch)(?:\?.*)?$/;
@@ -266,6 +268,12 @@ const validateProject = (project) => {
   if ((project.techStack || []).length < 1) {
     fail(`${projectLabel} must list at least one tech stack entry`);
   }
+  if ((project.keyFeatures || []).some((feature) => GENERIC_KEY_FEATURES.has(feature.trim().toLowerCase()))) {
+    fail(`${projectLabel} still contains generic key-feature filler`);
+  }
+  if ((project.techStack || []).some((entry) => GENERIC_TECH_STACK.has(entry.trim().toLowerCase()))) {
+    fail(`${projectLabel} still contains generic tech-stack filler`);
+  }
   validateLinks(project.links || [], projectLabel);
 
   const aliasKeys = new Set();
@@ -311,8 +319,14 @@ const validateProject = (project) => {
     }
   }
 
+  const hasCanonicalPublicSurface = Object.values(project.canonicalLinks || {}).some((url) => Boolean(url?.trim()));
+
   if (project.projectKind === 'user-product' && (project.links || []).length === 0) {
     fail(`${projectLabel} is marked as user-product but has no public proof link`);
+  }
+
+  if (project.projectKind === 'user-product' && !hasCanonicalPublicSurface) {
+    fail(`${projectLabel} is marked as user-product but is missing canonical public surface links`);
   }
 
   if ((project.surfaceTags || []).map((tag) => tag.toLowerCase()).includes('telegram')) {
