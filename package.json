@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "stats:clawhub": "node scripts/fetch-clawhub-stats.mjs",
     "validate": "node scripts/validate-portfolio.mjs",
     "prebuild": "node scripts/generate-project-markdown.mjs && node scripts/validate-portfolio.mjs",
     "build": "vite build",

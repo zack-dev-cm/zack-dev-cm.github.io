@@ -1050,6 +1050,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "419 total", context: "public ClawHub listings, 2026-04-17 (208 data-science-cv-repro-lab + 211 sota-agent)" },
+      { label: "Published versions", value: "17 total", context: "public ClawHub listings, 2026-04-17 (8 + 9 packages)" },
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
       { label: "Current versions", value: "v1.9.1 / v1.4.1", context: "ClawHub releases" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
@@ -1057,7 +1059,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" },
-      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" }
+      { text: "Open CV Repro Lab on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" },
+      { text: "Open SOTA Agent on ClawHub", url: "https://clawhub.ai/zack-dev-cm/sota-agent" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/agentic-cv-repro-lab-skill.png`, alt: "CV Repro Lab ClawHub release preview" }
@@ -1135,6 +1138,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "80", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "3", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
@@ -1163,6 +1168,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "79", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "3", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
@@ -1191,6 +1198,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "84", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "3", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
@@ -1221,6 +1230,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "101", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "11", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
@@ -1250,6 +1261,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "78", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
@@ -1279,6 +1292,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "37", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "4", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
@@ -1307,6 +1322,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
+      { label: "ClawHub downloads", value: "82", context: "public ClawHub listing, 2026-04-17" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-04-17" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },

@@ -13,7 +13,7 @@ Contact: mailto:kaisenaiko@gmail.com
 ## Top 5 Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
-- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
 - [OpenClaw Workstream - Telegram Mini App QA & Launch Validation](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
@@ -770,13 +770,16 @@ Tech Stack:
 - MLOps
 - Release Engineering
 Benchmarks & Analytics:
+- ClawHub downloads: 419 total (public ClawHub listings, 2026-04-17 (208 data-science-cv-repro-lab + 211 sota-agent))
+- Published versions: 17 total (public ClawHub listings, 2026-04-17 (8 + 9 packages))
 - Live packages: 2 (data-science-cv-repro-lab + sota-agent)
 - Current versions: v1.9.1 / v1.4.1 (ClawHub releases)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill
-- Open on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 
 ### OpenClaw Sales Manager Automation for a Multi-Clinic Chain
 Summary: Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
@@ -839,6 +842,8 @@ Tech Stack:
 - Release Engineering
 - OpenClaw Skills
 Benchmarks & Analytics:
+- ClawHub downloads: 80 (public ClawHub listing, 2026-04-17)
+- Published versions: 3 (public ClawHub listing, 2026-04-17)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
@@ -864,6 +869,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
+- ClawHub downloads: 79 (public ClawHub listing, 2026-04-17)
+- Published versions: 3 (public ClawHub listing, 2026-04-17)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Evidence fields: 5 (screenshot, dom, console, network, video)
@@ -889,6 +896,8 @@ Tech Stack:
 - OpenClaw Skills
 - GitHub
 Benchmarks & Analytics:
+- ClawHub downloads: 84 (public ClawHub listing, 2026-04-17)
+- Published versions: 3 (public ClawHub listing, 2026-04-17)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)
@@ -917,6 +926,8 @@ Tech Stack:
 - Suno
 - GitHub Actions
 Benchmarks & Analytics:
+- ClawHub downloads: 101 (public ClawHub listing, 2026-04-17)
+- Published versions: 11 (public ClawHub listing, 2026-04-17)
 - Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)
@@ -944,6 +955,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
+- ClawHub downloads: 78 (public ClawHub listing, 2026-04-17)
+- Published versions: 6 (public ClawHub listing, 2026-04-17)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (private url, path, secret, email, phone, public-url query cleanup)
@@ -971,6 +984,8 @@ Tech Stack:
 - PPTX
 - Release Engineering
 Benchmarks & Analytics:
+- ClawHub downloads: 37 (public ClawHub listing, 2026-04-17)
+- Published versions: 4 (public ClawHub listing, 2026-04-17)
 - Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)
@@ -996,6 +1011,8 @@ Tech Stack:
 - OpenClaw Skills
 - Career Automation
 Benchmarks & Analytics:
+- ClawHub downloads: 82 (public ClawHub listing, 2026-04-17)
+- Published versions: 6 (public ClawHub listing, 2026-04-17)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Approval gate: required (review must be approved before submit)
