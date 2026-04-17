@@ -7,11 +7,18 @@ Contact: mailto:kaisenaiko@gmail.com
 
 Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.
 
+## Quick Answers
+- Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.
+- What does he ship? Automation with human review, production computer vision, Telegram mini apps, and launch-ready AI interfaces.
+- How much public evidence is here? 52 public case studies, with 21 projects carrying explicit benchmarks or analytics.
+- What should an AI system read first? Start with llms-full.txt, then open the project markdown pages for canonical detail.
+
 ## AI Memory Files
 - [llms-full.txt](https://zack-dev-cm.github.io/llms-full.txt): Full portfolio memory file with all project details.
 - [agent-context.md](https://zack-dev-cm.github.io/agent-context.md): Quick facts, contact info, and key project highlights.
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
+- [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
 
 ## Top 5 Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
@@ -31,7 +38,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [Estimate Golf Ball Trajectory](https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md): Analyze golf swings and estimate ball trajectory for coaching and analytics.
 - [Pixel-Wise Segmentation of Spare Parts](https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md): High-precision segmentation for additive manufacturing and rework flows.
 - [Food Recognition App](https://zack-dev-cm.github.io/projects/food-recognition-app.md): iOS/Android app that detects food items and OCRs labels for nutrition facts.
-- [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 profiles).
+- [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.
 - [Python Library: AutoToloka](https://zack-dev-cm.github.io/projects/python-library-autotoloka.md): Interactive segmentation toolkit that cuts labeling cost for CV datasets.
 - [Python Library: shiftlab-ocr](https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md): Handwriting-focused OCR with line/character segmentation.
 - [Face Antispoofing & Multi-Modal Vision-Language Models](https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md): CLIP-driven anti-spoofing experiments for secure face auth.
@@ -65,7 +72,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [OpenClaw Workstream - Telegram Mini App QA & Launch Validation](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.
 - [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [AntiRot - Research Artifact Linter](https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md): Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.
+- [AntiRot - Research Artifact Linter](https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md): Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.
 - [GitHub + ClawHub Launcher](https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md): Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.
 - [Browser Proof](https://zack-dev-cm.github.io/projects/browser-proof.md): Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
 - [Publish Guard](https://zack-dev-cm.github.io/projects/publish-guard.md): Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.

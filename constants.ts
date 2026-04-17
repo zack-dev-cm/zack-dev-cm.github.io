@@ -134,7 +134,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
     description: "Anonymized deployment for a large clinic network: OpenClaw-driven sales automation over a legacy database with human approvals and follow-up automation.",
-    links: [],
+    links: [
+      { text: "Read public case study", url: "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md" }
+    ],
     projectId: 44
   },
   {
@@ -156,7 +158,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Pores & Wrinkles Detection Service",
     description: "High-resolution facial texture analysis with labeled pores/wrinkles overlays, async job progress, and a Telegram Mini App + Flutter demo client.",
-    links: [],
+    links: [
+      { text: "Read public case study", url: "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md" }
+    ],
     projectId: 41
   },
   {
@@ -212,7 +216,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Probes – AI Magazine Mini App",
     description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and synced engagement stats (likes, views, comments).",
     links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
+      { text: "Open Telegram Mini App", url: "https://t.me/pr0bes_bot/app" },
+      { text: "Telegram Bot", url: "https://t.me/pr0bes_bot" },
       { text: "Telegram Channel", url: "https://t.me/pr0bes" }
     ],
     projectId: 36
@@ -226,13 +231,17 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "URL → Markdown Worker (Cloudflare)",
     description: "Edge micro-SaaS that streams HTML-to-Markdown with Google Cache fallback, MCP SSE endpoint, and a RapidAPI-deployed gateway.",
-    links: [],
+    links: [
+      { text: "Read public case study", url: "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md" }
+    ],
     projectId: 29
   },
   {
     title: "Turbo Tots Garage (motion + touch PWA)",
     description: "Playful toddler dashboard with motion sensors, audio cues, and Playwright E2E coverage.",
-    links: [],
+    links: [
+      { text: "Read public case study", url: "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md" }
+    ],
     projectId: 37
   }
 ];
@@ -394,22 +403,29 @@ export const PROJECTS: Project[] = [
   {
     id: 11,
     title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 profiles).",
+    aliases: ["calorio", "kalorio", "nutrition bot", "yourfit"],
+    description: "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.",
     longDescription: "Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile + diary management and analytics.",
+    projectKind: "user-product",
+    surfaceTags: ["telegram", "mobile"],
+    mobileReady: true,
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     benchmarks: [
-      { label: "Data as of", value: "2026-02-21", context: "production DB, UTC rolling windows" },
-      { label: "Total users (profiles)", value: "36" },
-      { label: "DAU / WAU / MAU", value: "18 / 18 / 30" },
-      { label: "Stickiness (DAU/MAU)", value: "60.0%" },
-      { label: "Meal-log DAU / WAU / MAU", value: "8 / 9 / 14" }
+      { label: "Lifetime users", value: "5k+", context: "operator-reported total since launch" },
+      { label: "Profiles in DB", value: "1,795", context: "internal snapshot, 2026-02-13" },
+      { label: "Sessions in DB", value: "1,738", context: "internal snapshot, 2026-02-13" },
+      { label: "DAU / WAU / MAU", value: "88 / 464 / 1,214", context: "prod pulse, 2026-02-13" },
+      { label: "Mini-app usage jump", value: "14 -> 1,144 events", context: "Feb 1-6 vs Feb 7-12, 2026 DB slice" }
     ],
     links: [
       { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
     ],
     images: [],
-    thumbnail: ""
+    thumbnail: "",
+    canonicalLinks: {
+      telegramBot: "https://t.me/calorio_yf_bot"
+    }
   },
   {
     id: 12,
@@ -447,32 +463,50 @@ export const PROJECTS: Project[] = [
   {
     id: 15,
     title: "GitHub Repo Summarizer (Chrome Extension)",
+    aliases: ["gce", "github chrome extension", "github repo summarizer"],
     description: "Privacy-first Chrome extension that summarizes repo structure locally.",
     longDescription: "Fetches GitHub repo trees with the user's token and summarizes structure locally—no external servers involved.",
+    projectKind: "user-product",
+    surfaceTags: ["browser-extension", "web"],
     keyFeatures: ["Privacy-first (local token usage)", "Automated repository structure summarization"],
     techStack: ["Chrome Extension", "JavaScript", "GitHub API"],
+    benchmarks: [
+      { label: "Public Chrome Web Store users", value: "110", context: "listing snapshot, 2026-04-17" }
+    ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin" }
     ],
     images: [{ url: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`, alt: "GitHub repo summarizer UI" }],
-    thumbnail: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`
+    thumbnail: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`,
+    canonicalLinks: {
+      chromeWebStore: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm",
+      github: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin"
+    }
   },
   {
     id: 16,
     title: "ChatGPT/Deepseek/AIStudio Navigator",
+    aliases: ["ai chat navigator", "chatgpt scrollbar", "codex navigator"],
     description: "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
     longDescription: "Adds a keyboard-driven scrollbar with message dots, lightweight prompt autocomplete, and prompt sharing/ranking for ChatGPT/Deepseek/Google AI Studio.",
+    projectKind: "user-product",
+    surfaceTags: ["browser-extension", "web"],
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
+    benchmarks: [
+      { label: "Public Chrome Web Store users", value: "68", context: "listing snapshot, 2026-04-17" }
+    ],
     links: [
-      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" },
-      { text: "Project overview", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" }
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/navigator-chrome.png`, alt: "Navigator Chrome" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/navigator-chrome.png`
+    thumbnail: `${LOCAL_IMG_BASE}/navigator-chrome.png`,
+    canonicalLinks: {
+      chromeWebStore: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en"
+    }
   },
   {
     id: 17,
@@ -786,18 +820,28 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 36,
     title: "Probes – AI Magazine Mini App",
+    aliases: ["probes", "pr0bes", "pr0bes_bot", "probes bot", "ai magazine"],
     description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
     longDescription: "Telegram mini app with a daily AI magazine feed: articles + cover images, likes/bookmarks/comments, and a bot + API pipeline that powers content generation.",
+    projectKind: "user-product",
+    surfaceTags: ["telegram", "mobile", "web"],
+    mobileReady: true,
     keyFeatures: ["Telegram mini app magazine feed", "Automated article + cover generation", "Engagement stats with likes/bookmarks/comments"],
     techStack: ["Vite", "React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/probes_bot/app" },
+      { text: "Open Telegram Mini App", url: "https://t.me/pr0bes_bot/app" },
+      { text: "Telegram Bot", url: "https://t.me/pr0bes_bot" },
       { text: "Telegram Channel", url: "https://t.me/pr0bes" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/probes.png`, alt: "Probes mini app preview" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/probes.png`
+    thumbnail: `${LOCAL_IMG_BASE}/probes.png`,
+    canonicalLinks: {
+      telegramBot: "https://t.me/pr0bes_bot",
+      telegramMiniApp: "https://t.me/pr0bes_bot/app",
+      telegramChannel: "https://t.me/pr0bes"
+    }
   },
   {
     id: 37,

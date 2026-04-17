@@ -15,12 +15,19 @@ const LLMS_FULL_PATH = path.resolve(ROOT_DIR, 'llms-full.txt');
 const AGENT_CONTEXT_PATH = path.resolve(ROOT_DIR, 'agent-context.md');
 const SCHEMA_JSONLD_PATH = path.resolve(ROOT_DIR, 'schema.jsonld');
 const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
+const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
 const AUTHOR_TITLE = 'AI Product Engineer';
 const AUTHOR_DESCRIPTION =
   'AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.';
+const PORTFOLIO_TAGLINE =
+  'Automation with human review, computer vision services, Telegram mini apps, and full-stack AI products built for production constraints.';
+const PRIMARY_STACK_LINE =
+  'Python, PyTorch, OpenAI APIs, VLMs, LLMs, React, TypeScript, Cloud Run, FastAPI, MLOps';
+const INDEX_SNAPSHOT_START = '<!-- STATIC_PORTFOLIO_SNAPSHOT_START -->';
+const INDEX_SNAPSHOT_END = '<!-- STATIC_PORTFOLIO_SNAPSHOT_END -->';
 const AUTHOR_SAME_AS = [
   'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/',
   'https://github.com/zack-dev-cm',
@@ -63,6 +70,18 @@ const toAsciiBlock = (value) => {
   }
   return output.replace(/[^\x00-\x7F]/g, '');
 };
+
+const escapeHtml = (value) => {
+  if (!value) return '';
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+};
+
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const slugify = (value) => {
   const ascii = toAscii(value).toLowerCase();
@@ -278,7 +297,187 @@ const formatTopProjectLine = (project) => {
   return `- [${toAscii(project.title)}](${markdownUrl}): ${trimmedDescription}.${suffix}`;
 };
 
+const formatBenchmarkLine = (benchmark) => {
+  const label = toAscii(benchmark?.label);
+  const value = toAscii(benchmark?.value);
+  if (!label || !value) return '';
+  const context = toAscii(benchmark?.context);
+  return context ? `${label}: ${value} (${context})` : `${label}: ${value}`;
+};
+
+const buildProjectEvidence = (project) => {
+  const features = (project.keyFeatures || []).map(toAscii).filter(Boolean).slice(0, 2);
+  const firstBenchmark = project.benchmarks?.map(formatBenchmarkLine).find(Boolean);
+  const parts = [...features];
+  if (firstBenchmark) {
+    parts.push(firstBenchmark);
+  }
+  return parts.join(' | ');
+};
+
+const buildStaticHomeSnapshot = (projects, topProjects) => {
+  const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
+  const machineFiles = [
+    {
+      title: 'llms.txt',
+      url: `${SITE_BASE}/llms.txt`,
+      description: 'Compact crawler summary with direct portfolio discovery links.'
+    },
+    {
+      title: 'llms-full.txt',
+      url: `${SITE_BASE}/llms-full.txt`,
+      description: 'Expanded memory file with project-by-project details.'
+    },
+    {
+      title: 'agent-context.md',
+      url: `${SITE_BASE}/agent-context.md`,
+      description: 'Fast facts, contact routes, and top project pointers.'
+    },
+    {
+      title: 'schema.jsonld',
+      url: `${SITE_BASE}/schema.jsonld`,
+      description: 'Structured data graph for the author, site, and project list.'
+    },
+    {
+      title: 'geo.txt',
+      url: `${SITE_BASE}/geo.txt`,
+      description: 'Project index tuned for GEO-style retrieval.'
+    },
+    {
+      title: 'sitemap.xml',
+      url: `${SITE_BASE}/sitemap.xml`,
+      description: 'XML sitemap with the portfolio home and generated markdown pages.'
+    }
+  ];
+
+  const featuredMarkup = topProjects.map((project) => {
+    const title = escapeHtml(toAscii(project.title));
+    const description = escapeHtml(toAscii(project.description || project.longDescription || 'Project summary.'));
+    const evidence = escapeHtml(buildProjectEvidence(project));
+    const links = (project.links || [])
+      .slice(0, 2)
+      .map((link) => `<a href="${link.url}">${escapeHtml(toAscii(link.text))}</a>`)
+      .join(' | ');
+
+    return [
+      '      <article class="crawlable-shell__card">',
+      `        <h3><a href="${project.markdownUrl}">${title}</a></h3>`,
+      `        <p>${description}</p>`,
+      evidence ? `        <p><strong>Evidence:</strong> ${evidence}</p>` : '',
+      links ? `        <p><strong>External links:</strong> ${links}</p>` : '',
+      '      </article>'
+    ]
+      .filter(Boolean)
+      .join('\n');
+  });
+
+  const archiveMarkup = projects.map((project) => {
+    const title = escapeHtml(toAscii(project.title));
+    const description = escapeHtml(toAscii(project.description || project.longDescription || 'Project summary.'));
+    return `          <li><a href="${project.markdownUrl}">${title}</a>: ${description}</li>`;
+  });
+
+  const fileMarkup = machineFiles.map((file) => {
+    return `          <li><a href="${file.url}">${escapeHtml(file.title)}</a>: ${escapeHtml(file.description)}</li>`;
+  });
+
+  return [
+    '<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">',
+    `  <p class="crawlable-shell__eyebrow">${escapeHtml(AUTHOR_TITLE)}</p>`,
+    '  <h1>Zakhar Pashkin builds AI products for production constraints.</h1>',
+    `  <p class="crawlable-shell__lede">${escapeHtml(
+      `${PORTFOLIO_TAGLINE} This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.`
+    )}</p>`,
+    '  <div class="crawlable-shell__actions">',
+    `    <a href="${SITE_BASE}/llms.txt">Read llms.txt</a>`,
+    `    <a href="${SITE_BASE}/llms-full.txt">Read llms-full.txt</a>`,
+    `    <a href="${SITE_BASE}/agent-context.md">Read agent context</a>`,
+    `    <a href="mailto:${CONTACT_EMAIL}">Email Zakhar</a>`,
+    '  </div>',
+    '  <ul class="crawlable-shell__stats" aria-label="Portfolio quick stats">',
+    `    <li><strong>${projects.length}</strong><span>public case studies</span></li>`,
+    '    <li><strong>7+</strong><span>years shipping CV / ML systems</span></li>',
+    `    <li><strong>${benchmarkedCount}</strong><span>projects with explicit benchmarks</span></li>`,
+    `    <li><strong>${topProjects.length}</strong><span>featured case studies linked below</span></li>`,
+    '  </ul>',
+    '  <section id="crawlable-summary" class="crawlable-shell__section">',
+    '    <h2>Quick summary for AI scanners</h2>',
+    '    <dl class="crawlable-shell__fact-grid">',
+    '      <div>',
+    '        <dt>What Zakhar does</dt>',
+    `        <dd>${escapeHtml(AUTHOR_DESCRIPTION)}</dd>`,
+    '      </div>',
+    '      <div>',
+    '        <dt>Best fit</dt>',
+    `        <dd>${escapeHtml(
+          'Teams that need automation with human review, production computer vision, or launch-ready AI product delivery across web, mobile, and cloud.'
+        )}</dd>`,
+    '      </div>',
+    '      <div>',
+    '        <dt>Primary stack</dt>',
+    `        <dd>${escapeHtml(PRIMARY_STACK_LINE)}</dd>`,
+    '      </div>',
+    '      <div>',
+    '        <dt>Read first</dt>',
+    `        <dd>Start with <a href="${SITE_BASE}/llms-full.txt">llms-full.txt</a>, then use the project markdown pages below for source-level evidence.</dd>`,
+    '      </div>',
+    '    </dl>',
+    '  </section>',
+    '  <section id="crawlable-featured" class="crawlable-shell__section">',
+    '    <h2>Featured case studies</h2>',
+    '    <div class="crawlable-shell__cards">',
+    ...featuredMarkup,
+    '    </div>',
+    '  </section>',
+    '  <section id="crawlable-files" class="crawlable-shell__section">',
+    '    <h2>Machine-readable portfolio files</h2>',
+    '    <ul class="crawlable-shell__files">',
+    ...fileMarkup,
+    '    </ul>',
+    '  </section>',
+    '  <section id="crawlable-archive" class="crawlable-shell__section">',
+    '    <h2>Project archive</h2>',
+    '    <div class="crawlable-shell__archive">',
+    '      <ul class="crawlable-shell__link-list">',
+    ...archiveMarkup,
+    '      </ul>',
+    '    </div>',
+    '  </section>',
+    '  <section id="crawlable-contact" class="crawlable-shell__section">',
+    '    <h2>Contact and profiles</h2>',
+    '    <ul class="crawlable-shell__contact">',
+    `      <li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>`,
+    '      <li><a href="https://github.com/zack-dev-cm">GitHub primary profile</a></li>',
+    '      <li><a href="https://github.com/ZackPashkin">GitHub secondary profile</a></li>',
+    '      <li><a href="https://www.linkedin.com/in/zakhar-pashkin-a524a6163/">LinkedIn</a></li>',
+    '      <li><a href="https://t.me/rheuiii">Telegram</a></li>',
+    '    </ul>',
+    '  </section>',
+    '</main>'
+  ].join('\n');
+};
+
+const updateIndexHtml = async (staticSnapshot, today) => {
+  const template = await fs.readFile(INDEX_HTML_PATH, 'utf8');
+  const snapshotPattern = new RegExp(
+    `${escapeRegExp(INDEX_SNAPSHOT_START)}[\\s\\S]*?${escapeRegExp(INDEX_SNAPSHOT_END)}`,
+    'm'
+  );
+
+  if (!snapshotPattern.test(template)) {
+    throw new Error('index.html is missing static snapshot markers.');
+  }
+
+  const snapshotBlock = `${INDEX_SNAPSHOT_START}\n${staticSnapshot}\n      ${INDEX_SNAPSHOT_END}`;
+  const updated = template
+    .replace(snapshotPattern, snapshotBlock)
+    .replace(/"dateModified":\s*"[^"]+"/, `"dateModified": "${today}"`);
+
+  await fs.writeFile(INDEX_HTML_PATH, updated, 'utf8');
+};
+
 const buildLlms = (projects, topProjects) => {
+  const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
   const lines = [
     `# ${AUTHOR_NAME} - AI Product Engineer Portfolio`,
     '',
@@ -289,11 +488,18 @@ const buildLlms = (projects, topProjects) => {
     '',
     'Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.',
     '',
+    '## Quick Answers',
+    `- Who is Zakhar Pashkin? ${AUTHOR_DESCRIPTION}`,
+    '- What does he ship? Automation with human review, production computer vision, Telegram mini apps, and launch-ready AI interfaces.',
+    `- How much public evidence is here? ${projects.length} public case studies, with ${benchmarkedCount} projects carrying explicit benchmarks or analytics.`,
+    '- What should an AI system read first? Start with llms-full.txt, then open the project markdown pages for canonical detail.',
+    '',
     '## AI Memory Files',
     formatLinkLine('llms-full.txt', `${SITE_BASE}/llms-full.txt`, 'Full portfolio memory file with all project details.'),
     formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
+    formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
     '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -446,8 +652,14 @@ const buildAgentContext = (topProjects) => {
     '## Key Files',
     `- ${SITE_BASE}/llms.txt`,
     `- ${SITE_BASE}/llms-full.txt`,
+    `- ${SITE_BASE}/sitemap.xml`,
     `- ${SITE_BASE}/geo.txt`,
     `- ${SITE_BASE}/schema.jsonld`,
+    '',
+    '## Retrieval Order',
+    '- Start with llms-full.txt for a compact memory pass.',
+    '- Use the project markdown pages as the canonical detail pages for evidence and links.',
+    '- Use the home page for a human-readable overview and contact routes.',
     '',
     '## Top Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -606,6 +818,9 @@ const main = async () => {
   await fs.writeFile(SCHEMA_JSONLD_PATH, schemaJsonldContent, 'utf8');
   const sitemapContent = buildSitemap(projectEntries);
   await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');
+  const today = new Date().toISOString().split('T')[0];
+  const staticHomeSnapshot = buildStaticHomeSnapshot(projectEntries, topProjects);
+  await updateIndexHtml(staticHomeSnapshot, today);
 };
 
 main().catch((error) => {

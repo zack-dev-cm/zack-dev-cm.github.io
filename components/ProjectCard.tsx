@@ -3,6 +3,7 @@ import type { Project } from '../types';
 
 interface ProjectCardProps {
   project: Project;
+  badges?: string[];
   onSelectProject: () => void;
   fallbackImageUrl?: string;
 }
@@ -12,11 +13,20 @@ const isVideoUrl = (url: string) => {
   return normalized.endsWith('.mp4') || normalized.endsWith('.webm') || normalized.endsWith('.ogg');
 };
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProject, fallbackImageUrl }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  badges = [],
+  onSelectProject,
+  fallbackImageUrl
+}) => {
   const showImage = Boolean(project.thumbnail) && !project.hideImages;
   const showVideoThumbnail = showImage && isVideoUrl(project.thumbnail);
   const firstBenchmark = project.benchmarks?.[0];
   const hasBenchmarks = Boolean(project.benchmarks && project.benchmarks.length > 0);
+  const visibleBadges = (badges.length > 0 ? badges : [hasBenchmarks ? 'Metrics included' : 'Case study']).slice(
+    0,
+    4
+  );
 
   return (
     <button
@@ -24,6 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
       className="project-card"
       onClick={onSelectProject}
       aria-label={`Open project: ${project.title}`}
+      data-testid="project-card"
     >
       <div className="project-card__media">
         {showImage ? (
@@ -62,7 +73,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
 
       <div className="project-card__body">
         <div className="project-card__meta">
-          <span className="pill">{hasBenchmarks ? 'Metrics included' : 'Case study'}</span>
+          <div className="project-card__badges">
+            {visibleBadges.map((badge) => (
+              <span key={badge} className="pill">
+                {badge}
+              </span>
+            ))}
+          </div>
           <span className="project-card__id">#{project.id}</span>
         </div>
         <h3>{project.title}</h3>

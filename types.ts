@@ -16,13 +16,26 @@ export interface ProjectBenchmark {
   context?: string;
 }
 
+export interface ProjectCanonicalLinks {
+  telegramBot?: string;
+  telegramMiniApp?: string;
+  telegramChannel?: string;
+  chromeWebStore?: string;
+  github?: string;
+  website?: string;
+}
+
 export interface Project {
   id: number;
   title: string;
   legacySlugs?: string[];
+  aliases?: string[];
   description: string;
   longDescription?: string;
   hideImages?: boolean;
+  projectKind?: 'user-product' | 'open-source' | 'case-study' | 'research';
+  surfaceTags?: string[];
+  mobileReady?: boolean;
   keyFeatures: string[];
   techStack: string[];
   links: ProjectLink[];
@@ -34,6 +47,7 @@ export interface Project {
   repoFullName?: string;
   repoId?: number;
   createdAt?: string;
+  canonicalLinks?: ProjectCanonicalLinks;
 }
 
 export interface Company {

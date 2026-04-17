@@ -1,4 +1,4 @@
-import { copyFile } from 'node:fs/promises';
+import { copyFile, cp, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -16,11 +16,13 @@ const extraFiles = [
   'sitemap.xml',
   'llms.txt',
   'llms-full.txt',
+  'agent-context.md',
   'geo.txt',
   'schema.jsonld',
   'metadata.json',
   'favicon.svg'
 ];
+const extraDirectories = ['projects'];
 
 try {
   await copyFile(source, destination);
@@ -44,6 +46,23 @@ try {
     }
   });
   await Promise.all(extraCopies);
+
+  const extraDirectoryCopies = extraDirectories.map(async (directory) => {
+    const src = resolve(rootDir, directory);
+    const dest = resolve(outDir, directory);
+    try {
+      await rm(dest, { recursive: true, force: true });
+      await cp(src, dest, { recursive: true });
+      console.log(`Copied ${src} to ${dest}`);
+    } catch (error) {
+      if (error && error.code === 'ENOENT') {
+        console.warn(`Missing ${src}; skipped`);
+      } else {
+        throw error;
+      }
+    }
+  });
+  await Promise.all(extraDirectoryCopies);
 } catch (error) {
   if (error && error.code === 'ENOENT') {
     console.warn('Build output not found; skipped creating 404.html or manifest.json');

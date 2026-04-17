@@ -34,7 +34,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-04-15",
+      "dateModified": "2026-04-17",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -185,7 +185,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
-            "description": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 profiles).",
+            "description": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.",
             "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -627,7 +627,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "AntiRot - Research Artifact Linter",
-            "description": "Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.",
+            "description": "Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.",
             "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

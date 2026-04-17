@@ -169,7 +169,7 @@ Links:
 - View Demo GIF: https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing
 
 ### Dishes Recognition & Nutrition Goals Telegram Bot
-Summary: Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals (36 profiles).
+Summary: Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.
 Details: Calorio is a multimodal Telegram bot that understands dish photos/voice/text, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile + diary management and analytics.
 Project URL: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md
 Key Features:
@@ -182,11 +182,11 @@ Tech Stack:
 - Speech-to-Text
 - LLMs
 Benchmarks & Analytics:
-- Data as of: 2026-02-21 (production DB, UTC rolling windows)
-- Total users (profiles): 36
-- DAU / WAU / MAU: 18 / 18 / 30
-- Stickiness (DAU/MAU): 60.0%
-- Meal-log DAU / WAU / MAU: 8 / 9 / 14
+- Lifetime users: 5k+ (operator-reported total since launch)
+- Profiles in DB: 1,795 (internal snapshot, 2026-02-13)
+- Sessions in DB: 1,738 (internal snapshot, 2026-02-13)
+- DAU / WAU / MAU: 88 / 464 / 1,214 (prod pulse, 2026-02-13)
+- Mini-app usage jump: 14 -> 1,144 events (Feb 1-6 vs Feb 7-12, 2026 DB slice)
 Links:
 - Try on Telegram: https://t.me/calorio_yf_bot
 
@@ -245,6 +245,8 @@ Tech Stack:
 - Chrome Extension
 - JavaScript
 - GitHub API
+Benchmarks & Analytics:
+- Public Chrome Web Store users: 110 (listing snapshot, 2026-04-17)
 Links:
 - View on Chrome Web Store: https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm
 - View on GitHub: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin
@@ -261,9 +263,10 @@ Tech Stack:
 - Chrome Extension
 - JavaScript
 - UI/UX
+Benchmarks & Analytics:
+- Public Chrome Web Store users: 68 (listing snapshot, 2026-04-17)
 Links:
 - View on Chrome Web Store: https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en
-- Project overview: https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en
 
 ### Task Zavod - Micro-Task Marketplace
 Summary: VLM-powered micro-task builder with Telegram + web worker flows.
@@ -593,7 +596,8 @@ Tech Stack:
 - Postgres
 - Telegram Bot API
 Links:
-- Open Telegram Mini App: https://t.me/probes_bot/app
+- Open Telegram Mini App: https://t.me/pr0bes_bot/app
+- Telegram Bot: https://t.me/pr0bes_bot
 - Telegram Channel: https://t.me/pr0bes
 
 ### Turbo Tots Garage (motion + touch PWA)
@@ -795,14 +799,14 @@ Benchmarks & Analytics:
 - Human control points: 3 (approvals, escalations, routing)
 
 ### AntiRot - Research Artifact Linter
-Summary: Open-source CLI that catches unsupported claims, citation drift, hype language, and draft markers in AI-written research drafts.
-Details: AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing evidence anchors, citation mismatches, comparative hype, and leftover draft markers before a paper, proposal, or lab note ships. The first public release focuses on low-friction adoption: no API key, no network dependency, text/JSON/Markdown/SARIF outputs, and a GitHub-friendly path into CI and code scanning.
+Summary: Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.
+Details: AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing evidence anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.
 Project URL: https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md
 Key Features:
-- Catches unsupported claims, citation drift, hype language, comparative overreach, and leftover draft markers in Markdown drafts
+- Catches unsupported claims, citation drift, hype language, comparative overreach, absolute claims, and leftover draft markers in Markdown drafts
+- Supports paragraph-aware evidence carry, footnotes, inline links, DOIs, arXiv ids, and in-document references sections
 - Runs locally with no API key and no network dependency, so it fits agent loops, proposals, and paper pipelines
 - Emits text, JSON, Markdown, and SARIF outputs for terminal use, CI gates, and GitHub-native review flows
-- Ships with starter config, examples, tests, and release assets for fast adoption
 Tech Stack:
 - Python
 - CLI
@@ -811,13 +815,13 @@ Tech Stack:
 - GitHub Actions
 - Research Agents
 Benchmarks & Analytics:
-- Public release: v0.1.1 (GitHub release)
+- Public release: v0.2.0 (GitHub release)
 - Output formats: 4 (text, json, markdown, sarif)
-- Issue families: 6 (unsupported, numeric, citation, hype, comparative, draft markers)
+- Issue families: 8 (unsupported, numeric, citation-not-found, citation-unverified, hype, comparative, absolute, draft markers)
 - Runtime deps: 0 (standard-library CLI)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/antirot
-- Release v0.1.1: https://github.com/zack-dev-cm/antirot/releases/tag/v0.1.1
+- Release v0.2.0: https://github.com/zack-dev-cm/antirot/releases/tag/v0.2.0
 
 ### GitHub + ClawHub Launcher
 Summary: Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.

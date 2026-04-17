@@ -135,6 +135,18 @@ const getProjectSlug = (project: Project) => {
   return slugify(getProjectKey(project) || `${project.id}`);
 };
 
+const getProjectCanonicalSlug = (project: Project) => {
+  return slugify(project.title || `${project.id}`);
+};
+
+const getProjectRouteSlugs = (project: Project) => {
+  return dedupeStrings([
+    getProjectCanonicalSlug(project),
+    getProjectSlug(project),
+    ...(project.legacySlugs ?? []),
+  ]).map((slug) => slug.toLowerCase());
+};
+
 const applyShareParams = (
   url: URL,
   params: {
@@ -186,8 +198,202 @@ const normalizeProject = (project: Project): Project => {
   return { ...project, thumbnail, images, techStack, keyFeatures };
 };
 
+const dedupeStrings = (items: Array<string | undefined>) => {
+  const seen = new Set<string>();
+  const output: string[] = [];
+  for (const item of items) {
+    const trimmed = item?.trim();
+    if (!trimmed) continue;
+    const key = trimmed.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    output.push(trimmed);
+  }
+  return output;
+};
+
+const hasRealUserMetrics = (project: Project) => {
+  return (project.benchmarks ?? []).some((benchmark) =>
+    /\b(users?|profiles?|installs?|dau|wau|mau|retention|adoption)\b/i.test(
+      `${benchmark.label} ${benchmark.context ?? ''}`
+    )
+  );
+};
+
+const getProjectSearchText = (project: Project) => {
+  return [
+    project.title,
+    project.description,
+    project.longDescription || '',
+    project.techStack.join(' '),
+    project.keyFeatures.join(' '),
+    (project.aliases ?? []).join(' '),
+    (project.surfaceTags ?? []).join(' '),
+    project.projectKind || '',
+    ...(project.benchmarks ?? []).map((benchmark) =>
+      `${benchmark.label} ${benchmark.value} ${benchmark.context ?? ''}`
+    ),
+    ...project.links.map((link) => `${link.text} ${link.url}`),
+  ]
+    .join(' ')
+    .toLowerCase();
+};
+
+const getProjectSignals = (project: Project) => {
+  const searchText = getProjectSearchText(project);
+  const urls = project.links.map((link) => link.url.toLowerCase());
+  const surfaceTags = new Set((project.surfaceTags ?? []).map((tag) => tag.toLowerCase()));
+  const hasTelegram = surfaceTags.has('telegram') || urls.some((url) => url.includes('t.me/'));
+  const hasChromeWebStore = urls.some((url) => url.includes('chromewebstore.google.com'));
+  const hasGitHub = Boolean(project.repoFullName) || urls.some((url) => url.includes('github.com/'));
+  const hasClawHub = urls.some((url) => url.includes('clawhub.ai/'));
+  const isOpenSource = project.projectKind === 'open-source' || hasGitHub || hasClawHub;
+  const isRealUsers =
+    project.projectKind === 'user-product' ||
+    hasTelegram ||
+    hasChromeWebStore ||
+    hasRealUserMetrics(project);
+  const isMobile =
+    project.mobileReady === true ||
+    surfaceTags.has('mobile') ||
+    hasTelegram ||
+    /\b(mobile|ios|android|telegram mini app|telegram web app|pwa|flutter)\b/i.test(searchText);
+  const isWeb =
+    surfaceTags.has('web') ||
+    hasChromeWebStore ||
+    /\b(web|react|vite|ssr|cloudflare|browser extension|extension)\b/i.test(searchText);
+  const isAutomation =
+    surfaceTags.has('automation') ||
+    /\b(automation|workflow|orchestration|openclaw|launch validation|browser qa|mcp)\b/i.test(searchText);
+  const isComputerVision =
+    surfaceTags.has('computer-vision') ||
+    /\b(vision|ocr|segmentation|anti-?spoof|wrinkle|pore|image|opencv|clip|coreml|tflite)\b/i.test(searchText);
+  const badges = dedupeStrings([
+    isRealUsers ? 'Real users' : project.projectKind === 'case-study' ? 'Case study' : undefined,
+    hasTelegram ? 'Telegram' : undefined,
+    hasChromeWebStore ? 'Browser extension' : undefined,
+    isOpenSource ? 'Open source' : undefined,
+    isMobile ? 'Mobile ready' : undefined,
+    isAutomation ? 'Automation' : undefined,
+    isComputerVision ? 'Computer vision' : undefined,
+    project.benchmarks?.length ? 'Metrics included' : undefined,
+  ]);
+  const proofScore =
+    (FEATURED_PROJECT_INDEX.has(project.id) ? 100 : 0) +
+    (isRealUsers ? 24 : 0) +
+    ((project.benchmarks?.length ?? 0) > 0 ? 12 : 0) +
+    (isOpenSource ? 6 : 0) +
+    (project.links.length > 0 ? 4 : 0);
+
+  return {
+    searchText,
+    hasTelegram,
+    hasChromeWebStore,
+    isOpenSource,
+    isRealUsers,
+    isMobile,
+    isWeb,
+    isAutomation,
+    isComputerVision,
+    badges,
+    proofScore,
+  };
+};
+
+const isHighSignalSyncedProject = (project: Project) => {
+  const summary = (project.longDescription || project.description || '').trim();
+  const links = project.links ?? [];
+  if (!summary || /new project added from github/i.test(summary)) return false;
+  if ((project.keyFeatures?.length ?? 0) < 2) return false;
+  if ((project.techStack?.length ?? 0) < 2) return false;
+  if (!links.length && !(project.benchmarks && project.benchmarks.length > 0)) return false;
+  return true;
+};
+
+const isHighSignalLatestUpdate = (update: LatestUpdate) => {
+  const description = update.description?.trim() || '';
+  if (!update.links.length) return false;
+  if (/new project added from github/i.test(description)) return false;
+  return true;
+};
+
+const mergeProjectEntries = (primary: Project, fallback: Project): Project => {
+  return normalizeProject({
+    ...fallback,
+    ...primary,
+    legacySlugs: dedupeStrings([...(fallback.legacySlugs ?? []), ...(primary.legacySlugs ?? [])]),
+    aliases: dedupeStrings([...(fallback.aliases ?? []), ...(primary.aliases ?? [])]),
+    surfaceTags: dedupeStrings([...(fallback.surfaceTags ?? []), ...(primary.surfaceTags ?? [])]),
+    description: primary.description || fallback.description,
+    longDescription: primary.longDescription || fallback.longDescription,
+    projectKind: primary.projectKind || fallback.projectKind,
+    mobileReady: primary.mobileReady ?? fallback.mobileReady,
+    keyFeatures: primary.keyFeatures.length ? primary.keyFeatures : fallback.keyFeatures,
+    techStack: primary.techStack.length ? primary.techStack : fallback.techStack,
+    links: primary.links.length ? primary.links : fallback.links,
+    images: primary.images.length ? primary.images : fallback.images,
+    thumbnail: primary.thumbnail || fallback.thumbnail,
+    hideImages: primary.hideImages ?? fallback.hideImages,
+    benchmarks: primary.benchmarks?.length ? primary.benchmarks : fallback.benchmarks,
+    repoFullName: primary.repoFullName || fallback.repoFullName,
+    repoId: primary.repoId ?? fallback.repoId,
+    createdAt: primary.createdAt || fallback.createdAt,
+    canonicalLinks: { ...(fallback.canonicalLinks ?? {}), ...(primary.canonicalLinks ?? {}) },
+  });
+};
+
+const mergeLatestEntries = (primary: LatestUpdate, fallback: LatestUpdate): LatestUpdate => {
+  return {
+    ...fallback,
+    ...primary,
+    description: primary.description || fallback.description,
+    links: primary.links.length ? primary.links : fallback.links,
+    projectId: primary.projectId ?? fallback.projectId,
+    repoFullName: primary.repoFullName || fallback.repoFullName,
+    repoId: primary.repoId ?? fallback.repoId,
+    createdAt: primary.createdAt || fallback.createdAt,
+  };
+};
+
+const mergeProjects = (curatedProjects: Project[], syncedProjects: Project[]) => {
+  const syncedBySlug = new Map(syncedProjects.map((project) => [getProjectSlug(project), project]));
+  const mergedCurated = curatedProjects.map((project) => {
+    const key = getProjectSlug(project);
+    const synced = syncedBySlug.get(key);
+    if (!synced) return project;
+    syncedBySlug.delete(key);
+    return mergeProjectEntries(project, synced);
+  });
+
+  return sortByCreatedAtDesc([...mergedCurated, ...syncedBySlug.values()]);
+};
+
+const mergeLatestUpdates = (curatedUpdates: LatestUpdate[], syncedUpdates: LatestUpdate[]) => {
+  const syncedBySlug = new Map(syncedUpdates.map((update) => [getLatestSlug(update), update]));
+  const mergedCurated = curatedUpdates.map((update) => {
+    const key = getLatestSlug(update);
+    const synced = syncedBySlug.get(key);
+    if (!synced) return update;
+    syncedBySlug.delete(key);
+    return mergeLatestEntries(update, synced);
+  });
+
+  return sortByCreatedAtDesc([...mergedCurated, ...syncedBySlug.values()]);
+};
+
 const STATIC_PROJECTS = PROJECTS.map(normalizeProject);
 type ProjectSortMode = 'impact' | 'recent' | 'alpha';
+type ProjectFilter = 'all' | 'real-users' | 'telegram' | 'mobile' | 'automation' | 'computer-vision' | 'open-source';
+
+const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
+  { value: 'all', label: 'All projects' },
+  { value: 'real-users', label: 'Real users' },
+  { value: 'telegram', label: 'Telegram' },
+  { value: 'mobile', label: 'Mobile ready' },
+  { value: 'automation', label: 'Automation' },
+  { value: 'computer-vision', label: 'Computer vision' },
+  { value: 'open-source', label: 'Open source' },
+];
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -197,6 +403,7 @@ const App: React.FC = () => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [projectQuery, setProjectQuery] = useState('');
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
+  const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
@@ -235,7 +442,11 @@ const App: React.FC = () => {
 
   const updateLatest = useMemo(() => {
     const latestUpdates = portfolioUpdates?.latestUpdates ?? [];
-    return sortByCreatedAtDesc(latestUpdates.filter((update) => !isExcludedLatestUpdate(update)));
+    return sortByCreatedAtDesc(
+      latestUpdates
+        .filter((update) => !isExcludedLatestUpdate(update))
+        .filter(isHighSignalLatestUpdate)
+    );
   }, [portfolioUpdates]);
 
   const updateProjects = useMemo(
@@ -243,21 +454,18 @@ const App: React.FC = () => {
       sortByCreatedAtDesc(
         (portfolioUpdates?.projects ?? [])
           .filter((project) => !isExcludedRepo(project.repoFullName))
+          .filter(isHighSignalSyncedProject)
           .map(normalizeProject)
       ),
     [portfolioUpdates]
   );
 
   const mergedLatestUpdates = useMemo(() => {
-    return dedupeByKey([...updateLatest, ...LATEST_UPDATES], (update) => {
-      return update.repoFullName || (update.repoId ? `${update.repoId}` : '') || getRepoKeyFromLinks(update.links) || update.title;
-    });
+    return mergeLatestUpdates(LATEST_UPDATES, updateLatest);
   }, [updateLatest]);
 
   const mergedProjects = useMemo(() => {
-    return dedupeByKey([...updateProjects, ...STATIC_PROJECTS], (project) => {
-      return project.repoFullName || (project.repoId ? `${project.repoId}` : '') || getRepoKeyFromLinks(project.links) || project.title;
-    });
+    return mergeProjects(STATIC_PROJECTS, updateProjects);
   }, [updateProjects]);
 
   const projectById = useMemo(() => {
@@ -273,7 +481,11 @@ const App: React.FC = () => {
   }, [mergedProjects]);
 
   const projectBySlug = useMemo(() => {
-    return new Map(mergedProjects.map((project) => [getProjectSlug(project), project]));
+    return new Map(
+      mergedProjects.flatMap((project) =>
+        getProjectRouteSlugs(project).map((slug) => [slug, project] as const)
+      )
+    );
   }, [mergedProjects]);
 
   const latestBySlug = useMemo(() => {
@@ -284,18 +496,52 @@ const App: React.FC = () => {
     return mergedProjects.filter((project) => project.benchmarks && project.benchmarks.length > 0).length;
   }, [mergedProjects]);
 
+  const realUserProjectCount = useMemo(() => {
+    return mergedProjects.filter((project) => getProjectSignals(project).isRealUsers).length;
+  }, [mergedProjects]);
+
   const featuredProjects = useMemo(() => {
     return FEATURED_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project));
   }, [projectById]);
 
+  const projectFilterOptions = useMemo(
+    () =>
+      PROJECT_FILTERS.map((filter) => ({
+        ...filter,
+        count:
+          filter.value === 'all'
+            ? mergedProjects.length
+            : mergedProjects.filter((project) => {
+                const signals = getProjectSignals(project);
+                switch (filter.value) {
+                  case 'real-users':
+                    return signals.isRealUsers;
+                  case 'telegram':
+                    return signals.hasTelegram;
+                  case 'mobile':
+                    return signals.isMobile;
+                  case 'automation':
+                    return signals.isAutomation;
+                  case 'computer-vision':
+                    return signals.isComputerVision;
+                  case 'open-source':
+                    return signals.isOpenSource;
+                  default:
+                    return true;
+                }
+              }).length
+      })),
+    [mergedProjects]
+  );
+
   const heroStats = useMemo(
     () => [
       { value: `${mergedProjects.length}`, label: 'public case studies' },
+      { value: `${realUserProjectCount}`, label: 'user-facing products' },
       { value: '7+', label: 'years shipping CV / ML systems' },
-      { value: `${COMPANIES.length}`, label: 'recognized collaborators' },
       { value: `${benchmarkedProjectCount}`, label: 'projects with measurable outcomes' }
     ],
-    [benchmarkedProjectCount, mergedProjects.length]
+    [benchmarkedProjectCount, mergedProjects.length, realUserProjectCount]
   );
 
   const syncFromUrl = useCallback(() => {
@@ -407,7 +653,7 @@ const App: React.FC = () => {
 
   const handleSelectProject = useCallback(
     (project: Project) => {
-      const slug = getProjectSlug(project);
+      const slug = getProjectCanonicalSlug(project);
       setSelectedProject(project);
       setActiveLatestSlug(null);
       updateUrlParams({ project: slug, latest: null });
@@ -422,7 +668,7 @@ const App: React.FC = () => {
 
   const handleShareProject = useCallback(
     async (project: Project) => {
-      const slug = getProjectSlug(project);
+      const slug = getProjectCanonicalSlug(project);
       const shareUrl = buildShareUrl({ project: slug, latest: null });
       updateUrlParams({ project: slug, latest: null }, { replace: true });
       await copyToClipboard(shareUrl, `project:${slug}`);
@@ -446,24 +692,22 @@ const App: React.FC = () => {
     );
   }, []);
 
-  const selectedProjectSlug = selectedProject ? getProjectSlug(selectedProject) : null;
+  const selectedProjectSlug = selectedProject ? getProjectCanonicalSlug(selectedProject) : null;
   const isProjectCopied = selectedProjectSlug ? copiedKey === `project:${selectedProjectSlug}` : false;
   const normalizedProjectQuery = deferredProjectQuery.trim().toLowerCase();
 
   const filteredProjects = useMemo(() => {
     const withFilters = mergedProjects.filter((project) => {
+      const signals = getProjectSignals(project);
       if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
+      if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
+      if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
+      if (projectFilter === 'mobile' && !signals.isMobile) return false;
+      if (projectFilter === 'automation' && !signals.isAutomation) return false;
+      if (projectFilter === 'computer-vision' && !signals.isComputerVision) return false;
+      if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
       if (!normalizedProjectQuery) return true;
-      const haystack = [
-        project.title,
-        project.description,
-        project.longDescription || '',
-        project.techStack.join(' '),
-        project.keyFeatures.join(' ')
-      ]
-        .join(' ')
-        .toLowerCase();
-      return haystack.includes(normalizedProjectQuery);
+      return signals.searchText.includes(normalizedProjectQuery);
     });
 
     if (projectSort === 'alpha') {
@@ -475,33 +719,28 @@ const App: React.FC = () => {
     }
 
     return [...withFilters].sort((a, b) => {
-      const aFeatured = FEATURED_PROJECT_INDEX.get(a.id);
-      const bFeatured = FEATURED_PROJECT_INDEX.get(b.id);
-      if (aFeatured !== undefined || bFeatured !== undefined) {
-        if (aFeatured === undefined) return 1;
-        if (bFeatured === undefined) return -1;
-        return aFeatured - bFeatured;
-      }
-
-      const aBenchmarks = a.benchmarks?.length ?? 0;
-      const bBenchmarks = b.benchmarks?.length ?? 0;
-      if (bBenchmarks !== aBenchmarks) return bBenchmarks - aBenchmarks;
-
-      const aLinks = a.links.length;
-      const bLinks = b.links.length;
-      if (bLinks !== aLinks) return bLinks - aLinks;
-
+      const scoreDelta = getProjectSignals(b).proofScore - getProjectSignals(a).proofScore;
+      if (scoreDelta !== 0) return scoreDelta;
       return b.id - a.id;
     });
-  }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectSort]);
+  }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectFilter, projectSort]);
+
+  const selectedProjectBadges = useMemo(
+    () => (selectedProject ? getProjectSignals(selectedProject).badges : []),
+    [selectedProject]
+  );
+
+  const activeProjectFilterLabel = useMemo(() => {
+    return projectFilterOptions.find((filter) => filter.value === projectFilter)?.label || 'All projects';
+  }, [projectFilter, projectFilterOptions]);
 
   return (
     <div className="site-shell">
       <div className="site-layout">
         <Sidebar
           projectCount={mergedProjects.length}
+          userFacingCount={realUserProjectCount}
           benchmarkedCount={benchmarkedProjectCount}
-          latestCount={mergedLatestUpdates.length}
         />
 
         <main className="content-column">
@@ -848,7 +1087,10 @@ const App: React.FC = () => {
                             </div>
                           </>
                         ) : (
-                          <p>More details coming soon.</p>
+                          <p>
+                            This update already has public links above; the curated case-study entry is not
+                            merged into the archive yet.
+                          </p>
                         )}
                       </div>
                     )}
@@ -860,9 +1102,9 @@ const App: React.FC = () => {
 
           <Section
             id="projects"
-            eyebrow="Archive"
+            eyebrow="Explorer"
             title="Projects"
-            description="Search the full archive. In Impact mode, featured work is pinned to the top."
+            description="Search by project name, bot handle, alias, stack, or delivery surface. Real user products are now separated from the broader archive."
           >
             <div className="explorer-panel">
               <div className="explorer-panel__controls">
@@ -875,16 +1117,17 @@ const App: React.FC = () => {
                     type="search"
                     value={projectQuery}
                     onChange={(event) => setProjectQuery(event.target.value)}
-                    placeholder="Search by project, tech stack, workflow, or domain..."
+                    placeholder="Search by project, bot handle, alias, stack, workflow, or domain..."
                     className="search-input"
                   />
                 </div>
 
-                <div className="chip-row">
+                <div className="chip-row explorer-panel__sorts" role="group" aria-label="Project sorting">
                   <button
                     type="button"
                     onClick={() => setProjectSort('impact')}
                     className={`pill-button${projectSort === 'impact' ? ' is-active' : ''}`}
+                    aria-pressed={projectSort === 'impact'}
                   >
                     Impact
                   </button>
@@ -892,6 +1135,7 @@ const App: React.FC = () => {
                     type="button"
                     onClick={() => setProjectSort('recent')}
                     className={`pill-button${projectSort === 'recent' ? ' is-active' : ''}`}
+                    aria-pressed={projectSort === 'recent'}
                   >
                     Recent
                   </button>
@@ -899,33 +1143,56 @@ const App: React.FC = () => {
                     type="button"
                     onClick={() => setProjectSort('alpha')}
                     className={`pill-button${projectSort === 'alpha' ? ' is-active' : ''}`}
+                    aria-pressed={projectSort === 'alpha'}
                   >
                     A-Z
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBenchmarkedOnly((value) => !value)}
-                    className={`pill-button${benchmarkedOnly ? ' is-active' : ''}`}
-                  >
-                    Metrics only
                   </button>
                 </div>
               </div>
 
+              <div className="explorer-panel__filters" role="toolbar" aria-label="Project filters">
+                {projectFilterOptions.map((filter) => (
+                  <button
+                    type="button"
+                    key={filter.value}
+                    onClick={() => setProjectFilter(filter.value)}
+                    className={`pill-button${projectFilter === filter.value ? ' is-active' : ''}`}
+                    aria-pressed={projectFilter === filter.value}
+                  >
+                    <span>{filter.label}</span>
+                    <span className="pill-button__count">{filter.count}</span>
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => setBenchmarkedOnly((value) => !value)}
+                  className={`pill-button${benchmarkedOnly ? ' is-active' : ''}`}
+                  aria-pressed={benchmarkedOnly}
+                >
+                  <span>Metrics only</span>
+                </button>
+              </div>
+
               <p className="explorer-panel__summary">
-                Showing {filteredProjects.length} of {mergedProjects.length} projects
+                Showing <strong>{filteredProjects.length}</strong> of <strong>{mergedProjects.length}</strong>{' '}
+                projects. Filter: <strong>{activeProjectFilterLabel}</strong>
+                {benchmarkedOnly ? ' + Metrics only' : ''}.
               </p>
             </div>
 
             <div className="project-grid">
-              {filteredProjects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
-                  onSelectProject={() => handleSelectProject(project)}
-                />
-              ))}
+              {filteredProjects.map((project) => {
+                const signals = getProjectSignals(project);
+                return (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    badges={signals.badges}
+                    fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
+                    onSelectProject={() => handleSelectProject(project)}
+                  />
+                );
+              })}
             </div>
 
             {filteredProjects.length === 0 && (
@@ -983,6 +1250,7 @@ const App: React.FC = () => {
       {selectedProject && (
         <ProjectModal
           project={selectedProject}
+          badges={selectedProjectBadges}
           fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
           onClose={handleCloseProject}
           onCopyShare={() => handleShareProject(selectedProject)}

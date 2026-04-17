@@ -14,11 +14,11 @@ const NAV_ITEMS = [
 
 interface SidebarProps {
   projectCount: number;
+  userFacingCount: number;
   benchmarkedCount: number;
-  latestCount: number;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ projectCount, benchmarkedCount, latestCount }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount, benchmarkedCount }) => {
   return (
     <header className="profile-panel">
       <div className="profile-panel__content">
@@ -36,12 +36,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, benchmarkedCount
             <span>case studies</span>
           </div>
           <div className="profile-stat">
-            <strong>{benchmarkedCount}</strong>
-            <span>with metrics</span>
+            <strong>{userFacingCount}</strong>
+            <span>user products</span>
           </div>
           <div className="profile-stat">
-            <strong>{latestCount}</strong>
-            <span>latest updates</span>
+            <strong>{benchmarkedCount}</strong>
+            <span>with metrics</span>
           </div>
         </div>
 

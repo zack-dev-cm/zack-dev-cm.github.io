@@ -4,6 +4,7 @@ import { ExternalLinkIcon, XIcon, ChevronLeftIcon, ChevronRightIcon, LinkIcon } 
 
 interface ProjectModalProps {
   project: Project;
+  badges?: string[];
   onClose: () => void;
   onCopyShare?: () => void;
   isShareCopied?: boolean;
@@ -17,6 +18,7 @@ const isVideoUrl = (url: string) => {
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
+  badges = [],
   onClose,
   onCopyShare,
   isShareCopied,
@@ -146,6 +148,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <p id={descriptionId} className="modal-body__lead">
             {project.longDescription || project.description}
           </p>
+
+          {badges.length > 0 && (
+            <div className="chip-row modal-body__badges" aria-label="Project badges">
+              {badges.map((badge) => (
+                <span key={badge} className="pill">
+                  {badge}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div className="modal-body__grid">
             <section className="panel">

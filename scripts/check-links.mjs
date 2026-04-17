@@ -45,6 +45,7 @@ const urls = [...new Set(urlMatches)].sort();
 const warningStatuses = new Set([401, 403, 429, 999]);
 const userAgent =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const fetchWithTimeout = async (url, timeoutMs = 15000) => {
   const controller = new AbortController();
@@ -64,6 +65,21 @@ const fetchWithTimeout = async (url, timeoutMs = 15000) => {
   }
 };
 
+const fetchWithRetry = async (url, attempts = 3) => {
+  let lastError = null;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fetchWithTimeout(url);
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) {
+        await sleep(750 * attempt);
+      }
+    }
+  }
+  throw lastError;
+};
+
 const checkUrl = async (url) => {
   try {
     new URL(url);
@@ -72,7 +88,7 @@ const checkUrl = async (url) => {
   }
 
   try {
-    const response = await fetchWithTimeout(url);
+    const response = await fetchWithRetry(url);
     const { status } = response;
     if (response.body?.cancel) {
       await response.body.cancel();

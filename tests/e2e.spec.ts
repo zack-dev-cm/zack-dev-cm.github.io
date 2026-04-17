@@ -1,6 +1,6 @@
-import { test, expect, type Locator } from '@playwright/test';
+import { test, expect, type Locator, type Page } from '@playwright/test';
 
-test('homepage renders core sections and takes screenshot', async ({ page }) => {
+const gotoPortfolio = async (page: Page) => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
   const isCloudflare = baseUrl.includes('pages.dev');
   const expectedPath = isCloudflare ? '/docs/' : '/';
@@ -9,6 +9,10 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   if (isCloudflare && response && response.status() >= 400) {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
   }
+};
+
+test('homepage renders core sections and project discovery controls', async ({ page }) => {
+  await gotoPortfolio(page);
 
   // Wait for main title and a couple of sections to ensure hydration
   await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
@@ -16,7 +20,7 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   await expect(page.getByRole('heading', { name: 'Latest Updates' })).toBeVisible();
 
   // Card presence: ensure at least one project card renders
-  const cards = page.locator('[aria-label="Project"], [data-testid="project-card"], .project-card');
+  const cards = page.getByTestId('project-card');
   await expect(cards.first()).toBeVisible();
 
   const expectImageLoaded = async (locator: Locator, label: string, timeoutMs = 10000) => {
@@ -49,12 +53,58 @@ test('homepage renders core sections and takes screenshot', async ({ page }) => 
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured').getByText('AntiRot', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('AntiRot', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('seogeo', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Blacksock', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Beauty Visual Inbox', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Dalshe', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Probes', { exact: false })).toBeVisible();
+
+  const projectSearch = page.getByLabel('Search projects');
+  await expect(projectSearch).toBeVisible();
+
+  const realUsersFilter = page.getByRole('button', { name: /Real users/i });
+  await realUsersFilter.click();
+  await expect(realUsersFilter).toHaveAttribute('aria-pressed', 'true');
+
+  await projectSearch.fill('pr0bes_bot');
+  const probesCard = page.getByRole('button', { name: /Open project: Probes/i });
+  await expect(probesCard).toBeVisible();
+  await probesCard.click();
+
+  const modal = page.getByRole('dialog');
+  await expect(modal).toBeVisible();
+  await expect(modal.getByRole('link', { name: 'Telegram Bot' })).toHaveAttribute(
+    'href',
+    'https://t.me/pr0bes_bot'
+  );
+  await page.keyboard.press('Escape');
+  await expect(modal).toBeHidden();
 
   // Capture screenshot for visual sanity check
   await page.screenshot({ path: 'test-results/home.png', fullPage: true });
+});
+
+test.describe('mobile', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test('project explorer stays usable on mobile without horizontal overflow', async ({ page }) => {
+    await gotoPortfolio(page);
+
+    await page.locator('#projects').scrollIntoViewIfNeeded();
+
+    await expect
+      .poll(async () => {
+        return page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      })
+      .toBeLessThanOrEqual(4);
+
+    const projectSearch = page.getByLabel('Search projects');
+    await projectSearch.fill('calorio');
+
+    const calorioCard = page.getByRole('button', {
+      name: /Open project: Dishes Recognition & Nutrition Goals Telegram Bot/i
+    });
+    await expect(calorioCard).toBeVisible();
+
+    const box = await calorioCard.boundingBox();
+    expect(box?.width ?? 0).toBeLessThanOrEqual(390);
+
+    await page.screenshot({ path: 'test-results/home-mobile.png', fullPage: true });
+  });
 });

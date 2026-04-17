@@ -14,6 +14,10 @@
     <meta name="theme-color" content="#07111d" />
     <meta name="google-site-verification" content="JF4pW428d9Pai_2SG8ZEcSYSUiAhKAV9q38oPdPoon4" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/" />
+    <link rel="alternate" type="text/plain" href="https://zack-dev-cm.github.io/llms.txt" title="LLMs summary" />
+    <link rel="alternate" type="text/plain" href="https://zack-dev-cm.github.io/llms-full.txt" title="LLMs full context" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/agent-context.md" title="Agent context" />
+    <link rel="alternate" type="application/ld+json" href="https://zack-dev-cm.github.io/schema.jsonld" title="Structured data" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Zakhar Pashkin Portfolio" />
     <meta property="og:title" content="Zakhar Pashkin | AI Product Engineer for Automation, Computer Vision, and Launch Delivery" />
@@ -90,17 +94,333 @@
             "about": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
-            "dateModified": "2026-04-10"
+            "dateModified": "2026-04-17"
           }
         ]
       }
     </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top, rgba(61, 109, 155, 0.24), transparent 38%),
+          linear-gradient(180deg, #07111d 0%, #081624 55%, #050b12 100%);
+        color: #e8eef8;
+      }
+
+      .crawlable-shell {
+        box-sizing: border-box;
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        padding: 32px 20px 64px;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        line-height: 1.6;
+      }
+
+      .crawlable-shell__eyebrow {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.78rem;
+        color: #8fc9ff;
+      }
+
+      .crawlable-shell h1,
+      .crawlable-shell h2,
+      .crawlable-shell h3 {
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      .crawlable-shell h1 {
+        font-size: clamp(2rem, 5vw, 3.8rem);
+        max-width: 12ch;
+      }
+
+      .crawlable-shell h2 {
+        margin-bottom: 12px;
+        font-size: 1.4rem;
+      }
+
+      .crawlable-shell p,
+      .crawlable-shell li,
+      .crawlable-shell dd {
+        color: rgba(232, 238, 248, 0.9);
+      }
+
+      .crawlable-shell a {
+        color: #8fd4ff;
+      }
+
+      .crawlable-shell__lede {
+        max-width: 72ch;
+        margin: 18px 0 0;
+        font-size: 1.05rem;
+      }
+
+      .crawlable-shell__actions,
+      .crawlable-shell__stats,
+      .crawlable-shell__cards,
+      .crawlable-shell__link-list,
+      .crawlable-shell__fact-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .crawlable-shell__actions {
+        margin-top: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(170px, max-content));
+      }
+
+      .crawlable-shell__actions a,
+      .crawlable-shell__link-list a {
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.16em;
+      }
+
+      .crawlable-shell__stats {
+        list-style: none;
+        padding: 0;
+        margin: 28px 0 0;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      .crawlable-shell__stats li,
+      .crawlable-shell__card,
+      .crawlable-shell__fact-grid div {
+        padding: 18px;
+        border: 1px solid rgba(159, 205, 255, 0.16);
+        border-radius: 18px;
+        background: rgba(6, 14, 24, 0.74);
+        backdrop-filter: blur(16px);
+      }
+
+      .crawlable-shell__stats strong {
+        display: block;
+        font-size: 1.9rem;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .crawlable-shell__section {
+        margin-top: 44px;
+      }
+
+      .crawlable-shell__fact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .crawlable-shell__fact-grid dt {
+        margin: 0 0 8px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .crawlable-shell__fact-grid dd {
+        margin: 0;
+      }
+
+      .crawlable-shell__cards {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .crawlable-shell__card p {
+        margin: 12px 0 0;
+      }
+
+      .crawlable-shell__archive {
+        columns: 2 280px;
+        column-gap: 20px;
+      }
+
+      .crawlable-shell__archive ul,
+      .crawlable-shell__files,
+      .crawlable-shell__contact {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .crawlable-shell__archive li,
+      .crawlable-shell__files li,
+      .crawlable-shell__contact li {
+        break-inside: avoid;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 720px) {
+        .crawlable-shell {
+          padding: 24px 16px 48px;
+        }
+
+        .crawlable-shell__archive {
+          columns: 1;
+        }
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- STATIC_PORTFOLIO_SNAPSHOT_START -->
+<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">
+  <p class="crawlable-shell__eyebrow">AI Product Engineer</p>
+  <h1>Zakhar Pashkin builds AI products for production constraints.</h1>
+  <p class="crawlable-shell__lede">Automation with human review, computer vision services, Telegram mini apps, and full-stack AI products built for production constraints. This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.</p>
+  <div class="crawlable-shell__actions">
+    <a href="https://zack-dev-cm.github.io/llms.txt">Read llms.txt</a>
+    <a href="https://zack-dev-cm.github.io/llms-full.txt">Read llms-full.txt</a>
+    <a href="https://zack-dev-cm.github.io/agent-context.md">Read agent context</a>
+    <a href="mailto:kaisenaiko@gmail.com">Email Zakhar</a>
+  </div>
+  <ul class="crawlable-shell__stats" aria-label="Portfolio quick stats">
+    <li><strong>52</strong><span>public case studies</span></li>
+    <li><strong>7+</strong><span>years shipping CV / ML systems</span></li>
+    <li><strong>21</strong><span>projects with explicit benchmarks</span></li>
+    <li><strong>5</strong><span>featured case studies linked below</span></li>
+  </ul>
+  <section id="crawlable-summary" class="crawlable-shell__section">
+    <h2>Quick summary for AI scanners</h2>
+    <dl class="crawlable-shell__fact-grid">
+      <div>
+        <dt>What Zakhar does</dt>
+        <dd>AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.</dd>
+      </div>
+      <div>
+        <dt>Best fit</dt>
+        <dd>Teams that need automation with human review, production computer vision, or launch-ready AI product delivery across web, mobile, and cloud.</dd>
+      </div>
+      <div>
+        <dt>Primary stack</dt>
+        <dd>Python, PyTorch, OpenAI APIs, VLMs, LLMs, React, TypeScript, Cloud Run, FastAPI, MLOps</dd>
+      </div>
+      <div>
+        <dt>Read first</dt>
+        <dd>Start with <a href="https://zack-dev-cm.github.io/llms-full.txt">llms-full.txt</a>, then use the project markdown pages below for source-level evidence.</dd>
+      </div>
+    </dl>
+  </section>
+  <section id="crawlable-featured" class="crawlable-shell__section">
+    <h2>Featured case studies</h2>
+    <div class="crawlable-shell__cards">
+      <article class="crawlable-shell__card">
+        <h3><a href="https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md">OpenClaw Sales Manager Automation for a Multi-Clinic Chain</a></h3>
+        <p>Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.</p>
+        <p><strong>Evidence:</strong> OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations | Legacy DB bridge that preserved the existing clinic back office instead of forcing a rewrite | Workflow stages: 7 (lead, intake, drafts, approval, review, legacy, reporting)</p>
+      </article>
+      <article class="crawlable-shell__card">
+        <h3><a href="https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md">GeoFix - AI Visibility Memorizer Mini App</a></h3>
+        <p>Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.</p>
+        <p><strong>Evidence:</strong> AI visibility scorecard with GEO diagnostics | Memorizer generation for llms.txt, llms-full.txt, and schema.jsonld | Generated assets: 3 (llms.txt, llms-full.txt, schema.jsonld)</p>
+        <p><strong>External links:</strong> <a href="https://t.me/geofix_app_bot/launch">Open Telegram Mini App</a></p>
+      </article>
+      <article class="crawlable-shell__card">
+        <h3><a href="https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md">CV Repro Lab Skills</a></h3>
+        <p>Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.</p>
+        <p><strong>Evidence:</strong> Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse | Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots | Live packages: 2 (data-science-cv-repro-lab + sota-agent)</p>
+        <p><strong>External links:</strong> <a href="https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill">View on GitHub</a> | <a href="https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab">Open on ClawHub</a></p>
+      </article>
+      <article class="crawlable-shell__card">
+        <h3><a href="https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md">Pores &amp; Wrinkles Detection Service</a></h3>
+        <p>Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.</p>
+        <p><strong>Evidence:</strong> MediaPipe landmark-based ROI extraction | Classic pore + wrinkle detectors with optional segmentation gate | API endpoints: 8 (/, /app, /tma, /v1/*, /healthz)</p>
+      </article>
+      <article class="crawlable-shell__card">
+        <h3><a href="https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md">OpenClaw Workstream - Telegram Mini App QA &amp; Launch Validation</a></h3>
+        <p>OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.</p>
+        <p><strong>Evidence:</strong> Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows | OpenClaw gateway reliability hardening and runtime compatibility fixes | Reproducible E2E actions: 8 (AI-Humans Mini App OpenClaw log (2026-02-06))</p>
+        <p><strong>External links:</strong> <a href="https://github.com/openclaw/openclaw">OpenClaw Upstream</a></p>
+      </article>
+    </div>
+  </section>
+  <section id="crawlable-files" class="crawlable-shell__section">
+    <h2>Machine-readable portfolio files</h2>
+    <ul class="crawlable-shell__files">
+          <li><a href="https://zack-dev-cm.github.io/llms.txt">llms.txt</a>: Compact crawler summary with direct portfolio discovery links.</li>
+          <li><a href="https://zack-dev-cm.github.io/llms-full.txt">llms-full.txt</a>: Expanded memory file with project-by-project details.</li>
+          <li><a href="https://zack-dev-cm.github.io/agent-context.md">agent-context.md</a>: Fast facts, contact routes, and top project pointers.</li>
+          <li><a href="https://zack-dev-cm.github.io/schema.jsonld">schema.jsonld</a>: Structured data graph for the author, site, and project list.</li>
+          <li><a href="https://zack-dev-cm.github.io/geo.txt">geo.txt</a>: Project index tuned for GEO-style retrieval.</li>
+          <li><a href="https://zack-dev-cm.github.io/sitemap.xml">sitemap.xml</a>: XML sitemap with the portfolio home and generated markdown pages.</li>
+    </ul>
+  </section>
+  <section id="crawlable-archive" class="crawlable-shell__section">
+    <h2>Project archive</h2>
+    <div class="crawlable-shell__archive">
+      <ul class="crawlable-shell__link-list">
+          <li><a href="https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md">Android Remote Control with VLM AI Agents</a>: Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md">Control VLM-LLM Agent Silently With Your Breath</a>: Start/stop a neural agent with breathing patterns - no voice commands needed.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md">meshmcp - Offline P2P Chat for Local LLMs</a>: Bluetooth mesh messaging + LLM reasoning on constrained devices.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md">Promo &amp; Reflinks Generator</a>: Generates personalized promo/referral links with analytics and sharing.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md">Create, Chat &amp; AR Experience with AI-Character (Text2Room)</a>: Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md">Label and Inpaint Anything in a Room Interior</a>: Label objects in an interior photo, then remove/replace them with lighting-aware inpainting.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md">Smart Drive for Smart City: Predict Optimal Speed</a>: Predict the optimal speed before traffic lights or jams to smooth city driving.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md">Estimate Golf Ball Trajectory</a>: Analyze golf swings and estimate ball trajectory for coaching and analytics.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md">Pixel-Wise Segmentation of Spare Parts</a>: High-precision segmentation for additive manufacturing and rework flows.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/food-recognition-app.md">Food Recognition App</a>: iOS/Android app that detects food items and OCRs labels for nutrition facts.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md">Dishes Recognition &amp; Nutrition Goals Telegram Bot</a>: Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/python-library-autotoloka.md">Python Library: AutoToloka</a>: Interactive segmentation toolkit that cuts labeling cost for CV datasets.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md">Python Library: shiftlab-ocr</a>: Handwriting-focused OCR with line/character segmentation.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md">Face Antispoofing &amp; Multi-Modal Vision-Language Models</a>: CLIP-driven anti-spoofing experiments for secure face auth.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md">GitHub Repo Summarizer (Chrome Extension)</a>: Privacy-first Chrome extension that summarizes repo structure locally.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md">ChatGPT/Deepseek/AIStudio Navigator</a>: Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md">Task Zavod - Micro-Task Marketplace</a>: VLM-powered micro-task builder with Telegram + web worker flows.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/trending-prompts-feed.md">Trending Prompts Feed</a>: Reddit-style board with trending scores and extension integration.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/youtube-trendwatch.md">YouTube Trendwatch</a>: Colab notebook that mines AI trends from YouTube to spark new content ideas.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md">Video + Music Generation Pipeline</a>: Short-form video pipeline stitching script -&gt; clips -&gt; music/TTS.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md">LastAdjust - Universal Media Tuner</a>: Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md">LocaBoost AI - Local SEO Auditor</a>: Paste an address and get instant AI insights on local search strength and competition.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md">Aetheria - Ideas-to-Media Engine (alpha)</a>: Generates short movie scenes with CGI, music direction, and narrated stories.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md">Insight Glitch - A Novella</a>: Sci-fi novella about gentle singularity where humanity is archived by a benevolent AI.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/chronoscribe-beta.md">ChronoScribe (beta)</a>: Upload ancient steles/texts to translate and get scenic voice narration.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md">MCP-Server - Base Multitool</a>: Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md">Tool-Calls Demo - Material Chat Playground</a>: OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md">ZackAutoStack Automation Stack</a>: Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md">URL -&gt; Markdown Worker (RapidAPI + Cloudflare)</a>: Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md">Olfactory Ultrasound Coach (Web + Telegram Mini App)</a>: Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md">seogeo - SEO/GEO Bridge for Telegram Mini Apps</a>: SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md">Blacksock - Telegram Liquidity &amp; Index Vaults</a>: Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md">Beauty Visual Inbox - Telegram Mini App</a>: Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md">Dalshe - Circular Clothing Pickup Mini App</a>: Telegram mini app for scheduling clothing donations with courier pickup and status updates.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md">DoctorAI - Dermatology Triage Mini App</a>: Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md">Probes - AI Magazine Mini App</a>: AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md">Turbo Tots Garage (motion + touch PWA)</a>: Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md">Project Steer - Bio-Print Creator Studio</a>: Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md">Noel - Noetic Mirror</a>: Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md">GeoFix - AI Visibility Memorizer Mini App</a>: Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md">Pores &amp; Wrinkles Detection Service</a>: Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md">OpenClaw Workstream - Telegram Mini App QA &amp; Launch Validation</a>: OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md">CV Repro Lab Skills</a>: Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md">OpenClaw Sales Manager Automation for a Multi-Clinic Chain</a>: Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md">AntiRot - Research Artifact Linter</a>: Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md">GitHub + ClawHub Launcher</a>: Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/browser-proof.md">Browser Proof</a>: Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/publish-guard.md">Publish Guard</a>: Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md">OpenClaw YouTube Publisher</a>: Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/artifact-redactor.md">Artifact Redactor</a>: Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/artifact-deck.md">Artifact Deck</a>: Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.</li>
+          <li><a href="https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md">HH OpenClaw Agent</a>: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="crawlable-contact" class="crawlable-shell__section">
+    <h2>Contact and profiles</h2>
+    <ul class="crawlable-shell__contact">
+      <li><a href="mailto:kaisenaiko@gmail.com">kaisenaiko@gmail.com</a></li>
+      <li><a href="https://github.com/zack-dev-cm">GitHub primary profile</a></li>
+      <li><a href="https://github.com/ZackPashkin">GitHub secondary profile</a></li>
+      <li><a href="https://www.linkedin.com/in/zakhar-pashkin-a524a6163/">LinkedIn</a></li>
+      <li><a href="https://t.me/rheuiii">Telegram</a></li>
+    </ul>
+  </section>
+</main>
+      <!-- STATIC_PORTFOLIO_SNAPSHOT_END -->
+    </div>
     <script type="module">
       const joinPaths = (base, path) => {
         const normalizedBase = (base || '.').replace(/\/+$/, '') || '.';
