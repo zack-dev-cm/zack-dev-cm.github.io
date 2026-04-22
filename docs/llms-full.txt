@@ -182,11 +182,9 @@ Tech Stack:
 - Speech-to-Text
 - LLMs
 Benchmarks & Analytics:
-- Lifetime users: 5k+ (operator-reported total since launch)
-- Profiles in DB: 1,795 (internal snapshot, 2026-02-13)
-- Sessions in DB: 1,738 (internal snapshot, 2026-02-13)
-- DAU / WAU / MAU: 88 / 464 / 1,214 (prod pulse, 2026-02-13)
-- Mini-app usage jump: 14 -> 1,144 events (Feb 1-6 vs Feb 7-12, 2026 DB slice)
+- Lifetime users: 5k+ (operator-reported public total since launch)
+- Monthly nutrition activity: 1k+ users (rounded public product snapshot)
+- Mini-app adoption lift: 10x+ (rounded public launch comparison)
 Links:
 - Try on Telegram: https://t.me/calorio_yf_bot
 

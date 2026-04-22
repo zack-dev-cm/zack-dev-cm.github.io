@@ -3,12 +3,19 @@ import { test, expect, type Locator, type Page } from '@playwright/test';
 const gotoPortfolio = async (page: Page) => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
   const isCloudflare = baseUrl.includes('pages.dev');
-  const expectedPath = isCloudflare ? '/docs/' : '/';
+  const expectedPath = isCloudflare ? '/' : '/';
 
   const response = await page.goto(expectedPath, { waitUntil: 'domcontentloaded' });
   if (isCloudflare && response && response.status() >= 400) {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('/docs/', { waitUntil: 'domcontentloaded' });
   }
+};
+
+const resumePath = () => {
+  const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
+  return baseUrl.includes('pages.dev')
+    ? '/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf'
+    : '/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf';
 };
 
 test('homepage renders core sections and project discovery controls', async ({ page }) => {
@@ -19,11 +26,10 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Latest Updates' })).toBeVisible();
 
-  const resumePath = '/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf';
   const resumeLink = page.getByRole('link', { name: /Download resume/i }).first();
   await expect(resumeLink).toBeVisible();
-  await expect(resumeLink).toHaveAttribute('href', resumePath);
-  const resumeResponse = await page.request.get(resumePath);
+  await expect(resumeLink).toHaveAttribute('href', resumePath());
+  const resumeResponse = await page.request.get(resumePath());
   expect(resumeResponse.status()).toBe(200);
   expect(resumeResponse.headers()['content-type']).toContain('application/pdf');
 
@@ -89,6 +95,78 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   // Capture screenshot for visual sanity check
   await page.screenshot({ path: 'test-results/home.png', fullPage: true });
+});
+
+test('featured cards stay inside their own bounds on desktop breakpoints', async ({ page }) => {
+  const viewports = [
+    { width: 1100, height: 900 },
+    { width: 1200, height: 900 },
+    { width: 1280, height: 900 },
+    { width: 1440, height: 900 },
+    { width: 1600, height: 900 },
+  ];
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await gotoPortfolio(page);
+    await page.locator('#featured').scrollIntoViewIfNeeded();
+
+    await expect
+      .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
+        message: `Expected no horizontal overflow at ${viewport.width}px`,
+      })
+      .toBeLessThanOrEqual(4);
+
+    const issues = await page.locator('.featured-card').evaluateAll((cards) => {
+      const tolerance = 1;
+      const rects = cards.map((card, index) => {
+        const cardRect = card.getBoundingClientRect();
+        const rect = {
+          left: cardRect.left,
+          right: cardRect.right,
+          top: cardRect.top,
+          bottom: cardRect.bottom,
+        };
+        const childOverflow = Array.from(card.children).some((child) => {
+          const childRect = child.getBoundingClientRect();
+          return (
+            childRect.left < rect.left - tolerance ||
+            childRect.right > rect.right + tolerance ||
+            childRect.top < rect.top - tolerance ||
+            childRect.bottom > rect.bottom + tolerance
+          );
+        });
+        return { index, rect, childOverflow };
+      });
+
+      const failures: string[] = [];
+      for (const item of rects) {
+        if (item.childOverflow) {
+          failures.push(`card ${item.index} child escapes card bounds`);
+        }
+      }
+
+      for (let i = 0; i < rects.length; i += 1) {
+        for (let j = i + 1; j < rects.length; j += 1) {
+          const a = rects[i].rect;
+          const b = rects[j].rect;
+          const overlapsX = Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left));
+          const overlapsY = Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+          if (overlapsX > tolerance && overlapsY > tolerance) {
+            failures.push(`card ${i} overlaps card ${j}`);
+          }
+        }
+      }
+      return failures;
+    });
+
+    expect(issues, `Featured card layout issues at ${viewport.width}px`).toEqual([]);
+
+    const objectFits = await page.locator('.featured-card__asset').evaluateAll((assets) =>
+      assets.map((asset) => window.getComputedStyle(asset).objectFit)
+    );
+    expect(objectFits.every((value) => value === 'contain')).toBe(true);
+  }
 });
 
 test.describe('mobile', () => {

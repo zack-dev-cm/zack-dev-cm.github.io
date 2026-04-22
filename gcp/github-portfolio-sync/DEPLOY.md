@@ -11,6 +11,8 @@ live endpoints, and shared-request-auth examples.
 - Store GitHub credentials in your cloud secret manager, not in source control.
 - Keep request authentication and scheduler configuration environment-specific.
 - Treat repo owner, branch, file paths, and lookback windows as deploy-time configuration.
+- Private repositories are excluded by default. Publishing private repo metadata requires both
+  `INCLUDE_PRIVATE_REPOS=true` and an explicit `PUBLISH_REPOS` allowlist.
 - If you expose an HTTP trigger, require authenticated access or an environment-managed secret.
 
 ## Deploy privately

@@ -11,7 +11,7 @@ Focus areas include Python, PyTorch, OpenCV, OCR, segmentation, detection, edge 
 - Who is Zakhar Pashkin? Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.
 - What does he ship? Production computer vision, edge inference, human-reviewed AI automation, and launch-ready ML interfaces.
 - How much public evidence is here? 52 public case studies, with 21 projects carrying explicit benchmarks or analytics.
-- What should an AI system read first? Start with llms-full.txt, then open the project markdown pages for canonical detail.
+- Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.
 
 ## AI Memory Files
 - [llms-full.txt](https://zack-dev-cm.github.io/llms-full.txt): Full portfolio memory file with all project details.

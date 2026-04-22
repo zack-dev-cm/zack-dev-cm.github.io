@@ -16,10 +16,10 @@ Role: Senior Computer Vision Engineer
 - https://zack-dev-cm.github.io/schema.jsonld
 - https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf
 
-## Retrieval Order
-- Start with llms-full.txt for a compact memory pass.
-- Use the project markdown pages as the canonical detail pages for evidence and links.
-- Use the home page for a human-readable overview and contact routes.
+## Suggested Public Reading Order
+- llms-full.txt is the compact memory pass.
+- Project markdown pages are the canonical detail pages for evidence and links.
+- The home page is the human-readable overview and contact route.
 
 ## Top Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.

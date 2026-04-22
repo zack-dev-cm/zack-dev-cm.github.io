@@ -8,8 +8,9 @@ const UPDATES_PATH = process.env.PORTFOLIO_UPDATES_PATH || 'public/portfolio-upd
 const DOCS_UPDATES_PATH = process.env.PORTFOLIO_UPDATES_DOCS_PATH || 'docs/portfolio-updates.json';
 const PROBES_BASE_URL = process.env.PROBES_BASE_URL || '';
 const EXCLUDE_REPOS = process.env.EXCLUDE_REPOS || '';
+const PUBLISH_REPOS = process.env.PUBLISH_REPOS || '';
 const SYNC_SECRET = process.env.SYNC_SECRET || '';
-const INCLUDE_PRIVATE_REPOS = process.env.INCLUDE_PRIVATE_REPOS !== 'false';
+const INCLUDE_PRIVATE_REPOS = process.env.INCLUDE_PRIVATE_REPOS === 'true';
 const PLACEHOLDER_IMAGE = 'images/project-placeholder.svg';
 
 const ensureTrailingSlashTrimmed = (value) => value.replace(/\/+$/, '');
@@ -123,7 +124,7 @@ const extractGithubRepoKeys = (text) => {
   return repos;
 };
 
-const parseExcludeRepos = (value, owner) => {
+const parseRepoSet = (value, owner) => {
   const repos = new Set();
   value
     .split(/[,\s]+/)
@@ -137,6 +138,14 @@ const parseExcludeRepos = (value, owner) => {
       }
     });
   return repos;
+};
+
+const buildSyntheticRepoId = (repoKey) => {
+  let hash = 0;
+  for (const char of repoKey) {
+    hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+  }
+  return 900000000 + (hash % 90000000);
 };
 
 const getRawRepoFile = async (token, owner, repo, path) => {
@@ -259,7 +268,12 @@ const buildLinks = ({ miniAppUrl, botUrl, probesArticleUrl, liveDemoUrl, githubU
 };
 
 const upsertByRepoKey = (items, repoKey, nextEntry) => {
-  const index = items.findIndex((item) => item.repoFullName === repoKey || item.repoId === nextEntry.repoId);
+  const index = items.findIndex(
+    (item) =>
+      item.repoFullName === repoKey ||
+      (nextEntry.repoId && item.repoId === nextEntry.repoId) ||
+      (!nextEntry.repoId && item.title === nextEntry.title)
+  );
   if (index === -1) {
     items.unshift(nextEntry);
     return true;
@@ -341,9 +355,10 @@ exports.githubPortfolioSync = async (req, res) => {
     updatesData.version = updatesData.version || 1;
 
     const portfolioRepoKey = `${GITHUB_OWNER}/${GITHUB_REPO}`;
+    const publishRepoKeys = parseRepoSet(PUBLISH_REPOS, GITHUB_OWNER);
     const baseRepoKeys = new Set([
       ...extractGithubRepoKeys(constantsText),
-      ...parseExcludeRepos(EXCLUDE_REPOS, GITHUB_OWNER),
+      ...parseRepoSet(EXCLUDE_REPOS, GITHUB_OWNER),
       portfolioRepoKey,
     ]);
     const repos = await listRepos(token, GITHUB_OWNER);
@@ -352,7 +367,8 @@ exports.githubPortfolioSync = async (req, res) => {
 
     const recentRepos = repos.filter((repo) => {
       if (repo.archived || repo.fork) return false;
-      if (!INCLUDE_PRIVATE_REPOS && repo.private) return false;
+      if (publishRepoKeys.size > 0 && !publishRepoKeys.has(repo.full_name)) return false;
+      if (repo.private && (!INCLUDE_PRIVATE_REPOS || !publishRepoKeys.has(repo.full_name))) return false;
       const createdAt = Date.parse(repo.created_at);
       return now - createdAt <= lookbackMs;
     });
@@ -400,21 +416,26 @@ exports.githubPortfolioSync = async (req, res) => {
 
       const title = buildTitle(repo.name);
       const description = repo.description || 'New project added from GitHub.';
+      const repoPublicMetadata = repo.private
+        ? {}
+        : {
+            repoFullName: repoKey,
+            repoId: repo.id,
+            createdAt: repo.created_at,
+          };
 
       const latestEntry = {
         title,
         description,
         links,
-        repoFullName: repoKey,
-        repoId: repo.id,
-        createdAt: repo.created_at,
+        ...repoPublicMetadata,
       };
 
       touched = upsertByRepoKey(updatesData.latestUpdates, repoKey, latestEntry) || touched;
 
       if (shouldPromote) {
         const projectEntry = {
-          id: repo.id,
+          id: repo.private ? buildSyntheticRepoId(repoKey) : repo.id,
           title,
           description,
           longDescription: description,
@@ -428,9 +449,7 @@ exports.githubPortfolioSync = async (req, res) => {
           links,
           images: [{ url: PLACEHOLDER_IMAGE, alt: `${title} preview` }],
           thumbnail: PLACEHOLDER_IMAGE,
-          repoFullName: repoKey,
-          repoId: repo.id,
-          createdAt: repo.created_at,
+          ...repoPublicMetadata,
         };
 
         touched = upsertByRepoKey(updatesData.projects, repoKey, projectEntry) || touched;

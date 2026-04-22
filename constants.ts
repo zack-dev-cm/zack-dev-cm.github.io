@@ -413,11 +413,9 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     benchmarks: [
-      { label: "Lifetime users", value: "5k+", context: "operator-reported total since launch" },
-      { label: "Profiles in DB", value: "1,795", context: "internal snapshot, 2026-02-13" },
-      { label: "Sessions in DB", value: "1,738", context: "internal snapshot, 2026-02-13" },
-      { label: "DAU / WAU / MAU", value: "88 / 464 / 1,214", context: "prod pulse, 2026-02-13" },
-      { label: "Mini-app usage jump", value: "14 -> 1,144 events", context: "Feb 1-6 vs Feb 7-12, 2026 DB slice" }
+      { label: "Lifetime users", value: "5k+", context: "operator-reported public total since launch" },
+      { label: "Monthly nutrition activity", value: "1k+ users", context: "rounded public product snapshot" },
+      { label: "Mini-app adoption lift", value: "10x+", context: "rounded public launch comparison" }
     ],
     links: [
       { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },

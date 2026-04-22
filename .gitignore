@@ -5,3 +5,4 @@ test-results/
 scripts/capture-remote-screenshots.mjs
 .npm-cache/
 critical.md
+local-notes/

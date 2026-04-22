@@ -7,9 +7,10 @@
     "dev": "vite",
     "stats:clawhub": "node scripts/fetch-clawhub-stats.mjs",
     "validate": "node scripts/validate-portfolio.mjs",
+    "security:gate": "node scripts/security-gate.mjs",
     "prebuild": "node scripts/generate-project-markdown.mjs && node scripts/validate-portfolio.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/postbuild.mjs",
+    "postbuild": "node scripts/postbuild.mjs && node scripts/security-gate.mjs",
     "preview": "vite preview",
     "test:e2e": "playwright test",
     "check:links": "node scripts/check-links.mjs"
