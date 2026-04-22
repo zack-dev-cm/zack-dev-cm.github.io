@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { TelegramIcon } from './Icons';
+import { DownloadIcon, TelegramIcon } from './Icons';
 
 interface FloatingButtonsProps {
   telegramUrl: string;
+  resumeUrl: string;
 }
 
-export const FloatingButtons: React.FC<FloatingButtonsProps> = ({ telegramUrl }) => {
+export const FloatingButtons: React.FC<FloatingButtonsProps> = ({ telegramUrl, resumeUrl }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -35,6 +36,15 @@ export const FloatingButtons: React.FC<FloatingButtonsProps> = ({ telegramUrl })
         className="floating-action floating-action--telegram"
       >
         <TelegramIcon className="h-5 w-5" />
+      </a>
+      <a
+        href={resumeUrl}
+        download
+        aria-label="Download resume PDF"
+        tabIndex={isVisible ? 0 : -1}
+        className="floating-action floating-action--resume"
+      >
+        <DownloadIcon className="h-5 w-5" />
       </a>
       <button
         onClick={scrollToTop}

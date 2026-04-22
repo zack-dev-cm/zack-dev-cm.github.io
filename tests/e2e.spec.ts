@@ -19,6 +19,14 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Latest Updates' })).toBeVisible();
 
+  const resumePath = '/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf';
+  const resumeLink = page.getByRole('link', { name: /Download resume/i }).first();
+  await expect(resumeLink).toBeVisible();
+  await expect(resumeLink).toHaveAttribute('href', resumePath);
+  const resumeResponse = await page.request.get(resumePath);
+  expect(resumeResponse.status()).toBe(200);
+  expect(resumeResponse.headers()['content-type']).toContain('application/pdf');
+
   // Card presence: ensure at least one project card renders
   const cards = page.getByTestId('project-card');
   await expect(cards.first()).toBeVisible();

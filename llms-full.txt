@@ -1,14 +1,14 @@
 # Zakhar Pashkin - Portfolio Memory File
 
-Summary: AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.
+Summary: Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
 ## Focus Areas
-- Python, PyTorch, OpenAI APIs, VLMs, LLMs
-- Computer vision, OCR, segmentation, multimodal systems
-- FastAPI services, Open MCP tooling, full-stack delivery
-- React, TypeScript, Cloud Run, MLOps
+- Python, PyTorch, OpenCV, TensorFlow, ONNX, TFLite, CoreML
+- Computer vision, OCR, segmentation, detection, landmarking, multimodal systems
+- FastAPI services, review gates, benchmark dashboards, MLOps
+- React, TypeScript, Cloud Run, Docker, Kubernetes, GCP/AWS
 
 ## Top 5 Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.

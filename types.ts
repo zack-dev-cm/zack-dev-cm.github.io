@@ -61,6 +61,7 @@ export interface SocialLinks {
   githubPrimary: string;
   githubSecondary: string;
   telegram: string;
+  resume: string;
 }
 
 export interface AuthorInfo {

@@ -5,10 +5,10 @@
       "@type": "Person",
       "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin",
       "name": "Zakhar Pashkin",
-      "jobTitle": "AI Product Engineer",
+      "jobTitle": "Senior Computer Vision Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.",
       "sameAs": [
         "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
         "https://github.com/zack-dev-cm",
@@ -19,9 +19,9 @@
     {
       "@type": "WebSite",
       "@id": "https://zack-dev-cm.github.io/#website",
-      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
+      "name": "Zakhar Pashkin - Senior Computer Vision Engineer Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -31,10 +31,10 @@
       "@type": "WebPage",
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
-      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
-      "description": "AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.",
+      "name": "Zakhar Pashkin - Senior Computer Vision Engineer Portfolio",
+      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.",
       "inLanguage": "en",
-      "dateModified": "2026-04-17",
+      "dateModified": "2026-04-22",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },

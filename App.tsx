@@ -4,7 +4,7 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
-import { GitHubIcon, LinkedInIcon, MailIcon } from './components/Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './components/Icons';
 import {
   PROJECTS,
   COMPANIES,
@@ -746,15 +746,19 @@ const App: React.FC = () => {
 
         <main className="content-column">
           <section id="intro" className="hero">
-            <p className="hero__eyebrow">AI product engineer</p>
-            <h1 className="hero__title">AI products built for production constraints.</h1>
+            <p className="hero__eyebrow">Senior Computer Vision Engineer</p>
+            <h1 className="hero__title">Computer vision systems built for production constraints.</h1>
             <p className="hero__lead">
-              {AUTHOR_INFO.bio} I turn unclear product ideas into production-ready automations, computer
-              vision services, and product surfaces that are actually ready to launch.
+              {AUTHOR_INFO.bio} I turn ambiguous CV problems into tested models, APIs, edge
+              deployments, and product surfaces with review gates before release.
             </p>
             <div className="hero__actions">
               <a href="#featured" className="button button--primary">
                 View featured solutions
+              </a>
+              <a href={SOCIAL_LINKS.resume} download className="button button--ghost">
+                <DownloadIcon className="h-4 w-4" />
+                Download resume
               </a>
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
                 Start a project
@@ -1205,7 +1209,7 @@ const App: React.FC = () => {
             id="contact"
             eyebrow="Contact"
             title="Let's Connect"
-            description="If you need an AI product engineer who can translate ambition into shipped systems, reach out."
+            description="If you need a senior computer vision engineer who can translate ambiguous requirements into shipped systems, reach out."
           >
             <div className="contact-grid">
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="contact-card">
@@ -1239,6 +1243,13 @@ const App: React.FC = () => {
                   <span>Public repos and case studies</span>
                 </div>
               </a>
+              <a href={SOCIAL_LINKS.resume} download className="contact-card">
+                <DownloadIcon className="contact-card__icon" />
+                <div>
+                  <strong>Resume</strong>
+                  <span>Download PDF</span>
+                </div>
+              </a>
             </div>
           </Section>
 
@@ -1259,7 +1270,7 @@ const App: React.FC = () => {
         />
       )}
 
-      <FloatingButtons telegramUrl={SOCIAL_LINKS.telegram} />
+      <FloatingButtons telegramUrl={SOCIAL_LINKS.telegram} resumeUrl={SOCIAL_LINKS.resume} />
     </div>
   );
 };

@@ -6,8 +6,8 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "AI Product Engineer - Automation, Computer Vision, Launch Delivery",
-  bio: "I build AI products and open-source tools for real-world deployment: automation with human review, research tooling, computer vision services, and production apps across web, mobile, and cloud."
+  title: "Senior Computer Vision Engineer - Production ML & Edge AI",
+  bio: "I build production computer vision systems: OCR, segmentation, detection, edge inference, data pipelines, and human-reviewed ML services that survive launch."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -15,7 +15,8 @@ export const SOCIAL_LINKS: SocialLinks = {
   email: "kaisenaiko@gmail.com",
   githubPrimary: "https://github.com/zack-dev-cm",
   githubSecondary: "https://github.com/ZackPashkin",
-  telegram: "https://t.me/rheuiii"
+  telegram: "https://t.me/rheuiii",
+  resume: resolveAssetUrl('resume/zakhar-pashkin-senior-computer-vision-engineer.pdf')
 };
 
 export const COMPANIES: Company[] = [
@@ -32,9 +33,9 @@ export const COMPANIES: Company[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "7+ years shipping CV/ML systems from OCR and segmentation to VLM/LLM production workflows.",
+  "7+ years shipping CV/ML systems across OCR, segmentation, detection, edge inference, and production APIs.",
   "52 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
-  "Built for teams that needed working systems, not concept decks."
+  "Review-gated delivery with benchmark evidence, human approvals, rollback paths, and measurable production outcomes."
 ];
 
 export const TECH_STACK: string[] = [

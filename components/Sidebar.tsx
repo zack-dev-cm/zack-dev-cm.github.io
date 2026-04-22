@@ -1,6 +1,6 @@
 import React from 'react';
 import { AUTHOR_INFO, SOCIAL_LINKS } from '../constants';
-import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
 
 const NAV_ITEMS = [
   { name: 'Intro', href: '#intro' },
@@ -58,6 +58,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount,
         <div className="profile-panel__actions">
           <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--primary button--block">
             Email me
+          </a>
+          <a
+            href={SOCIAL_LINKS.resume}
+            download
+            className="button button--ghost button--block"
+          >
+            <DownloadIcon className="h-4 w-4" />
+            Resume PDF
           </a>
           <a
             href={SOCIAL_LINKS.linkedin}

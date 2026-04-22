@@ -963,7 +963,7 @@ pre {
 }
 
 .contact-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .contact-card {
@@ -1160,6 +1160,12 @@ pre {
 .floating-action--telegram {
   background: #229ed9;
   color: white;
+  border-color: transparent;
+}
+
+.floating-action--resume {
+  background: linear-gradient(135deg, var(--accent), #60a5fa);
+  color: #04111e;
   border-color: transparent;
 }
 

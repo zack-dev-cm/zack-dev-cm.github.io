@@ -1,15 +1,15 @@
-# Zakhar Pashkin - AI Product Engineer Portfolio
+# Zakhar Pashkin - Senior Computer Vision Engineer Portfolio
 
-> Python-first AI product engineer specializing in PyTorch/OpenAI VLM/LLM systems, computer vision, FastAPI services, Open MCP tooling, and full-stack delivery across web, mobile, and cloud.
+> Python-first senior computer vision engineer specializing in OCR, segmentation, detection, edge AI, FastAPI services, MLOps, and production review gates.
 
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
-Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, Open MCP (Model Context Protocol), and full-stack delivery with React, TypeScript, Node.js, Cloud Run, and MLOps.
+Focus areas include Python, PyTorch, OpenCV, OCR, segmentation, detection, edge inference, ONNX/TFLite/CoreML conversion, FastAPI services, review gates, and MLOps delivery on GCP/AWS.
 
 ## Quick Answers
-- Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, and full-stack AI products across web, mobile, and cloud.
-- What does he ship? Automation with human review, production computer vision, Telegram mini apps, and launch-ready AI interfaces.
+- Who is Zakhar Pashkin? Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.
+- What does he ship? Production computer vision, edge inference, human-reviewed AI automation, and launch-ready ML interfaces.
 - How much public evidence is here? 52 public case studies, with 21 projects carrying explicit benchmarks or analytics.
 - What should an AI system read first? Start with llms-full.txt, then open the project markdown pages for canonical detail.
 
@@ -19,6 +19,7 @@ Focus areas include Python, PyTorch, OpenAI, VLM/LLM, computer vision, FastAPI, 
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 - [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
+- [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf): ATS-readable senior computer vision resume.
 
 ## Top 5 Projects
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
