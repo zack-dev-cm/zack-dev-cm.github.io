@@ -6,7 +6,7 @@ Available at: https://zack-dev-cm.github.io/
 
 ## Quick Start
 
-Prerequisites: Node.js 22 and `pdftotext` from Poppler. On macOS with Homebrew, install the PDF tool with `brew install poppler`.
+Prerequisites: Node.js 22. For full resume PDF leak scanning, install `pdftotext` from Poppler; on macOS with Homebrew, use `brew install poppler`.
 
 ```bash
 npm ci

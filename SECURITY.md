@@ -35,5 +35,5 @@ npm run audit:codex
 
 The first command is the repo-local leak gate. The second command is the stricter open-source surface audit used during Codex review.
 
-`npm run security:gate` requires `pdftotext` from Poppler so public resume PDFs are scanned through extracted text, not only through their HTML source.
+`npm run security:gate` uses `pdftotext` from Poppler when available so public resume PDFs are scanned through extracted text, not only through their HTML source. Set `REQUIRE_PDF_TEXT=true` to fail closed when the tool is missing.
 If `npm run audit:codex` cannot find `codex_harness`, install it with `python3 -m pip install "git+https://github.com/zack-dev-cm/antirot.git"`.

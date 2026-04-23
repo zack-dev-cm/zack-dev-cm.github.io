@@ -90,6 +90,7 @@ const PUBLIC_INSTRUCTION_BLEED_PATTERNS = [
 const errors = [];
 const CODEX_DOCS_SOURCE = 'codex-docs';
 const CODEX_DOCS_OUTPUT = 'docs/codex';
+const REQUIRE_PDF_TEXT = process.env.REQUIRE_PDF_TEXT === 'true';
 
 const toRelative = (filePath) => path.relative(ROOT_DIR, filePath).split(path.sep).join('/');
 
@@ -231,6 +232,18 @@ const assertCodexDocsAreInSync = async () => {
 };
 
 const scanPublicPdfText = async () => {
+  try {
+    await execFileAsync('pdftotext', ['-v']);
+  } catch (error) {
+    const detail = error && error.code === 'ENOENT' ? 'pdftotext is not installed' : error.message;
+    if (REQUIRE_PDF_TEXT) {
+      errors.push(`PDF text scan is required but unavailable (${detail})`);
+    } else {
+      console.warn(`PDF text scan skipped: ${detail}`);
+    }
+    return;
+  }
+
   const pdfFiles = await collectPublicPdfs(ROOT_DIR);
   for (const file of pdfFiles) {
     let stdout;
