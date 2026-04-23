@@ -1,16 +1,16 @@
-# Zakhar Pashkin - Senior Computer Vision Engineer Portfolio
+# Zakhar Pashkin - AI Product Engineer Portfolio
 
-> Python-first senior computer vision engineer specializing in OCR, segmentation, detection, edge AI, FastAPI services, MLOps, and production review gates.
+> Python-first AI product engineer specializing in automation, computer vision, VLM/LLM workflows, FastAPI services, product launches, and production review gates.
 
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
-Focus areas include Python, PyTorch, OpenCV, OCR, segmentation, detection, edge inference, ONNX/TFLite/CoreML conversion, FastAPI services, review gates, and MLOps delivery on GCP/AWS.
+Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, segmentation, detection, FastAPI services, review gates, product launch workflows, and MLOps delivery on GCP/AWS.
 
 ## Quick Answers
-- Who is Zakhar Pashkin? Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.
-- What does he ship? Production computer vision, edge inference, human-reviewed AI automation, and launch-ready ML interfaces.
-- How much public evidence is here? 52 public case studies, with 21 projects carrying explicit benchmarks or analytics.
+- Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
+- What does he ship? Automation with human review, production computer vision, VLM/LLM workflows, and launch-ready AI product interfaces.
+- How much public evidence is here? 53 public case studies, with 22 projects carrying explicit benchmarks or analytics.
 - Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.
 
 ## AI Memory Files
@@ -19,14 +19,14 @@ Focus areas include Python, PyTorch, OpenCV, OCR, segmentation, detection, edge 
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 - [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
-- [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf): ATS-readable senior computer vision resume.
+- [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf): ATS-readable AI product engineer resume.
 
 ## Top 5 Projects
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
 - [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
-- [OpenClaw Workstream - Telegram Mini App QA & Launch Validation](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ## Projects (Markdown)
 - [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.
@@ -80,6 +80,7 @@ Focus areas include Python, PyTorch, OpenCV, OCR, segmentation, detection, edge 
 - [OpenClaw YouTube Publisher](https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md): Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.
 - [Artifact Redactor](https://zack-dev-cm.github.io/projects/artifact-redactor.md): Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
 - [Artifact Deck](https://zack-dev-cm.github.io/projects/artifact-deck.md): Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.
 - [HH OpenClaw Agent](https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md): Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 
 ## Core Pages

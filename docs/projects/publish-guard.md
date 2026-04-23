@@ -22,8 +22,8 @@ https://zack-dev-cm.github.io/projects/publish-guard.md
 - GitHub
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 84 (public ClawHub listing, 2026-04-17)
-- Published versions: 3 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 113 (live public ClawHub listing, 2026-04-23)
+- Published versions: 3 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)

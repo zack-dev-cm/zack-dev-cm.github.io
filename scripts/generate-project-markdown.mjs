@@ -19,18 +19,19 @@ const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
-const AUTHOR_TITLE = 'Senior Computer Vision Engineer';
+const AUTHOR_TITLE = 'AI Product Engineer';
 const AUTHOR_DESCRIPTION =
-  'Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.';
+  'AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.';
 const PORTFOLIO_TAGLINE =
-  'Production computer vision, edge AI, OCR and segmentation services, and launch-ready ML systems with review gates and measurable delivery evidence.';
+  'Automation with human review, computer vision services, Telegram mini apps, and full-stack AI products built for production constraints.';
 const PRIMARY_STACK_LINE =
-  'Python, PyTorch, OpenCV, TensorFlow, ONNX, TFLite, CoreML, FastAPI, Docker, Kubernetes, GCP/AWS, React, TypeScript';
-const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf`;
+  'Python, PyTorch, OpenAI APIs, VLMs, LLMs, OpenCV, FastAPI, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
+const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
+const LINKEDIN_URL = 'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/';
 const INDEX_SNAPSHOT_START = '<!-- STATIC_PORTFOLIO_SNAPSHOT_START -->';
 const INDEX_SNAPSHOT_END = '<!-- STATIC_PORTFOLIO_SNAPSHOT_END -->';
 const AUTHOR_SAME_AS = [
-  'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/',
+  LINKEDIN_URL,
   'https://github.com/zack-dev-cm',
   'https://github.com/ZackPashkin',
   'https://t.me/rheuiii'
@@ -352,7 +353,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     {
       title: 'Resume PDF',
       url: RESUME_URL,
-      description: 'ATS-readable senior computer vision resume.'
+      description: 'ATS-readable AI product engineer resume.'
     }
   ];
 
@@ -390,7 +391,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   return [
     '<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">',
     `  <p class="crawlable-shell__eyebrow">${escapeHtml(AUTHOR_TITLE)}</p>`,
-    '  <h1>Zakhar Pashkin builds computer vision systems for production constraints.</h1>',
+    '  <h1>Zakhar Pashkin builds AI products for production constraints.</h1>',
     `  <p class="crawlable-shell__lede">${escapeHtml(
       `${PORTFOLIO_TAGLINE} This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.`
     )}</p>`,
@@ -403,7 +404,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '  </div>',
     '  <ul class="crawlable-shell__stats" aria-label="Portfolio quick stats">',
     `    <li><strong>${projects.length}</strong><span>public case studies</span></li>`,
-    '    <li><strong>7+</strong><span>years shipping CV / ML systems</span></li>',
+    '    <li><strong>7+</strong><span>years shipping AI / CV systems</span></li>',
     `    <li><strong>${benchmarkedCount}</strong><span>projects with explicit benchmarks</span></li>`,
     `    <li><strong>${topProjects.length}</strong><span>featured case studies linked below</span></li>`,
     '  </ul>',
@@ -417,7 +418,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '      <div>',
     '        <dt>Best fit</dt>',
     `        <dd>${escapeHtml(
-          'Teams that need senior computer vision engineering, OCR and segmentation, edge AI, review-gated MLOps, or launch-ready product delivery.'
+          'Teams that need automation with human review, production computer vision, or launch-ready AI product delivery across web, mobile, and cloud.'
         )}</dd>`,
     '      </div>',
     '      <div>',
@@ -457,7 +458,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     `      <li><a href="${RESUME_URL}">Resume PDF</a></li>`,
     '      <li><a href="https://github.com/zack-dev-cm">GitHub primary profile</a></li>',
     '      <li><a href="https://github.com/ZackPashkin">GitHub secondary profile</a></li>',
-    '      <li><a href="https://www.linkedin.com/in/zakhar-pashkin-a524a6163/">LinkedIn</a></li>',
+    `      <li><a href="${LINKEDIN_URL}">LinkedIn</a></li>`,
     '      <li><a href="https://t.me/rheuiii">Telegram</a></li>',
     '    </ul>',
     '  </section>',
@@ -487,18 +488,18 @@ const updateIndexHtml = async (staticSnapshot, today) => {
 const buildLlms = (projects, topProjects) => {
   const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
   const lines = [
-    `# ${AUTHOR_NAME} - Senior Computer Vision Engineer Portfolio`,
+    `# ${AUTHOR_NAME} - AI Product Engineer Portfolio`,
     '',
-    '> Python-first senior computer vision engineer specializing in OCR, segmentation, detection, edge AI, FastAPI services, MLOps, and production review gates.',
+    '> Python-first AI product engineer specializing in automation, computer vision, VLM/LLM workflows, FastAPI services, product launches, and production review gates.',
     '',
     `Primary URL: ${SITE_BASE}/`,
     `Contact: mailto:${CONTACT_EMAIL}`,
     '',
-    'Focus areas include Python, PyTorch, OpenCV, OCR, segmentation, detection, edge inference, ONNX/TFLite/CoreML conversion, FastAPI services, review gates, and MLOps delivery on GCP/AWS.',
+    'Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, segmentation, detection, FastAPI services, review gates, product launch workflows, and MLOps delivery on GCP/AWS.',
     '',
     '## Quick Answers',
     `- Who is Zakhar Pashkin? ${AUTHOR_DESCRIPTION}`,
-    '- What does he ship? Production computer vision, edge inference, human-reviewed AI automation, and launch-ready ML interfaces.',
+    '- What does he ship? Automation with human review, production computer vision, VLM/LLM workflows, and launch-ready AI product interfaces.',
     `- How much public evidence is here? ${projects.length} public case studies, with ${benchmarkedCount} projects carrying explicit benchmarks or analytics.`,
     '- Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.',
     '',
@@ -508,7 +509,7 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
-    formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable senior computer vision resume.'),
+    formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable AI product engineer resume.'),
     '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -533,7 +534,7 @@ const buildLlms = (projects, topProjects) => {
     '## Profiles',
     formatLinkLine('GitHub', 'https://github.com/zack-dev-cm', 'Primary repositories and open-source work.'),
     formatLinkLine('GitHub (Alt)', 'https://github.com/ZackPashkin', 'Secondary repositories.'),
-    formatLinkLine('LinkedIn', 'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/', 'Professional profile and experience.'),
+    formatLinkLine('LinkedIn', LINKEDIN_URL, 'Professional profile and experience.'),
     '',
     '## Optional',
     formatLinkLine('Telegram', 'https://t.me/rheuiii', 'Fast contact channel.'),
@@ -695,7 +696,7 @@ const buildSchemaJsonld = (projects) => {
     {
       '@type': 'WebSite',
       '@id': `${SITE_BASE}/#website`,
-      name: `${AUTHOR_NAME} - Senior Computer Vision Engineer Portfolio`,
+      name: `${AUTHOR_NAME} - AI Product Engineer Portfolio`,
       url: `${SITE_BASE}/`,
       description: AUTHOR_DESCRIPTION,
       inLanguage: 'en',
@@ -705,7 +706,7 @@ const buildSchemaJsonld = (projects) => {
       '@type': 'WebPage',
       '@id': `${SITE_BASE}/#webpage`,
       url: `${SITE_BASE}/`,
-      name: `${AUTHOR_NAME} - Senior Computer Vision Engineer Portfolio`,
+      name: `${AUTHOR_NAME} - AI Product Engineer Portfolio`,
       description: AUTHOR_DESCRIPTION,
       inLanguage: 'en',
       dateModified: today,
@@ -800,11 +801,11 @@ const main = async () => {
   }
 
   const topProjectTitles = [
+    'GitHub + ClawHub Downloads Tracker',
     'OpenClaw Sales Manager Automation for a Multi-Clinic Chain',
-    'GeoFix - AI Visibility Memorizer Mini App',
     'CV Repro Lab Skills',
-    'Pores & Wrinkles Detection Service',
-    'OpenClaw Workstream - Telegram Mini App QA & Launch Validation'
+    'GeoFix - AI Visibility Memorizer Mini App',
+    'Pores & Wrinkles Detection Service'
   ].map(toAscii);
 
   const topProjects = topProjectTitles.map((title) =>

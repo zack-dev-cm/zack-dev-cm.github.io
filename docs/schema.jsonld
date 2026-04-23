@@ -5,10 +5,10 @@
       "@type": "Person",
       "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin",
       "name": "Zakhar Pashkin",
-      "jobTitle": "Senior Computer Vision Engineer",
+      "jobTitle": "AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.",
+      "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "sameAs": [
         "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
         "https://github.com/zack-dev-cm",
@@ -19,9 +19,9 @@
     {
       "@type": "WebSite",
       "@id": "https://zack-dev-cm.github.io/#website",
-      "name": "Zakhar Pashkin - Senior Computer Vision Engineer Portfolio",
+      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.",
+      "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -31,10 +31,10 @@
       "@type": "WebPage",
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
-      "name": "Zakhar Pashkin - Senior Computer Vision Engineer Portfolio",
-      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.",
+      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
+      "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-04-22",
+      "dateModified": "2026-04-23",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 52,
+      "numberOfItems": 53,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -715,6 +715,19 @@
         {
           "@type": "ListItem",
           "position": 52,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "GitHub + ClawHub Downloads Tracker",
+            "description": "CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.",
+            "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

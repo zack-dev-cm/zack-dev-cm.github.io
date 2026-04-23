@@ -39,7 +39,7 @@ export const FloatingButtons: React.FC<FloatingButtonsProps> = ({ telegramUrl, r
       </a>
       <a
         href={resumeUrl}
-        download
+        download="zakhar-pashkin-ai-product-engineer-resume.pdf"
         aria-label="Download resume PDF"
         tabIndex={isVisible ? 0 : -1}
         className="floating-action floating-action--resume"

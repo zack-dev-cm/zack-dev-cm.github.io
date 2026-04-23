@@ -1,5 +1,7 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 
+process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY ??= '1';
+
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173';
 const isLocalBase = baseURL.includes('127.0.0.1') || baseURL.includes('localhost');
 const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === 'true';

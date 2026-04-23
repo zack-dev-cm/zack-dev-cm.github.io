@@ -7,6 +7,37 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 const constantsPath = path.join(repoRoot, 'constants.ts');
+const PUBLIC_URL_SOURCE_FILES = [
+  'README.md',
+  'AGENTS.md',
+  'CONTRIBUTING.md',
+  'SECURITY.md',
+  '.github/pull_request_template.md',
+  'constants.ts',
+  'index.html',
+  'agent-context.md',
+  'geo.txt',
+  'llms.txt',
+  'llms-full.txt',
+  'metadata.json',
+  'schema.jsonld',
+  'sitemap.xml',
+  'docs/index.html',
+  'docs/404.html',
+  'docs/agent-context.md',
+  'docs/geo.txt',
+  'docs/llms.txt',
+  'docs/llms-full.txt',
+  'docs/metadata.json',
+  'docs/schema.jsonld',
+  'docs/sitemap.xml',
+];
+const PUBLIC_URL_SOURCE_DIRECTORIES = [
+  'projects',
+  'codex-docs',
+  'public',
+  'docs',
+];
 
 const src = await readFile(constantsPath, 'utf8');
 
@@ -39,13 +70,61 @@ if (missingAssets.length > 0) {
   console.log(`Local assets OK (${imageFiles.size + logoFiles.size} checked).`);
 }
 
-const urlMatches = src.match(/https?:\/\/[^'\"`\s)]+/g) ?? [];
+const collectTextFiles = (directory) => {
+  const absoluteDirectory = path.join(repoRoot, directory);
+  if (!fs.existsSync(absoluteDirectory)) return [];
+  return fs
+    .readdirSync(absoluteDirectory, { withFileTypes: true })
+    .flatMap((entry) => {
+      const relativePath = path.join(directory, entry.name).split(path.sep).join('/');
+      const absolutePath = path.join(repoRoot, relativePath);
+      if (entry.isDirectory()) return collectTextFiles(relativePath);
+      if (!entry.isFile()) return [];
+      if (!/\.(?:html|json|jsonld|md|txt|xml)$/i.test(entry.name)) return [];
+      return [absolutePath];
+    });
+};
+
+const urlSourceFiles = [
+  ...PUBLIC_URL_SOURCE_FILES.map((file) => path.join(repoRoot, file)),
+  ...PUBLIC_URL_SOURCE_DIRECTORIES.flatMap((directory) => collectTextFiles(directory)),
+].filter((file, index, files) => fs.existsSync(file) && files.indexOf(file) === index);
+
+const normalizeUrl = (url) => url.replace(/[.,;:!?]+$/g, '');
+const urlMatches = [];
+for (const file of urlSourceFiles) {
+  const text = fs.readFileSync(file, 'utf8');
+  urlMatches.push(...(text.match(/https?:\/\/[^'\"`\s)<>\]]+/g) ?? []).map(normalizeUrl));
+}
 const urls = [...new Set(urlMatches)].sort();
 
 const warningStatuses = new Set([401, 403, 429, 999]);
+const siteHost = 'zack-dev-cm.github.io';
+const ignoredUrls = new Set([
+  'https://fonts.googleapis.com',
+  'https://fonts.gstatic.com',
+]);
 const userAgent =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const resolveOwnSiteUrl = (url) => {
+  const parsed = new URL(url);
+  if (parsed.hostname !== siteHost) return null;
+
+  const pathname = decodeURIComponent(parsed.pathname);
+  const normalizedPath = pathname === '/' ? '/index.html' : pathname;
+  const relativePath = normalizedPath.replace(/^\/+/, '');
+  if (relativePath.includes('..')) return null;
+
+  const candidates = [
+    path.join(repoRoot, relativePath),
+    path.join(repoRoot, 'docs', relativePath),
+    path.join(repoRoot, 'docs', relativePath.replace(/^docs\//, '')),
+  ];
+
+  return candidates.find((candidate) => fs.existsSync(candidate)) ?? null;
+};
 
 const fetchWithTimeout = async (url, timeoutMs = 15000) => {
   const controller = new AbortController();
@@ -81,10 +160,20 @@ const fetchWithRetry = async (url, attempts = 3) => {
 };
 
 const checkUrl = async (url) => {
+  let parsed;
   try {
-    new URL(url);
+    parsed = new URL(url);
   } catch (error) {
     return { url, status: 'invalid', error: error?.message || 'Invalid URL' };
+  }
+
+  const localSitePath = parsed ? resolveOwnSiteUrl(url) : null;
+  if (localSitePath) {
+    return { url, status: 200, localPath: localSitePath };
+  }
+
+  if (ignoredUrls.has(parsed.origin) && parsed.pathname === '/') {
+    return { url, status: 200, ignored: true };
   }
 
   try {

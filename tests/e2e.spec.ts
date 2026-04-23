@@ -14,8 +14,8 @@ const gotoPortfolio = async (page: Page) => {
 const resumePath = () => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
   return baseUrl.includes('pages.dev')
-    ? '/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf'
-    : '/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf';
+    ? '/resume/zakhar-pashkin-ai-product-engineer-resume.pdf'
+    : '/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf';
 };
 
 test('homepage renders core sections and project discovery controls', async ({ page }) => {
@@ -32,6 +32,16 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const resumeResponse = await page.request.get(resumePath());
   expect(resumeResponse.status()).toBe(200);
   expect(resumeResponse.headers()['content-type']).toContain('application/pdf');
+
+  await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute(
+    'href',
+    'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/'
+  );
+
+  const clawHubSection = page.locator('#clawhub');
+  await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
+  await expect(clawHubSection.getByText('1,349')).toBeVisible();
+  await expect(clawHubSection.getByText(/downloads across 10 public packages/i)).toBeVisible();
 
   // Card presence: ensure at least one project card renders
   const cards = page.getByTestId('project-card');
@@ -65,7 +75,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   }
 
   const latestSection = page.locator('#latest');
-  await expect(page.locator('#featured').getByText('AntiRot', { exact: false })).toBeVisible();
+  await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('AntiRot', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Probes', { exact: false })).toBeVisible();
 

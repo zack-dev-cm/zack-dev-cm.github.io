@@ -80,6 +80,16 @@ export interface LatestUpdate {
   createdAt?: string;
 }
 
+export interface ClawHubDownloadStat {
+  slug: string;
+  displayName: string;
+  downloads: number;
+  versions: number;
+  stars: number;
+  url: string;
+  checkedAt: string;
+}
+
 export interface PortfolioUpdates {
   version?: number;
   lastSyncedAt?: string | null;

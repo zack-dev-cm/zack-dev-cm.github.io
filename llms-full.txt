@@ -1,6 +1,6 @@
 # Zakhar Pashkin - Portfolio Memory File
 
-Summary: Senior computer vision engineer shipping OCR, segmentation, detection, edge inference, and production ML services across mobile, cloud, and human-reviewed workflows.
+Summary: AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
@@ -11,11 +11,11 @@ Contact: mailto:kaisenaiko@gmail.com
 - React, TypeScript, Cloud Run, Docker, Kubernetes, GCP/AWS
 
 ## Top 5 Projects
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
 - [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
-- [OpenClaw Workstream - Telegram Mini App QA & Launch Validation](https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md): OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops. OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ## Projects (Full Details)
 ### Android Remote Control with VLM AI Agents
@@ -32,7 +32,7 @@ Tech Stack:
 - Server-side AI
 Benchmarks & Analytics:
 - Components: 2 (Android client + Python server)
-- Supported actions: 7 (tap/scroll/text/home/back/overview/screenshot)
+- Supported actions: 7 (tap, scroll, text, home, back, overview, screenshot)
 - API endpoints: 8+ (healthz, metrics, devices, actions, screenshots, debug)
 Links:
 - View Demo Video: https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing
@@ -244,7 +244,7 @@ Tech Stack:
 - JavaScript
 - GitHub API
 Benchmarks & Analytics:
-- Public Chrome Web Store users: 110 (listing snapshot, 2026-04-17)
+- Public Chrome Web Store users: 108 (listing snapshot, 2026-04-23)
 Links:
 - View on Chrome Web Store: https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm
 - View on GitHub: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin
@@ -262,7 +262,7 @@ Tech Stack:
 - JavaScript
 - UI/UX
 Benchmarks & Analytics:
-- Public Chrome Web Store users: 68 (listing snapshot, 2026-04-17)
+- Public Chrome Web Store users: 68 (listing snapshot, 2026-04-23)
 Links:
 - View on Chrome Web Store: https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en
 
@@ -768,8 +768,8 @@ Tech Stack:
 - MLOps
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 419 total (public ClawHub listings, 2026-04-17 (208 data-science-cv-repro-lab + 211 sota-agent))
-- Published versions: 17 total (public ClawHub listings, 2026-04-17 (8 + 9 packages))
+- ClawHub downloads: 457 total (live public ClawHub listings, 2026-04-23 (226 data-science-cv-repro-lab + 231 sota-agent))
+- Published versions: 17 total (live public ClawHub listings, 2026-04-23 (8 + 9 packages))
 - Live packages: 2 (data-science-cv-repro-lab + sota-agent)
 - Current versions: v1.9.1 / v1.4.1 (ClawHub releases)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
@@ -840,8 +840,8 @@ Tech Stack:
 - Release Engineering
 - OpenClaw Skills
 Benchmarks & Analytics:
-- ClawHub downloads: 80 (public ClawHub listing, 2026-04-17)
-- Published versions: 3 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 103 (live public ClawHub listing, 2026-04-23)
+- Published versions: 3 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
@@ -867,8 +867,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 79 (public ClawHub listing, 2026-04-17)
-- Published versions: 3 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 123 (live public ClawHub listing, 2026-04-23)
+- Published versions: 4 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Evidence fields: 5 (screenshot, dom, console, network, video)
@@ -894,8 +894,8 @@ Tech Stack:
 - OpenClaw Skills
 - GitHub
 Benchmarks & Analytics:
-- ClawHub downloads: 84 (public ClawHub listing, 2026-04-17)
-- Published versions: 3 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 113 (live public ClawHub listing, 2026-04-23)
+- Published versions: 3 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)
@@ -924,8 +924,8 @@ Tech Stack:
 - Suno
 - GitHub Actions
 Benchmarks & Analytics:
-- ClawHub downloads: 101 (public ClawHub listing, 2026-04-17)
-- Published versions: 11 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 167 (live public ClawHub listing, 2026-04-23)
+- Published versions: 11 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)
@@ -953,8 +953,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 78 (public ClawHub listing, 2026-04-17)
-- Published versions: 6 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 104 (live public ClawHub listing, 2026-04-23)
+- Published versions: 6 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (private url, path, secret, email, phone, public-url query cleanup)
@@ -982,8 +982,8 @@ Tech Stack:
 - PPTX
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 37 (public ClawHub listing, 2026-04-17)
-- Published versions: 4 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 61 (live public ClawHub listing, 2026-04-23)
+- Published versions: 4 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)
@@ -992,6 +992,34 @@ Links:
 - View on GitHub: https://github.com/zack-dev-cm/artifact-deck
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/artifact-deck
 - Release v1.0.3: https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3
+
+### GitHub + ClawHub Downloads Tracker
+Summary: CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.
+Details: GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub downloads visible in the portfolio instead of burying them inside separate package pages.
+Project URL: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
+Key Features:
+- Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction
+- Parses copied publisher dashboard stats for downloads, stars, version counts, and explicit-only skills
+- Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace
+- Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting
+Tech Stack:
+- Python
+- CLI
+- GitHub API
+- ClawHub Convex
+- JSON Snapshots
+- Markdown Reports
+- Open-source Analytics
+Benchmarks & Analytics:
+- Tracked ClawHub downloads: 1,349 (live public ClawHub listings, 2026-04-23 across 10 packages)
+- Tracked packages: 10 (CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher)
+- CV Repro Lab downloads: 457 total (226 data-science-cv-repro-lab + 231 sota-agent, 2026-04-23)
+- Strongest package: 231 downloads (sota-agent live public listing, 2026-04-23)
+- Report outputs: 3 (text, JSON, Markdown)
+- Projection horizon: 30 days (pace and peer-conversion upside scenarios)
+Links:
+- Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
+- Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
@@ -1009,8 +1037,8 @@ Tech Stack:
 - OpenClaw Skills
 - Career Automation
 Benchmarks & Analytics:
-- ClawHub downloads: 82 (public ClawHub listing, 2026-04-17)
-- Published versions: 6 (public ClawHub listing, 2026-04-17)
+- ClawHub downloads: 112 (live public ClawHub listing, 2026-04-23)
+- Published versions: 6 (live public ClawHub listing, 2026-04-23)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Approval gate: required (review must be approved before submit)

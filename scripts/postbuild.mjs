@@ -22,7 +22,10 @@ const extraFiles = [
   'metadata.json',
   'favicon.svg'
 ];
-const extraDirectories = ['projects'];
+const extraDirectories = [
+  { source: 'projects', destination: 'projects' },
+  { source: 'codex-docs', destination: 'codex' }
+];
 
 try {
   await copyFile(source, destination);
@@ -47,16 +50,16 @@ try {
   });
   await Promise.all(extraCopies);
 
-  const extraDirectoryCopies = extraDirectories.map(async (directory) => {
+  const extraDirectoryCopies = extraDirectories.map(async ({ source: directory, destination }) => {
     const src = resolve(rootDir, directory);
-    const dest = resolve(outDir, directory);
+    const dest = resolve(outDir, destination);
     try {
       await rm(dest, { recursive: true, force: true });
       await cp(src, dest, { recursive: true });
       console.log(`Copied ${src} to ${dest}`);
     } catch (error) {
       if (error && error.code === 'ENOENT') {
-        console.warn(`Missing ${src}; skipped`);
+        throw new Error(`Required postbuild directory is missing: ${src}`);
       } else {
         throw error;
       }

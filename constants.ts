@@ -1,13 +1,13 @@
 import { resolveAssetUrl } from './utils/assets';
-import type { Project, Company, SocialLinks, AuthorInfo, LatestUpdate } from './types';
+import type { Project, Company, SocialLinks, AuthorInfo, LatestUpdate, ClawHubDownloadStat } from './types';
 
 const LOCAL_IMG_BASE = resolveAssetUrl('images');
 const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "Senior Computer Vision Engineer - Production ML & Edge AI",
-  bio: "I build production computer vision systems: OCR, segmentation, detection, edge inference, data pipelines, and human-reviewed ML services that survive launch."
+  title: "AI Product Engineer - Computer Vision, VLM/LLM Systems",
+  bio: "I build AI products that combine automation, computer vision, VLM/LLM workflows, backend delivery, and human-reviewed launch gates."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -16,7 +16,7 @@ export const SOCIAL_LINKS: SocialLinks = {
   githubPrimary: "https://github.com/zack-dev-cm",
   githubSecondary: "https://github.com/ZackPashkin",
   telegram: "https://t.me/rheuiii",
-  resume: resolveAssetUrl('resume/zakhar-pashkin-senior-computer-vision-engineer.pdf')
+  resume: resolveAssetUrl('resume/zakhar-pashkin-ai-product-engineer-resume.pdf')
 };
 
 export const COMPANIES: Company[] = [
@@ -33,9 +33,9 @@ export const COMPANIES: Company[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "7+ years shipping CV/ML systems across OCR, segmentation, detection, edge inference, and production APIs.",
-  "52 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, and cloud delivery.",
-  "Review-gated delivery with benchmark evidence, human approvals, rollback paths, and measurable production outcomes."
+  "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
+  "53 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, cloud delivery, and open-source release systems.",
+  "1,349 tracked ClawHub downloads across 10 public packages, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -52,7 +52,108 @@ export const LATEST_UPDATE_EXCLUDE_PATTERNS: RegExp[] = [
   /inside\s+zakhar\s+pashkin/i
 ];
 
+export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
+  {
+    slug: "sota-agent",
+    displayName: "SOTA Agent",
+    downloads: 231,
+    versions: 9,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/sota-agent",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "data-science-cv-repro-lab",
+    displayName: "Data Science CV Repro Lab",
+    downloads: 226,
+    versions: 8,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "youtube-creator-ops",
+    displayName: "OpenClaw YouTube Publisher",
+    downloads: 167,
+    versions: 11,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "browser-proof",
+    displayName: "Browser Proof",
+    downloads: 123,
+    versions: 4,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/browser-proof",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "public-surface-review",
+    displayName: "Publish Guard",
+    downloads: 113,
+    versions: 3,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "hh-openclaw-agent",
+    displayName: "HH OpenClaw Agent",
+    downloads: 112,
+    versions: 6,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "openclaw-cws-publisher",
+    displayName: "OpenClaw CWS Publisher",
+    downloads: 109,
+    versions: 6,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "artifact-redactor",
+    displayName: "Artifact Redactor",
+    downloads: 104,
+    versions: 6,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "github-clawhub-launcher",
+    displayName: "GitHub + ClawHub Launcher",
+    downloads: 103,
+    versions: 3,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
+    checkedAt: "2026-04-23"
+  },
+  {
+    slug: "artifact-deck",
+    displayName: "Artifact Deck",
+    downloads: 61,
+    versions: 4,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
+    checkedAt: "2026-04-23"
+  }
+];
+
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "GitHub + ClawHub Downloads Tracker",
+    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, live ClawHub downloads, publisher dashboard stats, deltas, and next traction bets.",
+    links: [
+      { text: "Read tracker case study", url: "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md" }
+    ],
+    projectId: 53
+  },
   {
     title: "Artifact Deck",
     description: "New open-source release: a public OpenClaw skill that turns curated notes, status bullets, and screenshots into one reproducible PPTX deck with a share-safe summary.",
@@ -257,7 +358,7 @@ export const PROJECTS: Project[] = [
     techStack: ["Android", "Vision-Language Models", "Server-side AI"],
     benchmarks: [
       { label: "Components", value: "2", context: "Android client + Python server" },
-      { label: "Supported actions", value: "7", context: "tap/scroll/text/home/back/overview/screenshot" },
+      { label: "Supported actions", value: "7", context: "tap, scroll, text, home, back, overview, screenshot" },
       { label: "API endpoints", value: "8+", context: "healthz, metrics, devices, actions, screenshots, debug" }
     ],
     links: [
@@ -470,7 +571,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Privacy-first (local token usage)", "Automated repository structure summarization"],
     techStack: ["Chrome Extension", "JavaScript", "GitHub API"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "110", context: "listing snapshot, 2026-04-17" }
+      { label: "Public Chrome Web Store users", value: "108", context: "listing snapshot, 2026-04-23" }
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm" },
@@ -494,7 +595,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "68", context: "listing snapshot, 2026-04-17" }
+      { label: "Public Chrome Web Store users", value: "68", context: "listing snapshot, 2026-04-23" }
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" }
@@ -1049,8 +1150,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "419 total", context: "public ClawHub listings, 2026-04-17 (208 data-science-cv-repro-lab + 211 sota-agent)" },
-      { label: "Published versions", value: "17 total", context: "public ClawHub listings, 2026-04-17 (8 + 9 packages)" },
+      { label: "ClawHub downloads", value: "457 total", context: "live public ClawHub listings, 2026-04-23 (226 data-science-cv-repro-lab + 231 sota-agent)" },
+      { label: "Published versions", value: "17 total", context: "live public ClawHub listings, 2026-04-23 (8 + 9 packages)" },
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
       { label: "Current versions", value: "v1.9.1 / v1.4.1", context: "ClawHub releases" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
@@ -1137,8 +1238,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "80", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "3", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "103", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "3", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
@@ -1167,8 +1268,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "79", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "3", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "123", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "4", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
@@ -1197,8 +1298,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "84", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "3", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "113", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "3", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
@@ -1229,8 +1330,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "101", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "11", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "167", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "11", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
@@ -1260,8 +1361,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "78", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "104", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "6", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
@@ -1291,8 +1392,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "37", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "4", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "61", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "4", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
@@ -1309,6 +1410,37 @@ Operations Layer (Console, Alerts, Runbooks)`
     repoFullName: "zack-dev-cm/artifact-deck"
   },
   {
+    id: 53,
+    title: "GitHub + ClawHub Downloads Tracker",
+    aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub traction tracker"],
+    description: "CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.",
+    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub downloads visible in the portfolio instead of burying them inside separate package pages.",
+    projectKind: "open-source",
+    surfaceTags: ["open-source", "automation", "analytics"],
+    keyFeatures: [
+      "Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction",
+      "Parses copied publisher dashboard stats for downloads, stars, version counts, and explicit-only skills",
+      "Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace",
+      "Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting"
+    ],
+    techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
+    benchmarks: [
+      { label: "Tracked ClawHub downloads", value: "1,349", context: "live public ClawHub listings, 2026-04-23 across 10 packages" },
+      { label: "Tracked packages", value: "10", context: "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher" },
+      { label: "CV Repro Lab downloads", value: "457 total", context: "226 data-science-cv-repro-lab + 231 sota-agent, 2026-04-23" },
+      { label: "Strongest package", value: "231 downloads", context: "sota-agent live public listing, 2026-04-23" },
+      { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
+      { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
+    ],
+    links: [
+      { text: "Open CV Repro Lab on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" },
+      { text: "Open SOTA Agent on ClawHub", url: "https://clawhub.ai/zack-dev-cm/sota-agent" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true
+  },
+  {
     id: 50,
     title: "HH OpenClaw Agent",
     description: "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
@@ -1321,8 +1453,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "82", context: "public ClawHub listing, 2026-04-17" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-04-17" },
+      { label: "ClawHub downloads", value: "112", context: "live public ClawHub listing, 2026-04-23" },
+      { label: "Published versions", value: "6", context: "live public ClawHub listing, 2026-04-23" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },

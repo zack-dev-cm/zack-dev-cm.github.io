@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { name: 'About', href: '#about' },
   { name: 'Collaborations', href: '#experience' },
   { name: 'Featured', href: '#featured' },
+  { name: 'ClawHub', href: '#clawhub' },
   { name: 'Latest', href: '#latest' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' }
@@ -61,7 +62,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount,
           </a>
           <a
             href={SOCIAL_LINKS.resume}
-            download
+            download="zakhar-pashkin-ai-product-engineer-resume.pdf"
             className="button button--ghost button--block"
           >
             <DownloadIcon className="h-4 w-4" />

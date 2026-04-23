@@ -4,7 +4,7 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
-import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './components/Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon } from './components/Icons';
 import {
   PROJECTS,
   COMPANIES,
@@ -13,15 +13,22 @@ import {
   AUTHOR_INFO,
   SOCIAL_LINKS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
-  LATEST_UPDATE_EXCLUDE_PATTERNS
+  LATEST_UPDATE_EXCLUDE_PATTERNS,
+  CLAWHUB_DOWNLOAD_STATS
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [45, 44, 43, 40] as const;
+const FEATURED_PROJECT_IDS = [53, 44, 43, 40] as const;
 const FEATURED_PROJECT_INDEX = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 
 const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
+  53: {
+    label: 'Traction evidence system',
+    summary:
+      'A public CLI/reporting flow that keeps GitHub traction, live ClawHub downloads, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
+    proof: ['1,349 tracked ClawHub downloads', '10 public packages', 'Snapshot deltas + 30-day scenarios']
+  },
   45: {
     label: 'Open-source review harness',
     summary:
@@ -44,7 +51,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['2 live ClawHub packages', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: ['457 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
@@ -539,11 +546,19 @@ const App: React.FC = () => {
     () => [
       { value: `${mergedProjects.length}`, label: 'public case studies' },
       { value: `${realUserProjectCount}`, label: 'user-facing products' },
-      { value: '7+', label: 'years shipping CV / ML systems' },
+      { value: '7+', label: 'years shipping AI / CV systems' },
       { value: `${benchmarkedProjectCount}`, label: 'projects with measurable outcomes' }
     ],
     [benchmarkedProjectCount, mergedProjects.length, realUserProjectCount]
   );
+
+  const clawHubSummary = useMemo(() => {
+    const totalDownloads = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
+    const totalVersions = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.versions, 0);
+    const totalStars = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.stars, 0);
+    const checkedAt = CLAWHUB_DOWNLOAD_STATS[0]?.checkedAt ?? '';
+    return { totalDownloads, totalVersions, totalStars, checkedAt };
+  }, []);
 
   const syncFromUrl = useCallback(() => {
     const params = new URLSearchParams(window.location.search);
@@ -746,17 +761,17 @@ const App: React.FC = () => {
 
         <main className="content-column">
           <section id="intro" className="hero">
-            <p className="hero__eyebrow">Senior Computer Vision Engineer</p>
-            <h1 className="hero__title">Computer vision systems built for production constraints.</h1>
+            <p className="hero__eyebrow">AI Product Engineer</p>
+            <h1 className="hero__title">AI products built for production constraints.</h1>
             <p className="hero__lead">
-              {AUTHOR_INFO.bio} I turn ambiguous CV problems into tested models, APIs, edge
-              deployments, and product surfaces with review gates before release.
+              {AUTHOR_INFO.bio} I turn ambiguous AI, CV, and automation problems into tested models,
+              APIs, workflows, and product surfaces with review gates before release.
             </p>
             <div className="hero__actions">
               <a href="#featured" className="button button--primary">
                 View featured solutions
               </a>
-              <a href={SOCIAL_LINKS.resume} download className="button button--ghost">
+              <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
                 <DownloadIcon className="h-4 w-4" />
                 Download resume
               </a>
@@ -948,6 +963,48 @@ const App: React.FC = () => {
                 );
               })}
             </div>
+          </Section>
+
+          <Section
+            id="clawhub"
+            eyebrow="ClawHub"
+            title="Downloads Tracker"
+            description="Live public ClawHub listing counters used as marketplace traction evidence, not user-count claims."
+          >
+            <div className="proof-grid">
+              <div className="proof-chip">
+                <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
+                <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public packages</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{clawHubSummary.totalVersions}</strong>
+                <em>published package versions in the tracked set</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{clawHubSummary.totalStars}</strong>
+                <em>ClawHub stars, shown to avoid overstating download traction</em>
+              </div>
+            </div>
+            <ul className="latest-list" aria-label="Tracked ClawHub package downloads">
+              {CLAWHUB_DOWNLOAD_STATS.map((stat) => (
+                <li key={stat.slug} className="latest-card">
+                  <div className="latest-card__header">
+                    <div>
+                      <p className="latest-card__title">{stat.displayName}</p>
+                      <p className="latest-card__summary">
+                        {stat.downloads.toLocaleString()} downloads, {stat.versions} versions, {stat.stars} stars as of{' '}
+                        {stat.checkedAt}.
+                      </p>
+                    </div>
+                    <div className="latest-card__actions">
+                      <a href={stat.url} target="_blank" rel="noopener noreferrer" className="button button--ghost">
+                        Open listing
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </Section>
 
           <Section
@@ -1207,16 +1264,32 @@ const App: React.FC = () => {
 
           <Section
             id="contact"
-            eyebrow="Contact"
-            title="Let's Connect"
-            description="If you need a senior computer vision engineer who can translate ambiguous requirements into shipped systems, reach out."
+            eyebrow="Next step"
+            title="Contact"
+            description="Best fit: AI product engineering, production CV/VLM systems, and launch automation with review gates."
           >
             <div className="contact-grid">
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="contact-card">
-                <MailIcon className="contact-card__icon" />
-                <div>
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <MailIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
                   <strong>Email</strong>
                   <span>{SOCIAL_LINKS.email}</span>
+                </div>
+              </a>
+              <a
+                href={SOCIAL_LINKS.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <TelegramIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
+                  <strong>Telegram</strong>
+                  <span>Fast contact channel</span>
                 </div>
               </a>
               <a
@@ -1225,8 +1298,10 @@ const App: React.FC = () => {
                 rel="noopener noreferrer"
                 className="contact-card"
               >
-                <LinkedInIcon className="contact-card__icon" />
-                <div>
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <LinkedInIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
                   <strong>LinkedIn</strong>
                   <span>Professional profile</span>
                 </div>
@@ -1237,17 +1312,21 @@ const App: React.FC = () => {
                 rel="noopener noreferrer"
                 className="contact-card"
               >
-                <GitHubIcon className="contact-card__icon" />
-                <div>
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <GitHubIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
                   <strong>GitHub</strong>
                   <span>Public repos and case studies</span>
                 </div>
               </a>
-              <a href={SOCIAL_LINKS.resume} download className="contact-card">
-                <DownloadIcon className="contact-card__icon" />
-                <div>
+              <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="contact-card">
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <DownloadIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
                   <strong>Resume</strong>
-                  <span>Download PDF</span>
+                  <span>AI Product Engineer PDF</span>
                 </div>
               </a>
             </div>

@@ -1,10 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
+const execFileAsync = promisify(execFile);
 
 const SKIP_DIRECTORIES = new Set([
   '.git',
@@ -16,10 +19,8 @@ const SKIP_DIRECTORIES = new Set([
 
 const SKIP_PREFIXES = [
   'docs/assets/',
-  'docs/resume/',
   'public/images/',
   'public/company-logos/',
-  'public/resume/',
 ];
 
 const TEXT_EXTENSIONS = new Set([
@@ -39,6 +40,7 @@ const TEXT_EXTENSIONS = new Set([
   '.yml',
   '.yaml',
 ]);
+const PDF_EXTENSIONS = new Set(['.pdf']);
 
 const PUBLIC_ROOT_FILES = new Set([
   'agent-context.md',
@@ -86,6 +88,8 @@ const PUBLIC_INSTRUCTION_BLEED_PATTERNS = [
 ];
 
 const errors = [];
+const CODEX_DOCS_SOURCE = 'codex-docs';
+const CODEX_DOCS_OUTPUT = 'docs/codex';
 
 const toRelative = (filePath) => path.relative(ROOT_DIR, filePath).split(path.sep).join('/');
 
@@ -110,6 +114,25 @@ const collectFiles = async (directory) => {
     }
     if (!entry.isFile()) continue;
     if (isSkipped(relativePath) || !isTextFile(relativePath)) continue;
+    files.push({ absolutePath, relativePath });
+  }
+  return files;
+};
+
+const collectPublicPdfs = async (directory) => {
+  const entries = await fs.readdir(directory, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const absolutePath = path.join(directory, entry.name);
+    const relativePath = toRelative(absolutePath);
+    if (entry.isDirectory()) {
+      if (SKIP_DIRECTORIES.has(entry.name) || isSkipped(`${relativePath}/`)) continue;
+      files.push(...await collectPublicPdfs(absolutePath));
+      continue;
+    }
+    if (!entry.isFile()) continue;
+    if (!isPublicSurface(relativePath) || isSkipped(relativePath)) continue;
+    if (!PDF_EXTENSIONS.has(path.extname(relativePath))) continue;
     files.push({ absolutePath, relativePath });
   }
   return files;
@@ -160,6 +183,72 @@ const assertPublicUpdatesDoNotExposePrivateMetadata = async () => {
   }
 };
 
+const readDirectoryFileMap = async (relativeDirectory) => {
+  const absoluteDirectory = path.join(ROOT_DIR, relativeDirectory);
+  let entries;
+  try {
+    entries = await fs.readdir(absoluteDirectory, { withFileTypes: true });
+  } catch (error) {
+    if (error && error.code === 'ENOENT') {
+      errors.push(`${relativeDirectory}: required directory is missing`);
+      return null;
+    }
+    throw error;
+  }
+
+  const fileMap = new Map();
+  for (const entry of entries) {
+    if (!entry.isFile()) continue;
+    const relativePath = `${relativeDirectory}/${entry.name}`;
+    fileMap.set(entry.name, await fs.readFile(path.join(ROOT_DIR, relativePath), 'utf8'));
+  }
+  return fileMap;
+};
+
+const assertCodexDocsAreInSync = async () => {
+  const sourceFiles = await readDirectoryFileMap(CODEX_DOCS_SOURCE);
+  const outputFiles = await readDirectoryFileMap(CODEX_DOCS_OUTPUT);
+  if (!sourceFiles || !outputFiles) return;
+
+  const sourceNames = new Set(sourceFiles.keys());
+  const outputNames = new Set(outputFiles.keys());
+
+  for (const name of sourceNames) {
+    if (!outputNames.has(name)) {
+      errors.push(`${CODEX_DOCS_OUTPUT}/${name}: generated Codex doc is missing`);
+      continue;
+    }
+    if (sourceFiles.get(name) !== outputFiles.get(name)) {
+      errors.push(`${CODEX_DOCS_OUTPUT}/${name}: generated Codex doc is out of sync with ${CODEX_DOCS_SOURCE}/${name}`);
+    }
+  }
+
+  for (const name of outputNames) {
+    if (!sourceNames.has(name)) {
+      errors.push(`${CODEX_DOCS_OUTPUT}/${name}: generated Codex doc has no source file`);
+    }
+  }
+};
+
+const scanPublicPdfText = async () => {
+  const pdfFiles = await collectPublicPdfs(ROOT_DIR);
+  for (const file of pdfFiles) {
+    let stdout;
+    try {
+      ({ stdout } = await execFileAsync('pdftotext', ['-layout', file.absolutePath, '-'], {
+        maxBuffer: 10 * 1024 * 1024,
+      }));
+    } catch (error) {
+      const detail = error && error.code === 'ENOENT' ? 'pdftotext is not installed' : error.message;
+      errors.push(`${file.relativePath}: could not extract PDF text for leak scan (${detail})`);
+      continue;
+    }
+    scanPatterns(`${file.relativePath} extracted text`, stdout, SECRET_PATTERNS);
+    scanPatterns(`${file.relativePath} extracted text`, stdout, PUBLIC_LEAK_PATTERNS);
+    scanPatterns(`${file.relativePath} extracted text`, stdout, PUBLIC_INSTRUCTION_BLEED_PATTERNS);
+  }
+};
+
 const main = async () => {
   const files = await collectFiles(ROOT_DIR);
   for (const file of files) {
@@ -173,6 +262,8 @@ const main = async () => {
 
   await assertPrivateRepoSyncFailsClosed();
   await assertPublicUpdatesDoNotExposePrivateMetadata();
+  await assertCodexDocsAreInSync();
+  await scanPublicPdfText();
 
   if (errors.length > 0) {
     console.error('Security gate failed:\n');
