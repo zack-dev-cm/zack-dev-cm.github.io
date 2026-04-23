@@ -90,16 +90,16 @@ test('homepage renders core sections and project discovery controls', async ({ p
     page.getByRole('button', { name: /Open project: Dalshe – Circular Clothing Pickup Mini App/i })
   ).toHaveCount(0);
 
-  await projectSearch.fill('pr0bes_bot');
+  await projectSearch.fill('probes');
   const probesCard = page.getByRole('button', { name: /Open project: Probes/i });
   await expect(probesCard).toBeVisible();
   await probesCard.click();
 
   const modal = page.getByRole('dialog');
   await expect(modal).toBeVisible();
-  await expect(modal.getByRole('link', { name: 'Telegram Bot' })).toHaveAttribute(
+  await expect(modal.getByRole('link', { name: 'View on GitHub' })).toHaveAttribute(
     'href',
-    'https://t.me/pr0bes_bot'
+    'https://github.com/zack-dev-cm/probes-oss'
   );
   await page.keyboard.press('Escape');
   await expect(modal).toBeHidden();

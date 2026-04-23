@@ -34,7 +34,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
-  "53 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, cloud delivery, and open-source release systems.",
+  "54 public case studies and launches spanning automation, research tooling, Telegram mini apps, mobile, cloud delivery, and open-source release systems.",
   "1,349 tracked ClawHub downloads across 10 public packages, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
@@ -146,6 +146,61 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "Toybox Mini - Telegram Mini App",
+    description: "New open-source release: a toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and strict Telegram auth checks.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/toybox-tma-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/toybox-tma-oss/releases/tag/v0.1.0" }
+    ],
+    projectId: 54,
+    repoFullName: "zack-dev-cm/toybox-tma-oss",
+    createdAt: "2026-04-23"
+  },
+  {
+    title: "Turbo Tots Garage (motion + touch PWA)",
+    description: "New open-source release: a playful toddler dashboard with motion sensors, calm audio cues, large controls, and Playwright coverage.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/toddler-games-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/toddler-games-oss/releases/tag/v0.1.0" }
+    ],
+    projectId: 37,
+    repoFullName: "zack-dev-cm/toddler-games-oss",
+    createdAt: "2026-04-23"
+  },
+  {
+    title: "Probes - AI Magazine Mini App",
+    description: "New open-source release: a Telegram magazine app with daily AI-generated articles, cover images, and engagement flows backed by a public API and test suite.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0" }
+    ],
+    projectId: 36,
+    repoFullName: "zack-dev-cm/probes-oss",
+    createdAt: "2026-04-23"
+  },
+  {
+    title: "Dalshe - Circular Clothing Pickup Mini App",
+    description: "New open-source release: a Telegram donation flow for clothing pickup scheduling, courier status updates, and admin tracking.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/dalshe-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/dalshe-oss/releases/tag/v0.1.0" }
+    ],
+    projectId: 34,
+    repoFullName: "zack-dev-cm/dalshe-oss",
+    createdAt: "2026-04-23"
+  },
+  {
+    title: "Beauty Visual Inbox - Telegram Mini App",
+    description: "New open-source release: salon photo publishing workflows with a Telegram mini app feed, likes, notifications, and analytics.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/bvis-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/bvis-oss/releases/tag/v0.1.0" }
+    ],
+    projectId: 33,
+    repoFullName: "zack-dev-cm/bvis-oss",
+    createdAt: "2026-04-23"
+  },
   {
     title: "GitHub + ClawHub Downloads Tracker",
     description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, live ClawHub downloads, publisher dashboard stats, deltas, and next traction bets.",
@@ -300,31 +355,6 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     projectId: 32
   },
   {
-    title: "Beauty Visual Inbox – Telegram Mini App",
-    description: "Telegram bots + React mini-app for salons: publish photo batches, likes, notifications, and analytics.",
-    links: [{ text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" }],
-    projectId: 33
-  },
-  {
-    title: "Dalshe – Circular Clothing Pickup Mini App",
-    description: "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" }
-    ],
-    projectId: 34
-  },
-  {
-    title: "Probes – AI Magazine Mini App",
-    description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and synced engagement stats (likes, views, comments).",
-    links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/pr0bes_bot/app" },
-      { text: "Telegram Bot", url: "https://t.me/pr0bes_bot" },
-      { text: "Telegram Channel", url: "https://t.me/pr0bes" }
-    ],
-    projectId: 36
-  },
-  {
     title: "Olfactory Ultrasound Coach (web + Telegram mini app)",
     description: "Telegram mini app and Web Audio placement coach mirroring the 1200 Hz pulse trains, placement guide, and safety caps from the olfactory tFUS writeup.",
     links: [{ text: "Open Mini App", url: "https://t.me/olfacto_bot/app" }],
@@ -337,14 +367,6 @@ export const LATEST_UPDATES: LatestUpdate[] = [
       { text: "Read public case study", url: "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md" }
     ],
     projectId: 29
-  },
-  {
-    title: "Turbo Tots Garage (motion + touch PWA)",
-    description: "Playful toddler dashboard with motion sensors, audio cues, and Playwright E2E coverage.",
-    links: [
-      { text: "Read public case study", url: "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md" }
-    ],
-    projectId: 37
   }
 ];
 
@@ -872,10 +894,17 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Admin and client bots manage submissions and broadcasts, while the mini app ships a vertical feed with batch navigation, likes, and engagement stats.",
     keyFeatures: ["Admin + client bot workflows", "Vertical feed with batch navigation", "Likes + notification analytics"],
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API"],
-    links: [{ text: "Open Telegram Mini App", url: "https://t.me/BeautyVisal_bot/app" }],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/bvis-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/bvis-oss/releases/tag/v0.1.0" }
+    ],
     images: [],
     thumbnail: "",
-    hideImages: true
+    hideImages: true,
+    repoFullName: "zack-dev-cm/bvis-oss",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/bvis-oss"
+    }
   },
   {
     id: 34,
@@ -885,14 +914,18 @@ Operations Layer (Console, Alerts, Runbooks)`
     keyFeatures: ["Telegram pickup request form", "Courier status updates via bot", "Admin pickup tracking API"],
     techStack: ["React", "TypeScript", "Node.js", "Express", "Prisma", "Postgres", "Telegram Bot API", "Cloud Run"],
     links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/dalshe_legko_bot/app" },
-      { text: "Telegram Bot", url: "https://t.me/dalshe_legko_bot" }
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/dalshe-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/dalshe-oss/releases/tag/v0.1.0" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/dalshe-1.png`, alt: "Dalshe donation mini app" },
       { url: `${LOCAL_IMG_BASE}/dalshe-2.png`, alt: "Dalshe circular donation visual" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/dalshe-1.png`
+    thumbnail: `${LOCAL_IMG_BASE}/dalshe-1.png`,
+    repoFullName: "zack-dev-cm/dalshe-oss",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/dalshe-oss"
+    }
   },
   {
     id: 35,
@@ -920,27 +953,25 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 36,
     title: "Probes – AI Magazine Mini App",
-    aliases: ["probes", "pr0bes", "pr0bes_bot", "probes bot", "ai magazine"],
+    aliases: ["probes", "probes bot", "ai magazine"],
     description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
     longDescription: "Telegram mini app with a daily AI magazine feed: articles + cover images, likes/bookmarks/comments, and a bot + API pipeline that powers content generation.",
     projectKind: "user-product",
-    surfaceTags: ["telegram", "mobile", "web"],
+    surfaceTags: ["mobile", "web"],
     mobileReady: true,
     keyFeatures: ["Telegram mini app magazine feed", "Automated article + cover generation", "Engagement stats with likes/bookmarks/comments"],
     techStack: ["Vite", "React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
-      { text: "Open Telegram Mini App", url: "https://t.me/pr0bes_bot/app" },
-      { text: "Telegram Bot", url: "https://t.me/pr0bes_bot" },
-      { text: "Telegram Channel", url: "https://t.me/pr0bes" }
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/probes.png`, alt: "Probes mini app preview" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/probes.png`,
+    repoFullName: "zack-dev-cm/probes-oss",
     canonicalLinks: {
-      telegramBot: "https://t.me/pr0bes_bot",
-      telegramMiniApp: "https://t.me/pr0bes_bot/app",
-      telegramChannel: "https://t.me/pr0bes"
+      github: "https://github.com/zack-dev-cm/probes-oss"
     }
   },
   {
@@ -950,12 +981,19 @@ Operations Layer (Console, Alerts, Runbooks)`
     longDescription: "Touch-first toddler dashboard with a turbo gauge, glowing clock, motion-sensor boosts, and playful engine/tick sounds.",
     keyFeatures: ["Touch + motion sensor controls", "Playful audio cues and animations", "Large, stroller-friendly controls"],
     techStack: ["Vite", "React", "TypeScript", "Web Audio", "Device Motion", "Playwright"],
-    links: [],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/toddler-games-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/toddler-games-oss/releases/tag/v0.1.0" }
+    ],
     images: [
       { url: `${LOCAL_IMG_BASE}/turbo-tots-1.jpg`, alt: "Turbo Tots dashboard" },
       { url: `${LOCAL_IMG_BASE}/turbo-tots-2.jpg`, alt: "Turbo Tots control panel" }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/turbo-tots-1.jpg`
+    thumbnail: `${LOCAL_IMG_BASE}/turbo-tots-1.jpg`,
+    repoFullName: "zack-dev-cm/toddler-games-oss",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/toddler-games-oss"
+    }
   },
   {
     id: 38,
@@ -1439,6 +1477,32 @@ Operations Layer (Console, Alerts, Runbooks)`
     images: [],
     thumbnail: "",
     hideImages: true
+  },
+  {
+    id: 54,
+    title: "Toybox Mini - Telegram Mini App",
+    description: "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
+    longDescription: "Toybox Mini packages a calm toddler-first Telegram mini app with a FastAPI backend, score storage that keeps raw Telegram ids out of the database, and optional Login Widget support for browser sessions outside Telegram. The public release focuses on the smallest secure surface: tap games, parent controls, strict initData checks in production, and regression coverage for auth and score handling.",
+    projectKind: "open-source",
+    surfaceTags: ["mobile", "web", "open-source"],
+    mobileReady: true,
+    keyFeatures: [
+      "Calm tap games with toddler-first pacing",
+      "Parent area plus anonymous score storage",
+      "Production Telegram auth checks with optional browser login widget support"
+    ],
+    techStack: ["Python", "FastAPI", "Telegram Web Apps", "SQLite", "HTML", "CSS", "JavaScript", "Pytest"],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/toybox-tma-oss" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/toybox-tma-oss/releases/tag/v0.1.0" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/toybox-tma-oss",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/toybox-tma-oss"
+    }
   },
   {
     id: 50,

@@ -10,7 +10,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 ## Quick Answers
 - Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
 - What does he ship? Automation with human review, production computer vision, VLM/LLM workflows, and launch-ready AI product interfaces.
-- How much public evidence is here? 53 public case studies, with 22 projects carrying explicit benchmarks or analytics.
+- How much public evidence is here? 54 public case studies, with 22 projects carrying explicit benchmarks or analytics.
 - Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.
 
 ## AI Memory Files
@@ -81,6 +81,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [Artifact Redactor](https://zack-dev-cm.github.io/projects/artifact-redactor.md): Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
 - [Artifact Deck](https://zack-dev-cm.github.io/projects/artifact-deck.md): Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.
 - [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.
+- [Toybox Mini - Telegram Mini App](https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md): Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.
 - [HH OpenClaw Agent](https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md): Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 
 ## Core Pages

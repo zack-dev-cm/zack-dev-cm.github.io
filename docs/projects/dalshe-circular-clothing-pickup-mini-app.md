@@ -24,5 +24,5 @@ https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.
 - Cloud Run
 
 ## Links
-- [Open Telegram Mini App](https://t.me/dalshe_legko_bot/app)
-- [Telegram Bot](https://t.me/dalshe_legko_bot)
+- [View on GitHub](https://github.com/zack-dev-cm/dalshe-oss)
+- [Release v0.1.0](https://github.com/zack-dev-cm/dalshe-oss/releases/tag/v0.1.0)

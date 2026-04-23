@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 53,
+      "numberOfItems": 54,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -728,6 +728,19 @@
         {
           "@type": "ListItem",
           "position": 53,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Toybox Mini - Telegram Mini App",
+            "description": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
+            "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

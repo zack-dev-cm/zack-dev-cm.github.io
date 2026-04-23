@@ -20,3 +20,7 @@ https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md
 - Web Audio
 - Device Motion
 - Playwright
+
+## Links
+- [View on GitHub](https://github.com/zack-dev-cm/toddler-games-oss)
+- [Release v0.1.0](https://github.com/zack-dev-cm/toddler-games-oss/releases/tag/v0.1.0)

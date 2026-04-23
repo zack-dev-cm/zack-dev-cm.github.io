@@ -531,7 +531,8 @@ Tech Stack:
 - Postgres
 - Telegram Bot API
 Links:
-- Open Telegram Mini App: https://t.me/BeautyVisal_bot/app
+- View on GitHub: https://github.com/zack-dev-cm/bvis-oss
+- Release v0.1.0: https://github.com/zack-dev-cm/bvis-oss/releases/tag/v0.1.0
 
 ### Dalshe - Circular Clothing Pickup Mini App
 Summary: Telegram mini app for scheduling clothing donations with courier pickup and status updates.
@@ -551,8 +552,8 @@ Tech Stack:
 - Telegram Bot API
 - Cloud Run
 Links:
-- Open Telegram Mini App: https://t.me/dalshe_legko_bot/app
-- Telegram Bot: https://t.me/dalshe_legko_bot
+- View on GitHub: https://github.com/zack-dev-cm/dalshe-oss
+- Release v0.1.0: https://github.com/zack-dev-cm/dalshe-oss/releases/tag/v0.1.0
 
 ### DoctorAI - Dermatology Triage Mini App
 Summary: Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.
@@ -594,9 +595,8 @@ Tech Stack:
 - Postgres
 - Telegram Bot API
 Links:
-- Open Telegram Mini App: https://t.me/pr0bes_bot/app
-- Telegram Bot: https://t.me/pr0bes_bot
-- Telegram Channel: https://t.me/pr0bes
+- View on GitHub: https://github.com/zack-dev-cm/probes-oss
+- Release v0.1.0: https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0
 
 ### Turbo Tots Garage (motion + touch PWA)
 Summary: Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.
@@ -613,6 +613,9 @@ Tech Stack:
 - Web Audio
 - Device Motion
 - Playwright
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/toddler-games-oss
+- Release v0.1.0: https://github.com/zack-dev-cm/toddler-games-oss/releases/tag/v0.1.0
 
 ### Project Steer - Bio-Print Creator Studio
 Summary: Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.
@@ -1020,6 +1023,27 @@ Benchmarks & Analytics:
 Links:
 - Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+
+### Toybox Mini - Telegram Mini App
+Summary: Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.
+Details: Toybox Mini packages a calm toddler-first Telegram mini app with a FastAPI backend, score storage that keeps raw Telegram ids out of the database, and optional Login Widget support for browser sessions outside Telegram. The public release focuses on the smallest secure surface: tap games, parent controls, strict initData checks in production, and regression coverage for auth and score handling.
+Project URL: https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md
+Key Features:
+- Calm tap games with toddler-first pacing
+- Parent area plus anonymous score storage
+- Production Telegram auth checks with optional browser login widget support
+Tech Stack:
+- Python
+- FastAPI
+- Telegram Web Apps
+- SQLite
+- HTML
+- CSS
+- JavaScript
+- Pytest
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/toybox-tma-oss
+- Release v0.1.0: https://github.com/zack-dev-cm/toybox-tma-oss/releases/tag/v0.1.0
 
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.

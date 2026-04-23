@@ -23,6 +23,5 @@ https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md
 - Telegram Bot API
 
 ## Links
-- [Open Telegram Mini App](https://t.me/pr0bes_bot/app)
-- [Telegram Bot](https://t.me/pr0bes_bot)
-- [Telegram Channel](https://t.me/pr0bes)
+- [View on GitHub](https://github.com/zack-dev-cm/probes-oss)
+- [Release v0.1.0](https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0)
