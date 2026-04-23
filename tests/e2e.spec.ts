@@ -11,6 +11,25 @@ const gotoPortfolio = async (page: Page) => {
   }
 };
 
+const gotoStandalone = async (page: Page, slug: string) => {
+  const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
+  const [rawPath, rawQuery = ''] = slug.split('?');
+  const standalonePath = rawPath.replace(/^\/|\/$/g, '');
+  const suffix = rawQuery ? `?${rawQuery}` : '';
+  const candidates = baseUrl.includes('pages.dev')
+    ? [`/${standalonePath}/${suffix}`, `/docs/${standalonePath}/${suffix}`]
+    : [`/docs/${standalonePath}/${suffix}`, `/${standalonePath}/${suffix}`, `/public/${standalonePath}/${suffix}`];
+
+  for (const candidate of candidates) {
+    const response = await page.goto(candidate, { waitUntil: 'domcontentloaded' });
+    if (!response || response.status() < 400) {
+      return;
+    }
+  }
+
+  throw new Error(`Unable to load standalone page for slug "${slug}"`);
+};
+
 const resumePath = () => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
   return baseUrl.includes('pages.dev')
@@ -207,4 +226,101 @@ test.describe('mobile', () => {
 
     await page.screenshot({ path: 'test-results/home-mobile.png', fullPage: true });
   });
+});
+
+test('clicking the sidebar name four times opens the hidden wind page', async ({ page }) => {
+  await gotoPortfolio(page);
+
+  const homeLink = page.getByRole('link', { name: 'Zakhar Pashkin' }).first();
+  for (let i = 0; i < 4; i += 1) {
+    await homeLink.click();
+  }
+
+  await expect(page).toHaveURL(/skill-wind/);
+  await expect(page.getByRole('heading', { name: /The Wind Remembers/i })).toBeVisible();
+});
+
+test('skill wind standalone page renders across key responsive breakpoints', async ({ page }) => {
+  const viewports = [
+    { width: 360, height: 800 },
+    { width: 390, height: 844 },
+    { width: 768, height: 1024 },
+    { width: 1280, height: 960 },
+  ];
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await gotoStandalone(page, 'skill-wind');
+
+    await expect(page.getByRole('heading', { name: /The Wind Remembers/i })).toBeVisible();
+    await expect(page.getByText(/Skills are never only procedures/i)).toBeVisible();
+    await expect(page.locator('.cover-stage')).toBeVisible();
+    await expect(page.locator('#wind-canvas')).toHaveCount(1);
+    await expect
+      .poll(async () =>
+        page.locator('.cover-stage__image').evaluate((img) => (img as HTMLImageElement).naturalWidth)
+      )
+      .toBeGreaterThan(0);
+
+    const coverBox = await page.locator('.cover-stage').boundingBox();
+    expect(coverBox?.width ?? 0).toBeGreaterThan(Math.min(300, viewport.width - 80));
+    expect(coverBox?.height ?? 0).toBeGreaterThan(320);
+    if (viewport.width >= 768 && coverBox) {
+      expect(coverBox.width / coverBox.height).toBeGreaterThan(1.75);
+      expect(coverBox.width / coverBox.height).toBeLessThan(2.02);
+    }
+
+    await expect
+      .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
+        message: `Expected no horizontal overflow on skill wind page at ${viewport.width}px`,
+      })
+      .toBeLessThanOrEqual(4);
+  }
+
+  await expect
+    .poll(async () =>
+      page.locator('#wind-canvas').evaluate((node) => {
+        const canvas = node as HTMLCanvasElement;
+        const context = canvas.getContext('2d');
+        if (!context || canvas.width === 0 || canvas.height === 0) return false;
+        const left = Math.floor(canvas.width * 0.2);
+        const top = Math.floor(canvas.height * 0.2);
+        const width = Math.max(1, Math.floor(canvas.width * 0.6));
+        const height = Math.max(1, Math.floor(canvas.height * 0.6));
+        const pixels = context.getImageData(left, top, width, height).data;
+        for (let i = 3; i < pixels.length; i += 4) {
+          if (pixels[i] > 8) return true;
+        }
+        return false;
+      })
+    )
+    .toBe(true);
+
+  await expect(page.getByRole('link', { name: 'Return to portfolio' })).toHaveAttribute(
+    'href',
+    'https://zack-dev-cm.github.io/'
+  );
+
+  await page.screenshot({ path: 'test-results/skill-wind.png', fullPage: true });
+});
+
+test('skill wind cover capture mode fills a social banner viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 1200, height: 627 });
+  await gotoStandalone(page, 'skill-wind?cover=1');
+
+  const coverStage = page.locator('.cover-stage');
+  await expect(page.getByRole('heading', { name: /The Wind Remembers/i })).toBeVisible();
+  await expect(page.locator('.threshold__copy')).toBeHidden();
+
+  const box = await coverStage.boundingBox();
+  expect(Math.round(box?.width ?? 0)).toBe(1200);
+  expect(Math.round(box?.height ?? 0)).toBe(627);
+
+  await expect
+    .poll(async () =>
+      page.locator('.cover-stage__image').evaluate((img) => (img as HTMLImageElement).naturalWidth)
+    )
+    .toBeGreaterThan(0);
+
+  await page.screenshot({ path: 'test-results/skill-wind-cover.png', fullPage: true });
 });

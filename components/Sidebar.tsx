@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { AUTHOR_INFO, SOCIAL_LINKS } from '../constants';
 import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from './Icons';
+import { resolveAssetUrl } from '../utils/assets';
 
 const NAV_ITEMS = [
   { name: 'Intro', href: '#intro' },
@@ -20,11 +21,27 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount, benchmarkedCount }) => {
+  const easterEggRef = useRef({ count: 0, lastAt: 0 });
+
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const now = Date.now();
+    const state = easterEggRef.current;
+    state.count = now - state.lastAt < 1800 ? state.count + 1 : 1;
+    state.lastAt = now;
+
+    if (state.count >= 4) {
+      event.preventDefault();
+      state.count = 0;
+      state.lastAt = 0;
+      window.location.assign(resolveAssetUrl('skill-wind/'));
+    }
+  };
+
   return (
     <header className="profile-panel">
       <div className="profile-panel__content">
         <div className="profile-panel__intro">
-          <a href="#intro" className="profile-panel__home">
+          <a href="#intro" className="profile-panel__home" onClick={handleHomeClick}>
             {AUTHOR_INFO.name}
           </a>
           <p className="profile-panel__role">{AUTHOR_INFO.title}</p>
