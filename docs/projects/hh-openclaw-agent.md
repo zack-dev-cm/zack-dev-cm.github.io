@@ -22,8 +22,8 @@ https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md
 - Career Automation
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 112 (live public ClawHub listing, 2026-04-23)
-- Published versions: 6 (live public ClawHub listing, 2026-04-23)
+- ClawHub downloads: 115 (live public ClawHub listing, 2026-04-24)
+- Published versions: 6 (live public ClawHub listing, 2026-04-24)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Approval gate: required (review must be approved before submit)

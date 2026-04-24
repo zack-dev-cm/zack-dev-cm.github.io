@@ -59,8 +59,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
-  await expect(clawHubSection.getByText('1,349')).toBeVisible();
-  await expect(clawHubSection.getByText(/downloads across 10 public packages/i)).toBeVisible();
+  await expect(clawHubSection.getByText('1,421')).toBeVisible();
+  await expect(clawHubSection.getByText(/downloads across 11 public packages/i)).toBeVisible();
 
   // Card presence: ensure at least one project card renders
   const cards = page.getByTestId('project-card');
@@ -96,11 +96,18 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('LocalArchive', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('LocalLens Private AI Summaries', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('OpenClaw Chinese Laoshi Ops', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Random Coffee Best Fit Outreach', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('AntiRot', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Probes', { exact: false })).toBeVisible();
 
   const projectSearch = page.getByLabel('Search projects');
   await expect(projectSearch).toBeVisible();
+  await projectSearch.fill('localarchive');
+  await expect(page.getByRole('button', { name: /Open project: LocalArchive/i })).toBeVisible();
+  await projectSearch.fill('');
 
   const realUsersFilter = page.getByRole('button', { name: /Real users/i });
   await realUsersFilter.click();
@@ -214,14 +221,14 @@ test.describe('mobile', () => {
       .toBeLessThanOrEqual(4);
 
     const projectSearch = page.getByLabel('Search projects');
-    await projectSearch.fill('calorio');
+    await projectSearch.fill('localarchive');
 
-    const calorioCard = page.getByRole('button', {
-      name: /Open project: Dishes Recognition & Nutrition Goals Telegram Bot/i
+    const localArchiveCard = page.getByRole('button', {
+      name: /Open project: LocalArchive/i
     });
-    await expect(calorioCard).toBeVisible();
+    await expect(localArchiveCard).toBeVisible();
 
-    const box = await calorioCard.boundingBox();
+    const box = await localArchiveCard.boundingBox();
     expect(box?.width ?? 0).toBeLessThanOrEqual(390);
 
     await page.screenshot({ path: 'test-results/home-mobile.png', fullPage: true });

@@ -24,8 +24,8 @@ https://zack-dev-cm.github.io/projects/artifact-redactor.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 104 (live public ClawHub listing, 2026-04-23)
-- Published versions: 6 (live public ClawHub listing, 2026-04-23)
+- ClawHub downloads: 107 (live public ClawHub listing, 2026-04-24)
+- Published versions: 6 (live public ClawHub listing, 2026-04-24)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (private url, path, secret, email, phone, public-url query cleanup)

@@ -47,7 +47,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 54,
+      "numberOfItems": 58,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -741,6 +741,58 @@
         {
           "@type": "ListItem",
           "position": 54,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "LocalArchive",
+            "description": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
+            "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "LocalLens Private AI Summaries",
+            "description": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+            "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "OpenClaw Chinese Laoshi Ops",
+            "description": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Random Coffee Best Fit Outreach",
+            "description": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
+            "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

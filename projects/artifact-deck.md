@@ -24,8 +24,8 @@ https://zack-dev-cm.github.io/projects/artifact-deck.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 61 (live public ClawHub listing, 2026-04-23)
-- Published versions: 4 (live public ClawHub listing, 2026-04-23)
+- ClawHub downloads: 63 (live public ClawHub listing, 2026-04-24)
+- Published versions: 4 (live public ClawHub listing, 2026-04-24)
 - Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)

@@ -27,7 +27,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'Traction evidence system',
     summary:
       'A public CLI/reporting flow that keeps GitHub traction, live ClawHub downloads, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['1,349 tracked ClawHub downloads', '10 public packages', 'Snapshot deltas + 30-day scenarios']
+    proof: ['1,421 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
   },
   45: {
     label: 'Open-source review harness',
@@ -51,7 +51,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['457 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: ['466 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 

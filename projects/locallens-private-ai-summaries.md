@@ -1,32 +1,35 @@
-# LocalLens: Private AI Summaries
+# LocalLens Private AI Summaries
 
-> Privacy-first Chrome extension for local AI summaries.
+> Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.
 
 ## Summary
-`LocalLens` summarizes, simplifies, translates, and safe-shares page text locally with Chrome built-in AI. The product is focused on active-tab reading assistance with minimal permissions and no external inference service.
+LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The public release emphasizes local browser execution and clear support pages while the store listing remains separate from the public GitHub evidence.
 
 ## Project Link
-https://zack-dev-cm.github.io/locallens/
+https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md
 
 ## Key Features
-- Local-first page and selection summaries with Chrome built-in AI
-- Safe-share mode that redacts obvious sensitive strings before local AI processing
-- Minimal extension permissions and no account requirement
-- Chrome Web Store-ready privacy policy and reviewer instructions
+- Summarizes, simplifies, translates, and rewrites selected page content through Chrome built-in AI
+- Keeps the primary workflow local to the browser instead of routing page text through a custom backend
+- Includes support, privacy, and uninstall pages for Chrome Web Store review-readiness
+- Ships a public release bundle with reproducible extension source
 
 ## Tech Stack
-- Chrome Extension (Manifest V3)
+- Chrome Extension
+- Built-in AI
 - JavaScript
-- Python
-- GitHub CLI
+- Privacy
+- Summarization
+- Translation
 
 ## Benchmarks & Analytics
-- Extension version: 0.1.2
-- Chrome minimum version: 138
-- Privacy posture: local-only text processing
+- Public release: v0.1.2 (GitHub release, 2026-04-15)
+- AI workflows: 4 (summarize, simplify, translate, safe-share cleanup)
+- Runtime posture: local browser (Chrome built-in AI surface)
+- Support pages: 4 (home, privacy, support, uninstall)
+- Store status: review-ready (no public CWS listing claimed on 2026-04-24)
 
 ## Links
-- [Open product page](https://zack-dev-cm.github.io/locallens/)
-- [Open support page](https://zack-dev-cm.github.io/locallens/support/)
-- [Open privacy policy](https://zack-dev-cm.github.io/locallens/privacy/)
 - [View on GitHub](https://github.com/zack-dev-cm/locallens-private-ai-summaries)
+- [Release v0.1.2](https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2)
+- [Product page](https://locallens-public-site.rapidapis.workers.dev/)

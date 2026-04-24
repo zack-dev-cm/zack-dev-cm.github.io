@@ -10,6 +10,7 @@ const DEFAULT_SLUGS = [
   'artifact-deck',
   'hh-openclaw-agent',
   'openclaw-cws-publisher',
+  'openclaw-agent-chinese-laoshi',
 ];
 
 const STATS_PATTERN =

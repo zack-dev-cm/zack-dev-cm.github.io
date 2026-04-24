@@ -361,6 +361,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://zack-dev-cm.github.io/projects/localarchive.md</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>

@@ -22,8 +22,8 @@ https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md
 - OpenClaw Skills
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 103 (live public ClawHub listing, 2026-04-23)
-- Published versions: 3 (live public ClawHub listing, 2026-04-23)
+- ClawHub downloads: 109 (live public ClawHub listing, 2026-04-24)
+- Published versions: 3 (live public ClawHub listing, 2026-04-24)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
