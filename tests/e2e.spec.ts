@@ -259,7 +259,9 @@ test('skill wind standalone page renders across key responsive breakpoints', asy
     await page.setViewportSize(viewport);
     await gotoStandalone(page, 'skill-wind');
 
+    await expect(page).toHaveTitle('The Wind Remembers - Portfolio Cover');
     await expect(page.getByRole('heading', { name: /The Wind Remembers/i })).toBeVisible();
+    await expect(page.locator('.cover-stage__signature')).not.toContainText(/Zakhar Pashkin/i);
     await expect(page.getByText(/Skills are never only procedures/i)).toBeVisible();
     await expect(page.locator('.cover-stage')).toBeVisible();
     await expect(page.locator('#wind-canvas')).toHaveCount(1);
@@ -322,6 +324,7 @@ test('skill wind cover capture mode fills a social banner viewport', async ({ pa
 
   const coverStage = page.locator('.cover-stage');
   await expect(page.getByRole('heading', { name: /The Wind Remembers/i })).toBeVisible();
+  await expect(page.locator('.cover-stage__signature')).not.toContainText(/Zakhar Pashkin/i);
   await expect(page.locator('.threshold__copy')).toBeHidden();
 
   const box = await coverStage.boundingBox();
