@@ -265,6 +265,11 @@ test('skill wind standalone page renders across key responsive breakpoints', asy
     const coverBox = await page.locator('.cover-stage').boundingBox();
     expect(coverBox?.width ?? 0).toBeGreaterThan(Math.min(300, viewport.width - 80));
     expect(coverBox?.height ?? 0).toBeGreaterThan(320);
+    const coverHeadingBox = await page.getByRole('heading', { name: /The Wind Remembers/i }).boundingBox();
+    if (coverBox && coverHeadingBox) {
+      expect(coverHeadingBox.x).toBeGreaterThanOrEqual(coverBox.x - 1);
+      expect(coverHeadingBox.x + coverHeadingBox.width).toBeLessThanOrEqual(coverBox.x + coverBox.width + 1);
+    }
     if (viewport.width >= 768 && coverBox) {
       expect(coverBox.width / coverBox.height).toBeGreaterThan(1.75);
       expect(coverBox.width / coverBox.height).toBeLessThan(2.02);
