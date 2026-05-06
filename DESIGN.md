@@ -112,9 +112,10 @@ and the artwork while removing continuous animation.
 
 Portfolio project cards must be obviously clickable: stable media area, badges,
 plain-language title, one proof line, stack chips, and a visible open affordance.
-Upwork is the primary hiring route; X is a secondary profile/contact surface.
-External social links need accessible names and exact hrefs. Buttons should use
-icons where familiar and avoid text clipping on mobile.
+Email is the primary contact route; X is a secondary profile/contact surface.
+External social links need accessible names and exact hrefs, with no freelance
+marketplace profile links. Buttons should use icons where familiar and avoid
+text clipping on mobile.
 
 Skill Wind label chips should look like suspended fragments crossing the
 threshold. Section cards may use glass-like panels there, but avoid stacking
@@ -123,7 +124,7 @@ multiple frosted layers on top of one another.
 ## Do's and Don'ts
 
 - Do keep project proof conservative and dated when it is a snapshot.
-- Do make the Upwork hiring route visible in the hero/sidebar/contact surfaces.
+- Do make email, X, GitHub, Telegram, LinkedIn, and resume links visible in the relevant contact surfaces.
 - Do show X as a profile link without confusing it with the modal close icon.
 - Do keep project cards clickable by mouse, Enter, and Space, with URL deep links.
 - Do verify mobile, tablet, and desktop screenshots before publishing.

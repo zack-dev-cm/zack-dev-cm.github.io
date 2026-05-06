@@ -57,7 +57,6 @@ export interface Company {
 
 export interface SocialLinks {
   linkedin: string;
-  upwork: string;
   x: string;
   email: string;
   githubPrimary: string;

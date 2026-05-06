@@ -4,7 +4,7 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
-import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, UpworkIcon, XSocialIcon } from './components/Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, XSocialIcon } from './components/Icons';
 import {
   PROJECTS,
   COMPANIES,
@@ -768,15 +768,6 @@ const App: React.FC = () => {
               APIs, workflows, and product surfaces with review gates before release.
             </p>
             <div className="hero__actions">
-              <a
-                href={SOCIAL_LINKS.upwork}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button button--primary"
-              >
-                <UpworkIcon className="h-4 w-4" />
-                Hire on Upwork
-              </a>
               <a href="#featured" className="button button--ghost">
                 View featured solutions
               </a>
@@ -1285,20 +1276,6 @@ const App: React.FC = () => {
                 <div className="contact-card__body">
                   <strong>Email</strong>
                   <span>{SOCIAL_LINKS.email}</span>
-                </div>
-              </a>
-              <a
-                href={SOCIAL_LINKS.upwork}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-card"
-              >
-                <span className="contact-card__icon-wrap" aria-hidden="true">
-                  <UpworkIcon className="contact-card__icon" />
-                </span>
-                <div className="contact-card__body">
-                  <strong>Upwork</strong>
-                  <span>Hire for scoped AI product work</span>
                 </div>
               </a>
               <a

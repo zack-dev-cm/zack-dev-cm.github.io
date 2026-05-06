@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { AUTHOR_INFO, SOCIAL_LINKS } from '../constants';
-import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, UpworkIcon, XSocialIcon } from './Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, XSocialIcon } from './Icons';
 import { resolveAssetUrl } from '../utils/assets';
 
 const NAV_ITEMS = [
@@ -78,15 +78,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount,
             Email me
           </a>
           <a
-            href={SOCIAL_LINKS.upwork}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button button--ghost button--block"
-          >
-            <UpworkIcon className="h-4 w-4" />
-            Hire on Upwork
-          </a>
-          <a
             href={SOCIAL_LINKS.resume}
             download="zakhar-pashkin-ai-product-engineer-resume.pdf"
             className="button button--ghost button--block"
@@ -113,15 +104,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount,
         </div>
 
         <div className="profile-panel__socials">
-          <a
-            href={SOCIAL_LINKS.upwork}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Upwork"
-            className="profile-social"
-          >
-            <UpworkIcon className="h-5 w-5" />
-          </a>
           <a
             href={SOCIAL_LINKS.githubPrimary}
             target="_blank"

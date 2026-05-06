@@ -22,12 +22,6 @@ export const XSocialIcon: React.FC<IconProps> = (props) => (
   </svg>
 );
 
-export const UpworkIcon: React.FC<IconProps> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M17.83 6.3c-2.26 0-4 1.48-4.9 3.84-.64-.98-1.1-2.14-1.35-3.48H8.86v5.61c0 1.38-.75 2.2-2.01 2.2s-2.02-.82-2.02-2.2V6.66H2.1v5.61c0 2.95 1.81 4.82 4.75 4.82s4.74-1.87 4.74-4.82v-.78c.33.61.73 1.17 1.19 1.67l-1.63 3.62h2.78l.9-2.05c.83.4 1.76.61 2.77.61 2.54 0 4.3-1.85 4.3-4.52 0-2.68-1.63-4.52-4.07-4.52Zm-.23 6.5c-.6 0-1.15-.15-1.65-.44l.35-.78c.45-1.01.91-2.67 1.69-2.67.73 0 1.19.74 1.19 1.9 0 1.2-.58 1.99-1.58 1.99Z" />
-  </svg>
-);
-
 export const MailIcon: React.FC<IconProps> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z" />

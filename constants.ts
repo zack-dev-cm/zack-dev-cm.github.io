@@ -12,7 +12,6 @@ export const AUTHOR_INFO: AuthorInfo = {
 
 export const SOCIAL_LINKS: SocialLinks = {
   linkedin: "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
-  upwork: "https://www.upwork.com/freelancers/zackpashkin",
   x: "https://x.com/Zackdevcv",
   email: "kaisenaiko@gmail.com",
   githubPrimary: "https://github.com/zack-dev-cm",

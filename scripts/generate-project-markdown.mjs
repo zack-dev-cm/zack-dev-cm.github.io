@@ -28,13 +28,11 @@ const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenAI APIs, VLMs, LLMs, OpenCV, FastAPI, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
 const LINKEDIN_URL = 'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/';
-const UPWORK_URL = 'https://www.upwork.com/freelancers/zackpashkin';
 const X_URL = 'https://x.com/Zackdevcv';
 const INDEX_SNAPSHOT_START = '<!-- STATIC_PORTFOLIO_SNAPSHOT_START -->';
 const INDEX_SNAPSHOT_END = '<!-- STATIC_PORTFOLIO_SNAPSHOT_END -->';
 const AUTHOR_SAME_AS = [
   LINKEDIN_URL,
-  UPWORK_URL,
   X_URL,
   'https://github.com/zack-dev-cm',
   'https://github.com/ZackPashkin',
@@ -404,7 +402,6 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     `    <a href="${SITE_BASE}/llms-full.txt">Read llms-full.txt</a>`,
     `    <a href="${SITE_BASE}/agent-context.md">Read agent context</a>`,
     `    <a href="${RESUME_URL}">Download resume PDF</a>`,
-    `    <a href="${UPWORK_URL}">Hire on Upwork</a>`,
     `    <a href="mailto:${CONTACT_EMAIL}">Email Zakhar</a>`,
     '  </div>',
     '  <ul class="crawlable-shell__stats" aria-label="Portfolio quick stats">',
@@ -464,7 +461,6 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '      <li><a href="https://github.com/zack-dev-cm">GitHub primary profile</a></li>',
     '      <li><a href="https://github.com/ZackPashkin">GitHub secondary profile</a></li>',
     `      <li><a href="${LINKEDIN_URL}">LinkedIn</a></li>`,
-    `      <li><a href="${UPWORK_URL}">Upwork</a></li>`,
     `      <li><a href="${X_URL}">X</a></li>`,
     '      <li><a href="https://t.me/rheuiii">Telegram</a></li>',
     '    </ul>',
@@ -542,7 +538,6 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('GitHub', 'https://github.com/zack-dev-cm', 'Primary repositories and open-source work.'),
     formatLinkLine('GitHub (Alt)', 'https://github.com/ZackPashkin', 'Secondary repositories.'),
     formatLinkLine('LinkedIn', LINKEDIN_URL, 'Professional profile and experience.'),
-    formatLinkLine('Upwork', UPWORK_URL, 'Freelance hiring profile.'),
     formatLinkLine('X', X_URL, 'Public updates and short notes.'),
     '',
     '## Optional',

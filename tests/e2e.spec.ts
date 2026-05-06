@@ -56,10 +56,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
     'href',
     'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/'
   );
-  await expect(page.getByRole('link', { name: /Hire on Upwork/i }).first()).toHaveAttribute(
-    'href',
-    'https://www.upwork.com/freelancers/zackpashkin'
-  );
+  const removedFreelanceMarketplaceHost = ['up', 'work', 'com'].join('.');
+  await expect(page.locator(`a[href*="${removedFreelanceMarketplaceHost}"]`)).toHaveCount(0);
   await expect(page.getByRole('link', { name: 'X' }).first()).toHaveAttribute(
     'href',
     'https://x.com/Zackdevcv'
