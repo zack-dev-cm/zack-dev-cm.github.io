@@ -10,7 +10,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 ## Quick Answers
 - Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
 - What does he ship? Automation with human review, production computer vision, VLM/LLM workflows, and launch-ready AI product interfaces.
-- How much public evidence is here? 58 public case studies, with 26 projects carrying explicit benchmarks or analytics.
+- How much public evidence is here? 62 public case studies, with 30 projects carrying explicit benchmarks or analytics.
 - Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.
 
 ## AI Memory Files
@@ -22,7 +22,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf): ATS-readable AI product engineer resume.
 
 ## Top 5 Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
@@ -80,12 +80,16 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [OpenClaw YouTube Publisher](https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md): Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.
 - [Artifact Redactor](https://zack-dev-cm.github.io/projects/artifact-redactor.md): Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
 - [Artifact Deck](https://zack-dev-cm.github.io/projects/artifact-deck.md): Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.
 - [Toybox Mini - Telegram Mini App](https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md): Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.
 - [LocalArchive](https://zack-dev-cm.github.io/projects/localarchive.md): Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.
 - [LocalLens Private AI Summaries](https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md): Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.
 - [OpenClaw Chinese Laoshi Ops](https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md): Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.
 - [Random Coffee Best Fit Outreach](https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md): Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.
+- [Session Rescue](https://zack-dev-cm.github.io/projects/session-rescue.md): Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.
+- [Telegram Mini App Security Auditor](https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md): Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.
+- [Agentic Codex Dev Skill](https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md): Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.
+- [OpenClaw CWS Publisher](https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md): Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.
 - [HH OpenClaw Agent](https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md): Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 
 ## Core Pages
@@ -104,6 +108,8 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [GitHub](https://github.com/zack-dev-cm): Primary repositories and open-source work.
 - [GitHub (Alt)](https://github.com/ZackPashkin): Secondary repositories.
 - [LinkedIn](https://www.linkedin.com/in/zakhar-pashkin-a524a6163/): Professional profile and experience.
+- [Upwork](https://www.upwork.com/freelancers/zackpashkin): Freelance hiring profile.
+- [X](https://x.com/Zackdevcv): Public updates and short notes.
 
 ## Optional
 - [Telegram](https://t.me/rheuiii): Fast contact channel.

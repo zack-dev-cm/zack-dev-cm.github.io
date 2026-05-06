@@ -11,7 +11,7 @@ Contact: mailto:kaisenaiko@gmail.com
 - React, TypeScript, Cloud Run, Docker, Kubernetes, GCP/AWS
 
 ## Top 5 Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
@@ -771,10 +771,9 @@ Tech Stack:
 - MLOps
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 466 total (live public ClawHub listings, 2026-04-24 (232 data-science-cv-repro-lab + 234 sota-agent))
-- Published versions: 17 total (live public ClawHub listings, 2026-04-24 (8 + 9 packages))
+- ClawHub downloads: 769 total (public ClawHub listings, 2026-05-06 (358 data-science-cv-repro-lab + 411 sota-agent))
+- Published versions: 22 total (public ClawHub listings, 2026-05-06 (10 + 12 packages))
 - Live packages: 2 (data-science-cv-repro-lab + sota-agent)
-- Current versions: v1.9.1 / v1.4.1 (ClawHub releases)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
 Links:
@@ -843,8 +842,8 @@ Tech Stack:
 - Release Engineering
 - OpenClaw Skills
 Benchmarks & Analytics:
-- ClawHub downloads: 109 (live public ClawHub listing, 2026-04-24)
-- Published versions: 3 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 244 (public ClawHub listing, 2026-05-06)
+- Published versions: 6 (public ClawHub listing, 2026-05-06)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
@@ -870,8 +869,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 126 (live public ClawHub listing, 2026-04-24)
-- Published versions: 4 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 242 (public ClawHub listing, 2026-05-06)
+- Published versions: 6 (public ClawHub listing, 2026-05-06)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Evidence fields: 5 (screenshot, dom, console, network, video)
@@ -897,8 +896,8 @@ Tech Stack:
 - OpenClaw Skills
 - GitHub
 Benchmarks & Analytics:
-- ClawHub downloads: 120 (live public ClawHub listing, 2026-04-24)
-- Published versions: 3 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 247 (public ClawHub listing, 2026-05-06)
+- Published versions: 6 (public ClawHub listing, 2026-05-06)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)
@@ -927,8 +926,8 @@ Tech Stack:
 - Suno
 - GitHub Actions
 Benchmarks & Analytics:
-- ClawHub downloads: 169 (live public ClawHub listing, 2026-04-24)
-- Published versions: 11 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 297 (public ClawHub listing, 2026-05-06)
+- Published versions: 13 (public ClawHub listing, 2026-05-06)
 - Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)
@@ -956,8 +955,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 107 (live public ClawHub listing, 2026-04-24)
-- Published versions: 6 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 215 (public ClawHub listing, 2026-05-06)
+- Published versions: 8 (public ClawHub listing, 2026-05-06)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (private url, path, secret, email, phone, public-url query cleanup)
@@ -985,8 +984,8 @@ Tech Stack:
 - PPTX
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 63 (live public ClawHub listing, 2026-04-24)
-- Published versions: 4 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 174 (public ClawHub listing, 2026-05-06)
+- Published versions: 6 (public ClawHub listing, 2026-05-06)
 - Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)
@@ -997,8 +996,8 @@ Links:
 - Release v1.0.3: https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3
 
 ### GitHub + ClawHub Downloads Tracker
-Summary: CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.
-Details: GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub downloads visible in the portfolio instead of burying them inside separate package pages.
+Summary: CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.
+Details: GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.
 Project URL: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 Key Features:
 - Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction
@@ -1014,10 +1013,10 @@ Tech Stack:
 - Markdown Reports
 - Open-source Analytics
 Benchmarks & Analytics:
-- Tracked ClawHub downloads: 1,421 (live public ClawHub listings, 2026-04-24 across 11 packages)
+- Tracked ClawHub downloads: 2,929 (public ClawHub listings, 2026-05-06 across 11 packages)
 - Tracked packages: 11 (CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi)
-- CV Repro Lab downloads: 466 total (232 data-science-cv-repro-lab + 234 sota-agent, 2026-04-24)
-- Strongest package: 234 downloads (sota-agent live public listing, 2026-04-24)
+- CV Repro Lab downloads: 769 total (358 data-science-cv-repro-lab + 411 sota-agent, 2026-05-06)
+- Strongest package: 411 downloads (sota-agent public listing, 2026-05-06)
 - Report outputs: 3 (text, JSON, Markdown)
 - Projection horizon: 30 days (pace and peer-conversion upside scenarios)
 Links:
@@ -1107,7 +1106,7 @@ Key Features:
 - Structures lesson source material into reusable Chinese learning packets
 - Keeps Drive references and review state explicit for repeatable lesson preparation
 - Publishes the workflow as a sanitized OpenClaw skill instead of exposing private tutoring artifacts
-- Adds the package to the public ClawHub tracker with live downloads, versions, and stars
+- Adds the package to the public ClawHub tracker with dated download, version, and star evidence
 Tech Stack:
 - OpenClaw
 - ClawHub
@@ -1116,9 +1115,9 @@ Tech Stack:
 - Markdown
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 33 (live public ClawHub listing, 2026-04-24)
-- Published versions: 1 (live public ClawHub listing, 2026-04-24)
-- ClawHub stars: 1 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 198 (public ClawHub listing, 2026-05-06)
+- Published versions: 6 (public ClawHub listing, 2026-05-06)
+- ClawHub stars: 1 (public ClawHub listing, 2026-05-06)
 - Clean release: 1.0.9 (public README release marker)
 - Public posture: sanitized (lesson operations without private student data)
 Links:
@@ -1150,6 +1149,101 @@ Benchmarks & Analytics:
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/random-coffee-best-fit-outreach
 
+### Session Rescue
+Summary: Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.
+Details: Session Rescue is a published Chrome Web Store extension for people who want a simple local backup of browser sessions. It captures normal windows and restorable tabs, supports manual and user-enabled automatic snapshots, restores sessions into a new window or the current context, and exports/imports JSON backups without a backend, account, analytics, ads, or remote code.
+Project URL: https://zack-dev-cm.github.io/projects/session-rescue.md
+Key Features:
+- Captures local session snapshots with tabs, window grouping, titles, URLs, pinned state, and timestamps
+- Restores saved sessions into a focused new window or the current browser context
+- Exports and imports portable JSON backups so the archive is not trapped in the extension
+- Ships with CWS readiness checks, real-browser E2E coverage, and sanitized store screenshots
+Tech Stack:
+- Chrome Extension
+- JavaScript
+- IndexedDB
+- Playwright
+- Chrome Web Store
+- Local-first UX
+Benchmarks & Analytics:
+- Chrome Web Store version: 0.1.4 (public listing updated 2026-04-29)
+- Storage model: local-only (no backend, account, analytics, ads, or remote code)
+- Verification stack: unit + manifest + CWS + E2E (repo-local verification command)
+Links:
+- View on Chrome Web Store: https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf
+- View on GitHub: https://github.com/zack-dev-cm/session-rescue
+- Product site: https://session-rescue.pages.dev/
+
+### Telegram Mini App Security Auditor
+Summary: Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.
+Details: Telegram Mini App Security Auditor packages a deterministic static audit for TMA projects before bot tokens, BotFather settings, or public channels are connected. It scans the project root for server-side initData validation signals, token-shaped literals, admin routes without obvious guards, wildcard CORS, unsafe HTML usage, frame-header risks, contact/PII/token request-form leaks, and live Bot API actions without dry-run or review gates. The public contract is intentionally conservative: it returns PASS, REVIEW, or BLOCK, and it does not claim runtime security proof.
+Project URL: https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md
+Key Features:
+- Audits Telegram initData validation, committed token patterns, admin route guards, CORS, frame headers, and unsafe HTML signals
+- Flags PII/token collection risks in request forms before a public Telegram Mini App launch
+- Returns PASS, REVIEW, or BLOCK with JSON and Markdown reports for release review
+- Keeps the guarantee narrow: a static heuristic launch gate, not proof of runtime security
+Tech Stack:
+- Python
+- Static Analysis
+- Telegram Mini Apps
+- Security Review
+- Markdown Reports
+- Codex Skills
+Benchmarks & Analytics:
+- Decision states: 3 (PASS, REVIEW, BLOCK)
+- Report formats: 2 (JSON + Markdown)
+- Audit families: 9 (initData, tokens, admin, CORS, HTML, frames, PII, health, Bot API dry-run)
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/telegram-miniapp-security-auditor
+
+### Agentic Codex Dev Skill
+Summary: Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.
+Details: Agentic Codex Dev Skill is a public instruction-only skill for turning broad software tasks into a disciplined agentic development loop. It tells Codex to state the goal, inspect the repo, assign explicit roles when delegation is needed, make scoped edits, run verification, review for leaks and regressions, update durable memory, and publish only when the public surface is clean. The package avoids scripts, installers, credential readers, and background daemons so the reusable surface stays auditable.
+Project URL: https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md
+Key Features:
+- Defines a repo-first development loop: inspect, plan, edit, verify, review, remember, publish
+- Documents role and isolation templates for multi-agent work without hiding ownership boundaries
+- Includes release bleed and public-surface checklists for GitHub and ClawHub publishing
+- Ships as an instruction-only skill with no scripts, daemons, credential readers, or installers
+Tech Stack:
+- Codex Skills
+- OpenClaw
+- Release Engineering
+- GitHub
+- Markdown
+- Agent Workflows
+Benchmarks & Analytics:
+- Runtime scripts: 0 (instruction-only public skill)
+- Reference docs: 5 (source review, comparison, system design, eval run, publish checklist)
+- Release gates: 2 (leak review and publish checklist)
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/agentic-codex-dev-skill
+
+### OpenClaw CWS Publisher
+Summary: Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.
+Details: OpenClaw CWS Publisher is a public release kit for Chrome extension projects. It packages the exact extension ZIP intended for upload, validates the manifest and CWS listing contract, scans tracked and untracked public-surface files for leak patterns, runs discovered local E2E/reviewer gates, enforces design score reports, checks Chrome Stable freshness, and renders reproducible GitHub and ClawHub publish commands. It is a release helper, not a bundled extension product.
+Project URL: https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md
+Key Features:
+- Builds and validates the exact Chrome Web Store ZIP against source manifest and listing JSON
+- Scans tracked and untracked non-ignored files for local paths, localhost URLs, websockets, and token-shaped strings
+- Runs local E2E, reviewer, design, Chrome Stable, and competitor checks when a target extension exposes them
+- Renders reproducible GitHub release and ClawHub publish commands from a launch manifest
+Tech Stack:
+- ClawHub
+- Python
+- Chrome Web Store
+- Playwright
+- Release Engineering
+- Security Review
+Benchmarks & Analytics:
+- ClawHub downloads: 314 (public ClawHub listing, 2026-05-06)
+- Published versions: 12 (public ClawHub listing, 2026-05-06)
+- Release checks: 7 (ZIP, listing, leaks, E2E, design, Chrome Stable, competitors)
+Links:
+- View on GitHub: https://github.com/zack-dev-cm/openclaw-cws-publisher
+- Open on ClawHub: https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher
+
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 Details: HH OpenClaw Agent is a small public OpenClaw skill for hh.ru application work through OpenClaw. It creates a machine-readable packet for one vacancy response flow, logs the live browser steps with evidence, validates the resulting bundle, and renders a markdown report for review, debugging, or funnel tracking. The public workflow requires an approved review state before submit and treats login, CAPTCHA, passkey, and 2FA as operator-owned interruptions.
@@ -1166,8 +1260,8 @@ Tech Stack:
 - OpenClaw Skills
 - Career Automation
 Benchmarks & Analytics:
-- ClawHub downloads: 115 (live public ClawHub listing, 2026-04-24)
-- Published versions: 6 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 229 (public ClawHub listing, 2026-05-06)
+- Published versions: 8 (public ClawHub listing, 2026-05-06)
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Approval gate: required (review must be approved before submit)

@@ -12,6 +12,8 @@ export const AUTHOR_INFO: AuthorInfo = {
 
 export const SOCIAL_LINKS: SocialLinks = {
   linkedin: "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
+  upwork: "https://www.upwork.com/freelancers/zackpashkin",
+  x: "https://x.com/Zackdevcv",
   email: "kaisenaiko@gmail.com",
   githubPrimary: "https://github.com/zack-dev-cm",
   githubSecondary: "https://github.com/ZackPashkin",
@@ -34,8 +36,8 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
-  "58 public case studies and launches spanning automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "1,421 tracked ClawHub downloads across 11 public packages, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
+  "62 public case studies and launches spanning automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "2,929 tracked ClawHub downloads across 11 public packages, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -56,105 +58,137 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "sota-agent",
     displayName: "SOTA Agent",
-    downloads: 234,
-    versions: 9,
+    downloads: 411,
+    versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Lab",
-    downloads: 232,
-    versions: 8,
+    downloads: 358,
+    versions: 10,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "youtube-creator-ops",
     displayName: "OpenClaw YouTube Publisher",
-    downloads: 169,
-    versions: 11,
+    downloads: 297,
+    versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "browser-proof",
     displayName: "Browser Proof",
-    downloads: 126,
-    versions: 4,
+    downloads: 242,
+    versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "public-surface-review",
     displayName: "Publish Guard",
-    downloads: 120,
-    versions: 3,
+    downloads: 247,
+    versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "hh-openclaw-agent",
     displayName: "HH OpenClaw Agent",
-    downloads: 115,
-    versions: 6,
+    downloads: 229,
+    versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 113,
-    versions: 6,
+    downloads: 314,
+    versions: 12,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub + ClawHub Launcher",
-    downloads: 109,
-    versions: 3,
+    downloads: 244,
+    versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 107,
-    versions: 6,
+    downloads: 215,
+    versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 63,
-    versions: 4,
+    downloads: 174,
+    versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 33,
-    versions: 1,
+    downloads: 198,
+    versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-04-24"
+    checkedAt: "2026-05-06"
   }
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "Telegram Mini App Security Auditor",
+    description: "New public launch gate: a static auditor for Telegram Mini Apps that flags initData, bot-token, admin, CORS, PII, and Bot API dry-run risks before release.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/telegram-miniapp-security-auditor" }
+    ],
+    projectId: 60,
+    repoFullName: "zack-dev-cm/telegram-miniapp-security-auditor",
+    createdAt: "2026-04-30"
+  },
+  {
+    title: "Agentic Codex Dev Skill",
+    description: "New public Codex/OpenClaw skill: a scoped development loop with repo inspection, role assignment, verification, leak review, durable memory, and publish gates.",
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-codex-dev-skill" }
+    ],
+    projectId: 61,
+    repoFullName: "zack-dev-cm/agentic-codex-dev-skill",
+    createdAt: "2026-04-30"
+  },
+  {
+    title: "Session Rescue - Chrome Web Store extension",
+    description: "New user product: a local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
+    links: [
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/session-rescue" },
+      { text: "Product site", url: "https://session-rescue.pages.dev/" }
+    ],
+    projectId: 59,
+    repoFullName: "zack-dev-cm/session-rescue",
+    createdAt: "2026-04-29"
+  },
   {
     title: "LocalArchive - Chrome Web Store extension",
     description: "New user product: a local-first Chrome extension for saving readable pages, selected text, Pocket imports, and portable Markdown/HTML/JSON exports.",
@@ -257,7 +291,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "GitHub + ClawHub Downloads Tracker",
-    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, live ClawHub downloads, publisher dashboard stats, deltas, and next traction bets.",
+    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, dated ClawHub snapshots, publisher dashboard stats, deltas, and next traction bets.",
     links: [
       { text: "Read tracker case study", url: "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md" }
     ],
@@ -1242,10 +1276,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "466 total", context: "live public ClawHub listings, 2026-04-24 (232 data-science-cv-repro-lab + 234 sota-agent)" },
-      { label: "Published versions", value: "17 total", context: "live public ClawHub listings, 2026-04-24 (8 + 9 packages)" },
+      { label: "ClawHub downloads", value: "769 total", context: "public ClawHub listings, 2026-05-06 (358 data-science-cv-repro-lab + 411 sota-agent)" },
+      { label: "Published versions", value: "22 total", context: "public ClawHub listings, 2026-05-06 (10 + 12 packages)" },
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
-      { label: "Current versions", value: "v1.9.1 / v1.4.1", context: "ClawHub releases" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
       { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
     ],
@@ -1330,8 +1363,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "109", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "3", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "244", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
@@ -1360,8 +1393,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "126", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "4", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "242", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
@@ -1390,8 +1423,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "120", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "3", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "247", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
@@ -1422,8 +1455,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "169", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "11", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "297", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
@@ -1453,8 +1486,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "107", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "6", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "215", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
@@ -1484,8 +1517,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "63", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "4", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "174", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
@@ -1505,8 +1538,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 53,
     title: "GitHub + ClawHub Downloads Tracker",
     aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub traction tracker"],
-    description: "CLI and report flow for tracking GitHub stars, live ClawHub downloads, publisher stats, and traction deltas.",
-    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub downloads visible in the portfolio instead of burying them inside separate package pages.",
+    description: "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
     projectKind: "open-source",
     surfaceTags: ["open-source", "automation", "analytics"],
     keyFeatures: [
@@ -1517,10 +1550,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "1,421", context: "live public ClawHub listings, 2026-04-24 across 11 packages" },
+      { label: "Tracked ClawHub downloads", value: "2,929", context: "public ClawHub listings, 2026-05-06 across 11 packages" },
       { label: "Tracked packages", value: "11", context: "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi" },
-      { label: "CV Repro Lab downloads", value: "466 total", context: "232 data-science-cv-repro-lab + 234 sota-agent, 2026-04-24" },
-      { label: "Strongest package", value: "234 downloads", context: "sota-agent live public listing, 2026-04-24" },
+      { label: "CV Repro Lab downloads", value: "769 total", context: "358 data-science-cv-repro-lab + 411 sota-agent, 2026-05-06" },
+      { label: "Strongest package", value: "411 downloads", context: "sota-agent public listing, 2026-05-06" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],
@@ -1644,13 +1677,13 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Structures lesson source material into reusable Chinese learning packets",
       "Keeps Drive references and review state explicit for repeatable lesson preparation",
       "Publishes the workflow as a sanitized OpenClaw skill instead of exposing private tutoring artifacts",
-      "Adds the package to the public ClawHub tracker with live downloads, versions, and stars"
+      "Adds the package to the public ClawHub tracker with dated download, version, and star evidence"
     ],
     techStack: ["OpenClaw", "ClawHub", "Google Drive", "Language Learning", "Markdown", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "33", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "1", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "ClawHub stars", value: "1", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "198", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-05-06" },
       { label: "Clean release", value: "1.0.9", context: "public README release marker" },
       { label: "Public posture", value: "sanitized", context: "lesson operations without private student data" }
     ],
@@ -1703,6 +1736,143 @@ Operations Layer (Console, Alerts, Runbooks)`
     }
   },
   {
+    id: 59,
+    title: "Session Rescue",
+    aliases: ["session rescue extension", "tab restore", "browser session backup"],
+    description: "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
+    longDescription: "Session Rescue is a published Chrome Web Store extension for people who want a simple local backup of browser sessions. It captures normal windows and restorable tabs, supports manual and user-enabled automatic snapshots, restores sessions into a new window or the current context, and exports/imports JSON backups without a backend, account, analytics, ads, or remote code.",
+    projectKind: "user-product",
+    surfaceTags: ["browser-extension", "web", "open-source"],
+    keyFeatures: [
+      "Captures local session snapshots with tabs, window grouping, titles, URLs, pinned state, and timestamps",
+      "Restores saved sessions into a focused new window or the current browser context",
+      "Exports and imports portable JSON backups so the archive is not trapped in the extension",
+      "Ships with CWS readiness checks, real-browser E2E coverage, and sanitized store screenshots"
+    ],
+    techStack: ["Chrome Extension", "JavaScript", "IndexedDB", "Playwright", "Chrome Web Store", "Local-first UX"],
+    benchmarks: [
+      { label: "Chrome Web Store version", value: "0.1.4", context: "public listing updated 2026-04-29" },
+      { label: "Storage model", value: "local-only", context: "no backend, account, analytics, ads, or remote code" },
+      { label: "Verification stack", value: "unit + manifest + CWS + E2E", context: "repo-local verification command" }
+    ],
+    links: [
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf" },
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/session-rescue" },
+      { text: "Product site", url: "https://session-rescue.pages.dev/" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/session-rescue-hero.png`, alt: "Session Rescue public product page with session library preview" },
+      { url: `${LOCAL_IMG_BASE}/session-rescue-popup.png`, alt: "Session Rescue extension popup" },
+      { url: `${LOCAL_IMG_BASE}/session-rescue-library.png`, alt: "Session Rescue session library" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/session-rescue-hero.png`,
+    repoFullName: "zack-dev-cm/session-rescue",
+    createdAt: "2026-04-29",
+    canonicalLinks: {
+      chromeWebStore: "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf",
+      github: "https://github.com/zack-dev-cm/session-rescue",
+      website: "https://session-rescue.pages.dev/"
+    }
+  },
+  {
+    id: 60,
+    title: "Telegram Mini App Security Auditor",
+    aliases: ["tma security auditor", "telegram launch gate", "telegram mini app audit"],
+    description: "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
+    longDescription: "Telegram Mini App Security Auditor packages a deterministic static audit for TMA projects before bot tokens, BotFather settings, or public channels are connected. It scans the project root for server-side initData validation signals, token-shaped literals, admin routes without obvious guards, wildcard CORS, unsafe HTML usage, frame-header risks, contact/PII/token request-form leaks, and live Bot API actions without dry-run or review gates. The public contract is intentionally conservative: it returns PASS, REVIEW, or BLOCK, and it does not claim runtime security proof.",
+    projectKind: "open-source",
+    surfaceTags: ["open-source", "automation", "security", "mini-app-security"],
+    keyFeatures: [
+      "Audits Telegram initData validation, committed token patterns, admin route guards, CORS, frame headers, and unsafe HTML signals",
+      "Flags PII/token collection risks in request forms before a public Telegram Mini App launch",
+      "Returns PASS, REVIEW, or BLOCK with JSON and Markdown reports for release review",
+      "Keeps the guarantee narrow: a static heuristic launch gate, not proof of runtime security"
+    ],
+    techStack: ["Python", "Static Analysis", "Telegram Mini Apps", "Security Review", "Markdown Reports", "Codex Skills"],
+    benchmarks: [
+      { label: "Decision states", value: "3", context: "PASS, REVIEW, BLOCK" },
+      { label: "Report formats", value: "2", context: "JSON + Markdown" },
+      { label: "Audit families", value: "9", context: "initData, tokens, admin, CORS, HTML, frames, PII, health, Bot API dry-run" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/telegram-miniapp-security-auditor" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/telegram-miniapp-security-auditor",
+    createdAt: "2026-04-30",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/telegram-miniapp-security-auditor"
+    }
+  },
+  {
+    id: 61,
+    title: "Agentic Codex Dev Skill",
+    aliases: ["agentic codex skill", "codex development skill", "openclaw development loop"],
+    description: "Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.",
+    longDescription: "Agentic Codex Dev Skill is a public instruction-only skill for turning broad software tasks into a disciplined agentic development loop. It tells Codex to state the goal, inspect the repo, assign explicit roles when delegation is needed, make scoped edits, run verification, review for leaks and regressions, update durable memory, and publish only when the public surface is clean. The package avoids scripts, installers, credential readers, and background daemons so the reusable surface stays auditable.",
+    projectKind: "open-source",
+    surfaceTags: ["open-source", "automation", "codex", "release-engineering"],
+    keyFeatures: [
+      "Defines a repo-first development loop: inspect, plan, edit, verify, review, remember, publish",
+      "Documents role and isolation templates for multi-agent work without hiding ownership boundaries",
+      "Includes release bleed and public-surface checklists for GitHub and ClawHub publishing",
+      "Ships as an instruction-only skill with no scripts, daemons, credential readers, or installers"
+    ],
+    techStack: ["Codex Skills", "OpenClaw", "Release Engineering", "GitHub", "Markdown", "Agent Workflows"],
+    benchmarks: [
+      { label: "Runtime scripts", value: "0", context: "instruction-only public skill" },
+      { label: "Reference docs", value: "5", context: "source review, comparison, system design, eval run, publish checklist" },
+      { label: "Release gates", value: "2", context: "leak review and publish checklist" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-codex-dev-skill" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/agentic-codex-dev-skill",
+    createdAt: "2026-04-30",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/agentic-codex-dev-skill"
+    }
+  },
+  {
+    id: 62,
+    title: "OpenClaw CWS Publisher",
+    aliases: ["chrome web store publisher", "cws publisher", "openclaw extension release kit"],
+    description: "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
+    longDescription: "OpenClaw CWS Publisher is a public release kit for Chrome extension projects. It packages the exact extension ZIP intended for upload, validates the manifest and CWS listing contract, scans tracked and untracked public-surface files for leak patterns, runs discovered local E2E/reviewer gates, enforces design score reports, checks Chrome Stable freshness, and renders reproducible GitHub and ClawHub publish commands. It is a release helper, not a bundled extension product.",
+    projectKind: "open-source",
+    surfaceTags: ["open-source", "automation", "browser-extension", "release-engineering"],
+    keyFeatures: [
+      "Builds and validates the exact Chrome Web Store ZIP against source manifest and listing JSON",
+      "Scans tracked and untracked non-ignored files for local paths, localhost URLs, websockets, and token-shaped strings",
+      "Runs local E2E, reviewer, design, Chrome Stable, and competitor checks when a target extension exposes them",
+      "Renders reproducible GitHub release and ClawHub publish commands from a launch manifest"
+    ],
+    techStack: ["ClawHub", "Python", "Chrome Web Store", "Playwright", "Release Engineering", "Security Review"],
+    benchmarks: [
+      { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "12", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Release checks", value: "7", context: "ZIP, listing, leaks, E2E, design, Chrome Stable, competitors" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/openclaw-cws-publisher" },
+      { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher" }
+    ],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    repoFullName: "zack-dev-cm/openclaw-cws-publisher",
+    createdAt: "2026-04-15",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/openclaw-cws-publisher",
+      website: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
+    }
+  },
+  {
     id: 50,
     title: "HH OpenClaw Agent",
     description: "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
@@ -1715,8 +1885,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "115", context: "live public ClawHub listing, 2026-04-24" },
-      { label: "Published versions", value: "6", context: "live public ClawHub listing, 2026-04-24" },
+      { label: "ClawHub downloads", value: "229", context: "public ClawHub listing, 2026-05-06" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-06" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },

@@ -56,10 +56,18 @@ test('homepage renders core sections and project discovery controls', async ({ p
     'href',
     'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/'
   );
+  await expect(page.getByRole('link', { name: /Hire on Upwork/i }).first()).toHaveAttribute(
+    'href',
+    'https://www.upwork.com/freelancers/zackpashkin'
+  );
+  await expect(page.getByRole('link', { name: 'X' }).first()).toHaveAttribute(
+    'href',
+    'https://x.com/Zackdevcv'
+  );
 
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
-  await expect(clawHubSection.getByText('1,421')).toBeVisible();
+  await expect(clawHubSection.getByText('2,929')).toBeVisible();
   await expect(clawHubSection.getByText(/downloads across 11 public packages/i)).toBeVisible();
 
   // Card presence: ensure at least one project card renders
@@ -96,6 +104,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Telegram Mini App Security Auditor', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Agentic Codex Dev Skill', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Session Rescue', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('LocalArchive', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('LocalLens Private AI Summaries', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('OpenClaw Chinese Laoshi Ops', { exact: false })).toBeVisible();
@@ -105,6 +116,22 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const projectSearch = page.getByLabel('Search projects');
   await expect(projectSearch).toBeVisible();
+  await expect(page.getByTestId('project-card').first().getByText('Open case study')).toBeVisible();
+
+  await projectSearch.fill('session rescue');
+  const sessionRescueCard = page.getByRole('button', { name: /Open project: Session Rescue/i });
+  await expect(sessionRescueCard).toBeVisible();
+  await sessionRescueCard.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/\?project=session-rescue/);
+  await expect(page.getByRole('dialog').getByRole('link', { name: 'View on Chrome Web Store' })).toHaveAttribute(
+    'href',
+    'https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf'
+  );
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
   await projectSearch.fill('localarchive');
   await expect(page.getByRole('button', { name: /Open project: LocalArchive/i })).toBeVisible();
   await projectSearch.fill('');
@@ -204,6 +231,18 @@ test('featured cards stay inside their own bounds on desktop breakpoints', async
     );
     expect(objectFits.every((value) => value === 'contain')).toBe(true);
   }
+});
+
+test('project deep links open and close cleanly', async ({ page }) => {
+  await page.goto('/?project=session-rescue', { waitUntil: 'domcontentloaded' });
+
+  const modal = page.getByRole('dialog');
+  await expect(modal).toBeVisible();
+  await expect(modal.getByRole('heading', { name: 'Session Rescue' })).toBeVisible();
+
+  await page.keyboard.press('Escape');
+  await expect(modal).toBeHidden();
+  await expect(page).not.toHaveURL(/project=session-rescue/);
 });
 
 test.describe('mobile', () => {

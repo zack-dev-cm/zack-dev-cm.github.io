@@ -27,8 +27,8 @@ https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md
 - GitHub Actions
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 169 (live public ClawHub listing, 2026-04-24)
-- Published versions: 11 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 297 (public ClawHub listing, 2026-05-06)
+- Published versions: 13 (public ClawHub listing, 2026-05-06)
 - Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)

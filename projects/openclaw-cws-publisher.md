@@ -1,29 +1,31 @@
 # OpenClaw CWS Publisher
 
-> Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata.
+> Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.
 
 ## Summary
-`OpenClaw CWS Publisher` is now a narrow public release kit. It packages a target extension, scans tracked files for public-surface leaks, generates GitHub metadata, and renders publish commands with explicit GitHub topics and ClawHub tags.
+OpenClaw CWS Publisher is a public release kit for Chrome extension projects. It packages the exact extension ZIP intended for upload, validates the manifest and CWS listing contract, scans tracked and untracked public-surface files for leak patterns, runs discovered local E2E/reviewer gates, enforces design score reports, checks Chrome Stable freshness, and renders reproducible GitHub and ClawHub publish commands. It is a release helper, not a bundled extension product.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md
 
 ## Key Features
-- Chrome extension ZIP packaging for a target repo
-- Tracked-file leak scanning with `git ls-files`
-- Generated GitHub metadata and explicit repo topics
-- Optional ClawHub publish commands with explicit tags
+- Builds and validates the exact Chrome Web Store ZIP against source manifest and listing JSON
+- Scans tracked and untracked non-ignored files for local paths, localhost URLs, websockets, and token-shaped strings
+- Runs local E2E, reviewer, design, Chrome Stable, and competitor checks when a target extension exposes them
+- Renders reproducible GitHub release and ClawHub publish commands from a launch manifest
 
 ## Tech Stack
+- ClawHub
 - Python
-- GitHub CLI
-- ClawHub CLI
-- OpenClaw
+- Chrome Web Store
+- Playwright
+- Release Engineering
+- Security Review
 
 ## Benchmarks & Analytics
-- Release line: v0.2.0
-- Public skill scope: packaging, audit, and metadata only
-- OpenClaw scan: Benign
+- ClawHub downloads: 314 (public ClawHub listing, 2026-05-06)
+- Published versions: 12 (public ClawHub listing, 2026-05-06)
+- Release checks: 7 (ZIP, listing, leaks, E2E, design, Chrome Stable, competitors)
 
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/openclaw-cws-publisher)

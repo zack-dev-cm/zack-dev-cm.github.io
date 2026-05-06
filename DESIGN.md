@@ -1,37 +1,40 @@
 ---
 version: "alpha"
-name: The Wind Remembers Design System
-description: Hidden editorial motion system for the easter-egg future page.
+name: Zakhar Pashkin Portfolio Design System
+description: Public portfolio system for AI product engineering evidence, case studies, resume assets, and the hidden Skill Wind cover page.
 colors:
-  primary: "#95E7FF"
-  ink: "#07111a"
-  surface: "#0b1622"
-  surface-strong: "#101d2a"
-  copper: "#f0a66f"
-  ivory: "#f3ecde"
+  page: "#071019"
+  rail: "#0A1320"
+  surface: "#0D1726"
+  surface-strong: "#111C2B"
+  ink: "#F4F7FB"
+  muted: "#A8B5C8"
+  primary: "#66C7F4"
+  review: "#7DD3A8"
+  evidence: "#F0B35F"
 typography:
   display:
-    fontFamily: "Iowan Old Style"
-    fontSize: "5rem"
+    fontFamily: "Space Grotesk"
+    fontSize: "5.6rem"
     fontWeight: 700
-    lineHeight: 0.94
+    lineHeight: 0.92
     letterSpacing: "0"
   body:
-    fontFamily: "Avenir Next"
+    fontFamily: "Space Grotesk"
     fontSize: "1rem"
     fontWeight: 500
     lineHeight: 1.65
     letterSpacing: "0px"
   label:
-    fontFamily: "Avenir Next"
+    fontFamily: "Space Grotesk"
     fontSize: "0.78rem"
     fontWeight: 700
     lineHeight: 1.2
-    letterSpacing: "0.14em"
+    letterSpacing: "0.12em"
 rounded:
-  sm: "16px"
-  md: "24px"
-  lg: "36px"
+  sm: "6px"
+  md: "8px"
+  lg: "18px"
 spacing:
   xs: "8px"
   sm: "14px"
@@ -40,51 +43,58 @@ spacing:
   xl: "72px"
 components:
   hero-shell:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ivory}"
+    backgroundColor: "{colors.rail}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.lg}"
   primary-button:
-    backgroundColor: "{colors.ivory}"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.primary}"
+    textColor: "#04111E"
     rounded: "999px"
   secondary-button:
     backgroundColor: "{colors.surface-strong}"
-    textColor: "{colors.ivory}"
+    textColor: "{colors.ink}"
     rounded: "999px"
   label-chip:
     backgroundColor: "{colors.surface-strong}"
-    textColor: "{colors.copper}"
-    rounded: "999px"
+    textColor: "{colors.evidence}"
+    rounded: "{rounded.md}"
 ---
 
 ## Overview
 
-This file governs the standalone `public/skill-wind/` page. The page is an
-easter egg inside the portfolio and also the portfolio's social cover surface,
-so it should feel discovered rather than marketed. One generated artwork carries
-the emotional weight; browser motion should turn it into a slow four-act cover
-instead of competing with it.
+This file governs the public portfolio and the standalone `public/skill-wind/`
+page. The portfolio is an evidence surface for hiring decisions: clients and
+recruiters should see what Zakhar can ship, what proof exists, and where to
+contact or hire him without digging through decorative marketing.
 
 ## Colors
 
-The palette is built around deep ink, pale cyan, warm copper, and parchment
-ivory. Cyan signals machine cognition, copper signals embodied craft, and the
-dark field keeps the motion readable. Do not let purple take over the page, and
-avoid saturated neon rainbow accents.
+The main portfolio uses a dark neutral base, off-white text, cyan action color,
+green review-gate accents, and amber evidence accents. Avoid purple-blue
+gradient dominance, beige/brown themes, and decorative orb backgrounds. Skill
+Wind can keep its deep ink, pale cyan, warm copper, and parchment ivory because
+it is a separate hidden editorial cover.
 
 ## Typography
 
-Headlines should feel cinematic and literary, so use a high-contrast serif for
-display copy. Supporting copy and UI controls should use a clean sans. Keep
-display copy dense and short; longer explanatory text belongs in the body face.
+The main portfolio should feel dense and professional, not ceremonial. Use
+large display type only for the first hero. Compact panels, project cards,
+contact tiles, and dashboard-like surfaces need smaller headings and stable
+font sizes across viewports. Letter spacing stays `0` except short uppercase
+labels.
 
 ## Layout
 
-The animated cover stage is the dominant surface and should stay near a
-LinkedIn-friendly 1200:627 ratio on desktop. On mobile it can become taller so
-the artwork does not collapse into a shallow strip. The written meditation
-belongs below the cover stage, not beside it, so the artwork remains the first
-viewport signal.
+The portfolio uses a left identity rail and a main evidence column. The first
+viewport should show identity, hiring routes, the production-facing value
+proposition, and a hint of the next section. Project cards are repeated items
+and may be framed; page sections should not feel like nested cards inside cards.
+Product screenshots should remain inspectable and should not be cropped in ways
+that hide the UI evidence.
+
+For Skill Wind, the animated cover stage remains the dominant surface and
+should stay near a LinkedIn-friendly 1200:627 ratio on desktop. On mobile it can
+be taller so the artwork does not collapse into a shallow strip.
 
 ## Motion
 
@@ -100,13 +110,26 @@ and the artwork while removing continuous animation.
 
 ## Components
 
-Buttons should feel almost incidental and never dominate the frame. Label chips
-should look like suspended fragments crossing the threshold. Section cards may
-use glass-like panels, but avoid stacking multiple frosted layers on top of one
-another.
+Portfolio project cards must be obviously clickable: stable media area, badges,
+plain-language title, one proof line, stack chips, and a visible open affordance.
+Upwork is the primary hiring route; X is a secondary profile/contact surface.
+External social links need accessible names and exact hrefs. Buttons should use
+icons where familiar and avoid text clipping on mobile.
+
+Skill Wind label chips should look like suspended fragments crossing the
+threshold. Section cards may use glass-like panels there, but avoid stacking
+multiple frosted layers on top of one another.
 
 ## Do's and Don'ts
 
+- Do keep project proof conservative and dated when it is a snapshot.
+- Do make the Upwork hiring route visible in the hero/sidebar/contact surfaces.
+- Do show X as a profile link without confusing it with the modal close icon.
+- Do keep project cards clickable by mouse, Enter, and Space, with URL deep links.
+- Do verify mobile, tablet, and desktop screenshots before publishing.
+- Do not invent user counts, client names, or product screenshots.
+- Do not bury public links only inside modals.
+- Do not add decorative blobs, fake dashboards, or stock-like AI art to the main portfolio.
 - Do keep the central transformation readable from left to right.
 - Do keep the social cover crop meaningful at 1200 x 627.
 - Do make the page feel hidden and deliberate, not like a product launch page.

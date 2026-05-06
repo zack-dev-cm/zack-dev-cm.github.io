@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md
 - Structures lesson source material into reusable Chinese learning packets
 - Keeps Drive references and review state explicit for repeatable lesson preparation
 - Publishes the workflow as a sanitized OpenClaw skill instead of exposing private tutoring artifacts
-- Adds the package to the public ClawHub tracker with live downloads, versions, and stars
+- Adds the package to the public ClawHub tracker with dated download, version, and star evidence
 
 ## Tech Stack
 - OpenClaw
@@ -23,9 +23,9 @@ https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 33 (live public ClawHub listing, 2026-04-24)
-- Published versions: 1 (live public ClawHub listing, 2026-04-24)
-- ClawHub stars: 1 (live public ClawHub listing, 2026-04-24)
+- ClawHub downloads: 198 (public ClawHub listing, 2026-05-06)
+- Published versions: 6 (public ClawHub listing, 2026-05-06)
+- ClawHub stars: 1 (public ClawHub listing, 2026-05-06)
 - Clean release: 1.0.9 (public README release marker)
 - Public posture: sanitized (lesson operations without private student data)
 

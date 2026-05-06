@@ -4,7 +4,7 @@ import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
-import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon } from './components/Icons';
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, UpworkIcon, XSocialIcon } from './components/Icons';
 import {
   PROJECTS,
   COMPANIES,
@@ -26,8 +26,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   53: {
     label: 'Traction evidence system',
     summary:
-      'A public CLI/reporting flow that keeps GitHub traction, live ClawHub downloads, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['1,421 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
+      'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
+    proof: ['2,929 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
   },
   45: {
     label: 'Open-source review harness',
@@ -51,7 +51,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['466 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: ['769 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
@@ -768,7 +768,16 @@ const App: React.FC = () => {
               APIs, workflows, and product surfaces with review gates before release.
             </p>
             <div className="hero__actions">
-              <a href="#featured" className="button button--primary">
+              <a
+                href={SOCIAL_LINKS.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button button--primary"
+              >
+                <UpworkIcon className="h-4 w-4" />
+                Hire on Upwork
+              </a>
+              <a href="#featured" className="button button--ghost">
                 View featured solutions
               </a>
               <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
@@ -969,7 +978,7 @@ const App: React.FC = () => {
             id="clawhub"
             eyebrow="ClawHub"
             title="Downloads Tracker"
-            description="Live public ClawHub listing counters used as marketplace traction evidence, not user-count claims."
+            description="Dated public ClawHub listing counters used as marketplace traction evidence, not user-count claims."
           >
             <div className="proof-grid">
               <div className="proof-chip">
@@ -1279,6 +1288,20 @@ const App: React.FC = () => {
                 </div>
               </a>
               <a
+                href={SOCIAL_LINKS.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <UpworkIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
+                  <strong>Upwork</strong>
+                  <span>Hire for scoped AI product work</span>
+                </div>
+              </a>
+              <a
                 href={SOCIAL_LINKS.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1304,6 +1327,20 @@ const App: React.FC = () => {
                 <div className="contact-card__body">
                   <strong>LinkedIn</strong>
                   <span>Professional profile</span>
+                </div>
+              </a>
+              <a
+                href={SOCIAL_LINKS.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card"
+              >
+                <span className="contact-card__icon-wrap" aria-hidden="true">
+                  <XSocialIcon className="contact-card__icon" />
+                </span>
+                <div className="contact-card__body">
+                  <strong>X</strong>
+                  <span>Public updates and short notes</span>
                 </div>
               </a>
               <a

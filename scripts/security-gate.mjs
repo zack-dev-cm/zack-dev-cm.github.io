@@ -17,6 +17,10 @@ const SKIP_DIRECTORIES = new Set([
   'test-results',
 ]);
 
+const SKIP_UNTRACKED_DIRECTORIES = new Set([
+  '.site',
+]);
+
 const SKIP_PREFIXES = [
   'docs/assets/',
   'public/images/',
@@ -91,6 +95,7 @@ const errors = [];
 const CODEX_DOCS_SOURCE = 'codex-docs';
 const CODEX_DOCS_OUTPUT = 'docs/codex';
 const REQUIRE_PDF_TEXT = process.env.REQUIRE_PDF_TEXT === 'true';
+let trackedFilePaths = new Set();
 
 const toRelative = (filePath) => path.relative(ROOT_DIR, filePath).split(path.sep).join('/');
 
@@ -102,6 +107,24 @@ const isPublicSurface = (relativePath) => {
   return PUBLIC_ROOT_FILES.has(relativePath) || PUBLIC_PREFIXES.some((prefix) => relativePath.startsWith(prefix));
 };
 
+const loadTrackedFilePaths = async () => {
+  const { stdout } = await execFileAsync('git', ['ls-files', '-z'], {
+    cwd: ROOT_DIR,
+    maxBuffer: 10 * 1024 * 1024,
+  });
+  trackedFilePaths = new Set(stdout.split('\0').filter(Boolean));
+};
+
+const isTrackedFile = (relativePath) => trackedFilePaths.has(relativePath);
+
+const isTrackedDirectory = (relativePath) => {
+  const prefix = `${relativePath.replace(/\/$/, '')}/`;
+  for (const trackedPath of trackedFilePaths) {
+    if (trackedPath.startsWith(prefix)) return true;
+  }
+  return false;
+};
+
 const collectFiles = async (directory) => {
   const entries = await fs.readdir(directory, { withFileTypes: true });
   const files = [];
@@ -110,6 +133,7 @@ const collectFiles = async (directory) => {
     const relativePath = toRelative(absolutePath);
     if (entry.isDirectory()) {
       if (SKIP_DIRECTORIES.has(entry.name) || isSkipped(`${relativePath}/`)) continue;
+      if (SKIP_UNTRACKED_DIRECTORIES.has(entry.name) && !isTrackedDirectory(relativePath)) continue;
       files.push(...await collectFiles(absolutePath));
       continue;
     }
@@ -128,6 +152,7 @@ const collectPublicPdfs = async (directory) => {
     const relativePath = toRelative(absolutePath);
     if (entry.isDirectory()) {
       if (SKIP_DIRECTORIES.has(entry.name) || isSkipped(`${relativePath}/`)) continue;
+      if (SKIP_UNTRACKED_DIRECTORIES.has(entry.name) && !isTrackedDirectory(relativePath)) continue;
       files.push(...await collectPublicPdfs(absolutePath));
       continue;
     }
@@ -263,9 +288,21 @@ const scanPublicPdfText = async () => {
 };
 
 const main = async () => {
+  await loadTrackedFilePaths();
   const files = await collectFiles(ROOT_DIR);
   for (const file of files) {
-    const text = await fs.readFile(file.absolutePath, 'utf8');
+    let text;
+    try {
+      text = await fs.readFile(file.absolutePath, 'utf8');
+    } catch (error) {
+      const detail = error?.message || 'read failed';
+      if (isPublicSurface(file.relativePath) || await isTrackedFile(file.relativePath)) {
+        errors.push(`${file.relativePath}: could not read tracked or public surface file for leak scan (${detail})`);
+      } else {
+        console.warn(`${file.relativePath}: skipped unreadable non-public file (${detail})`);
+      }
+      continue;
+    }
     scanPatterns(file.relativePath, text, SECRET_PATTERNS);
     if (isPublicSurface(file.relativePath)) {
       scanPatterns(file.relativePath, text, PUBLIC_LEAK_PATTERNS);

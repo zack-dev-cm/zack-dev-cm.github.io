@@ -34,6 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       className="project-card"
       onClick={onSelectProject}
       aria-label={`Open project: ${project.title}`}
+      data-project-id={project.id}
       data-testid="project-card"
     >
       <div className="project-card__media">
@@ -99,6 +100,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           ))}
         </div>
+        <span className="project-card__open" aria-hidden="true">
+          Open case study
+          <span>-&gt;</span>
+        </span>
       </div>
     </button>
   );
