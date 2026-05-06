@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Chrome Web Store reviewer guide for Skill Sprint Clipper.">
+    <title>Reviewer Guide · Skill Sprint Clipper</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="../">
+        <img src="../assets/store-icon-128.png" alt="" width="34" height="34">
+        <span>Skill Sprint Clipper</span>
+      </a>
+      <div class="nav-links">
+        <a href="../privacy/">Privacy</a>
+        <a href="../support/">Support</a>
+      </div>
+    </nav>
+
+    <main class="policy">
+      <h1>Reviewer Guide</h1>
+      <p>No account, backend, API key, paid service, or Skool login is required.</p>
+
+      <h2>Fixture Text</h2>
+      <pre>Use a short prompt checklist before starting a task. Decide the outcome, timebox the attempt, write one done test, and capture one before/after note.</pre>
+
+      <h2>Smoke Test</h2>
+      <ol>
+        <li>Install the submitted package in a clean Chrome profile.</li>
+        <li>Open any normal page containing the fixture text.</li>
+        <li>Select only the fixture text.</li>
+        <li>Right-click and choose <code>Create Skill Sprint Pack</code>.</li>
+        <li>Confirm the popup page contains only the selected text.</li>
+        <li>Click <code>Generate</code>.</li>
+        <li>Confirm a takeaway, action, checklist, done test, blocker question, proof post, and redaction checklist are shown.</li>
+        <li>Copy or export the pack.</li>
+        <li>Save the pack locally, then delete it from local history.</li>
+      </ol>
+
+      <h2>Expected Review Readback</h2>
+      <ul>
+        <li>Manifest V3.</li>
+        <li>Permissions: <code>contextMenus</code>, <code>storage</code>.</li>
+        <li>Host permissions: none.</li>
+        <li>Network service: none required for user content.</li>
+        <li>Remote code: none.</li>
+      </ul>
+    </main>
+
+    <footer class="footer"><a href="../support/">Support</a> · <a href="../privacy/">Privacy</a></footer>
+  </body>
+</html>
