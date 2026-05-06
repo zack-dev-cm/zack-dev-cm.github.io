@@ -35,7 +35,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
-  "62 public case studies and launches spanning automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "67 public case studies and launches spanning automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
   "2,929 tracked ClawHub downloads across 11 public packages, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
@@ -156,6 +156,51 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
 ];
 
 export const LATEST_UPDATES: LatestUpdate[] = [
+  {
+    title: "Dermaself Flutter Skin Analysis App",
+    description: "New sanitized mobile case study from the local Mac scan: a Flutter/Firebase skin-analysis app with onboarding, questionnaires, photo capture, and release-inference work.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=dermaself-flutter-skin-analysis-app" }
+    ],
+    projectId: 63,
+    createdAt: "2026-05-05"
+  },
+  {
+    title: "Chrome Extension Studio Plugin",
+    description: "New local developer-platform case study: a Codex plugin and script set for planning, designing, packaging, QA, and Chrome Web Store release cycles.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=chrome-extension-studio-plugin" }
+    ],
+    projectId: 64,
+    createdAt: "2026-04-18"
+  },
+  {
+    title: "Google Drive File Provider Repair Toolkit",
+    description: "New macOS operations case study: a conservative Drive File Provider diagnostic and repair toolkit with dry-run repair, sync inspection, and no data-deletion path.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=google-drive-file-provider-repair-toolkit" }
+    ],
+    projectId: 65,
+    createdAt: "2026-04-17"
+  },
+  {
+    title: "CollectionsAI ChatGPT App",
+    description: "New ChatGPT app case study: MCP tools and widgets for senior conservation workflows, portfolio planning, materials estimates, staffing, and voice-note structuring.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=collectionsai-chatgpt-app" }
+    ],
+    projectId: 66,
+    createdAt: "2026-03-04"
+  },
+  {
+    title: "Senior Conservator OpenClaw Agent",
+    description: "New autonomous-workflow case study: OpenClaw-driven conservation review with staged evidence gates, segmentation overlays, reports, voice output, and reproducibility manifests.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=senior-conservator-openclaw-agent" }
+    ],
+    projectId: 67,
+    createdAt: "2026-03-01"
+  },
   {
     title: "Telegram Mini App Security Auditor",
     description: "New public launch gate: a static auditor for Telegram Mini Apps that flags initData, bot-token, admin, CORS, PII, and Bot API dry-run risks before release.",
@@ -1870,6 +1915,137 @@ Operations Layer (Console, Alerts, Runbooks)`
       github: "https://github.com/zack-dev-cm/openclaw-cws-publisher",
       website: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
     }
+  },
+  {
+    id: 63,
+    title: "Dermaself Flutter Skin Analysis App",
+    aliases: ["dermaself mobile app", "flutter skin analysis", "mobile skin analysis app"],
+    description: "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
+    longDescription: "Dermaself is a sanitized mobile case study from the local Mac project scan. The app is organized as a native Flutter experience for Android and iOS, with a guided path from account setup through onboarding, questionnaire intake, selfie/device photo capture, analysis results, and home navigation. The public portfolio summary intentionally avoids medical claims and private repository links; the engineering signal is the mobile architecture, Firebase integration, and release-inference work around a camera-heavy analysis workflow.",
+    projectKind: "case-study",
+    surfaceTags: ["mobile", "computer-vision", "health-ai", "case-study"],
+    mobileReady: true,
+    keyFeatures: [
+      "Structures the app into clean feature modules for auth, onboarding, questionnaire, photo capture, device capture, analysis, and home",
+      "Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points",
+      "Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim",
+      "Includes release-inference work for tiled wrinkle/skin-texture processing in the mobile delivery path"
+    ],
+    techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "Mobile CV", "iOS", "Android"],
+    benchmarks: [
+      { label: "Native targets", value: "2", context: "Android and iOS app structure in local source" },
+      { label: "Feature modules", value: "7", context: "auth, onboarding, questionnaire, photo capture, device capture, analysis, home" },
+      { label: "Latest local commit", value: "2026-05-05", context: "local Mac repo history reviewed before portfolio add" }
+    ],
+    links: [],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-05-05"
+  },
+  {
+    id: 64,
+    title: "Chrome Extension Studio Plugin",
+    aliases: ["extension studio plugin", "chrome extension release studio", "cws product repo generator"],
+    description: "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
+    longDescription: "Chrome Extension Studio Plugin is a local developer-platform project for keeping extension plugin logic, reusable templates, and shipped product repositories separate. It defines release profiles for prototype, private beta, public Chrome Web Store, and source-release paths, then generates design briefs, store listing drafts, release plans, product repos, and release-cycle checklists from a single extension contract. The public case study focuses on the reusable release system rather than any one extension product.",
+    projectKind: "case-study",
+    surfaceTags: ["automation", "browser-extension", "release-engineering", "codex"],
+    keyFeatures: [
+      "Separates Codex plugin code, reusable extension templates, and product-specific extension repositories",
+      "Defines publish types for local prototypes, private beta, public Chrome Web Store releases, and source-first releases",
+      "Generates design briefs, store listings, release plans, product repos, and release-cycle outputs from a release profile",
+      "Keeps Chrome extension delivery repeatable without mixing product code and automation scaffolding"
+    ],
+    techStack: ["Codex Plugin", "Python", "Chrome Extensions", "Manifest V3", "Chrome Web Store", "Release Engineering"],
+    benchmarks: [
+      { label: "Publish types", value: "4", context: "prototype-local, beta-private, cws-public, source-release" },
+      { label: "Release scripts", value: "6", context: "create, design brief, store listing, release plan, release cycle, profile validation" },
+      { label: "Latest local commit", value: "2026-04-18", context: "local Mac repo history reviewed before portfolio add" }
+    ],
+    links: [],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-04-18"
+  },
+  {
+    id: 65,
+    title: "Google Drive File Provider Repair Toolkit",
+    aliases: ["google drive repair", "mac file provider repair", "drive file provider diagnostics"],
+    description: "macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.",
+    longDescription: "Google Drive File Provider Repair Toolkit is a standalone macOS operations project built around a real Drive for desktop failure mode: a valid app and extension existed locally, but the File Provider extension and domain disappeared from macOS registration surfaces. The toolkit diagnoses the current state, offers dry-run repair, re-registers the app and extension, restarts the per-user file provider path, clears only matching stale IPC sockets after process cycling, and inspects sync state for explicit files or folders. The public case study is framed around conservative recovery: no Drive cache deletion, no CloudStorage deletion, no account disconnect, and no mirrored/streamed data removal.",
+    projectKind: "case-study",
+    surfaceTags: ["automation", "macos", "ops-tooling", "local-first"],
+    keyFeatures: [
+      "Diagnoses Google Drive app, File Provider extension, domain registration, endpoint reachability, stale roots, and per-path sync state",
+      "Runs safe repair with dry-run support before changing local Launch Services, pluginkit, Drive, or fileproviderd state",
+      "Collects shareable diagnostic bundles and unified-log excerpts for manual escalation without deleting user data",
+      "Includes explicit guardrails against deleting Drive caches, CloudStorage content, accounts, or mirrored/streamed files"
+    ],
+    techStack: ["macOS", "Shell", "File Provider", "Google Drive", "Diagnostics", "Local-first Tooling"],
+    benchmarks: [
+      { label: "Command families", value: "6", context: "diagnose, repair, collect logs, inspect recovery, inspect sync, wait sync" },
+      { label: "Destructive data actions", value: "0", context: "0 cache, CloudStorage, account, or user-data deletion paths in local source review, 2026-04-17" },
+      { label: "Latest local commit", value: "2026-04-17", context: "local Mac repo history reviewed before portfolio add" }
+    ],
+    links: [],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-04-17"
+  },
+  {
+    id: 66,
+    title: "CollectionsAI ChatGPT App",
+    aliases: ["collectionsai chatgpt app", "conservation mcp app", "senior conservation widgets"],
+    description: "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
+    longDescription: "CollectionsAI ChatGPT App packages a senior-conservation workflow as an MCP server plus ChatGPT widget layer. It exposes tools for report dashboards, factual Q&A, safe artifact listing, urgency rollups, capacity planning, material estimates, staffing assignments, dictated voice-note structuring, condition-report drafting, and end-to-end conservation cycles. The private repo link is intentionally omitted from the portfolio; the public case study focuses on the app architecture, widget metadata, release gates, and production posture without exposing report bundles or deployment secrets.",
+    projectKind: "case-study",
+    surfaceTags: ["automation", "mcp", "chatgpt-app", "operations"],
+    keyFeatures: [
+      "Maps conservation report Q&A, dashboards, artifacts, planning, intake, and report drafting into explicit MCP tools",
+      "Provides ChatGPT widget metadata for dashboard, QA, artifact, operations, and voice-review surfaces",
+      "Includes production controls for auth, artifact protection, CORS allowlists, request limits, cache TTLs, timeouts, and security headers",
+      "Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and showcase runs"
+    ],
+    techStack: ["Node.js", "MCP", "ChatGPT Apps", "Zod", "Python", "Widget Metadata", "Release Gates"],
+    benchmarks: [
+      { label: "MCP tools", value: "10", context: "tool list in local source README" },
+      { label: "Load harness", value: "10-user", context: "explicit concurrency test described in release checks" },
+      { label: "Latest local commit", value: "2026-03-04", context: "local Mac repo history reviewed before portfolio add" }
+    ],
+    links: [],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-03-04"
+  },
+  {
+    id: 67,
+    title: "Senior Conservator OpenClaw Agent",
+    aliases: ["senior conservator agent", "conservation openclaw workflow", "autonomous conservation report"],
+    description: "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged evidence gates, reports, audio, and manifests.",
+    longDescription: "Senior Conservator OpenClaw Agent is a private-workflow case study for evidence-heavy conservation review. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The portfolio entry does not publish the private repo URL or local source paths; it summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.",
+    projectKind: "case-study",
+    surfaceTags: ["automation", "computer-vision", "openclaw", "operations"],
+    keyFeatures: [
+      "Combines image segmentation, regional scoring, ROI crop inspection, and browser-driven visual-labeler review",
+      "Runs staged review gates before final report, presentation, voice, video, and Telegram delivery artifacts are accepted",
+      "Produces JSON, Markdown, PDF, HTML, audio, overlay, video, and reproducibility-manifest outputs for audit-heavy workflows",
+      "Separates expert workflow orchestration from public portfolio details by omitting private repository links and local artifact paths"
+    ],
+    techStack: ["FastAPI", "OpenClaw", "Python", "MCP", "Pillow", "ReportLab", "Computer Vision", "Review Gates"],
+    benchmarks: [
+      { label: "Artifact families", value: "8+", context: "reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status" },
+      { label: "Review posture", value: "strict", context: "stage-by-stage gates documented in local source" },
+      { label: "Latest local commit", value: "2026-03-01", context: "local Mac repo history reviewed before portfolio add" }
+    ],
+    links: [],
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-03-01"
   },
   {
     id: 50,

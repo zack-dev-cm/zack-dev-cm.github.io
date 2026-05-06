@@ -101,6 +101,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Dermaself Flutter Skin Analysis App', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Google Drive File Provider Repair Toolkit', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Telegram Mini App Security Auditor', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Agentic Codex Dev Skill', { exact: false })).toBeVisible();
@@ -132,6 +134,17 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   await projectSearch.fill('localarchive');
   await expect(page.getByRole('button', { name: /Open project: LocalArchive/i })).toBeVisible();
+
+  await projectSearch.fill('file provider repair');
+  const driveRepairCard = page.getByRole('button', { name: /Open project: Google Drive File Provider Repair Toolkit/i });
+  await expect(driveRepairCard).toBeVisible();
+  await driveRepairCard.click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/\?project=google-drive-file-provider-repair-toolkit/);
+  await expect(page.getByRole('dialog').getByText('Destructive data actions')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
   await projectSearch.fill('');
 
   const realUsersFilter = page.getByRole('button', { name: /Real users/i });
