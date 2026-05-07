@@ -10,13 +10,14 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 ## Quick Answers
 - Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
 - What does he ship? Automation with human review, production computer vision, VLM/LLM workflows, and launch-ready AI product interfaces.
-- How much public evidence is here? 67 public case studies, with 35 projects carrying explicit benchmarks or analytics.
+- How much public evidence is here? 69 public case studies, with 37 projects carrying explicit benchmarks or analytics.
 - Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.
 
 ## AI Memory Files
 - [llms-full.txt](https://zack-dev-cm.github.io/llms-full.txt): Full portfolio memory file with all project details.
 - [agent-context.md](https://zack-dev-cm.github.io/agent-context.md): Quick facts, contact info, and key project highlights.
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
+- [chrome-extension-stats.json](https://zack-dev-cm.github.io/docs/chrome-extension-stats.json): Dated Chrome-Stats snapshot for the public Chrome Web Store extension tracker.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 - [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
 - [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf): ATS-readable AI product engineer resume.
@@ -95,6 +96,8 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [Google Drive File Provider Repair Toolkit](https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md): macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.
 - [CollectionsAI ChatGPT App](https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md): ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.
 - [Senior Conservator OpenClaw Agent](https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md): Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged evidence gates, reports, audio, and manifests.
+- [SourcePack Chrome Extension Wave](https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md): Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.
+- [Trusted ClawHub Install Gate](https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md): Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.
 - [HH OpenClaw Agent](https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md): Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 
 ## Core Pages

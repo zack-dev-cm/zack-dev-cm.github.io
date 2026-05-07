@@ -91,6 +91,45 @@ export interface ClawHubDownloadStat {
   checkedAt: string;
 }
 
+export interface ChromeExtensionStat {
+  id: string;
+  name: string;
+  description: string;
+  users: number | null;
+  usersSource: string;
+  rating: number | null;
+  ratingCount: number;
+  version: string;
+  lastUpdated: string;
+  createdAt: string;
+  category: string;
+  overallRank: number | null;
+  categoryRank: number | null;
+  riskImpact: string;
+  riskLikelihood: string;
+  permissions: string[];
+  sizeKb: number | null;
+  chromeStatsUrl: string;
+  chromeWebStoreUrl: string;
+  productUrl?: string;
+  dataIngestedAt: string;
+}
+
+export interface ChromeExtensionStatsSnapshot {
+  publisherName: string;
+  publisherUrl: string;
+  checkedAt: string;
+  sourceName: string;
+  sourceUrl: string;
+  totalPublished: number;
+  totalUsers: number;
+  averageUsersPerExtension: number;
+  averageRating: number;
+  ratingCount: number;
+  notes: string[];
+  extensions: ChromeExtensionStat[];
+}
+
 export interface PortfolioUpdates {
   version?: number;
   lastSyncedAt?: string | null;

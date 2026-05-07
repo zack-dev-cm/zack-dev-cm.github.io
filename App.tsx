@@ -14,13 +14,14 @@ import {
   SOCIAL_LINKS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
   LATEST_UPDATE_EXCLUDE_PATTERNS,
-  CLAWHUB_DOWNLOAD_STATS
+  CLAWHUB_DOWNLOAD_STATS,
+  CHROME_EXTENSION_STATS
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates, LatestUpdate } from './types';
 
 const FEATURED_PROJECT_IDS = [53, 44, 43, 40] as const;
-const FEATURED_PROJECT_INDEX = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
+const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 
 const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
   53: {
@@ -115,6 +116,16 @@ const sortByCreatedAtDesc = <T extends { createdAt?: string }>(items: T[]) => {
 const isVideoUrl = (url: string) => {
   const normalized = url.split('?')[0].split('#')[0].toLowerCase();
   return normalized.endsWith('.mp4') || normalized.endsWith('.webm') || normalized.endsWith('.ogg');
+};
+
+const formatCompactNumber = (value: number | null | undefined) => {
+  if (typeof value !== 'number' || Number.isNaN(value)) return 'Not reported';
+  return value.toLocaleString();
+};
+
+const formatRank = (value: number | null | undefined) => {
+  if (typeof value !== 'number' || Number.isNaN(value)) return 'n/a';
+  return `#${value.toLocaleString()}`;
 };
 
 const slugify = (value: string) => {
@@ -558,6 +569,15 @@ const App: React.FC = () => {
     const totalStars = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.stars, 0);
     const checkedAt = CLAWHUB_DOWNLOAD_STATS[0]?.checkedAt ?? '';
     return { totalDownloads, totalVersions, totalStars, checkedAt };
+  }, []);
+
+  const chromeStatsSummary = useMemo(() => {
+    const reportedRows = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.users !== null).length;
+    const sourcePackRows = CHROME_EXTENSION_STATS.extensions.filter((extension) =>
+      extension.productUrl?.includes('sourcepack-tools.pages.dev')
+    ).length;
+    const averageRating = CHROME_EXTENSION_STATS.averageRating.toFixed(2);
+    return { reportedRows, sourcePackRows, averageRating };
   }, []);
 
   const syncFromUrl = useCallback(() => {
@@ -1005,6 +1025,156 @@ const App: React.FC = () => {
                 </li>
               ))}
             </ul>
+          </Section>
+
+          <Section
+            id="chrome-stats"
+            eyebrow="Chrome Web Store"
+            title="Extension Stats Tracker"
+            description="Dated Chrome-Stats snapshot for the kaisenaiko publisher surface. Missing row values stay marked as not reported."
+          >
+            <div className="proof-grid chrome-stats__summary" aria-label="Chrome extension publisher summary">
+              <div className="proof-chip">
+                <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
+                <em>published extensions on Chrome-Stats</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
+                <em>publisher rollup users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{chromeStatsSummary.averageRating}</strong>
+                <em>average rating from {CHROME_EXTENSION_STATS.ratingCount} Chrome-Stats reviews</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{chromeStatsSummary.sourcePackRows}</strong>
+                <em>SourcePack extensions in the tracked CWS wave</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{chromeStatsSummary.reportedRows}</strong>
+                <em>rows with explicit user counts in detail or publisher views</em>
+              </div>
+              <div className="proof-chip">
+                <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
+                <em>average users per extension in publisher rollup</em>
+              </div>
+            </div>
+
+            <div className="tracker-panel">
+              <div className="tracker-panel__header">
+                <div>
+                  <p className="panel__eyebrow">Dated public snapshot</p>
+                  <h3>Chrome-Stats publisher detail</h3>
+                  <p>
+                    Source: {CHROME_EXTENSION_STATS.sourceName}, checked {CHROME_EXTENSION_STATS.checkedAt}.
+                    Chrome-Stats detail pages can lag publisher totals, so each row shows the source of its user count.
+                  </p>
+                </div>
+                <div className="button-row">
+                  <a
+                    href={CHROME_EXTENSION_STATS.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--ghost button--small"
+                  >
+                    Open Chrome-Stats
+                  </a>
+                  <a
+                    href={resolveAssetUrl('chrome-extension-stats.json')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--ghost button--small"
+                  >
+                    JSON snapshot
+                  </a>
+                </div>
+              </div>
+
+              <div className="extension-stat-list" aria-label="Chrome extension stats rows">
+                {CHROME_EXTENSION_STATS.extensions.map((extension) => (
+                  <article key={extension.id} className="extension-stat-card">
+                    <div className="extension-stat-card__main">
+                      <div>
+                        <h3>{extension.name}</h3>
+                        <p>{extension.description}</p>
+                      </div>
+                      <div className="extension-stat-card__metric">
+                        <strong>{formatCompactNumber(extension.users)}</strong>
+                        <span>{extension.usersSource}</span>
+                      </div>
+                    </div>
+                    <div className="extension-stat-card__grid">
+                      <span>
+                        <strong>Rating</strong>
+                        {extension.rating !== null ? `${extension.rating.toFixed(2)} (${extension.ratingCount})` : 'n/a'}
+                      </span>
+                      <span>
+                        <strong>Version</strong>
+                        {extension.version}
+                      </span>
+                      <span>
+                        <strong>Updated</strong>
+                        {extension.lastUpdated}
+                      </span>
+                      <span>
+                        <strong>Category</strong>
+                        {extension.category}
+                      </span>
+                      <span>
+                        <strong>Overall rank</strong>
+                        {formatRank(extension.overallRank)}
+                      </span>
+                      <span>
+                        <strong>Category rank</strong>
+                        {formatRank(extension.categoryRank)}
+                      </span>
+                      <span>
+                        <strong>Risk</strong>
+                        {extension.riskImpact} / {extension.riskLikelihood}
+                      </span>
+                      <span>
+                        <strong>Permissions</strong>
+                        {extension.permissions.join(', ')}
+                      </span>
+                    </div>
+                    <div className="latest-card__links">
+                      <a
+                        href={extension.chromeWebStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-link"
+                      >
+                        Chrome Web Store
+                      </a>
+                      <a
+                        href={extension.chromeStatsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-link"
+                      >
+                        Chrome-Stats detail
+                      </a>
+                      {extension.productUrl && (
+                        <a
+                          href={extension.productUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-link"
+                        >
+                          Product page
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <ul className="tracker-notes">
+                {CHROME_EXTENSION_STATS.notes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </div>
           </Section>
 
           <Section

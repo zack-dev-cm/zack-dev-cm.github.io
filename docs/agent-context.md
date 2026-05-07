@@ -14,6 +14,7 @@ Role: AI Product Engineer
 - https://zack-dev-cm.github.io/sitemap.xml
 - https://zack-dev-cm.github.io/geo.txt
 - https://zack-dev-cm.github.io/schema.jsonld
+- https://zack-dev-cm.github.io/docs/chrome-extension-stats.json
 - https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf
 
 ## Suggested Public Reading Order

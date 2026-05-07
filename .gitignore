@@ -7,3 +7,5 @@ scripts/capture-remote-screenshots.mjs
 .npm-cache/
 critical.md
 local-notes/
+/index.css.bak
+/tsconfig.json.unreadable

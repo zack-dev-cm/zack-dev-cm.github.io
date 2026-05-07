@@ -68,6 +68,17 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(clawHubSection.getByText('2,929')).toBeVisible();
   await expect(clawHubSection.getByText(/downloads across 11 public packages/i)).toBeVisible();
 
+  const chromeStatsSection = page.locator('#chrome-stats');
+  await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();
+  await expect(
+    chromeStatsSection.locator('.proof-chip').filter({ hasText: 'publisher rollup users' }).locator('strong')
+  ).toHaveText('188');
+  await expect(chromeStatsSection.getByText('SourcePack Hub - Local AI Research Library')).toBeVisible();
+  await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
+    'href',
+    '/docs/chrome-extension-stats.json'
+  );
+
   // Card presence: ensure at least one project card renders
   const cards = page.getByTestId('project-card');
   await expect(cards.first()).toBeVisible();
@@ -102,6 +113,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Dermaself Flutter Skin Analysis App', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('SourcePack Chrome Extension Wave', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Trusted ClawHub Install Gate', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Google Drive File Provider Repair Toolkit', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Telegram Mini App Security Auditor', { exact: false })).toBeVisible();
@@ -134,6 +147,16 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   await projectSearch.fill('localarchive');
   await expect(page.getByRole('button', { name: /Open project: LocalArchive/i })).toBeVisible();
+
+  await projectSearch.fill('sourcepack chrome extension wave');
+  const sourcePackCard = page.getByRole('button', { name: /Open project: SourcePack Chrome Extension Wave/i });
+  await expect(sourcePackCard).toBeVisible();
+  await sourcePackCard.click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/\?project=sourcepack-chrome-extension-wave/);
+  await expect(page.getByRole('dialog').getByText('Publisher users')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
 
   await projectSearch.fill('file provider repair');
   const driveRepairCard = page.getByRole('button', { name: /Open project: Google Drive File Provider Repair Toolkit/i });

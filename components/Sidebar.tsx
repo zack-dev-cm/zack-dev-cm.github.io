@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { name: 'Collaborations', href: '#experience' },
   { name: 'Featured', href: '#featured' },
   { name: 'ClawHub', href: '#clawhub' },
+  { name: 'CWS Stats', href: '#chrome-stats' },
   { name: 'Latest', href: '#latest' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' }

@@ -343,6 +343,11 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
       description: 'Structured data graph for the author, site, and project list.'
     },
     {
+      title: 'chrome-extension-stats.json',
+      url: `${SITE_BASE}/docs/chrome-extension-stats.json`,
+      description: 'Dated Chrome-Stats snapshot for the public Chrome Web Store extension tracker.'
+    },
+    {
       title: 'geo.txt',
       url: `${SITE_BASE}/geo.txt`,
       description: 'Project index tuned for GEO-style retrieval.'
@@ -510,6 +515,7 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('llms-full.txt', `${SITE_BASE}/llms-full.txt`, 'Full portfolio memory file with all project details.'),
     formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
+    formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome-Stats snapshot for the public Chrome Web Store extension tracker.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
     formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable AI product engineer resume.'),
@@ -669,6 +675,7 @@ const buildAgentContext = (topProjects) => {
     `- ${SITE_BASE}/sitemap.xml`,
     `- ${SITE_BASE}/geo.txt`,
     `- ${SITE_BASE}/schema.jsonld`,
+    `- ${SITE_BASE}/docs/chrome-extension-stats.json`,
     `- ${RESUME_URL}`,
     '',
     '## Suggested Public Reading Order',
@@ -749,6 +756,7 @@ const buildSitemap = (projects) => {
     { loc: `${SITE_BASE}/agent-context.md`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/geo.txt`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/schema.jsonld`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
+    { loc: `${SITE_BASE}/docs/chrome-extension-stats.json`, lastmod: today, changefreq: 'weekly', priority: '0.5' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     ...projects.map((project) => ({
       loc: project.markdownUrl,

@@ -1354,6 +1354,59 @@ Benchmarks & Analytics:
 - Review posture: strict (stage-by-stage gates documented in local source)
 - Latest local commit: 2026-03-01 (local Mac repo history reviewed before portfolio add)
 
+### SourcePack Chrome Extension Wave
+Summary: Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.
+Details: SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E evidence, media gates, package ZIPs, and Chrome-Stats tracking.
+Project URL: https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
+Key Features:
+- Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions
+- Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions
+- Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence
+- Embeds Chrome-Stats publisher tracking in this portfolio so extension adoption and risk metadata stay visible
+Tech Stack:
+- Chrome Extension
+- Manifest V3
+- React
+- TypeScript
+- SourcePack
+- Playwright
+- Chrome Web Store
+Benchmarks & Analytics:
+- Published extensions: 11 (Chrome-Stats publisher rollup for kaisenaiko, 2026-05-07)
+- Publisher users: 188 (Chrome-Stats publisher rollup, 2026-05-07)
+- Average rating: 5.00 (4 Chrome-Stats publisher reviews, 2026-05-07)
+- New SourcePack products: 6 (Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, ChatArchive)
+Links:
+- SourcePack product pages: https://sourcepack-tools.pages.dev/
+- Chrome-Stats publisher: https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0
+- Web2CSV CWS: https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc
+- Video2Source CWS: https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh
+- Repo2Agent CWS: https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd
+- SourcePack Hub CWS: https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao
+- CWS Scout CWS: https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji
+- ChatArchive CWS: https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn
+
+### Trusted ClawHub Install Gate
+Summary: Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.
+Details: Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and no silent workspace inference.
+Project URL: https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md
+Key Features:
+- Classifies local skill artifacts as PASS, REVIEW, or BLOCK before installation
+- Denies REVIEW installs unless the operator explicitly allows review-level risk
+- Writes install receipts under a local data directory and verifies installed content against those receipts
+- Keeps v0.1 scope narrow: local unpacked skill directories only, no arbitrary remote slug resolution claim
+Tech Stack:
+- Python
+- CLI
+- OpenClaw
+- ClawHub
+- Security Review
+- Receipt Verification
+Benchmarks & Analytics:
+- Verdict states: 3 (PASS, REVIEW, BLOCK in local source README)
+- Default unsafe install policy: deny (REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 local source review)
+- Verification model: receipt-aware (installed hash and approved verdict must match receipt)
+
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 Details: HH OpenClaw Agent is a small public OpenClaw skill for hh.ru application work through OpenClaw. It creates a machine-readable packet for one vacancy response flow, logs the live browser steps with evidence, validates the resulting bundle, and renders a markdown report for review, debugging, or funnel tracking. The public workflow requires an approved review state before submit and treats login, CAPTCHA, passkey, and 2FA as operator-owned interruptions.

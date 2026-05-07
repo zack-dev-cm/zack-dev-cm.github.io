@@ -35,7 +35,7 @@
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-05-06",
+      "dateModified": "2026-05-07",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -48,7 +48,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 67,
+      "numberOfItems": 69,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -911,6 +911,32 @@
         {
           "@type": "ListItem",
           "position": 67,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "SourcePack Chrome Extension Wave",
+            "description": "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
+            "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 68,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Trusted ClawHub Install Gate",
+            "description": "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
+            "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 69,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",
