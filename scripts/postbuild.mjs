@@ -17,6 +17,7 @@ const extraFiles = [
   'llms.txt',
   'llms-full.txt',
   'agent-context.md',
+  'agent-discovery.json',
   'geo.txt',
   'schema.jsonld',
   'metadata.json',

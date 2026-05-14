@@ -48,6 +48,7 @@ const PDF_EXTENSIONS = new Set(['.pdf']);
 
 const PUBLIC_ROOT_FILES = new Set([
   'agent-context.md',
+  'agent-discovery.json',
   'geo.txt',
   'index.html',
   'llms-full.txt',

@@ -53,6 +53,12 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const resumeResponse = await page.request.get(resumePath());
   expect(resumeResponse.status()).toBe(200);
   expect(resumeResponse.headers()['content-type']).toContain('application/pdf');
+  const agentDiscoveryResponse = await page.request.get('/agent-discovery.json');
+  expect(agentDiscoveryResponse.status()).toBe(200);
+  expect(agentDiscoveryResponse.headers()['content-type']).toMatch(/application\/json|text\/plain|octet-stream/);
+  const agentDiscovery = await agentDiscoveryResponse.json();
+  expect(agentDiscovery.entity.name).toBe('Zakhar Pashkin');
+  expect(agentDiscovery.answerTargets.length).toBeGreaterThanOrEqual(4);
 
   await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute(
     'href',

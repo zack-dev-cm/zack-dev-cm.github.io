@@ -5,35 +5,76 @@
       "@type": "Person",
       "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin",
       "name": "Zakhar Pashkin",
+      "alternateName": [
+        "Zack Pashkin",
+        "zack-dev-cm",
+        "Zackdevcv"
+      ],
       "jobTitle": "Senior Computer Vision Engineer and AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
       "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
+      "image": "https://zack-dev-cm.github.io/docs/images/skill-wind-social.png",
       "sameAs": [
         "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
         "https://x.com/Zackdevcv",
         "https://github.com/zack-dev-cm",
         "https://github.com/ZackPashkin",
         "https://t.me/rheuiii"
-      ]
+      ],
+      "knowsAbout": [
+        "Computer Vision",
+        "OCR",
+        "Segmentation",
+        "Object Detection",
+        "Deep Learning",
+        "Multimodal Search",
+        "VLM/LLM Workflows",
+        "OpenAI APIs",
+        "PyTorch",
+        "OpenCV",
+        "ONNX Runtime",
+        "FastAPI",
+        "MLOps",
+        "Chrome Extensions",
+        "Telegram Mini Apps",
+        "AI Product Delivery",
+        "Release Engineering",
+        "GEO",
+        "SEO",
+        "llms.txt",
+        "JSON-LD"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://zack-dev-cm.github.io/#webpage"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Senior Computer Vision Engineer",
+        "skills": "Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, VLM/LLM Workflows, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, llms.txt, JSON-LD"
+      }
     },
     {
       "@type": "WebSite",
       "@id": "https://zack-dev-cm.github.io/#website",
-      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
+      "name": "Zakhar Pashkin - Senior Computer Vision Engineer Portfolio",
+      "alternateName": "Zakhar Pashkin AI and Computer Vision Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, public case studies, and release evidence.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       }
     },
     {
-      "@type": "WebPage",
+      "@type": [
+        "WebPage",
+        "ProfilePage"
+      ],
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
-      "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
-      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
+      "name": "Zakhar Pashkin | Senior Computer Vision Engineer for AI Product Delivery",
+      "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery evidence.",
       "inLanguage": "en",
       "dateModified": "2026-05-14",
       "isPartOf": {
@@ -41,7 +82,104 @@
       },
       "about": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      },
+      "mainEntity": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://zack-dev-cm.github.io/docs/images/cv-ai-systems-map.png",
+        "caption": "Conceptual computer vision systems map for OCR, face analysis, and video search."
+      },
+      "breadcrumb": {
+        "@id": "https://zack-dev-cm.github.io/#breadcrumb"
       }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://zack-dev-cm.github.io/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Portfolio",
+          "item": "https://zack-dev-cm.github.io/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://zack-dev-cm.github.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Zakhar Pashkin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products.",
+            "citation": "https://zack-dev-cm.github.io/"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What computer vision projects are featured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, and CV Repro Lab Skills.",
+            "citation": "https://zack-dev-cm.github.io/#computer-vision"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should agents start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail.",
+            "citation": "https://zack-dev-cm.github.io/agent-discovery.json"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What public traction is available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The portfolio currently lists 72 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.",
+            "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "DataCatalog",
+      "@id": "https://zack-dev-cm.github.io/#agent-discovery-catalog",
+      "name": "Zakhar Pashkin agent discovery files",
+      "description": "Machine-readable portfolio entrypoints for search, GEO, and agent discovery.",
+      "dataset": [
+        {
+          "@type": "Dataset",
+          "name": "Agent discovery manifest",
+          "url": "https://zack-dev-cm.github.io/agent-discovery.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "Dataset",
+          "name": "LLM compact index",
+          "url": "https://zack-dev-cm.github.io/llms.txt",
+          "encodingFormat": "text/plain"
+        },
+        {
+          "@type": "Dataset",
+          "name": "LLM full memory file",
+          "url": "https://zack-dev-cm.github.io/llms-full.txt",
+          "encodingFormat": "text/plain"
+        },
+        {
+          "@type": "Dataset",
+          "name": "GEO project index",
+          "url": "https://zack-dev-cm.github.io/geo.txt",
+          "encodingFormat": "text/plain"
+        }
+      ]
     },
     {
       "@type": "ItemList",
@@ -60,7 +198,13 @@
             "url": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Android, Vision-Language Models, Server-side AI",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -73,7 +217,13 @@
             "url": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Audio processing, Neural Networks",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -86,7 +236,13 @@
             "url": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Android, iOS, Bluetooth Mesh, Local LLMs",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -99,7 +255,13 @@
             "url": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Serverless, React, Analytics",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -112,7 +274,13 @@
             "url": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Generative AI, Inpainting, AR, Telegram API",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -125,7 +293,13 @@
             "url": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Semantic Segmentation, Generative Inpainting",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -138,7 +312,13 @@
             "url": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Predictive Modeling, Real-time Data Analysis",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -151,7 +331,13 @@
             "url": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Computer Vision, Physics-based Modeling",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -164,7 +350,13 @@
             "url": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Semantic Segmentation, Image Processing",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -177,7 +369,13 @@
             "url": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "SwiftUI, AVFoundation, ML Kit, OCR, Nutrition Label Parsing, LLM Structuring",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -190,7 +388,13 @@
             "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "telegram, mobile, Telegram Bot API, OCR, Speech-to-Text, LLMs",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -203,7 +407,13 @@
             "url": "https://zack-dev-cm.github.io/projects/python-library-autotoloka.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Python, Interactive Segmentation, Multi-modal Networks",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -216,7 +426,13 @@
             "url": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Python, OCR, Image Segmentation",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -229,7 +445,13 @@
             "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "CLIP, Vision-Language Models, Biometric Security",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -242,7 +464,13 @@
             "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "browser-extension, web, Chrome Extension, JavaScript, GitHub API",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -255,7 +483,13 @@
             "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "browser-extension, web, Chrome Extension, JavaScript, UI/UX",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -268,7 +502,13 @@
             "url": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Tornado, SQLite, OpenAI, VLM, Telegram Bot API",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -281,7 +521,13 @@
             "url": "https://zack-dev-cm.github.io/projects/trending-prompts-feed.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Tornado, JavaScript, Community-driven content",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -294,7 +540,13 @@
             "url": "https://zack-dev-cm.github.io/projects/youtube-trendwatch.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Python, Colab, YouTube Data",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -307,7 +559,13 @@
             "url": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Generative AI, Text-to-Video, TTS",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -320,7 +578,13 @@
             "url": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Serverless, OpenCV, FFmpeg",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -333,7 +597,13 @@
             "url": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "AI/LLMs, SEO Analytics, Geocoding APIs",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -346,7 +616,13 @@
             "url": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Generative AI, Text-to-Video, Text-to-Speech, LLMs",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -359,7 +635,13 @@
             "url": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Narrative AI, World-Building, Conceptual Design, Philosophical Modeling",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -372,7 +654,13 @@
             "url": "https://zack-dev-cm.github.io/projects/chronoscribe-beta.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "OCR, Translation APIs, TTS, Computer Vision",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -385,7 +673,13 @@
             "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "VLM/LLMs, Cloud Infrastructure, Autoscaling, DevOps",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -398,7 +692,13 @@
             "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "OpenAI API, Serverless, JavaScript, Text-to-Speech",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -411,7 +711,13 @@
             "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "GPT-5 orchestration, MCP tools, Multi-tenant data stores, Telemetry guardrails",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -424,7 +730,13 @@
             "url": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Cloudflare Workers, RapidAPI, TypeScript",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -437,7 +749,13 @@
             "url": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "React, Vite, Web Audio API, Telegram Bot API, Cloud Run",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -450,7 +768,13 @@
             "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "TypeScript, Express, Node.js, SSR, Telegram Web Apps, Firestore, JSON-LD, Cloud Run",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -463,7 +787,13 @@
             "url": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "React, TypeScript, Express, Prisma, Postgres, Telegram WebApp, TON Connect",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -476,7 +806,13 @@
             "url": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "React, TypeScript, Node.js, Express, Prisma, Postgres, Telegram Bot API",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -489,7 +825,13 @@
             "url": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "React, TypeScript, Node.js, Express, Prisma, Postgres, Telegram Bot API, Cloud Run",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -502,7 +844,13 @@
             "url": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Python, FastAPI, OpenAI API, Telegram Web Apps, Playwright",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -515,7 +863,13 @@
             "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "mobile, web, Vite, React, TypeScript, Express, Prisma, Postgres, Telegram Bot API",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -528,7 +882,13 @@
             "url": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Vite, React, TypeScript, Web Audio, Device Motion, Playwright",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -541,7 +901,13 @@
             "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Node.js, Express, Telegraf, Prisma, Postgres, Vite, React, TypeScript, Cloud Run, MCP",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -554,7 +920,13 @@
             "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "React, TypeScript, Telegram Web Apps, Vite, Node.js, Express, WebSocket, Postgres, Redis, Cloud Run, OpenAI API, Gemini API",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -567,7 +939,13 @@
             "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "React, TypeScript, Vite, Python, FastAPI, Celery, Redis, OpenAI API, Telegram Web Apps, Cloud Run, GCS",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -580,7 +958,13 @@
             "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Python, FastAPI, MediaPipe, YOLO, ONNX, Cloud Run, Flutter, MLflow",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -593,7 +977,13 @@
             "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "OpenClaw, Telegram Web, Playwright, Node.js, Python, Runbooks, Mini Apps",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -606,7 +996,13 @@
             "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, OpenClaw Skills, Python, PyTorch, Computer Vision, Google Colab, Kaggle, MLOps, Release Engineering",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -619,7 +1015,13 @@
             "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "OpenClaw, LLM Orchestration, Legacy DB Integration, Workflow Automation, Human Review Tooling",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -632,7 +1034,13 @@
             "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "Python, CLI, Markdown, SARIF, GitHub Actions, Research Agents",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -645,7 +1053,13 @@
             "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, GitHub CLI, Python, Release Engineering, OpenClaw Skills",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -658,7 +1072,13 @@
             "url": "https://zack-dev-cm.github.io/projects/browser-proof.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, Python, Browser QA, OpenClaw Skills, Release Engineering",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -671,7 +1091,13 @@
             "url": "https://zack-dev-cm.github.io/projects/publish-guard.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, Python, Release Engineering, OpenClaw Skills, GitHub",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -684,7 +1110,13 @@
             "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, Python, YouTube Studio, OpenClaw, Midjourney, Suno, GitHub Actions",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -697,7 +1129,13 @@
             "url": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, Python, Privacy, Redaction, OpenClaw Skills, Release Engineering",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -710,7 +1148,13 @@
             "url": "https://zack-dev-cm.github.io/projects/artifact-deck.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, Python, python-pptx, OpenClaw Skills, PPTX, Release Engineering",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -723,7 +1167,13 @@
             "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, automation, analytics, Python, CLI, GitHub API, ClawHub Convex, JSON Snapshots, Markdown Reports, Open-source Analytics",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -736,7 +1186,13 @@
             "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "mobile, web, open-source, Python, FastAPI, Telegram Web Apps, SQLite, HTML, CSS, JavaScript, Pytest",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -749,7 +1205,14 @@
             "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "browser-extension, web, open-source, Chrome Extension, JavaScript, Local-first Storage, Readability, Markdown Export, Chrome Web Store",
+            "dateCreated": "2026-04-22",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -762,7 +1225,14 @@
             "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "browser-extension, web, open-source, Chrome Extension, Built-in AI, JavaScript, Privacy, Summarization, Translation",
+            "dateCreated": "2026-04-15",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -775,7 +1245,14 @@
             "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, automation, education, OpenClaw, ClawHub, Google Drive, Language Learning, Markdown, Release Engineering",
+            "dateCreated": "2026-04-23",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -788,7 +1265,14 @@
             "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, automation, social, OpenClaw, Codex Skills, Matching, LinkedIn, Discord, Markdown Reports",
+            "dateCreated": "2026-04-24",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -801,7 +1285,14 @@
             "url": "https://zack-dev-cm.github.io/projects/session-rescue.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "browser-extension, web, open-source, Chrome Extension, JavaScript, IndexedDB, Playwright, Chrome Web Store, Local-first UX",
+            "dateCreated": "2026-04-29",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -814,7 +1305,14 @@
             "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, automation, security, mini-app-security, Python, Static Analysis, Telegram Mini Apps, Security Review, Markdown Reports, Codex Skills",
+            "dateCreated": "2026-04-30",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -827,7 +1325,14 @@
             "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, automation, codex, release-engineering, Codex Skills, OpenClaw, Release Engineering, GitHub, Markdown, Agent Workflows",
+            "dateCreated": "2026-04-30",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -840,7 +1345,14 @@
             "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, automation, browser-extension, release-engineering, ClawHub, Python, Chrome Web Store, Playwright, Release Engineering, Security Review",
+            "dateCreated": "2026-04-15",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -853,7 +1365,14 @@
             "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "mobile, computer-vision, health-ai, case-study, Flutter, Dart, Firebase, Riverpod, GoRouter, ONNX, TFLite, Mobile CV, iOS, Android",
+            "dateCreated": "2026-05-05",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -866,7 +1385,14 @@
             "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "automation, browser-extension, release-engineering, codex, Codex Plugin, Python, Chrome Extensions, Manifest V3, Chrome Web Store, Release Engineering",
+            "dateCreated": "2026-04-18",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -879,7 +1405,14 @@
             "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "automation, macos, ops-tooling, local-first, macOS, Shell, File Provider, Google Drive, Diagnostics, Local-first Tooling",
+            "dateCreated": "2026-04-17",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -892,7 +1425,14 @@
             "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "automation, mcp, chatgpt-app, operations, Node.js, MCP, ChatGPT Apps, Zod, Python, Widget Metadata, Release Gates",
+            "dateCreated": "2026-03-04",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -905,7 +1445,14 @@
             "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "automation, computer-vision, openclaw, operations, FastAPI, OpenClaw, Python, MCP, Pillow, ReportLab, Computer Vision, Review Gates",
+            "dateCreated": "2026-03-01",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -918,7 +1465,14 @@
             "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "user-product",
+            "keywords": "browser-extension, web, automation, release-engineering, Chrome Extension, Manifest V3, React, TypeScript, SourcePack, Playwright, Chrome Web Store",
+            "dateCreated": "2026-05-07",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -931,7 +1485,14 @@
             "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "security, automation, release-engineering, Python, CLI, OpenClaw, ClawHub, Security Review, Receipt Verification",
+            "dateCreated": "2026-05-07",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -944,7 +1505,14 @@
             "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "computer-vision, ocr, api, mlops, Python, FastAPI, ONNX Runtime, CRNN, OCR, Docker, Cloud Run",
+            "dateCreated": "2026-05-14",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -957,7 +1525,14 @@
             "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "computer-vision, segmentation, deep-learning, health-ai, Python, YOLO, MediaPipe, OpenCV, ONNX, Segmentation, Visual QA",
+            "dateCreated": "2026-05-14",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -970,7 +1545,14 @@
             "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "computer-vision, ai, search, video, mlops, Python, FastAPI, Qdrant, Postgres, CLIP, OCR, ASR, Hybrid Search, Celery",
+            "dateCreated": "2026-05-14",
+            "isAccessibleForFree": true
           }
         },
         {
@@ -983,7 +1565,13 @@
             "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-            }
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ClawHub, Python, hh.ru, OpenClaw Skills, Career Automation",
+            "isAccessibleForFree": true
           }
         }
       ]
