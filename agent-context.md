@@ -1,12 +1,12 @@
 # Agent Context - Zakhar Pashkin Portfolio
 
-Summary: AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
+Summary: Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 
 ## Identity
 Name: Zakhar Pashkin
-Role: AI Product Engineer
+Role: Senior Computer Vision Engineer and AI Product Engineer
 
 ## Key Files
 - https://zack-dev-cm.github.io/llms.txt

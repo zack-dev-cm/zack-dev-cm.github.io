@@ -19,15 +19,15 @@ const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
-const AUTHOR_TITLE = 'AI Product Engineer';
+const AUTHOR_TITLE = 'Senior Computer Vision Engineer and AI Product Engineer';
 const AUTHOR_DESCRIPTION =
-  'AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.';
+  'Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.';
 const PORTFOLIO_TAGLINE =
-  'Automation with human review, computer vision services, Telegram mini apps, and full-stack AI products built for production constraints.';
+  'Computer vision services, automation with human review, Telegram mini apps, and full-stack AI products built for production constraints.';
 const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenAI APIs, VLMs, LLMs, OpenCV, FastAPI, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
-const LINKEDIN_URL = 'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/';
+const LINKEDIN_URL = 'https://de.linkedin.com/in/zakhar-pashkin-a524a6163';
 const X_URL = 'https://x.com/Zackdevcv';
 const INDEX_SNAPSHOT_START = '<!-- STATIC_PORTFOLIO_SNAPSHOT_START -->';
 const INDEX_SNAPSHOT_END = '<!-- STATIC_PORTFOLIO_SNAPSHOT_END -->';

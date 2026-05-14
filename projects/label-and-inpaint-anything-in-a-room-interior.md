@@ -15,7 +15,3 @@ https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-inte
 ## Tech Stack
 - Semantic Segmentation
 - Generative Inpainting
-
-## Links
-- [Segmentation Demo](https://drive.google.com/file/d/1XqQgbmBgTlRRdR-K3X4PHlSzrmiMUJgY/view?usp=sharing)
-- [Inpaint Demo #1](https://drive.google.com/file/d/1dCkeI7Mi87cg2kOgY5UCLG-DiHkt358L/view?usp=sharing)

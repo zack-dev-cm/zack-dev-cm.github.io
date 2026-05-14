@@ -22,6 +22,3 @@ https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents
 - Components: 2 (Android client + Python server)
 - Supported actions: 7 (tap, scroll, text, home, back, overview, screenshot)
 - API endpoints: 8+ (healthz, metrics, devices, actions, screenshots, debug)
-
-## Links
-- [View Demo Video](https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing)

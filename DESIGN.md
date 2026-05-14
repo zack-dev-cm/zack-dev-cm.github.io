@@ -92,6 +92,12 @@ and may be framed; page sections should not feel like nested cards inside cards.
 Product screenshots should remain inspectable and should not be cropped in ways
 that hide the UI evidence.
 
+Computer vision and AI system sections may use generated conceptual systems
+maps when the project itself is non-public. Treat those images as orientation
+art only: pair them with source-backed copy, keep repo/service links out of
+non-public work, and never present generated media as a product screenshot or
+benchmark artifact.
+
 For Skill Wind, the animated cover stage remains the dominant surface and
 should stay near a LinkedIn-friendly 1200:627 ratio on desktop. On mobile it can
 be taller so the artwork does not collapse into a shallow strip.

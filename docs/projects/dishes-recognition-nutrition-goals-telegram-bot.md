@@ -20,9 +20,9 @@ https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegr
 - LLMs
 
 ## Benchmarks & Analytics
-- Lifetime users: 5k+ (operator-reported public total since launch)
-- Monthly nutrition activity: 1k+ users (rounded public product snapshot)
-- Mini-app adoption lift: 10x+ (rounded public launch comparison)
+- Input modes: 3 (photo, voice, and text flows in public product case study)
+- Nutrition surfaces: 2 (2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow)
+- Public route: Telegram (bot link reviewed 2026-05-14)
 
 ## Links
 - [Try on Telegram](https://t.me/calorio_yf_bot)

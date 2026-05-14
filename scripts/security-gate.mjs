@@ -78,6 +78,12 @@ const SECRET_PATTERNS = [
 
 const PUBLIC_LEAK_PATTERNS = [
   ['internal analytics wording', /\b(?:internal snapshot|prod pulse|DB slice|Profiles in DB|Sessions in DB|DAU\s*\/\s*WAU\s*\/\s*MAU)\b/i],
+  ['client-facing process wording', /\b(?:internal process|client-facing proof|should not appear|do not leak|local Mac (?:project )?scan|local Mac repo history reviewed before portfolio add)\b/i],
+  ['local source review wording', /\b(?:local source (?:README|review)|documented in local source)\b/i],
+  ['private repo/path disclaimer wording', /\b(?:private[-\s]workflow case study|private (?:repo|repository) (?:link|url)s?|private repo link is intentionally omitted|does not publish the private repo URL|omitting private repository links|local source paths?|local artifact paths?)\b/i],
+  ['client-data redaction wording', /\b(?:redacts? the client name|client identity.*removed|schema details|endpoint specifics|patient-identifying data)\b/i],
+  ['unaudited metric proof wording', /\b(?:>\s*90%\s+accuracy|operator-reported public total|rounded public product snapshot|rounded public launch comparison|publish-ready)\b/i],
+  ['Google Drive proof link', /https:\/\/drive\.google\.com\/file\/d\//i],
   ['local absolute path', /(?:^|[^A-Za-z0-9_])(?:\/Users\/[A-Za-z0-9._-]+|\/home\/[A-Za-z0-9._-]+|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+)/],
   ['private URL', /https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^/\s]+\.(?:local|internal))(?:[/:?#][^\s"'<>)]*)?/i],
   ['environment file reference', /(?:^|[\\/])\.env(?:$|[._-])/i],

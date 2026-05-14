@@ -207,6 +207,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </section>
           )}
 
+          {project.mermaidDiagram && (
+            <section className="panel">
+              <p className="panel__eyebrow">Architecture</p>
+              <h3>Mermaid diagram</h3>
+              <pre className="code-block code-block--mermaid">{project.mermaidDiagram}</pre>
+            </section>
+          )}
+
           {project.links.length > 0 && (
             <section className="panel">
               <p className="panel__eyebrow">Outbound</p>

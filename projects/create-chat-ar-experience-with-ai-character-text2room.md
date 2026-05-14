@@ -18,6 +18,3 @@ https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-charact
 - Inpainting
 - AR
 - Telegram API
-
-## Links
-- [View Demo Video](https://drive.google.com/file/d/1kvg4gjCNFPmrI3URPsM3eIyQ_vqSk1Ow/view?usp=sharing)

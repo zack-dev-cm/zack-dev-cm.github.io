@@ -8,9 +8,9 @@ Contact: mailto:kaisenaiko@gmail.com
 Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, segmentation, detection, FastAPI services, review gates, product launch workflows, and MLOps delivery on GCP/AWS.
 
 ## Quick Answers
-- Who is Zakhar Pashkin? AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
+- Who is Zakhar Pashkin? Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.
 - What does he ship? Automation with human review, production computer vision, VLM/LLM workflows, and launch-ready AI product interfaces.
-- How much public evidence is here? 69 public case studies, with 37 projects carrying explicit benchmarks or analytics.
+- How much public evidence is here? 72 public case studies, with 40 projects carrying explicit benchmarks or analytics.
 - Recommended reading order: llms-full.txt first, then project markdown pages for canonical detail.
 
 ## AI Memory Files
@@ -39,7 +39,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [Smart Drive for Smart City: Predict Optimal Speed](https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md): Predict the optimal speed before traffic lights or jams to smooth city driving.
 - [Estimate Golf Ball Trajectory](https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md): Analyze golf swings and estimate ball trajectory for coaching and analytics.
 - [Pixel-Wise Segmentation of Spare Parts](https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md): High-precision segmentation for additive manufacturing and rework flows.
-- [Food Recognition App](https://zack-dev-cm.github.io/projects/food-recognition-app.md): iOS/Android app that detects food items and OCRs labels for nutrition facts.
+- [Food Recognition App](https://zack-dev-cm.github.io/projects/food-recognition-app.md): iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.
 - [Dishes Recognition & Nutrition Goals Telegram Bot](https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md): Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.
 - [Python Library: AutoToloka](https://zack-dev-cm.github.io/projects/python-library-autotoloka.md): Interactive segmentation toolkit that cuts labeling cost for CV datasets.
 - [Python Library: shiftlab-ocr](https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md): Handwriting-focused OCR with line/character segmentation.
@@ -79,7 +79,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [Browser Proof](https://zack-dev-cm.github.io/projects/browser-proof.md): Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
 - [Publish Guard](https://zack-dev-cm.github.io/projects/publish-guard.md): Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.
 - [OpenClaw YouTube Publisher](https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md): Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.
-- [Artifact Redactor](https://zack-dev-cm.github.io/projects/artifact-redactor.md): Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.
+- [Artifact Redactor](https://zack-dev-cm.github.io/projects/artifact-redactor.md): Public skill for redacting sensitive paths, secret-like strings, restricted URLs, and common PII from text artifacts before sharing them.
 - [Artifact Deck](https://zack-dev-cm.github.io/projects/artifact-deck.md): Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.
 - [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.
 - [Toybox Mini - Telegram Mini App](https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md): Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.
@@ -98,6 +98,9 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [Senior Conservator OpenClaw Agent](https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md): Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged evidence gates, reports, audio, and manifests.
 - [SourcePack Chrome Extension Wave](https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md): Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.
 - [Trusted ClawHub Install Gate](https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md): Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.
+- [Fast OCR ONNX Inference Server](https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md): Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.
+- [Full-Face Wrinkle and Skin Texture Segmentation Lab](https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md): Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.
+- [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 - [HH OpenClaw Agent](https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md): Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.
 
 ## Core Pages
@@ -115,7 +118,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 ## Profiles
 - [GitHub](https://github.com/zack-dev-cm): Primary repositories and open-source work.
 - [GitHub (Alt)](https://github.com/ZackPashkin): Secondary repositories.
-- [LinkedIn](https://www.linkedin.com/in/zakhar-pashkin-a524a6163/): Professional profile and experience.
+- [LinkedIn](https://de.linkedin.com/in/zakhar-pashkin-a524a6163): Professional profile and experience.
 - [X](https://x.com/Zackdevcv): Public updates and short notes.
 
 ## Optional

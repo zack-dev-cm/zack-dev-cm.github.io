@@ -3,7 +3,7 @@
 > Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.
 
 ## Summary
-This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, keeps structured provenance for Midjourney, Suno, and local edit stages, validates the bundle, and renders a public-safe report with private paths and non-public URLs redacted. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.
+This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, keeps structured provenance for Midjourney, Suno, and local edit stages, validates the bundle, and renders a public-safe report with sensitive paths and unpublished URLs removed. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md
@@ -25,8 +25,8 @@ https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md
 - GitHub Actions
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 297 (public ClawHub listing, 2026-05-06)
-- Published versions: 13 (public ClawHub listing, 2026-05-06)
+- ClawHub downloads: 364 (public ClawHub listing, 2026-05-14)
+- Published versions: 13 (public ClawHub listing, 2026-05-14)
 - Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)

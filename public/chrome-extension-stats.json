@@ -1,7 +1,7 @@
 {
   "publisherName": "kaisenaiko",
   "publisherUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "checkedAt": "2026-05-07",
+  "checkedAt": "2026-05-14",
   "sourceName": "Chrome-Stats publisher page",
   "sourceUrl": "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0",
   "totalPublished": 11,
@@ -10,7 +10,7 @@
   "averageRating": 5,
   "ratingCount": 4,
   "notes": [
-    "Chrome-Stats publisher rollup showed 11 published extensions, 188 total users, 17 average users per extension, and 5.00 average rating from 4 reviews on 2026-05-07.",
+    "Chrome-Stats publisher rollup showed 11 published extensions, 188 total users, 17 average users per extension, and 5.00 average rating from 4 reviews on 2026-05-14.",
     "Rows where Chrome-Stats displayed '-' are treated as not reported rather than inferred into user totals.",
     "Per-extension ranks, risk fields, versions, and sizes come from available Chrome-Stats detail pages plus local CWS listing contracts for newly published SourcePack items."
   ],

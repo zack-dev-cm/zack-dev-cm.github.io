@@ -28,7 +28,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'Traction evidence system',
     summary:
       'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['2,929 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
+    proof: ['3,745 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
   },
   45: {
     label: 'Open-source review harness',
@@ -52,9 +52,48 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['769 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: ['913 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
+
+const COMPUTER_VISION_PROJECT_IDS = [70, 72, 71, 63, 41, 10] as const;
+const AI_SYSTEM_PROJECT_IDS = [68, 53, 43, 66, 44, 69] as const;
+
+const COMPUTER_VISION_LANES = [
+  {
+    label: 'OCR serving',
+    value: '3-stage ONNX',
+    detail: 'line segmentation, word detection, CRNN recognition, FastAPI response contracts'
+  },
+  {
+    label: 'Face texture',
+    value: 'ROI + masks',
+    detail: 'landmarks, cosmetic regions, wrinkle/fine-line traces, quality gates'
+  },
+  {
+    label: 'Video search',
+    value: 'Hybrid retrieval',
+    detail: 'keyframes, ASR/OCR, visual embeddings, transcript embeddings, ranked results'
+  }
+];
+
+const AI_SYSTEM_LANES = [
+  {
+    label: 'Public traction',
+    value: '3,745',
+    detail: 'ClawHub downloads across 11 tracked packages as of 2026-05-14'
+  },
+  {
+    label: 'Extension adoption',
+    value: '188',
+    detail: 'Chrome-Stats publisher rollup users across 11 published extensions'
+  },
+  {
+    label: 'Release posture',
+    value: 'Gate-first',
+    detail: 'benchmarks, public-surface review, browser evidence, rollback criteria'
+  }
+];
 
 const DELIVERY_PILLARS = [
   {
@@ -523,6 +562,16 @@ const App: React.FC = () => {
     return FEATURED_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project));
   }, [projectById]);
 
+  const computerVisionProjects = useMemo(
+    () => COMPUTER_VISION_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project)),
+    [projectById]
+  );
+
+  const aiSystemProjects = useMemo(
+    () => AI_SYSTEM_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project)),
+    [projectById]
+  );
+
   const projectFilterOptions = useMemo(
     () =>
       PROJECT_FILTERS.map((filter) => ({
@@ -781,11 +830,12 @@ const App: React.FC = () => {
 
         <main className="content-column">
           <section id="intro" className="hero">
-            <p className="hero__eyebrow">AI Product Engineer</p>
-            <h1 className="hero__title">AI products built for production constraints.</h1>
+            <p className="hero__eyebrow">Senior Computer Vision Engineer</p>
+            <h1 className="hero__title">AI and CV systems built for production constraints.</h1>
             <p className="hero__lead">
-              {AUTHOR_INFO.bio} I turn ambiguous AI, CV, and automation problems into tested models,
-              APIs, workflows, and product surfaces with review gates before release.
+              {AUTHOR_INFO.bio} I turn ambiguous OCR, segmentation, detection, multimodal search,
+              and automation problems into tested models, APIs, workflows, and product surfaces with
+              review gates before release.
             </p>
             <div className="hero__actions">
               <a href="#featured" className="button button--ghost">
@@ -980,6 +1030,108 @@ const App: React.FC = () => {
                       )}
                     </div>
                   </article>
+                );
+              })}
+            </div>
+          </Section>
+
+          <Section
+            id="computer-vision"
+            eyebrow="Computer Vision"
+            title="Computer Vision Systems"
+            description="Public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, and multimodal video search, backed by architecture-first evidence, sanitized metrics, and reviewable Mermaid diagrams."
+          >
+            <div className="domain-spotlight">
+              <div className="domain-spotlight__media">
+                <img
+                  src={resolveAssetUrl('images/cv-ai-systems-map.png')}
+                  alt="Conceptual computer vision systems map for OCR, face analysis, and video neural search"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="domain-lanes" aria-label="Computer vision evidence lanes">
+                {COMPUTER_VISION_LANES.map((lane) => (
+                  <article key={lane.label} className="domain-lane">
+                    <span>{lane.label}</span>
+                    <strong>{lane.value}</strong>
+                    <p>{lane.detail}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="domain-project-grid">
+              {computerVisionProjects.map((project) => {
+                const firstBenchmark = project.benchmarks?.[0];
+                return (
+                  <button
+                    key={project.id}
+                    type="button"
+                    className="domain-project-card"
+                    onClick={() => handleSelectProject(project)}
+                    aria-label={`Open computer vision case study: ${project.title}`}
+                  >
+                    <span className="domain-project-card__meta">Case study #{project.id}</span>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    {firstBenchmark && (
+                      <span className="domain-project-card__metric">
+                        <strong>{firstBenchmark.label}</strong>
+                        <em>{firstBenchmark.value}</em>
+                      </span>
+                    )}
+                    <span className="project-card__open" aria-hidden="true">
+                      Open case study
+                      <span>-&gt;</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </Section>
+
+          <Section
+            id="ai-systems"
+            eyebrow="AI Systems"
+            title="AI Product and Release Systems"
+            description="The product-facing AI work around extension launches, public traction trackers, reproducible CV experimentation, ChatGPT/MCP apps, automation, and install safety."
+          >
+            <div className="domain-lanes domain-lanes--summary" aria-label="AI systems summary">
+              {AI_SYSTEM_LANES.map((lane) => (
+                <article key={lane.label} className="domain-lane">
+                  <span>{lane.label}</span>
+                  <strong>{lane.value}</strong>
+                  <p>{lane.detail}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="domain-project-grid">
+              {aiSystemProjects.map((project) => {
+                const firstBenchmark = project.benchmarks?.[0];
+                return (
+                  <button
+                    key={project.id}
+                    type="button"
+                    className="domain-project-card"
+                    onClick={() => handleSelectProject(project)}
+                    aria-label={`Open AI system case study: ${project.title}`}
+                  >
+                    <span className="domain-project-card__meta">Case study #{project.id}</span>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    {firstBenchmark && (
+                      <span className="domain-project-card__metric">
+                        <strong>{firstBenchmark.label}</strong>
+                        <em>{firstBenchmark.value}</em>
+                      </span>
+                    )}
+                    <span className="project-card__open" aria-hidden="true">
+                      Open case study
+                      <span>-&gt;</span>
+                    </span>
+                  </button>
                 );
               })}
             </div>
@@ -1510,7 +1662,7 @@ const App: React.FC = () => {
                 </span>
                 <div className="contact-card__body">
                   <strong>Resume</strong>
-                  <span>AI Product Engineer PDF</span>
+                  <span>Senior CV / AI Product Engineer PDF</span>
                 </div>
               </a>
             </div>

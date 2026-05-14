@@ -15,7 +15,3 @@ https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md
 ## Tech Stack
 - Semantic Segmentation
 - Image Processing
-
-## Links
-- [Segmentation Demo #1](https://drive.google.com/file/d/1bAyEPYLbiETD0vKStnpB1VvzK1wKdKRv/view?usp=sharing)
-- [Segmentation Demo #2](https://drive.google.com/file/d/1xVEonSJ7jvnYSnQ6ztvFZy-Llf_dxSrP/view?usp=sharing)

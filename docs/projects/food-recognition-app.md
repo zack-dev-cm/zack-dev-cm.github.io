@@ -1,25 +1,34 @@
 # Food Recognition App
 
-> iOS/Android app that detects food items and OCRs labels for nutrition facts.
+> iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.
 
 ## Summary
-Cross-platform mobile AI that recognizes packaged/fresh food, runs OCR on labels, and surfaces nutrition details in real time.
+Mobile CV prototype for food recognition and nutrition-label scanning. The public case study focuses on camera/image-picker flows, ML Kit text recognition, crop-assisted OCR toggles, nutrition-label detection calls, table extraction, and optional LLM structuring into user-readable JSON.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/food-recognition-app.md
 
 ## Key Features
-- >90% accuracy
-- Optimized for CPU/GPU inference
-- OCR on labels
-- Cross-platform
+- Camera and gallery capture flows
+- Crop-assisted nutrition label OCR
+- Optional LLM result structuring
+- Table-aware extraction path
 
 ## Tech Stack
-- Mobile AI
-- Object Detection
+- SwiftUI
+- AVFoundation
+- ML Kit
 - OCR
-- TFLite
-- CoreML
+- Nutrition Label Parsing
+- LLM Structuring
 
-## Links
-- [View Demo GIF](https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing)
+## Architecture Diagram
+```mermaid
+flowchart LR
+  Capture["Camera or Image Picker"] --> Crop["Crop-Assisted OCR"]
+  Capture --> Detect["Food / Label Detection"]
+  Crop --> MLKit["ML Kit Text Recognition"]
+  MLKit --> Tables["Table-Aware Parsing"]
+  Tables --> Struct["Optional LLM JSON Structuring"]
+  Struct --> Results["Nutrition Result UI"]
+```

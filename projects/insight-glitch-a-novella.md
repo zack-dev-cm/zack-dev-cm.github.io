@@ -16,6 +16,3 @@ https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md
 - World-Building
 - Conceptual Design
 - Philosophical Modeling
-
-## Links
-- [Listen to Novella (RUS)](https://drive.google.com/file/d/1lVgaq55DXY7Xz0Y1RsapW4n3UPyuf45r/view)

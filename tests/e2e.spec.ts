@@ -42,6 +42,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   // Wait for main title and a couple of sections to ensure hydration
   await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'Computer Vision Systems' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'AI Product and Release Systems' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Latest Updates' })).toBeVisible();
 
@@ -54,7 +56,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute(
     'href',
-    'https://www.linkedin.com/in/zakhar-pashkin-a524a6163/'
+    'https://de.linkedin.com/in/zakhar-pashkin-a524a6163'
   );
   const removedFreelanceMarketplaceHost = ['up', 'work', 'com'].join('.');
   await expect(page.locator(`a[href*="${removedFreelanceMarketplaceHost}"]`)).toHaveCount(0);
@@ -65,7 +67,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
-  await expect(clawHubSection.getByText('2,929')).toBeVisible();
+  await expect(clawHubSection.getByText('3,745')).toBeVisible();
   await expect(clawHubSection.getByText(/downloads across 11 public packages/i)).toBeVisible();
 
   const chromeStatsSection = page.locator('#chrome-stats');
@@ -112,6 +114,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Computer Vision and AI Systems Refresh', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Marketplace Stats Refresh', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Dermaself Flutter Skin Analysis App', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('SourcePack Chrome Extension Wave', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Trusted ClawHub Install Gate', { exact: false })).toBeVisible();
@@ -155,6 +159,16 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page).toHaveURL(/\?project=sourcepack-chrome-extension-wave/);
   await expect(page.getByRole('dialog').getByText('Publisher users')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
+  await projectSearch.fill('fast ocr');
+  const fastOcrCard = page.getByRole('button', { name: /Open project: Fast OCR ONNX Inference Server/i });
+  await expect(fastOcrCard).toBeVisible();
+  await fastOcrCard.click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/\?project=fast-ocr-onnx-inference-server/);
+  await expect(page.getByRole('dialog').getByText('Mermaid diagram')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 

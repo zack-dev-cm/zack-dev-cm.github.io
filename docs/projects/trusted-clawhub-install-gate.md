@@ -23,6 +23,6 @@ https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md
 - Receipt Verification
 
 ## Benchmarks & Analytics
-- Verdict states: 3 (PASS, REVIEW, BLOCK in local source README)
-- Default unsafe install policy: deny (REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 local source review)
+- Verdict states: 3 (PASS, REVIEW, BLOCK in project contract)
+- Default unsafe install policy: deny (REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 evidence review)
 - Verification model: receipt-aware (installed hash and approved verdict must match receipt)

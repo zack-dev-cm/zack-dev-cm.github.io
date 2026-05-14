@@ -15,6 +15,3 @@ https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-
 ## Tech Stack
 - Audio processing
 - Neural Networks
-
-## Links
-- [View Demo GIF](https://drive.google.com/file/d/1H43aT5n8NWlOuTIWsJinssKRh1n3tiOM/view?usp=sharing)

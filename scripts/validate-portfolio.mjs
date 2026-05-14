@@ -342,7 +342,7 @@ const validateProject = (project) => {
         fail(`${projectLabel} benchmark "${benchmark.label}" needs context/source`);
       } else if (
         !/\d/.test(benchmark.context) &&
-        !/(launch|listing|snapshot|pulse|slice|reported|internal|public)/i.test(benchmark.context)
+        !/(launch|listing|snapshot|reported|public|evidence review|case study)/i.test(benchmark.context)
       ) {
         fail(`${projectLabel} benchmark "${benchmark.label}" context is too vague`);
       }

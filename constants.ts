@@ -6,12 +6,12 @@ const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "AI Product Engineer - Computer Vision, VLM/LLM Systems",
-  bio: "I build AI products that combine automation, computer vision, VLM/LLM workflows, backend delivery, and human-reviewed launch gates."
+  title: "Senior Computer Vision Engineer - AI Product Engineer",
+  bio: "I build production OCR, segmentation, detection, multimodal search, VLM/LLM workflows, backend delivery, and human-reviewed launch gates."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
-  linkedin: "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
+  linkedin: "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
   x: "https://x.com/Zackdevcv",
   email: "kaisenaiko@gmail.com",
   githubPrimary: "https://github.com/zack-dev-cm",
@@ -35,8 +35,8 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
-  "69 public case studies and launches spanning automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "2,929 tracked ClawHub downloads across 11 public packages, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
+  "72 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -57,108 +57,108 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "sota-agent",
     displayName: "SOTA Agent",
-    downloads: 411,
+    downloads: 485,
     versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Lab",
-    downloads: 358,
+    downloads: 428,
     versions: 10,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "youtube-creator-ops",
     displayName: "OpenClaw YouTube Publisher",
-    downloads: 297,
+    downloads: 364,
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "browser-proof",
     displayName: "Browser Proof",
-    downloads: 242,
+    downloads: 308,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "public-surface-review",
     displayName: "Publish Guard",
-    downloads: 247,
+    downloads: 314,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "hh-openclaw-agent",
     displayName: "HH OpenClaw Agent",
-    downloads: 229,
+    downloads: 296,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 314,
-    versions: 12,
-    stars: 1,
+    downloads: 438,
+    versions: 13,
+    stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub + ClawHub Launcher",
-    downloads: 244,
-    versions: 6,
+    downloads: 314,
+    versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 215,
+    downloads: 284,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 174,
+    downloads: 247,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 198,
+    downloads: 267,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-05-06"
+    checkedAt: "2026-05-14"
   }
 ];
 
 export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
   publisherName: "kaisenaiko",
   publisherUrl: "https://chromewebstore.google.com/search/kaisenaiko",
-  checkedAt: "2026-05-07",
+  checkedAt: "2026-05-14",
   sourceName: "Chrome-Stats publisher page",
   sourceUrl: "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0",
   totalPublished: 11,
@@ -167,7 +167,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
   averageRating: 5,
   ratingCount: 4,
   notes: [
-    "Chrome-Stats publisher rollup showed 11 published extensions, 188 total users, 17 average users per extension, and 5.00 average rating from 4 reviews on 2026-05-07.",
+    "Chrome-Stats publisher rollup showed 11 published extensions, 188 total users, 17 average users per extension, and 5.00 average rating from 4 reviews on 2026-05-14.",
     "Rows where Chrome-Stats displayed '-' are treated as not reported rather than inferred into user totals.",
     "Per-extension ranks, risk fields, versions, and sizes come from available Chrome-Stats detail pages plus local CWS listing contracts for newly published SourcePack items."
   ],
@@ -427,8 +427,29 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Computer Vision and AI Systems Refresh",
+    description: "Added public-safe case studies for OCR serving, multimodal video search, and skin-texture segmentation, with Mermaid diagrams and architecture-first evidence.",
+    links: [
+      { text: "Open OCR case study", url: "https://zack-dev-cm.github.io/?project=fast-ocr-onnx-inference-server" },
+      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=private-multimodal-video-search-platform" },
+      { text: "Open segmentation case study", url: "https://zack-dev-cm.github.io/?project=full-face-wrinkle-and-skin-texture-segmentation-lab" }
+    ],
+    projectId: 72,
+    createdAt: "2026-05-14"
+  },
+  {
+    title: "Marketplace Stats Refresh",
+    description: "Updated the public ClawHub tracker to 3,745 downloads across 11 packages and rechecked the Chrome-Stats publisher rollup on 2026-05-14.",
+    links: [
+      { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
+      { text: "Open Chrome-Stats tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
+    ],
+    projectId: 53,
+    createdAt: "2026-05-14"
+  },
+  {
     title: "SourcePack Chrome Extension Wave",
-    description: "New extension wave added from the local CWS build: Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, and ChatArchive with public pages and Chrome-Stats tracking.",
+    description: "New extension wave added from the CWS release work: Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, and ChatArchive with public pages and Chrome-Stats tracking.",
     links: [
       { text: "Open SourcePack pages", url: "https://sourcepack-tools.pages.dev/" },
       { text: "Open Chrome-Stats publisher", url: "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0" }
@@ -447,7 +468,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Dermaself Flutter Skin Analysis App",
-    description: "New sanitized mobile case study from the local Mac scan: a Flutter/Firebase skin-analysis app with onboarding, questionnaires, photo capture, and release-inference work.",
+    description: "Updated mobile CV case study: Flutter/Firebase skin-analysis flow with guided capture, offline model runtime, ROI gates, and deployment-blocked fine-line QA evidence.",
     links: [
       { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=dermaself-flutter-skin-analysis-app" }
     ],
@@ -642,7 +663,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Artifact Redactor",
-    description: "New open-source release: a text-artifact redaction skill that strips private paths, secret-like strings, private URLs, and common PII before a bundle is shared.",
+    description: "New open-source release: a text-artifact redaction skill that strips sensitive paths, secret-like strings, restricted URLs, and common PII before a bundle is shared.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/artifact-redactor" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/artifact-redactor" },
@@ -804,9 +825,7 @@ export const PROJECTS: Project[] = [
       { label: "Supported actions", value: "7", context: "tap, scroll, text, home, back, overview, screenshot" },
       { label: "API endpoints", value: "8+", context: "healthz, metrics, devices, actions, screenshots, debug" }
     ],
-    links: [
-      { text: "View Demo Video", url: "https://drive.google.com/file/d/13UQTdBVsZwPclMOca6Nmaywk4BiRydbi/view?usp=sharing" }
-    ],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/android-remote.gif`, alt: "Android Remote Control Demo" },
       { url: `${LOCAL_IMG_BASE}/android-remote-alt.gif`, alt: "Android Remote Control alternate view" }
@@ -820,7 +839,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Breath-based control after a short calibration: detect sharp exhales to start, smooth exhale to stop. Works on mic audio or sniffles for silent agent control.",
     keyFeatures: ["Non-verbal AI control", "Pattern recognition of breathing acoustics"],
     techStack: ["Audio processing", "Neural Networks"],
-    links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1H43aT5n8NWlOuTIWsJinssKRh1n3tiOM/view?usp=sharing" }],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/breath-control.gif`, alt: "Breathing Control Demo" },
       { url: `${LOCAL_IMG_BASE}/breath-control-alt.gif`, alt: "Breathing control waveform preview" }
@@ -862,9 +881,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Marketing-ready pipeline: create AI characters, render images/video, do virtual try-on/inpainting, chat via Telegram, and place assets into AR.",
     keyFeatures: ["AI character generation", "AR integration", "Virtual try-on and inpainting"],
     techStack: ["Generative AI", "Inpainting", "AR", "Telegram API"],
-    links: [
-      { text: "View Demo Video", url: "https://drive.google.com/file/d/1kvg4gjCNFPmrI3URPsM3eIyQ_vqSk1Ow/view?usp=sharing" }
-    ],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/adfeed-hero.gif`, alt: "Text2Room gallery preview" }
     ],
@@ -877,10 +894,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Semantic segmentation + high-quality inpainting that respects lighting/shadows, letting users plan interior changes with convincing renders.",
     keyFeatures: ["Object segmentation", "Advanced inpainting with lighting/shadow reconstruction"],
     techStack: ["Semantic Segmentation", "Generative Inpainting"],
-    links: [
-      { text: "Segmentation Demo", url: "https://drive.google.com/file/d/1XqQgbmBgTlRRdR-K3X4PHlSzrmiMUJgY/view?usp=sharing" },
-      { text: "Inpaint Demo #1", url: "https://drive.google.com/file/d/1dCkeI7Mi87cg2kOgY5UCLG-DiHkt358L/view?usp=sharing" }
-    ],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/interior-marble.png`, alt: "Marble Floor with Reflections" },
       { url: `${LOCAL_IMG_BASE}/interior-1.png`, alt: "Interior Example 1" }
@@ -922,10 +936,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Pixel-accurate masks for spare parts to speed 3D printing decisions and QA in industrial settings.",
     keyFeatures: ["High-precision segmentation", "Industrial application for additive manufacturing"],
     techStack: ["Semantic Segmentation", "Image Processing"],
-    links: [
-      { text: "Segmentation Demo #1", url: "https://drive.google.com/file/d/1bAyEPYLbiETD0vKStnpB1VvzK1wKdKRv/view?usp=sharing" },
-      { text: "Segmentation Demo #2", url: "https://drive.google.com/file/d/1xVEonSJ7jvnYSnQ6ztvFZy-Llf_dxSrP/view?usp=sharing" }
-    ],
+    links: [],
     images: [
       { url: `${LOCAL_IMG_BASE}/spare-parts-1.png`, alt: "Key Segmentation 1" },
       { url: `${LOCAL_IMG_BASE}/spare-parts-2.png`, alt: "Key Segmentation 2" }
@@ -935,11 +946,19 @@ export const PROJECTS: Project[] = [
   {
     id: 10,
     title: "Food Recognition App",
-    description: "iOS/Android app that detects food items and OCRs labels for nutrition facts.",
-    longDescription: "Cross-platform mobile AI that recognizes packaged/fresh food, runs OCR on labels, and surfaces nutrition details in real time.",
-    keyFeatures: [">90% accuracy", "Optimized for CPU/GPU inference", "OCR on labels", "Cross-platform"],
-    techStack: ["Mobile AI", "Object Detection", "OCR", "TFLite", "CoreML"],
-    links: [{ text: "View Demo GIF", url: "https://drive.google.com/file/d/1RRRVYH0DLILZX84v5x0boj68VfMqnWWf/view?usp=sharing" }],
+    aliases: ["nutrition label OCR", "food recognition mobile lab", "ML Kit nutrition scanner"],
+    description: "iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.",
+    longDescription: "Mobile CV prototype for food recognition and nutrition-label scanning. The public case study focuses on camera/image-picker flows, ML Kit text recognition, crop-assisted OCR toggles, nutrition-label detection calls, table extraction, and optional LLM structuring into user-readable JSON.",
+    keyFeatures: ["Camera and gallery capture flows", "Crop-assisted nutrition label OCR", "Optional LLM result structuring", "Table-aware extraction path"],
+    techStack: ["SwiftUI", "AVFoundation", "ML Kit", "OCR", "Nutrition Label Parsing", "LLM Structuring"],
+    links: [],
+    mermaidDiagram: `flowchart LR
+  Capture["Camera or Image Picker"] --> Crop["Crop-Assisted OCR"]
+  Capture --> Detect["Food / Label Detection"]
+  Crop --> MLKit["ML Kit Text Recognition"]
+  MLKit --> Tables["Table-Aware Parsing"]
+  Tables --> Struct["Optional LLM JSON Structuring"]
+  Struct --> Results["Nutrition Result UI"]`,
     images: [
       { url: `${LOCAL_IMG_BASE}/food-recognition-ui.png`, alt: "Food recognition app UI" }
     ],
@@ -957,9 +976,9 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Vision + voice dish detection", "Nutrition goal tracking", "Telegram-native UX"],
     techStack: ["Telegram Bot API", "OCR", "Speech-to-Text", "LLMs"],
     benchmarks: [
-      { label: "Lifetime users", value: "5k+", context: "operator-reported public total since launch" },
-      { label: "Monthly nutrition activity", value: "1k+ users", context: "rounded public product snapshot" },
-      { label: "Mini-app adoption lift", value: "10x+", context: "rounded public launch comparison" }
+      { label: "Input modes", value: "3", context: "photo, voice, and text flows in public product case study" },
+      { label: "Nutrition surfaces", value: "2", context: "2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow" },
+      { label: "Public route", value: "Telegram", context: "bot link reviewed 2026-05-14" }
     ],
     links: [
       { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
@@ -1147,7 +1166,7 @@ export const PROJECTS: Project[] = [
     longDescription: "A quiet take on singularity: Nomos, a god-like AI, archives humanity as a beautiful prelude to a new consciousness—no battles, just a graceful fade.",
     keyFeatures: ["Narrative AI exploration"],
     techStack: ["Narrative AI", "World-Building", "Conceptual Design", "Philosophical Modeling"],
-    links: [{ text: "Listen to Novella (RUS)", url: "https://drive.google.com/file/d/1lVgaq55DXY7Xz0Y1RsapW4n3UPyuf45r/view" }],
+    links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/insight_glitch.png`, alt: "Insight Glitch cover" }],
     thumbnail: `${LOCAL_IMG_BASE}/insight_glitch.png`
   },
@@ -1550,12 +1569,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 41,
     title: "Pores & Wrinkles Detection Service",
     description: "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
-    longDescription: "High-resolution facial analysis pipeline: MediaPipe landmarks to ROI crops/masks, classic pore and wrinkle detectors with an optional YOLO segmentation gate, and an async job API (progress + results). Ships as a FastAPI Cloud Run service with an MLflow console plus a Flutter demo client and Telegram Mini App UI.",
+    longDescription: "Cosmetic face-texture pipeline using face landmarks, region masks, segmentation-based wrinkle and fine-line detection, skeletonized line traces, overlays, per-line CSV outputs, timing events, and visual quality gates. The public case study avoids diagnostic claims and focuses on the engineering path from image capture to reviewable overlays.",
     keyFeatures: [
-      "MediaPipe landmark-based ROI extraction",
-      "Classic pore + wrinkle detectors with optional segmentation gate",
+      "MediaPipe landmark-based ROI extraction and face-region masks",
+      "Segmentation-based wrinkle and fine-line tracing with skeleton overlays",
       "Async job API with progress + results endpoints",
-      "Flutter demo client and Telegram Mini App UI"
+      "Flutter demo client and Telegram Mini App UI for cosmetic analysis review"
     ],
     techStack: ["Python", "FastAPI", "MediaPipe", "YOLO", "ONNX", "Cloud Run", "Flutter", "MLflow"],
     benchmarks: [
@@ -1565,6 +1584,13 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Default imgsz", value: "1280", context: "segment endpoint default" }
     ],
     links: [],
+    mermaidDiagram: `flowchart LR
+  Capture["Face Image"] --> Landmarks["Landmarks + ROI Masks"]
+  Landmarks --> Segment["Wrinkle / Texture Segmentation"]
+  Segment --> Lines["Skeletonized Line Traces"]
+  Lines --> Overlays["Labeled Overlays + CSV"]
+  Overlays --> Gate["Visual Quality Gate"]
+  Gate --> Results["Async Result API"]`,
     images: [],
     thumbnail: "",
     hideImages: true
@@ -1609,8 +1635,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "769 total", context: "public ClawHub listings, 2026-05-06 (358 data-science-cv-repro-lab + 411 sota-agent)" },
-      { label: "Published versions", value: "22 total", context: "public ClawHub listings, 2026-05-06 (10 + 12 packages)" },
+      { label: "ClawHub downloads", value: "913 total", context: "public ClawHub listings, 2026-05-14 (428 data-science-cv-repro-lab + 485 sota-agent)" },
+      { label: "Published versions", value: "22 total", context: "public ClawHub listings, 2026-05-14 (10 + 12 packages)" },
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
       { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
@@ -1629,12 +1655,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 44,
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
     description: "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
-    longDescription: "I built an anonymized sales-manager automation layer for a large multi-clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. The published case study redacts the client name, schema details, endpoint specifics, and patient-identifying data while preserving the delivery scope behind the rollout.",
+    longDescription: "I built a sales-manager automation layer for a large clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. The public case study focuses on the delivery pattern, approval controls, and legacy-system fit.",
     keyFeatures: [
       "OpenClaw-driven lead qualification, follow-up drafting, and next-step recommendations",
       "Legacy DB bridge that preserved the existing clinic back office instead of forcing a rewrite",
       "Human-in-the-loop approval rules for escalations and appointment routing",
-      "Redacted public case study with client identity, schema details, and endpoint specifics removed"
+      "Public case study framed around the reusable delivery pattern, approval controls, and legacy-system fit"
     ],
     techStack: ["OpenClaw", "LLM Orchestration", "Legacy DB Integration", "Workflow Automation", "Human Review Tooling"],
     benchmarks: [
@@ -1696,12 +1722,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "244", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
-      { label: "Validation status", value: "publish-ready", context: "launcher check + publish-guard audit" }
+      { label: "Validation posture", value: "release-checked", context: "launcher check + publish-guard audit" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
@@ -1726,12 +1752,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "242", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "308", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
-      { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
+      { label: "Validation posture", value: "release-checked", context: "smoke test + publish-guard audit" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/browser-proof" },
@@ -1756,8 +1782,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "247", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
@@ -1778,7 +1804,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     legacySlugs: ["youtube-creator-ops"],
     title: "OpenClaw YouTube Publisher",
     description: "Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.",
-    longDescription: "This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, keeps structured provenance for Midjourney, Suno, and local edit stages, validates the bundle, and renders a public-safe report with private paths and non-public URLs redacted. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.",
+    longDescription: "This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, keeps structured provenance for Midjourney, Suno, and local edit stages, validates the bundle, and renders a public-safe report with sensitive paths and unpublished URLs removed. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.",
     keyFeatures: [
       "Initializes one run manifest with channel, goal, stage, visibility, and file references",
       "Carries structured provenance for Midjourney visuals, Suno audio, local edit stages, and required public credits",
@@ -1788,8 +1814,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "297", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "364", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
@@ -1808,10 +1834,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 51,
     title: "Artifact Redactor",
-    description: "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+    description: "Public skill for redacting sensitive paths, secret-like strings, restricted URLs, and common PII from text artifacts before sharing them.",
     longDescription: "Artifact Redactor is a small public OpenClaw skill and local-first Python toolkit for making shareable artifact bundles safer. It scans supported text files for obvious leak patterns, writes a redacted copy into a clean output directory, re-checks the processed text output, and renders a markdown report that explains what was found, what was rewritten, and which files still need manual review. The public contract is intentionally narrow in v1.0.5: text artifacts are handled automatically, while skipped binary files stay manual-review-required instead of being silently treated as cleared. The command-line entrypoints now fail fast on missing inputs instead of returning a false-clear result from an empty or mistyped path.",
     keyFeatures: [
-      "Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for private paths, private URLs, secret-like strings, email addresses, and phone numbers",
+      "Scans Markdown, JSON, logs, YAML, CSV, and similar text artifacts for sensitive paths, restricted URLs, secret-like strings, email addresses, and phone numbers",
       "Writes a redacted copy into a separate output directory so the raw bundle stays untouched",
       "Strips query strings from public URLs while redacting localhost, private hosts, and credentialed URLs",
       "Flags binary or unsupported files for manual review instead of pretending they were auto-sanitized",
@@ -1819,11 +1845,11 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "215", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "284", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
-      { label: "Pattern families", value: "6", context: "private url, path, secret, email, phone, public-url query cleanup" },
+      { label: "Pattern families", value: "6", context: "restricted URL, path, secret, email, phone, public-url query cleanup" },
       { label: "Binary policy", value: "manual review", context: "unsupported files are flagged, not silently copied" }
     ],
     links: [
@@ -1850,8 +1876,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "174", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "247", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
@@ -1883,10 +1909,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "2,929", context: "public ClawHub listings, 2026-05-06 across 11 packages" },
+      { label: "Tracked ClawHub downloads", value: "3,745", context: "public ClawHub listings, 2026-05-14 across 11 packages" },
       { label: "Tracked packages", value: "11", context: "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi" },
-      { label: "CV Repro Lab downloads", value: "769 total", context: "358 data-science-cv-repro-lab + 411 sota-agent, 2026-05-06" },
-      { label: "Strongest package", value: "411 downloads", context: "sota-agent public listing, 2026-05-06" },
+      { label: "CV Repro Lab downloads", value: "913 total", context: "428 data-science-cv-repro-lab + 485 sota-agent, 2026-05-14" },
+      { label: "Strongest package", value: "485 downloads", context: "sota-agent public listing, 2026-05-14" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],
@@ -2014,9 +2040,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["OpenClaw", "ClawHub", "Google Drive", "Language Learning", "Markdown", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "198", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-06" },
-      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "267", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-05-14" },
       { label: "Clean release", value: "1.0.9", context: "public README release marker" },
       { label: "Public posture", value: "sanitized", context: "lesson operations without private student data" }
     ],
@@ -2187,8 +2213,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Chrome Web Store", "Playwright", "Release Engineering", "Security Review"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "12", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "438", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-14" },
       { label: "Release checks", value: "7", context: "ZIP, listing, leaks, E2E, design, Chrome Stable, competitors" }
     ],
     links: [
@@ -2210,7 +2236,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Dermaself Flutter Skin Analysis App",
     aliases: ["dermaself mobile app", "flutter skin analysis", "mobile skin analysis app"],
     description: "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
-    longDescription: "Dermaself is a sanitized mobile case study from the local Mac project scan. The app is organized as a native Flutter experience for Android and iOS, with a guided path from account setup through onboarding, questionnaire intake, selfie/device photo capture, analysis results, and home navigation. The public portfolio summary intentionally avoids medical claims and private repository links; the engineering signal is the mobile architecture, Firebase integration, and release-inference work around a camera-heavy analysis workflow.",
+    longDescription: "Dermaself is a mobile CV case study organized as a native Flutter experience for Android and iOS, with a guided path from account setup through onboarding, questionnaire intake, selfie/device photo capture, analysis results, and home navigation. The engineering signal is the mobile architecture, Firebase integration, offline model runtime, ROI gating, tile-bounded wrinkle and fine-line processing, pore detection, and promotion decisions for a camera-heavy cosmetic analysis workflow.",
     projectKind: "case-study",
     surfaceTags: ["mobile", "computer-vision", "health-ai", "case-study"],
     mobileReady: true,
@@ -2218,15 +2244,24 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Structures the app into clean feature modules for auth, onboarding, questionnaire, photo capture, device capture, analysis, and home",
       "Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points",
       "Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim",
-      "Includes release-inference work for tiled wrinkle/skin-texture processing in the mobile delivery path"
+      "Includes offline model runtime, ROI gating, and tile-bounded wrinkle/fine-line processing in the mobile delivery path",
+      "Keeps debug-only segmentation evidence separate from launch claims when a model should not be promoted"
     ],
-    techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "Mobile CV", "iOS", "Android"],
+    techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "ONNX", "TFLite", "Mobile CV", "iOS", "Android"],
     benchmarks: [
-      { label: "Native targets", value: "2", context: "Android and iOS app structure in local source" },
+      { label: "Native targets", value: "2", context: "Android and iOS app structure" },
       { label: "Feature modules", value: "7", context: "auth, onboarding, questionnaire, photo capture, device capture, analysis, home" },
-      { label: "Latest local commit", value: "2026-05-05", context: "local Mac repo history reviewed before portfolio add" }
+      { label: "Debug Dice ceiling", value: "0.975 mean", context: "12-image overfit diagnostic, not holdout evidence, 2026-05-12" },
+      { label: "Promotion decision", value: "blocked", context: "fine-line model not promoted to server or Flutter after QA review" }
     ],
     links: [],
+    mermaidDiagram: `flowchart LR
+  Onboarding["Onboarding + Questionnaire"] --> Capture["Selfie / Device Capture"]
+  Capture --> ROI["Face ROI + Capture Gates"]
+  ROI --> Runtime["ONNX / TFLite Runtime"]
+  Runtime --> Texture["Wrinkle, Pore, Acne Signals"]
+  Texture --> QA["QA Review + Promotion Decision"]
+  QA --> Results["Results + Recommendations"]`,
     images: [],
     thumbnail: "",
     hideImages: true,
@@ -2250,7 +2285,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     benchmarks: [
       { label: "Publish types", value: "4", context: "prototype-local, beta-private, cws-public, source-release" },
       { label: "Release scripts", value: "6", context: "create, design brief, store listing, release plan, release cycle, profile validation" },
-      { label: "Latest local commit", value: "2026-04-18", context: "local Mac repo history reviewed before portfolio add" }
+      { label: "Source review date", value: "2026-04-18", context: "project evidence review" }
     ],
     links: [],
     images: [],
@@ -2275,8 +2310,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["macOS", "Shell", "File Provider", "Google Drive", "Diagnostics", "Local-first Tooling"],
     benchmarks: [
       { label: "Command families", value: "6", context: "diagnose, repair, collect logs, inspect recovery, inspect sync, wait sync" },
-      { label: "Destructive data actions", value: "0", context: "0 cache, CloudStorage, account, or user-data deletion paths in local source review, 2026-04-17" },
-      { label: "Latest local commit", value: "2026-04-17", context: "local Mac repo history reviewed before portfolio add" }
+      { label: "Destructive data actions", value: "0", context: "0 cache, CloudStorage, account, or user-data deletion paths in reviewed repair flow, 2026-04-17" },
+      { label: "Source review date", value: "2026-04-17", context: "project evidence review" }
     ],
     links: [],
     images: [],
@@ -2289,7 +2324,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "CollectionsAI ChatGPT App",
     aliases: ["collectionsai chatgpt app", "conservation mcp app", "senior conservation widgets"],
     description: "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
-    longDescription: "CollectionsAI ChatGPT App packages a senior-conservation workflow as an MCP server plus ChatGPT widget layer. It exposes tools for report dashboards, factual Q&A, safe artifact listing, urgency rollups, capacity planning, material estimates, staffing assignments, dictated voice-note structuring, condition-report drafting, and end-to-end conservation cycles. The private repo link is intentionally omitted from the portfolio; the public case study focuses on the app architecture, widget metadata, release gates, and production posture without exposing report bundles or deployment secrets.",
+    longDescription: "CollectionsAI ChatGPT App packages a senior-conservation workflow as an MCP server plus ChatGPT widget layer. It exposes tools for report dashboards, factual Q&A, safe artifact listing, urgency rollups, capacity planning, material estimates, staffing assignments, dictated voice-note structuring, condition-report drafting, and end-to-end conservation cycles. The public case study focuses on the app architecture, widget metadata, release gates, and production posture.",
     projectKind: "case-study",
     surfaceTags: ["automation", "mcp", "chatgpt-app", "operations"],
     keyFeatures: [
@@ -2300,9 +2335,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Node.js", "MCP", "ChatGPT Apps", "Zod", "Python", "Widget Metadata", "Release Gates"],
     benchmarks: [
-      { label: "MCP tools", value: "10", context: "tool list in local source README" },
+      { label: "MCP tools", value: "10", context: "documented app tool surface" },
       { label: "Load harness", value: "10-user", context: "explicit concurrency test described in release checks" },
-      { label: "Latest local commit", value: "2026-03-04", context: "local Mac repo history reviewed before portfolio add" }
+      { label: "Source review date", value: "2026-03-04", context: "project evidence review" }
     ],
     links: [],
     images: [],
@@ -2315,20 +2350,20 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Senior Conservator OpenClaw Agent",
     aliases: ["senior conservator agent", "conservation openclaw workflow", "autonomous conservation report"],
     description: "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged evidence gates, reports, audio, and manifests.",
-    longDescription: "Senior Conservator OpenClaw Agent is a private-workflow case study for evidence-heavy conservation review. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The portfolio entry does not publish the private repo URL or local source paths; it summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.",
+    longDescription: "Senior Conservator OpenClaw Agent is an evidence-heavy conservation review case study. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The public case study summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.",
     projectKind: "case-study",
     surfaceTags: ["automation", "computer-vision", "openclaw", "operations"],
     keyFeatures: [
       "Combines image segmentation, regional scoring, ROI crop inspection, and browser-driven visual-labeler review",
       "Runs staged review gates before final report, presentation, voice, video, and Telegram delivery artifacts are accepted",
       "Produces JSON, Markdown, PDF, HTML, audio, overlay, video, and reproducibility-manifest outputs for audit-heavy workflows",
-      "Separates expert workflow orchestration from public portfolio details by omitting private repository links and local artifact paths"
+      "Frames expert workflow orchestration as a reusable review-gated artifact pattern"
     ],
     techStack: ["FastAPI", "OpenClaw", "Python", "MCP", "Pillow", "ReportLab", "Computer Vision", "Review Gates"],
     benchmarks: [
       { label: "Artifact families", value: "8+", context: "reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status" },
-      { label: "Review posture", value: "strict", context: "stage-by-stage gates documented in local source" },
-      { label: "Latest local commit", value: "2026-03-01", context: "local Mac repo history reviewed before portfolio add" }
+      { label: "Review posture", value: "strict", context: "stage-by-stage gates documented in project evidence" },
+      { label: "Source review date", value: "2026-03-01", context: "project evidence review" }
     ],
     links: [],
     images: [],
@@ -2391,8 +2426,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "OpenClaw", "ClawHub", "Security Review", "Receipt Verification"],
     benchmarks: [
-      { label: "Verdict states", value: "3", context: "PASS, REVIEW, BLOCK in local source README" },
-      { label: "Default unsafe install policy", value: "deny", context: "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 local source review" },
+      { label: "Verdict states", value: "3", context: "PASS, REVIEW, BLOCK in project contract" },
+      { label: "Default unsafe install policy", value: "deny", context: "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 evidence review" },
       { label: "Verification model", value: "receipt-aware", context: "installed hash and approved verdict must match receipt" }
     ],
     links: [],
@@ -2400,6 +2435,111 @@ Operations Layer (Console, Alerts, Runbooks)`
     thumbnail: "",
     hideImages: true,
     createdAt: "2026-05-07"
+  },
+  {
+    id: 70,
+    title: "Fast OCR ONNX Inference Server",
+    aliases: ["fast ocr", "onnx ocr api", "three-stage ocr"],
+    description: "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
+    longDescription: "Fast OCR ONNX Inference Server is a public-safe computer vision case study for turning OCR models into a deployable inference service. The pipeline accepts an uploaded image, runs line segmentation, word segmentation, and CRNN recognition, then returns recognized text with line and word boxes as JSON. The public entry focuses on architecture, serving contracts, CPU ONNX runtime, Docker packaging, and response shape.",
+    projectKind: "case-study",
+    surfaceTags: ["computer-vision", "ocr", "api", "mlops"],
+    keyFeatures: [
+      "Stages OCR as line segmentation, word segmentation, and CRNN text recognition",
+      "Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text",
+      "Packages the model stack for Docker-based CPU deployment",
+      "Documents deployment shape and response contracts with sanitized architecture evidence"
+    ],
+    techStack: ["Python", "FastAPI", "ONNX Runtime", "CRNN", "OCR", "Docker", "Cloud Run"],
+    benchmarks: [
+      { label: "OCR stages", value: "3", context: "line segmentation, word segmentation, CRNN recognition" },
+      { label: "Model artifacts", value: "3", context: "line, word, and text-recognition ONNX models" },
+      { label: "API endpoints", value: "2", context: "health check and image inference contract" },
+      { label: "Serving target", value: "CPU ONNX", context: "containerized FastAPI inference path" }
+    ],
+    links: [],
+    mermaidDiagram: `flowchart LR
+  Upload["Upload Image"] --> Line["Line Segmentation ONNX"]
+  Line --> Word["Word Segmentation ONNX"]
+  Word --> CRNN["CRNN Text Recognition"]
+  CRNN --> Response["JSON Text + Boxes"]
+  Response --> Review["Timing + Debug Metadata"]`,
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-05-14"
+  },
+  {
+    id: 71,
+    title: "Full-Face Wrinkle and Skin Texture Segmentation Lab",
+    aliases: ["wrinkle segmentation lab", "skin texture segmentation", "cosmetic face analysis"],
+    description: "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
+    longDescription: "Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment proof.",
+    projectKind: "case-study",
+    surfaceTags: ["computer-vision", "segmentation", "deep-learning", "health-ai"],
+    keyFeatures: [
+      "Segments cosmetic face and neck regions before wrinkle/fine-line analysis",
+      "Uses YOLO segmentation masks and skeletonized line traces instead of generic image filters",
+      "Writes reviewable overlays, region masks, per-line CSV records, timing events, and QA panels",
+      "Keeps quality gates advisory so weak detections are reviewed instead of silently shipped"
+    ],
+    techStack: ["Python", "YOLO", "MediaPipe", "OpenCV", "ONNX", "Segmentation", "Visual QA"],
+    benchmarks: [
+      { label: "Face regions", value: "9", context: "forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck" },
+      { label: "Artifact families", value: "6", context: "overlays, masks, skeletons, CSV, events, QA panels" },
+      { label: "Gate posture", value: "advisory", context: "review signal, not automatic deployment proof" }
+    ],
+    links: [],
+    mermaidDiagram: `flowchart LR
+  Image["Face Image"] --> ROI["Face ROI + Landmarks"]
+  ROI --> Regions["Region Masks"]
+  ROI --> YOLO["YOLO Segmentation"]
+  YOLO --> Skeleton["Skeletonized Line Traces"]
+  Regions --> QA["QA Panel + Coverage Checks"]
+  Skeleton --> QA
+  QA --> Artifacts["Overlays + CSV + Events"]`,
+    images: [],
+    thumbnail: "",
+    hideImages: true,
+    createdAt: "2026-05-14"
+  },
+  {
+    id: 72,
+    title: "Multimodal Video Search Platform",
+    aliases: ["SVS4 search", "video neural search", "hybrid media search"],
+    description: "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
+    longDescription: "Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture evidence.",
+    projectKind: "case-study",
+    surfaceTags: ["computer-vision", "ai", "search", "video", "mlops"],
+    keyFeatures: [
+      "Combines keyframe extraction, ASR/OCR, visual embeddings, transcript embeddings, object signals, and face signals",
+      "Uses dense vector retrieval and sparse search together instead of relying on a single modality",
+      "Adds quality-agent style regression checks for hybrid retrieval, ASR/OCR coverage, and recovery workflows",
+      "Uses sanitized architecture diagrams, metrics posture, and recovery notes for public review"
+    ],
+    techStack: ["Python", "FastAPI", "Qdrant", "Postgres", "CLIP", "OCR", "ASR", "Hybrid Search", "Celery"],
+    benchmarks: [
+      { label: "Signal lanes", value: "5", context: "keyframes, ASR, OCR, objects, faces" },
+      { label: "Index types", value: "2", context: "dense vector and sparse retrieval" },
+      { label: "Agent roles", value: "5", context: "ingestion, embedding, retrieval, quality, recovery" },
+      { label: "Metric posture", value: "sample benchmark", context: "regression evidence, not production accuracy claim" }
+    ],
+    links: [],
+    mermaidDiagram: `flowchart LR
+  Upload["Video Upload"] --> Frames["Scenes + Keyframes"]
+  Upload --> ASR["ASR Transcript"]
+  Frames --> OCR["OCR + Captions"]
+  Frames --> Visual["Visual / Face / Object Signals"]
+  ASR --> Index["Dense + Sparse Indexes"]
+  OCR --> Index
+  Visual --> Index
+  Index --> Rank["Hybrid Scorer"]
+  Rank --> Results["Ranked Results + Review Metrics"]`,
+    images: [
+      { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Conceptual computer vision systems map for OCR, face analysis, and video neural search" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`,
+    createdAt: "2026-05-14"
   },
   {
     id: 50,
@@ -2414,12 +2554,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "229", context: "public ClawHub listing, 2026-05-06" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-06" },
+      { label: "ClawHub downloads", value: "296", context: "public ClawHub listing, 2026-05-14" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-14" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },
-      { label: "Validation status", value: "publish-ready", context: "smoke test + publish-guard audit" }
+      { label: "Validation posture", value: "release-checked", context: "smoke test + publish-guard audit" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },

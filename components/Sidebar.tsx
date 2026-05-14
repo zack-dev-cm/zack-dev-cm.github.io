@@ -8,6 +8,8 @@ const NAV_ITEMS = [
   { name: 'About', href: '#about' },
   { name: 'Collaborations', href: '#experience' },
   { name: 'Featured', href: '#featured' },
+  { name: 'CV Systems', href: '#computer-vision' },
+  { name: 'AI Systems', href: '#ai-systems' },
   { name: 'ClawHub', href: '#clawhub' },
   { name: 'CWS Stats', href: '#chrome-stats' },
   { name: 'Latest', href: '#latest' },

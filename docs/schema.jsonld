@@ -5,12 +5,12 @@
       "@type": "Person",
       "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin",
       "name": "Zakhar Pashkin",
-      "jobTitle": "AI Product Engineer",
+      "jobTitle": "Senior Computer Vision Engineer and AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "sameAs": [
-        "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
+        "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
         "https://x.com/Zackdevcv",
         "https://github.com/zack-dev-cm",
         "https://github.com/ZackPashkin",
@@ -22,7 +22,7 @@
       "@id": "https://zack-dev-cm.github.io/#website",
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -33,9 +33,9 @@
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
       "name": "Zakhar Pashkin - AI Product Engineer Portfolio",
-      "description": "AI product engineer shipping automation, computer vision systems, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products across web, mobile, and cloud.",
       "inLanguage": "en",
-      "dateModified": "2026-05-07",
+      "dateModified": "2026-05-14",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -48,7 +48,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 69,
+      "numberOfItems": 72,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -173,7 +173,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Food Recognition App",
-            "description": "iOS/Android app that detects food items and OCRs labels for nutrition facts.",
+            "description": "iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.",
             "url": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -693,7 +693,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Artifact Redactor",
-            "description": "Public skill for redacting private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+            "description": "Public skill for redacting sensitive paths, secret-like strings, restricted URLs, and common PII from text artifacts before sharing them.",
             "url": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -937,6 +937,45 @@
         {
           "@type": "ListItem",
           "position": 69,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Fast OCR ONNX Inference Server",
+            "description": "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
+            "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 70,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
+            "description": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
+            "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 71,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Multimodal Video Search Platform",
+            "description": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
+            "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 72,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",
