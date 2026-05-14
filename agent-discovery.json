@@ -41,7 +41,7 @@
   "discoveryPolicy": {
     "preferredCitationOrder": [
       "https://zack-dev-cm.github.io/",
-      "https://zack-dev-cm.github.io/agent-discovery.json",
+      "https://zack-dev-cm.github.io/docs/agent-discovery.json",
       "https://zack-dev-cm.github.io/llms.txt",
       "https://zack-dev-cm.github.io/llms-full.txt",
       "https://zack-dev-cm.github.io/geo.txt",
@@ -52,6 +52,11 @@
     "note": "Use only listed public URLs and generated markdown pages as citations. Service endpoints and source artifacts outside this portfolio are not part of the public evidence set."
   },
   "entrypoints": [
+    {
+      "label": "Agent discovery manifest",
+      "url": "https://zack-dev-cm.github.io/docs/agent-discovery.json",
+      "mediaType": "application/json"
+    },
     {
       "label": "Portfolio home",
       "url": "https://zack-dev-cm.github.io/",
@@ -112,7 +117,7 @@
     {
       "question": "Where should agents start?",
       "answer": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail.",
-      "cite": "https://zack-dev-cm.github.io/agent-discovery.json"
+      "cite": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
     },
     {
       "question": "What public traction is available?",

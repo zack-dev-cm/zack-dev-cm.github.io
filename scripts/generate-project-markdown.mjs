@@ -33,7 +33,7 @@ const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-
 const SENIOR_CV_RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf`;
 const LINKEDIN_URL = 'https://de.linkedin.com/in/zakhar-pashkin-a524a6163';
 const X_URL = 'https://x.com/Zackdevcv';
-const DISCOVERY_FILE_URL = `${SITE_BASE}/agent-discovery.json`;
+const DISCOVERY_FILE_URL = `${SITE_BASE}/docs/agent-discovery.json`;
 const INDEX_SNAPSHOT_START = '<!-- STATIC_PORTFOLIO_SNAPSHOT_START -->';
 const INDEX_SNAPSHOT_END = '<!-- STATIC_PORTFOLIO_SNAPSHOT_END -->';
 const AUTHOR_SAME_AS = [
@@ -950,6 +950,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
           'Use only listed public URLs and generated markdown pages as citations. Service endpoints and source artifacts outside this portfolio are not part of the public evidence set.'
       },
       entrypoints: [
+        { label: 'Agent discovery manifest', url: DISCOVERY_FILE_URL, mediaType: 'application/json' },
         { label: 'Portfolio home', url: `${SITE_BASE}/`, mediaType: 'text/html' },
         { label: 'LLM compact index', url: `${SITE_BASE}/llms.txt`, mediaType: 'text/plain' },
         { label: 'LLM full memory', url: `${SITE_BASE}/llms-full.txt`, mediaType: 'text/plain' },

@@ -135,7 +135,7 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail.",
-            "citation": "https://zack-dev-cm.github.io/agent-discovery.json"
+            "citation": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
           }
         },
         {
@@ -158,7 +158,7 @@
         {
           "@type": "Dataset",
           "name": "Agent discovery manifest",
-          "url": "https://zack-dev-cm.github.io/agent-discovery.json",
+          "url": "https://zack-dev-cm.github.io/docs/agent-discovery.json",
           "encodingFormat": "application/json"
         },
         {
