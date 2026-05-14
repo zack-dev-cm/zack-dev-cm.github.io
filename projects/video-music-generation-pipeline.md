@@ -20,4 +20,3 @@ https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md
 
 ## Links
 - [View Example](https://www.youtube.com/shorts/_5dVaQdB1lA)
-- [Music Gen in Colab](https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4)

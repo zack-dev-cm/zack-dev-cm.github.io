@@ -487,6 +487,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>

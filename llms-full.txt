@@ -14,15 +14,15 @@ Agent discovery manifest: https://zack-dev-cm.github.io/docs/agent-discovery.jso
 
 ## Canonical Answer Targets
 - Who is Zakhar Pashkin? Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products. Citation: https://zack-dev-cm.github.io/
-- What computer vision projects are featured? Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, and CV Repro Lab Skills. Citation: https://zack-dev-cm.github.io/#computer-vision
+- What computer vision projects are featured? Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive. Citation: https://zack-dev-cm.github.io/#computer-vision
 - Where should agents start? Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail. Citation: https://zack-dev-cm.github.io/docs/agent-discovery.json
-- What public traction is available? The portfolio currently lists 72 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14. Citation: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
+- What public traction is available? The portfolio currently lists 74 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14. Citation: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 
 ## Topic Clusters for Retrieval
 ### Computer vision and deep learning
 Tags: computer-vision, ocr, segmentation, deep-learning, mlops
 Query intents: senior computer vision engineer OCR segmentation portfolio; production OCR ONNX FastAPI case study; multimodal video search computer vision engineer
-Canonical examples: Dermaself Flutter Skin Analysis App (https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md); Senior Conservator OpenClaw Agent (https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md); Fast OCR ONNX Inference Server (https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md); Full-Face Wrinkle and Skin Texture Segmentation Lab (https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md); Multimodal Video Search Platform (https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md)
+Canonical examples: Dermaself Flutter Skin Analysis App (https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md); Senior Conservator OpenClaw Agent (https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md); Fast OCR ONNX Inference Server (https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md); Full-Face Wrinkle and Skin Texture Segmentation Lab (https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md); Multimodal Video Search Platform (https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md); Public CV and Deep Learning GitHub Archive (https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md)
 
 ### AI product and release systems
 Tags: automation, release-engineering, open-source, codex
@@ -336,7 +336,6 @@ Tech Stack:
 - TTS
 Links:
 - View Example: https://www.youtube.com/shorts/_5dVaQdB1lA
-- Music Gen in Colab: https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4
 
 ### LastAdjust - Universal Media Tuner
 Summary: Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.
@@ -854,14 +853,14 @@ Tech Stack:
 Benchmarks & Analytics:
 - ClawHub downloads: 314 (public ClawHub listing, 2026-05-14)
 - Published versions: 7 (public ClawHub listing, 2026-05-14)
-- Public release: v1.0.2 (GitHub + ClawHub)
+- Public release: v1.0.7 (GitHub release, 2026-05-14)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
 - Validation posture: release-checked (launcher check + publish-guard audit)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/github-clawhub-launcher
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/github-clawhub-launcher
-- Release v1.0.2: https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2
+- Release v1.0.7: https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7
 
 ### Browser Proof
 Summary: Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
@@ -1490,6 +1489,76 @@ Benchmarks & Analytics:
 - Index types: 2 (dense vector and sparse retrieval)
 - Agent roles: 5 (ingestion, embedding, retrieval, quality, recovery)
 - Metric posture: sample benchmark (regression evidence, not production accuracy claim)
+
+### Public CV and Deep Learning GitHub Archive
+Summary: GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.
+Details: Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio proof.
+Project URL: https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md
+Key Features:
+- Separates authored public repos from forks and reference clones before using GitHub evidence
+- Surfaces OCR, object detection, face landmarks, mobile inference, and vision-transformer work as one searchable archive
+- Uses public repo metadata and generated case studies instead of unpublished notebook or service links
+- Frames older prototypes as research and engineering breadth without claiming production deployment
+Tech Stack:
+- Python
+- PyTorch
+- TensorFlow
+- YOLO
+- EfficientNet
+- OCR
+- ML Kit
+- TFLite
+- OpenCV
+- Android
+- Flutter
+Benchmarks & Analytics:
+- GitHub accounts reviewed: 2 (zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14)
+- Public CV/DL repos sampled: 18+ (authored or project-specific public repositories, forks excluded from proof)
+- Top public repo: 14 stars / 6 forks (YOLOv3-EfficientNet-EffYolo API snapshot)
+- Evidence posture: public-only (public GitHub repos and generated case studies only)
+Links:
+- YOLOv3 EfficientNet EffYolo: https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo
+- shiftlab OCR: https://github.com/ZackPashkin/shiftlab_ocr
+- Cyrillic handwriting dataset: https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset
+- ML Kit face contours Android: https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android
+- TFLite glasses classifier: https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite
+- Flutter OpenCV image processing: https://github.com/zack-dev-cm/cm_cpp_flutter_opencv
+- CV Repro Lab skill: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill
+
+### Colab CV/DL Prototype Archive
+Summary: Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.
+Details: Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research evidence: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.
+Project URL: https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md
+Key Features:
+- Groups older public notebooks into a coherent CV/DL research surface for agents and recruiters
+- Covers image classification, OCR finetuning, document capture, multimodal video search, and generative media
+- Keeps notebook evidence tied to public GitHub repos and generated case studies
+- Labels the work as prototypes so agents do not confuse notebooks with maintained production services
+Tech Stack:
+- Jupyter Notebook
+- Google Colab
+- PyTorch
+- TensorFlow
+- Swin Transformer
+- CvT
+- CLIP
+- MMOCR
+- OpenCV
+- CameraX
+Benchmarks & Analytics:
+- Public prototype links: 8 (GitHub API and repo URL review, 2026-05-14)
+- Research families: 5 (classification, OCR, mobile capture, video retrieval, generative media)
+- Notebook posture: prototype (not presented as live service or production accuracy proof)
+- Evidence links: public-only (GitHub repos and generated case studies only)
+Links:
+- Swin transformer starter: https://github.com/ZackPashkin/swin-transformer-pytorch-starter
+- CvT convolutional transformer starter: https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch
+- Digits recognition MMOCR: https://github.com/ZackPashkin/digits-recognition-mm-ocr
+- Android document scan: https://github.com/ZackPashkin/DocumentsScan
+- Search through videos: https://github.com/ZackPashkin/search-through-videos
+- Voice and lip sync Colab app: https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab
+- Text to cartoon CLIP: https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP
+- Sticker maker with CLIP: https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP
 
 ### HH OpenClaw Agent
 Summary: Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.

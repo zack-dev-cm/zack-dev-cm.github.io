@@ -111,7 +111,7 @@
     },
     {
       "question": "What computer vision projects are featured?",
-      "answer": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, and CV Repro Lab Skills.",
+      "answer": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.",
       "cite": "https://zack-dev-cm.github.io/#computer-vision"
     },
     {
@@ -121,7 +121,7 @@
     },
     {
       "question": "What public traction is available?",
-      "answer": "The portfolio currently lists 72 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.",
+      "answer": "The portfolio currently lists 74 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     }
   ],
@@ -388,6 +388,177 @@
             }
           ],
           "links": []
+        },
+        {
+          "id": 73,
+          "title": "Public CV and Deep Learning GitHub Archive",
+          "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+          "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
+          "kind": "research",
+          "tags": [
+            "computer-vision",
+            "deep-learning",
+            "ocr",
+            "mobile",
+            "github"
+          ],
+          "aliases": [
+            "public cv dl archive",
+            "github computer vision archive",
+            "older cv research repos"
+          ],
+          "techStack": [
+            "Python",
+            "PyTorch",
+            "TensorFlow",
+            "YOLO",
+            "EfficientNet",
+            "OCR",
+            "ML Kit",
+            "TFLite",
+            "OpenCV",
+            "Android",
+            "Flutter"
+          ],
+          "benchmarks": [
+            {
+              "label": "GitHub accounts reviewed",
+              "value": "2",
+              "context": "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14"
+            },
+            {
+              "label": "Public CV/DL repos sampled",
+              "value": "18+",
+              "context": "authored or project-specific public repositories, forks excluded from proof"
+            },
+            {
+              "label": "Top public repo",
+              "value": "14 stars / 6 forks",
+              "context": "YOLOv3-EfficientNet-EffYolo API snapshot"
+            },
+            {
+              "label": "Evidence posture",
+              "value": "public-only",
+              "context": "public GitHub repos and generated case studies only"
+            }
+          ],
+          "links": [
+            {
+              "label": "YOLOv3 EfficientNet EffYolo",
+              "url": "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo"
+            },
+            {
+              "label": "shiftlab OCR",
+              "url": "https://github.com/ZackPashkin/shiftlab_ocr"
+            },
+            {
+              "label": "Cyrillic handwriting dataset",
+              "url": "https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset"
+            },
+            {
+              "label": "ML Kit face contours Android",
+              "url": "https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android"
+            },
+            {
+              "label": "TFLite glasses classifier",
+              "url": "https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite"
+            },
+            {
+              "label": "Flutter OpenCV image processing",
+              "url": "https://github.com/zack-dev-cm/cm_cpp_flutter_opencv"
+            },
+            {
+              "label": "CV Repro Lab skill",
+              "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
+            }
+          ]
+        },
+        {
+          "id": 74,
+          "title": "Colab CV/DL Prototype Archive",
+          "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
+          "summary": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
+          "kind": "research",
+          "tags": [
+            "computer-vision",
+            "deep-learning",
+            "colab",
+            "notebooks",
+            "generative-ai"
+          ],
+          "aliases": [
+            "colab notebooks archive",
+            "cv dl prototype archive",
+            "vision notebook prototypes"
+          ],
+          "techStack": [
+            "Jupyter Notebook",
+            "Google Colab",
+            "PyTorch",
+            "TensorFlow",
+            "Swin Transformer",
+            "CvT",
+            "CLIP",
+            "MMOCR",
+            "OpenCV",
+            "CameraX"
+          ],
+          "benchmarks": [
+            {
+              "label": "Public prototype links",
+              "value": "8",
+              "context": "GitHub API and repo URL review, 2026-05-14"
+            },
+            {
+              "label": "Research families",
+              "value": "5",
+              "context": "classification, OCR, mobile capture, video retrieval, generative media"
+            },
+            {
+              "label": "Notebook posture",
+              "value": "prototype",
+              "context": "not presented as live service or production accuracy proof"
+            },
+            {
+              "label": "Evidence links",
+              "value": "public-only",
+              "context": "GitHub repos and generated case studies only"
+            }
+          ],
+          "links": [
+            {
+              "label": "Swin transformer starter",
+              "url": "https://github.com/ZackPashkin/swin-transformer-pytorch-starter"
+            },
+            {
+              "label": "CvT convolutional transformer starter",
+              "url": "https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch"
+            },
+            {
+              "label": "Digits recognition MMOCR",
+              "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
+            },
+            {
+              "label": "Android document scan",
+              "url": "https://github.com/ZackPashkin/DocumentsScan"
+            },
+            {
+              "label": "Search through videos",
+              "url": "https://github.com/ZackPashkin/search-through-videos"
+            },
+            {
+              "label": "Voice and lip sync Colab app",
+              "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
+            },
+            {
+              "label": "Text to cartoon CLIP",
+              "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
+            },
+            {
+              "label": "Sticker maker with CLIP",
+              "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
+            }
+          ]
         }
       ]
     },
@@ -1983,10 +2154,6 @@
         {
           "label": "View Example",
           "url": "https://www.youtube.com/shorts/_5dVaQdB1lA"
-        },
-        {
-          "label": "Music Gen in Colab",
-          "url": "https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4"
         }
       ]
     },
@@ -2802,8 +2969,8 @@
         },
         {
           "label": "Public release",
-          "value": "v1.0.2",
-          "context": "GitHub + ClawHub"
+          "value": "v1.0.7",
+          "context": "GitHub release, 2026-05-14"
         },
         {
           "label": "Bundled scripts",
@@ -2831,8 +2998,8 @@
           "url": "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher"
         },
         {
-          "label": "Release v1.0.2",
-          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2"
+          "label": "Release v1.0.7",
+          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7"
         }
       ]
     },
@@ -4220,6 +4387,177 @@
         }
       ],
       "links": []
+    },
+    {
+      "id": 73,
+      "title": "Public CV and Deep Learning GitHub Archive",
+      "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+      "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "deep-learning",
+        "ocr",
+        "mobile",
+        "github"
+      ],
+      "aliases": [
+        "public cv dl archive",
+        "github computer vision archive",
+        "older cv research repos"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "TensorFlow",
+        "YOLO",
+        "EfficientNet",
+        "OCR",
+        "ML Kit",
+        "TFLite",
+        "OpenCV",
+        "Android",
+        "Flutter"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub accounts reviewed",
+          "value": "2",
+          "context": "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14"
+        },
+        {
+          "label": "Public CV/DL repos sampled",
+          "value": "18+",
+          "context": "authored or project-specific public repositories, forks excluded from proof"
+        },
+        {
+          "label": "Top public repo",
+          "value": "14 stars / 6 forks",
+          "context": "YOLOv3-EfficientNet-EffYolo API snapshot"
+        },
+        {
+          "label": "Evidence posture",
+          "value": "public-only",
+          "context": "public GitHub repos and generated case studies only"
+        }
+      ],
+      "links": [
+        {
+          "label": "YOLOv3 EfficientNet EffYolo",
+          "url": "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo"
+        },
+        {
+          "label": "shiftlab OCR",
+          "url": "https://github.com/ZackPashkin/shiftlab_ocr"
+        },
+        {
+          "label": "Cyrillic handwriting dataset",
+          "url": "https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset"
+        },
+        {
+          "label": "ML Kit face contours Android",
+          "url": "https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android"
+        },
+        {
+          "label": "TFLite glasses classifier",
+          "url": "https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite"
+        },
+        {
+          "label": "Flutter OpenCV image processing",
+          "url": "https://github.com/zack-dev-cm/cm_cpp_flutter_opencv"
+        },
+        {
+          "label": "CV Repro Lab skill",
+          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "title": "Colab CV/DL Prototype Archive",
+      "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
+      "summary": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "deep-learning",
+        "colab",
+        "notebooks",
+        "generative-ai"
+      ],
+      "aliases": [
+        "colab notebooks archive",
+        "cv dl prototype archive",
+        "vision notebook prototypes"
+      ],
+      "techStack": [
+        "Jupyter Notebook",
+        "Google Colab",
+        "PyTorch",
+        "TensorFlow",
+        "Swin Transformer",
+        "CvT",
+        "CLIP",
+        "MMOCR",
+        "OpenCV",
+        "CameraX"
+      ],
+      "benchmarks": [
+        {
+          "label": "Public prototype links",
+          "value": "8",
+          "context": "GitHub API and repo URL review, 2026-05-14"
+        },
+        {
+          "label": "Research families",
+          "value": "5",
+          "context": "classification, OCR, mobile capture, video retrieval, generative media"
+        },
+        {
+          "label": "Notebook posture",
+          "value": "prototype",
+          "context": "not presented as live service or production accuracy proof"
+        },
+        {
+          "label": "Evidence links",
+          "value": "public-only",
+          "context": "GitHub repos and generated case studies only"
+        }
+      ],
+      "links": [
+        {
+          "label": "Swin transformer starter",
+          "url": "https://github.com/ZackPashkin/swin-transformer-pytorch-starter"
+        },
+        {
+          "label": "CvT convolutional transformer starter",
+          "url": "https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch"
+        },
+        {
+          "label": "Digits recognition MMOCR",
+          "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
+        },
+        {
+          "label": "Android document scan",
+          "url": "https://github.com/ZackPashkin/DocumentsScan"
+        },
+        {
+          "label": "Search through videos",
+          "url": "https://github.com/ZackPashkin/search-through-videos"
+        },
+        {
+          "label": "Voice and lip sync Colab app",
+          "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
+        },
+        {
+          "label": "Text to cartoon CLIP",
+          "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
+        },
+        {
+          "label": "Sticker maker with CLIP",
+          "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
+        }
+      ]
     },
     {
       "id": 50,

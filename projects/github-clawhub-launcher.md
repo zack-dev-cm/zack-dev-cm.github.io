@@ -24,7 +24,7 @@ https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md
 ## Benchmarks & Analytics
 - ClawHub downloads: 314 (public ClawHub listing, 2026-05-14)
 - Published versions: 7 (public ClawHub listing, 2026-05-14)
-- Public release: v1.0.2 (GitHub + ClawHub)
+- Public release: v1.0.7 (GitHub release, 2026-05-14)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
 - Validation posture: release-checked (launcher check + publish-guard audit)
@@ -32,4 +32,4 @@ https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/github-clawhub-launcher)
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/github-clawhub-launcher)
-- [Release v1.0.2](https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2)
+- [Release v1.0.7](https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7)

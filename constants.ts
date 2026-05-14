@@ -35,7 +35,7 @@ export const COMPANIES: Company[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
-  "72 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "74 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
   "3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
@@ -427,11 +427,22 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Public CV/DL Archive Added",
+    description: "Added GitHub API-backed CV/DL archive cards for YOLO/EfficientNet, Cyrillic OCR, ML Kit face contours, TFLite glasses, vision-transformer notebooks, and Colab-style prototypes, with evidence limited to authored GitHub repos and generated case studies.",
+    links: [
+      { text: "Open public CV/DL archive", url: "https://zack-dev-cm.github.io/?project=public-cv-and-deep-learning-github-archive" },
+      { text: "Open notebook prototype archive", url: "https://zack-dev-cm.github.io/?project=colab-cv-dl-prototype-archive" },
+      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=multimodal-video-search-platform" }
+    ],
+    projectId: 73,
+    createdAt: "2026-05-14"
+  },
+  {
     title: "Computer Vision and AI Systems Refresh",
     description: "Added public-safe case studies for OCR serving, multimodal video search, and skin-texture segmentation, with Mermaid diagrams and architecture-first evidence.",
     links: [
       { text: "Open OCR case study", url: "https://zack-dev-cm.github.io/?project=fast-ocr-onnx-inference-server" },
-      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=private-multimodal-video-search-platform" },
+      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=multimodal-video-search-platform" },
       { text: "Open segmentation case study", url: "https://zack-dev-cm.github.io/?project=full-face-wrinkle-and-skin-texture-segmentation-lab" }
     ],
     projectId: 72,
@@ -717,7 +728,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher" },
-      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2" }
+      { text: "Release v1.0.7", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7" }
     ],
     projectId: 46
   },
@@ -1120,8 +1131,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Text-to-video assembly", "Music/TTS pairing", "Shorts-ready output"],
     techStack: ["Generative AI", "Text-to-Video", "TTS"],
     links: [
-      { text: "View Example", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" },
-      { text: "Music Gen in Colab", url: "https://colab.research.google.com/drive/1f5XAGo_A27u15az5f-2mhWs7qUkJ8mK4" }
+      { text: "View Example", url: "https://www.youtube.com/shorts/_5dVaQdB1lA" }
     ],
     images: [{ url: `${LOCAL_IMG_BASE}/video_music_pipeline.png`, alt: "Video + music pipeline" }],
     thumbnail: `${LOCAL_IMG_BASE}/video_music_pipeline.png`
@@ -1724,7 +1734,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     benchmarks: [
       { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-14" },
       { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
+      { label: "Public release", value: "v1.0.7", context: "GitHub release, 2026-05-14" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
       { label: "Validation posture", value: "release-checked", context: "launcher check + publish-guard audit" }
@@ -1732,7 +1742,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-clawhub-launcher" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher" },
-      { text: "Release v1.0.2", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.2" }
+      { text: "Release v1.0.7", url: "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7" }
     ],
     images: [],
     thumbnail: "",
@@ -2539,6 +2549,101 @@ Operations Layer (Console, Alerts, Runbooks)`
       { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Conceptual computer vision systems map for OCR, face analysis, and video neural search" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`,
+    createdAt: "2026-05-14"
+  },
+  {
+    id: 73,
+    title: "Public CV and Deep Learning GitHub Archive",
+    aliases: ["public cv dl archive", "github computer vision archive", "older cv research repos"],
+    description: "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
+    longDescription: "Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio proof.",
+    projectKind: "research",
+    surfaceTags: ["computer-vision", "deep-learning", "ocr", "mobile", "github"],
+    keyFeatures: [
+      "Separates authored public repos from forks and reference clones before using GitHub evidence",
+      "Surfaces OCR, object detection, face landmarks, mobile inference, and vision-transformer work as one searchable archive",
+      "Uses public repo metadata and generated case studies instead of unpublished notebook or service links",
+      "Frames older prototypes as research and engineering breadth without claiming production deployment"
+    ],
+    techStack: ["Python", "PyTorch", "TensorFlow", "YOLO", "EfficientNet", "OCR", "ML Kit", "TFLite", "OpenCV", "Android", "Flutter"],
+    benchmarks: [
+      { label: "GitHub accounts reviewed", value: "2", context: "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14" },
+      { label: "Public CV/DL repos sampled", value: "18+", context: "authored or project-specific public repositories, forks excluded from proof" },
+      { label: "Top public repo", value: "14 stars / 6 forks", context: "YOLOv3-EfficientNet-EffYolo API snapshot" },
+      { label: "Evidence posture", value: "public-only", context: "public GitHub repos and generated case studies only" }
+    ],
+    links: [
+      { text: "YOLOv3 EfficientNet EffYolo", url: "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo" },
+      { text: "shiftlab OCR", url: "https://github.com/ZackPashkin/shiftlab_ocr" },
+      { text: "Cyrillic handwriting dataset", url: "https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset" },
+      { text: "ML Kit face contours Android", url: "https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android" },
+      { text: "TFLite glasses classifier", url: "https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite" },
+      { text: "Flutter OpenCV image processing", url: "https://github.com/zack-dev-cm/cm_cpp_flutter_opencv" },
+      { text: "CV Repro Lab skill", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" }
+    ],
+    mermaidDiagram: `flowchart LR
+  API["GitHub API Review"] --> Filter["Authored Repo Filter"]
+  Filter --> OCR["OCR + Handwriting"]
+  Filter --> Detect["YOLO / Detection"]
+  Filter --> Mobile["Mobile Inference"]
+  Filter --> VIT["Vision Transformers"]
+  OCR --> Portfolio["Public Case Study Archive"]
+  Detect --> Portfolio
+  Mobile --> Portfolio
+  VIT --> Portfolio
+  Portfolio --> Guard["Public Evidence Only"]`,
+    images: [
+      { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Computer vision systems map used for public CV and deep learning archive" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`,
+    createdAt: "2026-05-14"
+  },
+  {
+    id: 74,
+    title: "Colab CV/DL Prototype Archive",
+    aliases: ["colab notebooks archive", "cv dl prototype archive", "vision notebook prototypes"],
+    description: "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
+    longDescription: "Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research evidence: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.",
+    projectKind: "research",
+    surfaceTags: ["computer-vision", "deep-learning", "colab", "notebooks", "generative-ai"],
+    keyFeatures: [
+      "Groups older public notebooks into a coherent CV/DL research surface for agents and recruiters",
+      "Covers image classification, OCR finetuning, document capture, multimodal video search, and generative media",
+      "Keeps notebook evidence tied to public GitHub repos and generated case studies",
+      "Labels the work as prototypes so agents do not confuse notebooks with maintained production services"
+    ],
+    techStack: ["Jupyter Notebook", "Google Colab", "PyTorch", "TensorFlow", "Swin Transformer", "CvT", "CLIP", "MMOCR", "OpenCV", "CameraX"],
+    benchmarks: [
+      { label: "Public prototype links", value: "8", context: "GitHub API and repo URL review, 2026-05-14" },
+      { label: "Research families", value: "5", context: "classification, OCR, mobile capture, video retrieval, generative media" },
+      { label: "Notebook posture", value: "prototype", context: "not presented as live service or production accuracy proof" },
+      { label: "Evidence links", value: "public-only", context: "GitHub repos and generated case studies only" }
+    ],
+    links: [
+      { text: "Swin transformer starter", url: "https://github.com/ZackPashkin/swin-transformer-pytorch-starter" },
+      { text: "CvT convolutional transformer starter", url: "https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch" },
+      { text: "Digits recognition MMOCR", url: "https://github.com/ZackPashkin/digits-recognition-mm-ocr" },
+      { text: "Android document scan", url: "https://github.com/ZackPashkin/DocumentsScan" },
+      { text: "Search through videos", url: "https://github.com/ZackPashkin/search-through-videos" },
+      { text: "Voice and lip sync Colab app", url: "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab" },
+      { text: "Text to cartoon CLIP", url: "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP" },
+      { text: "Sticker maker with CLIP", url: "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP" }
+    ],
+    mermaidDiagram: `flowchart LR
+  Notebooks["Public Notebooks"] --> Classify["Image Classification"]
+  Notebooks --> OCR["OCR Finetuning"]
+  Notebooks --> Mobile["Mobile Capture"]
+  Notebooks --> Video["Video / Lip Sync"]
+  Notebooks --> CLIP["CLIP Media Tools"]
+  Classify --> Archive["Prototype Archive"]
+  OCR --> Archive
+  Mobile --> Archive
+  Video --> Archive
+  CLIP --> Archive
+  Archive --> Agents["LLM + Recruiter Discovery"]`,
+    images: [],
+    thumbnail: "",
+    hideImages: true,
     createdAt: "2026-05-14"
   },
   {

@@ -309,6 +309,7 @@ pre {
 
 .hero {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 22px;
   padding: clamp(28px, 4vw, 52px);
   border-radius: var(--radius-xl);
@@ -1596,7 +1597,10 @@ pre {
   }
 
   .hero__title {
+    font-size: clamp(2.35rem, 13vw, 4rem);
+    line-height: 1;
     max-width: none;
+    overflow-wrap: break-word;
   }
 
   .content-section {

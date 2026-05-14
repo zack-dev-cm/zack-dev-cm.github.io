@@ -56,7 +56,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   },
 };
 
-const COMPUTER_VISION_PROJECT_IDS = [70, 72, 71, 63, 41, 10] as const;
+const COMPUTER_VISION_PROJECT_IDS = [70, 72, 71, 73, 74, 63, 41, 10] as const;
 const AI_SYSTEM_PROJECT_IDS = [68, 53, 43, 66, 44, 69] as const;
 
 const COMPUTER_VISION_LANES = [
@@ -74,6 +74,11 @@ const COMPUTER_VISION_LANES = [
     label: 'Video search',
     value: 'Hybrid retrieval',
     detail: 'keyframes, ASR/OCR, visual embeddings, transcript embeddings, ranked results'
+  },
+  {
+    label: 'Public archive',
+    value: '2 GitHub accounts',
+    detail: 'authored OCR, detection, mobile inference, and notebook repos separated from forks'
   }
 ];
 
@@ -1039,7 +1044,7 @@ const App: React.FC = () => {
             id="computer-vision"
             eyebrow="Computer Vision"
             title="Computer Vision Systems"
-            description="Public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, and multimodal video search, backed by architecture-first evidence, sanitized metrics, and reviewable Mermaid diagrams."
+            description="Public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, multimodal video search, and GitHub-backed research archives, with architecture-first evidence, sanitized metrics, and reviewable Mermaid diagrams."
           >
             <div className="domain-spotlight">
               <div className="domain-spotlight__media">

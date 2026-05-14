@@ -22,7 +22,6 @@ const SKIP_UNTRACKED_DIRECTORIES = new Set([
 ]);
 
 const SKIP_PREFIXES = [
-  'docs/assets/',
   'public/images/',
   'public/company-logos/',
 ];
@@ -59,6 +58,13 @@ const PUBLIC_ROOT_FILES = new Set([
   'sitemap.xml',
 ]);
 
+const PUBLIC_SOURCE_FILES = new Set([
+  'App.tsx',
+  'components/ProjectCard.tsx',
+  'components/ProjectModal.tsx',
+  'constants.ts',
+]);
+
 const PUBLIC_PREFIXES = [
   'docs/',
   'projects/',
@@ -85,6 +91,7 @@ const PUBLIC_LEAK_PATTERNS = [
   ['client-data redaction wording', /\b(?:redacts? the client name|client identity.*removed|schema details|endpoint specifics|patient-identifying data)\b/i],
   ['unaudited metric proof wording', /\b(?:>\s*90%\s+accuracy|operator-reported public total|rounded public product snapshot|rounded public launch comparison|publish-ready)\b/i],
   ['Google Drive proof link', /https:\/\/drive\.google\.com\/file\/d\//i],
+  ['non-public Google Drive or Colab URL', /https?:\/\/(?:drive\.google\.com\/|docs\.google\.com\/|colab\.research\.google\.com\/drive\/)/i],
   ['local absolute path', /(?:^|[^A-Za-z0-9_])(?:\/Users\/[A-Za-z0-9._-]+|\/home\/[A-Za-z0-9._-]+|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+)/],
   ['private URL', /https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^/\s]+\.(?:local|internal))(?:[/:?#][^\s"'<>)]*)?/i],
   ['environment file reference', /(?:^|[\\/])\.env(?:$|[._-])/i],
@@ -111,7 +118,7 @@ const isTextFile = (relativePath) => TEXT_EXTENSIONS.has(path.extname(relativePa
 const isSkipped = (relativePath) => SKIP_PREFIXES.some((prefix) => relativePath.startsWith(prefix));
 
 const isPublicSurface = (relativePath) => {
-  return PUBLIC_ROOT_FILES.has(relativePath) || PUBLIC_PREFIXES.some((prefix) => relativePath.startsWith(prefix));
+  return PUBLIC_ROOT_FILES.has(relativePath) || PUBLIC_SOURCE_FILES.has(relativePath) || PUBLIC_PREFIXES.some((prefix) => relativePath.startsWith(prefix));
 };
 
 const loadTrackedFilePaths = async () => {

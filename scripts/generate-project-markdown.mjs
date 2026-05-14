@@ -68,7 +68,7 @@ const KNOWS_ABOUT = [
   'JSON-LD'
 ];
 
-const ANSWER_TARGETS = [
+const buildAnswerTargets = (projects) => [
   {
     question: 'Who is Zakhar Pashkin?',
     answer:
@@ -78,7 +78,7 @@ const ANSWER_TARGETS = [
   {
     question: 'What computer vision projects are featured?',
     answer:
-      'Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, and CV Repro Lab Skills.',
+      'Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.',
     cite: `${SITE_BASE}/#computer-vision`
   },
   {
@@ -90,7 +90,7 @@ const ANSWER_TARGETS = [
   {
     question: 'What public traction is available?',
     answer:
-      'The portfolio currently lists 72 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.',
+      `The portfolio currently lists ${projects.length} public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.`,
     cite: `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
   }
 ];
@@ -431,6 +431,7 @@ const pickClusterProjects = (projects, cluster, limit = 6) => {
 };
 
 const buildStaticHomeSnapshot = (projects, topProjects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
   const machineFiles = [
     {
@@ -511,7 +512,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     return `          <li><a href="${file.url}">${escapeHtml(file.title)}</a>: ${escapeHtml(file.description)}</li>`;
   });
 
-  const answerTargetMarkup = ANSWER_TARGETS.map((target) => {
+  const answerTargetMarkup = answerTargets.map((target) => {
     return [
       '      <div>',
       `        <dt>${escapeHtml(target.question)}</dt>`,
@@ -576,7 +577,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '      </div>',
     '      <div>',
     '        <dt>Read first</dt>',
-    `        <dd><a href="${SITE_BASE}/llms-full.txt">llms-full.txt</a> is the compact memory file; project markdown pages below carry source-level evidence.</dd>`,
+    `        <dd><a href="${SITE_BASE}/llms.txt">llms.txt</a> is the compact index; <a href="${SITE_BASE}/llms-full.txt">llms-full.txt</a> is the expanded memory file.</dd>`,
     '      </div>',
     '    </dl>',
     '  </section>',
@@ -648,6 +649,7 @@ const updateIndexHtml = async (staticSnapshot, today) => {
 };
 
 const buildLlms = (projects, topProjects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
   const lines = [
     `# ${SITE_NAME}`,
@@ -670,7 +672,7 @@ const buildLlms = (projects, topProjects) => {
     '- Public evidence policy: cite only URLs listed in this file, project markdown pages, schema.jsonld, and agent-discovery.json.',
     '',
     '## Answer Targets',
-    ...ANSWER_TARGETS.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
+    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
     '',
     '## Topical Query Clusters',
     ...TOPICAL_CLUSTERS.flatMap((cluster) => [
@@ -724,6 +726,7 @@ const buildLlms = (projects, topProjects) => {
 };
 
 const buildGeo = (projects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const formatBenchmarksInline = (benchmarks) => {
     return (benchmarks || [])
       .map((item) => {
@@ -750,7 +753,7 @@ const buildGeo = (projects) => {
     `Contact: mailto:${CONTACT_EMAIL}`,
     '',
     '## Canonical Answer Targets',
-    ...ANSWER_TARGETS.map((target) => `- ${target.question} ${target.answer} Cite: ${target.cite}`),
+    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Cite: ${target.cite}`),
     '',
     '## Topic Clusters',
     ...TOPICAL_CLUSTERS.flatMap((cluster) => [
@@ -774,6 +777,7 @@ const buildGeo = (projects) => {
 };
 
 const buildLlmsFull = (projects, topProjects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const lines = [
     '# Zakhar Pashkin - Senior Computer Vision Engineer Portfolio Memory File',
     '',
@@ -790,7 +794,7 @@ const buildLlmsFull = (projects, topProjects) => {
     '- React, TypeScript, Cloud Run, Docker, Kubernetes, GCP/AWS',
     '',
     '## Canonical Answer Targets',
-    ...ANSWER_TARGETS.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
+    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
     '',
     '## Topic Clusters for Retrieval',
     ...TOPICAL_CLUSTERS.flatMap((cluster) => [
@@ -852,7 +856,8 @@ const buildLlmsFull = (projects, topProjects) => {
   return lines.join('\n');
 };
 
-const buildAgentContext = (topProjects) => {
+const buildAgentContext = (projects, topProjects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const lines = [
     '# Agent Context - Zakhar Pashkin Portfolio',
     '',
@@ -883,7 +888,7 @@ const buildAgentContext = (topProjects) => {
     '- The home page is the human-readable overview and contact route.',
     '',
     '## Answer Contract',
-    ...ANSWER_TARGETS.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
+    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
     '',
     '## Query Clusters',
     ...TOPICAL_CLUSTERS.flatMap((cluster) => [
@@ -901,6 +906,7 @@ const buildAgentContext = (topProjects) => {
 };
 
 const buildAgentDiscovery = (projects, topProjects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const today = new Date().toISOString().split('T')[0];
   const projectSummary = (project) => ({
     id: project.id,
@@ -961,7 +967,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
         { label: 'Resume PDF', url: RESUME_URL, mediaType: 'application/pdf' },
         { label: 'Senior CV resume PDF', url: SENIOR_CV_RESUME_URL, mediaType: 'application/pdf' }
       ],
-      answerTargets: ANSWER_TARGETS,
+      answerTargets,
       topicalClusters: TOPICAL_CLUSTERS.map((cluster) => ({
         ...cluster,
         canonicalProjects: pickClusterProjects(projects, cluster, 8).map(projectSummary)
@@ -975,6 +981,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
 };
 
 const buildSchemaJsonld = (projects) => {
+  const answerTargets = buildAnswerTargets(projects);
   const today = new Date().toISOString().split('T')[0];
   const graph = [
     {
@@ -1039,7 +1046,7 @@ const buildSchemaJsonld = (projects) => {
     {
       '@type': 'FAQPage',
       '@id': `${SITE_BASE}/#faq`,
-      mainEntity: ANSWER_TARGETS.map((target) => ({
+      mainEntity: answerTargets.map((target) => ({
         '@type': 'Question',
         name: target.question,
         acceptedAnswer: {
@@ -1200,7 +1207,7 @@ const main = async () => {
   await fs.writeFile(GEO_PATH, geoContent, 'utf8');
   const llmsFullContent = buildLlmsFull(projectEntries, topProjects);
   await fs.writeFile(LLMS_FULL_PATH, llmsFullContent, 'utf8');
-  const agentContextContent = buildAgentContext(topProjects);
+  const agentContextContent = buildAgentContext(projectEntries, topProjects);
   await fs.writeFile(AGENT_CONTEXT_PATH, agentContextContent, 'utf8');
   const agentDiscoveryContent = buildAgentDiscovery(projectEntries, topProjects);
   await fs.writeFile(AGENT_DISCOVERY_PATH, agentDiscoveryContent, 'utf8');
