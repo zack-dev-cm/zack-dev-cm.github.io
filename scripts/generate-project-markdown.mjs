@@ -45,8 +45,8 @@ const AUTHOR_SAME_AS = [
   'https://t.me/rheuiii'
 ];
 const DEFAULT_TRACTION_SNAPSHOT = {
-  totalDownloads: 3992,
-  packageCount: 11,
+  totalDownloads: 6350,
+  packageCount: 35,
   checkedAt: '2026-05-15'
 };
 let tractionSnapshot = DEFAULT_TRACTION_SNAPSHOT;
@@ -99,7 +99,7 @@ const buildAnswerTargets = (projects) => [
   {
     question: 'What public traction is available?',
     answer:
-      `The portfolio currently lists ${projects.length} public case studies and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public packages as of ${tractionSnapshot.checkedAt}.`,
+      `The portfolio currently lists ${projects.length} public case studies and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
     cite: `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
   }
 ];

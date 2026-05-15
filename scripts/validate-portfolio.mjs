@@ -18,6 +18,9 @@ const TELEGRAM_LINK_PATTERN = /^https:\/\/t\.me\/[A-Za-z0-9_]+(?:\/(?:app|launch
 const TELEGRAM_APP_PATTERN = /^https:\/\/t\.me\/[A-Za-z0-9_]+\/(?:app|launch)(?:\?.*)?$/;
 const CHROME_WEB_STORE_PATTERN = /^https:\/\/chromewebstore\.google\.com\//;
 const GITHUB_PATTERN = /^https:\/\/github\.com\/[^/]+\/[^/]+/;
+const CLAWHUB_URL_PATTERN = /^https:\/\/clawhub\.ai\/zack-dev-cm\/[a-z0-9-]+$/;
+const CLAWHUB_MIN_EXPECTED_SKILLS = 30;
+const CLAWHUB_MIN_EXPECTED_DOWNLOADS = 6000;
 
 const errors = [];
 
@@ -178,6 +181,20 @@ const extractLatestUpdates = (sourceFile) => {
       projectId: parseNumber(getPropertyValue(element, 'projectId')),
       repoFullName: parseString(getPropertyValue(element, 'repoFullName')),
       repoId: parseNumber(getPropertyValue(element, 'repoId')),
+    }));
+};
+
+const extractClawHubStats = (sourceFile) => {
+  return extractArrayLiteral(sourceFile, 'CLAWHUB_DOWNLOAD_STATS').elements
+    .filter((element) => ts.isObjectLiteralExpression(element))
+    .map((element) => ({
+      slug: parseString(getPropertyValue(element, 'slug')),
+      displayName: parseString(getPropertyValue(element, 'displayName')),
+      downloads: parseNumber(getPropertyValue(element, 'downloads')) ?? 0,
+      versions: parseNumber(getPropertyValue(element, 'versions')) ?? 0,
+      stars: parseNumber(getPropertyValue(element, 'stars')) ?? 0,
+      url: parseString(getPropertyValue(element, 'url')),
+      checkedAt: parseString(getPropertyValue(element, 'checkedAt')),
     }));
 };
 
@@ -367,6 +384,52 @@ const validateLatestUpdate = (update, projectIds) => {
   }
 };
 
+const validateClawHubStats = (stats) => {
+  const totalDownloads = stats.reduce((sum, stat) => sum + stat.downloads, 0);
+  const seenSlugs = new Set();
+
+  if (stats.length < CLAWHUB_MIN_EXPECTED_SKILLS) {
+    fail(`CLAWHUB_DOWNLOAD_STATS must include at least ${CLAWHUB_MIN_EXPECTED_SKILLS} public skills`);
+  }
+
+  if (totalDownloads < CLAWHUB_MIN_EXPECTED_DOWNLOADS) {
+    fail(`CLAWHUB_DOWNLOAD_STATS total downloads must be at least ${CLAWHUB_MIN_EXPECTED_DOWNLOADS}`);
+  }
+
+  for (const [index, stat] of stats.entries()) {
+    const label = `CLAWHUB_DOWNLOAD_STATS entry "${stat.slug || `#${index + 1}`}"`;
+
+    if (!/^[a-z0-9-]+$/.test(stat.slug)) {
+      fail(`${label} has an invalid slug`);
+    }
+    if (!stat.displayName?.trim()) {
+      fail(`${label} is missing displayName`);
+    }
+    if (seenSlugs.has(stat.slug)) {
+      fail(`${label} duplicates slug ${stat.slug}`);
+    }
+    seenSlugs.add(stat.slug);
+    if (!Number.isInteger(stat.downloads) || stat.downloads < 0) {
+      fail(`${label} has invalid downloads`);
+    }
+    if (!Number.isInteger(stat.versions) || stat.versions < 1) {
+      fail(`${label} has invalid versions`);
+    }
+    if (!Number.isInteger(stat.stars) || stat.stars < 0) {
+      fail(`${label} has invalid stars`);
+    }
+    if (!CLAWHUB_URL_PATTERN.test(stat.url) || !stat.url.endsWith(`/${stat.slug}`)) {
+      fail(`${label} must point to its zack-dev-cm ClawHub listing`);
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(stat.checkedAt)) {
+      fail(`${label} must use YYYY-MM-DD checkedAt`);
+    }
+    if (index > 0 && stat.downloads > stats[index - 1].downloads) {
+      fail(`${label} must be sorted by descending downloads`);
+    }
+  }
+};
+
 const ensureUniqueValues = (items, getValues, labelForItem, thingLabel) => {
   const seen = new Map();
   for (const item of items) {
@@ -418,6 +481,7 @@ const main = async () => {
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
   const projects = extractProjects(sourceFile);
   const latestUpdates = extractLatestUpdates(sourceFile);
+  const clawHubStats = extractClawHubStats(sourceFile);
   const projectIds = new Set(projects.map((project) => project.id).filter(Boolean));
 
   ensureUniqueValues(
@@ -453,6 +517,8 @@ const main = async () => {
   for (const update of latestUpdates) {
     validateLatestUpdate(update, projectIds);
   }
+
+  validateClawHubStats(clawHubStats);
 
   const publicUpdates = JSON.parse(await fs.readFile(PUBLIC_UPDATES_PATH, 'utf8'));
   const docsUpdates = JSON.parse(await fs.readFile(DOCS_UPDATES_PATH, 'utf8'));

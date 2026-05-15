@@ -74,8 +74,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
-  await expect(clawHubSection.getByText('3,992')).toBeVisible();
-  await expect(clawHubSection.getByText(/downloads across 11 public packages/i)).toBeVisible();
+  await expect(clawHubSection.getByText('6,350')).toBeVisible();
+  await expect(clawHubSection.getByText(/downloads across 35 public skills/i)).toBeVisible();
 
   const chromeStatsSection = page.locator('#chrome-stats');
   await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();

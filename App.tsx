@@ -34,7 +34,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'Traction evidence system',
     summary:
       'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['3,992 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
+    proof: ['6,350 tracked ClawHub downloads', '35 public skills', 'Live owner-profile verification']
   },
   45: {
     label: 'Open-source review harness',
@@ -661,7 +661,7 @@ const App: React.FC = () => {
       {
         label: 'Public traction',
         value: clawHubSummary.totalDownloads.toLocaleString(),
-        detail: `ClawHub downloads across ${CLAWHUB_DOWNLOAD_STATS.length} tracked packages as of ${clawHubSummary.checkedAt}`
+        detail: `ClawHub downloads across ${CLAWHUB_DOWNLOAD_STATS.length} tracked public skills as of ${clawHubSummary.checkedAt}`
       },
       {
         label: 'Extension adoption',
@@ -1225,23 +1225,23 @@ const App: React.FC = () => {
             id="clawhub"
             eyebrow="ClawHub"
             title="Downloads Tracker"
-            description="Dated public ClawHub listing counters used as marketplace traction evidence, not user-count claims."
+            description="Dated public ClawHub skill listing counters used as marketplace traction evidence, not user-count claims."
           >
             <div className="proof-grid">
               <div className="proof-chip">
                 <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
-                <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public packages</em>
+                <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public skills</em>
               </div>
               <div className="proof-chip">
                 <strong>{clawHubSummary.totalVersions}</strong>
-                <em>published package versions in the tracked set</em>
+                <em>published skill versions in the tracked set</em>
               </div>
               <div className="proof-chip">
                 <strong>{clawHubSummary.totalStars}</strong>
                 <em>ClawHub stars, shown to avoid overstating download traction</em>
               </div>
             </div>
-            <ul className="latest-list" aria-label="Tracked ClawHub package downloads">
+            <ul className="latest-list" aria-label="Tracked ClawHub skill downloads">
               {CLAWHUB_DOWNLOAD_STATS.map((stat) => (
                 <li key={stat.slug} className="latest-card">
                   <div className="latest-card__header">

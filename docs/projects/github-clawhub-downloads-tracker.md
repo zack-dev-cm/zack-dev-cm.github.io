@@ -24,10 +24,10 @@ https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 - Open-source Analytics
 
 ## Benchmarks & Analytics
-- Tracked ClawHub downloads: 3,992 (public ClawHub listings, 2026-05-15 across 11 packages)
-- Tracked packages: 11 (CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi)
+- Tracked ClawHub downloads: 6,350 (public ClawHub owner profile, 2026-05-15 across 35 skills)
+- Tracked public skills: 35 (35 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-15)
 - CV Repro Lab downloads: 948 total (461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15)
-- Strongest package: 487 downloads (sota-agent public listing, 2026-05-15)
+- Strongest skill: 487 downloads (sota-agent public listing, 2026-05-15)
 - Report outputs: 3 (text, JSON, Markdown)
 - Projection horizon: 30 days (pace and peer-conversion upside scenarios)
 

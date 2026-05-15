@@ -121,7 +121,7 @@
     },
     {
       "question": "What public traction is available?",
-      "answer": "The portfolio currently lists 74 public case studies and 3,992 tracked ClawHub downloads across 11 public packages as of 2026-05-15.",
+      "answer": "The portfolio currently lists 74 public case studies and 6,350 tracked ClawHub downloads across 35 public skills as of 2026-05-15.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     }
   ],
@@ -605,13 +605,13 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "3,992",
-              "context": "public ClawHub listings, 2026-05-15 across 11 packages"
+              "value": "6,350",
+              "context": "public ClawHub owner profile, 2026-05-15 across 35 skills"
             },
             {
-              "label": "Tracked packages",
-              "value": "11",
-              "context": "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi"
+              "label": "Tracked public skills",
+              "value": "35",
+              "context": "35 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-15"
             },
             {
               "label": "CV Repro Lab downloads",
@@ -619,7 +619,7 @@
               "context": "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15"
             },
             {
-              "label": "Strongest package",
+              "label": "Strongest skill",
               "value": "487 downloads",
               "context": "sota-agent public listing, 2026-05-15"
             },
@@ -1469,13 +1469,13 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "3,992",
-          "context": "public ClawHub listings, 2026-05-15 across 11 packages"
+          "value": "6,350",
+          "context": "public ClawHub owner profile, 2026-05-15 across 35 skills"
         },
         {
-          "label": "Tracked packages",
-          "value": "11",
-          "context": "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi"
+          "label": "Tracked public skills",
+          "value": "35",
+          "context": "35 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-15"
         },
         {
           "label": "CV Repro Lab downloads",
@@ -1483,7 +1483,7 @@
           "context": "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15"
         },
         {
-          "label": "Strongest package",
+          "label": "Strongest skill",
           "value": "487 downloads",
           "context": "sota-agent public listing, 2026-05-15"
         },
@@ -3353,13 +3353,13 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "3,992",
-          "context": "public ClawHub listings, 2026-05-15 across 11 packages"
+          "value": "6,350",
+          "context": "public ClawHub owner profile, 2026-05-15 across 35 skills"
         },
         {
-          "label": "Tracked packages",
-          "value": "11",
-          "context": "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi"
+          "label": "Tracked public skills",
+          "value": "35",
+          "context": "35 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-15"
         },
         {
           "label": "CV Repro Lab downloads",
@@ -3367,7 +3367,7 @@
           "context": "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15"
         },
         {
-          "label": "Strongest package",
+          "label": "Strongest skill",
           "value": "487 downloads",
           "context": "sota-agent public listing, 2026-05-15"
         },
