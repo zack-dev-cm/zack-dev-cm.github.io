@@ -6,7 +6,7 @@ Entity: Zakhar Pashkin
 Role: Senior Computer Vision Engineer and AI Product Engineer
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
-Last updated: 2026-05-14
+Last updated: 2026-05-15
 
 Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, segmentation, detection, FastAPI services, review gates, product launch workflows, and MLOps delivery on GCP/AWS.
 
@@ -21,7 +21,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - Who is Zakhar Pashkin? Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, and full-stack AI products. Citation: https://zack-dev-cm.github.io/
 - What computer vision projects are featured? Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive. Citation: https://zack-dev-cm.github.io/#computer-vision
 - Where should agents start? Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail. Citation: https://zack-dev-cm.github.io/docs/agent-discovery.json
-- What public traction is available? The portfolio currently lists 74 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14. Citation: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
+- What public traction is available? The portfolio currently lists 74 public case studies and 3,992 tracked ClawHub downloads across 11 public packages as of 2026-05-15. Citation: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 
 ## Topical Query Clusters
 ### Computer vision and deep learning
@@ -39,7 +39,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [llms-full.txt](https://zack-dev-cm.github.io/llms-full.txt): Full portfolio memory file with all project details.
 - [agent-context.md](https://zack-dev-cm.github.io/agent-context.md): Quick facts, contact info, and key project highlights.
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
-- [chrome-extension-stats.json](https://zack-dev-cm.github.io/docs/chrome-extension-stats.json): Dated Chrome-Stats snapshot for the public Chrome Web Store extension tracker.
+- [chrome-extension-stats.json](https://zack-dev-cm.github.io/docs/chrome-extension-stats.json): Dated Chrome Web Store detail-page snapshot for the public extension tracker.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 - [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
 - [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf): ATS-readable senior CV and AI product engineer resume.
@@ -106,7 +106,7 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.
 - [Toybox Mini - Telegram Mini App](https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md): Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.
 - [LocalArchive](https://zack-dev-cm.github.io/projects/localarchive.md): Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.
-- [LocalLens Private AI Summaries](https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md): Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.
+- [LocalLens Private AI Summaries](https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md): Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.
 - [OpenClaw Chinese Laoshi Ops](https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md): Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.
 - [Random Coffee Best Fit Outreach](https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md): Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.
 - [Session Rescue](https://zack-dev-cm.github.io/projects/session-rescue.md): Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.

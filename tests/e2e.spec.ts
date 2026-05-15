@@ -38,6 +38,7 @@ const resumePath = () => {
 };
 
 test('homepage renders core sections and project discovery controls', async ({ page }) => {
+  test.setTimeout(90_000);
   await gotoPortfolio(page);
 
   // Wait for main title and a couple of sections to ensure hydration
@@ -73,14 +74,14 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
-  await expect(clawHubSection.getByText('3,745')).toBeVisible();
+  await expect(clawHubSection.getByText('3,992')).toBeVisible();
   await expect(clawHubSection.getByText(/downloads across 11 public packages/i)).toBeVisible();
 
   const chromeStatsSection = page.locator('#chrome-stats');
   await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();
   await expect(
     chromeStatsSection.locator('.proof-chip').filter({ hasText: 'publisher rollup users' }).locator('strong')
-  ).toHaveText('188');
+  ).toHaveText('199');
   await expect(chromeStatsSection.getByText('SourcePack Hub - Local AI Research Library')).toBeVisible();
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
     'href',

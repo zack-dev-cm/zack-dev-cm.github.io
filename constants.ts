@@ -36,7 +36,7 @@ export const COMPANIES: Company[] = [
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
   "74 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
+  "3,992 tracked ClawHub downloads across 11 public packages as of 2026-05-15, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -57,127 +57,127 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "sota-agent",
     displayName: "SOTA Agent",
-    downloads: 485,
+    downloads: 487,
     versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Lab",
-    downloads: 428,
-    versions: 10,
+    downloads: 461,
+    versions: 11,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "youtube-creator-ops",
     displayName: "OpenClaw YouTube Publisher",
-    downloads: 364,
+    downloads: 369,
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "browser-proof",
     displayName: "Browser Proof",
-    downloads: 308,
+    downloads: 315,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "public-surface-review",
     displayName: "Publish Guard",
-    downloads: 314,
+    downloads: 320,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "hh-openclaw-agent",
     displayName: "HH OpenClaw Agent",
-    downloads: 296,
+    downloads: 301,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 438,
-    versions: 13,
+    downloads: 478,
+    versions: 14,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub + ClawHub Launcher",
-    downloads: 314,
-    versions: 7,
+    downloads: 383,
+    versions: 8,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 284,
+    downloads: 292,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 247,
-    versions: 6,
+    downloads: 282,
+    versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 267,
-    versions: 6,
+    downloads: 304,
+    versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-05-14"
+    checkedAt: "2026-05-15"
   }
 ];
 
 export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
   publisherName: "kaisenaiko",
   publisherUrl: "https://chromewebstore.google.com/search/kaisenaiko",
-  checkedAt: "2026-05-14",
-  sourceName: "Chrome-Stats publisher page",
-  sourceUrl: "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0",
+  checkedAt: "2026-05-15",
+  sourceName: "Chrome Web Store detail pages",
+  sourceUrl: "https://chromewebstore.google.com/search/kaisenaiko",
   totalPublished: 11,
-  totalUsers: 188,
-  averageUsersPerExtension: 17,
+  totalUsers: 199,
+  averageUsersPerExtension: 18,
   averageRating: 5,
   ratingCount: 4,
   notes: [
-    "Chrome-Stats publisher rollup showed 11 published extensions, 188 total users, 17 average users per extension, and 5.00 average rating from 4 reviews on 2026-05-14.",
-    "Rows where Chrome-Stats displayed '-' are treated as not reported rather than inferred into user totals.",
-    "Per-extension ranks, risk fields, versions, and sizes come from available Chrome-Stats detail pages plus local CWS listing contracts for newly published SourcePack items."
+    "Chrome Web Store detail pages showed 11 published extensions, 199 explicitly reported users, 18 average users per extension, and 5.00 average rating from 4 reported ratings on 2026-05-15.",
+    "Chrome-Stats returned a Cloudflare challenge during the 2026-05-15 refresh, so current user counts come from Chrome Web Store detail pages instead.",
+    "Rows without a visible Chrome Web Store user count are treated as not reported rather than inferred into user totals. Chrome-Stats links remain as secondary/risk metadata."
   ],
   extensions: [
     {
       id: "ccikgbjalcbokaalidnfcjhhbhjoljfm",
       name: "GitHub Repo Summarizer",
       description: "Summarizes GitHub repository structure and README context for faster code review.",
-      users: 118,
-      usersSource: "Chrome-Stats publisher row",
+      users: 129,
+      usersSource: "Chrome Web Store detail page",
       rating: 5,
       ratingCount: 3,
       version: "1.4.2",
@@ -192,14 +192,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       sizeKb: 18.61,
       chromeStatsUrl: "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm",
-      dataIngestedAt: "2025-09-21"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "jnoonpeekddinkiecaonhocaflcgbhap",
       name: "AI Chat Navigator",
       description: "Adds keyboard navigation and prompt controls for ChatGPT, Deepseek, and AI Studio chats.",
       users: 64,
-      usersSource: "Chrome-Stats publisher row",
+      usersSource: "Chrome Web Store detail page",
       rating: 5,
       ratingCount: 1,
       version: "4.1.0",
@@ -214,14 +214,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       sizeKb: 54.18,
       chromeStatsUrl: "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap",
-      dataIngestedAt: "2026-03-15"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       name: "Web2CSV - Table & List Extractor",
       description: "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
       users: null,
-      usersSource: "Not reported by Chrome-Stats publisher row",
+      usersSource: "Not reported by Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.0",
@@ -237,14 +237,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       productUrl: "https://sourcepack-tools.pages.dev/web2csv/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "hjfdpklldhofiehpcfcfdonjppdkmgoh",
       name: "Video2Source - YouTube Transcript Exporter",
       description: "Saves visible YouTube transcripts, timestamps, and notes as local source-pack exports.",
-      users: null,
-      usersSource: "Not reported by Chrome-Stats publisher row",
+      users: 1,
+      usersSource: "Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.0",
@@ -260,18 +260,18 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/hjfdpklldhofiehpcfcfdonjppdkmgoh",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh",
       productUrl: "https://sourcepack-tools.pages.dev/video2source/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "pmofpiclpglbdnjgkgijlolefiojjomn",
       name: "ChatArchive - ChatGPT Exporter",
       description: "Exports visible ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
-      users: null,
-      usersSource: "Not reported by Chrome-Stats publisher row",
+      users: 1,
+      usersSource: "Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.0",
-      lastUpdated: "2026-05-02",
+      lastUpdated: "2026-05-05",
       createdAt: "2026-04-30",
       category: "Workflow & Planning",
       overallRank: null,
@@ -283,14 +283,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/pmofpiclpglbdnjgkgijlolefiojjomn",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn",
       productUrl: "https://sourcepack-tools.pages.dev/chatarchive/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "glcecbjpdknkmlpcbnbpikjjclboeglo",
       name: "LocalArchive",
       description: "Local-first reader archive for pages, selections, Pocket imports, and portable Markdown/HTML/JSON exports.",
       users: 1,
-      usersSource: "Chrome-Stats detail page",
+      usersSource: "Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.1",
@@ -305,14 +305,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       sizeKb: 18.41,
       chromeStatsUrl: "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "hoklaadapaobdbkeiacebnnciponcmnf",
       name: "Session Rescue",
       description: "Local-first session backup and restore extension with JSON import/export and no backend.",
-      users: 3,
-      usersSource: "Chrome-Stats detail page",
+      users: 1,
+      usersSource: "Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.4",
@@ -328,14 +328,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/hoklaadapaobdbkeiacebnnciponcmnf",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf",
       productUrl: "https://session-rescue.pages.dev/",
-      dataIngestedAt: "2026-05-06"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "hkfeiaapcdjlccinbcbibnlaapcliobd",
       name: "Repo2Agent - GitHub to AI Context",
       description: "Turns a visible GitHub repository page into a local coding-agent context pack.",
       users: null,
-      usersSource: "Not reported by Chrome-Stats publisher row",
+      usersSource: "Not reported by Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.0",
@@ -351,14 +351,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/hkfeiaapcdjlccinbcbibnlaapcliobd",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd",
       productUrl: "https://sourcepack-tools.pages.dev/repo2agent/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "hlbflaklicefinhckdkbamhhkfklmgao",
       name: "SourcePack Hub - Local AI Research Library",
       description: "Saves current pages into a local SourcePack library and exports Markdown, JSON, and CSV indexes.",
       users: 2,
-      usersSource: "Chrome-Stats detail page",
+      usersSource: "Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.0",
@@ -374,14 +374,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/hlbflaklicefinhckdkbamhhkfklmgao",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao",
       productUrl: "https://sourcepack-tools.pages.dev/hub/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "ahalbgecklcboflgkloaceogjmfjckji",
       name: "CWS Scout - Extension Competitor Analyzer",
       description: "Captures visible Chrome-Stats pages into local competitor research reports after a user action.",
       users: null,
-      usersSource: "Not reported by Chrome-Stats publisher row",
+      usersSource: "Not reported by Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
       version: "0.1.0",
@@ -397,18 +397,18 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/ahalbgecklcboflgkloaceogjmfjckji",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji",
       productUrl: "https://sourcepack-tools.pages.dev/cws-scout/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     },
     {
       id: "bgmdmikdapojncddhpabnofcioffnhbg",
       name: "LocalLens: Private AI Summaries",
       description: "Summarizes, simplifies, and safe-share cleans active-tab text with Chrome built-in AI surfaces.",
       users: null,
-      usersSource: "Not reported by Chrome-Stats publisher row",
+      usersSource: "Not reported by Chrome Web Store detail page",
       rating: 0,
       ratingCount: 0,
-      version: "0.1.2",
-      lastUpdated: "2026-04-15",
+      version: "0.1.8",
+      lastUpdated: "2026-05-05",
       createdAt: "2026-04-15",
       category: "Productivity",
       overallRank: null,
@@ -420,7 +420,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/bgmdmikdapojncddhpabnofcioffnhbg",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg",
       productUrl: "https://zack-dev-cm.github.io/docs/locallens/",
-      dataIngestedAt: "2026-05-07"
+      dataIngestedAt: "2026-05-15"
     }
   ]
 };
@@ -450,20 +450,20 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 3,745 downloads across 11 packages and rechecked the Chrome-Stats publisher rollup on 2026-05-14.",
+    description: "Updated the public ClawHub tracker to 3,992 downloads across 11 packages on 2026-05-15 and refreshed Chrome Web Store detail-page user counts to 199 explicitly reported users.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
-      { text: "Open Chrome-Stats tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
+      { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
     ],
     projectId: 53,
-    createdAt: "2026-05-14"
+    createdAt: "2026-05-15"
   },
   {
     title: "SourcePack Chrome Extension Wave",
-    description: "New extension wave added from the CWS release work: Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, and ChatArchive with public pages and Chrome-Stats tracking.",
+    description: "New extension wave added from the CWS release work: Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, and ChatArchive with public pages and Chrome Web Store tracking.",
     links: [
       { text: "Open SourcePack pages", url: "https://sourcepack-tools.pages.dev/" },
-      { text: "Open Chrome-Stats publisher", url: "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0" }
+      { text: "Open Chrome Web Store publisher", url: "https://chromewebstore.google.com/search/kaisenaiko" }
     ],
     projectId: 68,
     createdAt: "2026-05-07"
@@ -589,11 +589,12 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "LocalLens Private AI Summaries",
-    description: "New extension release: local summaries, simplification, translation, and safe-share cleanup using Chrome built-in AI with a public release bundle.",
+    description: "Published extension release: local summaries, simplification, translation, and safe-share cleanup using Chrome built-in AI with Chrome Web Store and GitHub evidence.",
     links: [
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/locallens-private-ai-summaries" },
       { text: "Release v0.1.2", url: "https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2" },
-      { text: "Product page", url: "https://locallens-public-site.rapidapis.workers.dev/" }
+      { text: "Product page", url: "https://zack-dev-cm.github.io/docs/locallens/" }
     ],
     projectId: 56,
     repoFullName: "zack-dev-cm/locallens-private-ai-summaries",
@@ -656,7 +657,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "GitHub + ClawHub Downloads Tracker",
-    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, dated ClawHub snapshots, publisher dashboard stats, deltas, and next traction bets.",
+    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, dated ClawHub snapshots, Chrome Web Store detail-page stats, deltas, and next traction bets.",
     links: [
       { text: "Read tracker case study", url: "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md" }
     ],
@@ -989,7 +990,7 @@ export const PROJECTS: Project[] = [
     benchmarks: [
       { label: "Input modes", value: "3", context: "photo, voice, and text flows in public product case study" },
       { label: "Nutrition surfaces", value: "2", context: "2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow" },
-      { label: "Public route", value: "Telegram", context: "bot link reviewed 2026-05-14" }
+      { label: "Public route", value: "Telegram", context: "bot link reviewed 2026-05-15" }
     ],
     links: [
       { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
@@ -1044,7 +1045,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Privacy-first (local token usage)", "Automated repository structure summarization"],
     techStack: ["Chrome Extension", "JavaScript", "GitHub API"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "114", context: "listing snapshot, 2026-04-24" }
+      { label: "Public Chrome Web Store users", value: "129", context: "Chrome Web Store detail page, 2026-05-15" }
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm" },
@@ -1068,7 +1069,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "70", context: "listing snapshot, 2026-04-24" }
+      { label: "Public Chrome Web Store users", value: "64", context: "Chrome Web Store detail page, 2026-05-15" }
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" }
@@ -1645,8 +1646,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "913 total", context: "public ClawHub listings, 2026-05-14 (428 data-science-cv-repro-lab + 485 sota-agent)" },
-      { label: "Published versions", value: "22 total", context: "public ClawHub listings, 2026-05-14 (10 + 12 packages)" },
+      { label: "ClawHub downloads", value: "948 total", context: "public ClawHub listings, 2026-05-15 (461 data-science-cv-repro-lab + 487 sota-agent)" },
+      { label: "Published versions", value: "23 total", context: "public ClawHub listings, 2026-05-15 (11 + 12 packages)" },
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
       { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
@@ -1732,8 +1733,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "383", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.0.7", context: "GitHub release, 2026-05-14" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
@@ -1762,8 +1763,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "308", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "315", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
@@ -1792,8 +1793,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "314", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "320", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
@@ -1824,8 +1825,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "364", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "369", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
@@ -1855,8 +1856,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "284", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "292", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "restricted URL, path, secret, email, phone, public-url query cleanup" },
@@ -1886,8 +1887,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "247", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "282", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
@@ -1908,21 +1909,21 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "GitHub + ClawHub Downloads Tracker",
     aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub traction tracker"],
     description: "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
-    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and copied publisher dashboard stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
+    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
     projectKind: "open-source",
     surfaceTags: ["open-source", "automation", "analytics"],
     keyFeatures: [
       "Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction",
-      "Parses copied publisher dashboard stats for downloads, stars, version counts, and explicit-only skills",
+      "Records Chrome Web Store detail-page stats for explicit user counts, ratings, versions, and not-reported rows",
       "Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace",
       "Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting"
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "3,745", context: "public ClawHub listings, 2026-05-14 across 11 packages" },
+      { label: "Tracked ClawHub downloads", value: "3,992", context: "public ClawHub listings, 2026-05-15 across 11 packages" },
       { label: "Tracked packages", value: "11", context: "CV Repro Lab, SOTA Agent, launcher, browser-proof, publish-guard, YouTube publisher, redactor, deck, HH agent, CWS publisher, Chinese Laoshi" },
-      { label: "CV Repro Lab downloads", value: "913 total", context: "428 data-science-cv-repro-lab + 485 sota-agent, 2026-05-14" },
-      { label: "Strongest package", value: "485 downloads", context: "sota-agent public listing, 2026-05-14" },
+      { label: "CV Repro Lab downloads", value: "948 total", context: "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15" },
+      { label: "Strongest package", value: "487 downloads", context: "sota-agent public listing, 2026-05-15" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],
@@ -1976,8 +1977,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Chrome Extension", "JavaScript", "Local-first Storage", "Readability", "Markdown Export", "Chrome Web Store"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "114", context: "listing snapshot, 2026-04-24" },
-      { label: "Public release", value: "v0.1.0", context: "GitHub release, 2026-04-22" },
+      { label: "Public Chrome Web Store users", value: "1", context: "Chrome Web Store detail page, 2026-05-15" },
+      { label: "Chrome Web Store version", value: "0.1.1", context: "public listing updated 2026-04-23" },
       { label: "Export formats", value: "3", context: "Markdown, HTML, JSON" },
       { label: "Import path", value: "Pocket", context: "local migration workflow" },
       { label: "Privacy posture", value: "local-first", context: "page content stays in the extension archive" }
@@ -2001,28 +2002,29 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 56,
     title: "LocalLens Private AI Summaries",
     aliases: ["local lens", "private ai summaries", "built-in ai extension"],
-    description: "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
-    longDescription: "LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The public release emphasizes local browser execution and clear support pages while the store listing remains separate from the public GitHub evidence.",
+    description: "Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+    longDescription: "LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The public release emphasizes local browser execution, a live Chrome Web Store listing, clear support pages, and reproducible GitHub evidence.",
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web", "open-source"],
     keyFeatures: [
       "Summarizes, simplifies, translates, and rewrites selected page content through Chrome built-in AI",
       "Keeps the primary workflow local to the browser instead of routing page text through a custom backend",
-      "Includes support, privacy, and uninstall pages for Chrome Web Store review-readiness",
+      "Includes support, privacy, and uninstall pages for Chrome Web Store operations",
       "Ships a public release bundle with reproducible extension source"
     ],
     techStack: ["Chrome Extension", "Built-in AI", "JavaScript", "Privacy", "Summarization", "Translation"],
     benchmarks: [
-      { label: "Public release", value: "v0.1.2", context: "GitHub release, 2026-04-15" },
+      { label: "Public release", value: "v0.1.8", context: "Chrome Web Store listing updated 2026-05-05" },
+      { label: "Chrome Web Store listing", value: "live", context: "Chrome Web Store detail page, 2026-05-15; user count not reported" },
       { label: "AI workflows", value: "4", context: "summarize, simplify, translate, safe-share cleanup" },
       { label: "Runtime posture", value: "local browser", context: "Chrome built-in AI surface" },
-      { label: "Support pages", value: "4", context: "home, privacy, support, uninstall" },
-      { label: "Store status", value: "review-ready", context: "no public CWS listing claimed on 2026-04-24" }
+      { label: "Support pages", value: "4", context: "home, privacy, support, uninstall" }
     ],
     links: [
+      { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/locallens-private-ai-summaries" },
       { text: "Release v0.1.2", url: "https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2" },
-      { text: "Product page", url: "https://locallens-public-site.rapidapis.workers.dev/" }
+      { text: "Product page", url: "https://zack-dev-cm.github.io/docs/locallens/" }
     ],
     images: [],
     thumbnail: "",
@@ -2030,8 +2032,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     repoFullName: "zack-dev-cm/locallens-private-ai-summaries",
     createdAt: "2026-04-15",
     canonicalLinks: {
+      chromeWebStore: "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg",
       github: "https://github.com/zack-dev-cm/locallens-private-ai-summaries",
-      website: "https://locallens-public-site.rapidapis.workers.dev/"
+      website: "https://zack-dev-cm.github.io/docs/locallens/"
     }
   },
   {
@@ -2050,9 +2053,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["OpenClaw", "ClawHub", "Google Drive", "Language Learning", "Markdown", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "267", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-05-14" },
-      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "304", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-05-15" },
+      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-05-15" },
       { label: "Clean release", value: "1.0.9", context: "public README release marker" },
       { label: "Public posture", value: "sanitized", context: "lesson operations without private student data" }
     ],
@@ -2223,8 +2226,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Chrome Web Store", "Playwright", "Release Engineering", "Security Review"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "438", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "478", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "14", context: "public ClawHub listing, 2026-05-15" },
       { label: "Release checks", value: "7", context: "ZIP, listing, leaks, E2E, design, Chrome Stable, competitors" }
     ],
     links: [
@@ -2386,25 +2389,25 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "SourcePack Chrome Extension Wave",
     aliases: ["sourcepack suite", "web2csv", "video2source", "repo2agent", "sourcepack hub", "cws scout", "chatarchive"],
     description: "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
-    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E evidence, media gates, package ZIPs, and Chrome-Stats tracking.",
+    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E evidence, media gates, package ZIPs, and Chrome Web Store tracking.",
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web", "automation", "release-engineering"],
     keyFeatures: [
       "Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions",
       "Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions",
       "Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence",
-      "Embeds Chrome-Stats publisher tracking in this portfolio so extension adoption and risk metadata stay visible"
+      "Embeds Chrome Web Store detail-page tracking in this portfolio so extension adoption and risk metadata stay visible"
     ],
     techStack: ["Chrome Extension", "Manifest V3", "React", "TypeScript", "SourcePack", "Playwright", "Chrome Web Store"],
     benchmarks: [
-      { label: "Published extensions", value: "11", context: "Chrome-Stats publisher rollup for kaisenaiko, 2026-05-07" },
-      { label: "Publisher users", value: "188", context: "Chrome-Stats publisher rollup, 2026-05-07" },
-      { label: "Average rating", value: "5.00", context: "4 Chrome-Stats publisher reviews, 2026-05-07" },
+      { label: "Published extensions", value: "11", context: "Chrome Web Store publisher search and detail pages, 2026-05-15" },
+      { label: "Publisher users", value: "199", context: "sum of explicitly reported Chrome Web Store detail-page users, 2026-05-15" },
+      { label: "Average rating", value: "5.00", context: "4 reported Chrome Web Store ratings, 2026-05-15" },
       { label: "New SourcePack products", value: "6", context: "Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, ChatArchive" }
     ],
     links: [
       { text: "SourcePack product pages", url: "https://sourcepack-tools.pages.dev/" },
-      { text: "Chrome-Stats publisher", url: "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0" },
+      { text: "Chrome Web Store publisher", url: "https://chromewebstore.google.com/search/kaisenaiko" },
       { text: "Web2CSV CWS", url: "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc" },
       { text: "Video2Source CWS", url: "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh" },
       { text: "Repo2Agent CWS", url: "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd" },
@@ -2659,8 +2662,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "296", context: "public ClawHub listing, 2026-05-14" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-14" },
+      { label: "ClawHub downloads", value: "301", context: "public ClawHub listing, 2026-05-15" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-05-15" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Approval gate", value: "required", context: "review must be approved before submit" },

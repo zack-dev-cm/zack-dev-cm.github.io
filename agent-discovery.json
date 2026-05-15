@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2026-05-14",
-  "generatedAt": "2026-05-14",
+  "schemaVersion": "2026-05-15",
+  "generatedAt": "2026-05-15",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior Computer Vision Engineer and AI Product Engineer",
@@ -121,7 +121,7 @@
     },
     {
       "question": "What public traction is available?",
-      "answer": "The portfolio currently lists 74 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.",
+      "answer": "The portfolio currently lists 74 public case studies and 3,992 tracked ClawHub downloads across 11 public packages as of 2026-05-15.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     }
   ],
@@ -605,8 +605,8 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "3,745",
-              "context": "public ClawHub listings, 2026-05-14 across 11 packages"
+              "value": "3,992",
+              "context": "public ClawHub listings, 2026-05-15 across 11 packages"
             },
             {
               "label": "Tracked packages",
@@ -615,13 +615,13 @@
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "913 total",
-              "context": "428 data-science-cv-repro-lab + 485 sota-agent, 2026-05-14"
+              "value": "948 total",
+              "context": "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15"
             },
             {
               "label": "Strongest package",
-              "value": "485 downloads",
-              "context": "sota-agent public listing, 2026-05-14"
+              "value": "487 downloads",
+              "context": "sota-agent public listing, 2026-05-15"
             },
             {
               "label": "Report outputs",
@@ -706,13 +706,13 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "114",
-              "context": "listing snapshot, 2026-04-24"
+              "value": "1",
+              "context": "Chrome Web Store detail page, 2026-05-15"
             },
             {
-              "label": "Public release",
-              "value": "v0.1.0",
-              "context": "GitHub release, 2026-04-22"
+              "label": "Chrome Web Store version",
+              "value": "0.1.1",
+              "context": "public listing updated 2026-04-23"
             },
             {
               "label": "Export formats",
@@ -749,7 +749,7 @@
           "id": 56,
           "title": "LocalLens Private AI Summaries",
           "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
-          "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+          "summary": "Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
           "kind": "user-product",
           "tags": [
             "browser-extension",
@@ -772,8 +772,13 @@
           "benchmarks": [
             {
               "label": "Public release",
-              "value": "v0.1.2",
-              "context": "GitHub release, 2026-04-15"
+              "value": "v0.1.8",
+              "context": "Chrome Web Store listing updated 2026-05-05"
+            },
+            {
+              "label": "Chrome Web Store listing",
+              "value": "live",
+              "context": "Chrome Web Store detail page, 2026-05-15; user count not reported"
             },
             {
               "label": "AI workflows",
@@ -789,14 +794,13 @@
               "label": "Support pages",
               "value": "4",
               "context": "home, privacy, support, uninstall"
-            },
-            {
-              "label": "Store status",
-              "value": "review-ready",
-              "context": "no public CWS listing claimed on 2026-04-24"
             }
           ],
           "links": [
+            {
+              "label": "View on Chrome Web Store",
+              "url": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg"
+            },
             {
               "label": "View on GitHub",
               "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries"
@@ -807,7 +811,7 @@
             },
             {
               "label": "Product page",
-              "url": "https://locallens-public-site.rapidapis.workers.dev/"
+              "url": "https://zack-dev-cm.github.io/docs/locallens/"
             }
           ]
         },
@@ -838,18 +842,18 @@
           "benchmarks": [
             {
               "label": "ClawHub downloads",
-              "value": "267",
-              "context": "public ClawHub listing, 2026-05-14"
+              "value": "304",
+              "context": "public ClawHub listing, 2026-05-15"
             },
             {
               "label": "Published versions",
-              "value": "6",
-              "context": "public ClawHub listing, 2026-05-14"
+              "value": "7",
+              "context": "public ClawHub listing, 2026-05-15"
             },
             {
               "label": "ClawHub stars",
               "value": "1",
-              "context": "public ClawHub listing, 2026-05-14"
+              "context": "public ClawHub listing, 2026-05-15"
             },
             {
               "label": "Clean release",
@@ -1089,7 +1093,7 @@
             {
               "label": "Public route",
               "value": "Telegram",
-              "context": "bot link reviewed 2026-05-14"
+              "context": "bot link reviewed 2026-05-15"
             }
           ],
           "links": [
@@ -1122,8 +1126,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "114",
-              "context": "listing snapshot, 2026-04-24"
+              "value": "129",
+              "context": "Chrome Web Store detail page, 2026-05-15"
             }
           ],
           "links": [
@@ -1160,8 +1164,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "70",
-              "context": "listing snapshot, 2026-04-24"
+              "value": "64",
+              "context": "Chrome Web Store detail page, 2026-05-15"
             }
           ],
           "links": [
@@ -1268,13 +1272,13 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "114",
-              "context": "listing snapshot, 2026-04-24"
+              "value": "1",
+              "context": "Chrome Web Store detail page, 2026-05-15"
             },
             {
-              "label": "Public release",
-              "value": "v0.1.0",
-              "context": "GitHub release, 2026-04-22"
+              "label": "Chrome Web Store version",
+              "value": "0.1.1",
+              "context": "public listing updated 2026-04-23"
             },
             {
               "label": "Export formats",
@@ -1311,7 +1315,7 @@
           "id": 56,
           "title": "LocalLens Private AI Summaries",
           "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
-          "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+          "summary": "Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
           "kind": "user-product",
           "tags": [
             "browser-extension",
@@ -1334,8 +1338,13 @@
           "benchmarks": [
             {
               "label": "Public release",
-              "value": "v0.1.2",
-              "context": "GitHub release, 2026-04-15"
+              "value": "v0.1.8",
+              "context": "Chrome Web Store listing updated 2026-05-05"
+            },
+            {
+              "label": "Chrome Web Store listing",
+              "value": "live",
+              "context": "Chrome Web Store detail page, 2026-05-15; user count not reported"
             },
             {
               "label": "AI workflows",
@@ -1351,14 +1360,13 @@
               "label": "Support pages",
               "value": "4",
               "context": "home, privacy, support, uninstall"
-            },
-            {
-              "label": "Store status",
-              "value": "review-ready",
-              "context": "no public CWS listing claimed on 2026-04-24"
             }
           ],
           "links": [
+            {
+              "label": "View on Chrome Web Store",
+              "url": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg"
+            },
             {
               "label": "View on GitHub",
               "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries"
@@ -1369,7 +1377,7 @@
             },
             {
               "label": "Product page",
-              "url": "https://locallens-public-site.rapidapis.workers.dev/"
+              "url": "https://zack-dev-cm.github.io/docs/locallens/"
             }
           ]
         },
@@ -1461,8 +1469,8 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "3,745",
-          "context": "public ClawHub listings, 2026-05-14 across 11 packages"
+          "value": "3,992",
+          "context": "public ClawHub listings, 2026-05-15 across 11 packages"
         },
         {
           "label": "Tracked packages",
@@ -1471,13 +1479,13 @@
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "913 total",
-          "context": "428 data-science-cv-repro-lab + 485 sota-agent, 2026-05-14"
+          "value": "948 total",
+          "context": "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15"
         },
         {
           "label": "Strongest package",
-          "value": "485 downloads",
-          "context": "sota-agent public listing, 2026-05-14"
+          "value": "487 downloads",
+          "context": "sota-agent public listing, 2026-05-15"
         },
         {
           "label": "Report outputs",
@@ -1557,13 +1565,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "913 total",
-          "context": "public ClawHub listings, 2026-05-14 (428 data-science-cv-repro-lab + 485 sota-agent)"
+          "value": "948 total",
+          "context": "public ClawHub listings, 2026-05-15 (461 data-science-cv-repro-lab + 487 sota-agent)"
         },
         {
           "label": "Published versions",
-          "value": "22 total",
-          "context": "public ClawHub listings, 2026-05-14 (10 + 12 packages)"
+          "value": "23 total",
+          "context": "public ClawHub listings, 2026-05-15 (11 + 12 packages)"
         },
         {
           "label": "Live packages",
@@ -1932,7 +1940,7 @@
         {
           "label": "Public route",
           "value": "Telegram",
-          "context": "bot link reviewed 2026-05-14"
+          "context": "bot link reviewed 2026-05-15"
         }
       ],
       "links": [
@@ -2028,8 +2036,8 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "114",
-          "context": "listing snapshot, 2026-04-24"
+          "value": "129",
+          "context": "Chrome Web Store detail page, 2026-05-15"
         }
       ],
       "links": [
@@ -2066,8 +2074,8 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "70",
-          "context": "listing snapshot, 2026-04-24"
+          "value": "64",
+          "context": "Chrome Web Store detail page, 2026-05-15"
         }
       ],
       "links": [
@@ -2819,13 +2827,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "913 total",
-          "context": "public ClawHub listings, 2026-05-14 (428 data-science-cv-repro-lab + 485 sota-agent)"
+          "value": "948 total",
+          "context": "public ClawHub listings, 2026-05-15 (461 data-science-cv-repro-lab + 487 sota-agent)"
         },
         {
           "label": "Published versions",
-          "value": "22 total",
-          "context": "public ClawHub listings, 2026-05-14 (10 + 12 packages)"
+          "value": "23 total",
+          "context": "public ClawHub listings, 2026-05-15 (11 + 12 packages)"
         },
         {
           "label": "Live packages",
@@ -2959,13 +2967,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "314",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "383",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
-          "value": "7",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "8",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",
@@ -3021,13 +3029,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "308",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "315",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-05-14"
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",
@@ -3083,13 +3091,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "314",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "320",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-05-14"
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",
@@ -3147,13 +3155,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "364",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "369",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
           "value": "13",
-          "context": "public ClawHub listing, 2026-05-14"
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",
@@ -3210,13 +3218,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "284",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "292",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-05-14"
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",
@@ -3273,13 +3281,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "247",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "282",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
-          "value": "6",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "7",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",
@@ -3345,8 +3353,8 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "3,745",
-          "context": "public ClawHub listings, 2026-05-14 across 11 packages"
+          "value": "3,992",
+          "context": "public ClawHub listings, 2026-05-15 across 11 packages"
         },
         {
           "label": "Tracked packages",
@@ -3355,13 +3363,13 @@
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "913 total",
-          "context": "428 data-science-cv-repro-lab + 485 sota-agent, 2026-05-14"
+          "value": "948 total",
+          "context": "461 data-science-cv-repro-lab + 487 sota-agent, 2026-05-15"
         },
         {
           "label": "Strongest package",
-          "value": "485 downloads",
-          "context": "sota-agent public listing, 2026-05-14"
+          "value": "487 downloads",
+          "context": "sota-agent public listing, 2026-05-15"
         },
         {
           "label": "Report outputs",
@@ -3446,13 +3454,13 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "114",
-          "context": "listing snapshot, 2026-04-24"
+          "value": "1",
+          "context": "Chrome Web Store detail page, 2026-05-15"
         },
         {
-          "label": "Public release",
-          "value": "v0.1.0",
-          "context": "GitHub release, 2026-04-22"
+          "label": "Chrome Web Store version",
+          "value": "0.1.1",
+          "context": "public listing updated 2026-04-23"
         },
         {
           "label": "Export formats",
@@ -3489,7 +3497,7 @@
       "id": 56,
       "title": "LocalLens Private AI Summaries",
       "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
-      "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+      "summary": "Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
       "kind": "user-product",
       "tags": [
         "browser-extension",
@@ -3512,8 +3520,13 @@
       "benchmarks": [
         {
           "label": "Public release",
-          "value": "v0.1.2",
-          "context": "GitHub release, 2026-04-15"
+          "value": "v0.1.8",
+          "context": "Chrome Web Store listing updated 2026-05-05"
+        },
+        {
+          "label": "Chrome Web Store listing",
+          "value": "live",
+          "context": "Chrome Web Store detail page, 2026-05-15; user count not reported"
         },
         {
           "label": "AI workflows",
@@ -3529,14 +3542,13 @@
           "label": "Support pages",
           "value": "4",
           "context": "home, privacy, support, uninstall"
-        },
-        {
-          "label": "Store status",
-          "value": "review-ready",
-          "context": "no public CWS listing claimed on 2026-04-24"
         }
       ],
       "links": [
+        {
+          "label": "View on Chrome Web Store",
+          "url": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg"
+        },
         {
           "label": "View on GitHub",
           "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries"
@@ -3547,7 +3559,7 @@
         },
         {
           "label": "Product page",
-          "url": "https://locallens-public-site.rapidapis.workers.dev/"
+          "url": "https://zack-dev-cm.github.io/docs/locallens/"
         }
       ]
     },
@@ -3578,18 +3590,18 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "267",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "304",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
-          "value": "6",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "7",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "ClawHub stars",
           "value": "1",
-          "context": "public ClawHub listing, 2026-05-14"
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Clean release",
@@ -3853,13 +3865,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "438",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "478",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
-          "value": "13",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "14",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Release checks",
@@ -4144,17 +4156,17 @@
         {
           "label": "Published extensions",
           "value": "11",
-          "context": "Chrome-Stats publisher rollup for kaisenaiko, 2026-05-07"
+          "context": "Chrome Web Store publisher search and detail pages, 2026-05-15"
         },
         {
           "label": "Publisher users",
-          "value": "188",
-          "context": "Chrome-Stats publisher rollup, 2026-05-07"
+          "value": "199",
+          "context": "sum of explicitly reported Chrome Web Store detail-page users, 2026-05-15"
         },
         {
           "label": "Average rating",
           "value": "5.00",
-          "context": "4 Chrome-Stats publisher reviews, 2026-05-07"
+          "context": "4 reported Chrome Web Store ratings, 2026-05-15"
         },
         {
           "label": "New SourcePack products",
@@ -4168,8 +4180,8 @@
           "url": "https://sourcepack-tools.pages.dev/"
         },
         {
-          "label": "Chrome-Stats publisher",
-          "url": "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0"
+          "label": "Chrome Web Store publisher",
+          "url": "https://chromewebstore.google.com/search/kaisenaiko"
         },
         {
           "label": "Web2CSV CWS",
@@ -4577,13 +4589,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "296",
-          "context": "public ClawHub listing, 2026-05-14"
+          "value": "301",
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-05-14"
+          "context": "public ClawHub listing, 2026-05-15"
         },
         {
           "label": "Public release",

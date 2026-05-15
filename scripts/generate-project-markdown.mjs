@@ -17,6 +17,7 @@ const AGENT_DISCOVERY_PATH = path.resolve(ROOT_DIR, 'agent-discovery.json');
 const SCHEMA_JSONLD_PATH = path.resolve(ROOT_DIR, 'schema.jsonld');
 const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
 const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
+const CHROME_EXTENSION_STATS_PATH = path.resolve(ROOT_DIR, 'public', 'chrome-extension-stats.json');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
@@ -43,6 +44,14 @@ const AUTHOR_SAME_AS = [
   'https://github.com/ZackPashkin',
   'https://t.me/rheuiii'
 ];
+const DEFAULT_TRACTION_SNAPSHOT = {
+  totalDownloads: 3992,
+  packageCount: 11,
+  checkedAt: '2026-05-15'
+};
+let tractionSnapshot = DEFAULT_TRACTION_SNAPSHOT;
+
+const formatInteger = (value) => Number(value || 0).toLocaleString('en-US');
 
 const KNOWS_ABOUT = [
   'Computer Vision',
@@ -90,7 +99,7 @@ const buildAnswerTargets = (projects) => [
   {
     question: 'What public traction is available?',
     answer:
-      `The portfolio currently lists ${projects.length} public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.`,
+      `The portfolio currently lists ${projects.length} public case studies and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public packages as of ${tractionSnapshot.checkedAt}.`,
     cite: `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
   }
 ];
@@ -211,6 +220,37 @@ const parseStringArray = (node) => {
     .filter(Boolean);
 };
 
+const parseJsonLiteral = (node) => {
+  if (!node) return null;
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node) || ts.isTemplateExpression(node)) {
+    return parseString(node);
+  }
+  if (ts.isNumericLiteral(node)) {
+    return Number(node.text);
+  }
+  if (node.kind === ts.SyntaxKind.NullKeyword) {
+    return null;
+  }
+  if (node.kind === ts.SyntaxKind.TrueKeyword) {
+    return true;
+  }
+  if (node.kind === ts.SyntaxKind.FalseKeyword) {
+    return false;
+  }
+  if (ts.isArrayLiteralExpression(node)) {
+    return node.elements.map((element) => parseJsonLiteral(element));
+  }
+  if (ts.isObjectLiteralExpression(node)) {
+    const output = {};
+    for (const prop of node.properties) {
+      if (!ts.isPropertyAssignment(prop)) continue;
+      output[getPropertyName(prop.name)] = parseJsonLiteral(prop.initializer);
+    }
+    return output;
+  }
+  return parseString(node) || null;
+};
+
 const getPropertyName = (nameNode) => {
   if (!nameNode) return '';
   if (ts.isIdentifier(nameNode)) return nameNode.text;
@@ -315,6 +355,62 @@ const extractProjects = (sourceFile) => {
         benchmarks
       };
     });
+};
+
+const extractClawHubSnapshot = (sourceFile) => {
+  let statsNode = null;
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && node.name.getText() === 'CLAWHUB_DOWNLOAD_STATS') {
+      if (node.initializer && ts.isArrayLiteralExpression(node.initializer)) {
+        statsNode = node.initializer;
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+
+  if (!statsNode) return DEFAULT_TRACTION_SNAPSHOT;
+
+  const stats = statsNode.elements
+    .filter((element) => ts.isObjectLiteralExpression(element))
+    .map((element) => {
+      const downloadsNode = getPropertyValue(element, 'downloads');
+      const downloads = downloadsNode && ts.isNumericLiteral(downloadsNode) ? Number(downloadsNode.text) : 0;
+      const checkedAt = parseString(getPropertyValue(element, 'checkedAt'));
+      return { downloads, checkedAt };
+    });
+
+  if (stats.length === 0) return DEFAULT_TRACTION_SNAPSHOT;
+
+  return {
+    totalDownloads: stats.reduce((sum, stat) => sum + stat.downloads, 0),
+    packageCount: stats.length,
+    checkedAt:
+      stats
+        .map((stat) => stat.checkedAt)
+        .filter(Boolean)
+        .sort()
+        .at(-1) || DEFAULT_TRACTION_SNAPSHOT.checkedAt
+  };
+};
+
+const extractChromeExtensionStatsSnapshot = (sourceFile) => {
+  let statsNode = null;
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && node.name.getText() === 'CHROME_EXTENSION_STATS') {
+      if (node.initializer && ts.isObjectLiteralExpression(node.initializer)) {
+        statsNode = node.initializer;
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+
+  if (!statsNode) {
+    throw new Error('Could not find CHROME_EXTENSION_STATS object in constants.ts');
+  }
+
+  return parseJsonLiteral(statsNode);
 };
 
 const buildAliasMarkdown = (project, canonicalUrl) => {
@@ -462,7 +558,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     {
       title: 'chrome-extension-stats.json',
       url: `${SITE_BASE}/docs/chrome-extension-stats.json`,
-      description: 'Dated Chrome-Stats snapshot for the public Chrome Web Store extension tracker.'
+      description: 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'
     },
     {
       title: 'geo.txt',
@@ -686,7 +782,7 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('llms-full.txt', `${SITE_BASE}/llms-full.txt`, 'Full portfolio memory file with all project details.'),
     formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
-    formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome-Stats snapshot for the public Chrome Web Store extension tracker.'),
+    formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
     formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable senior CV and AI product engineer resume.'),
@@ -930,7 +1026,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
 
   return JSON.stringify(
     {
-      schemaVersion: '2026-05-14',
+      schemaVersion: '2026-05-15',
       generatedAt: today,
       entity: {
         name: AUTHOR_NAME,
@@ -1155,8 +1251,11 @@ const main = async () => {
   const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
   const projects = extractProjects(sourceFile);
+  tractionSnapshot = extractClawHubSnapshot(sourceFile);
+  const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
+  await fs.writeFile(CHROME_EXTENSION_STATS_PATH, `${JSON.stringify(chromeExtensionStats, null, 2)}\n`, 'utf8');
 
   const slugCounts = new Map();
   const projectEntries = [];

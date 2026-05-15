@@ -1,21 +1,22 @@
 ---
 version: "alpha"
-name: Zakhar Pashkin Portfolio Design System
-description: Public portfolio system for AI product engineering evidence, case studies, resume assets, and the hidden Skill Wind cover page.
+name: Zakhar Pashkin Portfolio Artifact Utility
+description: Open Design-inspired public portfolio system for AI product engineering evidence, case studies, resume assets, and the hidden Skill Wind cover page.
 colors:
-  page: "#071019"
-  rail: "#0A1320"
-  surface: "#0D1726"
-  surface-strong: "#111C2B"
-  ink: "#F4F7FB"
-  muted: "#A8B5C8"
-  primary: "#66C7F4"
-  review: "#7DD3A8"
-  evidence: "#F0B35F"
+  page: "#05070B"
+  rail: "#090D12"
+  surface: "#10161D"
+  surface-strong: "#151D25"
+  ink: "#F7FAFC"
+  muted: "#94A3B8"
+  primary: "#8BD6FF"
+  review: "#40D399"
+  evidence: "#F6B44B"
+  alert: "#FF6B57"
 typography:
   display:
     fontFamily: "Space Grotesk"
-    fontSize: "5.6rem"
+    fontSize: "clamp(3rem, 7vw, 6.2rem)"
     fontWeight: 700
     lineHeight: 0.92
     letterSpacing: "0"
@@ -34,7 +35,7 @@ typography:
 rounded:
   sm: "6px"
   md: "8px"
-  lg: "18px"
+  lg: "10px"
 spacing:
   xs: "8px"
   sm: "14px"
@@ -58,20 +59,28 @@ components:
     backgroundColor: "{colors.surface-strong}"
     textColor: "{colors.evidence}"
     rounded: "{rounded.md}"
+  command-bar:
+    backgroundColor: "rgba(9,13,18,0.82)"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.lg}"
 ---
 
 ## Overview
 
 This file governs the public portfolio and the standalone `public/skill-wind/`
-page. The portfolio is an evidence surface for hiring decisions: clients and
+page. The portfolio is an artifact utility for hiring decisions: clients and
 recruiters should see what Zakhar can ship, what proof exists, and where to
-contact or hire him without digging through decorative marketing.
+contact or hire him without digging through decorative marketing. The current
+UI direction borrows from `nexu-io/open-design`: question before pixels,
+artifact before decoration, deterministic navigation, and compact live preview
+surfaces.
 
 ## Colors
 
-The main portfolio uses a dark neutral base, off-white text, cyan action color,
-green review-gate accents, and amber evidence accents. Avoid purple-blue
-gradient dominance, beige/brown themes, and decorative orb backgrounds. Skill
+The main portfolio uses a near-black neutral base, off-white text, cyan action
+color, green review-gate accents, amber evidence accents, and sparse alert red
+for risk states. Avoid purple-blue gradient dominance, beige/brown themes,
+dark-blue wash, and decorative orb backgrounds. Skill
 Wind can keep its deep ink, pale cyan, warm copper, and parchment ivory because
 it is a separate hidden editorial cover.
 
@@ -79,16 +88,17 @@ it is a separate hidden editorial cover.
 
 The main portfolio should feel dense and professional, not ceremonial. Use
 large display type only for the first hero. Compact panels, project cards,
-contact tiles, and dashboard-like surfaces need smaller headings and stable
-font sizes across viewports. Letter spacing stays `0` except short uppercase
-labels.
+contact tiles, command bars, and dashboard-like surfaces need smaller headings
+and stable font sizes across viewports. Letter spacing stays `0` except short
+uppercase labels.
 
 ## Layout
 
-The portfolio uses a left identity rail and a main evidence column. The first
-viewport should show identity, hiring routes, the production-facing value
-proposition, and a hint of the next section. Project cards are repeated items
-and may be framed; page sections should not feel like nested cards inside cards.
+The portfolio uses a left identity rail, a sticky command bar, and a main
+evidence column. The first viewport should show identity, hiring routes, the
+production-facing value proposition, and a hint of the next section. Project
+cards are repeated items and may be framed; page sections should not feel like
+nested cards inside cards.
 Product screenshots should remain inspectable and should not be cropped in ways
 that hide the UI evidence.
 
@@ -118,10 +128,12 @@ and the artwork while removing continuous animation.
 
 Portfolio project cards must be obviously clickable: stable media area, badges,
 plain-language title, one proof line, stack chips, and a visible open affordance.
-Email is the primary contact route; X is a secondary profile/contact surface.
-External social links need accessible names and exact hrefs, with no freelance
-marketplace profile links. Buttons should use icons where familiar and avoid
-text clipping on mobile.
+The profile navigation is grouped by Start, Proof, and Explore. The sticky
+command bar should expose the highest-frequency jumps without duplicating the
+entire rail. Email is the primary contact route; X is a secondary
+profile/contact surface. External social links need accessible names and exact
+hrefs, with no freelance marketplace profile links. Buttons should use icons
+where familiar and avoid text clipping on mobile.
 
 Skill Wind label chips should look like suspended fragments crossing the
 threshold. Section cards may use glass-like panels there, but avoid stacking
@@ -134,9 +146,10 @@ multiple frosted layers on top of one another.
 - Do show X as a profile link without confusing it with the modal close icon.
 - Do keep project cards clickable by mouse, Enter, and Space, with URL deep links.
 - Do verify mobile, tablet, and desktop screenshots before publishing.
+- Do make navigation feel like an operator tool: grouped, predictable, and close to the reader.
 - Do not invent user counts, client names, or product screenshots.
 - Do not bury public links only inside modals.
-- Do not add decorative blobs, fake dashboards, or stock-like AI art to the main portfolio.
+- Do not add decorative blobs, fake dashboards, nested cards, or stock-like AI art to the main portfolio.
 - Do keep the central transformation readable from left to right.
 - Do keep the social cover crop meaningful at 1200 x 627.
 - Do make the page feel hidden and deliberate, not like a product launch page.

@@ -4,17 +4,17 @@ import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, XSocialIcon } from '.
 import { resolveAssetUrl } from '../utils/assets';
 
 const NAV_ITEMS = [
-  { name: 'Intro', href: '#intro' },
-  { name: 'About', href: '#about' },
-  { name: 'Collaborations', href: '#experience' },
-  { name: 'Featured', href: '#featured' },
-  { name: 'CV Systems', href: '#computer-vision' },
-  { name: 'AI Systems', href: '#ai-systems' },
-  { name: 'ClawHub', href: '#clawhub' },
-  { name: 'CWS Stats', href: '#chrome-stats' },
-  { name: 'Latest', href: '#latest' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' }
+  { group: 'Start', name: 'Intro', href: '#intro' },
+  { group: 'Start', name: 'About', href: '#about' },
+  { group: 'Start', name: 'Collaborations', href: '#experience' },
+  { group: 'Proof', name: 'Featured', href: '#featured' },
+  { group: 'Proof', name: 'CV Systems', href: '#computer-vision' },
+  { group: 'Proof', name: 'AI Systems', href: '#ai-systems' },
+  { group: 'Proof', name: 'ClawHub', href: '#clawhub' },
+  { group: 'Proof', name: 'CWS Stats', href: '#chrome-stats' },
+  { group: 'Explore', name: 'Latest', href: '#latest' },
+  { group: 'Explore', name: 'Projects', href: '#projects' },
+  { group: 'Explore', name: 'Contact', href: '#contact' }
 ];
 
 interface SidebarProps {
@@ -66,13 +66,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ projectCount, userFacingCount,
           </div>
         </div>
 
-        <nav className="profile-nav" aria-label="Section navigation">
+        <nav className="profile-nav" aria-label="Grouped section navigation">
           <ul>
-            {NAV_ITEMS.map((item) => (
-              <li key={item.name}>
-                <a href={item.href}>{item.name}</a>
-              </li>
-            ))}
+            {NAV_ITEMS.map((item, index) => {
+              const showGroup = index === 0 || NAV_ITEMS[index - 1].group !== item.group;
+              return (
+                <React.Fragment key={item.href}>
+                  {showGroup && <li className="profile-nav__group">{item.group}</li>}
+                  <li>
+                    <a href={item.href}>{item.name}</a>
+                  </li>
+                </React.Fragment>
+              );
+            })}
           </ul>
         </nav>
 

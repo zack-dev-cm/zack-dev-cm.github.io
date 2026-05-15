@@ -76,7 +76,7 @@
       "name": "Zakhar Pashkin | Senior Computer Vision Engineer for AI Product Delivery",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery evidence.",
       "inLanguage": "en",
-      "dateModified": "2026-05-14",
+      "dateModified": "2026-05-15",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -143,7 +143,7 @@
           "name": "What public traction is available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio currently lists 74 public case studies and 3,745 tracked ClawHub downloads across 11 public packages as of 2026-05-14.",
+            "text": "The portfolio currently lists 74 public case studies and 3,992 tracked ClawHub downloads across 11 public packages as of 2026-05-15.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         }
@@ -1221,7 +1221,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "LocalLens Private AI Summaries",
-            "description": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+            "description": "Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
             "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

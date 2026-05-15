@@ -20,15 +20,21 @@ import {
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [53, 44, 43, 40] as const;
+const FEATURED_PROJECT_IDS = [70, 53, 43, 44] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 
 const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
+  70: {
+    label: 'Production OCR serving',
+    summary:
+      'A containerized OCR serving pattern that turns line segmentation, word segmentation, and CRNN recognition into a reviewable FastAPI contract.',
+    proof: ['3-stage OCR pipeline', 'FastAPI + ONNX Runtime', 'JSON text + box outputs']
+  },
   53: {
     label: 'Traction evidence system',
     summary:
       'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['3,745 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
+    proof: ['3,992 tracked ClawHub downloads', '11 public packages', 'Snapshot deltas + 30-day scenarios']
   },
   45: {
     label: 'Open-source review harness',
@@ -52,7 +58,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['913 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: ['948 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
@@ -79,24 +85,6 @@ const COMPUTER_VISION_LANES = [
     label: 'Public archive',
     value: '2 GitHub accounts',
     detail: 'authored OCR, detection, mobile inference, and notebook repos separated from forks'
-  }
-];
-
-const AI_SYSTEM_LANES = [
-  {
-    label: 'Public traction',
-    value: '3,745',
-    detail: 'ClawHub downloads across 11 tracked packages as of 2026-05-14'
-  },
-  {
-    label: 'Extension adoption',
-    value: '188',
-    detail: 'Chrome-Stats publisher rollup users across 11 published extensions'
-  },
-  {
-    label: 'Release posture',
-    value: 'Gate-first',
-    detail: 'benchmarks, public-surface review, browser evidence, rollback criteria'
   }
 ];
 
@@ -458,6 +446,14 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
   { value: 'open-source', label: 'Open source' },
 ];
 
+const COMMAND_NAV_ITEMS = [
+  { label: 'Overview', href: '#intro' },
+  { label: 'Proof', href: '#featured' },
+  { label: 'CV', href: '#computer-vision' },
+  { label: 'AI', href: '#ai-systems' },
+  { label: 'Explore', href: '#projects' }
+];
+
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [portfolioUpdates, setPortfolioUpdates] = useState<PortfolioUpdates | null>(null);
@@ -633,6 +629,53 @@ const App: React.FC = () => {
     const averageRating = CHROME_EXTENSION_STATS.averageRating.toFixed(2);
     return { reportedRows, sourcePackRows, averageRating };
   }, []);
+
+  const heroEvidenceRows = useMemo(
+    () => [
+      {
+        label: 'Primary map',
+        value: `${mergedProjects.length} case studies`,
+        detail: 'grouped into Start, Proof, and Explore routes'
+      },
+      {
+        label: 'Public traction',
+        value: clawHubSummary.totalDownloads.toLocaleString(),
+        detail: `ClawHub package downloads checked ${clawHubSummary.checkedAt}`
+      },
+      {
+        label: 'Extension adoption',
+        value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
+        detail: `Chrome Web Store publisher rollup checked ${CHROME_EXTENSION_STATS.checkedAt}`
+      },
+      {
+        label: 'Release proof',
+        value: `${benchmarkedProjectCount} measured`,
+        detail: 'projects with benchmarks, review notes, or dated metrics'
+      }
+    ],
+    [benchmarkedProjectCount, clawHubSummary, mergedProjects.length]
+  );
+
+  const aiSystemLanes = useMemo(
+    () => [
+      {
+        label: 'Public traction',
+        value: clawHubSummary.totalDownloads.toLocaleString(),
+        detail: `ClawHub downloads across ${CLAWHUB_DOWNLOAD_STATS.length} tracked packages as of ${clawHubSummary.checkedAt}`
+      },
+      {
+        label: 'Extension adoption',
+        value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
+        detail: `Chrome Web Store users across ${CHROME_EXTENSION_STATS.totalPublished} published extensions as of ${CHROME_EXTENSION_STATS.checkedAt}`
+      },
+      {
+        label: 'Release posture',
+        value: 'Gate-first',
+        detail: 'benchmarks, public-surface review, browser evidence, rollback criteria'
+      }
+    ],
+    [clawHubSummary]
+  );
 
   const syncFromUrl = useCallback(() => {
     const params = new URLSearchParams(window.location.search);
@@ -834,33 +877,69 @@ const App: React.FC = () => {
         />
 
         <main className="content-column">
+          <nav className="portfolio-command" aria-label="Primary portfolio navigation">
+            <a href="#intro" className="portfolio-command__brand">
+              ZP
+            </a>
+            <div className="portfolio-command__links">
+              {COMMAND_NAV_ITEMS.map((item) => (
+                <a key={item.href} href={item.href}>
+                  {item.label}
+                </a>
+              ))}
+            </div>
+            <a href={`mailto:${SOCIAL_LINKS.email}`} className="portfolio-command__cta">
+              Contact
+            </a>
+          </nav>
+
           <section id="intro" className="hero">
-            <p className="hero__eyebrow">Senior Computer Vision Engineer</p>
-            <h1 className="hero__title">AI and CV systems built for production constraints.</h1>
-            <p className="hero__lead">
-              {AUTHOR_INFO.bio} I turn ambiguous OCR, segmentation, detection, multimodal search,
-              and automation problems into tested models, APIs, workflows, and product surfaces with
-              review gates before release.
-            </p>
-            <div className="hero__actions">
-              <a href="#featured" className="button button--ghost">
-                View featured solutions
-              </a>
-              <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
-                <DownloadIcon className="h-4 w-4" />
-                Download resume
-              </a>
-              <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
-                Start a project
-              </a>
-              <a
-                href={SOCIAL_LINKS.githubPrimary}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button button--ghost"
-              >
-                GitHub
-              </a>
+            <div className="hero__layout">
+              <div className="hero__copy">
+                <p className="hero__eyebrow">Senior Computer Vision Engineer</p>
+                <h1 className="hero__title">AI and CV systems built for production constraints.</h1>
+                <p className="hero__lead">
+                  {AUTHOR_INFO.bio} I turn ambiguous OCR, segmentation, detection, multimodal search,
+                  and automation problems into tested models, APIs, workflows, and product surfaces with
+                  review gates before release.
+                </p>
+                <div className="hero__actions">
+                  <a href="#featured" className="button button--ghost">
+                    View featured solutions
+                  </a>
+                  <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
+                    <DownloadIcon className="h-4 w-4" />
+                    Download resume
+                  </a>
+                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
+                    Start a project
+                  </a>
+                  <a
+                    href={SOCIAL_LINKS.githubPrimary}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--ghost"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+
+              <aside className="artifact-console" aria-label="Portfolio evidence routing summary">
+                <div className="artifact-console__header">
+                  <span>Artifact map</span>
+                  <strong>Public proof first</strong>
+                </div>
+                <div className="artifact-console__rows">
+                  {heroEvidenceRows.map((row) => (
+                    <div key={row.label} className="artifact-console__row">
+                      <span>{row.label}</span>
+                      <strong>{row.value}</strong>
+                      <em>{row.detail}</em>
+                    </div>
+                  ))}
+                </div>
+              </aside>
             </div>
             <div className="hero__stats" aria-label="Portfolio summary statistics">
               {heroStats.map((stat) => (
@@ -1103,7 +1182,7 @@ const App: React.FC = () => {
             description="The product-facing AI work around extension launches, public traction trackers, reproducible CV experimentation, ChatGPT/MCP apps, automation, and install safety."
           >
             <div className="domain-lanes domain-lanes--summary" aria-label="AI systems summary">
-              {AI_SYSTEM_LANES.map((lane) => (
+              {aiSystemLanes.map((lane) => (
                 <article key={lane.label} className="domain-lane">
                   <span>{lane.label}</span>
                   <strong>{lane.value}</strong>
@@ -1188,12 +1267,12 @@ const App: React.FC = () => {
             id="chrome-stats"
             eyebrow="Chrome Web Store"
             title="Extension Stats Tracker"
-            description="Dated Chrome-Stats snapshot for the kaisenaiko publisher surface. Missing row values stay marked as not reported."
+            description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Missing row values stay marked as not reported."
           >
             <div className="proof-grid chrome-stats__summary" aria-label="Chrome extension publisher summary">
               <div className="proof-chip">
                 <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
-                <em>published extensions on Chrome-Stats</em>
+                <em>published extensions on Chrome Web Store</em>
               </div>
               <div className="proof-chip">
                 <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
@@ -1201,7 +1280,7 @@ const App: React.FC = () => {
               </div>
               <div className="proof-chip">
                 <strong>{chromeStatsSummary.averageRating}</strong>
-                <em>average rating from {CHROME_EXTENSION_STATS.ratingCount} Chrome-Stats reviews</em>
+                <em>average rating from {CHROME_EXTENSION_STATS.ratingCount} Chrome Web Store ratings</em>
               </div>
               <div className="proof-chip">
                 <strong>{chromeStatsSummary.sourcePackRows}</strong>
@@ -1221,10 +1300,10 @@ const App: React.FC = () => {
               <div className="tracker-panel__header">
                 <div>
                   <p className="panel__eyebrow">Dated public snapshot</p>
-                  <h3>Chrome-Stats publisher detail</h3>
+                  <h3>Chrome Web Store publisher detail</h3>
                   <p>
                     Source: {CHROME_EXTENSION_STATS.sourceName}, checked {CHROME_EXTENSION_STATS.checkedAt}.
-                    Chrome-Stats detail pages can lag publisher totals, so each row shows the source of its user count.
+                    Rows without a visible Chrome Web Store user count stay marked as not reported, so each row shows the source of its user count.
                   </p>
                 </div>
                 <div className="button-row">
@@ -1234,7 +1313,7 @@ const App: React.FC = () => {
                     rel="noopener noreferrer"
                     className="button button--ghost button--small"
                   >
-                    Open Chrome-Stats
+                    Open CWS publisher
                   </a>
                   <a
                     href={resolveAssetUrl('chrome-extension-stats.json')}

@@ -1,26 +1,26 @@
 {
   "publisherName": "kaisenaiko",
   "publisherUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "checkedAt": "2026-05-14",
-  "sourceName": "Chrome-Stats publisher page",
-  "sourceUrl": "https://chrome-stats.com/a/dWIxNTE0OGViOWQ4YzRlYzliNzM0Mjg1YjZmZDdjZGY0",
+  "checkedAt": "2026-05-15",
+  "sourceName": "Chrome Web Store detail pages",
+  "sourceUrl": "https://chromewebstore.google.com/search/kaisenaiko",
   "totalPublished": 11,
-  "totalUsers": 188,
-  "averageUsersPerExtension": 17,
+  "totalUsers": 199,
+  "averageUsersPerExtension": 18,
   "averageRating": 5,
   "ratingCount": 4,
   "notes": [
-    "Chrome-Stats publisher rollup showed 11 published extensions, 188 total users, 17 average users per extension, and 5.00 average rating from 4 reviews on 2026-05-14.",
-    "Rows where Chrome-Stats displayed '-' are treated as not reported rather than inferred into user totals.",
-    "Per-extension ranks, risk fields, versions, and sizes come from available Chrome-Stats detail pages plus local CWS listing contracts for newly published SourcePack items."
+    "Chrome Web Store detail pages showed 11 published extensions, 199 explicitly reported users, 18 average users per extension, and 5.00 average rating from 4 reported ratings on 2026-05-15.",
+    "Chrome-Stats returned a Cloudflare challenge during the 2026-05-15 refresh, so current user counts come from Chrome Web Store detail pages instead.",
+    "Rows without a visible Chrome Web Store user count are treated as not reported rather than inferred into user totals. Chrome-Stats links remain as secondary/risk metadata."
   ],
   "extensions": [
     {
       "id": "ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "name": "GitHub Repo Summarizer",
       "description": "Summarizes GitHub repository structure and README context for faster code review.",
-      "users": 118,
-      "usersSource": "Chrome-Stats publisher row",
+      "users": 129,
+      "usersSource": "Chrome Web Store detail page",
       "rating": 5,
       "ratingCount": 3,
       "version": "1.4.2",
@@ -40,14 +40,14 @@
       "sizeKb": 18.61,
       "chromeStatsUrl": "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm",
-      "dataIngestedAt": "2025-09-21"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "jnoonpeekddinkiecaonhocaflcgbhap",
       "name": "AI Chat Navigator",
       "description": "Adds keyboard navigation and prompt controls for ChatGPT, Deepseek, and AI Studio chats.",
       "users": 64,
-      "usersSource": "Chrome-Stats publisher row",
+      "usersSource": "Chrome Web Store detail page",
       "rating": 5,
       "ratingCount": 1,
       "version": "4.1.0",
@@ -64,14 +64,14 @@
       "sizeKb": 54.18,
       "chromeStatsUrl": "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap",
-      "dataIngestedAt": "2026-03-15"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       "name": "Web2CSV - Table & List Extractor",
       "description": "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
       "users": null,
-      "usersSource": "Not reported by Chrome-Stats publisher row",
+      "usersSource": "Not reported by Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.0",
@@ -93,14 +93,14 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       "productUrl": "https://sourcepack-tools.pages.dev/web2csv/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "hjfdpklldhofiehpcfcfdonjppdkmgoh",
       "name": "Video2Source - YouTube Transcript Exporter",
       "description": "Saves visible YouTube transcripts, timestamps, and notes as local source-pack exports.",
-      "users": null,
-      "usersSource": "Not reported by Chrome-Stats publisher row",
+      "users": 1,
+      "usersSource": "Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.0",
@@ -122,18 +122,18 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/hjfdpklldhofiehpcfcfdonjppdkmgoh",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh",
       "productUrl": "https://sourcepack-tools.pages.dev/video2source/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "pmofpiclpglbdnjgkgijlolefiojjomn",
       "name": "ChatArchive - ChatGPT Exporter",
       "description": "Exports visible ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
-      "users": null,
-      "usersSource": "Not reported by Chrome-Stats publisher row",
+      "users": 1,
+      "usersSource": "Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.0",
-      "lastUpdated": "2026-05-02",
+      "lastUpdated": "2026-05-05",
       "createdAt": "2026-04-30",
       "category": "Workflow & Planning",
       "overallRank": null,
@@ -151,14 +151,14 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/pmofpiclpglbdnjgkgijlolefiojjomn",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn",
       "productUrl": "https://sourcepack-tools.pages.dev/chatarchive/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "glcecbjpdknkmlpcbnbpikjjclboeglo",
       "name": "LocalArchive",
       "description": "Local-first reader archive for pages, selections, Pocket imports, and portable Markdown/HTML/JSON exports.",
       "users": 1,
-      "usersSource": "Chrome-Stats detail page",
+      "usersSource": "Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.1",
@@ -178,14 +178,14 @@
       "sizeKb": 18.41,
       "chromeStatsUrl": "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "hoklaadapaobdbkeiacebnnciponcmnf",
       "name": "Session Rescue",
       "description": "Local-first session backup and restore extension with JSON import/export and no backend.",
-      "users": 3,
-      "usersSource": "Chrome-Stats detail page",
+      "users": 1,
+      "usersSource": "Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.4",
@@ -206,14 +206,14 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/hoklaadapaobdbkeiacebnnciponcmnf",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf",
       "productUrl": "https://session-rescue.pages.dev/",
-      "dataIngestedAt": "2026-05-06"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "hkfeiaapcdjlccinbcbibnlaapcliobd",
       "name": "Repo2Agent - GitHub to AI Context",
       "description": "Turns a visible GitHub repository page into a local coding-agent context pack.",
       "users": null,
-      "usersSource": "Not reported by Chrome-Stats publisher row",
+      "usersSource": "Not reported by Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.0",
@@ -235,14 +235,14 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/hkfeiaapcdjlccinbcbibnlaapcliobd",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd",
       "productUrl": "https://sourcepack-tools.pages.dev/repo2agent/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "hlbflaklicefinhckdkbamhhkfklmgao",
       "name": "SourcePack Hub - Local AI Research Library",
       "description": "Saves current pages into a local SourcePack library and exports Markdown, JSON, and CSV indexes.",
       "users": 2,
-      "usersSource": "Chrome-Stats detail page",
+      "usersSource": "Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.0",
@@ -264,14 +264,14 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/hlbflaklicefinhckdkbamhhkfklmgao",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao",
       "productUrl": "https://sourcepack-tools.pages.dev/hub/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "ahalbgecklcboflgkloaceogjmfjckji",
       "name": "CWS Scout - Extension Competitor Analyzer",
       "description": "Captures visible Chrome-Stats pages into local competitor research reports after a user action.",
       "users": null,
-      "usersSource": "Not reported by Chrome-Stats publisher row",
+      "usersSource": "Not reported by Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
       "version": "0.1.0",
@@ -293,18 +293,18 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/ahalbgecklcboflgkloaceogjmfjckji",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji",
       "productUrl": "https://sourcepack-tools.pages.dev/cws-scout/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     },
     {
       "id": "bgmdmikdapojncddhpabnofcioffnhbg",
       "name": "LocalLens: Private AI Summaries",
       "description": "Summarizes, simplifies, and safe-share cleans active-tab text with Chrome built-in AI surfaces.",
       "users": null,
-      "usersSource": "Not reported by Chrome-Stats publisher row",
+      "usersSource": "Not reported by Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
-      "version": "0.1.2",
-      "lastUpdated": "2026-04-15",
+      "version": "0.1.8",
+      "lastUpdated": "2026-05-05",
       "createdAt": "2026-04-15",
       "category": "Productivity",
       "overallRank": null,
@@ -319,7 +319,7 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/bgmdmikdapojncddhpabnofcioffnhbg",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg",
       "productUrl": "https://zack-dev-cm.github.io/docs/locallens/",
-      "dataIngestedAt": "2026-05-07"
+      "dataIngestedAt": "2026-05-15"
     }
   ]
 }

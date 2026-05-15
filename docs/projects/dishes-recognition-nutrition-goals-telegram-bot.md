@@ -22,7 +22,7 @@ https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegr
 ## Benchmarks & Analytics
 - Input modes: 3 (photo, voice, and text flows in public product case study)
 - Nutrition surfaces: 2 (2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow)
-- Public route: Telegram (bot link reviewed 2026-05-14)
+- Public route: Telegram (bot link reviewed 2026-05-15)
 
 ## Links
 - [Try on Telegram](https://t.me/calorio_yf_bot)
