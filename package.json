@@ -7,6 +7,7 @@
     "dev": "vite",
     "stats:clawhub": "node scripts/fetch-clawhub-stats.mjs",
     "validate": "node scripts/validate-portfolio.mjs",
+    "validate:seo-aeo": "node scripts/validate-seo-aeo.mjs",
     "security:gate": "node scripts/security-gate.mjs",
     "audit:codex": "node scripts/run-codex-audit.mjs",
     "prebuild": "node scripts/generate-project-markdown.mjs && node scripts/validate-portfolio.mjs",
