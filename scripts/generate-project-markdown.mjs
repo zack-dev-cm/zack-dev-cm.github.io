@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
+const FIELD_NOTES_OUTPUT_DIR = path.resolve(ROOT_DIR, 'field-notes');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
 const GEO_PATH = path.resolve(ROOT_DIR, 'geo.txt');
 const LLMS_FULL_PATH = path.resolve(ROOT_DIR, 'llms-full.txt');
@@ -19,6 +20,10 @@ const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
 const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
 const CHROME_EXTENSION_STATS_PATH = path.resolve(ROOT_DIR, 'public', 'chrome-extension-stats.json');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
+const FIELD_NOTES_INDEX_SLUG = '14-day-ai-agent-field-notes';
+const FIELD_NOTES_PUBLIC_BASE = `${SITE_BASE}/docs/field-notes`;
+const FIELD_NOTES_INDEX_URL = `${FIELD_NOTES_PUBLIC_BASE}/${FIELD_NOTES_INDEX_SLUG}.md`;
+const NEWSLETTER_URL = `${SITE_BASE}/docs/newsletter.md`;
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
 const AUTHOR_TITLE = 'Senior Computer Vision Engineer and AI Product Engineer';
@@ -559,6 +564,19 @@ const extractChromeExtensionStatsSnapshot = (sourceFile) => {
   return parseJsonLiteral(statsNode);
 };
 
+const extractJsonVariable = (sourceFile, variableName, fallback) => {
+  let match = null;
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && node.name.getText() === variableName) {
+      match = node.initializer || null;
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+  if (!match) return fallback;
+  return parseJsonLiteral(match) ?? fallback;
+};
+
 const buildAliasMarkdown = (project, canonicalUrl) => {
   const markdown = buildMarkdown(project, canonicalUrl);
   const lines = markdown.split('\n');
@@ -625,6 +643,107 @@ const buildMarkdown = (project, markdownUrl) => {
     lines.push('', '## Topology Snapshot', '```', topologySnapshot, '```');
   }
   lines.push('');
+  return lines.join('\n');
+};
+
+const getFieldNoteUrl = (note) => `${FIELD_NOTES_PUBLIC_BASE}/${slugify(note.slug || note.title)}.md`;
+
+const buildFieldNoteMarkdown = (note) => {
+  const title = toAscii(note.title);
+  const lines = [
+    `# ${title}`,
+    '',
+    `> Day ${note.day} of the AI Agent Field Notes traffic experiment.`,
+    '',
+    `Format: ${toAscii(note.format)}`,
+    `Target reader: ${toAscii(note.targetReader)}`,
+    `Primary channel: ${toAscii(note.primaryChannel)}`,
+    `Secondary channel: ${toAscii(note.secondaryChannel)}`,
+    `Canonical URL: ${getFieldNoteUrl(note)}`,
+    '',
+    '## Reader Win',
+    toAscii(note.readerWin),
+    '',
+    '## Evidence To Use',
+    toAscii(note.evidence),
+    '',
+    '## Thumbnail Direction',
+    toAscii(note.thumbnailDirection),
+    '',
+    '## Writer Brief',
+    toAscii(note.writerBrief),
+    '',
+    '## Call To Action',
+    toAscii(note.cta),
+    '',
+    '## Public-Surface Rules',
+    '- Use real screenshots, generated public files, or dated public marketplace data as evidence.',
+    '- Do not include credentials, private account identifiers, unpublished analytics, or client-specific operational details.',
+    '- Treat marketplace downloads as listing-download evidence, not user-count proof.',
+    ''
+  ];
+  return lines.join('\n');
+};
+
+const buildFieldNotesIndexMarkdown = (notes, newsletterOffer) => {
+  const lines = [
+    '# 14-Day AI Agent Field Notes Experiment',
+    '',
+    '> Public daily-post plan for reaching a repeatable traffic loop without hiding weak assumptions.',
+    '',
+    `Newsletter: ${toAscii(newsletterOffer.name || 'AI Agent Field Notes')}`,
+    `Promise: ${toAscii(newsletterOffer.promise || '')}`,
+    `Cadence: ${toAscii(newsletterOffer.cadence || '')}`,
+    `Canonical URL: ${FIELD_NOTES_INDEX_URL}`,
+    '',
+    '## Measurement Gates',
+    '- Day 14: reach 25 visits/day or rework topic/channel fit.',
+    '- Day 30: reach 30 visits/day 7-day average or stop daily posting.',
+    '- Day 45: reach 75 visits/day 7-day average or change the offer.',
+    '- Day 60: target 100 visits/day 7-day average before calling the loop validated.',
+    '',
+    '## Daily Plan',
+    ...notes.flatMap((note) => [
+      `### Day ${note.day}: ${toAscii(note.title)}`,
+      `- Format: ${toAscii(note.format)}`,
+      `- Target reader: ${toAscii(note.targetReader)}`,
+      `- Reader win: ${toAscii(note.readerWin)}`,
+      `- Evidence: ${toAscii(note.evidence)}`,
+      `- Channels: ${toAscii(note.primaryChannel)} primary; ${toAscii(note.secondaryChannel)} secondary`,
+      `- Field note URL: ${getFieldNoteUrl(note)}`,
+      ''
+    ]),
+    '## Newsletter',
+    `- Offer: ${toAscii(newsletterOffer.primaryCta || '')}`,
+    `- Privacy note: ${toAscii(newsletterOffer.privacyNote || '')}`,
+    `- Newsletter URL: ${NEWSLETTER_URL}`,
+    ''
+  ];
+  return lines.join('\n');
+};
+
+const buildNewsletterMarkdown = (newsletterOffer, notes) => {
+  const lines = [
+    `# ${toAscii(newsletterOffer.name || 'Newsletter')}`,
+    '',
+    `> ${toAscii(newsletterOffer.promise || '')}`,
+    '',
+    `Cadence: ${toAscii(newsletterOffer.cadence || '')}`,
+    `Signup CTA: ${toAscii(newsletterOffer.primaryCta || '')}`,
+    `Canonical URL: ${NEWSLETTER_URL}`,
+    '',
+    '## What Subscribers Receive',
+    '- One weekly digest of public AI-agent build notes.',
+    '- Links to public field notes, project pages, crawler files, and release evidence.',
+    '- Reusable checklists for public-surface review, thumbnails, tracking, and deployment gates.',
+    '',
+    '## Current Capture Mode',
+    toAscii(newsletterOffer.privacyNote || ''),
+    '',
+    '## First 14 Notes',
+    ...notes.map((note) => `- Day ${note.day}: [${toAscii(note.title)}](${getFieldNoteUrl(note)})`),
+    ''
+  ];
   return lines.join('\n');
 };
 
@@ -710,6 +829,16 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
       title: 'chrome-extension-stats.json',
       url: `${SITE_BASE}/docs/chrome-extension-stats.json`,
       description: 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'
+    },
+    {
+      title: 'AI Agent Field Notes',
+      url: FIELD_NOTES_INDEX_URL,
+      description: '14-day daily-post, thumbnail, distribution, and newsletter experiment plan.'
+    },
+    {
+      title: 'Newsletter',
+      url: NEWSLETTER_URL,
+      description: 'Weekly proof-pack offer and current manual signup path.'
     },
     {
       title: 'geo.txt',
@@ -977,6 +1106,8 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
     formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'),
+    formatLinkLine('AI Agent Field Notes', FIELD_NOTES_INDEX_URL, '14-day daily-post experiment for proof-backed traffic, thumbnails, and newsletter capture.'),
+    formatLinkLine('Newsletter', NEWSLETTER_URL, 'Weekly proof-pack offer with current manual signup path.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
     formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable senior CV and AI product engineer resume.'),
@@ -994,6 +1125,11 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('About', `${SITE_BASE}/#about`, 'Bio and positioning.'),
     formatLinkLine('Tech Stack', `${SITE_BASE}/#stack`, 'Tools and frameworks used across projects.'),
     formatLinkLine('Projects', `${SITE_BASE}/#projects`, 'Project cards with descriptions and tech stacks.'),
+    '',
+    '## Field Notes',
+    formatLinkLine('AI Agent Field Notes', `${SITE_BASE}/#field-notes`, 'Human-readable 14-day traffic experiment section on the homepage.'),
+    formatLinkLine('14-day field notes plan', FIELD_NOTES_INDEX_URL, 'Crawlable markdown plan for daily posts, thumbnails, channels, and newsletter CTAs.'),
+    formatLinkLine('Newsletter', NEWSLETTER_URL, 'Weekly proof-pack newsletter offer.'),
     '',
     '## Latest Updates',
     formatLinkLine('Latest', `${SITE_BASE}/#latest`, 'Recently shipped work and updates.'),
@@ -1056,6 +1192,10 @@ const buildGeo = (projects) => {
       `Canonical project pages: ${pickClusterProjects(projects, cluster, 6).map((project) => project.markdownUrl).join(', ')}`,
       ''
     ]),
+    '## Field Notes and Newsletter',
+    formatLinkLine('AI Agent Field Notes', FIELD_NOTES_INDEX_URL, '14-day daily-post experiment for proof-backed traffic, screenshot-first thumbnails, distribution, and newsletter capture.'),
+    formatLinkLine('Newsletter', NEWSLETTER_URL, 'Weekly proof-pack offer and manual signup path.'),
+    '',
     '## Projects',
     ...projects.map((project) =>
       formatLinkLine(
@@ -1103,6 +1243,11 @@ const buildLlmsFull = (projects, topProjects) => {
       `Canonical examples: ${pickClusterProjects(projects, cluster, 6).map((project) => `${project.title} (${project.markdownUrl})`).join('; ')}`,
       ''
     ]),
+    '',
+    '## Field Notes and Newsletter',
+    `AI Agent Field Notes: ${FIELD_NOTES_INDEX_URL}`,
+    `Newsletter: ${NEWSLETTER_URL}`,
+    'Purpose: a 14-day proof-backed publishing experiment with daily notes, screenshot-first thumbnails, distribution channels, and a weekly proof-pack CTA.',
     '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -1177,6 +1322,8 @@ const buildAgentContext = (projects, topProjects) => {
     `- ${SITE_BASE}/geo.txt`,
     `- ${SITE_BASE}/schema.jsonld`,
     `- ${SITE_BASE}/docs/chrome-extension-stats.json`,
+    `- ${FIELD_NOTES_INDEX_URL}`,
+    `- ${NEWSLETTER_URL}`,
     `- ${RESUME_URL}`,
     '',
     '## Suggested Public Reading Order',
@@ -1184,6 +1331,7 @@ const buildAgentContext = (projects, topProjects) => {
     '- llms.txt is the compact orientation pass.',
     '- llms-full.txt is the expanded memory pass.',
     '- geo.txt is optimized for retrieval-style project summaries.',
+    '- AI Agent Field Notes is the public daily-post experiment and newsletter capture plan.',
     '- Project markdown pages are the canonical detail pages for evidence and links.',
     '- The home page is the human-readable overview and contact route.',
     '',
@@ -1252,7 +1400,9 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/llms.txt`,
           `${SITE_BASE}/llms-full.txt`,
           `${SITE_BASE}/geo.txt`,
-          `${SITE_BASE}/schema.jsonld`
+          `${SITE_BASE}/schema.jsonld`,
+          FIELD_NOTES_INDEX_URL,
+          NEWSLETTER_URL
         ],
         projectCitationRule: 'Use the concrete project markdown URLs listed in allProjects and canonicalProjects.',
         publicEvidenceOnly: true,
@@ -1268,6 +1418,8 @@ const buildAgentDiscovery = (projects, topProjects) => {
         { label: 'Agent context', url: `${SITE_BASE}/agent-context.md`, mediaType: 'text/markdown' },
         { label: 'Structured data graph', url: `${SITE_BASE}/schema.jsonld`, mediaType: 'application/ld+json' },
         { label: 'Sitemap', url: `${SITE_BASE}/sitemap.xml`, mediaType: 'application/xml' },
+        { label: 'AI Agent Field Notes', url: FIELD_NOTES_INDEX_URL, mediaType: 'text/markdown' },
+        { label: 'Newsletter offer', url: NEWSLETTER_URL, mediaType: 'text/markdown' },
         { label: 'Resume PDF', url: RESUME_URL, mediaType: 'application/pdf' },
         { label: 'Senior CV resume PDF', url: SENIOR_CV_RESUME_URL, mediaType: 'application/pdf' }
       ],
@@ -1293,7 +1445,9 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/llms-full.txt`,
           `${SITE_BASE}/geo.txt`,
           `${SITE_BASE}/schema.jsonld`,
-          `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
+          `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`,
+          FIELD_NOTES_INDEX_URL,
+          NEWSLETTER_URL
         ]
       },
       topicalClusters: TOPICAL_CLUSTERS.map((cluster) => ({
@@ -1405,7 +1559,9 @@ const buildSchemaJsonld = (projects) => {
         `${SITE_BASE}/llms-full.txt`,
         `${SITE_BASE}/geo.txt`,
         `${SITE_BASE}/schema.jsonld`,
-        `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
+        `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`,
+        FIELD_NOTES_INDEX_URL,
+        NEWSLETTER_URL
       ],
       speakable: {
         '@type': 'SpeakableSpecification',
@@ -1480,8 +1636,31 @@ const buildSchemaJsonld = (projects) => {
           name: 'Agent context',
           url: `${SITE_BASE}/agent-context.md`,
           encodingFormat: 'text/markdown'
+        },
+        {
+          '@type': 'Dataset',
+          name: 'AI Agent Field Notes',
+          url: FIELD_NOTES_INDEX_URL,
+          encodingFormat: 'text/markdown'
+        },
+        {
+          '@type': 'Dataset',
+          name: 'Newsletter offer',
+          url: NEWSLETTER_URL,
+          encodingFormat: 'text/markdown'
         }
       ]
+    },
+    {
+      '@type': 'CreativeWork',
+      '@id': `${SITE_BASE}/#field-notes-plan`,
+      name: 'AI Agent Field Notes 14-day experiment',
+      description:
+        'Public daily-post plan for proof-backed AI-agent field notes, screenshot-first thumbnails, newsletter capture, and deployment checks.',
+      url: FIELD_NOTES_INDEX_URL,
+      author: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
+      creator: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
+      isAccessibleForFree: true
     },
     {
       '@type': 'ItemList',
@@ -1511,7 +1690,7 @@ const buildSchemaJsonld = (projects) => {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
 };
 
-const buildSitemap = (projects) => {
+const buildSitemap = (projects, fieldNotes) => {
   const today = new Date().toISOString().split('T')[0];
   const urls = [
     { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
@@ -1522,8 +1701,16 @@ const buildSitemap = (projects) => {
     { loc: `${SITE_BASE}/geo.txt`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/schema.jsonld`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/docs/chrome-extension-stats.json`, lastmod: today, changefreq: 'weekly', priority: '0.5' },
+    { loc: FIELD_NOTES_INDEX_URL, lastmod: today, changefreq: 'weekly', priority: '0.6' },
+    { loc: NEWSLETTER_URL, lastmod: today, changefreq: 'weekly', priority: '0.5' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     { loc: SENIOR_CV_RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
+    ...fieldNotes.map((note) => ({
+      loc: getFieldNoteUrl(note),
+      lastmod: today,
+      changefreq: 'weekly',
+      priority: '0.5'
+    })),
     ...projects.map((project) => ({
       loc: project.markdownUrl,
       lastmod: today,
@@ -1552,8 +1739,12 @@ const main = async () => {
   const projects = extractProjects(sourceFile);
   tractionSnapshot = extractClawHubSnapshot(sourceFile);
   const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);
+  const fieldNotes = extractJsonVariable(sourceFile, 'FIELD_NOTES_PLAN', []);
+  const newsletterOffer = extractJsonVariable(sourceFile, 'NEWSLETTER_OFFER', {});
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
+  await fs.rm(FIELD_NOTES_OUTPUT_DIR, { recursive: true, force: true });
+  await fs.mkdir(FIELD_NOTES_OUTPUT_DIR, { recursive: true });
   await fs.writeFile(CHROME_EXTENSION_STATS_PATH, `${JSON.stringify(chromeExtensionStats, null, 2)}\n`, 'utf8');
 
   const slugCounts = new Map();
@@ -1580,6 +1771,17 @@ const main = async () => {
       markdownUrl
     });
   }
+
+  await fs.writeFile(
+    path.resolve(FIELD_NOTES_OUTPUT_DIR, `${FIELD_NOTES_INDEX_SLUG}.md`),
+    buildFieldNotesIndexMarkdown(fieldNotes, newsletterOffer),
+    'utf8'
+  );
+  for (const note of fieldNotes) {
+    const notePath = path.resolve(FIELD_NOTES_OUTPUT_DIR, `${slugify(note.slug || note.title)}.md`);
+    await fs.writeFile(notePath, buildFieldNoteMarkdown(note), 'utf8');
+  }
+  await fs.writeFile(path.resolve(ROOT_DIR, 'newsletter.md'), buildNewsletterMarkdown(newsletterOffer, fieldNotes), 'utf8');
 
   const topProjectTitles = [
     'GitHub + ClawHub Downloads Tracker',
@@ -1611,7 +1813,7 @@ const main = async () => {
   await fs.writeFile(AGENT_DISCOVERY_PATH, agentDiscoveryContent, 'utf8');
   const schemaJsonldContent = buildSchemaJsonld(projectEntries);
   await fs.writeFile(SCHEMA_JSONLD_PATH, schemaJsonldContent, 'utf8');
-  const sitemapContent = buildSitemap(projectEntries);
+  const sitemapContent = buildSitemap(projectEntries, fieldNotes);
   await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');
   const today = new Date().toISOString().split('T')[0];
   const staticHomeSnapshot = buildStaticHomeSnapshot(projectEntries, topProjects);

@@ -4,7 +4,7 @@
     "src": "favicon.svg"
   },
   "index.html": {
-    "file": "assets/index-B_DSrkMt.js",
+    "file": "assets/index-CgJ6IhtD.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -16,12 +16,12 @@
     ]
   },
   "index.tsx": {
-    "file": "assets/index-KW2--SSz.js",
+    "file": "assets/index-BpcuIJdS.js",
     "name": "index",
     "src": "index.tsx",
     "isDynamicEntry": true,
     "css": [
-      "assets/index-CJzMA-on.css"
+      "assets/index-GLBC0eS2.css"
     ]
   }
 }

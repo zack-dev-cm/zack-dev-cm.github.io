@@ -130,6 +130,31 @@ export interface ChromeExtensionStatsSnapshot {
   extensions: ChromeExtensionStat[];
 }
 
+export interface FieldNotePlan {
+  day: number;
+  slug: string;
+  title: string;
+  format: 'Debug Autopsy' | 'Reusable Template' | 'Proof Dashboard';
+  targetReader: string;
+  readerWin: string;
+  evidence: string;
+  primaryChannel: string;
+  secondaryChannel: string;
+  thumbnailDirection: string;
+  writerBrief: string;
+  cta: string;
+}
+
+export interface NewsletterOffer {
+  name: string;
+  promise: string;
+  cadence: string;
+  primaryCta: string;
+  mailtoSubject: string;
+  mailtoBody: string;
+  privacyNote: string;
+}
+
 export interface PortfolioUpdates {
   version?: number;
   lastSyncedAt?: string | null;

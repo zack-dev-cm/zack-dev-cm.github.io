@@ -60,6 +60,8 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [agent-context.md](https://zack-dev-cm.github.io/agent-context.md): Quick facts, contact info, and key project highlights.
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
 - [chrome-extension-stats.json](https://zack-dev-cm.github.io/docs/chrome-extension-stats.json): Dated Chrome Web Store detail-page snapshot for the public extension tracker.
+- [AI Agent Field Notes](https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md): 14-day daily-post experiment for proof-backed traffic, thumbnails, and newsletter capture.
+- [Newsletter](https://zack-dev-cm.github.io/docs/newsletter.md): Weekly proof-pack offer with current manual signup path.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 - [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
 - [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf): ATS-readable senior CV and AI product engineer resume.
@@ -152,6 +154,11 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [About](https://zack-dev-cm.github.io/#about): Bio and positioning.
 - [Tech Stack](https://zack-dev-cm.github.io/#stack): Tools and frameworks used across projects.
 - [Projects](https://zack-dev-cm.github.io/#projects): Project cards with descriptions and tech stacks.
+
+## Field Notes
+- [AI Agent Field Notes](https://zack-dev-cm.github.io/#field-notes): Human-readable 14-day traffic experiment section on the homepage.
+- [14-day field notes plan](https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md): Crawlable markdown plan for daily posts, thumbnails, channels, and newsletter CTAs.
+- [Newsletter](https://zack-dev-cm.github.io/docs/newsletter.md): Weekly proof-pack newsletter offer.
 
 ## Latest Updates
 - [Latest](https://zack-dev-cm.github.io/#latest): Recently shipped work and updates.

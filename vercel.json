@@ -1,0 +1,40 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "docs",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "env": {
+    "VITE_ENABLE_VERCEL_ANALYTICS": "true"
+  },
+  "rewrites": [
+    {
+      "source": "/newsletter",
+      "destination": "/"
+    },
+    {
+      "source": "/field-notes",
+      "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

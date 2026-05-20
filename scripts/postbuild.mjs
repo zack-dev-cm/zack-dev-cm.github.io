@@ -20,11 +20,13 @@ const extraFiles = [
   'agent-discovery.json',
   'geo.txt',
   'schema.jsonld',
+  'newsletter.md',
   'metadata.json',
   'favicon.svg'
 ];
 const extraDirectories = [
   { source: 'projects', destination: 'projects' },
+  { source: 'field-notes', destination: 'field-notes' },
   { source: 'codex-docs', destination: 'codex' }
 ];
 

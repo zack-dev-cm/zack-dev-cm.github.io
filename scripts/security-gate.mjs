@@ -53,6 +53,7 @@ const PUBLIC_ROOT_FILES = new Set([
   'llms-full.txt',
   'llms.txt',
   'metadata.json',
+  'newsletter.md',
   'robots.txt',
   'schema.jsonld',
   'sitemap.xml',
@@ -60,13 +61,16 @@ const PUBLIC_ROOT_FILES = new Set([
 
 const PUBLIC_SOURCE_FILES = new Set([
   'App.tsx',
+  'components/Sidebar.tsx',
   'components/ProjectCard.tsx',
   'components/ProjectModal.tsx',
   'constants.ts',
+  'types.ts',
 ]);
 
 const PUBLIC_PREFIXES = [
   'docs/',
+  'field-notes/',
   'projects/',
   'public/',
 ];

@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect, useRef, useCallback, useDeferredValue } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Sidebar } from './components/Sidebar';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
@@ -15,13 +16,17 @@ import {
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
   LATEST_UPDATE_EXCLUDE_PATTERNS,
   CLAWHUB_DOWNLOAD_STATS,
-  CHROME_EXTENSION_STATS
+  CHROME_EXTENSION_STATS,
+  FIELD_NOTES_PLAN,
+  NEWSLETTER_OFFER,
+  TRAFFIC_EXPERIMENT_GOALS
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { Project, PortfolioUpdates, LatestUpdate } from './types';
 
 const FEATURED_PROJECT_IDS = [70, 53, 43, 44] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
+const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
 
 const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
   70: {
@@ -451,6 +456,7 @@ const COMMAND_NAV_ITEMS = [
   { label: 'Proof', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
+  { label: 'Notes', href: '#field-notes' },
   { label: 'Explore', href: '#projects' }
 ];
 
@@ -464,6 +470,7 @@ const App: React.FC = () => {
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
 
@@ -628,6 +635,13 @@ const App: React.FC = () => {
     ).length;
     const averageRating = CHROME_EXTENSION_STATS.averageRating.toFixed(2);
     return { reportedRows, sourcePackRows, averageRating };
+  }, []);
+
+  const fieldNoteFormatCounts = useMemo(() => {
+    return FIELD_NOTES_PLAN.reduce<Record<string, number>>((counts, note) => {
+      counts[note.format] = (counts[note.format] ?? 0) + 1;
+      return counts;
+    }, {});
   }, []);
 
   const heroEvidenceRows = useMemo(
@@ -817,6 +831,21 @@ const App: React.FC = () => {
       await copyToClipboard(shareUrl, `latest:${slug}`);
     },
     [buildShareUrl, copyToClipboard, updateUrlParams]
+  );
+
+  const handleNewsletterSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const body = newsletterEmail.trim()
+        ? `${NEWSLETTER_OFFER.mailtoBody}\n\nSubscriber email: ${newsletterEmail.trim()}`
+        : NEWSLETTER_OFFER.mailtoBody;
+      const params = new URLSearchParams({
+        subject: NEWSLETTER_OFFER.mailtoSubject,
+        body
+      });
+      window.location.href = `mailto:${SOCIAL_LINKS.email}?${params.toString()}`;
+    },
+    [newsletterEmail]
   );
 
   const toggleLatestExpanded = useCallback((slug: string) => {
@@ -1414,6 +1443,97 @@ const App: React.FC = () => {
           </Section>
 
           <Section
+            id="field-notes"
+            eyebrow="Traffic Experiment"
+            title={NEWSLETTER_OFFER.name}
+            description="A 14-day proof-first publishing loop for daily posts, screenshot-led thumbnails, newsletter capture, and Vercel-ready deployment checks."
+          >
+            <div className="field-notes-layout">
+              <article className="panel panel--accent newsletter-panel">
+                <p className="panel__eyebrow">Newsletter offer</p>
+                <h3>{NEWSLETTER_OFFER.primaryCta}</h3>
+                <p>{NEWSLETTER_OFFER.promise}</p>
+                <p>{NEWSLETTER_OFFER.cadence}</p>
+                <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
+                  <label htmlFor="newsletter-email">Email for manual signup</label>
+                  <div className="newsletter-form__row">
+                    <input
+                      id="newsletter-email"
+                      type="email"
+                      value={newsletterEmail}
+                      onChange={(event) => setNewsletterEmail(event.target.value)}
+                      placeholder="you@example.com"
+                      autoComplete="email"
+                    />
+                    <button type="submit" className="button button--primary">
+                      Join
+                    </button>
+                  </div>
+                </form>
+                <p className="newsletter-panel__note">{NEWSLETTER_OFFER.privacyNote}</p>
+              </article>
+
+              <div className="proof-grid field-notes-goals" aria-label="Traffic experiment goals">
+                {TRAFFIC_EXPERIMENT_GOALS.map((goal) => (
+                  <div key={goal.label} className="proof-chip">
+                    <span>{goal.label}</span>
+                    <strong>{goal.value}</strong>
+                    <em>{goal.detail}</em>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="chip-row" aria-label="Field note format mix">
+              {Object.entries(fieldNoteFormatCounts).map(([format, count]) => (
+                <span key={format} className="pill">
+                  {count}x {format}
+                </span>
+              ))}
+              <span className="pill pill--accent">Screenshot-first thumbnails</span>
+              <span className="pill pill--accent">Weekly digest CTA</span>
+            </div>
+
+            <div className="field-notes-grid" aria-label="14-day AI Agent Field Notes plan">
+              {FIELD_NOTES_PLAN.map((note) => (
+                <article key={note.slug} className="field-note-card">
+                  <div className="field-note-card__header">
+                    <span>Day {note.day}</span>
+                    <em>{note.format}</em>
+                  </div>
+                  <h3>{note.title}</h3>
+                  <p>{note.readerWin}</p>
+                  <dl className="field-note-card__meta">
+                    <div>
+                      <dt>Reader</dt>
+                      <dd>{note.targetReader}</dd>
+                    </div>
+                    <div>
+                      <dt>Evidence</dt>
+                      <dd>{note.evidence}</dd>
+                    </div>
+                    <div>
+                      <dt>Distribution</dt>
+                      <dd>
+                        {note.primaryChannel} primary, {note.secondaryChannel} secondary
+                      </dd>
+                    </div>
+                  </dl>
+                  <details className="field-note-card__detail">
+                    <summary>Thumbnail and writer brief</summary>
+                    <p>{note.thumbnailDirection}</p>
+                    <p>{note.writerBrief}</p>
+                  </details>
+                  <span className="project-card__open">
+                    {note.cta}
+                    <span>-&gt;</span>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section
             id="latest"
             eyebrow="Recent"
             title="Latest Updates"
@@ -1770,6 +1890,7 @@ const App: React.FC = () => {
       )}
 
       <FloatingButtons telegramUrl={SOCIAL_LINKS.telegram} resumeUrl={SOCIAL_LINKS.resume} />
+      {ENABLE_VERCEL_ANALYTICS && <Analytics />}
     </div>
   );
 };

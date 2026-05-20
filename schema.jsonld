@@ -151,7 +151,9 @@
         "https://zack-dev-cm.github.io/llms-full.txt",
         "https://zack-dev-cm.github.io/geo.txt",
         "https://zack-dev-cm.github.io/schema.jsonld",
-        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+        "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
+        "https://zack-dev-cm.github.io/docs/newsletter.md"
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -484,8 +486,34 @@
           "name": "Agent context",
           "url": "https://zack-dev-cm.github.io/agent-context.md",
           "encodingFormat": "text/markdown"
+        },
+        {
+          "@type": "Dataset",
+          "name": "AI Agent Field Notes",
+          "url": "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
+          "encodingFormat": "text/markdown"
+        },
+        {
+          "@type": "Dataset",
+          "name": "Newsletter offer",
+          "url": "https://zack-dev-cm.github.io/docs/newsletter.md",
+          "encodingFormat": "text/markdown"
         }
       ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://zack-dev-cm.github.io/#field-notes-plan",
+      "name": "AI Agent Field Notes 14-day experiment",
+      "description": "Public daily-post plan for proof-backed AI-agent field notes, screenshot-first thumbnails, newsletter capture, and deployment checks.",
+      "url": "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
+      "author": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      },
+      "creator": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      },
+      "isAccessibleForFree": true
     },
     {
       "@type": "ItemList",

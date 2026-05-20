@@ -44,6 +44,10 @@ Canonical project pages: https://zack-dev-cm.github.io/projects/github-repo-summ
 Query intents: Telegram mini app AI engineer portfolio; Chrome extension AI product engineer; crawlable Telegram mini app SEO GEO bridge
 Canonical project pages: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md, https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md, https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md, https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md, https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md, https://zack-dev-cm.github.io/projects/localarchive.md
 
+## Field Notes and Newsletter
+- [AI Agent Field Notes](https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md): 14-day daily-post experiment for proof-backed traffic, screenshot-first thumbnails, distribution, and newsletter capture.
+- [Newsletter](https://zack-dev-cm.github.io/docs/newsletter.md): Weekly proof-pack offer and manual signup path.
+
 ## Projects
 - [Android Remote Control with VLM AI Agents](https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md): Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type. Benchmarks: Components: 2 (Android client + Python server); Supported actions: 7 (tap, scroll, text, home, back, overview, screenshot); API endpoints: 8+ (healthz, metrics, devices, actions, screenshots, debug).
 - [Control VLM-LLM Agent Silently With Your Breath](https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md): Start/stop a neural agent with breathing patterns - no voice commands needed.

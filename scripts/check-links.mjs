@@ -21,6 +21,7 @@ const PUBLIC_URL_SOURCE_FILES = [
   'llms.txt',
   'llms-full.txt',
   'metadata.json',
+  'newsletter.md',
   'schema.jsonld',
   'sitemap.xml',
   'docs/index.html',
@@ -35,6 +36,7 @@ const PUBLIC_URL_SOURCE_FILES = [
   'docs/sitemap.xml',
 ];
 const PUBLIC_URL_SOURCE_DIRECTORIES = [
+  'field-notes',
   'projects',
   'codex-docs',
   'public',

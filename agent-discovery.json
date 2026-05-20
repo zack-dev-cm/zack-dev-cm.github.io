@@ -51,7 +51,9 @@
       "https://zack-dev-cm.github.io/llms.txt",
       "https://zack-dev-cm.github.io/llms-full.txt",
       "https://zack-dev-cm.github.io/geo.txt",
-      "https://zack-dev-cm.github.io/schema.jsonld"
+      "https://zack-dev-cm.github.io/schema.jsonld",
+      "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
+      "https://zack-dev-cm.github.io/docs/newsletter.md"
     ],
     "projectCitationRule": "Use the concrete project markdown URLs listed in allProjects and canonicalProjects.",
     "publicEvidenceOnly": true,
@@ -97,6 +99,16 @@
       "label": "Sitemap",
       "url": "https://zack-dev-cm.github.io/sitemap.xml",
       "mediaType": "application/xml"
+    },
+    {
+      "label": "AI Agent Field Notes",
+      "url": "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
+      "mediaType": "text/markdown"
+    },
+    {
+      "label": "Newsletter offer",
+      "url": "https://zack-dev-cm.github.io/docs/newsletter.md",
+      "mediaType": "text/markdown"
     },
     {
       "label": "Resume PDF",
@@ -262,7 +274,9 @@
       "https://zack-dev-cm.github.io/llms-full.txt",
       "https://zack-dev-cm.github.io/geo.txt",
       "https://zack-dev-cm.github.io/schema.jsonld",
-      "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+      "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+      "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
+      "https://zack-dev-cm.github.io/docs/newsletter.md"
     ]
   },
   "topicalClusters": [

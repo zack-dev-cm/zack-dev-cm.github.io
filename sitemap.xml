@@ -49,6 +49,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/newsletter.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -59,6 +71,90 @@
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/stale-portfolio-stats-debug.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/public-surface-checklist-before-ai-portfolio-publish.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/clawhub-downloads-dashboard-explained.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/resume-pdf-drift-after-static-build.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/chrome-web-store-snapshot-without-overclaiming.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/agent-discovery-files-that-crawlers-can-read.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/public-proof-ladder-for-ai-projects.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/cv-repro-lab-release-gates.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/launch-automation-without-private-data.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/thumbnail-system-for-technical-field-notes.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/newsletter-proof-pack-offer.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/vercel-preview-gate-for-portfolio-publishing.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/security-link-and-public-bleed-checks.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zack-dev-cm.github.io/docs/field-notes/fourteen-day-traffic-retro.md</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md</loc>

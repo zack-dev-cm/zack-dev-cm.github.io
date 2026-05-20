@@ -6,6 +6,7 @@ provider credentials, and internal brand voice notes.
 
 ## Files
 - `marketing/scheduled-posts.json`: Example source of truth for upcoming posts.
+- `marketing/daily-field-notes-system.md`: Public-safe writer, thumbnail, newsletter, and Vercel gates for the 14-day traffic experiment.
 - `scripts/print-openclaw-cron.mjs`: Helper that prints a generic schedule preview for each post.
 
 ## Configuration

@@ -17,6 +17,8 @@ Entity keywords: Computer Vision, OCR, Segmentation, Object Detection, Deep Lear
 - https://zack-dev-cm.github.io/geo.txt
 - https://zack-dev-cm.github.io/schema.jsonld
 - https://zack-dev-cm.github.io/docs/chrome-extension-stats.json
+- https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md
+- https://zack-dev-cm.github.io/docs/newsletter.md
 - https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf
 
 ## Suggested Public Reading Order
@@ -24,6 +26,7 @@ Entity keywords: Computer Vision, OCR, Segmentation, Object Detection, Deep Lear
 - llms.txt is the compact orientation pass.
 - llms-full.txt is the expanded memory pass.
 - geo.txt is optimized for retrieval-style project summaries.
+- AI Agent Field Notes is the public daily-post experiment and newsletter capture plan.
 - Project markdown pages are the canonical detail pages for evidence and links.
 - The home page is the human-readable overview and contact route.
 

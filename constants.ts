@@ -1,5 +1,15 @@
 import { resolveAssetUrl } from './utils/assets';
-import type { Project, Company, SocialLinks, AuthorInfo, LatestUpdate, ClawHubDownloadStat, ChromeExtensionStatsSnapshot } from './types';
+import type {
+  Project,
+  Company,
+  SocialLinks,
+  AuthorInfo,
+  LatestUpdate,
+  ClawHubDownloadStat,
+  ChromeExtensionStatsSnapshot,
+  FieldNotePlan,
+  NewsletterOffer
+} from './types';
 
 const LOCAL_IMG_BASE = resolveAssetUrl('images');
 const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
@@ -41,6 +51,253 @@ export const KEY_HIGHLIGHTS: string[] = [
 
 export const TECH_STACK: string[] = [
   "Python", "PyTorch", "OpenAI APIs", "VLMs", "LLMs", "OpenCV", "TensorFlow", "Keras", "CLIP", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
+];
+
+export const NEWSLETTER_OFFER: NewsletterOffer = {
+  name: "AI Agent Field Notes",
+  promise:
+    "Weekly proof-backed notes on building, debugging, and publishing AI-agent products without leaking private context.",
+  cadence: "One digest every Sunday while the 45-day traffic experiment is active.",
+  primaryCta: "Get the weekly proof pack",
+  mailtoSubject: "Subscribe me to AI Agent Field Notes",
+  mailtoBody:
+    "Hi Zakhar, please add me to AI Agent Field Notes. I want the weekly proof pack on AI-agent builds, public-surface checks, and launch evidence.",
+  privacyNote:
+    "Email collection stays manual until a newsletter provider is connected; no public repo stores subscriber data."
+};
+
+export const TRAFFIC_EXPERIMENT_GOALS = [
+  { label: "Day 14", value: "25/day", detail: "baseline visit target before scaling daily posts" },
+  { label: "Day 30", value: "30/day", detail: "minimum 7-day average before keeping the format" },
+  { label: "Day 45", value: "75/day", detail: "rework threshold for channel and CTA quality" },
+  { label: "Day 60", value: "100/day", detail: "target 7-day average for the public publishing loop" }
+];
+
+export const FIELD_NOTES_PLAN: FieldNotePlan[] = [
+  {
+    day: 1,
+    slug: "stale-portfolio-stats-debug",
+    title: "Why the portfolio stats went stale and how the tracker was fixed",
+    format: "Debug Autopsy",
+    targetReader: "AI product builders who publish public proof from changing marketplace data.",
+    readerWin: "A short checklist for finding drift between source constants, generated files, and the live static site.",
+    evidence: "ClawHub tracker refresh from stale public values to 9,587 downloads across 40 skills.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Annotated real stats panel with before and after labels; GPT Image background may add subtle dashboard lighting only.",
+    writerBrief:
+      "Lead with the public symptom, show the exact verification path, and end with a reusable stale-data checklist.",
+    cta: "Read the Downloads Tracker case study"
+  },
+  {
+    day: 2,
+    slug: "public-surface-checklist-before-ai-portfolio-publish",
+    title: "A public-surface checklist before publishing AI portfolio updates",
+    format: "Reusable Template",
+    targetReader: "Engineers who want portfolio proof without leaking private operational detail.",
+    readerWin: "A copyable gate for links, PDFs, generated pages, crawlable files, and screenshots.",
+    evidence: "Portfolio security gate, link checks, resume PDF regeneration, and generated markdown surfaces.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "GitHub",
+    thumbnailDirection:
+      "Checklist over a clean terminal screenshot; no synthetic secrets, tokens, or private paths in the image.",
+    writerBrief:
+      "Make the checklist the artifact. Keep examples public and avoid any internal workflow claims.",
+    cta: "Download the resume or inspect agent-discovery.json"
+  },
+  {
+    day: 3,
+    slug: "clawhub-downloads-dashboard-explained",
+    title: "What the ClawHub downloads dashboard actually proves",
+    format: "Proof Dashboard",
+    targetReader: "Hiring managers and founders evaluating public marketplace traction.",
+    readerWin: "A practical distinction between listing downloads, users, stars, versions, and adoption claims.",
+    evidence: "Tracked ClawHub rows, versions, stars, and checkedAt dates.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Real dashboard crop with callouts for downloads, versions, stars, and checked date.",
+    writerBrief:
+      "State what the numbers prove and what they do not prove. Avoid user-count language.",
+    cta: "Open the ClawHub tracker"
+  },
+  {
+    day: 4,
+    slug: "resume-pdf-drift-after-static-build",
+    title: "How resume PDFs drift from portfolio copy",
+    format: "Debug Autopsy",
+    targetReader: "Developers maintaining public resumes, generated docs, and static deployment artifacts.",
+    readerWin: "A repeatable check for HTML resume text, PDF text extraction, and deployed PDF headers.",
+    evidence: "AI product and senior CV resume HTML/PDF regeneration plus live Last-Modified verification.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "GitHub",
+    thumbnailDirection:
+      "PDF preview beside extracted text snippets; use real document frames, not glossy AI art.",
+    writerBrief:
+      "Explain the failure mode first, then give the exact verification sequence.",
+    cta: "Download the current resume PDF"
+  },
+  {
+    day: 5,
+    slug: "chrome-web-store-snapshot-without-overclaiming",
+    title: "Chrome Web Store snapshots without overclaiming adoption",
+    format: "Proof Dashboard",
+    targetReader: "Extension builders and product engineers who need credible launch evidence.",
+    readerWin: "A pattern for separating reported rows, rollup users, average ratings, and missing values.",
+    evidence: "Chrome Web Store tracker snapshot with 208 publisher rollup users.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Table screenshot with muted callouts for reported and not-reported rows.",
+    writerBrief:
+      "Keep the tone conservative. Explain source quality and missing rows.",
+    cta: "Open the Chrome extension stats tracker"
+  },
+  {
+    day: 6,
+    slug: "agent-discovery-files-that-crawlers-can-read",
+    title: "The files that make a portfolio readable to agents",
+    format: "Reusable Template",
+    targetReader: "Developers adding llms.txt, JSON-LD, and agent discovery manifests to public sites.",
+    readerWin: "A minimal file map for homepage HTML, llms.txt, geo.txt, schema JSON-LD, and agent-discovery.json.",
+    evidence: "Generated crawlable files in the portfolio build pipeline.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "GitHub",
+    thumbnailDirection:
+      "File map screenshot with five linked public files and one highlighted crawl path.",
+    writerBrief:
+      "Teach the reader where each file sits and what citation job it handles.",
+    cta: "Open agent-discovery.json"
+  },
+  {
+    day: 7,
+    slug: "public-proof-ladder-for-ai-projects",
+    title: "A public proof ladder for AI projects",
+    format: "Reusable Template",
+    targetReader: "Solo builders turning prototypes into credible public case studies.",
+    readerWin: "A ranking of proof quality from screenshots to public listings to dated metrics.",
+    evidence: "Featured projects, benchmarks, public links, marketplace listings, and generated case studies.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Stacked proof ladder using real project cards and metric chips.",
+    writerBrief:
+      "Frame the ladder as a decision aid, not a claim that every project has traction.",
+    cta: "Browse featured solutions"
+  },
+  {
+    day: 8,
+    slug: "cv-repro-lab-release-gates",
+    title: "Release gates for a reproducible computer-vision lab",
+    format: "Proof Dashboard",
+    targetReader: "Computer-vision engineers productizing experiments and review dashboards.",
+    readerWin: "A release-gate checklist for benchmark evidence, promotion notes, and public launch copy.",
+    evidence: "CV Repro Lab skill traction and review-dashboard positioning.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "GitHub",
+    thumbnailDirection:
+      "Real CV systems map with release-gate chips layered on top.",
+    writerBrief:
+      "Connect CV rigor to launch evidence. Do not present marketplace downloads as model quality.",
+    cta: "Open the CV Repro Lab case study"
+  },
+  {
+    day: 9,
+    slug: "launch-automation-without-private-data",
+    title: "Launch automation without publishing private data",
+    format: "Debug Autopsy",
+    targetReader: "Founders and engineers who automate launch workflows but need public-safe artifacts.",
+    readerWin: "A practical split between private operations, public proof, and shareable artifacts.",
+    evidence: "Publish guard, browser proof, and artifact redaction project surfaces.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Three-column public/private/review diagram over a sanitized release checklist.",
+    writerBrief:
+      "Make the boundary useful. Avoid mentioning private client names, account details, or hidden docs.",
+    cta: "Open Publish Guard"
+  },
+  {
+    day: 10,
+    slug: "thumbnail-system-for-technical-field-notes",
+    title: "A thumbnail system for technical field notes",
+    format: "Reusable Template",
+    targetReader: "Technical founders and builders who need trustworthy post visuals.",
+    readerWin: "A reusable thumbnail brief that starts from real artifacts before using generated imagery.",
+    evidence: "Portfolio screenshots, stats panels, project cards, and generated thumbnail prompt directions.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Thumbnail template showing screenshot-first layout, callout band, and optional GPT Image texture area.",
+    writerBrief:
+      "Explain why real UI evidence earns trust faster than generic generated art.",
+    cta: "Subscribe to AI Agent Field Notes"
+  },
+  {
+    day: 11,
+    slug: "newsletter-proof-pack-offer",
+    title: "Turning a portfolio into a weekly proof pack",
+    format: "Reusable Template",
+    targetReader: "Developers adding newsletter capture to a proof-heavy portfolio.",
+    readerWin: "A lightweight newsletter promise, CTA, cadence, and manual capture fallback.",
+    evidence: "AI Agent Field Notes offer, weekly digest cadence, and mailto capture path.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Digest preview with three proof cards and one clear weekly CTA.",
+    writerBrief:
+      "Make the newsletter useful without promising traffic, revenue, or private access.",
+    cta: "Get the weekly proof pack"
+  },
+  {
+    day: 12,
+    slug: "vercel-preview-gate-for-portfolio-publishing",
+    title: "A Vercel preview gate for portfolio publishing",
+    format: "Reusable Template",
+    targetReader: "Builders who want branch previews, analytics, and a static output deploy path.",
+    readerWin: "A Vercel launch checklist for output directory, canonical host, rewrites, analytics, and rollback.",
+    evidence: "vercel.json, npm build output to docs, static markdown, and canonical URL rules.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "GitHub",
+    thumbnailDirection:
+      "Deploy checklist over a preview URL frame with no account-specific project IDs.",
+    writerBrief:
+      "Position Vercel as infrastructure, not the growth channel. Include the canonical-host warning.",
+    cta: "Review the Vercel launch checklist"
+  },
+  {
+    day: 13,
+    slug: "security-link-and-public-bleed-checks",
+    title: "The boring checks that keep public AI portfolios credible",
+    format: "Debug Autopsy",
+    targetReader: "Engineers publishing generated pages, PDFs, and machine-readable agent files.",
+    readerWin: "A compact validation stack for links, leak scans, SEO/AEO checks, and Playwright smoke tests.",
+    evidence: "validate, build, security gate, link check, audit, and E2E checks.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Terminal output checklist with pass states and one generated page preview.",
+    writerBrief:
+      "Show the public value of validation. Keep command output short and focused.",
+    cta: "Inspect the generated public files"
+  },
+  {
+    day: 14,
+    slug: "fourteen-day-traffic-retro",
+    title: "14-day traffic retro: keep, rework, or stop",
+    format: "Proof Dashboard",
+    targetReader: "Builders deciding whether a daily publishing loop is earning attention.",
+    readerWin: "A decision table for visits, subscribers, referrals, saves, and post formats.",
+    evidence: "14-day field-note experiment goals and shutdown thresholds.",
+    primaryChannel: "LinkedIn",
+    secondaryChannel: "X",
+    thumbnailDirection:
+      "Metric table with keep, rework, and stop thresholds; no fake analytics lines.",
+    writerBrief:
+      "Be blunt about what worked. If the numbers are weak, say what changes next.",
+    cta: "Subscribe for the next weekly proof pack"
+  }
 ];
 
 export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
