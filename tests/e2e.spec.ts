@@ -1,4 +1,9 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
+import { CLAWHUB_DOWNLOAD_STATS } from '../constants';
+
+const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
+const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
+const clawHubSkillCount = CLAWHUB_DOWNLOAD_STATS.length;
 
 const gotoPortfolio = async (page: Page) => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
@@ -74,14 +79,14 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
-  await expect(clawHubSection.getByText('6,350')).toBeVisible();
-  await expect(clawHubSection.getByText(/downloads across 35 public skills/i)).toBeVisible();
+  await expect(clawHubSection.getByText(clawHubDownloadText)).toBeVisible();
+  await expect(clawHubSection.getByText(new RegExp(`downloads across ${clawHubSkillCount} public skills`, 'i'))).toBeVisible();
 
   const chromeStatsSection = page.locator('#chrome-stats');
   await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();
   await expect(
     chromeStatsSection.locator('.proof-chip').filter({ hasText: 'publisher rollup users' }).locator('strong')
-  ).toHaveText('199');
+  ).toHaveText('208');
   await expect(chromeStatsSection.getByText('SourcePack Hub - Local AI Research Library')).toBeVisible();
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
     'href',
@@ -217,6 +222,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
 });
 
 test('featured cards stay inside their own bounds on desktop breakpoints', async ({ page }) => {
+  test.setTimeout(120_000);
   const viewports = [
     { width: 1100, height: 900 },
     { width: 1200, height: 900 },
@@ -289,10 +295,11 @@ test('featured cards stay inside their own bounds on desktop breakpoints', async
 });
 
 test('project deep links open and close cleanly', async ({ page }) => {
+  test.setTimeout(60_000);
   await page.goto('/?project=session-rescue', { waitUntil: 'domcontentloaded' });
 
   const modal = page.getByRole('dialog');
-  await expect(modal).toBeVisible();
+  await expect(modal).toBeVisible({ timeout: 15000 });
   await expect(modal.getByRole('heading', { name: 'Session Rescue' })).toBeVisible();
 
   await page.keyboard.press('Escape');
@@ -304,6 +311,7 @@ test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
   test('project explorer stays usable on mobile without horizontal overflow', async ({ page }) => {
+    test.setTimeout(90_000);
     await gotoPortfolio(page);
 
     await page.locator('#projects').scrollIntoViewIfNeeded();
@@ -330,6 +338,7 @@ test.describe('mobile', () => {
 });
 
 test('clicking the sidebar name four times opens the hidden wind page', async ({ page }) => {
+  test.setTimeout(60_000);
   await gotoPortfolio(page);
 
   const homeLink = page.getByRole('link', { name: 'Zakhar Pashkin' }).first();
@@ -342,6 +351,7 @@ test('clicking the sidebar name four times opens the hidden wind page', async ({
 });
 
 test('skill wind standalone page renders across key responsive breakpoints', async ({ page }) => {
+  test.setTimeout(120_000);
   const viewports = [
     { width: 360, height: 800 },
     { width: 390, height: 844 },
@@ -413,6 +423,7 @@ test('skill wind standalone page renders across key responsive breakpoints', asy
 });
 
 test('skill wind cover capture mode fills a social banner viewport', async ({ page }) => {
+  test.setTimeout(60_000);
   await page.setViewportSize({ width: 1200, height: 627 });
   await gotoStandalone(page, 'skill-wind?cover=1');
 

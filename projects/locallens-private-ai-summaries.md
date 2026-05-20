@@ -24,7 +24,7 @@ https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md
 
 ## Benchmarks & Analytics
 - Public release: v0.1.8 (Chrome Web Store listing updated 2026-05-05)
-- Chrome Web Store listing: live (Chrome Web Store detail page, 2026-05-15; user count not reported)
+- Chrome Web Store listing: live (Chrome Web Store detail page, 2026-05-18; user count not reported)
 - AI workflows: 4 (summarize, simplify, translate, safe-share cleanup)
 - Runtime posture: local browser (Chrome built-in AI surface)
 - Support pages: 4 (home, privacy, support, uninstall)

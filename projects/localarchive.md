@@ -23,7 +23,7 @@ https://zack-dev-cm.github.io/projects/localarchive.md
 - Chrome Web Store
 
 ## Benchmarks & Analytics
-- Public Chrome Web Store users: 1 (Chrome Web Store detail page, 2026-05-15)
+- Public Chrome Web Store users: 1 (Chrome Web Store detail page, 2026-05-18)
 - Chrome Web Store version: 0.1.1 (public listing updated 2026-04-23)
 - Export formats: 3 (Markdown, HTML, JSON)
 - Import path: Pocket (local migration workflow)

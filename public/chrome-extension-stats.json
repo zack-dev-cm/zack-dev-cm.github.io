@@ -1,17 +1,17 @@
 {
   "publisherName": "kaisenaiko",
   "publisherUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "checkedAt": "2026-05-15",
+  "checkedAt": "2026-05-18",
   "sourceName": "Chrome Web Store detail pages",
   "sourceUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "totalPublished": 11,
-  "totalUsers": 199,
-  "averageUsersPerExtension": 18,
+  "totalPublished": 16,
+  "totalUsers": 208,
+  "averageUsersPerExtension": 13,
   "averageRating": 5,
   "ratingCount": 4,
   "notes": [
-    "Chrome Web Store detail pages showed 11 published extensions, 199 explicitly reported users, 18 average users per extension, and 5.00 average rating from 4 reported ratings on 2026-05-15.",
-    "Chrome-Stats returned a Cloudflare challenge during the 2026-05-15 refresh, so current user counts come from Chrome Web Store detail pages instead.",
+    "Chrome Web Store detail pages showed 16 published extensions, 208 explicitly reported users, 13 average users per extension, and 5.00 average rating from 4 reported ratings on 2026-05-18.",
+    "Chrome-Stats returned a Cloudflare challenge during the 2026-05-18 refresh, so refreshed user counts, ratings, versions, update dates, categories, and sizes come from Chrome Web Store detail pages.",
     "Rows without a visible Chrome Web Store user count are treated as not reported rather than inferred into user totals. Chrome-Stats links remain as secondary/risk metadata."
   ],
   "extensions": [
@@ -19,7 +19,7 @@
       "id": "ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "name": "GitHub Repo Summarizer",
       "description": "Summarizes GitHub repository structure and README context for faster code review.",
-      "users": 129,
+      "users": 135,
       "usersSource": "Chrome Web Store detail page",
       "rating": 5,
       "ratingCount": 3,
@@ -37,16 +37,16 @@
         "scripting",
         "downloads"
       ],
-      "sizeKb": 18.61,
+      "sizeKb": 63.09,
       "chromeStatsUrl": "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "jnoonpeekddinkiecaonhocaflcgbhap",
       "name": "AI Chat Navigator",
       "description": "Adds keyboard navigation and prompt controls for ChatGPT, Deepseek, and AI Studio chats.",
-      "users": 64,
+      "users": 66,
       "usersSource": "Chrome Web Store detail page",
       "rating": 5,
       "ratingCount": 1,
@@ -61,10 +61,10 @@
       "permissions": [
         "storage"
       ],
-      "sizeKb": 54.18,
+      "sizeKb": 126,
       "chromeStatsUrl": "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
@@ -93,13 +93,13 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc",
       "productUrl": "https://sourcepack-tools.pages.dev/web2csv/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "hjfdpklldhofiehpcfcfdonjppdkmgoh",
       "name": "Video2Source - YouTube Transcript Exporter",
       "description": "Saves visible YouTube transcripts, timestamps, and notes as local source-pack exports.",
-      "users": 1,
+      "users": 2,
       "usersSource": "Chrome Web Store detail page",
       "rating": 0,
       "ratingCount": 0,
@@ -122,7 +122,7 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/hjfdpklldhofiehpcfcfdonjppdkmgoh",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh",
       "productUrl": "https://sourcepack-tools.pages.dev/video2source/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "pmofpiclpglbdnjgkgijlolefiojjomn",
@@ -147,11 +147,11 @@
         "downloads",
         "scripting"
       ],
-      "sizeKb": null,
+      "sizeKb": 65.36,
       "chromeStatsUrl": "https://chrome-stats.com/d/pmofpiclpglbdnjgkgijlolefiojjomn",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn",
       "productUrl": "https://sourcepack-tools.pages.dev/chatarchive/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "glcecbjpdknkmlpcbnbpikjjclboeglo",
@@ -178,7 +178,7 @@
       "sizeKb": 18.41,
       "chromeStatsUrl": "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "hoklaadapaobdbkeiacebnnciponcmnf",
@@ -206,7 +206,7 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/hoklaadapaobdbkeiacebnnciponcmnf",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf",
       "productUrl": "https://session-rescue.pages.dev/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "hkfeiaapcdjlccinbcbibnlaapcliobd",
@@ -231,11 +231,11 @@
         "downloads",
         "scripting"
       ],
-      "sizeKb": null,
+      "sizeKb": 64.92,
       "chromeStatsUrl": "https://chrome-stats.com/d/hkfeiaapcdjlccinbcbibnlaapcliobd",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd",
       "productUrl": "https://sourcepack-tools.pages.dev/repo2agent/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "hlbflaklicefinhckdkbamhhkfklmgao",
@@ -260,11 +260,11 @@
         "downloads",
         "scripting"
       ],
-      "sizeKb": 65.84,
+      "sizeKb": 65.36,
       "chromeStatsUrl": "https://chrome-stats.com/d/hlbflaklicefinhckdkbamhhkfklmgao",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao",
       "productUrl": "https://sourcepack-tools.pages.dev/hub/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "ahalbgecklcboflgkloaceogjmfjckji",
@@ -289,11 +289,11 @@
         "downloads",
         "scripting"
       ],
-      "sizeKb": null,
+      "sizeKb": 65.73,
       "chromeStatsUrl": "https://chrome-stats.com/d/ahalbgecklcboflgkloaceogjmfjckji",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji",
       "productUrl": "https://sourcepack-tools.pages.dev/cws-scout/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
     },
     {
       "id": "bgmdmikdapojncddhpabnofcioffnhbg",
@@ -306,7 +306,7 @@
       "version": "0.1.8",
       "lastUpdated": "2026-05-05",
       "createdAt": "2026-04-15",
-      "category": "Productivity",
+      "category": "Tools",
       "overallRank": null,
       "categoryRank": null,
       "riskImpact": "Not reported",
@@ -315,11 +315,132 @@
         "activeTab",
         "scripting"
       ],
-      "sizeKb": null,
+      "sizeKb": 26.45,
       "chromeStatsUrl": "https://chrome-stats.com/d/bgmdmikdapojncddhpabnofcioffnhbg",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg",
       "productUrl": "https://zack-dev-cm.github.io/docs/locallens/",
-      "dataIngestedAt": "2026-05-15"
+      "dataIngestedAt": "2026-05-18"
+    },
+    {
+      "id": "kpjokdophleoefolidphajjllaaddnpj",
+      "name": "Evidence Pack Capture",
+      "description": "Captures a visible tab, redacts sensitive details locally, and exports a support-ready evidence packet.",
+      "users": null,
+      "usersSource": "Not reported by Chrome Web Store detail page",
+      "rating": 0,
+      "ratingCount": 0,
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-14",
+      "createdAt": "2026-05-14",
+      "category": "Workflow & Planning",
+      "overallRank": null,
+      "categoryRank": null,
+      "riskImpact": "Not reported",
+      "riskLikelihood": "Not reported",
+      "permissions": [
+        "Not reported"
+      ],
+      "sizeKb": 40.67,
+      "chromeStatsUrl": "https://chrome-stats.com/d/kpjokdophleoefolidphajjllaaddnpj",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/evidence-pack-capture/kpjokdophleoefolidphajjllaaddnpj",
+      "dataIngestedAt": "2026-05-18"
+    },
+    {
+      "id": "dmjbkldbikpahgglacbkaeccfapakilm",
+      "name": "Proof Card Redactor",
+      "description": "Redacts proof screenshots locally into privacy-safe share cards.",
+      "users": null,
+      "usersSource": "Not reported by Chrome Web Store detail page",
+      "rating": 0,
+      "ratingCount": 0,
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-14",
+      "createdAt": "2026-05-14",
+      "category": "Workflow & Planning",
+      "overallRank": null,
+      "categoryRank": null,
+      "riskImpact": "Not reported",
+      "riskLikelihood": "Not reported",
+      "permissions": [
+        "Not reported"
+      ],
+      "sizeKb": 11.13,
+      "chromeStatsUrl": "https://chrome-stats.com/d/dmjbkldbikpahgglacbkaeccfapakilm",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/proof-card-redactor/dmjbkldbikpahgglacbkaeccfapakilm",
+      "dataIngestedAt": "2026-05-18"
+    },
+    {
+      "id": "mdhgpledennecooaiplcogckkgkmilba",
+      "name": "Skill Sprint Clipper",
+      "description": "Turns selected lesson text into a local 20-minute proof pack.",
+      "users": null,
+      "usersSource": "Not reported by Chrome Web Store detail page",
+      "rating": 0,
+      "ratingCount": 0,
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-07",
+      "createdAt": "2026-05-07",
+      "category": "Workflow & Planning",
+      "overallRank": null,
+      "categoryRank": null,
+      "riskImpact": "Not reported",
+      "riskLikelihood": "Not reported",
+      "permissions": [
+        "Not reported"
+      ],
+      "sizeKb": 13.19,
+      "chromeStatsUrl": "https://chrome-stats.com/d/mdhgpledennecooaiplcogckkgkmilba",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/skill-sprint-clipper/mdhgpledennecooaiplcogckkgkmilba",
+      "productUrl": "https://zack-dev-cm.github.io/docs/skill-sprint-clipper/",
+      "dataIngestedAt": "2026-05-18"
+    },
+    {
+      "id": "dlhhfacpkohmojegdpmmnmoapcpphfbh",
+      "name": "Browser Run Receipt",
+      "description": "Captures manual browser-work steps, redacts details, and exports a local run receipt.",
+      "users": null,
+      "usersSource": "Not reported by Chrome Web Store detail page",
+      "rating": 0,
+      "ratingCount": 0,
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-14",
+      "createdAt": "2026-05-14",
+      "category": "Workflow & Planning",
+      "overallRank": null,
+      "categoryRank": null,
+      "riskImpact": "Not reported",
+      "riskLikelihood": "Not reported",
+      "permissions": [
+        "Not reported"
+      ],
+      "sizeKb": 39.71,
+      "chromeStatsUrl": "https://chrome-stats.com/d/dlhhfacpkohmojegdpmmnmoapcpphfbh",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/browser-run-receipt/dlhhfacpkohmojegdpmmnmoapcpphfbh",
+      "dataIngestedAt": "2026-05-18"
+    },
+    {
+      "id": "dphlhifhafonbolljmdlpecpcicnpjen",
+      "name": "Skool Discovery Positioning Lens",
+      "description": "Audits public Skool positioning with local benchmarks and optional Chrome built-in AI critique.",
+      "users": null,
+      "usersSource": "Not reported by Chrome Web Store detail page",
+      "rating": 0,
+      "ratingCount": 0,
+      "version": "0.1.1",
+      "lastUpdated": "2026-05-15",
+      "createdAt": "2026-05-15",
+      "category": "Workflow & Planning",
+      "overallRank": null,
+      "categoryRank": null,
+      "riskImpact": "Not reported",
+      "riskLikelihood": "Not reported",
+      "permissions": [
+        "Not reported"
+      ],
+      "sizeKb": 21.96,
+      "chromeStatsUrl": "https://chrome-stats.com/d/dphlhifhafonbolljmdlpecpcicnpjen",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/skool-discovery-positioning-lens/dphlhifhafonbolljmdlpecpcicnpjen",
+      "dataIngestedAt": "2026-05-18"
     }
   ]
 }

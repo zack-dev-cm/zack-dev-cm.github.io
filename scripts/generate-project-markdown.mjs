@@ -45,9 +45,9 @@ const AUTHOR_SAME_AS = [
   'https://t.me/rheuiii'
 ];
 const DEFAULT_TRACTION_SNAPSHOT = {
-  totalDownloads: 6350,
-  packageCount: 35,
-  checkedAt: '2026-05-15'
+  totalDownloads: 9587,
+  packageCount: 40,
+  checkedAt: '2026-05-20'
 };
 let tractionSnapshot = DEFAULT_TRACTION_SNAPSHOT;
 
