@@ -88,7 +88,7 @@ const assertSchemaGraph = (label, schema) => {
   if (!faq || !Array.isArray(faq.mainEntity) || faq.mainEntity.length < 8) {
     fail(`${label} should expose at least 8 FAQ answer targets.`);
   }
-  if (!projectList || projectList.numberOfItems < 70) {
+  if (!projectList || !Number.isFinite(projectList.numberOfItems) || projectList.numberOfItems < 70) {
     fail(`${label} project ItemList should expose at least 70 projects.`);
   }
   if (!dataCatalog || !JSON.stringify(dataCatalog).includes('Agent context')) {

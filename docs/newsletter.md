@@ -4,6 +4,8 @@
 
 Cadence: One digest every Sunday while the 45-day traffic experiment is active.
 Signup CTA: Get the weekly proof pack
+Substack: https://zackpashkin.substack.com
+RSS feed: SOCIAL_LINKS.substack/feed
 Canonical URL: https://zack-dev-cm.github.io/docs/newsletter.md
 
 ## What Subscribers Receive
@@ -12,7 +14,13 @@ Canonical URL: https://zack-dev-cm.github.io/docs/newsletter.md
 - Reusable checklists for public-surface review, thumbnails, tracking, and deployment gates.
 
 ## Current Capture Mode
-Email collection stays manual until a newsletter provider is connected; no public repo stores subscriber data.
+Email collection stays manual as a fallback; live subscriptions route through Substack and no public repo stores subscriber data.
+
+## Substack Publication
+- Read: https://zackpashkin.substack.com
+- Feed: SOCIAL_LINKS.substack/feed
+- Latest post: [My First Naive Attempt at Making a 10-Second AI Ad for a Chrome Extension](SOCIAL_LINKS.substack/p/my-first-naive-attempt-at-making) (2026-05-21)
+- Hero illustration: https://zack-dev-cm.github.io/docs/images/substack-portfolio-publishing-hero.png
 
 ## First 14 Notes
 - Day 1: [Why the portfolio stats went stale and how the tracker was fixed](https://zack-dev-cm.github.io/docs/field-notes/stale-portfolio-stats-debug.md)

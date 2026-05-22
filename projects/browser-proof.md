@@ -22,8 +22,8 @@ https://zack-dev-cm.github.io/projects/browser-proof.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 347 (public ClawHub listing, 2026-05-20)
-- Published versions: 6 (public ClawHub listing, 2026-05-20)
+- ClawHub downloads: 370 (public ClawHub listing, 2026-05-22)
+- Published versions: 6 (public ClawHub listing, 2026-05-22)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Evidence fields: 5 (screenshot, dom, console, network, video)

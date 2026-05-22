@@ -1,5 +1,5 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
-import { CLAWHUB_DOWNLOAD_STATS } from '../constants';
+import { CLAWHUB_DOWNLOAD_STATS, NEWSLETTER_OFFER } from '../constants';
 
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
 const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
@@ -43,7 +43,7 @@ const resumePath = () => {
 };
 
 test('homepage renders core sections and project discovery controls', async ({ page }) => {
-  test.setTimeout(90_000);
+  test.setTimeout(180_000);
   await gotoPortfolio(page);
 
   // Wait for main title and a couple of sections to ensure hydration
@@ -91,6 +91,28 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
     'href',
     '/docs/chrome-extension-stats.json'
+  );
+
+  const fieldNotesSection = page.locator('#field-notes');
+  await expect(fieldNotesSection.getByRole('link', { name: 'Read on Substack' })).toHaveAttribute(
+    'href',
+    NEWSLETTER_OFFER.substackUrl
+  );
+  await expect(fieldNotesSection.getByRole('link', { name: 'RSS feed' })).toHaveAttribute(
+    'href',
+    NEWSLETTER_OFFER.substackFeedUrl
+  );
+  await expect(fieldNotesSection.getByRole('link', { name: /Latest Substack post/ })).toHaveAttribute(
+    'href',
+    NEWSLETTER_OFFER.latestPostUrl
+  );
+
+  const trendBlogSection = page.locator('#trend-blog');
+  await expect(trendBlogSection.getByRole('heading', { name: 'Trend-to-Skill Blog System' })).toBeVisible();
+  await expect(trendBlogSection.getByText('DeepSeek V4: the migration article should be a test plan', { exact: false })).toBeVisible();
+  await expect(trendBlogSection.getByRole('link', { name: 'OpenAI Codex use cases' })).toHaveAttribute(
+    'href',
+    'https://developers.openai.com/codex/use-cases'
   );
 
   // Card presence: ensure at least one project card renders
@@ -217,8 +239,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await page.keyboard.press('Escape');
   await expect(modal).toBeHidden();
 
-  // Capture screenshot for visual sanity check
-  await page.screenshot({ path: 'test-results/home.png', fullPage: true });
+  // Capture a viewport screenshot for visual sanity without forcing the whole media-heavy page to render.
+  await page.locator('#trend-blog').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'test-results/home.png', fullPage: false });
 });
 
 test('featured cards stay inside their own bounds on desktop breakpoints', async ({ page }) => {

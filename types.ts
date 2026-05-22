@@ -62,6 +62,7 @@ export interface SocialLinks {
   githubPrimary: string;
   githubSecondary: string;
   telegram: string;
+  substack: string;
   resume: string;
 }
 
@@ -145,6 +146,50 @@ export interface FieldNotePlan {
   cta: string;
 }
 
+export interface BlogTrendSource {
+  id: string;
+  label: string;
+  monitorMode: 'computer-use-capture' | 'official-changelog' | 'repo-release' | 'research-feed' | 'use-case-library';
+  cadence: string;
+  query: string;
+  signalUse: string;
+  publicSourceUrl?: string;
+  privateHandling: string;
+}
+
+export interface BlogArticlePattern {
+  label: string;
+  purpose: string;
+  structure: string[];
+}
+
+export interface BlogTrendCandidate {
+  title: string;
+  sourceId: string;
+  topic: string;
+  status: 'watch' | 'draft-next' | 'skill-candidate' | 'ready-to-write';
+  score: number;
+  whyNow: string;
+  skillAngle: string;
+  articleAngle: string;
+  proofLinks: ProjectLink[];
+  guardrail: string;
+}
+
+export interface BlogTrendSystem {
+  name: string;
+  slug: string;
+  promise: string;
+  cadence: string;
+  workflow: string[];
+  sourcePolicy: string[];
+  mediumStyleRules: string[];
+  codexUseCaseAnchors: string[];
+  sources: BlogTrendSource[];
+  articlePatterns: BlogArticlePattern[];
+  starterQueue: BlogTrendCandidate[];
+}
+
 export interface NewsletterOffer {
   name: string;
   promise: string;
@@ -153,6 +198,13 @@ export interface NewsletterOffer {
   mailtoSubject: string;
   mailtoBody: string;
   privacyNote: string;
+  substackUrl: string;
+  substackFeedUrl: string;
+  latestPostTitle: string;
+  latestPostUrl: string;
+  latestPostPublishedAt: string;
+  heroImageUrl: string;
+  heroImageAlt: string;
 }
 
 export interface PortfolioUpdates {

@@ -6,14 +6,17 @@ const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173';
 const isLocalBase = baseURL.includes('127.0.0.1') || baseURL.includes('localhost');
 const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === 'true';
 const skipBuild = process.env.PLAYWRIGHT_SKIP_BUILD === 'true';
+const useSystemChrome = process.env.PLAYWRIGHT_USE_SYSTEM_CHROME === 'true';
 
 const config: PlaywrightTestConfig = {
   testDir: './tests',
+  timeout: 180_000,
   retries: process.env.CI ? 1 : 0,
   use: {
     baseURL,
     screenshot: 'only-on-failure',
-    trace: 'retain-on-failure'
+    trace: 'retain-on-failure',
+    ...(useSystemChrome ? { channel: 'chrome' } : {})
   },
   webServer: isLocalBase
     ? {

@@ -5,6 +5,7 @@ dist/
 test-results/
 scripts/capture-remote-screenshots.mjs
 .npm-cache/
+.clawpatch/
 critical.md
 local-notes/
 /index.css.bak

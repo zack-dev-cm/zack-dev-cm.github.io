@@ -30,26 +30,27 @@ const extraDirectories = [
   { source: 'codex-docs', destination: 'codex' }
 ];
 
-try {
-  await copyFile(source, destination);
-  console.log(`Copied ${source} to ${destination}`);
+const copyRequiredFile = async (src, dest) => {
+  try {
+    await copyFile(src, dest);
+    console.log(`Copied ${src} to ${dest}`);
+  } catch (error) {
+    if (error && error.code === 'ENOENT') {
+      throw new Error(`Required postbuild file is missing: ${src}`);
+    }
+    throw error;
+  }
+};
 
-  await copyFile(manifestSource, manifestDestination);
-  console.log(`Copied ${manifestSource} to ${manifestDestination}`);
+try {
+  await copyRequiredFile(source, destination);
+
+  await copyRequiredFile(manifestSource, manifestDestination);
 
   const extraCopies = extraFiles.map(async (file) => {
     const src = resolve(rootDir, file);
     const dest = resolve(outDir, file);
-    try {
-      await copyFile(src, dest);
-      console.log(`Copied ${src} to ${dest}`);
-    } catch (error) {
-      if (error && error.code === 'ENOENT') {
-        console.warn(`Missing ${src}; skipped`);
-      } else {
-        throw error;
-      }
-    }
+    await copyRequiredFile(src, dest);
   });
   await Promise.all(extraCopies);
 
@@ -70,9 +71,6 @@ try {
   });
   await Promise.all(extraDirectoryCopies);
 } catch (error) {
-  if (error && error.code === 'ENOENT') {
-    console.warn('Build output not found; skipped creating 404.html or manifest.json');
-  } else {
-    throw error;
-  }
+  console.error(error?.message || error);
+  process.exitCode = 1;
 }

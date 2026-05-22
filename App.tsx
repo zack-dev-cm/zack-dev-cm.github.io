@@ -18,6 +18,7 @@ import {
   CLAWHUB_DOWNLOAD_STATS,
   CHROME_EXTENSION_STATS,
   FIELD_NOTES_PLAN,
+  BLOG_TREND_SYSTEM,
   NEWSLETTER_OFFER,
   TRAFFIC_EXPERIMENT_GOALS
 } from './constants';
@@ -39,7 +40,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'Traction evidence system',
     summary:
       'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['9,587 tracked ClawHub downloads', '40 public skills', 'Live owner-profile verification']
+    proof: ['10,852 tracked ClawHub downloads', '44 public skills', 'Live owner-profile verification']
   },
   45: {
     label: 'Open-source review harness',
@@ -63,7 +64,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['1,135 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: ['1,188 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
@@ -457,6 +458,7 @@ const COMMAND_NAV_ITEMS = [
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
   { label: 'Notes', href: '#field-notes' },
+  { label: 'Blog', href: '#trend-blog' },
   { label: 'Explore', href: '#projects' }
 ];
 
@@ -1470,17 +1472,56 @@ const App: React.FC = () => {
                     </button>
                   </div>
                 </form>
+                <div className="newsletter-panel__actions">
+                  <a
+                    href={NEWSLETTER_OFFER.substackUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--primary"
+                  >
+                    Read on Substack
+                  </a>
+                  <a
+                    href={NEWSLETTER_OFFER.substackFeedUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--ghost"
+                  >
+                    RSS feed
+                  </a>
+                </div>
+                <a
+                  href={NEWSLETTER_OFFER.latestPostUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="newsletter-latest"
+                >
+                  <span>Latest Substack post</span>
+                  <strong>{NEWSLETTER_OFFER.latestPostTitle}</strong>
+                  <em>Published {NEWSLETTER_OFFER.latestPostPublishedAt}</em>
+                </a>
                 <p className="newsletter-panel__note">{NEWSLETTER_OFFER.privacyNote}</p>
               </article>
 
-              <div className="proof-grid field-notes-goals" aria-label="Traffic experiment goals">
-                {TRAFFIC_EXPERIMENT_GOALS.map((goal) => (
-                  <div key={goal.label} className="proof-chip">
-                    <span>{goal.label}</span>
-                    <strong>{goal.value}</strong>
-                    <em>{goal.detail}</em>
-                  </div>
-                ))}
+              <div className="field-notes-proof-stack">
+                <figure className="newsletter-visual">
+                  <img
+                    src={NEWSLETTER_OFFER.heroImageUrl}
+                    alt={NEWSLETTER_OFFER.heroImageAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>Generated illustration for the Substack publishing workflow.</figcaption>
+                </figure>
+                <div className="proof-grid field-notes-goals" aria-label="Traffic experiment goals">
+                  {TRAFFIC_EXPERIMENT_GOALS.map((goal) => (
+                    <div key={goal.label} className="proof-chip">
+                      <span>{goal.label}</span>
+                      <strong>{goal.value}</strong>
+                      <em>{goal.detail}</em>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -1528,6 +1569,101 @@ const App: React.FC = () => {
                     {note.cta}
                     <span>-&gt;</span>
                   </span>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="trend-blog"
+            eyebrow="Publishing System"
+            title={BLOG_TREND_SYSTEM.name}
+            description={BLOG_TREND_SYSTEM.promise}
+          >
+            <div className="blog-system-layout">
+              <article className="panel panel--accent blog-system-panel">
+                <p className="panel__eyebrow">Monitor loop</p>
+                <h3>{BLOG_TREND_SYSTEM.cadence}</h3>
+                <ol className="blog-system-steps">
+                  {BLOG_TREND_SYSTEM.workflow.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ol>
+              </article>
+
+              <div className="proof-grid blog-system-sources" aria-label="Trend sources">
+                {BLOG_TREND_SYSTEM.sources.map((source) => (
+                  <article key={source.id} className="proof-chip blog-source-card">
+                    <span>{source.label}</span>
+                    <strong>{source.cadence}</strong>
+                    <em>{source.signalUse}</em>
+                    {source.publicSourceUrl && (
+                      <a href={source.publicSourceUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+                        Source route
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="chip-row" aria-label="Article quality rules">
+              {BLOG_TREND_SYSTEM.mediumStyleRules.slice(0, 4).map((rule) => (
+                <span key={rule} className="pill">
+                  {rule}
+                </span>
+              ))}
+              <span className="pill pill--accent">Codex: {BLOG_TREND_SYSTEM.codexUseCaseAnchors.join(' / ')}</span>
+            </div>
+
+            <div className="blog-candidate-grid" aria-label="Trend-to-skill article queue">
+              {BLOG_TREND_SYSTEM.starterQueue.map((candidate) => {
+                const source = BLOG_TREND_SYSTEM.sources.find((item) => item.id === candidate.sourceId);
+                return (
+                  <article key={candidate.title} className="blog-candidate-card">
+                    <div className="blog-candidate-card__header">
+                      <span>{candidate.status.replace(/-/g, ' ')}</span>
+                      <strong>{candidate.score}/100</strong>
+                    </div>
+                    <p className="blog-candidate-card__source">{source?.label || candidate.sourceId}</p>
+                    <h3>{candidate.title}</h3>
+                    <p>{candidate.whyNow}</p>
+                    <dl className="field-note-card__meta">
+                      <div>
+                        <dt>Skill angle</dt>
+                        <dd>{candidate.skillAngle}</dd>
+                      </div>
+                      <div>
+                        <dt>Article angle</dt>
+                        <dd>{candidate.articleAngle}</dd>
+                      </div>
+                      <div>
+                        <dt>Guardrail</dt>
+                        <dd>{candidate.guardrail}</dd>
+                      </div>
+                    </dl>
+                    <div className="blog-candidate-card__links">
+                      {candidate.proofLinks.map((link) => (
+                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
+                          {link.text}
+                        </a>
+                      ))}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className="article-pattern-grid" aria-label="Article templates">
+              {BLOG_TREND_SYSTEM.articlePatterns.map((pattern) => (
+                <article key={pattern.label} className="article-pattern-card">
+                  <h3>{pattern.label}</h3>
+                  <p>{pattern.purpose}</p>
+                  <ol>
+                    {pattern.structure.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ol>
                 </article>
               ))}
             </div>

@@ -5,6 +5,8 @@
 Newsletter: AI Agent Field Notes
 Promise: Weekly proof-backed notes on building, debugging, and publishing AI-agent products without leaking private context.
 Cadence: One digest every Sunday while the 45-day traffic experiment is active.
+Substack: https://zackpashkin.substack.com
+RSS feed: SOCIAL_LINKS.substack/feed
 Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md
 
 ## Measurement Gates
@@ -18,7 +20,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 - Format: Debug Autopsy
 - Target reader: AI product builders who publish public proof from changing marketplace data.
 - Reader win: A short checklist for finding drift between source constants, generated files, and the live static site.
-- Evidence: ClawHub tracker refresh from stale public values to 9,587 downloads across 40 skills.
+- Evidence: ClawHub tracker refresh from stale public values to 10,852 downloads across 44 skills.
 - Channels: LinkedIn primary; X secondary
 - Field note URL: https://zack-dev-cm.github.io/docs/field-notes/stale-portfolio-stats-debug.md
 
@@ -128,5 +130,12 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 
 ## Newsletter
 - Offer: Get the weekly proof pack
-- Privacy note: Email collection stays manual until a newsletter provider is connected; no public repo stores subscriber data.
+- Privacy note: Email collection stays manual as a fallback; live subscriptions route through Substack and no public repo stores subscriber data.
+- Substack: https://zackpashkin.substack.com
+- RSS feed: SOCIAL_LINKS.substack/feed
+- Latest Substack post: [My First Naive Attempt at Making a 10-Second AI Ad for a Chrome Extension](SOCIAL_LINKS.substack/p/my-first-naive-attempt-at-making) (2026-05-21)
 - Newsletter URL: https://zack-dev-cm.github.io/docs/newsletter.md
+
+## Trend-to-Skill Blog System
+- System: [Trend-to-Skill Blog System](https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md)
+- Promise: A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, LLM, and agentic workflow signals into useful articles and reusable skills.

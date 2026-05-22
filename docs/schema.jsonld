@@ -20,7 +20,8 @@
         "https://x.com/Zackdevcv",
         "https://github.com/zack-dev-cm",
         "https://github.com/ZackPashkin",
-        "https://t.me/rheuiii"
+        "https://t.me/rheuiii",
+        "https://zackpashkin.substack.com"
       ],
       "knowsAbout": [
         "Computer Vision",
@@ -120,7 +121,7 @@
       "name": "Zakhar Pashkin | Computer Vision, AI Product & AEO Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery evidence.",
       "inLanguage": "en",
-      "dateModified": "2026-05-20",
+      "dateModified": "2026-05-22",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -340,7 +341,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "9,587 tracked ClawHub downloads across 40 public skills",
+          "name": "10,852 tracked ClawHub downloads across 44 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -418,7 +419,7 @@
           "name": "What public proof is available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 74 public case studies, 42 projects with explicit benchmarks or analytics, and 9,587 tracked ClawHub downloads across 40 public skills as of 2026-05-20.",
+            "text": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 10,852 tracked ClawHub downloads across 44 public skills as of 2026-05-22.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -495,9 +496,21 @@
         },
         {
           "@type": "Dataset",
+          "name": "Trend-to-Skill Blog System",
+          "url": "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
+          "encodingFormat": "text/markdown"
+        },
+        {
+          "@type": "Dataset",
           "name": "Newsletter offer",
           "url": "https://zack-dev-cm.github.io/docs/newsletter.md",
           "encodingFormat": "text/markdown"
+        },
+        {
+          "@type": "Dataset",
+          "name": "Substack RSS feed",
+          "url": "https://zackpashkin.substack.com/feed",
+          "encodingFormat": "application/rss+xml"
         }
       ]
     },
@@ -516,11 +529,25 @@
       "isAccessibleForFree": true
     },
     {
+      "@type": "CreativeWork",
+      "@id": "https://zack-dev-cm.github.io/#trend-to-skill-blog-system",
+      "name": "Trend-to-Skill Blog System",
+      "description": "Public plan for monitoring X, DeepSeek, CV, LLM, and agentic workflow signals, then turning qualified trends into useful articles and reusable skills.",
+      "url": "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
+      "author": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      },
+      "creator": {
+        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+      },
+      "isAccessibleForFree": true
+    },
+    {
       "@type": "ItemList",
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 74,
+      "numberOfItems": 75,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1932,6 +1959,26 @@
         {
           "@type": "ListItem",
           "position": 74,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Research Claim Ledger",
+            "description": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
+            "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "research, ai, release-engineering, openclaw, ClawHub, Codex Skills, Research QA, Citation Review, Markdown, Release Engineering",
+            "dateCreated": "2026-05-22",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 75,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

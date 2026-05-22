@@ -10,6 +10,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const execFileAsync = promisify(execFile);
 
 const SKIP_DIRECTORIES = new Set([
+  '.clawpatch',
   '.git',
   '.npm-cache',
   '.wrangler',
@@ -43,6 +44,18 @@ const TEXT_EXTENSIONS = new Set([
   '.yml',
   '.yaml',
 ]);
+const SECRET_TEXT_EXTENSIONS = new Set([
+  '.env',
+  '.key',
+  '.pem',
+  '.p12',
+  '.pfx',
+  '.npmrc',
+]);
+const SECRET_TEXT_BASENAME_PATTERNS = [
+  /^\.env(?:$|[._-])/,
+  /^\.npmrc$/,
+];
 const PDF_EXTENSIONS = new Set(['.pdf']);
 
 const PUBLIC_ROOT_FILES = new Set([
@@ -84,7 +97,7 @@ const SECRET_PATTERNS = [
   ['Slack token', /\bxox[baprs]-[0-9A-Za-z-]{20,}\b/],
   ['credentialed URL', /https?:\/\/[^/\s:@]+:[^/\s@]+@/i],
   ['literal bearer token', /\bBearer\s+[A-Za-z0-9._-]{24,}\b/i],
-  ['assigned secret literal', /\b(?:api[_-]?key|secret|token|password)\b\s*[:=]\s*['"][^'"]{16,}['"]/i],
+  ['assigned secret literal', /\b(?:api[_-]?key|secret|token|password)\b\s*[:=]\s*['"]?(?!process\.env\b|import\.meta\.env\b)[A-Za-z0-9._~+/=-]{16,}['"]?/i],
 ];
 
 const PUBLIC_LEAK_PATTERNS = [
@@ -112,12 +125,19 @@ const PUBLIC_INSTRUCTION_BLEED_PATTERNS = [
 const errors = [];
 const CODEX_DOCS_SOURCE = 'codex-docs';
 const CODEX_DOCS_OUTPUT = 'docs/codex';
-const REQUIRE_PDF_TEXT = process.env.REQUIRE_PDF_TEXT === 'true';
+const SKIP_PDF_TEXT_SCAN = process.env.SKIP_PDF_TEXT_SCAN === 'true';
 let trackedFilePaths = new Set();
+let untrackedFilePaths = new Set();
 
 const toRelative = (filePath) => path.relative(ROOT_DIR, filePath).split(path.sep).join('/');
 
-const isTextFile = (relativePath) => TEXT_EXTENSIONS.has(path.extname(relativePath));
+const isSecretBearingPath = (relativePath) => {
+  const extension = path.extname(relativePath);
+  const basename = path.basename(relativePath);
+  return SECRET_TEXT_EXTENSIONS.has(extension) || SECRET_TEXT_EXTENSIONS.has(basename) || SECRET_TEXT_BASENAME_PATTERNS.some((pattern) => pattern.test(basename));
+};
+
+const isTextFile = (relativePath) => TEXT_EXTENSIONS.has(path.extname(relativePath)) || isSecretBearingPath(relativePath);
 
 const isSkipped = (relativePath) => SKIP_PREFIXES.some((prefix) => relativePath.startsWith(prefix));
 
@@ -133,7 +153,17 @@ const loadTrackedFilePaths = async () => {
   trackedFilePaths = new Set(stdout.split('\0').filter(Boolean));
 };
 
+const loadUntrackedFilePaths = async () => {
+  const { stdout } = await execFileAsync('git', ['ls-files', '--others', '--exclude-standard', '-z'], {
+    cwd: ROOT_DIR,
+    maxBuffer: 10 * 1024 * 1024,
+  });
+  untrackedFilePaths = new Set(stdout.split('\0').filter(Boolean));
+};
+
 const isTrackedFile = (relativePath) => trackedFilePaths.has(relativePath);
+
+const isUntrackedFile = (relativePath) => untrackedFilePaths.has(relativePath);
 
 const isTrackedDirectory = (relativePath) => {
   const prefix = `${relativePath.replace(/\/$/, '')}/`;
@@ -157,6 +187,7 @@ const collectFiles = async (directory) => {
     }
     if (!entry.isFile()) continue;
     if (isSkipped(relativePath) || !isTextFile(relativePath)) continue;
+    if (!isTrackedFile(relativePath) && !isUntrackedFile(relativePath) && !isPublicSurface(relativePath)) continue;
     files.push({ absolutePath, relativePath });
   }
   return files;
@@ -275,15 +306,16 @@ const assertCodexDocsAreInSync = async () => {
 };
 
 const scanPublicPdfText = async () => {
+  if (SKIP_PDF_TEXT_SCAN) {
+    console.warn('PDF text scan skipped because SKIP_PDF_TEXT_SCAN=true');
+    return;
+  }
+
   try {
     await execFileAsync('pdftotext', ['-v']);
   } catch (error) {
     const detail = error && error.code === 'ENOENT' ? 'pdftotext is not installed' : error.message;
-    if (REQUIRE_PDF_TEXT) {
-      errors.push(`PDF text scan is required but unavailable (${detail})`);
-    } else {
-      console.warn(`PDF text scan skipped: ${detail}`);
-    }
+    errors.push(`PDF text scan is required but unavailable (${detail})`);
     return;
   }
 
@@ -307,6 +339,7 @@ const scanPublicPdfText = async () => {
 
 const main = async () => {
   await loadTrackedFilePaths();
+  await loadUntrackedFilePaths();
   const files = await collectFiles(ROOT_DIR);
   for (const file of files) {
     let text;

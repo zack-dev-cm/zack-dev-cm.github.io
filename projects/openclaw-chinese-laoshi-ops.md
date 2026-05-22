@@ -23,9 +23,9 @@ https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 346 (public ClawHub listing, 2026-05-20)
-- Published versions: 7 (public ClawHub listing, 2026-05-20)
-- ClawHub stars: 1 (public ClawHub listing, 2026-05-20)
+- ClawHub downloads: 372 (public ClawHub listing, 2026-05-22)
+- Published versions: 7 (public ClawHub listing, 2026-05-22)
+- ClawHub stars: 1 (public ClawHub listing, 2026-05-22)
 - Clean release: 1.0.9 (public README release marker)
 - Public posture: sanitized (lesson operations without private student data)
 
