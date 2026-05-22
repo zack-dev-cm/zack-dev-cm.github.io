@@ -311,23 +311,43 @@ const scanPublicPdfText = async () => {
     return;
   }
 
+  let extractPdfText;
   try {
     await execFileAsync('pdftotext', ['-v']);
+    extractPdfText = async (absolutePath) => {
+      const { stdout } = await execFileAsync('pdftotext', ['-layout', absolutePath, '-'], {
+        maxBuffer: 10 * 1024 * 1024,
+      });
+      return stdout;
+    };
   } catch (error) {
     const detail = error && error.code === 'ENOENT' ? 'pdftotext is not installed' : error.message;
-    errors.push(`PDF text scan is required but unavailable (${detail})`);
-    return;
+    try {
+      const { PDFParse } = await import('pdf-parse');
+      console.warn(`pdftotext unavailable (${detail}); using pdf-parse fallback.`);
+      extractPdfText = async (absolutePath) => {
+        const data = await fs.readFile(absolutePath);
+        const parser = new PDFParse({ data });
+        try {
+          const result = await parser.getText();
+          return result.text || '';
+        } finally {
+          await parser.destroy();
+        }
+      };
+    } catch (fallbackError) {
+      errors.push(`PDF text scan is required but unavailable (${detail}; fallback failed: ${fallbackError.message})`);
+      return;
+    }
   }
 
   const pdfFiles = await collectPublicPdfs(ROOT_DIR);
   for (const file of pdfFiles) {
     let stdout;
     try {
-      ({ stdout } = await execFileAsync('pdftotext', ['-layout', file.absolutePath, '-'], {
-        maxBuffer: 10 * 1024 * 1024,
-      }));
+      stdout = await extractPdfText(file.absolutePath);
     } catch (error) {
-      const detail = error && error.code === 'ENOENT' ? 'pdftotext is not installed' : error.message;
+      const detail = error && error.code === 'ENOENT' ? 'PDF text extractor is not installed' : error.message;
       errors.push(`${file.relativePath}: could not extract PDF text for leak scan (${detail})`);
       continue;
     }
