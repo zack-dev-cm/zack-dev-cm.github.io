@@ -1,6 +1,2531 @@
 {
-  "version": 1,
-  "lastSyncedAt": null,
-  "latestUpdates": [],
-  "projects": []
+  "version": 2,
+  "lastSyncedAt": "2026-05-28T07:02:44.739Z",
+  "review": {
+    "status": "PASS",
+    "checkedAt": "2026-05-28",
+    "syncedAt": "2026-05-28T07:02:44.739Z",
+    "gateVersion": 2,
+    "gates": [
+      "public-github-api-only",
+      "private-repo-default-off",
+      "safe-public-links-only",
+      "readme-code-blocks-stripped",
+      "leak-pattern-scan",
+      "instruction-bleed-scan",
+      "clawhub-stat-crosslink",
+      "clawpatch-review-ready"
+    ],
+    "toolchain": [
+      "github-api",
+      "portfolio-sync-review-gate",
+      "security-gate",
+      "codex-audit",
+      "clawpatch"
+    ]
+  },
+  "latestUpdates": [
+    {
+      "title": "Random Coffee Best Fit Outreach",
+      "description": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/random-coffee-best-fit-outreach"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/random-coffee-best-fit-outreach",
+      "repoId": 1219878272,
+      "createdAt": "2026-05-22T14:22:48Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1219878272
+    },
+    {
+      "title": "Tutorial To Skill Free Pack",
+      "description": "Free OpenClaw/Codex tutorial-to-skill proof pack with source notes and smoke-test receipts",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/tutorial-to-skill-free-pack"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/tutorial-to-skill-free-pack",
+      "repoId": 1244370879,
+      "createdAt": "2026-05-21T04:46:36Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1244370879
+    },
+    {
+      "title": "Trusted ClawHub Install Gate",
+      "description": "Local-first install gate for ClawHub and OpenClaw skills.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/trusted-clawhub-install-gate",
+      "repoId": 1232823211,
+      "createdAt": "2026-05-15T23:58:30Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1232823211
+    },
+    {
+      "title": "Open Feed Recsys Lab",
+      "description": "Commit-pinned reproducibility reports for open feed recommendation repos",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/open-feed-recsys-lab"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/open-feed-recsys-lab",
+      "repoId": 1239848703,
+      "createdAt": "2026-05-15T17:16:38Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1239848703
+    },
+    {
+      "title": "ClawHub Published Skills",
+      "description": "Curated source bundle for ClawHub-published skills",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/clawhub-published-skills"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/clawhub-published-skills",
+      "repoId": 1239596343,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1239596343
+    },
+    {
+      "title": "GitHub ClawHub Launcher",
+      "description": "Prepare a public GitHub repo and ClawHub skill release from one local project folder.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/github-clawhub-launcher",
+      "repoId": 1207153595,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1207153595
+    },
+    {
+      "title": "Interactive Doc Mapper",
+      "description": "Create clickable JSON-driven HTML documentation for app workflows between packages and components.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/interactive-doc-mapper"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/interactive-doc-mapper",
+      "repoId": 1238345725,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1238345725
+    },
+    {
+      "title": "Codex ClawHub Skill Pack",
+      "description": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/codex-clawhub-skill-pack"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/codex-clawhub-skill-pack",
+      "repoId": 1238345904,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1238345904
+    },
+    {
+      "title": "Affiliate Video Skill Pack",
+      "description": "Original skill for compliant AI affiliate-video campaign review across Claude.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/affiliate-video-skill-pack"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/affiliate-video-skill-pack",
+      "repoId": 1239777240,
+      "createdAt": "2026-05-15T17:04:41Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1239777240
+    },
+    {
+      "title": "Agentic Video Production Receipt",
+      "description": "MV3 Chrome extension prototype for the Agentic Video Production Publisher",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-video-production-receipt"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/agentic-video-production-receipt",
+      "repoId": 1239766603,
+      "createdAt": "2026-05-15T12:21:59Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1239766603
+    },
+    {
+      "title": "Agentic Video Production Skill",
+      "description": "Run consistent-character AI video production through OpenClaw publisher handoff.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-video-production-skill"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/agentic-video-production-skill",
+      "repoId": 1239706151,
+      "createdAt": "2026-05-15T11:16:53Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1239706151
+    },
+    {
+      "title": "Agentic Codex Dev Skill",
+      "description": "Instruction-only Codex/OpenClaw skill for simple agentic software development loops",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-codex-dev-skill"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/agentic-codex-dev-skill",
+      "repoId": 1217739324,
+      "createdAt": "2026-05-14T07:32:43Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1217739324
+    },
+    {
+      "title": "Mudassir PPTX Layout Agent",
+      "description": "Editable PPTX layout extraction, content mapping, regeneration, and validation screening package.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/mudassir-pptx-layout-agent"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/mudassir-pptx-layout-agent",
+      "repoId": 1232621215,
+      "createdAt": "2026-05-08T05:35:08Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1232621215
+    },
+    {
+      "title": "OpenClaw Cws Publisher",
+      "description": "Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/openclaw-cws-publisher"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/openclaw-cws-publisher",
+      "repoId": 1211180335,
+      "createdAt": "2026-05-04T00:02:57Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1211180335
+    },
+    {
+      "title": "Agentic CV Repro Lab Skill",
+      "description": "Public OpenClaw skills for benchmark-gated CV experimentation and SOTA campaigns across Colab, Kaggle, and GPU VMs.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/agentic-cv-repro-lab-skill",
+      "repoId": 1181384328,
+      "createdAt": "2026-05-04T00:02:09Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1181384328
+    },
+    {
+      "title": "Publish Guard",
+      "description": "Pre-release audit skill for GitHub repos and ClawHub packages. Catch leaks, weak launch copy, and broken first-run paths.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/publish-guard"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://clawhub.ai/zack-dev-cm/public-surface-review"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/publish-guard",
+      "repoId": 1206911119,
+      "createdAt": "2026-04-30T05:18:31Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1206911119
+    },
+    {
+      "title": "Browser Proof",
+      "description": "Create a reproducible browser evidence pack before you file a bug, approve a launch, or claim a fix.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/browser-proof"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/browser-proof"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/browser-proof",
+      "repoId": 1207181863,
+      "createdAt": "2026-04-30T05:18:23Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1207181863
+    },
+    {
+      "title": "Hh OpenClaw Agent",
+      "description": "Public OpenClaw skill for preparing a reviewed hh.ru application packet, executing the browser flow in a logged-in profile, and capturing one auditable submission bundle.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/hh-openclaw-agent"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/hh-openclaw-agent",
+      "repoId": 1207621924,
+      "createdAt": "2026-04-30T05:18:20Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1207621924
+    },
+    {
+      "title": "Youtube Creator Ops",
+      "description": "Publish a YouTube Short through a logged-in OpenClaw browser profile and keep reusable provenance for Midjourney, Suno, or local edits.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/youtube-creator-ops"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/youtube-creator-ops"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/youtube-creator-ops",
+      "repoId": 1207621923,
+      "createdAt": "2026-04-30T05:18:17Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1207621923
+    },
+    {
+      "title": "Artifact Redactor",
+      "description": "Redact private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/artifact-redactor"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/artifact-redactor"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/artifact-redactor",
+      "repoId": 1209493487,
+      "createdAt": "2026-04-30T05:18:13Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1209493487
+    }
+  ],
+  "projects": [
+    {
+      "id": 1219878272,
+      "title": "Random Coffee Best Fit Outreach",
+      "description": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets.",
+      "longDescription": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "codex",
+        "discord",
+        "linkedin",
+        "matching",
+        "openclaw",
+        "random-coffee"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Codex, Discord, Linkedin, Matching",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
+        "ClawHub listing cross-checked with 304 downloads as of 2026-05-28"
+      ],
+      "techStack": [
+        "Python",
+        "Codex",
+        "Discord",
+        "Linkedin",
+        "Matching",
+        "OpenClaw",
+        "Random Coffee",
+        "GitHub"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/random-coffee-best-fit-outreach"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Random Coffee Best Fit Outreach preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "1",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "1",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-24",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-22",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "304",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "5",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/random-coffee-best-fit-outreach",
+        "website": "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach"
+      },
+      "repoFullName": "zack-dev-cm/random-coffee-best-fit-outreach",
+      "repoId": 1219878272,
+      "createdAt": "2026-05-22T14:22:48Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1244370879,
+      "title": "Tutorial To Skill Free Pack",
+      "description": "Free OpenClaw/Codex tutorial-to-skill proof pack with source notes and smoke-test receipts",
+      "longDescription": "Free OpenClaw/Codex tutorial-to-skill proof pack with source notes and smoke-test receipts This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "affiliate-marketing",
+        "agent-skills",
+        "ai-video",
+        "claude-skills",
+        "codex",
+        "openclaw",
+        "skill-pack"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "TypeScript code surface is visible in repository metadata",
+        "Repository topics include Affiliate Marketing, Agent Skills, AI Video, Claude Skills",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "TypeScript",
+        "Affiliate Marketing",
+        "Agent Skills",
+        "AI Video",
+        "Claude Skills",
+        "Codex",
+        "OpenClaw",
+        "Skill Pack"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/tutorial-to-skill-free-pack"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Tutorial To Skill Free Pack preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-20",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-21",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/tutorial-to-skill-free-pack"
+      },
+      "repoFullName": "zack-dev-cm/tutorial-to-skill-free-pack",
+      "repoId": 1244370879,
+      "createdAt": "2026-05-21T04:46:36Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1232823211,
+      "title": "Trusted ClawHub Install Gate",
+      "description": "Local-first install gate for ClawHub and OpenClaw skills.",
+      "longDescription": "Local-first install gate for ClawHub and OpenClaw skills. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "clawhub",
+        "openclaw",
+        "security"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include ClawHub, OpenClaw, Security",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "ClawHub",
+        "OpenClaw",
+        "Security",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Trusted ClawHub Install Gate preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-08",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "214",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "3",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate",
+        "website": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
+      },
+      "repoFullName": "zack-dev-cm/trusted-clawhub-install-gate",
+      "repoId": 1232823211,
+      "createdAt": "2026-05-15T23:58:30Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1239848703,
+      "title": "Open Feed Recsys Lab",
+      "description": "Commit-pinned reproducibility reports for open feed recommendation repos",
+      "longDescription": "Commit-pinned reproducibility reports for open feed recommendation repos This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
+        "ClawHub listing cross-checked with 216 downloads as of 2026-05-28"
+      ],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/open-feed-recsys-lab"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Open Feed Recsys Lab preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "216",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "5",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/open-feed-recsys-lab",
+        "website": "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab"
+      },
+      "repoFullName": "zack-dev-cm/open-feed-recsys-lab",
+      "repoId": 1239848703,
+      "createdAt": "2026-05-15T17:16:38Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1239596343,
+      "title": "ClawHub Published Skills",
+      "description": "Curated source bundle for ClawHub-published skills",
+      "longDescription": "Curated source bundle for ClawHub-published skills This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/clawhub-published-skills"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "ClawHub Published Skills preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/clawhub-published-skills"
+      },
+      "repoFullName": "zack-dev-cm/clawhub-published-skills",
+      "repoId": 1239596343,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1207153595,
+      "title": "GitHub ClawHub Launcher",
+      "description": "Prepare a public GitHub repo and ClawHub skill release from one local project folder.",
+      "longDescription": "Prepare a public GitHub repo and ClawHub skill release from one local project folder. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "clawhub",
+        "github",
+        "openclaw",
+        "publishing",
+        "release-engineering"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include ClawHub, GitHub, OpenClaw, Publishing",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "ClawHub",
+        "GitHub",
+        "OpenClaw",
+        "Publishing",
+        "Release Engineering",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "GitHub ClawHub Launcher preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-10",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "574",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "9",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/github-clawhub-launcher",
+        "website": "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher"
+      },
+      "repoFullName": "zack-dev-cm/github-clawhub-launcher",
+      "repoId": 1207153595,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1238345725,
+      "title": "Interactive Doc Mapper",
+      "description": "Create clickable JSON-driven HTML documentation for app workflows between packages and components.",
+      "longDescription": "Create clickable JSON-driven HTML documentation for app workflows between packages and components. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "architecture",
+        "clawhub",
+        "codex",
+        "documentation",
+        "grok"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Architecture, ClawHub, Codex, Documentation",
+        "ClawHub listing cross-checked with 180 downloads as of 2026-05-28"
+      ],
+      "techStack": [
+        "Python",
+        "Architecture",
+        "ClawHub",
+        "Codex",
+        "Documentation",
+        "Grok",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/interactive-doc-mapper"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Interactive Doc Mapper preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-14",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "180",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "2",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/interactive-doc-mapper",
+        "website": "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper"
+      },
+      "repoFullName": "zack-dev-cm/interactive-doc-mapper",
+      "repoId": 1238345725,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1238345904,
+      "title": "Codex ClawHub Skill Pack",
+      "description": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review.",
+      "longDescription": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/codex-clawhub-skill-pack"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Codex ClawHub Skill Pack preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-14",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/codex-clawhub-skill-pack"
+      },
+      "repoFullName": "zack-dev-cm/codex-clawhub-skill-pack",
+      "repoId": 1238345904,
+      "createdAt": "2026-05-15T17:16:21Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1239777240,
+      "title": "Affiliate Video Skill Pack",
+      "description": "Original skill for compliant AI affiliate-video campaign review across Claude.",
+      "longDescription": "Original skill for compliant AI affiliate-video campaign review across Claude. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/affiliate-video-skill-pack"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Affiliate Video Skill Pack preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/affiliate-video-skill-pack"
+      },
+      "repoFullName": "zack-dev-cm/affiliate-video-skill-pack",
+      "repoId": 1239777240,
+      "createdAt": "2026-05-15T17:04:41Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1239766603,
+      "title": "Agentic Video Production Receipt",
+      "description": "MV3 Chrome extension prototype for the Agentic Video Production Publisher",
+      "longDescription": "MV3 Chrome extension prototype for the Agentic Video Production Publisher This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "JavaScript code surface is visible in repository metadata"
+      ],
+      "techStack": [
+        "JavaScript",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-video-production-receipt"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Agentic Video Production Receipt preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/agentic-video-production-receipt"
+      },
+      "repoFullName": "zack-dev-cm/agentic-video-production-receipt",
+      "repoId": 1239766603,
+      "createdAt": "2026-05-15T12:21:59Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1239706151,
+      "title": "Agentic Video Production Skill",
+      "description": "Run consistent-character AI video production through OpenClaw publisher handoff.",
+      "longDescription": "Run consistent-character AI video production through OpenClaw publisher handoff. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "ai-video",
+        "clawhub",
+        "codex-skills",
+        "openclaw",
+        "tiktok",
+        "youtube"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include AI Video, ClawHub, Codex Skills, OpenClaw",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "AI Video",
+        "ClawHub",
+        "Codex Skills",
+        "OpenClaw",
+        "Tiktok",
+        "Youtube",
+        "GitHub"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-video-production-skill"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Agentic Video Production Skill preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/agentic-video-production-skill"
+      },
+      "repoFullName": "zack-dev-cm/agentic-video-production-skill",
+      "repoId": 1239706151,
+      "createdAt": "2026-05-15T11:16:53Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1217739324,
+      "title": "Agentic Codex Dev Skill",
+      "description": "Instruction-only Codex/OpenClaw skill for simple agentic software development loops",
+      "longDescription": "Instruction-only Codex/OpenClaw skill for simple agentic software development loops This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-codex-dev-skill"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Agentic Codex Dev Skill preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-22",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-14",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/agentic-codex-dev-skill"
+      },
+      "repoFullName": "zack-dev-cm/agentic-codex-dev-skill",
+      "repoId": 1217739324,
+      "createdAt": "2026-05-14T07:32:43Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1232621215,
+      "title": "Mudassir PPTX Layout Agent",
+      "description": "Editable PPTX layout extraction, content mapping, regeneration, and validation screening package.",
+      "longDescription": "Editable PPTX layout extraction, content mapping, regeneration, and validation screening package. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata"
+      ],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/mudassir-pptx-layout-agent"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Mudassir PPTX Layout Agent preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-08",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-08",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/mudassir-pptx-layout-agent"
+      },
+      "repoFullName": "zack-dev-cm/mudassir-pptx-layout-agent",
+      "repoId": 1232621215,
+      "createdAt": "2026-05-08T05:35:08Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1211180335,
+      "title": "OpenClaw Cws Publisher",
+      "description": "Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata.",
+      "longDescription": "Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "chrome-extension",
+        "chrome-web-store",
+        "openclaw",
+        "privacy",
+        "release-automation"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Chrome Extension, Chrome Web Store, OpenClaw, Privacy",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "Chrome Extension",
+        "Chrome Web Store",
+        "OpenClaw",
+        "Privacy",
+        "Release Automation",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/openclaw-cws-publisher"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "OpenClaw Cws Publisher preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-04",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "610",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "14",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/openclaw-cws-publisher",
+        "website": "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
+      },
+      "repoFullName": "zack-dev-cm/openclaw-cws-publisher",
+      "repoId": 1211180335,
+      "createdAt": "2026-05-04T00:02:57Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1181384328,
+      "title": "Agentic CV Repro Lab Skill",
+      "description": "Public OpenClaw skills for benchmark-gated CV experimentation and SOTA campaigns across Colab, Kaggle, and GPU VMs.",
+      "longDescription": "Public OpenClaw skills for benchmark-gated CV experimentation and SOTA campaigns across Colab, Kaggle, and GPU VMs. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "agentic-workflows",
+        "benchmarking",
+        "browser-automation",
+        "clawhub",
+        "computer-vision",
+        "data-science",
+        "google-colab"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Agentic Workflows, Benchmarking, Browser Automation, ClawHub",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "Agentic Workflows",
+        "Benchmarking",
+        "Browser Automation",
+        "ClawHub",
+        "Computer Vision",
+        "Data Science",
+        "Google Colab"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Agentic CV Repro Lab Skill preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-03-14",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-04",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill",
+        "website": "https://zack-dev-cm.github.io/projects/agentic-cv-repro-lab-skill.md"
+      },
+      "repoFullName": "zack-dev-cm/agentic-cv-repro-lab-skill",
+      "repoId": 1181384328,
+      "createdAt": "2026-05-04T00:02:09Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1206911119,
+      "title": "Publish Guard",
+      "description": "Pre-release audit skill for GitHub repos and ClawHub packages. Catch leaks, weak launch copy, and broken first-run paths.",
+      "longDescription": "Pre-release audit skill for GitHub repos and ClawHub packages. Catch leaks, weak launch copy, and broken first-run paths. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "clawhub",
+        "linting",
+        "openclaw",
+        "readme",
+        "release-engineering",
+        "security"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include ClawHub, Linting, Open Source, OpenClaw",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "ClawHub",
+        "Linting",
+        "Open Source",
+        "OpenClaw",
+        "Readme",
+        "Release Engineering",
+        "Security"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/publish-guard"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://clawhub.ai/zack-dev-cm/public-surface-review"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Publish Guard preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-10",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-04-30",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/publish-guard",
+        "website": "https://clawhub.ai/zack-dev-cm/public-surface-review"
+      },
+      "repoFullName": "zack-dev-cm/publish-guard",
+      "repoId": 1206911119,
+      "createdAt": "2026-04-30T05:18:31Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1207181863,
+      "title": "Browser Proof",
+      "description": "Create a reproducible browser evidence pack before you file a bug, approve a launch, or claim a fix.",
+      "longDescription": "Create a reproducible browser evidence pack before you file a bug, approve a launch, or claim a fix. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "browser",
+        "clawhub",
+        "evidence",
+        "openclaw",
+        "qa"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Browser, ClawHub, Evidence, OpenClaw",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "Browser",
+        "ClawHub",
+        "Evidence",
+        "OpenClaw",
+        "Qa",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/browser-proof"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/browser-proof"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Browser Proof preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-10",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-04-30",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "411",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "6",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/browser-proof",
+        "website": "https://clawhub.ai/zack-dev-cm/browser-proof"
+      },
+      "repoFullName": "zack-dev-cm/browser-proof",
+      "repoId": 1207181863,
+      "createdAt": "2026-04-30T05:18:23Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1207621924,
+      "title": "Hh OpenClaw Agent",
+      "description": "Public OpenClaw skill for preparing a reviewed hh.ru application packet, executing the browser flow in a logged-in profile, and capturing one auditable submission bundle.",
+      "longDescription": "Public OpenClaw skill for preparing a reviewed hh.ru application packet, executing the browser flow in a logged-in profile, and capturing one auditable submission bundle. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "automation",
+        "career-tools",
+        "hh",
+        "job-search",
+        "openclaw"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Automation, Career Tools, Hh, Job Search",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "Automation",
+        "Career Tools",
+        "Hh",
+        "Job Search",
+        "OpenClaw",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/hh-openclaw-agent"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Hh OpenClaw Agent preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-11",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-04-30",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "397",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "8",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/hh-openclaw-agent",
+        "website": "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent"
+      },
+      "repoFullName": "zack-dev-cm/hh-openclaw-agent",
+      "repoId": 1207621924,
+      "createdAt": "2026-04-30T05:18:20Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1207621923,
+      "title": "Youtube Creator Ops",
+      "description": "Publish a YouTube Short through a logged-in OpenClaw browser profile and keep reusable provenance for Midjourney, Suno, or local edits.",
+      "longDescription": "Publish a YouTube Short through a logged-in OpenClaw browser profile and keep reusable provenance for Midjourney, Suno, or local edits. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "automation",
+        "creator-tools",
+        "openclaw",
+        "shorts",
+        "youtube"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Automation, Creator Tools, OpenClaw, Shorts",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "Automation",
+        "Creator Tools",
+        "OpenClaw",
+        "Shorts",
+        "Youtube",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/youtube-creator-ops"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/youtube-creator-ops"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Youtube Creator Ops preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-11",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-04-30",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "473",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "13",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/youtube-creator-ops",
+        "website": "https://clawhub.ai/zack-dev-cm/youtube-creator-ops"
+      },
+      "repoFullName": "zack-dev-cm/youtube-creator-ops",
+      "repoId": 1207621923,
+      "createdAt": "2026-04-30T05:18:17Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1209493487,
+      "title": "Artifact Redactor",
+      "description": "Redact private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+      "longDescription": "Redact private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-05-28.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "artifacts",
+        "openclaw",
+        "privacy",
+        "redaction",
+        "sanitization"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub API snapshot captured on 2026-05-28",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include Artifacts, OpenClaw, Privacy, Redaction",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "Artifacts",
+        "OpenClaw",
+        "Privacy",
+        "Redaction",
+        "Sanitization",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/artifact-redactor"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/artifact-redactor"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Artifact Redactor preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-05-28"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-13",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-04-30",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "389",
+          "context": "public ClawHub listing, 2026-05-28"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "8",
+          "context": "public ClawHub listing, 2026-05-28"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/artifact-redactor",
+        "website": "https://clawhub.ai/zack-dev-cm/artifact-redactor"
+      },
+      "repoFullName": "zack-dev-cm/artifact-redactor",
+      "repoId": 1209493487,
+      "createdAt": "2026-04-30T05:18:13Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-05-28",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    }
+  ]
 }

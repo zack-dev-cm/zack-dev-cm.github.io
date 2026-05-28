@@ -121,7 +121,7 @@
       "name": "Zakhar Pashkin | Computer Vision, AI Product & AEO Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery evidence.",
       "inLanguage": "en",
-      "dateModified": "2026-05-22",
+      "dateModified": "2026-05-28",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -341,7 +341,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "10,852 tracked ClawHub downloads across 44 public skills",
+          "name": "13,388 tracked ClawHub downloads across 49 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -419,7 +419,7 @@
           "name": "What public proof is available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 10,852 tracked ClawHub downloads across 44 public skills as of 2026-05-22.",
+            "text": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 13,388 tracked ClawHub downloads across 49 public skills as of 2026-05-28.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -745,7 +745,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
-            "description": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.",
+            "description": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
             "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -754,7 +754,7 @@
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
             "genre": "user-product",
-            "keywords": "telegram, mobile, Telegram Bot API, OCR, Speech-to-Text, LLMs",
+            "keywords": "telegram, mobile, Telegram Bot API, FastAPI, OpenAI APIs, Vision LLMs, Speech-to-Text, SQLite, Telegram Mini Apps, Admin Analytics",
             "isAccessibleForFree": true
           }
         },

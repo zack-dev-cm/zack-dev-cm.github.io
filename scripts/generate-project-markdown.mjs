@@ -1184,9 +1184,16 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent) => {
     .map((line) => `      ${line}`)
     .join('\n');
   const schemaBlock = `    <script type="application/ld+json">\n${inlineSchema}\n    </script>`;
+  const tractionLabel = `${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads`;
+  const metaDescription =
+    `Zakhar Pashkin portfolio for production computer vision, AI product delivery, VLM/LLM automation, 75 public case studies, ${tractionLabel}, and AI Agent Field Notes.`;
+  const aiSummary =
+    `Zakhar Pashkin is a senior computer vision and AI product engineer with 75 public case studies, production OCR/segmentation/detection, VLM/LLM workflows, release gates, ${tractionLabel}, AI Agent Field Notes, and machine-readable AEO context files.`;
   const updated = template
     .replace(snapshotPattern, snapshotBlock)
     .replace(schemaPattern, schemaBlock)
+    .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${metaDescription}" />`)
+    .replace(/<meta name="ai-summary" content="[^"]*" \/>/, `<meta name="ai-summary" content="${aiSummary}" />`)
     .replace(/"dateModified":\s*"[^"]+"/, `"dateModified": "${today}"`);
 
   await fs.writeFile(INDEX_HTML_PATH, updated, 'utf8');

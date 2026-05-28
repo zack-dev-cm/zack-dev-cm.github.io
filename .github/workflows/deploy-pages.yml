@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -46,6 +49,18 @@ jobs:
       - name: Run E2E checks
         run: PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
 
+      - name: Install Codex audit harness
+        run: |
+          python3 -m venv .codex-audit-venv
+          . .codex-audit-venv/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install "git+https://github.com/zack-dev-cm/antirot.git"
+
+      - name: Run codex-harness audit gate
+        run: |
+          . .codex-audit-venv/bin/activate
+          npm run audit:codex
+
       - name: Stage Pages artifact
         run: |
           rm -rf .site
@@ -74,6 +89,7 @@ jobs:
           path: .site
 
   deploy:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

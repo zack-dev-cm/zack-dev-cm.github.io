@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "vite",
     "stats:clawhub": "node scripts/fetch-clawhub-stats.mjs",
+    "sync:github": "node scripts/sync-github-portfolio-updates.mjs",
+    "sync:github:verify": "node scripts/sync-github-portfolio-updates.mjs --verify",
+    "review:clawpatch": "node scripts/run-clawpatch-review.mjs",
+    "review:github": "npm run sync:github:verify && npm run validate && npm run security:gate && npm run audit:codex",
     "validate": "node scripts/validate-portfolio.mjs",
     "validate:seo-aeo": "node scripts/validate-seo-aeo.mjs",
     "typecheck": "tsc --noEmit",

@@ -25,6 +25,15 @@ export interface ProjectCanonicalLinks {
   website?: string;
 }
 
+export interface PortfolioUpdateReview {
+  status: 'PASS' | 'REVIEW' | 'BLOCK';
+  checkedAt: string;
+  syncedAt?: string;
+  gateVersion?: number;
+  gates: string[];
+  toolchain?: string[];
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -48,6 +57,7 @@ export interface Project {
   repoId?: number;
   createdAt?: string;
   canonicalLinks?: ProjectCanonicalLinks;
+  review?: PortfolioUpdateReview;
 }
 
 export interface Company {
@@ -80,6 +90,7 @@ export interface LatestUpdate {
   repoFullName?: string;
   repoId?: number;
   createdAt?: string;
+  review?: PortfolioUpdateReview;
 }
 
 export interface ClawHubDownloadStat {
@@ -210,6 +221,7 @@ export interface NewsletterOffer {
 export interface PortfolioUpdates {
   version?: number;
   lastSyncedAt?: string | null;
+  review?: PortfolioUpdateReview;
   latestUpdates: LatestUpdate[];
   projects: Project[];
 }

@@ -28,6 +28,10 @@ import type { Project, PortfolioUpdates, LatestUpdate } from './types';
 const FEATURED_PROJECT_IDS = [70, 53, 43, 44] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
+const CLAWHUB_TOTAL_DOWNLOADS = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
+const CV_REPRO_DOWNLOADS = CLAWHUB_DOWNLOAD_STATS
+  .filter((stat) => stat.slug === 'data-science-cv-repro-lab' || stat.slug === 'sota-agent')
+  .reduce((sum, stat) => sum + stat.downloads, 0);
 
 const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
   70: {
@@ -40,7 +44,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'Traction evidence system',
     summary:
       'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: ['10,852 tracked ClawHub downloads', '44 public skills', 'Live owner-profile verification']
+    proof: [`${CLAWHUB_TOTAL_DOWNLOADS.toLocaleString('en-US')} tracked ClawHub downloads`, `${CLAWHUB_DOWNLOAD_STATS.length} public skills`, 'Live owner-profile verification']
   },
   45: {
     label: 'Open-source review harness',
@@ -64,7 +68,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     label: 'CV / MLOps productization',
     summary:
       'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: ['1,188 ClawHub downloads', 'Review dashboards + promotion gates', '29 structured helpers']
+    proof: [`${CV_REPRO_DOWNLOADS.toLocaleString('en-US')} ClawHub downloads`, 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
@@ -413,29 +417,43 @@ const mergeLatestEntries = (primary: LatestUpdate, fallback: LatestUpdate): Late
 };
 
 const mergeProjects = (curatedProjects: Project[], syncedProjects: Project[]) => {
-  const syncedBySlug = new Map(syncedProjects.map((project) => [getProjectSlug(project), project]));
+  const syncedBySlug = new Map<string, Project>();
+  syncedProjects.forEach((project) => {
+    [getProjectSlug(project), getProjectCanonicalSlug(project)].forEach((key) => {
+      if (!syncedBySlug.has(key)) syncedBySlug.set(key, project);
+    });
+  });
+  const usedSynced = new Set<Project>();
   const mergedCurated = curatedProjects.map((project) => {
-    const key = getProjectSlug(project);
-    const synced = syncedBySlug.get(key);
+    const synced = [getProjectSlug(project), getProjectCanonicalSlug(project)]
+      .map((key) => syncedBySlug.get(key))
+      .find(Boolean);
     if (!synced) return project;
-    syncedBySlug.delete(key);
+    usedSynced.add(synced);
     return mergeProjectEntries(project, synced);
   });
 
-  return sortByCreatedAtDesc([...mergedCurated, ...syncedBySlug.values()]);
+  return sortByCreatedAtDesc([...mergedCurated, ...syncedProjects.filter((project) => !usedSynced.has(project))]);
 };
 
 const mergeLatestUpdates = (curatedUpdates: LatestUpdate[], syncedUpdates: LatestUpdate[]) => {
-  const syncedBySlug = new Map(syncedUpdates.map((update) => [getLatestSlug(update), update]));
+  const syncedBySlug = new Map<string, LatestUpdate>();
+  syncedUpdates.forEach((update) => {
+    [getLatestSlug(update), slugify(update.title)].forEach((key) => {
+      if (!syncedBySlug.has(key)) syncedBySlug.set(key, update);
+    });
+  });
+  const usedSynced = new Set<LatestUpdate>();
   const mergedCurated = curatedUpdates.map((update) => {
-    const key = getLatestSlug(update);
-    const synced = syncedBySlug.get(key);
+    const synced = [getLatestSlug(update), slugify(update.title)]
+      .map((key) => syncedBySlug.get(key))
+      .find(Boolean);
     if (!synced) return update;
-    syncedBySlug.delete(key);
+    usedSynced.add(synced);
     return mergeLatestEntries(update, synced);
   });
 
-  return sortByCreatedAtDesc([...mergedCurated, ...syncedBySlug.values()]);
+  return sortByCreatedAtDesc([...mergedCurated, ...syncedUpdates.filter((update) => !usedSynced.has(update))]);
 };
 
 const STATIC_PROJECTS = PROJECTS.map(normalizeProject);

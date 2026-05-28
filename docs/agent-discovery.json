@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-05-15",
-  "generatedAt": "2026-05-22",
+  "generatedAt": "2026-05-28",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior Computer Vision Engineer and AI Product Engineer",
@@ -167,7 +167,7 @@
     },
     {
       "question": "What public proof is available?",
-      "answer": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 10,852 tracked ClawHub downloads across 44 public skills as of 2026-05-22.",
+      "answer": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 13,388 tracked ClawHub downloads across 49 public skills as of 2026-05-28.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -258,7 +258,7 @@
         "Chrome Web Store AI extension launch evidence"
       ],
       "evidence": [
-        "10,852 tracked ClawHub downloads across 44 public skills",
+        "13,388 tracked ClawHub downloads across 49 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],
@@ -779,23 +779,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "10,852",
-              "context": "public ClawHub owner profile, 2026-05-22 across 44 skills"
+              "value": "13,388",
+              "context": "public ClawHub owner profile, 2026-05-28 across 49 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "44",
-              "context": "44 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-22"
+              "value": "49",
+              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-28"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,188 total",
-              "context": "645 data-science-cv-repro-lab + 543 sota-agent, 2026-05-22"
+              "value": "1,294 total",
+              "context": "703 data-science-cv-repro-lab + 591 sota-agent, 2026-05-28"
             },
             {
               "label": "Strongest skill",
-              "value": "645 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-05-22"
+              "value": "703 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-05-28"
             },
             {
               "label": "Report outputs",
@@ -1016,18 +1016,18 @@
           "benchmarks": [
             {
               "label": "ClawHub downloads",
-              "value": "372",
-              "context": "public ClawHub listing, 2026-05-22"
+              "value": "419",
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "Published versions",
               "value": "7",
-              "context": "public ClawHub listing, 2026-05-22"
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "ClawHub stars",
               "value": "1",
-              "context": "public ClawHub listing, 2026-05-22"
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "Clean release",
@@ -1260,23 +1260,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "10,852",
-              "context": "public ClawHub owner profile, 2026-05-22 across 44 skills"
+              "value": "13,388",
+              "context": "public ClawHub owner profile, 2026-05-28 across 49 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "44",
-              "context": "44 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-22"
+              "value": "49",
+              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-28"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,188 total",
-              "context": "645 data-science-cv-repro-lab + 543 sota-agent, 2026-05-22"
+              "value": "1,294 total",
+              "context": "703 data-science-cv-repro-lab + 591 sota-agent, 2026-05-28"
             },
             {
               "label": "Strongest skill",
-              "value": "645 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-05-22"
+              "value": "703 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-05-28"
             },
             {
               "label": "Report outputs",
@@ -1497,18 +1497,18 @@
           "benchmarks": [
             {
               "label": "ClawHub downloads",
-              "value": "372",
-              "context": "public ClawHub listing, 2026-05-22"
+              "value": "419",
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "Published versions",
               "value": "7",
-              "context": "public ClawHub listing, 2026-05-22"
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "ClawHub stars",
               "value": "1",
-              "context": "public ClawHub listing, 2026-05-22"
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "Clean release",
@@ -1813,23 +1813,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "10,852",
-              "context": "public ClawHub owner profile, 2026-05-22 across 44 skills"
+              "value": "13,388",
+              "context": "public ClawHub owner profile, 2026-05-28 across 49 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "44",
-              "context": "44 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-22"
+              "value": "49",
+              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-28"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,188 total",
-              "context": "645 data-science-cv-repro-lab + 543 sota-agent, 2026-05-22"
+              "value": "1,294 total",
+              "context": "703 data-science-cv-repro-lab + 591 sota-agent, 2026-05-28"
             },
             {
               "label": "Strongest skill",
-              "value": "645 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-05-22"
+              "value": "703 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-05-28"
             },
             {
               "label": "Report outputs",
@@ -2050,18 +2050,18 @@
           "benchmarks": [
             {
               "label": "ClawHub downloads",
-              "value": "372",
-              "context": "public ClawHub listing, 2026-05-22"
+              "value": "419",
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "Published versions",
               "value": "7",
-              "context": "public ClawHub listing, 2026-05-22"
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "ClawHub stars",
               "value": "1",
-              "context": "public ClawHub listing, 2026-05-22"
+              "context": "public ClawHub listing, 2026-05-28"
             },
             {
               "label": "Clean release",
@@ -2164,7 +2164,7 @@
           "id": 11,
           "title": "Dishes Recognition & Nutrition Goals Telegram Bot",
           "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
-          "summary": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.",
+          "summary": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
           "kind": "user-product",
           "tags": [
             "telegram",
@@ -2178,9 +2178,13 @@
           ],
           "techStack": [
             "Telegram Bot API",
-            "OCR",
+            "FastAPI",
+            "OpenAI APIs",
+            "Vision LLMs",
             "Speech-to-Text",
-            "LLMs"
+            "SQLite",
+            "Telegram Mini Apps",
+            "Admin Analytics"
           ],
           "benchmarks": [
             {
@@ -2192,6 +2196,46 @@
               "label": "Nutrition surfaces",
               "value": "2",
               "context": "2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow"
+            },
+            {
+              "label": "Production admin snapshot",
+              "value": "76,634 events",
+              "context": "sanitized production admin-report artifact generated 2026-05-21; aggregate counts only"
+            },
+            {
+              "label": "Production food-log records",
+              "value": "14,732",
+              "context": "sanitized production DB range in 2026-05-21 admin report"
+            },
+            {
+              "label": "May MTD usage",
+              "value": "10,585 events / 1,837 meal logs",
+              "context": "2026-05-01 00:00 UTC to 2026-05-21 07:34 UTC production admin report"
+            },
+            {
+              "label": "May MTD active reach",
+              "value": "302 event-active / 117 logging users",
+              "context": "aggregate counts from 2026-05-21 production admin report; row-level identifiers omitted"
+            },
+            {
+              "label": "Closed April usage",
+              "value": "18,923 events / 3,419 meal logs",
+              "context": "closed April 2026 production admin report"
+            },
+            {
+              "label": "May MTD AI telemetry",
+              "value": "12.8M tokens / $25.75",
+              "context": "3,101 model-cost rows with purpose/model split in 2026-05-21 admin report"
+            },
+            {
+              "label": "Closed April AI telemetry",
+              "value": "20.3M tokens / $42.12",
+              "context": "5,653 token rows in closed April 2026 production admin report"
+            },
+            {
+              "label": "Production health",
+              "value": "200 OK / 0 pending updates",
+              "context": "health and Telegram webhook checks in 2026-05-21 admin report; endpoint omitted from public copy"
             },
             {
               "label": "Public route",
@@ -2572,23 +2616,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "10,852",
-          "context": "public ClawHub owner profile, 2026-05-22 across 44 skills"
+          "value": "13,388",
+          "context": "public ClawHub owner profile, 2026-05-28 across 49 skills"
         },
         {
           "label": "Tracked public skills",
-          "value": "44",
-          "context": "44 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-22"
+          "value": "49",
+          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-28"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,188 total",
-          "context": "645 data-science-cv-repro-lab + 543 sota-agent, 2026-05-22"
+          "value": "1,294 total",
+          "context": "703 data-science-cv-repro-lab + 591 sota-agent, 2026-05-28"
         },
         {
           "label": "Strongest skill",
-          "value": "645 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-05-22"
+          "value": "703 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-05-28"
         },
         {
           "label": "Report outputs",
@@ -2668,13 +2712,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,188 total",
-          "context": "public ClawHub listings, 2026-05-22 (645 data-science-cv-repro-lab + 543 sota-agent)"
+          "value": "1,294 total",
+          "context": "public ClawHub listings, 2026-05-28 (703 data-science-cv-repro-lab + 591 sota-agent)"
         },
         {
           "label": "Published versions",
           "value": "24 total",
-          "context": "public ClawHub listings, 2026-05-22 (12 + 12 packages)"
+          "context": "public ClawHub listings, 2026-05-28 (12 + 12 packages)"
         },
         {
           "label": "Live packages",
@@ -3011,7 +3055,7 @@
       "id": 11,
       "title": "Dishes Recognition & Nutrition Goals Telegram Bot",
       "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
-      "summary": "Calorio Telegram bot that recognizes dishes from photos/audio and tracks nutrition goals.",
+      "summary": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
       "kind": "user-product",
       "tags": [
         "telegram",
@@ -3025,9 +3069,13 @@
       ],
       "techStack": [
         "Telegram Bot API",
-        "OCR",
+        "FastAPI",
+        "OpenAI APIs",
+        "Vision LLMs",
         "Speech-to-Text",
-        "LLMs"
+        "SQLite",
+        "Telegram Mini Apps",
+        "Admin Analytics"
       ],
       "benchmarks": [
         {
@@ -3039,6 +3087,46 @@
           "label": "Nutrition surfaces",
           "value": "2",
           "context": "2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow"
+        },
+        {
+          "label": "Production admin snapshot",
+          "value": "76,634 events",
+          "context": "sanitized production admin-report artifact generated 2026-05-21; aggregate counts only"
+        },
+        {
+          "label": "Production food-log records",
+          "value": "14,732",
+          "context": "sanitized production DB range in 2026-05-21 admin report"
+        },
+        {
+          "label": "May MTD usage",
+          "value": "10,585 events / 1,837 meal logs",
+          "context": "2026-05-01 00:00 UTC to 2026-05-21 07:34 UTC production admin report"
+        },
+        {
+          "label": "May MTD active reach",
+          "value": "302 event-active / 117 logging users",
+          "context": "aggregate counts from 2026-05-21 production admin report; row-level identifiers omitted"
+        },
+        {
+          "label": "Closed April usage",
+          "value": "18,923 events / 3,419 meal logs",
+          "context": "closed April 2026 production admin report"
+        },
+        {
+          "label": "May MTD AI telemetry",
+          "value": "12.8M tokens / $25.75",
+          "context": "3,101 model-cost rows with purpose/model split in 2026-05-21 admin report"
+        },
+        {
+          "label": "Closed April AI telemetry",
+          "value": "20.3M tokens / $42.12",
+          "context": "5,653 token rows in closed April 2026 production admin report"
+        },
+        {
+          "label": "Production health",
+          "value": "200 OK / 0 pending updates",
+          "context": "health and Telegram webhook checks in 2026-05-21 admin report; endpoint omitted from public copy"
         },
         {
           "label": "Public route",
@@ -3930,13 +4018,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,188 total",
-          "context": "public ClawHub listings, 2026-05-22 (645 data-science-cv-repro-lab + 543 sota-agent)"
+          "value": "1,294 total",
+          "context": "public ClawHub listings, 2026-05-28 (703 data-science-cv-repro-lab + 591 sota-agent)"
         },
         {
           "label": "Published versions",
           "value": "24 total",
-          "context": "public ClawHub listings, 2026-05-22 (12 + 12 packages)"
+          "context": "public ClawHub listings, 2026-05-28 (12 + 12 packages)"
         },
         {
           "label": "Live packages",
@@ -4070,13 +4158,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "530",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "573",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "9",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",
@@ -4132,13 +4220,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "370",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "411",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",
@@ -4194,13 +4282,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "369",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "408",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",
@@ -4258,13 +4346,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "423",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "473",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "13",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",
@@ -4321,13 +4409,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "340",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "389",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",
@@ -4384,13 +4472,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "388",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "433",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "7",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",
@@ -4456,23 +4544,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "10,852",
-          "context": "public ClawHub owner profile, 2026-05-22 across 44 skills"
+          "value": "13,388",
+          "context": "public ClawHub owner profile, 2026-05-28 across 49 skills"
         },
         {
           "label": "Tracked public skills",
-          "value": "44",
-          "context": "44 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-22"
+          "value": "49",
+          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-05-28"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,188 total",
-          "context": "645 data-science-cv-repro-lab + 543 sota-agent, 2026-05-22"
+          "value": "1,294 total",
+          "context": "703 data-science-cv-repro-lab + 591 sota-agent, 2026-05-28"
         },
         {
           "label": "Strongest skill",
-          "value": "645 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-05-22"
+          "value": "703 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-05-28"
         },
         {
           "label": "Report outputs",
@@ -4693,18 +4781,18 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "372",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "419",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "7",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "ClawHub stars",
           "value": "1",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Clean release",
@@ -4968,13 +5056,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "557",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "610",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "14",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Release checks",
@@ -5702,13 +5790,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "79",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "137",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "1",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Verdict labels",
@@ -5758,13 +5846,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "352",
-          "context": "public ClawHub listing, 2026-05-22"
+          "value": "397",
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-05-22"
+          "context": "public ClawHub listing, 2026-05-28"
         },
         {
           "label": "Public release",

@@ -10,6 +10,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const AUDIT_ARGS = ['-m', 'codex_harness', 'audit', '.', '--strict', '--min-score', '90'];
 const INSTALL_HELP = 'python3 -m pip install "git+https://github.com/zack-dev-cm/antirot.git"';
 const SNAPSHOT_SKIP_PREFIXES = [
+  '.codex-audit-venv/',
   '.clawpatch/',
   '.git/',
   'node_modules/',

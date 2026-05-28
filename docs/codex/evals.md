@@ -9,6 +9,7 @@ Use this file to define the checks that keep portfolio changes honest.
 - Public repos need a leak gate for secrets, local paths, local URLs, and instruction bleed before merge.
 - Generated artifacts must be refreshed when source data, resume links, project links, or crawlable content changes.
 - Metrics must include source context and dates when they can change over time.
+- GitHub-synced project updates must pass the portfolio update review metadata gate before they are written or deployed.
 
 ## Required checks
 
@@ -18,6 +19,8 @@ Use this file to define the checks that keep portfolio changes honest.
 - E2E smoke: `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e`
 - Link audit for link/resume/page changes: `npm run check:links`
 - Open-source gate: `npm run audit:codex`
+- GitHub feed freshness gate: `npm run sync:github:verify`
+- ClawPatch AI review/debug pass for public-surface or sync changes: `npm run review:clawpatch -- ci --since HEAD --limit 20 --jobs 3 --reasoning-effort high`
 
 ## Experiment log
 

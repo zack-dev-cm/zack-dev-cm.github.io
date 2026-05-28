@@ -12,7 +12,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/stale-portfolio-st
 A short checklist for finding drift between source constants, generated files, and the live static site.
 
 ## Evidence To Use
-ClawHub tracker refresh from stale public values to 10,852 downloads across 44 skills.
+ClawHub tracker refresh from stale public values to 13,388 downloads across 49 skills.
 
 ## Thumbnail Direction
 Annotated real stats panel with before and after labels; GPT Image background may add subtle dashboard lighting only.

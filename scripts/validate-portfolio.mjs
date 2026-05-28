@@ -21,6 +21,27 @@ const GITHUB_PATTERN = /^https:\/\/github\.com\/[^/]+\/[^/]+/;
 const CLAWHUB_URL_PATTERN = /^https:\/\/clawhub\.ai\/zack-dev-cm\/[a-z0-9-]+$/;
 const CLAWHUB_MIN_EXPECTED_SKILLS = 30;
 const CLAWHUB_MIN_EXPECTED_DOWNLOADS = 6000;
+const MIN_PORTFOLIO_UPDATES_VERSION = 2;
+const REQUIRED_SYNC_REVIEW_GATES = [
+  'public-github-api-only',
+  'private-repo-default-off',
+  'safe-public-links-only',
+  'leak-pattern-scan',
+  'instruction-bleed-scan',
+  'clawpatch-review-ready',
+];
+const PUBLIC_UPDATE_BLOCK_PATTERNS = [
+  ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
+  ['credentialed URL', /https?:\/\/[^/\s:@]+:[^/\s@]+@/i],
+  ['local absolute path', /(?:^|[^A-Za-z0-9_])(?:\/Users\/[A-Za-z0-9._-]+|\/home\/[A-Za-z0-9._-]+|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+)/],
+  ['private URL', /https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^/\s]+\.(?:local|internal))(?:[/:?#][^\s"'<>)]*)?/i],
+  ['environment file reference', /(?:^|[\\/])\.env(?:$|[._-])/i],
+  ['system prompt wording', /\b(?:system prompt|developer message|hidden instruction|private instruction|tool instruction|model instruction)\b/i],
+  ['prompt injection wording', /\b(?:ignore previous instructions|ignore all previous|forget previous instructions|reveal your prompt)\b/i],
+  ['private reasoning wording', /\b(?:chain[- ]of[- ]thought|hidden reasoning|scratchpad)\b/i],
+  ['Codex runtime wording', /\b(?:CODEX_HOME|request_user_input|sandbox_permissions|You are Codex)\b/i],
+  ['deployment secret env name', /\b(?:DEV_CM_GITHUB_TOKEN|SYNC_SECRET|CLOUDFLARE_API_TOKEN|OPENAI_API_KEY|ANTHROPIC_API_KEY)\b/],
+];
 
 const errors = [];
 
@@ -265,6 +286,31 @@ const validateLinks = (links, label) => {
   }
 };
 
+const validatePortfolioUpdateReview = (review, label) => {
+  if (!review || typeof review !== 'object') {
+    fail(`${label} is missing GitHub sync review metadata`);
+    return;
+  }
+  if (review.status !== 'PASS') {
+    fail(`${label} review status must be PASS`);
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(review.checkedAt || '')) {
+    fail(`${label} review checkedAt must use YYYY-MM-DD`);
+  }
+  if (!Number.isInteger(review.gateVersion) || review.gateVersion < MIN_PORTFOLIO_UPDATES_VERSION) {
+    fail(`${label} review gateVersion must be at least ${MIN_PORTFOLIO_UPDATES_VERSION}`);
+  }
+  if (!Array.isArray(review.gates)) {
+    fail(`${label} review gates must be an array`);
+    return;
+  }
+  for (const gate of REQUIRED_SYNC_REVIEW_GATES) {
+    if (!review.gates.includes(gate)) {
+      fail(`${label} review gates must include ${gate}`);
+    }
+  }
+};
+
 const validateProject = (project) => {
   const projectLabel = `Project #${project.id} (${project.title || 'untitled'})`;
   if (!project.id || !Number.isInteger(project.id)) {
@@ -447,6 +493,7 @@ const ensureUniqueValues = (items, getValues, labelForItem, thingLabel) => {
 
 const validateSyncedProject = (project) => {
   const label = `Synced project "${project.title || 'untitled'}"`;
+  validatePortfolioUpdateReview(project.review, label);
   if (hasPlaceholderText(project.description) || hasPlaceholderText(project.longDescription)) {
     fail(`${label} still contains placeholder/slop copy`);
   }
@@ -464,6 +511,7 @@ const validateSyncedProject = (project) => {
 
 const validateSyncedLatestUpdate = (update, projectIds) => {
   const label = `Synced latest update "${update.title || 'untitled'}"`;
+  validatePortfolioUpdateReview(update.review, label);
   if (hasPlaceholderText(update.description)) {
     fail(`${label} contains placeholder/slop copy`);
   }
@@ -525,6 +573,20 @@ const main = async () => {
 
   if (JSON.stringify(publicUpdates) !== JSON.stringify(docsUpdates)) {
     fail('public/portfolio-updates.json and docs/portfolio-updates.json must stay identical');
+  }
+
+  if (!Number.isInteger(publicUpdates.version) || publicUpdates.version < MIN_PORTFOLIO_UPDATES_VERSION) {
+    fail(`portfolio-updates.json version must be at least ${MIN_PORTFOLIO_UPDATES_VERSION}`);
+  }
+
+  validatePortfolioUpdateReview(publicUpdates.review, 'portfolio-updates.json top-level review');
+
+  const publicUpdatesSerialized = JSON.stringify(publicUpdates);
+  for (const [label, pattern] of PUBLIC_UPDATE_BLOCK_PATTERNS) {
+    pattern.lastIndex = 0;
+    if (pattern.test(publicUpdatesSerialized)) {
+      fail(`portfolio-updates.json contains ${label}`);
+    }
   }
 
   if (!Array.isArray(publicUpdates.projects) || !Array.isArray(publicUpdates.latestUpdates)) {
