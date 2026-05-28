@@ -49,17 +49,8 @@ jobs:
       - name: Run E2E checks
         run: PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
 
-      - name: Install Codex audit harness
-        run: |
-          python3 -m venv .codex-audit-venv
-          . .codex-audit-venv/bin/activate
-          python -m pip install --upgrade pip
-          python -m pip install "git+https://github.com/zack-dev-cm/antirot.git"
-
-      - name: Run codex-harness audit gate
-        run: |
-          . .codex-audit-venv/bin/activate
-          npm run audit:codex
+      - name: Run release security gate
+        run: npm run security:gate
 
       - name: Stage Pages artifact
         run: |
