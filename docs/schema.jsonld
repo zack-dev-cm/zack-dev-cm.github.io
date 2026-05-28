@@ -328,7 +328,7 @@
       "@id": "https://zack-dev-cm.github.io/#service-release-evidence",
       "name": "Release evidence and marketplace analytics",
       "serviceType": "Release evidence and marketplace analytics",
-      "description": "Public release gates, marketplace tracking, ClawHub skill traction, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.",
+      "description": "Public release gates, marketplace listing tracking, ClawHub skill download evidence, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.",
       "provider": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       },
@@ -1524,7 +1524,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "GitHub + ClawHub Downloads Tracker",
-            "description": "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+            "description": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
             "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

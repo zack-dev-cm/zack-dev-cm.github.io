@@ -12,7 +12,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/cv-repro-lab-relea
 A release-gate checklist for benchmark evidence, promotion notes, and public launch copy.
 
 ## Evidence To Use
-CV Repro Lab skill traction and review-dashboard positioning.
+CV Repro Lab listing-download evidence and review-dashboard positioning.
 
 ## Thumbnail Direction
 Real CV systems map with release-gate chips layered on top.

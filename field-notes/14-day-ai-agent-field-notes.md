@@ -34,7 +34,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 
 ### Day 3: What the ClawHub downloads dashboard actually proves
 - Format: Proof Dashboard
-- Target reader: Hiring managers and founders evaluating public marketplace traction.
+- Target reader: Hiring managers and founders evaluating public marketplace listing evidence.
 - Reader win: A practical distinction between listing downloads, users, stars, versions, and adoption claims.
 - Evidence: Tracked ClawHub rows, versions, stars, and checkedAt dates.
 - Channels: LinkedIn primary; X secondary
@@ -76,7 +76,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 - Format: Proof Dashboard
 - Target reader: Computer-vision engineers productizing experiments and review dashboards.
 - Reader win: A release-gate checklist for benchmark evidence, promotion notes, and public launch copy.
-- Evidence: CV Repro Lab skill traction and review-dashboard positioning.
+- Evidence: CV Repro Lab listing-download evidence and review-dashboard positioning.
 - Channels: LinkedIn primary; GitHub secondary
 - Field note URL: https://zack-dev-cm.github.io/docs/field-notes/cv-repro-lab-release-gates.md
 

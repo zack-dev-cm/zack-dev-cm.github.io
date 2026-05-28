@@ -18,7 +18,7 @@ Featured projects, benchmarks, public links, marketplace listings, and generated
 Stacked proof ladder using real project cards and metric chips.
 
 ## Writer Brief
-Frame the ladder as a decision aid, not a claim that every project has traction.
+Frame the ladder as a decision aid, not a claim that every project has usage.
 
 ## Call To Action
 Browse featured solutions

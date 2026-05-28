@@ -251,7 +251,7 @@
     {
       "id": "release-evidence",
       "name": "Release evidence and marketplace analytics",
-      "description": "Public release gates, marketplace tracking, ClawHub skill traction, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.",
+      "description": "Public release gates, marketplace listing tracking, ClawHub skill download evidence, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.",
       "queryIntents": [
         "ClawHub public skills downloads portfolio",
         "AI release engineering validation gates",
@@ -755,7 +755,7 @@
           "id": 53,
           "title": "GitHub + ClawHub Downloads Tracker",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-          "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+          "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
           "kind": "open-source",
           "tags": [
             "open-source",
@@ -765,7 +765,7 @@
           "aliases": [
             "github-stars-optimizer",
             "clawhub downloads tracker",
-            "clawhub traction tracker"
+            "clawhub listing tracker"
           ],
           "techStack": [
             "Python",
@@ -1236,7 +1236,7 @@
           "id": 53,
           "title": "GitHub + ClawHub Downloads Tracker",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-          "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+          "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
           "kind": "open-source",
           "tags": [
             "open-source",
@@ -1246,7 +1246,7 @@
           "aliases": [
             "github-stars-optimizer",
             "clawhub downloads tracker",
-            "clawhub traction tracker"
+            "clawhub listing tracker"
           ],
           "techStack": [
             "Python",
@@ -1789,7 +1789,7 @@
           "id": 53,
           "title": "GitHub + ClawHub Downloads Tracker",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-          "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+          "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
           "kind": "open-source",
           "tags": [
             "open-source",
@@ -1799,7 +1799,7 @@
           "aliases": [
             "github-stars-optimizer",
             "clawhub downloads tracker",
-            "clawhub traction tracker"
+            "clawhub listing tracker"
           ],
           "techStack": [
             "Python",
@@ -2592,7 +2592,7 @@
       "id": 53,
       "title": "GitHub + ClawHub Downloads Tracker",
       "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-      "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+      "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
       "kind": "open-source",
       "tags": [
         "open-source",
@@ -2602,7 +2602,7 @@
       "aliases": [
         "github-stars-optimizer",
         "clawhub downloads tracker",
-        "clawhub traction tracker"
+        "clawhub listing tracker"
       ],
       "techStack": [
         "Python",
@@ -4520,7 +4520,7 @@
       "id": 53,
       "title": "GitHub + ClawHub Downloads Tracker",
       "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-      "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
+      "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
       "kind": "open-source",
       "tags": [
         "open-source",
@@ -4530,7 +4530,7 @@
       "aliases": [
         "github-stars-optimizer",
         "clawhub downloads tracker",
-        "clawhub traction tracker"
+        "clawhub listing tracker"
       ],
       "techStack": [
         "Python",

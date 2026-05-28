@@ -1,12 +1,12 @@
 # Zakhar Pashkin Portfolio
 
-Static React portfolio for Zakhar Pashkin, focused on AI product engineering, computer vision, VLM/LLM workflows, automation, ClawHub traction evidence, and resume delivery.
+Static React portfolio for Zakhar Pashkin, focused on AI product engineering, computer vision, VLM/LLM workflows, automation, ClawHub listing evidence, and resume delivery.
 
 Available at: https://zack-dev-cm.github.io/
 
-## ClawHub Skill Popularity
+## ClawHub Listing Snapshot
 
-The portfolio embeds a live-style ClawHub traction snapshot into the React app, generated project markdown, crawler-readable HTML shell, `llms.txt`, `geo.txt`, and agent-discovery files. Latest verified snapshot: **13,388 tracked downloads across 49 public skills** from public ClawHub listings, checked on **2026-05-28** with `npm run stats:clawhub -- --write`.
+The portfolio embeds a dated ClawHub listing-download snapshot into the React app, generated project markdown, crawler-readable HTML shell, `llms.txt`, `geo.txt`, and agent-discovery files. Latest verified snapshot: **13,388 tracked downloads across 49 public skills** from public ClawHub listings, checked on **2026-05-28** with `npm run stats:clawhub -- --write`.
 
 ### Most Downloaded Skills
 

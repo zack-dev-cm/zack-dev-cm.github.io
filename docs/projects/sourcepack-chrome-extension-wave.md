@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
 - Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions
 - Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions
 - Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence
-- Embeds Chrome Web Store detail-page tracking in this portfolio so extension adoption and risk metadata stay visible
+- Embeds Chrome Web Store detail-page tracking in this portfolio so reported user counts and risk metadata stay visible
 
 ## Tech Stack
 - Chrome Extension

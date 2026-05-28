@@ -18,7 +18,7 @@ Entity keywords: Computer Vision, OCR, Segmentation, Object Detection, Deep Lear
 - Computer vision engineering: Production OCR, segmentation, detection, landmarking, multimodal search, ONNX/FastAPI inference, benchmarked CV prototypes, and deployment-ready model services. Query intents: senior computer vision engineer OCR segmentation; production ONNX FastAPI OCR service; computer vision product engineer portfolio Evidence: Fast OCR ONNX Inference Server; Pores & Wrinkles Detection Service; Multimodal Video Search Platform Canonical URLs: https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md, https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md, https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 - AI product delivery: Full-stack AI products with VLM/LLM workflows, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch evidence. Query intents: AI product engineer launch-ready workflows; VLM LLM automation with human review; Telegram mini app AI engineer Evidence: OpenClaw Sales Manager Automation for a Multi-Clinic Chain; SourcePack Chrome Extension Wave; Chrome Extension Studio Plugin Canonical URLs: https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md, https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md, https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md
 - AI visibility and answer engine optimization: Crawlable AI context files, llms.txt, llms-full.txt, geo.txt, agent discovery manifests, schema.org JSON-LD, sitemap hygiene, and answer-target copy for retrieval systems. Query intents: answer engine optimization engineer; AI visibility llms.txt JSON-LD portfolio; agent discovery manifest structured data Evidence: GeoFix - AI Visibility Memorizer Mini App; seogeo - SEO/GEO Bridge for Telegram Mini Apps; Generated agent-discovery.json and schema.jsonld portfolio files Canonical URLs: https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md, https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md, https://zack-dev-cm.github.io/docs/agent-discovery.json, https://zack-dev-cm.github.io/schema.jsonld
-- Release evidence and marketplace analytics: Public release gates, marketplace tracking, ClawHub skill traction, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts. Query intents: ClawHub public skills downloads portfolio; AI release engineering validation gates; Chrome Web Store AI extension launch evidence Evidence: 13,388 tracked ClawHub downloads across 49 public skills; Chrome Web Store detail-page snapshot; GitHub + ClawHub Downloads Tracker Canonical URLs: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md, https://zack-dev-cm.github.io/docs/chrome-extension-stats.json
+- Release evidence and marketplace analytics: Public release gates, marketplace listing tracking, ClawHub skill download evidence, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts. Query intents: ClawHub public skills downloads portfolio; AI release engineering validation gates; Chrome Web Store AI extension launch evidence Evidence: 13,388 tracked ClawHub downloads across 49 public skills; Chrome Web Store detail-page snapshot; GitHub + ClawHub Downloads Tracker Canonical URLs: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md, https://zack-dev-cm.github.io/docs/chrome-extension-stats.json
 
 ## Canonical Answer Targets
 - Who is Zakhar Pashkin? Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, AI visibility assets, and full-stack AI products. Citation: https://zack-dev-cm.github.io/
@@ -67,7 +67,7 @@ Substack RSS: https://zackpashkin.substack.com/feed
 Purpose: a 14-day proof-backed publishing experiment with daily notes, screenshot-first thumbnails, distribution channels, and a weekly proof-pack CTA.
 
 ## Top 5 Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
 - [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
@@ -262,7 +262,7 @@ Links:
 
 ### Python Library: shiftlab-ocr
 Summary: Handwriting-focused OCR with line/character segmentation.
-Details: OCR library tuned for handwriting scans with robust line and character separation for noisy documents.
+Details: OCR library tuned for handwriting scans with stable line and character separation for noisy documents.
 Project URL: https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md
 Key Features:
 - Handwriting segmentation
@@ -398,11 +398,11 @@ Tech Stack:
 
 ### LocaBoost AI - Local SEO Auditor
 Summary: Paste an address and get instant AI insights on local search strength and competition.
-Details: Maps the competitive landscape around a business, scores visibility, and surfaces actionable SEO recommendations.
+Details: Maps nearby competitors around a business, scores visibility, and surfaces actionable SEO recommendations.
 Project URL: https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md
 Key Features:
 - AI-driven SEO analysis
-- Competitive landscape visualization
+- Nearby competitor map
 - Actionable local search recommendations
 Tech Stack:
 - AI/LLMs
@@ -1050,11 +1050,11 @@ Links:
 - Release v1.0.3: https://github.com/zack-dev-cm/artifact-deck/releases/tag/v1.0.3
 
 ### GitHub + ClawHub Downloads Tracker
-Summary: CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.
-Details: GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.
+Summary: CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.
+Details: GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.
 Project URL: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 Key Features:
-- Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction
+- Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo metadata
 - Records Chrome Web Store detail-page stats for explicit user counts, ratings, versions, and not-reported rows
 - Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace
 - Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting
@@ -1376,7 +1376,7 @@ Key Features:
 - Maps conservation report Q&A, dashboards, artifacts, planning, intake, and report drafting into explicit MCP tools
 - Provides ChatGPT widget metadata for dashboard, QA, artifact, operations, and voice-review surfaces
 - Includes production controls for auth, artifact protection, CORS allowlists, request limits, cache TTLs, timeouts, and security headers
-- Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and showcase runs
+- Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and demo runs
 Tech Stack:
 - Node.js
 - MCP
@@ -1421,7 +1421,7 @@ Key Features:
 - Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions
 - Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions
 - Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence
-- Embeds Chrome Web Store detail-page tracking in this portfolio so extension adoption and risk metadata stay visible
+- Embeds Chrome Web Store detail-page tracking in this portfolio so reported user counts and risk metadata stay visible
 Tech Stack:
 - Chrome Extension
 - Manifest V3

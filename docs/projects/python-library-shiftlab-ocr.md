@@ -3,7 +3,7 @@
 > Handwriting-focused OCR with line/character segmentation.
 
 ## Summary
-OCR library tuned for handwriting scans with robust line and character separation for noisy documents.
+OCR library tuned for handwriting scans with stable line and character separation for noisy documents.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md

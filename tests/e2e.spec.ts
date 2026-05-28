@@ -218,9 +218,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   await projectSearch.fill('');
 
-  const realUsersFilter = page.getByRole('button', { name: /Real users/i });
-  await realUsersFilter.click();
-  await expect(realUsersFilter).toHaveAttribute('aria-pressed', 'true');
+  const userFacingFilter = page.getByRole('button', { name: /User-facing/i });
+  await userFacingFilter.click();
+  await expect(userFacingFilter).toHaveAttribute('aria-pressed', 'true');
   await expect(
     page.getByRole('button', { name: /Open project: Dalshe – Circular Clothing Pickup Mini App/i })
   ).toHaveCount(0);

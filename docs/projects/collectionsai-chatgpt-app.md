@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md
 - Maps conservation report Q&A, dashboards, artifacts, planning, intake, and report drafting into explicit MCP tools
 - Provides ChatGPT widget metadata for dashboard, QA, artifact, operations, and voice-review surfaces
 - Includes production controls for auth, artifact protection, CORS allowlists, request limits, cache TTLs, timeouts, and security headers
-- Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and showcase runs
+- Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and demo runs
 
 ## Tech Stack
 - Node.js

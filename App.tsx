@@ -41,9 +41,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
     proof: ['3-stage OCR pipeline', 'FastAPI + ONNX Runtime', 'JSON text + box outputs']
   },
   53: {
-    label: 'Traction evidence system',
+    label: 'Evidence tracking system',
     summary:
-      'A public CLI/reporting flow that keeps GitHub traction, dated ClawHub snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
+      'A public CLI/reporting flow that keeps GitHub metadata, dated ClawHub listing snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
     proof: [`${CLAWHUB_TOTAL_DOWNLOADS.toLocaleString('en-US')} tracked ClawHub downloads`, `${CLAWHUB_DOWNLOAD_STATS.length} public skills`, 'Live owner-profile verification']
   },
   45: {
@@ -330,7 +330,7 @@ const getProjectSignals = (project: Project) => {
     surfaceTags.has('computer-vision') ||
     /\b(vision|ocr|segmentation|anti-?spoof|wrinkle|pore|image|opencv|clip|coreml|tflite)\b/i.test(searchText);
   const badges = dedupeStrings([
-    isRealUsers ? 'Real users' : project.projectKind === 'case-study' ? 'Case study' : undefined,
+    isRealUsers ? 'User-facing' : project.projectKind === 'case-study' ? 'Case study' : undefined,
     hasTelegram ? 'Telegram' : undefined,
     hasChromeWebStore ? 'Browser extension' : undefined,
     isOpenSource ? 'Open source' : undefined,
@@ -462,7 +462,7 @@ type ProjectFilter = 'all' | 'real-users' | 'telegram' | 'mobile' | 'automation'
 
 const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
   { value: 'all', label: 'All projects' },
-  { value: 'real-users', label: 'Real users' },
+  { value: 'real-users', label: 'User-facing' },
   { value: 'telegram', label: 'Telegram' },
   { value: 'mobile', label: 'Mobile ready' },
   { value: 'automation', label: 'Automation' },
@@ -672,12 +672,12 @@ const App: React.FC = () => {
         detail: 'grouped into Start, Proof, and Explore routes'
       },
       {
-        label: 'Public traction',
+        label: 'Listing downloads',
         value: clawHubSummary.totalDownloads.toLocaleString(),
         detail: `ClawHub package downloads checked ${clawHubSummary.checkedAt}`
       },
       {
-        label: 'Extension adoption',
+        label: 'Reported CWS users',
         value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
         detail: `Chrome Web Store publisher rollup checked ${CHROME_EXTENSION_STATS.checkedAt}`
       },
@@ -693,14 +693,14 @@ const App: React.FC = () => {
   const aiSystemLanes = useMemo(
     () => [
       {
-        label: 'Public traction',
+        label: 'Listing downloads',
         value: clawHubSummary.totalDownloads.toLocaleString(),
         detail: `ClawHub downloads across ${CLAWHUB_DOWNLOAD_STATS.length} tracked public skills as of ${clawHubSummary.checkedAt}`
       },
       {
-        label: 'Extension adoption',
+        label: 'Reported CWS users',
         value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `Chrome Web Store users across ${CHROME_EXTENSION_STATS.totalPublished} published extensions as of ${CHROME_EXTENSION_STATS.checkedAt}`
+        detail: `Chrome Web Store reported users across ${CHROME_EXTENSION_STATS.totalPublished} published extensions as of ${CHROME_EXTENSION_STATS.checkedAt}`
       },
       {
         label: 'Release posture',
@@ -1228,7 +1228,7 @@ const App: React.FC = () => {
             id="ai-systems"
             eyebrow="AI Systems"
             title="AI Product and Release Systems"
-            description="The product-facing AI work around extension launches, public traction trackers, reproducible CV experimentation, ChatGPT/MCP apps, automation, and install safety."
+            description="The product-facing AI work around extension launches, public listing trackers, reproducible CV experimentation, ChatGPT/MCP apps, automation, and install safety."
           >
             <div className="domain-lanes domain-lanes--summary" aria-label="AI systems summary">
               {aiSystemLanes.map((lane) => (
@@ -1274,7 +1274,7 @@ const App: React.FC = () => {
             id="clawhub"
             eyebrow="ClawHub"
             title="Downloads Tracker"
-            description="Dated public ClawHub skill listing counters used as marketplace traction evidence, not user-count claims."
+            description="Dated public ClawHub skill listing counters used as marketplace evidence, not user-count claims."
           >
             <div className="proof-grid">
               <div className="proof-chip">
@@ -1287,7 +1287,7 @@ const App: React.FC = () => {
               </div>
               <div className="proof-chip">
                 <strong>{clawHubSummary.totalStars}</strong>
-                <em>ClawHub stars, shown to avoid overstating download traction</em>
+                <em>ClawHub stars, shown to avoid overstating listing downloads</em>
               </div>
             </div>
             <ul className="latest-list" aria-label="Tracked ClawHub skill downloads">
@@ -1846,7 +1846,7 @@ const App: React.FC = () => {
             id="projects"
             eyebrow="Explorer"
             title="Projects"
-            description="Search by project name, bot handle, alias, stack, or delivery surface. The Real users filter is now limited to curated user products and metric-backed launches, not every Telegram case study."
+            description="Search by project name, bot handle, alias, stack, or delivery surface. The User-facing filter is limited to curated user products and metric-backed launches, not every Telegram case study."
           >
             <div className="explorer-panel">
               <div className="explorer-panel__controls">

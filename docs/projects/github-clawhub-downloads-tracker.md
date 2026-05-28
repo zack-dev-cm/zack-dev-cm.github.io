@@ -1,15 +1,15 @@
 # GitHub + ClawHub Downloads Tracker
 
-> CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.
+> CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.
 
 ## Summary
-GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.
+GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 
 ## Key Features
-- Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction
+- Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo metadata
 - Records Chrome Web Store detail-page stats for explicit user counts, ratings, versions, and not-reported rows
 - Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace
 - Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting

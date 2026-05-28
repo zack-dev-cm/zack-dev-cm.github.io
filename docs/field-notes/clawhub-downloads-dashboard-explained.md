@@ -3,7 +3,7 @@
 > Day 3 of the AI Agent Field Notes traffic experiment.
 
 Format: Proof Dashboard
-Target reader: Hiring managers and founders evaluating public marketplace traction.
+Target reader: Hiring managers and founders evaluating public marketplace listing evidence.
 Primary channel: LinkedIn
 Secondary channel: X
 Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/clawhub-downloads-dashboard-explained.md

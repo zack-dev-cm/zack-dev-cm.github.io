@@ -42,6 +42,23 @@ const PUBLIC_UPDATE_BLOCK_PATTERNS = [
   ['Codex runtime wording', /\b(?:CODEX_HOME|request_user_input|sandbox_permissions|You are Codex)\b/i],
   ['deployment secret env name', /\b(?:DEV_CM_GITHUB_TOKEN|SYNC_SECRET|CLOUDFLARE_API_TOKEN|OPENAI_API_KEY|ANTHROPIC_API_KEY)\b/],
 ];
+const POSITIONING_BLOCK_PATTERNS = [
+  ['Real users label', /\bReal users\b/],
+  ['Extension adoption label', /\bExtension adoption\b/],
+  ['Public traction label', /\bPublic traction\b/],
+  ['traction evidence framing', /\btraction evidence\b/i],
+  ['marketplace traction framing', /\bmarketplace traction\b/i],
+  ['download traction framing', /\bdownload traction\b/i],
+  ['competitive landscape filler', /\bcompetitive landscape\b/i],
+  ['robust filler', /\brobust\b/i],
+  ['showcase runs filler', /\bshowcase runs\b/i],
+];
+const POSITIONING_SOURCE_PATHS = [
+  'README.md',
+  'App.tsx',
+  'constants.ts',
+  'scripts/generate-project-markdown.mjs',
+];
 
 const errors = [];
 
@@ -524,7 +541,21 @@ const validateSyncedLatestUpdate = (update, projectIds) => {
   }
 };
 
+const validatePositioningCopy = async () => {
+  for (const relativePath of POSITIONING_SOURCE_PATHS) {
+    const content = await fs.readFile(path.resolve(ROOT_DIR, relativePath), 'utf8');
+    for (const [label, pattern] of POSITIONING_BLOCK_PATTERNS) {
+      pattern.lastIndex = 0;
+      if (pattern.test(content)) {
+        fail(`${relativePath} contains risky positioning copy: ${label}`);
+      }
+    }
+  }
+};
+
 const main = async () => {
+  await validatePositioningCopy();
+
   const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
   const projects = extractProjects(sourceFile);

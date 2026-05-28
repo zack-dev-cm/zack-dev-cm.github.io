@@ -121,7 +121,7 @@ export const FIELD_NOTES_PLAN: FieldNotePlan[] = [
     slug: "clawhub-downloads-dashboard-explained",
     title: "What the ClawHub downloads dashboard actually proves",
     format: "Proof Dashboard",
-    targetReader: "Hiring managers and founders evaluating public marketplace traction.",
+    targetReader: "Hiring managers and founders evaluating public marketplace listing evidence.",
     readerWin: "A practical distinction between listing downloads, users, stars, versions, and adoption claims.",
     evidence: "Tracked ClawHub rows, versions, stars, and checkedAt dates.",
     primaryChannel: "LinkedIn",
@@ -193,7 +193,7 @@ export const FIELD_NOTES_PLAN: FieldNotePlan[] = [
     thumbnailDirection:
       "Stacked proof ladder using real project cards and metric chips.",
     writerBrief:
-      "Frame the ladder as a decision aid, not a claim that every project has traction.",
+      "Frame the ladder as a decision aid, not a claim that every project has usage.",
     cta: "Browse featured solutions"
   },
   {
@@ -203,7 +203,7 @@ export const FIELD_NOTES_PLAN: FieldNotePlan[] = [
     format: "Proof Dashboard",
     targetReader: "Computer-vision engineers productizing experiments and review dashboards.",
     readerWin: "A release-gate checklist for benchmark evidence, promotion notes, and public launch copy.",
-    evidence: "CV Repro Lab skill traction and review-dashboard positioning.",
+    evidence: "CV Repro Lab listing-download evidence and review-dashboard positioning.",
     primaryChannel: "LinkedIn",
     secondaryChannel: "GitHub",
     thumbnailDirection:
@@ -1607,7 +1607,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "GitHub + ClawHub Downloads Tracker",
-    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub traction, dated ClawHub snapshots, Chrome Web Store detail-page stats, deltas, and next traction bets.",
+    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub metadata, dated ClawHub listing snapshots, Chrome Web Store detail-page stats, deltas, and next evidence bets.",
     links: [
       { text: "Read tracker case study", url: "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md" }
     ],
@@ -1980,7 +1980,7 @@ export const PROJECTS: Project[] = [
     id: 13,
     title: "Python Library: shiftlab-ocr",
     description: "Handwriting-focused OCR with line/character segmentation.",
-    longDescription: "OCR library tuned for handwriting scans with robust line and character separation for noisy documents.",
+    longDescription: "OCR library tuned for handwriting scans with stable line and character separation for noisy documents.",
     keyFeatures: ["Handwriting segmentation", "Character recognition"],
     techStack: ["Python", "OCR", "Image Segmentation"],
     links: [{ text: "shiftlab-ocr on PyPI", url: "https://pypi.org/project/shiftlab-ocr/" }],
@@ -2116,8 +2116,8 @@ export const PROJECTS: Project[] = [
     id: 22,
     title: "LocaBoost AI – Local SEO Auditor",
     description: "Paste an address and get instant AI insights on local search strength and competition.",
-    longDescription: "Maps the competitive landscape around a business, scores visibility, and surfaces actionable SEO recommendations.",
-    keyFeatures: ["AI-driven SEO analysis", "Competitive landscape visualization", "Actionable local search recommendations"],
+    longDescription: "Maps nearby competitors around a business, scores visibility, and surfaces actionable SEO recommendations.",
+    keyFeatures: ["AI-driven SEO analysis", "Nearby competitor map", "Actionable local search recommendations"],
     techStack: ["AI/LLMs", "SEO Analytics", "Geocoding APIs"],
     links: [],
     images: [{ url: `${LOCAL_IMG_BASE}/locaboost.png`, alt: "LocaBoost map overview" }],
@@ -2871,13 +2871,13 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 53,
     title: "GitHub + ClawHub Downloads Tracker",
-    aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub traction tracker"],
-    description: "CLI and report flow for tracking GitHub stars, dated ClawHub snapshots, publisher stats, and traction deltas.",
-    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt traction report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
+    aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub listing tracker"],
+    description: "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
+    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
     projectKind: "open-source",
     surfaceTags: ["open-source", "automation", "analytics"],
     keyFeatures: [
-      "Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo traction",
+      "Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo metadata",
       "Records Chrome Web Store detail-page stats for explicit user counts, ratings, versions, and not-reported rows",
       "Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace",
       "Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting"
@@ -3308,7 +3308,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Maps conservation report Q&A, dashboards, artifacts, planning, intake, and report drafting into explicit MCP tools",
       "Provides ChatGPT widget metadata for dashboard, QA, artifact, operations, and voice-review surfaces",
       "Includes production controls for auth, artifact protection, CORS allowlists, request limits, cache TTLs, timeouts, and security headers",
-      "Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and showcase runs"
+      "Ships release checks for Node syntax, preflight, publish posture, App Info audit, E2E, load, alpha scenarios, and demo runs"
     ],
     techStack: ["Node.js", "MCP", "ChatGPT Apps", "Zod", "Python", "Widget Metadata", "Release Gates"],
     benchmarks: [
@@ -3360,7 +3360,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions",
       "Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions",
       "Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence",
-      "Embeds Chrome Web Store detail-page tracking in this portfolio so extension adoption and risk metadata stay visible"
+      "Embeds Chrome Web Store detail-page tracking in this portfolio so reported user counts and risk metadata stay visible"
     ],
     techStack: ["Chrome Extension", "Manifest V3", "React", "TypeScript", "SourcePack", "Playwright", "Chrome Web Store"],
     benchmarks: [
