@@ -1,5 +1,5 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
-import { CLAWHUB_DOWNLOAD_STATS, NEWSLETTER_OFFER } from '../constants';
+import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, NEWSLETTER_OFFER } from '../constants';
 
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
 const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
@@ -85,7 +85,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const chromeStatsSection = page.locator('#chrome-stats');
   await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();
   await expect(
-    chromeStatsSection.locator('.proof-chip').filter({ hasText: 'publisher rollup users' }).locator('strong')
+    chromeStatsSection.locator('.proof-chip').filter({ hasText: 'reported users as of' }).locator('strong')
   ).toHaveText('208');
   await expect(chromeStatsSection.getByText('SourcePack Hub - Local AI Research Library')).toBeVisible();
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
@@ -242,6 +242,59 @@ test('homepage renders core sections and project discovery controls', async ({ p
   // Capture a viewport screenshot for visual sanity without forcing the whole media-heavy page to render.
   await page.locator('#trend-blog').scrollIntoViewIfNeeded();
   await page.screenshot({ path: 'test-results/home.png', fullPage: false });
+});
+
+test('proof tracker sections stay compact and disclose full source rows', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1200 });
+  await gotoPortfolio(page);
+
+  const clawHubBoard = page.getByTestId('clawhub-board');
+  await clawHubBoard.scrollIntoViewIfNeeded();
+  await expect(clawHubBoard.getByRole('heading', { name: 'Top skill listings by downloads' })).toBeVisible();
+  await expect(clawHubBoard.locator('.compact-rank-list').first().locator('.compact-rank-row')).toHaveCount(12);
+
+  const disclosure = clawHubBoard.locator('.compact-disclosure');
+  expect(await disclosure.evaluate((element) => (element as HTMLDetailsElement).open)).toBe(false);
+
+  const cwsBoard = page.getByTestId('cws-board');
+  await cwsBoard.scrollIntoViewIfNeeded();
+  await expect(cwsBoard.getByRole('heading', { name: 'Chrome Web Store publisher detail' })).toBeVisible();
+  await expect(cwsBoard.locator('.extension-stat-list').first().locator('.extension-stat-card')).toHaveCount(4);
+  await expect(cwsBoard.locator('.extension-stat-card')).toHaveCount(CHROME_EXTENSION_STATS.extensions.length);
+
+  const desktopMetrics = await page.evaluate(() => {
+    const readSection = (id: string) => {
+      const section = document.getElementById(id);
+      if (!section) throw new Error(`Missing section ${id}`);
+      const rect = section.getBoundingClientRect();
+      return {
+        height: rect.height,
+        overflow: section.scrollWidth - section.clientWidth,
+      };
+    };
+    return {
+      clawhub: readSection('clawhub'),
+      chromeStats: readSection('chrome-stats'),
+    };
+  });
+
+  expect(desktopMetrics.clawhub.height).toBeLessThan(2100);
+  expect(desktopMetrics.chromeStats.height).toBeLessThan(2100);
+  expect(desktopMetrics.clawhub.overflow).toBeLessThanOrEqual(4);
+  expect(desktopMetrics.chromeStats.overflow).toBeLessThanOrEqual(4);
+
+  await clawHubBoard.scrollIntoViewIfNeeded();
+  await disclosure.locator('summary').click();
+  await expect(disclosure.locator('.compact-rank-row')).toHaveCount(Math.max(0, CLAWHUB_DOWNLOAD_STATS.length - 12));
+
+  await page.setViewportSize({ width: 390, height: 1000 });
+  await gotoPortfolio(page);
+  await page.locator('#chrome-stats').scrollIntoViewIfNeeded();
+  await expect
+    .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
+      message: 'Expected compact proof tracker sections to avoid mobile horizontal overflow',
+    })
+    .toBeLessThanOrEqual(4);
 });
 
 test('featured cards stay inside their own bounds on desktop breakpoints', async ({ page }) => {

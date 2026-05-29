@@ -23,7 +23,7 @@ import {
   TRAFFIC_EXPERIMENT_GOALS
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
-import type { Project, PortfolioUpdates, LatestUpdate } from './types';
+import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
 const FEATURED_PROJECT_IDS = [70, 53, 43, 44] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
@@ -170,6 +170,64 @@ const formatRank = (value: number | null | undefined) => {
   if (typeof value !== 'number' || Number.isNaN(value)) return 'n/a';
   return `#${value.toLocaleString()}`;
 };
+
+const renderChromeExtensionStatCard = (extension: ChromeExtensionStat) => (
+  <article key={extension.id} className="extension-stat-card">
+    <div className="extension-stat-card__main">
+      <div>
+        <h3>{extension.name}</h3>
+        <p>{extension.description}</p>
+      </div>
+      <div className="extension-stat-card__metric">
+        <strong>{formatCompactNumber(extension.users)}</strong>
+        <span>{extension.usersSource}</span>
+      </div>
+    </div>
+    <div className="extension-stat-card__grid">
+      <span>
+        <strong>Rating</strong>
+        {extension.rating !== null ? `${extension.rating.toFixed(2)} (${extension.ratingCount})` : 'n/a'}
+      </span>
+      <span>
+        <strong>Version</strong>
+        {extension.version}
+      </span>
+      <span>
+        <strong>Updated</strong>
+        {extension.lastUpdated}
+      </span>
+      <span>
+        <strong>Category</strong>
+        {extension.category}
+      </span>
+      <span>
+        <strong>Ranks</strong>
+        {formatRank(extension.overallRank)} / {formatRank(extension.categoryRank)}
+      </span>
+      <span>
+        <strong>Risk</strong>
+        {extension.riskImpact} / {extension.riskLikelihood}
+      </span>
+      <span>
+        <strong>Permissions</strong>
+        {extension.permissions.join(', ')}
+      </span>
+    </div>
+    <div className="latest-card__links extension-stat-card__links">
+      <a href={extension.chromeWebStoreUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+        Chrome Web Store
+      </a>
+      <a href={extension.chromeStatsUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+        Chrome-Stats detail
+      </a>
+      {extension.productUrl && (
+        <a href={extension.productUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+          Product page
+        </a>
+      )}
+    </div>
+  </article>
+);
 
 const slugify = (value: string) => {
   const slug = value
@@ -706,6 +764,9 @@ const App: React.FC = () => {
     return { totalDownloads, totalVersions, totalStars, checkedAt };
   }, []);
 
+  const featuredClawHubStats = useMemo(() => CLAWHUB_DOWNLOAD_STATS.slice(0, 12), []);
+  const remainingClawHubStats = useMemo(() => CLAWHUB_DOWNLOAD_STATS.slice(12), []);
+
   const chromeStatsSummary = useMemo(() => {
     const reportedRows = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.users !== null).length;
     const sourcePackRows = CHROME_EXTENSION_STATS.extensions.filter((extension) =>
@@ -714,6 +775,20 @@ const App: React.FC = () => {
     const averageRating = CHROME_EXTENSION_STATS.averageRating.toFixed(2);
     return { reportedRows, sourcePackRows, averageRating };
   }, []);
+
+  const chromeExtensionRows = useMemo(() => CHROME_EXTENSION_STATS.extensions, []);
+  const featuredChromeExtensionRows = useMemo(() => {
+    const mustKeepVisible = new Set(
+      chromeExtensionRows
+        .filter((extension) => extension.name === 'SourcePack Hub - Local AI Research Library')
+        .map((extension) => extension.id)
+    );
+    return chromeExtensionRows.filter((extension, index) => index < 3 || mustKeepVisible.has(extension.id));
+  }, [chromeExtensionRows]);
+  const remainingChromeExtensionRows = useMemo(() => {
+    const visibleIds = new Set(featuredChromeExtensionRows.map((extension) => extension.id));
+    return chromeExtensionRows.filter((extension) => !visibleIds.has(extension.id));
+  }, [chromeExtensionRows, featuredChromeExtensionRows]);
 
   const fieldNoteFormatCounts = useMemo(() => {
     return FIELD_NOTES_PLAN.reduce<Record<string, number>>((counts, note) => {
@@ -1381,40 +1456,87 @@ const App: React.FC = () => {
             title="Downloads Tracker"
             description="Dated public ClawHub skill listing counters used as marketplace evidence, not user-count claims."
           >
-            <div className="proof-grid">
-              <div className="proof-chip">
-                <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
-                <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public skills</em>
+            <div className="evidence-board evidence-board--clawhub" data-testid="clawhub-board">
+              <div className="evidence-board__header">
+                <div>
+                  <p className="panel__eyebrow">Public listing snapshot</p>
+                  <h3>Top skill listings by downloads</h3>
+                  <p>
+                    Exact package counters checked {clawHubSummary.checkedAt}. The long tail stays available without
+                    forcing every reader through 49 full cards.
+                  </p>
+                </div>
+                <a
+                  href="https://clawhub.ai/zack-dev-cm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button button--ghost button--small"
+                >
+                  Open ClawHub profile
+                </a>
               </div>
-              <div className="proof-chip">
-                <strong>{clawHubSummary.totalVersions}</strong>
-                <em>published skill versions in the tracked set</em>
+
+              <div className="proof-grid proof-grid--compact" aria-label="ClawHub summary counters">
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
+                  <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public skills</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{clawHubSummary.totalVersions}</strong>
+                  <em>published versions in tracked listings</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{clawHubSummary.totalStars}</strong>
+                  <em>stars shown separately from downloads</em>
+                </div>
               </div>
-              <div className="proof-chip">
-                <strong>{clawHubSummary.totalStars}</strong>
-                <em>ClawHub stars, shown to avoid overstating listing downloads</em>
-              </div>
+
+              <ol className="compact-rank-list" aria-label="Top ClawHub skill downloads">
+                {featuredClawHubStats.map((stat, index) => (
+                  <li key={stat.slug} className="compact-rank-row">
+                    <span className="compact-rank-row__rank">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="compact-rank-row__main">
+                      <strong>{stat.displayName}</strong>
+                      <em>
+                        {stat.versions} versions / {stat.stars} stars / checked {stat.checkedAt}
+                      </em>
+                    </span>
+                    <span className="compact-rank-row__metric">{stat.downloads.toLocaleString()}</span>
+                    <a href={stat.url} target="_blank" rel="noopener noreferrer" className="compact-rank-row__link">
+                      Open
+                    </a>
+                  </li>
+                ))}
+              </ol>
+
+              {remainingClawHubStats.length > 0 && (
+                <details className="compact-disclosure">
+                  <summary>
+                    <span>Remaining tracked skills</span>
+                    <em>{remainingClawHubStats.length} more public listings</em>
+                  </summary>
+                  <ol className="compact-rank-list compact-rank-list--secondary" aria-label="Remaining ClawHub skill downloads">
+                    {remainingClawHubStats.map((stat, index) => (
+                      <li key={stat.slug} className="compact-rank-row">
+                        <span className="compact-rank-row__rank">
+                          {String(featuredClawHubStats.length + index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="compact-rank-row__main">
+                          <strong>{stat.displayName}</strong>
+                          <em>
+                            {stat.versions} versions / {stat.stars} stars / checked {stat.checkedAt}
+                          </em>
+                        </span>
+                        <span className="compact-rank-row__metric">{stat.downloads.toLocaleString()}</span>
+                        <a href={stat.url} target="_blank" rel="noopener noreferrer" className="compact-rank-row__link">
+                          Open
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              )}
             </div>
-            <ul className="latest-list" aria-label="Tracked ClawHub skill downloads">
-              {CLAWHUB_DOWNLOAD_STATS.map((stat) => (
-                <li key={stat.slug} className="latest-card">
-                  <div className="latest-card__header">
-                    <div>
-                      <p className="latest-card__title">{stat.displayName}</p>
-                      <p className="latest-card__summary">
-                        {stat.downloads.toLocaleString()} downloads, {stat.versions} versions, {stat.stars} stars as of{' '}
-                        {stat.checkedAt}.
-                      </p>
-                    </div>
-                    <div className="latest-card__actions">
-                      <a href={stat.url} target="_blank" rel="noopener noreferrer" className="button button--ghost">
-                        Open listing
-                      </a>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </Section>
 
           <Section
@@ -1423,35 +1545,8 @@ const App: React.FC = () => {
             title="Extension Stats Tracker"
             description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Missing row values stay marked as not reported."
           >
-            <div className="proof-grid chrome-stats__summary" aria-label="Chrome extension publisher summary">
-              <div className="proof-chip">
-                <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
-                <em>published extensions on Chrome Web Store</em>
-              </div>
-              <div className="proof-chip">
-                <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
-                <em>publisher rollup users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
-              </div>
-              <div className="proof-chip">
-                <strong>{chromeStatsSummary.averageRating}</strong>
-                <em>average rating from {CHROME_EXTENSION_STATS.ratingCount} Chrome Web Store ratings</em>
-              </div>
-              <div className="proof-chip">
-                <strong>{chromeStatsSummary.sourcePackRows}</strong>
-                <em>SourcePack extensions in the tracked CWS wave</em>
-              </div>
-              <div className="proof-chip">
-                <strong>{chromeStatsSummary.reportedRows}</strong>
-                <em>rows with explicit user counts in detail or publisher views</em>
-              </div>
-              <div className="proof-chip">
-                <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
-                <em>average users per extension in publisher rollup</em>
-              </div>
-            </div>
-
-            <div className="tracker-panel">
-              <div className="tracker-panel__header">
+            <div className="evidence-board evidence-board--cws" data-testid="cws-board">
+              <div className="evidence-board__header">
                 <div>
                   <p className="panel__eyebrow">Dated public snapshot</p>
                   <h3>Chrome Web Store publisher detail</h3>
@@ -1480,84 +1575,48 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <div className="extension-stat-list" aria-label="Chrome extension stats rows">
-                {CHROME_EXTENSION_STATS.extensions.map((extension) => (
-                  <article key={extension.id} className="extension-stat-card">
-                    <div className="extension-stat-card__main">
-                      <div>
-                        <h3>{extension.name}</h3>
-                        <p>{extension.description}</p>
-                      </div>
-                      <div className="extension-stat-card__metric">
-                        <strong>{formatCompactNumber(extension.users)}</strong>
-                        <span>{extension.usersSource}</span>
-                      </div>
-                    </div>
-                    <div className="extension-stat-card__grid">
-                      <span>
-                        <strong>Rating</strong>
-                        {extension.rating !== null ? `${extension.rating.toFixed(2)} (${extension.ratingCount})` : 'n/a'}
-                      </span>
-                      <span>
-                        <strong>Version</strong>
-                        {extension.version}
-                      </span>
-                      <span>
-                        <strong>Updated</strong>
-                        {extension.lastUpdated}
-                      </span>
-                      <span>
-                        <strong>Category</strong>
-                        {extension.category}
-                      </span>
-                      <span>
-                        <strong>Overall rank</strong>
-                        {formatRank(extension.overallRank)}
-                      </span>
-                      <span>
-                        <strong>Category rank</strong>
-                        {formatRank(extension.categoryRank)}
-                      </span>
-                      <span>
-                        <strong>Risk</strong>
-                        {extension.riskImpact} / {extension.riskLikelihood}
-                      </span>
-                      <span>
-                        <strong>Permissions</strong>
-                        {extension.permissions.join(', ')}
-                      </span>
-                    </div>
-                    <div className="latest-card__links">
-                      <a
-                        href={extension.chromeWebStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-link"
-                      >
-                        Chrome Web Store
-                      </a>
-                      <a
-                        href={extension.chromeStatsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-link"
-                      >
-                        Chrome-Stats detail
-                      </a>
-                      {extension.productUrl && (
-                        <a
-                          href={extension.productUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-link"
-                        >
-                          Product page
-                        </a>
-                      )}
-                    </div>
-                  </article>
-                ))}
+              <div className="proof-grid proof-grid--compact chrome-stats__summary" aria-label="Chrome extension publisher summary">
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
+                  <em>published extensions</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
+                  <em>reported users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{chromeStatsSummary.averageRating}</strong>
+                  <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{chromeStatsSummary.sourcePackRows}</strong>
+                  <em>SourcePack rows</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{chromeStatsSummary.reportedRows}</strong>
+                  <em>rows with explicit user counts</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
+                  <em>average reported users per extension</em>
+                </div>
               </div>
+
+              <div className="extension-stat-list" aria-label="Chrome extension stats rows">
+                {featuredChromeExtensionRows.map(renderChromeExtensionStatCard)}
+              </div>
+
+              {remainingChromeExtensionRows.length > 0 && (
+                <details className="compact-disclosure compact-disclosure--extensions">
+                  <summary>
+                    <span>Remaining extension rows</span>
+                    <em>{remainingChromeExtensionRows.length} more CWS detail rows</em>
+                  </summary>
+                  <div className="extension-stat-list extension-stat-list--secondary" aria-label="Remaining Chrome extension stats rows">
+                    {remainingChromeExtensionRows.map(renderChromeExtensionStatCard)}
+                  </div>
+                </details>
+              )}
 
               <ul className="tracker-notes">
                 {CHROME_EXTENSION_STATS.notes.map((note) => (

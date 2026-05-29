@@ -63,6 +63,14 @@ components:
     backgroundColor: "rgba(9,13,18,0.82)"
     textColor: "{colors.ink}"
     rounded: "{rounded.lg}"
+  evidence-board:
+    backgroundColor: "linear-gradient(180deg, rgba(12,17,23,0.96), rgba(8,11,15,0.82))"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+  compact-data-row:
+    minHeight: "58px"
+    rounded: "{rounded.md}"
+    density: "dashboard"
 ---
 
 ## Overview
@@ -134,6 +142,13 @@ entire rail. Email is the primary contact route; X is a secondary
 profile/contact surface. External social links need accessible names and exact
 hrefs, with no freelance marketplace profile links. Buttons should use icons
 where familiar and avoid text clipping on mobile.
+
+Proof surfaces such as ClawHub and Chrome Web Store stats should use compact
+evidence boards, not long marketing cards. Put exact dated counters in a dense
+metric strip, use tabular numbers for rows, collapse low-priority long tails
+behind a native disclosure, and keep source links one click away. The board
+must stay readable on mobile without horizontal scrolling and should not turn
+listing downloads into adoption claims.
 
 Skill Wind label chips should look like suspended fragments crossing the
 threshold. Section cards may use glass-like panels there, but avoid stacking
