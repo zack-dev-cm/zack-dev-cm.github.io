@@ -1022,8 +1022,8 @@ const App: React.FC = () => {
                 <h1 className="hero__title">AI and CV systems built for production constraints.</h1>
                 <p className="hero__lead">
                   {AUTHOR_INFO.bio} I turn ambiguous OCR, segmentation, detection, multimodal search,
-                  and automation problems into tested models, APIs, workflows, and product surfaces with
-                  review gates before release.
+                  and agentic automation problems into tested models, APIs, workflows, and product
+                  surfaces with review gates before release.
                 </p>
                 <div className="hero__actions">
                   <a href="#featured" className="button button--ghost">
