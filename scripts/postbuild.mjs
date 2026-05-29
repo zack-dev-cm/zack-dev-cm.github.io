@@ -27,6 +27,7 @@ const extraFiles = [
 const extraDirectories = [
   { source: 'projects', destination: 'projects' },
   { source: 'field-notes', destination: 'field-notes' },
+  { source: 'blog', destination: 'blog' },
   { source: 'codex-docs', destination: 'codex' }
 ];
 

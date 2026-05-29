@@ -10,6 +10,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
 const FIELD_NOTES_OUTPUT_DIR = path.resolve(ROOT_DIR, 'field-notes');
+const BLOG_OUTPUT_DIR = path.resolve(ROOT_DIR, 'blog');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
 const GEO_PATH = path.resolve(ROOT_DIR, 'geo.txt');
 const LLMS_FULL_PATH = path.resolve(ROOT_DIR, 'llms-full.txt');
@@ -23,6 +24,7 @@ const SITE_BASE = 'https://zack-dev-cm.github.io';
 const FIELD_NOTES_INDEX_SLUG = '14-day-ai-agent-field-notes';
 const FIELD_NOTES_PUBLIC_BASE = `${SITE_BASE}/docs/field-notes`;
 const FIELD_NOTES_INDEX_URL = `${FIELD_NOTES_PUBLIC_BASE}/${FIELD_NOTES_INDEX_SLUG}.md`;
+const BLOG_PUBLIC_BASE = `${SITE_BASE}/docs/blog`;
 const NEWSLETTER_URL = `${SITE_BASE}/docs/newsletter.md`;
 const TREND_BLOG_SYSTEM_SLUG = 'trend-to-skill-blog-system';
 const TREND_BLOG_SYSTEM_URL = `${FIELD_NOTES_PUBLIC_BASE}/${TREND_BLOG_SYSTEM_SLUG}.md`;
@@ -871,6 +873,23 @@ const readManualFieldNotes = async (generatedFileNames) => {
     });
   }
   return manualNotes;
+};
+
+const readManualBlogPosts = async () => {
+  let entries = [];
+  try {
+    entries = await fs.readdir(BLOG_OUTPUT_DIR, { withFileTypes: true });
+  } catch (error) {
+    if (error?.code === 'ENOENT') return [];
+    throw error;
+  }
+
+  return entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => ({
+      fileName: entry.name,
+      url: `${BLOG_PUBLIC_BASE}/${entry.name}`
+    }));
 };
 
 const formatLinkLine = (title, url, description) => {
@@ -1869,7 +1888,7 @@ const buildSchemaJsonld = (projects) => {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
 };
 
-const buildSitemap = (projects, fieldNotes, manualFieldNotes = []) => {
+const buildSitemap = (projects, fieldNotes, manualFieldNotes = [], blogPosts = []) => {
   const today = new Date().toISOString().split('T')[0];
   const urls = [
     { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
@@ -1896,6 +1915,12 @@ const buildSitemap = (projects, fieldNotes, manualFieldNotes = []) => {
       lastmod: today,
       changefreq: 'weekly',
       priority: '0.5'
+    })),
+    ...blogPosts.map((post) => ({
+      loc: post.url,
+      lastmod: today,
+      changefreq: 'weekly',
+      priority: '0.6'
     })),
     ...projects.map((project) => ({
       loc: project.markdownUrl,
@@ -1934,6 +1959,7 @@ const main = async () => {
     ...fieldNotes.map((note) => `${slugify(note.slug || note.title)}.md`)
   ]);
   const manualFieldNotes = await readManualFieldNotes(generatedFieldNoteFileNames);
+  const blogPosts = await readManualBlogPosts();
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   await fs.rm(FIELD_NOTES_OUTPUT_DIR, { recursive: true, force: true });
@@ -2014,7 +2040,7 @@ const main = async () => {
   await fs.writeFile(AGENT_DISCOVERY_PATH, agentDiscoveryContent, 'utf8');
   const schemaJsonldContent = buildSchemaJsonld(projectEntries);
   await fs.writeFile(SCHEMA_JSONLD_PATH, schemaJsonldContent, 'utf8');
-  const sitemapContent = buildSitemap(projectEntries, fieldNotes, manualFieldNotes);
+  const sitemapContent = buildSitemap(projectEntries, fieldNotes, manualFieldNotes, blogPosts);
   await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');
   const today = new Date().toISOString().split('T')[0];
   const staticHomeSnapshot = buildStaticHomeSnapshot(projectEntries, topProjects);

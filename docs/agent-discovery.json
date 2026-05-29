@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-05-15",
-  "generatedAt": "2026-05-28",
+  "generatedAt": "2026-05-29",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior Computer Vision Engineer and AI Product Engineer",
@@ -167,7 +167,7 @@
     },
     {
       "question": "What public proof is available?",
-      "answer": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 13,388 tracked ClawHub downloads across 49 public skills as of 2026-05-28.",
+      "answer": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 13,965 tracked ClawHub downloads across 49 public skills as of 2026-05-29.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -258,7 +258,7 @@
         "Chrome Web Store AI extension launch evidence"
       ],
       "evidence": [
-        "13,388 tracked ClawHub downloads across 49 public skills",
+        "13,965 tracked ClawHub downloads across 49 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],

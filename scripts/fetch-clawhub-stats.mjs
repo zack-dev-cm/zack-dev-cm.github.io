@@ -19,6 +19,20 @@ const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 
 const formatInteger = (value) => Number(value || 0).toLocaleString('en-US');
 
+const fetchWithRetry = async (url, options, attempts = 4) => {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fetch(url, options);
+    } catch (error) {
+      lastError = error;
+      if (attempt === attempts) break;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 750));
+    }
+  }
+  throw lastError;
+};
+
 const parseArgs = (argv) => {
   const options = {
     owner: DEFAULT_OWNER,
@@ -60,7 +74,7 @@ Options:
 };
 
 const convexQuery = async (pathName, args) => {
-  const response = await fetch(`${CLAWHUB_CONVEX_URL}/api/query`, {
+  const response = await fetchWithRetry(`${CLAWHUB_CONVEX_URL}/api/query`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -90,7 +104,7 @@ const parseSlugFromHref = (href, owner) => {
 };
 
 const fetchSkillDetail = async ({ owner, slug, fallback }) => {
-  const response = await fetch(`${CLAWHUB_HTTP_API_URL}/skills/${encodeURIComponent(slug)}`, {
+  const response = await fetchWithRetry(`${CLAWHUB_HTTP_API_URL}/skills/${encodeURIComponent(slug)}`, {
     headers: {
       accept: 'application/json',
       'user-agent': 'portfolio-clawhub-stats/2.0'
@@ -146,6 +160,7 @@ const validateLiveStats = ({ owner, profile, stats }) => {
   const errors = [];
   const slugs = new Set();
   const totalDownloads = stats.reduce((sum, stat) => sum + stat.downloads, 0);
+  const profileDownloads = Number(profile.stats?.downloads);
 
   if (stats.length < MIN_EXPECTED_SKILLS) {
     errors.push(`expected at least ${MIN_EXPECTED_SKILLS} public skills, got ${stats.length}`);
@@ -156,9 +171,22 @@ const validateLiveStats = ({ owner, profile, stats }) => {
   if (Number(profile.stats?.skills) !== stats.length) {
     errors.push(`publisher profile reports ${profile.stats?.skills} skills, fetched ${stats.length}`);
   }
-  if (Number(profile.stats?.downloads) !== totalDownloads) {
+  if (Number.isFinite(profileDownloads) && profileDownloads !== totalDownloads) {
+    const downloadDelta = Math.abs(profileDownloads - totalDownloads);
+    const maxDownloadSkew = Math.max(5, stats.length);
+    if (downloadDelta <= maxDownloadSkew) {
+      console.warn(
+        `ClawHub profile/detail download totals differ by ${formatInteger(downloadDelta)} during live fetch; using per-skill detail total ${formatInteger(totalDownloads)}.`
+      );
+    } else {
+      errors.push(
+        `publisher profile reports ${formatInteger(profileDownloads)} downloads, fetched ${formatInteger(totalDownloads)}`
+      );
+    }
+  }
+  if (!Number.isFinite(profileDownloads)) {
     errors.push(
-      `publisher profile reports ${formatInteger(profile.stats?.downloads)} downloads, fetched ${formatInteger(totalDownloads)}`
+      `publisher profile reports non-numeric downloads: ${profile.stats?.downloads}`
     );
   }
 

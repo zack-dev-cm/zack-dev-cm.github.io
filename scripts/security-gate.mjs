@@ -82,6 +82,7 @@ const PUBLIC_SOURCE_FILES = new Set([
 ]);
 
 const PUBLIC_PREFIXES = [
+  'blog/',
   'docs/',
   'field-notes/',
   'projects/',

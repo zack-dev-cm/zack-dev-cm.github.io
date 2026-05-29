@@ -160,7 +160,14 @@ export interface FieldNotePlan {
 export interface BlogTrendSource {
   id: string;
   label: string;
-  monitorMode: 'computer-use-capture' | 'official-changelog' | 'repo-release' | 'research-feed' | 'use-case-library';
+  monitorMode:
+    | 'computer-use-capture'
+    | 'official-changelog'
+    | 'repo-release'
+    | 'research-feed'
+    | 'use-case-library'
+    | 'paper-review-channel'
+    | 'paper-repo';
   cadence: string;
   query: string;
   signalUse: string;

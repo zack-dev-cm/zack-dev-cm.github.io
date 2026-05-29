@@ -1,7 +1,7 @@
 # Trend-to-Skill Blog Briefs
 
 Input: marketing/trend-blog-signals.example.json
-Generated: 2026-05-22T14:38:43.186Z
+Generated: 2026-05-29T07:14:38.823Z
 
 ## Ranked Briefs
 ### 1. DeepSeek V4 preview changes agentic coding and migration planning
@@ -16,7 +16,33 @@ Generated: 2026-05-22T14:38:43.186Z
 - Public skill/project: [Agentic Codex Dev Skill](https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md)
 - Missing before article: none
 
-### 2. CV trend posts should ship a reproducibility gate
+### 2. SkillOpt makes reusable agent skills feel trainable
+- Score: 100/100
+- Status: ready-to-write
+- Source: microsoft-skillopt
+- URL: https://github.com/microsoft/SkillOpt
+- Topics: agent skills, paper review, codex, token budget, engineering workflow
+- Skill candidate: SkillOpt-inspired minimum-token skill refinement loop
+- Summary: Microsoft SkillOpt frames natural-language skills as trainable text artifacts for frozen LLM agents. The useful engineering angle is not to run huge agents all day, but to turn repeated work into one skill document, optimize it against a small validation set, deploy the best_skill.md artifact, and spend inference tokens only after the workflow earns reuse.
+- Matched keywords: codex, skill, agent, agent skills, llm, paper review, token budget, engineering workflow
+- Public skill/project: [Agentic Codex Dev Skill](https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md)
+- Public skill/project: [Research Claim Ledger](https://zack-dev-cm.github.io/projects/research-claim-ledger.md)
+- Missing before article: none
+
+### 3. Paper reviews should end in one cheap engineering move
+- Score: 95/100
+- Status: ready-to-write
+- Source: gonzo-ml-paper-review
+- URL: https://t.me/s/gonzo_ML
+- Topics: paper review, ml, token budget, engineering workflow
+- Skill candidate: Minimum-token paper-to-workflow review checklist
+- Summary: The public Gonzo ML paper-review format is useful for engineering publishing because it compresses a paper into what changed, why it matters, and a practitioner takeaway. Adapt that into a minimum-token workflow: no full-PDF ingestion by default, one claim card, one codebase search, one reversible experiment, and one clear stop rule.
+- Matched keywords: paper review, token budget, engineering workflow
+- Public skill/project: [Research Claim Ledger](https://zack-dev-cm.github.io/projects/research-claim-ledger.md)
+- Public skill/project: [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md)
+- Missing before article: none
+
+### 4. CV trend posts should ship a reproducibility gate
 - Score: 91/100
 - Status: ready-to-write
 - Source: cv-dl-research
@@ -28,7 +54,7 @@ Generated: 2026-05-22T14:38:43.186Z
 - Public skill/project: [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md)
 - Missing before article: none
 
-### 3. Use Codex use cases as article endings, not just inspiration
+### 5. Use Codex use cases as article endings, not just inspiration
 - Score: 90/100
 - Status: ready-to-write
 - Source: openai-codex-use-cases
@@ -40,7 +66,7 @@ Generated: 2026-05-22T14:38:43.186Z
 - Public skill/project: [Agentic Codex Dev Skill](https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md)
 - Missing before article: none
 
-### 4. X algorithm claims need a cautious public-evidence table
+### 6. X algorithm claims need a cautious public-evidence table
 - Score: 90/100
 - Status: ready-to-write
 - Source: x-live-search

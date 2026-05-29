@@ -10,9 +10,11 @@ const DEFAULT_OUTPUT_DIR = path.resolve(ROOT_DIR, 'marketing', 'generated');
 
 const SOURCE_WEIGHTS = new Map([
   ['official-changelog', 22],
+  ['paper-repo', 19],
   ['repo-release', 18],
   ['research-feed', 17],
   ['use-case-library', 16],
+  ['paper-review-channel', 15],
   ['computer-use-capture', 10],
   ['x-public-signal', 10],
 ]);
@@ -23,14 +25,19 @@ const KEYWORD_WEIGHTS = new Map([
   ['skill', 9],
   ['computer use', 8],
   ['agent', 8],
+  ['agent skills', 8],
   ['agentic', 8],
   ['llm', 7],
   ['computer vision', 7],
+  ['paper review', 7],
   ['ocr', 7],
   ['segmentation', 6],
   ['benchmark', 6],
   ['eval', 6],
+  ['token budget', 6],
+  ['token spend', 6],
   ['migration', 5],
+  ['engineering workflow', 5],
   ['x algorithm', 5],
 ]);
 

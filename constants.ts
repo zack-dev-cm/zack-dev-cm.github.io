@@ -48,7 +48,7 @@ export const COMPANIES: Company[] = [
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping AI and CV systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
   "75 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "13,388 tracked ClawHub downloads across 49 public skills as of 2026-05-28, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
+  "13,965 tracked ClawHub downloads across 49 public skills as of 2026-05-29, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -314,18 +314,21 @@ export const BLOG_TREND_SYSTEM: BlogTrendSystem = {
   name: "Trend-to-Skill Blog System",
   slug: "trend-to-skill-blog-system",
   promise:
-    "A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, LLM, and agentic workflow signals into useful articles and reusable skills.",
+    "A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, paper-review, LLM, and agentic workflow signals into separate portfolio blog pages and reusable skills.",
   cadence:
     "Daily signal capture, weekly article brief review, and publish only when a public artifact or repeatable skill angle exists.",
   workflow: [
     "Capture candidate signals from X through Computer Use when logged-in browsing is required, and from official changelogs or repos when a stable public URL exists.",
     "Score each signal for topic fit, source quality, writer experience, skill-conversion value, and public-surface safety.",
     "Promote only the best candidates into article briefs with a reader problem, source evidence, a build artifact, and a linked skill or project.",
+    "Publish strong paper-review ideas as separate /docs/blog/ pages before turning them into field-note series or skills.",
     "Publish the human-written field note, then convert repeatable workflow steps into a skill only after the article proves the workflow is reusable."
   ],
   sourcePolicy: [
     "X is treated as a discovery source, not a factual source; every post-derived claim needs a second public source before publishing.",
     "DeepSeek, OpenAI, GitHub, arXiv, Papers with Code, and official docs can be cited directly when the URL is public and stable.",
+    "Paper-review channels such as Gonzo ML are discovery and framing aids; cite the original paper, code, repo, or stable review route before publishing.",
+    "Balance AI-agent and CV/DL research: do not let more than two agent/LLM paper posts ship without one computer-vision or deep-learning paper gate in the queue.",
     "Screenshots from logged-in feeds stay private unless manually redacted and approved for public use.",
     "No article should promise adoption, revenue, or benchmark quality unless a dated public source proves it."
   ],
@@ -395,6 +398,30 @@ export const BLOG_TREND_SYSTEM: BlogTrendSystem = {
         "Prefer papers, repos, datasets, and reproducible examples; avoid unpublished client or lab data."
     },
     {
+      id: "paper-review-channels",
+      label: "Paper-review channels",
+      monitorMode: "paper-review-channel",
+      cadence: "Two checks per week",
+      query: "Gonzo ML, arXiv, paper reviews, practitioner takeaway, model efficiency, CV papers",
+      signalUse:
+        "Use concise public paper cards to find what changed, why it matters, and the smallest useful practitioner move.",
+      publicSourceUrl: "https://t.me/s/gonzo_ML",
+      privateHandling:
+        "Treat channel posts as discovery. Verify against the paper, code, benchmark, or official project page before publishing."
+    },
+    {
+      id: "paper-repo-seeds",
+      label: "Paper and repo seeds",
+      monitorMode: "paper-repo",
+      cadence: "Daily when a concrete paper or repo is named",
+      query: "SkillOpt, agent skills, text-space optimization, CV paper implementations, validation gates",
+      signalUse:
+        "Turn named paper/repo ideas into separate blog pages with a minimum-token engineering adaptation and a clear validation gate.",
+      publicSourceUrl: "https://github.com/microsoft/SkillOpt",
+      privateHandling:
+        "Use only public repository, paper, and project-page claims; do not copy credentials, benchmark data, or local experiment paths."
+    },
+    {
       id: "skill-repos",
       label: "Skill and workflow repositories",
       monitorMode: "repo-release",
@@ -419,6 +446,16 @@ export const BLOG_TREND_SYSTEM: BlogTrendSystem = {
       ]
     },
     {
+      label: "Paper-to-workflow note",
+      purpose:
+        "Turn one paper or paper-backed repo into a practical engineering page with source claims separated from day-to-day adaptation.",
+      structure: [
+        "Start with what the paper changed and link the original paper/repo.",
+        "Explain why a working engineer should care, including token, evaluation, and rollback constraints.",
+        "End with one cheap workflow change, one validation gate, and one reason not to adopt it yet."
+      ]
+    },
+    {
       label: "Skill build note",
       purpose:
         "Turn a repeated workflow into a public skill with instructions, guardrails, verification, and links.",
@@ -440,6 +477,26 @@ export const BLOG_TREND_SYSTEM: BlogTrendSystem = {
     }
   ],
   starterQueue: [
+    {
+      title: "SkillOpt: make skills trainable without spending tokens every run",
+      sourceId: "paper-repo-seeds",
+      topic: "Agent skills, text-space optimization, and minimum-token engineering workflows",
+      status: "ready-to-write",
+      score: 94,
+      whyNow:
+        "Microsoft SkillOpt ships a public repo and arXiv paper for validation-gated natural-language skill optimization, with transferable best_skill.md artifacts.",
+      skillAngle:
+        "Adapt the idea into a small skill-refinement loop: one workflow document, a tiny validation set, accepted edits only, and no extra inference-time model calls after deployment.",
+      articleAngle:
+        "A separate portfolio blog page on using SkillOpt as a day-to-day engineering pattern without increasing token spend.",
+      proofLinks: [
+        { text: "Read the SkillOpt blog page", url: "https://zack-dev-cm.github.io/docs/blog/skillopt-minimum-token-skill-refinement.md" },
+        { text: "microsoft/SkillOpt", url: "https://github.com/microsoft/SkillOpt" },
+        { text: "SkillOpt arXiv paper", url: "https://arxiv.org/abs/2605.23904" }
+      ],
+      guardrail:
+        "Treat the paper's benchmark gains as paper claims until independently reproduced; the portfolio adaptation is an engineering workflow idea, not a benchmark claim."
+    },
     {
       title: "When an X algorithm claim deserves an x-algo skill update",
       sourceId: "x-live-search",
@@ -533,443 +590,443 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Reviewer",
-    downloads: 703,
+    downloads: 712,
     versions: 12,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 610,
+    downloads: 620,
     versions: 14,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "agentic-codex-dev",
-    displayName: "Agentic Codex Dev Reviewer",
-    downloads: 594,
-    versions: 13,
-    stars: 1,
-    url: "https://clawhub.ai/zack-dev-cm/agentic-codex-dev",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "sota-agent",
     displayName: "SOTA Agent",
-    downloads: 591,
+    downloads: 606,
     versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "agentic-codex-dev",
+    displayName: "Agentic Codex Dev Reviewer",
+    downloads: 604,
+    versions: 13,
+    stars: 1,
+    url: "https://clawhub.ai/zack-dev-cm/agentic-codex-dev",
+    checkedAt: "2026-05-29"
   },
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub ClawHub Release Reviewer",
-    downloads: 574,
+    downloads: 585,
     versions: 9,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "youtube-creator-ops",
     displayName: "OpenClaw YouTube Publisher",
-    downloads: 473,
+    downloads: 484,
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 433,
+    downloads: 439,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 419,
+    downloads: 427,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "browser-proof",
     displayName: "Browser Proof",
-    downloads: 411,
+    downloads: 422,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "public-surface-review",
     displayName: "Publish Guard",
-    downloads: 408,
+    downloads: 417,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "hh-openclaw-agent",
     displayName: "HH OpenClaw Agent",
-    downloads: 397,
+    downloads: 411,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 389,
+    downloads: 400,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "telegram-miniapp-security-auditor",
     displayName: "Telegram Mini App Security Auditor",
-    downloads: 377,
+    downloads: 384,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/telegram-miniapp-security-auditor",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "hh-openclaw-proposal-submitter",
     displayName: "HH Application Packet Reviewer",
-    downloads: 311,
+    downloads: 320,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-proposal-submitter",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "random-coffee-best-fit-outreach",
     displayName: "Random Coffee Best Fit Outreach",
-    downloads: 304,
+    downloads: 317,
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "affiliate-video-campaign-operator",
     displayName: "Affiliate Video Campaign Reviewer",
-    downloads: 295,
+    downloads: 306,
     versions: 9,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-video-campaign-operator",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "youtube-openclaw-creator",
     displayName: "YouTube Publish Reviewer",
-    downloads: 292,
+    downloads: 303,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/youtube-openclaw-creator",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "meshmcp-remotescreen",
-    displayName: "Screen Support Review Planner",
-    downloads: 288,
-    versions: 6,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/meshmcp-remotescreen",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "agentic-video-production-publisher",
     displayName: "Agentic Video Production Reviewer",
-    downloads: 286,
+    downloads: 296,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentic-video-production-publisher",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "meshmcp-remotescreen",
+    displayName: "Screen Support Review Planner",
+    downloads: 296,
+    versions: 6,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/meshmcp-remotescreen",
+    checkedAt: "2026-05-29"
   },
   {
     slug: "avito-outreach-manager",
     displayName: "Avito Message QA Reviewer",
-    downloads: 271,
+    downloads: 279,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/avito-outreach-manager",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "skool-growth-teardown-poster",
     displayName: "Skool Growth Teardown Poster",
-    downloads: 261,
+    downloads: 268,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-growth-teardown-poster",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "skill-sprint-pack-builder",
     displayName: "Skill Sprint Pack Builder",
-    downloads: 258,
+    downloads: 265,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-sprint-pack-builder",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "meshmcp-offline-chat",
     displayName: "Offline Message Test Planner",
-    downloads: 239,
+    downloads: 249,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-offline-chat",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "skool-member-activation-concierge",
     displayName: "Skool Member Activation Concierge",
-    downloads: 232,
+    downloads: 239,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-member-activation-concierge",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "x-algo-claim-auditor",
     displayName: "X Algo Claim Reviewer",
-    downloads: 229,
+    downloads: 237,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/x-algo-claim-auditor",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "open-feed-recsys-lab",
     displayName: "Open Feed Recsys Reviewer",
-    downloads: 216,
+    downloads: 228,
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "trusted-clawhub-install-gate",
     displayName: "Trusted ClawHub Install Gate",
-    downloads: 214,
+    downloads: 223,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "community-topic-scout",
     displayName: "Community Topic Scout",
-    downloads: 205,
+    downloads: 211,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/community-topic-scout",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "skool-trust-ladder-builder",
     displayName: "Skool Trust Ladder Builder",
-    downloads: 198,
+    downloads: 205,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-trust-ladder-builder",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "skool-challenge-launcher",
     displayName: "Skool Challenge Launcher",
-    downloads: 191,
+    downloads: 199,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-challenge-launcher",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "chrome-extension-studio",
-    displayName: "Chrome Extension Studio",
-    downloads: 189,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/chrome-extension-studio",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "skool-discovery-page-optimizer",
     displayName: "Skool Discovery Page Optimizer",
-    downloads: 189,
+    downloads: 197,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-discovery-page-optimizer",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "chrome-extension-studio",
+    displayName: "Chrome Extension Studio",
+    downloads: 195,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/chrome-extension-studio",
+    checkedAt: "2026-05-29"
   },
   {
     slug: "spec-plan-build-review",
     displayName: "Spec Plan Build Review",
-    downloads: 186,
+    downloads: 194,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/spec-plan-build-review",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "interactive-doc-mapper",
     displayName: "Interactive Doc Mapper",
-    downloads: 180,
+    downloads: 187,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "tinytroupe-feed-research-lab",
     displayName: "TinyTroupe Feed Research Lab",
-    downloads: 179,
+    downloads: 187,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/tinytroupe-feed-research-lab",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "codex-claude-clawhub-skill-bridge",
     displayName: "Codex Claude ClawHub Skill Bridge",
-    downloads: 171,
+    downloads: 177,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/codex-claude-clawhub-skill-bridge",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "product-share-trigger-reviewer",
     displayName: "Product Share Trigger Reviewer",
-    downloads: 171,
+    downloads: 177,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/product-share-trigger-reviewer",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "gstack-review-stack",
-    displayName: "GStack Review Stack",
-    downloads: 142,
-    versions: 3,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/gstack-review-stack",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "research-claim-ledger",
-    displayName: "Research Claim Ledger",
-    downloads: 138,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "ai-video-scene-director",
-    displayName: "AI Video Scene Director",
-    downloads: 136,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/ai-video-scene-director",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "skill-package-doctor",
-    displayName: "Skill Package Doctor",
-    downloads: 133,
-    versions: 2,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/skill-package-doctor",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "proof-card-forge",
-    displayName: "Proof Card Forge",
-    downloads: 132,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/proof-card-forge",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "agent-skills-portability-auditor",
-    displayName: "Agent Skills Portability Auditor",
-    downloads: 131,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/agent-skills-portability-auditor",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "doubt-driven-development",
-    displayName: "Doubt Driven Development",
-    downloads: 131,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "affiliate-ugc-test-planner",
-    displayName: "Affiliate UGC Test Planner",
-    downloads: 130,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/affiliate-ugc-test-planner",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "skill-install-bridge",
-    displayName: "Skill Install Bridge",
-    downloads: 130,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "using-agent-skills-router",
-    displayName: "Using Agent Skills Router",
-    downloads: 128,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
-    checkedAt: "2026-05-28"
-  },
-  {
-    slug: "stowecraft-artisan-concierge",
-    displayName: "StoweCraft Artisan Concierge",
-    downloads: 123,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/stowecraft-artisan-concierge",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
   },
   {
     slug: "agentmemory-adapter",
     displayName: "AgentMemory Adapter",
-    downloads: 0,
-    versions: 2,
+    downloads: 156,
+    versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentmemory-adapter",
-    checkedAt: "2026-05-28"
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "gstack-review-stack",
+    displayName: "GStack Review Stack",
+    downloads: 156,
+    versions: 3,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/gstack-review-stack",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "research-claim-ledger",
+    displayName: "Research Claim Ledger",
+    downloads: 143,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "proof-card-forge",
+    displayName: "Proof Card Forge",
+    downloads: 142,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/proof-card-forge",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "skill-package-doctor",
+    displayName: "Skill Package Doctor",
+    downloads: 142,
+    versions: 2,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/skill-package-doctor",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "ai-video-scene-director",
+    displayName: "AI Video Scene Director",
+    downloads: 141,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/ai-video-scene-director",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "agent-skills-portability-auditor",
+    displayName: "Agent Skills Portability Auditor",
+    downloads: 140,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/agent-skills-portability-auditor",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "skill-install-bridge",
+    displayName: "Skill Install Bridge",
+    downloads: 139,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "affiliate-ugc-test-planner",
+    displayName: "Affiliate UGC Test Planner",
+    downloads: 137,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/affiliate-ugc-test-planner",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "doubt-driven-development",
+    displayName: "Doubt Driven Development",
+    downloads: 137,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "using-agent-skills-router",
+    displayName: "Using Agent Skills Router",
+    downloads: 136,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
+    checkedAt: "2026-05-29"
+  },
+  {
+    slug: "stowecraft-artisan-concierge",
+    displayName: "StoweCraft Artisan Concierge",
+    downloads: 130,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/stowecraft-artisan-concierge",
+    checkedAt: "2026-05-29"
   }
 ];
 
@@ -1400,7 +1457,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 13,388 downloads across 49 public skills on 2026-05-28 and kept the Chrome Web Store detail-page snapshot at 208 explicitly reported users from 2026-05-18.",
+    description: "Updated the public ClawHub tracker to 13,965 downloads across 49 public skills on 2026-05-29 and kept the Chrome Web Store detail-page snapshot at 208 explicitly reported users from 2026-05-18.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }

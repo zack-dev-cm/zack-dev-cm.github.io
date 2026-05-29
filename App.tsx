@@ -72,8 +72,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   },
 };
 
-const COMPUTER_VISION_PROJECT_IDS = [70, 72, 71, 73, 74, 63, 41, 10] as const;
-const AI_SYSTEM_PROJECT_IDS = [68, 53, 43, 66, 44, 69] as const;
+const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 73, 74, 63, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
+const AI_SYSTEM_PRIORITY_IDS = [68, 53, 43, 66, 44, 69, 61, 64, 62, 60, 40, 39, 38, 36, 35, 31, 29, 56, 75, 45, 46, 47, 48, 49, 50, 51, 52, 57, 58, 65, 72, 30, 26, 23, 24, 27, 28, 3, 2, 1, 5, 11] as const;
+const PROJECT_ARCHIVE_INITIAL_LIMIT = 24;
 
 const COMPUTER_VISION_LANES = [
   {
@@ -329,6 +330,14 @@ const getProjectSignals = (project: Project) => {
   const isComputerVision =
     surfaceTags.has('computer-vision') ||
     /\b(vision|ocr|segmentation|anti-?spoof|wrinkle|pore|image|opencv|clip|coreml|tflite)\b/i.test(searchText);
+  const isAiSystem =
+    surfaceTags.has('ai') ||
+    surfaceTags.has('automation') ||
+    surfaceTags.has('mcp') ||
+    surfaceTags.has('codex') ||
+    surfaceTags.has('chatgpt-app') ||
+    surfaceTags.has('release-engineering') ||
+    /\b(ai|llms?|vlms?|openai|gpt|agentic|agents?|mcp|codex|openclaw|clawhub|generative|text-to-video|tool-calling|built-in ai|workflow orchestration|human review|skills?|chatgpt|answer engine|seo\/geo|llms\.txt|json-ld)\b/i.test(searchText);
   const badges = dedupeStrings([
     isRealUsers ? 'User-facing' : project.projectKind === 'case-study' ? 'Case study' : undefined,
     hasTelegram ? 'Telegram' : undefined,
@@ -337,6 +346,7 @@ const getProjectSignals = (project: Project) => {
     isMobile ? 'Mobile ready' : undefined,
     isAutomation ? 'Automation' : undefined,
     isComputerVision ? 'Computer vision' : undefined,
+    isAiSystem ? 'AI system' : undefined,
     project.benchmarks?.length ? 'Metrics included' : undefined,
   ]);
   const proofScore =
@@ -356,9 +366,37 @@ const getProjectSignals = (project: Project) => {
     isWeb,
     isAutomation,
     isComputerVision,
+    isAiSystem,
     badges,
     proofScore,
   };
+};
+
+const getPriorityIndex = (priorityIds: readonly number[], id: number) => {
+  const index = priorityIds.indexOf(id);
+  return index === -1 ? Number.MAX_SAFE_INTEGER : index;
+};
+
+const isPrioritizedProject = (priorityIds: readonly number[], project: Project) => {
+  return priorityIds.includes(project.id);
+};
+
+const isComputerVisionDomainProject = (project: Project) => {
+  return getProjectSignals(project).isComputerVision || isPrioritizedProject(COMPUTER_VISION_PRIORITY_IDS, project);
+};
+
+const isAiSystemDomainProject = (project: Project) => {
+  return getProjectSignals(project).isAiSystem || isPrioritizedProject(AI_SYSTEM_PRIORITY_IDS, project);
+};
+
+const sortProjectsByDomainPriority = (projects: Project[], priorityIds: readonly number[]) => {
+  return [...projects].sort((a, b) => {
+    const priorityDelta = getPriorityIndex(priorityIds, a.id) - getPriorityIndex(priorityIds, b.id);
+    if (priorityDelta !== 0) return priorityDelta;
+    const proofDelta = getProjectSignals(b).proofScore - getProjectSignals(a).proofScore;
+    if (proofDelta !== 0) return proofDelta;
+    return b.id - a.id;
+  });
 };
 
 const isHighSignalSyncedProject = (project: Project) => {
@@ -458,7 +496,15 @@ const mergeLatestUpdates = (curatedUpdates: LatestUpdate[], syncedUpdates: Lates
 
 const STATIC_PROJECTS = PROJECTS.map(normalizeProject);
 type ProjectSortMode = 'impact' | 'recent' | 'alpha';
-type ProjectFilter = 'all' | 'real-users' | 'telegram' | 'mobile' | 'automation' | 'computer-vision' | 'open-source';
+type ProjectFilter =
+  | 'all'
+  | 'real-users'
+  | 'telegram'
+  | 'mobile'
+  | 'automation'
+  | 'computer-vision'
+  | 'ai-systems'
+  | 'open-source';
 
 const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
   { value: 'all', label: 'All projects' },
@@ -467,6 +513,7 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
   { value: 'mobile', label: 'Mobile ready' },
   { value: 'automation', label: 'Automation' },
   { value: 'computer-vision', label: 'Computer vision' },
+  { value: 'ai-systems', label: 'AI systems' },
   { value: 'open-source', label: 'Open source' },
 ];
 
@@ -490,6 +537,7 @@ const App: React.FC = () => {
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
@@ -591,13 +639,21 @@ const App: React.FC = () => {
   }, [projectById]);
 
   const computerVisionProjects = useMemo(
-    () => COMPUTER_VISION_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project)),
-    [projectById]
+    () =>
+      sortProjectsByDomainPriority(
+        mergedProjects.filter(isComputerVisionDomainProject),
+        COMPUTER_VISION_PRIORITY_IDS
+      ),
+    [mergedProjects]
   );
 
   const aiSystemProjects = useMemo(
-    () => AI_SYSTEM_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project)),
-    [projectById]
+    () =>
+      sortProjectsByDomainPriority(
+        mergedProjects.filter(isAiSystemDomainProject),
+        AI_SYSTEM_PRIORITY_IDS
+      ),
+    [mergedProjects]
   );
 
   const projectFilterOptions = useMemo(
@@ -619,7 +675,9 @@ const App: React.FC = () => {
                   case 'automation':
                     return signals.isAutomation;
                   case 'computer-vision':
-                    return signals.isComputerVision;
+                    return isComputerVisionDomainProject(project);
+                  case 'ai-systems':
+                    return isAiSystemDomainProject(project);
                   case 'open-source':
                     return signals.isOpenSource;
                   default:
@@ -693,6 +751,11 @@ const App: React.FC = () => {
   const aiSystemLanes = useMemo(
     () => [
       {
+        label: 'Mapped AI cases',
+        value: aiSystemProjects.length.toLocaleString(),
+        detail: 'agentic workflows, MCP apps, launch tooling, visibility systems, and human-reviewed automations'
+      },
+      {
         label: 'Listing downloads',
         value: clawHubSummary.totalDownloads.toLocaleString(),
         detail: `ClawHub downloads across ${CLAWHUB_DOWNLOAD_STATS.length} tracked public skills as of ${clawHubSummary.checkedAt}`
@@ -708,7 +771,7 @@ const App: React.FC = () => {
         detail: 'benchmarks, public-surface review, browser evidence, rollback criteria'
       }
     ],
-    [clawHubSummary]
+    [aiSystemProjects.length, clawHubSummary]
   );
 
   const syncFromUrl = useCallback(() => {
@@ -886,7 +949,8 @@ const App: React.FC = () => {
       if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
       if (projectFilter === 'mobile' && !signals.isMobile) return false;
       if (projectFilter === 'automation' && !signals.isAutomation) return false;
-      if (projectFilter === 'computer-vision' && !signals.isComputerVision) return false;
+      if (projectFilter === 'computer-vision' && !isComputerVisionDomainProject(project)) return false;
+      if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
       if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
       if (!normalizedProjectQuery) return true;
       return signals.searchText.includes(normalizedProjectQuery);
@@ -915,6 +979,15 @@ const App: React.FC = () => {
   const activeProjectFilterLabel = useMemo(() => {
     return projectFilterOptions.find((filter) => filter.value === projectFilter)?.label || 'All projects';
   }, [projectFilter, projectFilterOptions]);
+  const canToggleProjectArchive =
+    !normalizedProjectQuery &&
+    projectFilter === 'all' &&
+    !benchmarkedOnly &&
+    filteredProjects.length > PROJECT_ARCHIVE_INITIAL_LIMIT;
+  const visibleProjects =
+    canToggleProjectArchive && !showAllProjects
+      ? filteredProjects.slice(0, PROJECT_ARCHIVE_INITIAL_LIMIT)
+      : filteredProjects;
 
   return (
     <div className="site-shell">
@@ -1172,7 +1245,7 @@ const App: React.FC = () => {
             id="computer-vision"
             eyebrow="Computer Vision"
             title="Computer Vision Systems"
-            description="Public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, multimodal video search, and GitHub-backed research archives, with architecture-first evidence, sanitized metrics, and reviewable Mermaid diagrams."
+            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, multimodal video search, and GitHub-backed research archives, with architecture-first evidence, sanitized metrics, and reviewable Mermaid diagrams.`}
           >
             <div className="domain-spotlight">
               <div className="domain-spotlight__media">
@@ -1194,7 +1267,8 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="domain-project-grid">
+            <div className="domain-project-panel" aria-label="Computer vision case study catalog" tabIndex={0}>
+              <div className="domain-project-grid domain-project-grid--compact">
               {computerVisionProjects.map((project) => {
                 const firstBenchmark = project.benchmarks?.[0];
                 return (
@@ -1221,6 +1295,21 @@ const App: React.FC = () => {
                   </button>
                 );
               })}
+              </div>
+            </div>
+            <div className="button-row">
+              <button
+                type="button"
+                className="button button--ghost button--small"
+                onClick={() => {
+                  setProjectFilter('computer-vision');
+                  setBenchmarkedOnly(false);
+                  setProjectQuery('');
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              >
+                Open CV archive filter
+              </button>
             </div>
           </Section>
 
@@ -1228,7 +1317,7 @@ const App: React.FC = () => {
             id="ai-systems"
             eyebrow="AI Systems"
             title="AI Product and Release Systems"
-            description="The product-facing AI work around extension launches, public listing trackers, reproducible CV experimentation, ChatGPT/MCP apps, automation, and install safety."
+            description={`${aiSystemProjects.length} product-facing AI systems around extension launches, public listing trackers, reproducible experimentation, ChatGPT/MCP apps, automation, and install safety.`}
           >
             <div className="domain-lanes domain-lanes--summary" aria-label="AI systems summary">
               {aiSystemLanes.map((lane) => (
@@ -1240,7 +1329,8 @@ const App: React.FC = () => {
               ))}
             </div>
 
-            <div className="domain-project-grid">
+            <div className="domain-project-panel" aria-label="AI product and release system catalog" tabIndex={0}>
+              <div className="domain-project-grid domain-project-grid--compact">
               {aiSystemProjects.map((project) => {
                 const firstBenchmark = project.benchmarks?.[0];
                 return (
@@ -1267,6 +1357,21 @@ const App: React.FC = () => {
                   </button>
                 );
               })}
+              </div>
+            </div>
+            <div className="button-row">
+              <button
+                type="button"
+                className="button button--ghost button--small"
+                onClick={() => {
+                  setProjectFilter('ai-systems');
+                  setBenchmarkedOnly(false);
+                  setProjectQuery('');
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              >
+                Open AI archive filter
+              </button>
             </div>
           </Section>
 
@@ -1916,14 +2021,15 @@ const App: React.FC = () => {
               </div>
 
               <p className="explorer-panel__summary">
-                Showing <strong>{filteredProjects.length}</strong> of <strong>{mergedProjects.length}</strong>{' '}
-                projects. Filter: <strong>{activeProjectFilterLabel}</strong>
+                Showing <strong>{visibleProjects.length}</strong> of <strong>{filteredProjects.length}</strong>{' '}
+                matching projects. Archive total: <strong>{mergedProjects.length}</strong>. Filter:{' '}
+                <strong>{activeProjectFilterLabel}</strong>
                 {benchmarkedOnly ? ' + Metrics only' : ''}.
               </p>
             </div>
 
             <div className="project-grid">
-              {filteredProjects.map((project) => {
+              {visibleProjects.map((project) => {
                 const signals = getProjectSignals(project);
                 return (
                   <ProjectCard
@@ -1936,6 +2042,18 @@ const App: React.FC = () => {
                 );
               })}
             </div>
+
+            {canToggleProjectArchive && (
+              <div className="project-archive-actions">
+                <button
+                  type="button"
+                  className="button button--ghost"
+                  onClick={() => setShowAllProjects((value) => !value)}
+                >
+                  {showAllProjects ? 'Show priority archive' : `Show all ${filteredProjects.length} projects`}
+                </button>
+              </div>
+            )}
 
             {filteredProjects.length === 0 && (
               <p className="empty-state">No projects match the current filters.</p>

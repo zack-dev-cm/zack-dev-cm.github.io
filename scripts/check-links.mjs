@@ -36,6 +36,7 @@ const PUBLIC_URL_SOURCE_FILES = [
   'docs/sitemap.xml',
 ];
 const PUBLIC_URL_SOURCE_DIRECTORIES = [
+  'blog',
   'field-notes',
   'projects',
   'codex-docs',

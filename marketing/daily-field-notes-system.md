@@ -15,9 +15,22 @@ newsletter.
 1. Pick the next note from `FIELD_NOTES_PLAN` in `constants.ts`.
 2. Write the post from the `writerBrief`.
 3. Use the `thumbnailDirection` to create a screenshot-first thumbnail.
-4. Publish the post or markdown note.
-5. Share one primary post and one secondary short post.
-6. Record visits, subscribers, external referrals, saves, and replies outside the repo.
+4. For paper-review ideas, publish a separate page under `blog/` first, then link it from the portfolio Blog section.
+5. Publish the post or markdown note.
+6. Share one primary post and one secondary short post.
+7. Record visits, subscribers, external referrals, saves, and replies outside the repo.
+
+## Paper Review Gate
+
+Use the concise paper-card style from public ML review channels such as Gonzo ML: what changed, why it matters, and what a practitioner can do next. Verify against the original paper, code, repo, or official project page before publishing.
+
+Minimum-token adaptation for engineers:
+
+- Start from title, abstract, figures, limitations, and repo README; do not paste full PDFs by default.
+- Ask for one small claim card, then search the local codebase with `rg`.
+- Pass only relevant files or snippets into the model.
+- Convert the paper into one reversible workflow change, one validation case, and one stop rule.
+- Keep AI-agent and CV/DL papers balanced; after one or two LLM-agent posts, queue a CV/DL paper with a reproducibility gate.
 
 ## Writer Gate
 

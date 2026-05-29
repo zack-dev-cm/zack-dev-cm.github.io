@@ -138,4 +138,4 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 
 ## Trend-to-Skill Blog System
 - System: [Trend-to-Skill Blog System](https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md)
-- Promise: A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, LLM, and agentic workflow signals into useful articles and reusable skills.
+- Promise: A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, paper-review, LLM, and agentic workflow signals into separate portfolio blog pages and reusable skills.

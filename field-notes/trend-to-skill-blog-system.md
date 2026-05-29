@@ -1,6 +1,6 @@
 # Trend-to-Skill Blog System
 
-> A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, LLM, and agentic workflow signals into useful articles and reusable skills.
+> A monitored publishing loop that turns X, DeepSeek, CV, deep-learning, paper-review, LLM, and agentic workflow signals into separate portfolio blog pages and reusable skills.
 
 Cadence: Daily signal capture, weekly article brief review, and publish only when a public artifact or repeatable skill angle exists.
 Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md
@@ -9,11 +9,14 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blo
 1. Capture candidate signals from X through Computer Use when logged-in browsing is required, and from official changelogs or repos when a stable public URL exists.
 2. Score each signal for topic fit, source quality, writer experience, skill-conversion value, and public-surface safety.
 3. Promote only the best candidates into article briefs with a reader problem, source evidence, a build artifact, and a linked skill or project.
-4. Publish the human-written field note, then convert repeatable workflow steps into a skill only after the article proves the workflow is reusable.
+4. Publish strong paper-review ideas as separate /docs/blog/ pages before turning them into field-note series or skills.
+5. Publish the human-written field note, then convert repeatable workflow steps into a skill only after the article proves the workflow is reusable.
 
 ## Source Policy
 - X is treated as a discovery source, not a factual source; every post-derived claim needs a second public source before publishing.
 - DeepSeek, OpenAI, GitHub, arXiv, Papers with Code, and official docs can be cited directly when the URL is public and stable.
+- Paper-review channels such as Gonzo ML are discovery and framing aids; cite the original paper, code, repo, or stable review route before publishing.
+- Balance AI-agent and CV/DL research: do not let more than two agent/LLM paper posts ship without one computer-vision or deep-learning paper gate in the queue.
 - Screenshots from logged-in feeds stay private unless manually redacted and approved for public use.
 - No article should promise adoption, revenue, or benchmark quality unless a dated public source proves it.
 
@@ -60,6 +63,20 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blo
 - Signal use: Find technical shifts that can become reproducible CV lab gates or portfolio case-study updates.
 - Public route: https://paperswithcode.com/
 - Private handling: Prefer papers, repos, datasets, and reproducible examples; avoid unpublished client or lab data.
+### Paper-review channels
+- Monitor mode: paper-review-channel
+- Cadence: Two checks per week
+- Query: Gonzo ML, arXiv, paper reviews, practitioner takeaway, model efficiency, CV papers
+- Signal use: Use concise public paper cards to find what changed, why it matters, and the smallest useful practitioner move.
+- Public route: https://t.me/s/gonzo_ML
+- Private handling: Treat channel posts as discovery. Verify against the paper, code, benchmark, or official project page before publishing.
+### Paper and repo seeds
+- Monitor mode: paper-repo
+- Cadence: Daily when a concrete paper or repo is named
+- Query: SkillOpt, agent skills, text-space optimization, CV paper implementations, validation gates
+- Signal use: Turn named paper/repo ideas into separate blog pages with a minimum-token engineering adaptation and a clear validation gate.
+- Public route: https://github.com/microsoft/SkillOpt
+- Private handling: Use only public repository, paper, and project-page claims; do not copy credentials, benchmark data, or local experiment paths.
 ### Skill and workflow repositories
 - Monitor mode: repo-release
 - Cadence: Weekly release scan
@@ -68,6 +85,19 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blo
 - Public route: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - Private handling: Use only public package pages, public repositories, and generated portfolio case studies.
 ## Starter Queue
+### SkillOpt: make skills trainable without spending tokens every run
+- Source: Paper and repo seeds
+- Topic: Agent skills, text-space optimization, and minimum-token engineering workflows
+- Status: ready-to-write
+- Score: 94/100
+- Why now: Microsoft SkillOpt ships a public repo and arXiv paper for validation-gated natural-language skill optimization, with transferable best_skill.md artifacts.
+- Skill angle: Adapt the idea into a small skill-refinement loop: one workflow document, a tiny validation set, accepted edits only, and no extra inference-time model calls after deployment.
+- Article angle: A separate portfolio blog page on using SkillOpt as a day-to-day engineering pattern without increasing token spend.
+- Guardrail: Treat the paper's benchmark gains as paper claims until independently reproduced; the portfolio adaptation is an engineering workflow idea, not a benchmark claim.
+- Proof link: [Read the SkillOpt blog page](https://zack-dev-cm.github.io/docs/blog/skillopt-minimum-token-skill-refinement.md)
+- Proof link: [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt)
+- Proof link: [SkillOpt arXiv paper](https://arxiv.org/abs/2605.23904)
+
 ### When an X algorithm claim deserves an x-algo skill update
 - Source: X live searches and trend tabs
 - Topic: X algorithm and feed transparency
@@ -122,6 +152,12 @@ Explain why a noisy trend matters by reproducing the smallest useful example and
 1. Open with the public signal and the practical confusion it creates.
 2. Show what is verified, what is speculation, and what was tested locally.
 3. End with a reusable checklist or skill candidate.
+
+### Paper-to-workflow note
+Turn one paper or paper-backed repo into a practical engineering page with source claims separated from day-to-day adaptation.
+1. Start with what the paper changed and link the original paper/repo.
+2. Explain why a working engineer should care, including token, evaluation, and rollback constraints.
+3. End with one cheap workflow change, one validation gate, and one reason not to adopt it yet.
 
 ### Skill build note
 Turn a repeated workflow into a public skill with instructions, guardrails, verification, and links.
