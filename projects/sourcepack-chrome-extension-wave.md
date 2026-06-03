@@ -24,9 +24,9 @@ https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
 - Chrome Web Store
 
 ## Benchmarks & Analytics
-- Published extensions: 16 (Chrome Web Store publisher search and detail pages, 2026-05-18)
-- Publisher users: 208 (sum of explicitly reported Chrome Web Store detail-page users, 2026-05-18)
-- Average rating: 5.00 (4 reported Chrome Web Store ratings, 2026-05-18)
+- Current public publisher listings: 6 (Chrome Web Store publisher search and detail pages, 2026-06-03)
+- Current publisher users: 216 (sum of explicitly reported Chrome Web Store detail-page users, 2026-06-03)
+- Average rating: 5.00 (4 reported Chrome Web Store ratings, 2026-06-03)
 - New SourcePack products: 6 (Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, ChatArchive)
 
 ## Links

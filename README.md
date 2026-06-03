@@ -1,6 +1,6 @@
 # Zakhar Pashkin Portfolio
 
-Static React portfolio for Zakhar Pashkin, focused on AI product engineering, computer vision, VLM/LLM workflows, automation, ClawHub listing evidence, and resume delivery.
+Static React portfolio for Zakhar Pashkin, focused on ML engineering, computer vision, AI products, VLM/LLM workflows, automation, ClawHub listing evidence, and resume delivery.
 
 Available at: https://zack-dev-cm.github.io/
 

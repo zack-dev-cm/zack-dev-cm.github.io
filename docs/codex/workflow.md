@@ -40,6 +40,20 @@ If the local `docs/index.html` is correct but the live site is stale, do not
 keep editing copy. Check whether the commit was pushed, whether the Pages
 workflow ran on that commit, and whether the live asset URL exists.
 
+## Chrome Web Store Snapshot Loop
+
+Chrome Web Store publisher stats are a dated public snapshot, not a stable
+source of truth. Before changing CWS claims, inspect the live publisher search
+and current detail pages, then update `CHROME_EXTENSION_STATS` in
+`constants.ts`. Run `npm run build` so `public/chrome-extension-stats.json`,
+`docs/chrome-extension-stats.json`, project markdown, `llms.txt`,
+`geo.txt`, `agent-discovery.json`, and `schema.jsonld` all move together.
+
+Do not carry forward old rows that are no longer visible in the current
+publisher search as current published-extension stats. Rows without a visible
+user count stay `null`/`Not reported`; stale Chrome-Stats rank or risk values
+must not be mixed into a current Chrome Web Store detail-page snapshot.
+
 ## GitHub Project Feed Loop
 
 1. Refresh: run `npm run sync:github -- --write` to rebuild `public/portfolio-updates.json` and `docs/portfolio-updates.json` from public GitHub metadata.

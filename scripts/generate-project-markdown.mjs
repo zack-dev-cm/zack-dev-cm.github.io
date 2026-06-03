@@ -30,18 +30,18 @@ const TREND_BLOG_SYSTEM_SLUG = 'trend-to-skill-blog-system';
 const TREND_BLOG_SYSTEM_URL = `${FIELD_NOTES_PUBLIC_BASE}/${TREND_BLOG_SYSTEM_SLUG}.md`;
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
-const AUTHOR_TITLE = 'Senior Computer Vision Engineer and AI Product Engineer';
-const SITE_TITLE = `${AUTHOR_NAME} | Computer Vision Engineer, AI Products`;
-const SITE_NAME = `${AUTHOR_NAME} - Senior Computer Vision Engineer Portfolio`;
+const AUTHOR_TITLE = 'ML Engineer, Computer Vision Engineer, and AI Product Builder';
+const SITE_TITLE = `${AUTHOR_NAME} | ML Engineer, Computer Vision, AI Products`;
+const SITE_NAME = `${AUTHOR_NAME} - ML, Computer Vision, and AI Products Portfolio`;
 const SOCIAL_DESCRIPTION =
-  'Production computer vision, VLM/LLM workflows, custom models, AI systems, and agentic product automation.';
+  'Production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation.';
 const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card.png`;
 const SOCIAL_IMAGE_ALT =
-  'Zakhar Pashkin portfolio cover with computer vision frames, VLM/LLM workflow nodes, custom model signals, and release checks.';
+  'Zakhar Pashkin portfolio cover with computer vision frames, model-evaluation plots, mobile AI product surfaces, browser extension panels, and release checks.';
 const AUTHOR_DESCRIPTION =
-  'Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.';
+  'ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.';
 const PORTFOLIO_TAGLINE =
-  'Computer vision services, custom models, VLM/LLM workflows, AI systems with human review, AI visibility/AEO context, Telegram mini apps, and full-stack products built for production constraints.';
+  'ML engineering, computer vision services, custom models, VLM/LLM workflows, AI systems with human review, AI visibility/AEO context, Telegram mini apps, and full-stack products built for production constraints.';
 const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenAI APIs, VLMs, LLMs, OpenCV, FastAPI, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
@@ -71,6 +71,8 @@ let tractionSnapshot = DEFAULT_TRACTION_SNAPSHOT;
 const formatInteger = (value) => Number(value || 0).toLocaleString('en-US');
 
 const KNOWS_ABOUT = [
+  'Machine Learning',
+  'ML Engineering',
   'Computer Vision',
   'OCR',
   'Segmentation',
@@ -80,6 +82,8 @@ const KNOWS_ABOUT = [
   'Custom AI Models',
   'VLM/LLM Workflows',
   'Agentic AI Systems',
+  'AI Products',
+  'AI Product Engineering',
   'OpenAI APIs',
   'PyTorch',
   'OpenCV',
@@ -197,19 +201,19 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'Who is Zakhar Pashkin?',
       answer:
-        'Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack AI products.',
+        'Zakhar Pashkin is an ML and computer vision engineer building AI products, including OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack product surfaces.',
       cite: `${SITE_BASE}/`
     },
     {
       question: 'What is Zakhar Pashkin best fit for?',
       answer:
-        'Best fit: teams that need production computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with public validation evidence.',
+        'Best fit: teams that need production ML and computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with public validation evidence.',
       cite: `${SITE_BASE}/#about`
     },
     {
       question: 'What services does Zakhar Pashkin provide?',
       answer:
-        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.',
+        'Services include ML and computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.',
       cite: `${SITE_BASE}/#ai-systems`
     },
     {
@@ -1012,7 +1016,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     {
       title: 'Resume PDF',
       url: RESUME_URL,
-      description: 'ATS-readable senior CV and AI product engineer resume.'
+      description: 'ATS-readable ML, computer vision, and AI products resume.'
     }
   ];
 
@@ -1290,7 +1294,7 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('Substack RSS', SUBSTACK_FEED_URL, 'RSS feed for the public Substack publication.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
-    formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable senior CV and AI product engineer resume.'),
+    formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable ML, computer vision, and AI products resume.'),
     '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -1397,7 +1401,7 @@ const buildGeo = (projects) => {
 const buildLlmsFull = (projects, topProjects) => {
   const answerTargets = buildAnswerTargets(projects);
   const lines = [
-    '# Zakhar Pashkin - Senior Computer Vision Engineer Portfolio Memory File',
+    '# Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio Memory File',
     '',
     `Summary: ${AUTHOR_DESCRIPTION}`,
     `Role: ${AUTHOR_TITLE}`,
@@ -1720,7 +1724,7 @@ const buildSchemaJsonld = (projects) => {
       mainEntityOfPage: { '@id': `${SITE_BASE}/#webpage` },
       hasOccupation: {
         '@type': 'Occupation',
-        name: 'Senior Computer Vision Engineer',
+        name: 'ML Engineer and Computer Vision Engineer',
         skills: KNOWS_ABOUT.join(', ')
       }
     },

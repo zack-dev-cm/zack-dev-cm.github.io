@@ -1,6 +1,6 @@
 # Overview
 
-This repository publishes a portfolio for Zakhar Pashkin as an AI Product Engineer with computer vision, VLM/LLM, automation, and launch-delivery evidence.
+This repository publishes a portfolio for Zakhar Pashkin as an ML and computer vision engineer who builds AI products with VLM/LLM, automation, custom-model, and launch-delivery evidence.
 
 ## Product
 

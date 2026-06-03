@@ -52,7 +52,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 - Format: Proof Dashboard
 - Target reader: Extension builders and product engineers who need credible launch evidence.
 - Reader win: A pattern for separating reported rows, rollup users, average ratings, and missing values.
-- Evidence: Chrome Web Store tracker snapshot with 208 publisher rollup users.
+- Evidence: Chrome Web Store tracker snapshot with 216 visible reported users across 6 current public listings.
 - Channels: LinkedIn primary; X secondary
 - Field note URL: https://zack-dev-cm.github.io/docs/field-notes/chrome-web-store-snapshot-without-overclaiming.md
 

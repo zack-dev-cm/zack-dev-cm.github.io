@@ -12,7 +12,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/chrome-web-store-s
 A pattern for separating reported rows, rollup users, average ratings, and missing values.
 
 ## Evidence To Use
-Chrome Web Store tracker snapshot with 208 publisher rollup users.
+Chrome Web Store tracker snapshot with 216 visible reported users across 6 current public listings.
 
 ## Thumbnail Direction
 Table screenshot with muted callouts for reported and not-reported rows.

@@ -561,6 +561,127 @@ section[id] {
   overflow-wrap: anywhere;
 }
 
+.artifact-console__plots {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(5, 7, 11, 0.34);
+}
+
+.artifact-plot {
+  --plot-color: var(--accent);
+  --plot-value: 0%;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.artifact-plot--review {
+  --plot-color: var(--review);
+}
+
+.artifact-plot--accent {
+  --plot-color: var(--accent);
+}
+
+.artifact-plot--evidence {
+  --plot-color: var(--evidence);
+}
+
+.artifact-plot--muted {
+  --plot-color: var(--muted);
+}
+
+.artifact-plot__label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.artifact-plot__label span {
+  color: var(--muted-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.artifact-plot__label strong {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.artifact-plot__track {
+  overflow: hidden;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(226, 232, 240, 0.1);
+}
+
+.artifact-plot__track span {
+  display: block;
+  width: min(var(--plot-value), 100%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--plot-color), rgba(247, 250, 252, 0.72));
+}
+
+.artifact-plot em {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-style: normal;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.artifact-console__signals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.artifact-signal {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-width: 0;
+  min-height: 94px;
+  padding: 10px;
+  border: 1px solid rgba(226, 232, 240, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(16, 22, 29, 0.62);
+}
+
+.artifact-signal strong {
+  color: var(--text);
+  font-size: 1.08rem;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.artifact-signal span {
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.artifact-signal em {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-style: normal;
+  line-height: 1.32;
+  overflow-wrap: anywhere;
+}
+
 .hero__actions,
 .button-row,
 .chip-row,
@@ -2342,6 +2463,7 @@ details.compact-disclosure:not([open]) > :not(summary) {
   }
 
   .profile-panel__stats,
+  .artifact-console__signals,
   .proof-grid,
   .chrome-stats__summary,
   .field-notes-layout,

@@ -18,7 +18,7 @@ https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.m
 - GitHub API
 
 ## Benchmarks & Analytics
-- Public Chrome Web Store users: 135 (Chrome Web Store detail page, 2026-05-18)
+- Public Chrome Web Store users: 133 (Chrome Web Store detail page, 2026-06-03)
 
 ## Links
 - [View on Chrome Web Store](https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm)

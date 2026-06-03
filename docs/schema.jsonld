@@ -10,10 +10,10 @@
         "zack-dev-cm",
         "Zackdevcv"
       ],
-      "jobTitle": "Senior Computer Vision Engineer and AI Product Engineer",
+      "jobTitle": "ML Engineer, Computer Vision Engineer, and AI Product Builder",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.",
+      "description": "ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.",
       "image": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card.png",
       "sameAs": [
         "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
@@ -24,6 +24,8 @@
         "https://zackpashkin.substack.com"
       ],
       "knowsAbout": [
+        "Machine Learning",
+        "ML Engineering",
         "Computer Vision",
         "OCR",
         "Segmentation",
@@ -33,6 +35,8 @@
         "Custom AI Models",
         "VLM/LLM Workflows",
         "Agentic AI Systems",
+        "AI Products",
+        "AI Product Engineering",
         "OpenAI APIs",
         "PyTorch",
         "OpenCV",
@@ -96,19 +100,19 @@
       },
       "hasOccupation": {
         "@type": "Occupation",
-        "name": "Senior Computer Vision Engineer",
-        "skills": "Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD"
+        "name": "ML Engineer and Computer Vision Engineer",
+        "skills": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD"
       }
     },
     {
       "@type": "WebSite",
       "@id": "https://zack-dev-cm.github.io/#website",
-      "name": "Zakhar Pashkin - Senior Computer Vision Engineer Portfolio",
+      "name": "Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio",
       "alternateName": "Zakhar Pashkin AI and Computer Vision Portfolio",
       "url": "https://zack-dev-cm.github.io/",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, public case studies, and release evidence.",
       "inLanguage": "en",
-      "keywords": "Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
+      "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       }
@@ -120,7 +124,7 @@
       ],
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
-      "name": "Zakhar Pashkin | Computer Vision Engineer, AI Products",
+      "name": "Zakhar Pashkin | ML Engineer, Computer Vision, AI Products",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery evidence.",
       "inLanguage": "en",
       "dateModified": "2026-06-03",
@@ -147,7 +151,7 @@
           "@id": "https://zack-dev-cm.github.io/#service-release-evidence"
         }
       ],
-      "keywords": "Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
+      "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
       "significantLink": [
         "https://zack-dev-cm.github.io/docs/agent-discovery.json",
         "https://zack-dev-cm.github.io/llms.txt",
@@ -169,7 +173,7 @@
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card.png",
-        "caption": "Zakhar Pashkin portfolio cover with computer vision frames, VLM/LLM workflow nodes, custom model signals, and release checks."
+        "caption": "Zakhar Pashkin portfolio cover with computer vision frames, model-evaluation plots, mobile AI product surfaces, browser extension panels, and release checks."
       },
       "breadcrumb": {
         "@id": "https://zack-dev-cm.github.io/#breadcrumb"
@@ -376,7 +380,7 @@
           "name": "Who is Zakhar Pashkin?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack AI products.",
+            "text": "Zakhar Pashkin is an ML and computer vision engineer building AI products, including OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack product surfaces.",
             "citation": "https://zack-dev-cm.github.io/"
           }
         },
@@ -385,7 +389,7 @@
           "name": "What is Zakhar Pashkin best fit for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Best fit: teams that need production computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with public validation evidence.",
+            "text": "Best fit: teams that need production ML and computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with public validation evidence.",
             "citation": "https://zack-dev-cm.github.io/#about"
           }
         },
@@ -394,7 +398,7 @@
           "name": "What services does Zakhar Pashkin provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.",
+            "text": "Services include ML and computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.",
             "citation": "https://zack-dev-cm.github.io/#ai-systems"
           }
         },
@@ -1584,7 +1588,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "LocalLens Private AI Summaries",
-            "description": "Published Chrome extension for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+            "description": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
             "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

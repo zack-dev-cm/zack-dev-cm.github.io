@@ -86,8 +86,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();
   await expect(
     chromeStatsSection.locator('.proof-chip').filter({ hasText: 'reported users as of' }).locator('strong')
-  ).toHaveText('208');
-  await expect(chromeStatsSection.getByText('SourcePack Hub - Local AI Research Library')).toBeVisible();
+  ).toHaveText(CHROME_EXTENSION_STATS.totalUsers.toLocaleString('en-US'));
+  await expect(chromeStatsSection.getByText('GitHub Repo Summarizer')).toBeVisible();
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
     'href',
     '/docs/chrome-extension-stats.json'
@@ -192,7 +192,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await sourcePackCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page).toHaveURL(/\?project=sourcepack-chrome-extension-wave/);
-  await expect(page.getByRole('dialog').getByText('Publisher users')).toBeVisible();
+  await expect(page.getByRole('dialog').getByText('Current publisher users')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 
@@ -259,7 +259,9 @@ test('proof tracker sections stay compact and disclose full source rows', async 
   const cwsBoard = page.getByTestId('cws-board');
   await cwsBoard.scrollIntoViewIfNeeded();
   await expect(cwsBoard.getByRole('heading', { name: 'Chrome Web Store publisher detail' })).toBeVisible();
-  await expect(cwsBoard.locator('.extension-stat-list').first().locator('.extension-stat-card')).toHaveCount(4);
+  await expect(cwsBoard.locator('.extension-stat-list').first().locator('.extension-stat-card')).toHaveCount(
+    Math.min(3, CHROME_EXTENSION_STATS.extensions.length)
+  );
   await expect(cwsBoard.locator('.extension-stat-card')).toHaveCount(CHROME_EXTENSION_STATS.extensions.length);
 
   const desktopMetrics = await page.evaluate(() => {

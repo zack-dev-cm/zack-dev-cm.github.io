@@ -692,6 +692,10 @@ const App: React.FC = () => {
     return mergedProjects.filter((project) => getProjectSignals(project).isRealUsers).length;
   }, [mergedProjects]);
 
+  const telegramProjectCount = useMemo(() => {
+    return mergedProjects.filter((project) => getProjectSignals(project).hasTelegram).length;
+  }, [mergedProjects]);
+
   const featuredProjects = useMemo(() => {
     return FEATURED_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project));
   }, [projectById]);
@@ -769,11 +773,10 @@ const App: React.FC = () => {
 
   const chromeStatsSummary = useMemo(() => {
     const reportedRows = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.users !== null).length;
-    const sourcePackRows = CHROME_EXTENSION_STATS.extensions.filter((extension) =>
-      extension.productUrl?.includes('sourcepack-tools.pages.dev')
-    ).length;
+    const rowsAddedIn2026 = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.createdAt.startsWith('2026-')).length;
+    const unreportedRows = CHROME_EXTENSION_STATS.extensions.length - reportedRows;
     const averageRating = CHROME_EXTENSION_STATS.averageRating.toFixed(2);
-    return { reportedRows, sourcePackRows, averageRating };
+    return { reportedRows, rowsAddedIn2026, unreportedRows, averageRating };
   }, []);
 
   const chromeExtensionRows = useMemo(() => CHROME_EXTENSION_STATS.extensions, []);
@@ -789,6 +792,20 @@ const App: React.FC = () => {
     const visibleIds = new Set(featuredChromeExtensionRows.map((extension) => extension.id));
     return chromeExtensionRows.filter((extension) => !visibleIds.has(extension.id));
   }, [chromeExtensionRows, featuredChromeExtensionRows]);
+
+  const telegramReachSnapshot = useMemo(() => {
+    const activeReach = projectById
+      .get(11)
+      ?.benchmarks?.find((benchmark) => benchmark.label === 'May MTD active reach');
+    const value = activeReach?.value || '302 event-active / 117 logging users';
+    const eventActive = value.match(/(\d[\d,]*)\s+event-active/)?.[1] || '302';
+    const loggingUsers = value.match(/(\d[\d,]*)\s+logging users/)?.[1] || '117';
+    return {
+      eventActive,
+      loggingUsers,
+      context: activeReach?.context || 'aggregate counts from the 2026-05-21 Calorio production admin report'
+    };
+  }, [projectById]);
 
   const fieldNoteFormatCounts = useMemo(() => {
     return FIELD_NOTES_PLAN.reduce<Record<string, number>>((counts, note) => {
@@ -810,9 +827,14 @@ const App: React.FC = () => {
         detail: `ClawHub package downloads checked ${clawHubSummary.checkedAt}`
       },
       {
-        label: 'Reported CWS users',
+        label: 'Chrome listings',
         value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `Chrome Web Store publisher rollup checked ${CHROME_EXTENSION_STATS.checkedAt}`
+        detail: `visible reported users across ${CHROME_EXTENSION_STATS.totalPublished} current CWS listings`
+      },
+      {
+        label: 'Telegram users',
+        value: `${telegramReachSnapshot.loggingUsers} logging`,
+        detail: `${telegramReachSnapshot.eventActive} event-active in Calorio aggregate snapshot; ${telegramProjectCount} Telegram projects mapped`
       },
       {
         label: 'Release proof',
@@ -820,7 +842,69 @@ const App: React.FC = () => {
         detail: 'projects with benchmarks, review notes, or dated metrics'
       }
     ],
-    [benchmarkedProjectCount, clawHubSummary, mergedProjects.length]
+    [benchmarkedProjectCount, clawHubSummary, mergedProjects.length, telegramProjectCount, telegramReachSnapshot]
+  );
+
+  const artifactPlotRows = useMemo(() => {
+    const denominator = Math.max(mergedProjects.length, 1);
+    return [
+      {
+        label: 'AI systems',
+        value: aiSystemProjects.length.toLocaleString(),
+        detail: 'agentic, automation, release, and AI product cases',
+        percent: Math.round((aiSystemProjects.length / denominator) * 100),
+        tone: 'review'
+      },
+      {
+        label: 'CV systems',
+        value: computerVisionProjects.length.toLocaleString(),
+        detail: 'OCR, detection, segmentation, retrieval, and model-serving cases',
+        percent: Math.round((computerVisionProjects.length / denominator) * 100),
+        tone: 'accent'
+      },
+      {
+        label: 'Telegram',
+        value: telegramProjectCount.toLocaleString(),
+        detail: `${telegramReachSnapshot.loggingUsers} logging users / ${telegramReachSnapshot.eventActive} event-active in Calorio`,
+        percent: Math.round((telegramProjectCount / denominator) * 100),
+        tone: 'evidence'
+      },
+      {
+        label: 'Measured',
+        value: benchmarkedProjectCount.toLocaleString(),
+        detail: 'projects with explicit benchmarks, analytics, or dated metrics',
+        percent: Math.round((benchmarkedProjectCount / denominator) * 100),
+        tone: 'muted'
+      }
+    ];
+  }, [
+    aiSystemProjects.length,
+    benchmarkedProjectCount,
+    computerVisionProjects.length,
+    mergedProjects.length,
+    telegramProjectCount,
+    telegramReachSnapshot
+  ]);
+
+  const artifactSignalRows = useMemo(
+    () => [
+      {
+        label: 'ClawHub downloads',
+        value: clawHubSummary.totalDownloads.toLocaleString(),
+        detail: `${CLAWHUB_DOWNLOAD_STATS.length} public skills`
+      },
+      {
+        label: 'CWS reported users',
+        value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
+        detail: `${chromeStatsSummary.reportedRows} visible rows / ${CHROME_EXTENSION_STATS.totalPublished} listings`
+      },
+      {
+        label: 'Telegram users',
+        value: telegramReachSnapshot.loggingUsers,
+        detail: `${telegramReachSnapshot.eventActive} event-active, Calorio snapshot`
+      }
+    ],
+    [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramReachSnapshot]
   );
 
   const aiSystemLanes = useMemo(
@@ -1093,11 +1177,11 @@ const App: React.FC = () => {
           <section id="intro" className="hero">
             <div className="hero__layout">
               <div className="hero__copy">
-                <p className="hero__eyebrow">Senior Computer Vision Engineer</p>
+                <p className="hero__eyebrow">ML Engineer · Computer Vision · AI Products</p>
                 <h1 className="hero__title">AI and CV systems built for production constraints.</h1>
                 <p className="hero__lead">
-                  {AUTHOR_INFO.bio} I turn ambiguous OCR, segmentation, detection, multimodal search,
-                  and agentic automation problems into tested models, APIs, workflows, and product
+                  {AUTHOR_INFO.bio} I turn ambiguous ML, OCR, segmentation, detection, multimodal search,
+                  and agentic automation problems into tested custom models, APIs, workflows, and product
                   surfaces with review gates before release.
                 </p>
                 <div className="hero__actions">
@@ -1132,6 +1216,33 @@ const App: React.FC = () => {
                     <div key={row.label} className="artifact-console__row">
                       <span>{row.label}</span>
                       <strong>{row.value}</strong>
+                      <em>{row.detail}</em>
+                    </div>
+                  ))}
+                </div>
+                <div className="artifact-console__plots" aria-label="Artifact map evidence plots">
+                  {artifactPlotRows.map((row) => (
+                    <div
+                      key={row.label}
+                      className={`artifact-plot artifact-plot--${row.tone}`}
+                      style={{ '--plot-value': `${row.percent}%` } as React.CSSProperties}
+                    >
+                      <div className="artifact-plot__label">
+                        <span>{row.label}</span>
+                        <strong>{row.value}</strong>
+                      </div>
+                      <div className="artifact-plot__track" aria-hidden="true">
+                        <span />
+                      </div>
+                      <em>{row.detail}</em>
+                    </div>
+                  ))}
+                </div>
+                <div className="artifact-console__signals" aria-label="Marketplace and Telegram signal summary">
+                  {artifactSignalRows.map((row) => (
+                    <div key={row.label} className="artifact-signal">
+                      <strong>{row.value}</strong>
+                      <span>{row.label}</span>
                       <em>{row.detail}</em>
                     </div>
                   ))}
@@ -1589,12 +1700,16 @@ const App: React.FC = () => {
                   <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
                 </div>
                 <div className="proof-chip proof-chip--compact">
-                  <strong>{chromeStatsSummary.sourcePackRows}</strong>
-                  <em>SourcePack rows</em>
+                  <strong>{chromeStatsSummary.rowsAddedIn2026}</strong>
+                  <em>2026 listing rows</em>
                 </div>
                 <div className="proof-chip proof-chip--compact">
                   <strong>{chromeStatsSummary.reportedRows}</strong>
                   <em>rows with explicit user counts</em>
+                </div>
+                <div className="proof-chip proof-chip--compact">
+                  <strong>{chromeStatsSummary.unreportedRows}</strong>
+                  <em>rows without visible user count</em>
                 </div>
                 <div className="proof-chip proof-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
@@ -2197,7 +2312,7 @@ const App: React.FC = () => {
                 </span>
                 <div className="contact-card__body">
                   <strong>Resume</strong>
-                  <span>Senior CV / AI Product Engineer PDF</span>
+                  <span>ML / CV / AI Products PDF</span>
                 </div>
               </a>
             </div>
