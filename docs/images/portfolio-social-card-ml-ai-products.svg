@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Zakhar Pashkin | ML Engineer, Computer Vision, AI Products</title>
+  <desc id="desc">Production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation.</desc>
+  <defs>
+    <linearGradient id="shade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#05070b" stop-opacity="0.98"/>
+      <stop offset="0.46" stop-color="#05070b" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#05070b" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#8bd6ff"/>
+      <stop offset="0.55" stop-color="#40d399"/>
+      <stop offset="1" stop-color="#f6b44b"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.25 0 0 0 0 0.83 0 0 0 0 0.6 0 0 0 0.34 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+    <clipPath id="frame">
+      <rect x="0" y="0" width="1200" height="630" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="630" fill="#05070b"/>
+    <image href="./portfolio-social-card.png" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice" opacity="0.7"/>
+    <rect width="1200" height="630" fill="url(#shade)"/>
+    <rect width="1200" height="630" fill="#05070b" opacity="0.14"/>
+
+    <g transform="translate(72 76)">
+      <rect x="0" y="0" width="682" height="482" rx="22" fill="#071018" opacity="0.88"/>
+      <rect x="0.5" y="0.5" width="681" height="481" rx="21.5" fill="none" stroke="#8bd6ff" stroke-opacity="0.2"/>
+      <rect x="34" y="34" width="112" height="6" rx="3" fill="url(#accent)"/>
+
+      <text x="34" y="112" fill="#f7fafc" font-family="Inter, SF Pro Display, Segoe UI, Arial, sans-serif" font-size="54" font-weight="760" letter-spacing="0">
+        <tspan x="34" dy="0">Zakhar Pashkin |</tspan>
+        <tspan x="34" dy="62">ML Engineer,</tspan>
+        <tspan x="34" dy="62">Computer Vision,</tspan>
+        <tspan x="34" dy="62">AI Products</tspan>
+      </text>
+
+      <text x="34" y="378" fill="#c8d4df" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="25" font-weight="520" letter-spacing="0">
+        <tspan x="34" dy="0">Production computer vision, custom ML models,</tspan>
+        <tspan x="34" dy="36">VLM/LLM workflows, AI systems, and agentic</tspan>
+        <tspan x="34" dy="36">product automation.</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(840 82)" filter="url(#softGlow)">
+      <circle cx="88" cy="88" r="58" fill="none" stroke="#40d399" stroke-width="4" stroke-opacity="0.8"/>
+      <circle cx="88" cy="88" r="28" fill="none" stroke="#8bd6ff" stroke-width="4" stroke-opacity="0.8"/>
+      <path d="M88 28v36M88 116v36M28 88h36M116 88h36" stroke="#f6b44b" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="88" cy="88" r="8" fill="#f7fafc"/>
+    </g>
+
+    <g transform="translate(815 342)">
+      <rect x="0" y="0" width="284" height="56" rx="14" fill="#101820" opacity="0.92" stroke="#8bd6ff" stroke-opacity="0.25"/>
+      <circle cx="34" cy="28" r="10" fill="#40d399"/>
+      <rect x="58" y="18" width="172" height="8" rx="4" fill="#f7fafc" opacity="0.62"/>
+      <rect x="58" y="34" width="120" height="7" rx="3.5" fill="#8bd6ff" opacity="0.52"/>
+
+      <rect x="24" y="82" width="284" height="56" rx="14" fill="#101820" opacity="0.9" stroke="#40d399" stroke-opacity="0.22"/>
+      <circle cx="58" cy="110" r="10" fill="#8bd6ff"/>
+      <rect x="82" y="100" width="156" height="8" rx="4" fill="#f7fafc" opacity="0.62"/>
+      <rect x="82" y="116" width="94" height="7" rx="3.5" fill="#40d399" opacity="0.52"/>
+
+      <rect x="-18" y="164" width="284" height="56" rx="14" fill="#101820" opacity="0.88" stroke="#f6b44b" stroke-opacity="0.25"/>
+      <circle cx="16" cy="192" r="10" fill="#f6b44b"/>
+      <rect x="40" y="182" width="182" height="8" rx="4" fill="#f7fafc" opacity="0.62"/>
+      <rect x="40" y="198" width="132" height="7" rx="3.5" fill="#f6b44b" opacity="0.48"/>
+    </g>
+  </g>
+</svg>

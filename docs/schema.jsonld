@@ -14,7 +14,7 @@
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
       "description": "ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.",
-      "image": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card.png",
+      "image": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png",
       "sameAs": [
         "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
         "https://x.com/Zackdevcv",
@@ -169,8 +169,8 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card.png",
-        "caption": "Zakhar Pashkin portfolio cover with computer vision frames, model-evaluation plots, mobile AI product surfaces, browser extension panels, and release checks."
+        "url": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png",
+        "caption": "Zakhar Pashkin ML Engineer, Computer Vision, AI Products social preview with production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation."
       },
       "breadcrumb": {
         "@id": "https://zack-dev-cm.github.io/#breadcrumb"

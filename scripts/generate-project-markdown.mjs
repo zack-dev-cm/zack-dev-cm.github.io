@@ -26,9 +26,9 @@ const SITE_TITLE = `${AUTHOR_NAME} | ML Engineer, Computer Vision, AI Products`;
 const SITE_NAME = `${AUTHOR_NAME} - ML, Computer Vision, and AI Products Portfolio`;
 const SOCIAL_DESCRIPTION =
   'Production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation.';
-const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card.png`;
+const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card-ml-ai-products.png`;
 const SOCIAL_IMAGE_ALT =
-  'Zakhar Pashkin portfolio cover with computer vision frames, model-evaluation plots, mobile AI product surfaces, browser extension panels, and release checks.';
+  'Zakhar Pashkin ML Engineer, Computer Vision, AI Products social preview with production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation.';
 const AUTHOR_DESCRIPTION =
   'ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.';
 const PORTFOLIO_TAGLINE =
