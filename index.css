@@ -43,8 +43,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(64, 211, 153, 0.08), transparent 22rem),
-    linear-gradient(180deg, rgba(10, 13, 18, 0.96), rgba(5, 7, 11, 0.98) 24rem),
+    radial-gradient(circle at top left, rgba(64, 211, 153, 0.045), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 11, 15, 0.98), rgba(5, 7, 11, 0.99) 28rem),
     var(--bg);
   color: var(--text);
   font-family: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
@@ -60,7 +60,7 @@ body::before {
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at center, black 30%, transparent 88%);
   pointer-events: none;
-  opacity: 0.2;
+  opacity: 0.08;
 }
 
 a {
@@ -439,24 +439,24 @@ section[id] {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 18px;
-  padding: clamp(28px, 4vw, 52px);
+  gap: 20px;
+  padding: 44px;
   border-radius: var(--radius-xl);
   background:
-    linear-gradient(160deg, rgba(9, 13, 18, 0.98), rgba(16, 22, 29, 0.94));
+    linear-gradient(160deg, rgba(9, 13, 18, 0.99), rgba(16, 22, 29, 0.9));
   margin-bottom: 28px;
 }
 
 .hero__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
-  gap: clamp(20px, 4vw, 44px);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+  gap: 34px;
   align-items: stretch;
 }
 
 .hero__copy {
   display: grid;
-  gap: 18px;
+  gap: 16px;
   align-content: start;
 }
 
@@ -472,29 +472,74 @@ section[id] {
 }
 
 .hero__title {
-  max-width: 12ch;
+  max-width: 14ch;
   font-family: inherit;
   font-weight: 700;
-  font-size: clamp(3.1rem, 6.3vw, 5.6rem);
-  line-height: 0.92;
+  font-size: 4.8rem;
+  line-height: 0.96;
   letter-spacing: 0;
   overflow-wrap: break-word;
 }
 
 .hero__lead {
-  max-width: 64ch;
+  max-width: 58ch;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.72;
+  font-size: 1.04rem;
+  line-height: 1.62;
+}
+
+.hero-route-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.hero-route-card {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  min-height: 134px;
+  padding: 15px;
+  border: 1px solid rgba(226, 232, 240, 0.16);
+  border-radius: var(--radius-md);
+  background: rgba(16, 22, 29, 0.68);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.hero-route-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 214, 255, 0.42);
+  background: rgba(21, 29, 37, 0.92);
+}
+
+.hero-route-card strong {
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.hero-route-card span {
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.hero-route-card em {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: normal;
+  line-height: 1.42;
 }
 
 .artifact-console {
   display: grid;
   align-self: start;
   align-content: start;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
-  padding: 18px;
+  padding: 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background:
@@ -534,10 +579,10 @@ section[id] {
 .artifact-console__row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 7px 14px;
+  gap: 6px 12px;
   align-items: start;
   min-width: 0;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid rgba(226, 232, 240, 0.1);
   border-radius: var(--radius-md);
   background: rgba(5, 7, 11, 0.4);
@@ -563,8 +608,9 @@ section[id] {
 
 .artifact-console__plots {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid rgba(226, 232, 240, 0.1);
   border-radius: var(--radius-md);
   background: rgba(5, 7, 11, 0.34);
@@ -576,6 +622,9 @@ section[id] {
   display: grid;
   gap: 6px;
   min-width: 0;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 22, 29, 0.62);
 }
 
 .artifact-plot--review {
@@ -742,34 +791,6 @@ section[id] {
 
 .button--block {
   width: 100%;
-}
-
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.hero-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 18px;
-  border-radius: var(--radius-md);
-  background: rgba(16, 22, 29, 0.72);
-  border: 1px solid var(--line);
-}
-
-.hero-stat strong {
-  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-  letter-spacing: 0;
-  font-variant-numeric: tabular-nums;
-}
-
-.hero-stat span {
-  color: var(--muted);
-  line-height: 1.45;
-  overflow-wrap: anywhere;
 }
 
 .content-section {
@@ -2088,7 +2109,12 @@ details.compact-disclosure:not([open]) > :not(summary) {
 
 @media (max-width: 1420px) {
   .hero__layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+    gap: 24px;
+  }
+
+  .hero__title {
+    font-size: 4.1rem;
   }
 }
 
@@ -2099,8 +2125,7 @@ details.compact-disclosure:not([open]) > :not(summary) {
 }
 
 @media (max-width: 1024px) {
-  .hero__stats,
-  .proof-grid,
+    .proof-grid,
   .chrome-stats__summary,
   .domain-lanes--summary,
   .domain-project-grid,
@@ -2119,6 +2144,15 @@ details.compact-disclosure:not([open]) > :not(summary) {
 
   .hero__layout {
     grid-template-columns: 1fr;
+  }
+
+  .hero__title {
+    font-size: 3.5rem;
+    max-width: 16ch;
+  }
+
+  .hero-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .domain-spotlight {
@@ -2175,13 +2209,12 @@ details.compact-disclosure:not([open]) > :not(summary) {
     grid-template-columns: 1fr;
   }
 
-  .logo-grid,
-  .hero__stats {
+  .logo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero {
-    padding: 24px;
+    padding: 22px;
   }
 
   .portfolio-command {
@@ -2194,10 +2227,24 @@ details.compact-disclosure:not([open]) > :not(summary) {
   }
 
   .hero__title {
-    font-size: clamp(2.35rem, 13vw, 4rem);
+    font-size: 2.65rem;
     line-height: 1;
     max-width: none;
     overflow-wrap: break-word;
+  }
+
+  .hero__lead {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .hero-route-grid,
+  .artifact-console__plots {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-route-card {
+    min-height: 0;
   }
 
   .artifact-console__row {
@@ -2303,6 +2350,14 @@ details.compact-disclosure:not([open]) > :not(summary) {
 }
 
 @media (max-width: 380px) {
+  .hero {
+    padding: 20px;
+  }
+
+  .hero__title {
+    font-size: 2.38rem;
+  }
+
   .profile-nav ul {
     grid-template-columns: 1fr;
   }

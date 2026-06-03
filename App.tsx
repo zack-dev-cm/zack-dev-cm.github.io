@@ -11,7 +11,6 @@ import {
   COMPANIES,
   LATEST_UPDATES,
   KEY_HIGHLIGHTS,
-  AUTHOR_INFO,
   SOCIAL_LINKS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
   LATEST_UPDATE_EXCLUDE_PATTERNS,
@@ -110,6 +109,27 @@ const DELIVERY_PILLARS = [
     title: 'Launch-ready interfaces, not lab demos',
     description:
       'Telegram mini apps, React fronts, mobile clients, Cloud Run services, and QA loops built to survive releases and real usage.'
+  }
+];
+
+const HERO_WORK_ROUTES = [
+  {
+    label: 'Computer vision',
+    value: 'OCR, detection, segmentation',
+    detail: 'Models shipped as APIs, apps, retrieval systems, and reviewable outputs.',
+    href: '#computer-vision'
+  },
+  {
+    label: 'AI products',
+    value: 'VLM/LLM workflows, agents',
+    detail: 'Custom systems that connect models to backend delivery and product surfaces.',
+    href: '#ai-systems'
+  },
+  {
+    label: 'Public proof',
+    value: 'Case studies, users, release gates',
+    detail: 'Dated evidence across GitHub, ClawHub, Chrome Web Store, and Telegram.',
+    href: '#featured'
   }
 ];
 
@@ -743,16 +763,6 @@ const App: React.FC = () => {
     [mergedProjects]
   );
 
-  const heroStats = useMemo(
-    () => [
-      { value: `${mergedProjects.length}`, label: 'public case studies' },
-      { value: `${realUserProjectCount}`, label: 'user-facing products' },
-      { value: '7+', label: 'years shipping AI / CV systems' },
-      { value: `${benchmarkedProjectCount}`, label: 'projects with measurable outcomes' }
-    ],
-    [benchmarkedProjectCount, mergedProjects.length, realUserProjectCount]
-  );
-
   const clawHubSummary = useMemo(() => {
     const totalDownloads = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
     const totalVersions = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.versions, 0);
@@ -803,32 +813,27 @@ const App: React.FC = () => {
   const heroEvidenceRows = useMemo(
     () => [
       {
-        label: 'Primary map',
-        value: `${mergedProjects.length} case studies`,
-        detail: 'grouped into Start, Proof, and Explore routes'
+        label: 'Case-study map',
+        value: `${mergedProjects.length}`,
+        detail: 'CV systems, AI products, extensions, Telegram products, and launch gates'
       },
       {
-        label: 'Listing downloads',
+        label: 'ClawHub downloads',
         value: clawHubSummary.totalDownloads.toLocaleString(),
-        detail: `ClawHub package downloads checked ${clawHubSummary.checkedAt}`
+        detail: `${CLAWHUB_DOWNLOAD_STATS.length} public skills checked ${clawHubSummary.checkedAt}`
       },
       {
-        label: 'Chrome listings',
-        value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `visible reported users across ${CHROME_EXTENSION_STATS.totalPublished} current CWS listings`
+        label: 'Product users',
+        value: `${CHROME_EXTENSION_STATS.totalUsers.toLocaleString()} CWS / ${telegramReachSnapshot.loggingUsers} TG`,
+        detail: `${chromeStatsSummary.reportedRows} visible CWS rows; ${telegramReachSnapshot.eventActive} event-active in Calorio`
       },
       {
-        label: 'Telegram users',
-        value: `${telegramReachSnapshot.loggingUsers} logging`,
-        detail: `${telegramReachSnapshot.eventActive} event-active in Calorio aggregate snapshot; ${telegramProjectCount} Telegram projects mapped`
-      },
-      {
-        label: 'Release proof',
+        label: 'Measured releases',
         value: `${benchmarkedProjectCount} measured`,
         detail: 'projects with benchmarks, review notes, or dated metrics'
       }
     ],
-    [benchmarkedProjectCount, clawHubSummary, mergedProjects.length, telegramProjectCount, telegramReachSnapshot]
+    [benchmarkedProjectCount, chromeStatsSummary.reportedRows, clawHubSummary, mergedProjects.length, telegramReachSnapshot]
   );
 
   const artifactPlotRows = useMemo(() => {
@@ -882,15 +887,15 @@ const App: React.FC = () => {
       {
         label: 'CWS reported users',
         value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `${chromeStatsSummary.reportedRows} visible rows / ${CHROME_EXTENSION_STATS.totalPublished} listings`
+        detail: `${chromeStatsSummary.reportedRows} visible rows; not-reported rows excluded`
       },
       {
         label: 'Telegram users',
         value: telegramReachSnapshot.loggingUsers,
-        detail: `${telegramReachSnapshot.eventActive} event-active, Calorio snapshot`
+        detail: `${telegramReachSnapshot.eventActive} event-active, ${telegramProjectCount} Telegram projects`
       }
     ],
-    [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramReachSnapshot]
+    [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramProjectCount, telegramReachSnapshot]
   );
 
   const aiSystemLanes = useMemo(
@@ -1149,22 +1154,30 @@ const App: React.FC = () => {
             <div className="hero__layout">
               <div className="hero__copy">
                 <p className="hero__eyebrow">ML Engineer · Computer Vision · AI Products</p>
-                <h1 className="hero__title">AI and CV systems built for production constraints.</h1>
+                <h1 className="hero__title">Zakhar Pashkin builds computer vision and AI products.</h1>
                 <p className="hero__lead">
-                  {AUTHOR_INFO.bio} I turn ambiguous ML, OCR, segmentation, detection, multimodal search,
-                  and agentic automation problems into tested custom models, APIs, workflows, and product
-                  surfaces with review gates before release.
+                  I turn OCR, segmentation, detection, multimodal retrieval, custom models, VLM/LLM workflows,
+                  and agentic automation into tested APIs, apps, backend workflows, and launch gates.
                 </p>
+                <div className="hero-route-grid" aria-label="Portfolio exploration routes">
+                  {HERO_WORK_ROUTES.map((route) => (
+                    <a key={route.href} href={route.href} className="hero-route-card">
+                      <strong>{route.label}</strong>
+                      <span>{route.value}</span>
+                      <em>{route.detail}</em>
+                    </a>
+                  ))}
+                </div>
                 <div className="hero__actions">
-                  <a href="#featured" className="button button--ghost">
-                    View featured solutions
+                  <a href="#featured" className="button button--primary">
+                    Explore work
+                  </a>
+                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
+                    Start a project
                   </a>
                   <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
                     <DownloadIcon className="h-4 w-4" />
                     Download resume
-                  </a>
-                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
-                    Start a project
                   </a>
                   <a
                     href={SOCIAL_LINKS.githubPrimary}
@@ -1180,7 +1193,7 @@ const App: React.FC = () => {
               <aside className="artifact-console" aria-label="Portfolio evidence routing summary">
                 <div className="artifact-console__header">
                   <span>Artifact map</span>
-                  <strong>Public proof first</strong>
+                  <strong>Dated public signals</strong>
                 </div>
                 <div className="artifact-console__rows">
                   {heroEvidenceRows.map((row) => (
@@ -1219,14 +1232,6 @@ const App: React.FC = () => {
                   ))}
                 </div>
               </aside>
-            </div>
-            <div className="hero__stats" aria-label="Portfolio summary statistics">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="hero-stat">
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </div>
-              ))}
             </div>
           </section>
 

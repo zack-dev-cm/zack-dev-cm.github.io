@@ -6,7 +6,7 @@ Contact: mailto:kaisenaiko@gmail.com
 
 ## Identity
 Name: Zakhar Pashkin
-Role: ML Engineer, Computer Vision Engineer, and AI Product Builder
+Role: ML Engineer, Computer Vision, AI Products
 Entity keywords: Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD
 
 ## Key Files

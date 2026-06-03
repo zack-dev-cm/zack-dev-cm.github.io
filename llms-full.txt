@@ -1,7 +1,7 @@
 # Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio Memory File
 
 Summary: ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.
-Role: ML Engineer, Computer Vision Engineer, and AI Product Builder
+Role: ML Engineer, Computer Vision, AI Products
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 Agent discovery manifest: https://zack-dev-cm.github.io/docs/agent-discovery.json

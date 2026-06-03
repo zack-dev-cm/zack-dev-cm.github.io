@@ -107,6 +107,11 @@ evidence column. The first viewport should show identity, hiring routes, the
 production-facing value proposition, and a hint of the next section. Project
 cards are repeated items and may be framed; page sections should not feel like
 nested cards inside cards.
+
+First-viewport quality gate: the hero must not become a wall of headline text
+or a metric dump. Keep one direct positioning sentence, two to three obvious
+routes into the work, and one compact evidence board. On mobile, at least one
+useful route should be visible within the first screen after the lead copy.
 Product screenshots should remain inspectable and should not be cropped in ways
 that hide the UI evidence.
 

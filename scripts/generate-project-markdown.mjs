@@ -21,7 +21,7 @@ const CHROME_EXTENSION_STATS_PATH = path.resolve(ROOT_DIR, 'public', 'chrome-ext
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
-const AUTHOR_TITLE = 'ML Engineer, Computer Vision Engineer, and AI Product Builder';
+const AUTHOR_TITLE = 'ML Engineer, Computer Vision, AI Products';
 const SITE_TITLE = `${AUTHOR_NAME} | ML Engineer, Computer Vision, AI Products`;
 const SITE_NAME = `${AUTHOR_NAME} - ML, Computer Vision, and AI Products Portfolio`;
 const SOCIAL_DESCRIPTION =
@@ -839,7 +839,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   return [
     '<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">',
     `  <p class="crawlable-shell__eyebrow">${escapeHtml(AUTHOR_TITLE)}</p>`,
-    '  <h1>Zakhar Pashkin builds AI products for production constraints.</h1>',
+    '  <h1>Zakhar Pashkin builds computer vision and AI products.</h1>',
     `  <p class="crawlable-shell__lede">${escapeHtml(
       `${PORTFOLIO_TAGLINE} This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.`
     )}</p>`,
