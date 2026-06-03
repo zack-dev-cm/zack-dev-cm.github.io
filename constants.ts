@@ -661,14 +661,14 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
-    title: "Calorio Admin-Report Metrics Added",
-    description: "Added sanitized production admin-report metrics for Calorio: May MTD usage, closed April comparison, aggregate food-log/event counts, model-cost telemetry, and health checks without publishing server identifiers or user-level support content.",
+    title: "Calorio June Admin Metrics Updated",
+    description: "Updated aggregate Calorio metrics from the 2026-06-03 12:00 UTC admin report: 1,713 Telegram users, 28 daily / 109 weekly / 375 monthly active users, 77 rolling-24h logs, 8 Mini App users, and 555,392 OpenAI tokens / $1.14; user-level identifiers and support contents stay out of public files.",
     links: [
       { text: "Open Calorio case study", url: "https://zack-dev-cm.github.io/?project=dishes-recognition-nutrition-goals-telegram-bot" },
       { text: "Try Calorio on Telegram", url: "https://t.me/calorio_yf_bot" }
     ],
     projectId: 11,
-    createdAt: "2026-05-28"
+    createdAt: "2026-06-03"
   },
   {
     title: "Research Claim Ledger Skill Added",
@@ -1249,14 +1249,15 @@ export const PROJECTS: Project[] = [
     benchmarks: [
       { label: "Input modes", value: "3", context: "photo, voice, and text flows in public product case study" },
       { label: "Nutrition surfaces", value: "2", context: "2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow" },
-      { label: "Production admin snapshot", value: "76,634 events", context: "sanitized production admin-report artifact generated 2026-05-21; aggregate counts only" },
-      { label: "Production food-log records", value: "14,732", context: "sanitized production DB range in 2026-05-21 admin report" },
-      { label: "May MTD usage", value: "10,585 events / 1,837 meal logs", context: "2026-05-01 00:00 UTC to 2026-05-21 07:34 UTC production admin report" },
-      { label: "May MTD active reach", value: "302 event-active / 117 logging users", context: "aggregate counts from 2026-05-21 production admin report; row-level identifiers omitted" },
-      { label: "Closed April usage", value: "18,923 events / 3,419 meal logs", context: "closed April 2026 production admin report" },
-      { label: "May MTD AI telemetry", value: "12.8M tokens / $25.75", context: "3,101 model-cost rows with purpose/model split in 2026-05-21 admin report" },
-      { label: "Closed April AI telemetry", value: "20.3M tokens / $42.12", context: "5,653 token rows in closed April 2026 production admin report" },
-      { label: "Production health", value: "200 OK / 0 pending updates", context: "health and Telegram webhook checks in 2026-05-21 admin report; endpoint omitted from public copy" },
+      { label: "Admin report snapshot", value: "2026-06-03 12:00 UTC", context: "latest aggregate Calorio admin report used for public metrics; user-level identifiers omitted" },
+      { label: "Telegram audience", value: "1,713 users", context: "Calorio admin report 2026-06-03T12:00:00Z; aggregate count only" },
+      { label: "Active audience", value: "28 daily / 109 weekly / 375 monthly active users", context: "Calorio admin report 2026-06-03T12:00:00Z" },
+      { label: "Rolling 24h logs", value: "77 logs / 21 loggers", context: "rolling 24h diary metrics from the 2026-06-03 admin report" },
+      { label: "New users 24h", value: "13", context: "+8 versus the prior 24h window in the 2026-06-03 admin report" },
+      { label: "Mini App 24h", value: "8 users / 67 events", context: "28.6% of daily active users; http/auth/exception errors all 0 in the 2026-06-03 admin report" },
+      { label: "OpenAI 24h telemetry", value: "555,392 tokens / $1.14", context: "aggregate model-cost telemetry from the 2026-06-03 admin report" },
+      { label: "Feedback sample", value: "4.94 avg / 16 ratings", context: "30d satisfaction sample from the 2026-06-03 admin report; user text omitted" },
+      { label: "Production health", value: "0 critical signals / 0 Mini App errors", context: "critical-signal and mini-app error summary from the 2026-06-03 admin report" },
       { label: "Public route", value: "Telegram", context: "bot link reviewed 2026-05-15" }
     ],
     links: [

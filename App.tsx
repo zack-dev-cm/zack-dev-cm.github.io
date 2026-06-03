@@ -797,16 +797,26 @@ const App: React.FC = () => {
   }, [chromeExtensionRows, featuredChromeExtensionRows]);
 
   const telegramReachSnapshot = useMemo(() => {
+    const audience = projectById
+      .get(11)
+      ?.benchmarks?.find((benchmark) => benchmark.label === 'Telegram audience');
     const activeReach = projectById
       .get(11)
-      ?.benchmarks?.find((benchmark) => benchmark.label === 'May MTD active reach');
-    const value = activeReach?.value || '302 event-active / 117 logging users';
-    const eventActive = value.match(/(\d[\d,]*)\s+event-active/)?.[1] || '302';
-    const loggingUsers = value.match(/(\d[\d,]*)\s+logging users/)?.[1] || '117';
+      ?.benchmarks?.find((benchmark) => benchmark.label === 'Active audience');
+    const audienceValue = audience?.value || '1,713 users';
+    const activeValue = activeReach?.value || '28 daily / 109 weekly / 375 monthly active users';
+    const activeAudienceMatch = activeValue.match(
+      /(\d[\d,]*)\s+daily\s*\/\s*(\d[\d,]*)\s+weekly\s*\/\s*(\d[\d,]*)\s+monthly active users/i
+    );
+    const activeSummary = activeAudienceMatch
+      ? `${activeAudienceMatch[1]} daily / ${activeAudienceMatch[3]} monthly active`
+      : activeValue;
+    const telegramUsersMatch = audienceValue.match(/(\d[\d,]*)(\+)?\s+(?:Telegram\s+)?users/i);
+    const telegramUsers = telegramUsersMatch ? `${telegramUsersMatch[1]}${telegramUsersMatch[2] || ''}` : '1,713';
     return {
-      eventActive,
-      loggingUsers,
-      context: activeReach?.context || 'aggregate counts from the 2026-05-21 Calorio production admin report'
+      activeSummary,
+      telegramUsers,
+      context: audience?.context || 'Telegram audience count plus aggregate Calorio production activity'
     };
   }, [projectById]);
 
@@ -824,8 +834,8 @@ const App: React.FC = () => {
       },
       {
         label: 'Product users',
-        value: `${CHROME_EXTENSION_STATS.totalUsers.toLocaleString()} CWS / ${telegramReachSnapshot.loggingUsers} TG`,
-        detail: `${chromeStatsSummary.reportedRows} visible CWS rows; ${telegramReachSnapshot.eventActive} event-active in Calorio`
+        value: `${CHROME_EXTENSION_STATS.totalUsers.toLocaleString()} CWS / ${telegramReachSnapshot.telegramUsers} TG`,
+        detail: `${chromeStatsSummary.reportedRows} visible CWS rows; ${telegramReachSnapshot.activeSummary} in Calorio`
       },
       {
         label: 'Measured releases',
@@ -856,7 +866,7 @@ const App: React.FC = () => {
       {
         label: 'Telegram',
         value: telegramProjectCount.toLocaleString(),
-        detail: `${telegramReachSnapshot.loggingUsers} logging users / ${telegramReachSnapshot.eventActive} event-active in Calorio`,
+        detail: `${telegramReachSnapshot.telegramUsers} Telegram users / ${telegramReachSnapshot.activeSummary} in Calorio`,
         percent: Math.round((telegramProjectCount / denominator) * 100),
         tone: 'metric'
       },
@@ -891,8 +901,8 @@ const App: React.FC = () => {
       },
       {
         label: 'Telegram users',
-        value: telegramReachSnapshot.loggingUsers,
-        detail: `${telegramReachSnapshot.eventActive} event-active, ${telegramProjectCount} Telegram projects`
+        value: telegramReachSnapshot.telegramUsers,
+        detail: `${telegramReachSnapshot.activeSummary}; ${telegramProjectCount} Telegram projects`
       }
     ],
     [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramProjectCount, telegramReachSnapshot]

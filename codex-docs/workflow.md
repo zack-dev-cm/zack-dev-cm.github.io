@@ -54,6 +54,23 @@ publisher search as current published-extension stats. Rows without a visible
 user count stay `null`/`Not reported`; stale Chrome-Stats rank or risk values
 must not be mixed into a current Chrome Web Store detail-page snapshot.
 
+## Telegram Product Metric Snapshot Loop
+
+Calorio and Telegram product metrics are time-sensitive aggregate product
+metrics. Update `PROJECTS` in `constants.ts` and any related `LATEST_UPDATES`
+copy first; do not hand-edit generated Markdown, `llms-full.txt`, `geo.txt`,
+`agent-discovery.json`, or `docs/` copies.
+
+Public copy may include aggregate totals, source timestamps, and metric windows.
+Do not publish raw admin-report text, user IDs, support examples, server
+identifiers, or slash-separated internal active-user acronyms. Prefer public
+phrasing such as daily, weekly, and monthly active users.
+
+After `npm run build`, scan source and generated files for stale metric strings
+from the replaced snapshot, then verify the rendered hero and artifact map
+locally. After deployment, repeat the rendered stat check against the live Pages
+URL with a cache-busting query string.
+
 ## Hidden Draft Publishing Surfaces
 
 Draft blog systems, traffic experiments, prompt-like image briefs, newsletter

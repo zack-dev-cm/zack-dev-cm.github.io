@@ -28,14 +28,15 @@ https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegr
 ## Benchmarks & Analytics
 - Input modes: 3 (photo, voice, and text flows in public product case study)
 - Nutrition surfaces: 2 (2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow)
-- Production admin snapshot: 76,634 events (sanitized production admin-report artifact generated 2026-05-21; aggregate counts only)
-- Production food-log records: 14,732 (sanitized production DB range in 2026-05-21 admin report)
-- May MTD usage: 10,585 events / 1,837 meal logs (2026-05-01 00:00 UTC to 2026-05-21 07:34 UTC production admin report)
-- May MTD active reach: 302 event-active / 117 logging users (aggregate counts from 2026-05-21 production admin report; row-level identifiers omitted)
-- Closed April usage: 18,923 events / 3,419 meal logs (closed April 2026 production admin report)
-- May MTD AI telemetry: 12.8M tokens / $25.75 (3,101 model-cost rows with purpose/model split in 2026-05-21 admin report)
-- Closed April AI telemetry: 20.3M tokens / $42.12 (5,653 token rows in closed April 2026 production admin report)
-- Production health: 200 OK / 0 pending updates (health and Telegram webhook checks in 2026-05-21 admin report; endpoint omitted from public copy)
+- Admin report snapshot: 2026-06-03 12:00 UTC (latest aggregate Calorio admin report used for public metrics; user-level identifiers omitted)
+- Telegram audience: 1,713 users (Calorio admin report 2026-06-03T12:00:00Z; aggregate count only)
+- Active audience: 28 daily / 109 weekly / 375 monthly active users (Calorio admin report 2026-06-03T12:00:00Z)
+- Rolling 24h logs: 77 logs / 21 loggers (rolling 24h diary metrics from the 2026-06-03 admin report)
+- New users 24h: 13 (+8 versus the prior 24h window in the 2026-06-03 admin report)
+- Mini App 24h: 8 users / 67 events (28.6% of daily active users; http/auth/exception errors all 0 in the 2026-06-03 admin report)
+- OpenAI 24h telemetry: 555,392 tokens / $1.14 (aggregate model-cost telemetry from the 2026-06-03 admin report)
+- Feedback sample: 4.94 avg / 16 ratings (30d satisfaction sample from the 2026-06-03 admin report; user text omitted)
+- Production health: 0 critical signals / 0 Mini App errors (critical-signal and mini-app error summary from the 2026-06-03 admin report)
 - Public route: Telegram (bot link reviewed 2026-05-15)
 
 ## Links
