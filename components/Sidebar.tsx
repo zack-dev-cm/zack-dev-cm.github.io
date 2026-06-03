@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { group: 'Proof', name: 'AI Systems', href: '#ai-systems' },
   { group: 'Proof', name: 'ClawHub', href: '#clawhub' },
   { group: 'Proof', name: 'CWS Stats', href: '#chrome-stats' },
-  { group: 'Explore', name: 'Field Notes', href: '#field-notes' },
   { group: 'Explore', name: 'Latest', href: '#latest' },
   { group: 'Explore', name: 'Projects', href: '#projects' },
   { group: 'Explore', name: 'Contact', href: '#contact' }

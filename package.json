@@ -15,8 +15,6 @@
     "typecheck": "tsc --noEmit",
     "security:gate": "node scripts/security-gate.mjs",
     "audit:codex": "node scripts/run-codex-audit.mjs",
-    "blog:score": "node scripts/score-trend-blog-signals.mjs",
-    "substack:sync": "node scripts/sync-substack-latest.mjs",
     "prebuild": "npm run typecheck && node scripts/generate-project-markdown.mjs && node scripts/validate-portfolio.mjs",
     "build": "vite build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/security-gate.mjs",

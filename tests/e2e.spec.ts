@@ -1,5 +1,5 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
-import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, NEWSLETTER_OFFER } from '../constants';
+import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS } from '../constants';
 
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
 const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
@@ -93,27 +93,11 @@ test('homepage renders core sections and project discovery controls', async ({ p
     '/docs/chrome-extension-stats.json'
   );
 
-  const fieldNotesSection = page.locator('#field-notes');
-  await expect(fieldNotesSection.getByRole('link', { name: 'Read on Substack' })).toHaveAttribute(
-    'href',
-    NEWSLETTER_OFFER.substackUrl
-  );
-  await expect(fieldNotesSection.getByRole('link', { name: 'RSS feed' })).toHaveAttribute(
-    'href',
-    NEWSLETTER_OFFER.substackFeedUrl
-  );
-  await expect(fieldNotesSection.getByRole('link', { name: /Latest Substack post/ })).toHaveAttribute(
-    'href',
-    NEWSLETTER_OFFER.latestPostUrl
-  );
-
-  const trendBlogSection = page.locator('#trend-blog');
-  await expect(trendBlogSection.getByRole('heading', { name: 'Trend-to-Skill Blog System' })).toBeVisible();
-  await expect(trendBlogSection.getByText('DeepSeek V4: the migration article should be a test plan', { exact: false })).toBeVisible();
-  await expect(trendBlogSection.getByRole('link', { name: 'OpenAI Codex use cases' })).toHaveAttribute(
-    'href',
-    'https://developers.openai.com/codex/use-cases'
-  );
+  await expect(page.locator('#field-notes')).toHaveCount(0);
+  await expect(page.locator('#trend-blog')).toHaveCount(0);
+  await expect(page.locator('a[href="#field-notes"]')).toHaveCount(0);
+  await expect(page.locator('a[href="#trend-blog"]')).toHaveCount(0);
+  await expect(page.getByText('Trend-to-Skill Blog System')).toHaveCount(0);
 
   // Card presence: ensure at least one project card renders
   const cards = page.getByTestId('project-card');
@@ -240,7 +224,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(modal).toBeHidden();
 
   // Capture a viewport screenshot for visual sanity without forcing the whole media-heavy page to render.
-  await page.locator('#trend-blog').scrollIntoViewIfNeeded();
+  await page.locator('#chrome-stats').scrollIntoViewIfNeeded();
   await page.screenshot({ path: 'test-results/home.png', fullPage: false });
 });
 

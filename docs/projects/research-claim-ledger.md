@@ -30,6 +30,5 @@ https://zack-dev-cm.github.io/projects/research-claim-ledger.md
 
 ## Links
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/research-claim-ledger)
-- [Read field note](https://zack-dev-cm.github.io/docs/field-notes/research-claim-ledger-before-another-ai-research-suite.md)
 - [Reference academic-research-skills](https://github.com/Imbad0202/academic-research-skills)
 - [Reference academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex)

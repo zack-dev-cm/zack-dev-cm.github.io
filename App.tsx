@@ -16,11 +16,7 @@ import {
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
   LATEST_UPDATE_EXCLUDE_PATTERNS,
   CLAWHUB_DOWNLOAD_STATS,
-  CHROME_EXTENSION_STATS,
-  FIELD_NOTES_PLAN,
-  BLOG_TREND_SYSTEM,
-  NEWSLETTER_OFFER,
-  TRAFFIC_EXPERIMENT_GOALS
+  CHROME_EXTENSION_STATS
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
@@ -580,8 +576,6 @@ const COMMAND_NAV_ITEMS = [
   { label: 'Proof', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
-  { label: 'Notes', href: '#field-notes' },
-  { label: 'Blog', href: '#trend-blog' },
   { label: 'Explore', href: '#projects' }
 ];
 
@@ -596,7 +590,6 @@ const App: React.FC = () => {
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
 
@@ -806,13 +799,6 @@ const App: React.FC = () => {
       context: activeReach?.context || 'aggregate counts from the 2026-05-21 Calorio production admin report'
     };
   }, [projectById]);
-
-  const fieldNoteFormatCounts = useMemo(() => {
-    return FIELD_NOTES_PLAN.reduce<Record<string, number>>((counts, note) => {
-      counts[note.format] = (counts[note.format] ?? 0) + 1;
-      return counts;
-    }, {});
-  }, []);
 
   const heroEvidenceRows = useMemo(
     () => [
@@ -1073,21 +1059,6 @@ const App: React.FC = () => {
       await copyToClipboard(shareUrl, `latest:${slug}`);
     },
     [buildShareUrl, copyToClipboard, updateUrlParams]
-  );
-
-  const handleNewsletterSubmit = useCallback(
-    (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      const body = newsletterEmail.trim()
-        ? `${NEWSLETTER_OFFER.mailtoBody}\n\nSubscriber email: ${newsletterEmail.trim()}`
-        : NEWSLETTER_OFFER.mailtoBody;
-      const params = new URLSearchParams({
-        subject: NEWSLETTER_OFFER.mailtoSubject,
-        body
-      });
-      window.location.href = `mailto:${SOCIAL_LINKS.email}?${params.toString()}`;
-    },
-    [newsletterEmail]
   );
 
   const toggleLatestExpanded = useCallback((slug: string) => {
@@ -1738,231 +1709,6 @@ const App: React.FC = () => {
                   <li key={note}>{note}</li>
                 ))}
               </ul>
-            </div>
-          </Section>
-
-          <Section
-            id="field-notes"
-            eyebrow="Traffic Experiment"
-            title={NEWSLETTER_OFFER.name}
-            description="A 14-day proof-first publishing loop for daily posts, screenshot-led thumbnails, newsletter capture, and Vercel-ready deployment checks."
-          >
-            <div className="field-notes-layout">
-              <article className="panel panel--accent newsletter-panel">
-                <p className="panel__eyebrow">Newsletter offer</p>
-                <h3>{NEWSLETTER_OFFER.primaryCta}</h3>
-                <p>{NEWSLETTER_OFFER.promise}</p>
-                <p>{NEWSLETTER_OFFER.cadence}</p>
-                <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
-                  <label htmlFor="newsletter-email">Email for manual signup</label>
-                  <div className="newsletter-form__row">
-                    <input
-                      id="newsletter-email"
-                      type="email"
-                      value={newsletterEmail}
-                      onChange={(event) => setNewsletterEmail(event.target.value)}
-                      placeholder="you@example.com"
-                      autoComplete="email"
-                    />
-                    <button type="submit" className="button button--primary">
-                      Join
-                    </button>
-                  </div>
-                </form>
-                <div className="newsletter-panel__actions">
-                  <a
-                    href={NEWSLETTER_OFFER.substackUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button button--primary"
-                  >
-                    Read on Substack
-                  </a>
-                  <a
-                    href={NEWSLETTER_OFFER.substackFeedUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button button--ghost"
-                  >
-                    RSS feed
-                  </a>
-                </div>
-                <a
-                  href={NEWSLETTER_OFFER.latestPostUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="newsletter-latest"
-                >
-                  <span>Latest Substack post</span>
-                  <strong>{NEWSLETTER_OFFER.latestPostTitle}</strong>
-                  <em>Published {NEWSLETTER_OFFER.latestPostPublishedAt}</em>
-                </a>
-                <p className="newsletter-panel__note">{NEWSLETTER_OFFER.privacyNote}</p>
-              </article>
-
-              <div className="field-notes-proof-stack">
-                <figure className="newsletter-visual">
-                  <img
-                    src={NEWSLETTER_OFFER.heroImageUrl}
-                    alt={NEWSLETTER_OFFER.heroImageAlt}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <figcaption>Generated illustration for the Substack publishing workflow.</figcaption>
-                </figure>
-                <div className="proof-grid field-notes-goals" aria-label="Traffic experiment goals">
-                  {TRAFFIC_EXPERIMENT_GOALS.map((goal) => (
-                    <div key={goal.label} className="proof-chip">
-                      <span>{goal.label}</span>
-                      <strong>{goal.value}</strong>
-                      <em>{goal.detail}</em>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="chip-row" aria-label="Field note format mix">
-              {Object.entries(fieldNoteFormatCounts).map(([format, count]) => (
-                <span key={format} className="pill">
-                  {count}x {format}
-                </span>
-              ))}
-              <span className="pill pill--accent">Screenshot-first thumbnails</span>
-              <span className="pill pill--accent">Weekly digest CTA</span>
-            </div>
-
-            <div className="field-notes-grid" aria-label="14-day AI Agent Field Notes plan">
-              {FIELD_NOTES_PLAN.map((note) => (
-                <article key={note.slug} className="field-note-card">
-                  <div className="field-note-card__header">
-                    <span>Day {note.day}</span>
-                    <em>{note.format}</em>
-                  </div>
-                  <h3>{note.title}</h3>
-                  <p>{note.readerWin}</p>
-                  <dl className="field-note-card__meta">
-                    <div>
-                      <dt>Reader</dt>
-                      <dd>{note.targetReader}</dd>
-                    </div>
-                    <div>
-                      <dt>Evidence</dt>
-                      <dd>{note.evidence}</dd>
-                    </div>
-                    <div>
-                      <dt>Distribution</dt>
-                      <dd>
-                        {note.primaryChannel} primary, {note.secondaryChannel} secondary
-                      </dd>
-                    </div>
-                  </dl>
-                  <details className="field-note-card__detail">
-                    <summary>Thumbnail and writer brief</summary>
-                    <p>{note.thumbnailDirection}</p>
-                    <p>{note.writerBrief}</p>
-                  </details>
-                  <span className="project-card__open">
-                    {note.cta}
-                    <span>-&gt;</span>
-                  </span>
-                </article>
-              ))}
-            </div>
-          </Section>
-
-          <Section
-            id="trend-blog"
-            eyebrow="Publishing System"
-            title={BLOG_TREND_SYSTEM.name}
-            description={BLOG_TREND_SYSTEM.promise}
-          >
-            <div className="blog-system-layout">
-              <article className="panel panel--accent blog-system-panel">
-                <p className="panel__eyebrow">Monitor loop</p>
-                <h3>{BLOG_TREND_SYSTEM.cadence}</h3>
-                <ol className="blog-system-steps">
-                  {BLOG_TREND_SYSTEM.workflow.map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ol>
-              </article>
-
-              <div className="proof-grid blog-system-sources" aria-label="Trend sources">
-                {BLOG_TREND_SYSTEM.sources.map((source) => (
-                  <article key={source.id} className="proof-chip blog-source-card">
-                    <span>{source.label}</span>
-                    <strong>{source.cadence}</strong>
-                    <em>{source.signalUse}</em>
-                    {source.publicSourceUrl && (
-                      <a href={source.publicSourceUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-                        Source route
-                      </a>
-                    )}
-                  </article>
-                ))}
-              </div>
-            </div>
-
-            <div className="chip-row" aria-label="Article quality rules">
-              {BLOG_TREND_SYSTEM.mediumStyleRules.slice(0, 4).map((rule) => (
-                <span key={rule} className="pill">
-                  {rule}
-                </span>
-              ))}
-              <span className="pill pill--accent">Codex: {BLOG_TREND_SYSTEM.codexUseCaseAnchors.join(' / ')}</span>
-            </div>
-
-            <div className="blog-candidate-grid" aria-label="Trend-to-skill article queue">
-              {BLOG_TREND_SYSTEM.starterQueue.map((candidate) => {
-                const source = BLOG_TREND_SYSTEM.sources.find((item) => item.id === candidate.sourceId);
-                return (
-                  <article key={candidate.title} className="blog-candidate-card">
-                    <div className="blog-candidate-card__header">
-                      <span>{candidate.status.replace(/-/g, ' ')}</span>
-                      <strong>{candidate.score}/100</strong>
-                    </div>
-                    <p className="blog-candidate-card__source">{source?.label || candidate.sourceId}</p>
-                    <h3>{candidate.title}</h3>
-                    <p>{candidate.whyNow}</p>
-                    <dl className="field-note-card__meta">
-                      <div>
-                        <dt>Skill angle</dt>
-                        <dd>{candidate.skillAngle}</dd>
-                      </div>
-                      <div>
-                        <dt>Article angle</dt>
-                        <dd>{candidate.articleAngle}</dd>
-                      </div>
-                      <div>
-                        <dt>Guardrail</dt>
-                        <dd>{candidate.guardrail}</dd>
-                      </div>
-                    </dl>
-                    <div className="blog-candidate-card__links">
-                      {candidate.proofLinks.map((link) => (
-                        <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
-                          {link.text}
-                        </a>
-                      ))}
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-
-            <div className="article-pattern-grid" aria-label="Article templates">
-              {BLOG_TREND_SYSTEM.articlePatterns.map((pattern) => (
-                <article key={pattern.label} className="article-pattern-card">
-                  <h3>{pattern.label}</h3>
-                  <p>{pattern.purpose}</p>
-                  <ol>
-                    {pattern.structure.map((step) => (
-                      <li key={step}>{step}</li>
-                    ))}
-                  </ol>
-                </article>
-              ))}
             </div>
           </Section>
 

@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
 
-const schedulePath = process.argv[2] ?? path.resolve('marketing', 'scheduled-posts.json');
+const schedulePath = process.argv[2];
 
 const buildPreview = (post, voiceStyle, channel) => {
   const lines = [
@@ -20,6 +19,9 @@ const buildPreview = (post, voiceStyle, channel) => {
 };
 
 const main = async () => {
+  if (!schedulePath) {
+    throw new Error('Usage: node scripts/print-openclaw-cron.mjs <schedule-json-path>');
+  }
   const schedule = JSON.parse(await fs.readFile(schedulePath, 'utf8'));
   const defaultChannel = schedule.defaultChannel || 'example';
   const defaultTarget = schedule.defaultTarget || 'replace-with-your-target';

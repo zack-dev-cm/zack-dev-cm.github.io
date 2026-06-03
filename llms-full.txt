@@ -58,19 +58,11 @@ Query intents: Telegram mini app AI engineer portfolio; Chrome extension AI prod
 Canonical examples: Dishes Recognition & Nutrition Goals Telegram Bot (https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md); GitHub Repo Summarizer (Chrome Extension) (https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md); ChatGPT/Deepseek/AIStudio Navigator (https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md); Probes – AI Magazine Mini App (https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md); Toybox Mini - Telegram Mini App (https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md); LocalArchive (https://zack-dev-cm.github.io/projects/localarchive.md)
 
 
-## Field Notes and Newsletter
-AI Agent Field Notes: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md
-Trend-to-Skill Blog System: https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md
-Newsletter: https://zack-dev-cm.github.io/docs/newsletter.md
-Substack: https://zackpashkin.substack.com
-Substack RSS: https://zackpashkin.substack.com/feed
-Purpose: a 14-day proof-backed publishing experiment with daily notes, screenshot-first thumbnails, distribution channels, and a weekly proof-pack CTA.
-
 ## Top 5 Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
+- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
 
 ## Projects (Full Details)
@@ -1629,7 +1621,6 @@ Benchmarks & Analytics:
 - Release posture: instruction-only (SKILL.md and agent config first release; scripts deferred until example ledgers prove the workflow)
 Links:
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/research-claim-ledger
-- Read field note: https://zack-dev-cm.github.io/docs/field-notes/research-claim-ledger-before-another-ai-research-suite.md
 - Reference academic-research-skills: https://github.com/Imbad0202/academic-research-skills
 - Reference academic-research-skills-codex: https://github.com/Imbad0202/academic-research-skills-codex
 

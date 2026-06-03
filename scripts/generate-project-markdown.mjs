@@ -9,8 +9,6 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
-const FIELD_NOTES_OUTPUT_DIR = path.resolve(ROOT_DIR, 'field-notes');
-const BLOG_OUTPUT_DIR = path.resolve(ROOT_DIR, 'blog');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
 const GEO_PATH = path.resolve(ROOT_DIR, 'geo.txt');
 const LLMS_FULL_PATH = path.resolve(ROOT_DIR, 'llms-full.txt');
@@ -21,13 +19,6 @@ const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
 const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
 const CHROME_EXTENSION_STATS_PATH = path.resolve(ROOT_DIR, 'public', 'chrome-extension-stats.json');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
-const FIELD_NOTES_INDEX_SLUG = '14-day-ai-agent-field-notes';
-const FIELD_NOTES_PUBLIC_BASE = `${SITE_BASE}/docs/field-notes`;
-const FIELD_NOTES_INDEX_URL = `${FIELD_NOTES_PUBLIC_BASE}/${FIELD_NOTES_INDEX_SLUG}.md`;
-const BLOG_PUBLIC_BASE = `${SITE_BASE}/docs/blog`;
-const NEWSLETTER_URL = `${SITE_BASE}/docs/newsletter.md`;
-const TREND_BLOG_SYSTEM_SLUG = 'trend-to-skill-blog-system';
-const TREND_BLOG_SYSTEM_URL = `${FIELD_NOTES_PUBLIC_BASE}/${TREND_BLOG_SYSTEM_SLUG}.md`;
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
 const AUTHOR_TITLE = 'ML Engineer, Computer Vision Engineer, and AI Product Builder';
@@ -48,8 +39,6 @@ const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-
 const SENIOR_CV_RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf`;
 const LINKEDIN_URL = 'https://de.linkedin.com/in/zakhar-pashkin-a524a6163';
 const X_URL = 'https://x.com/Zackdevcv';
-const SUBSTACK_URL = 'https://zackpashkin.substack.com';
-const SUBSTACK_FEED_URL = `${SUBSTACK_URL}/feed`;
 const DISCOVERY_FILE_URL = `${SITE_BASE}/docs/agent-discovery.json`;
 const INDEX_SNAPSHOT_START = '<!-- STATIC_PORTFOLIO_SNAPSHOT_START -->';
 const INDEX_SNAPSHOT_END = '<!-- STATIC_PORTFOLIO_SNAPSHOT_END -->';
@@ -58,8 +47,7 @@ const AUTHOR_SAME_AS = [
   X_URL,
   'https://github.com/zack-dev-cm',
   'https://github.com/ZackPashkin',
-  'https://t.me/rheuiii',
-  SUBSTACK_URL
+  'https://t.me/rheuiii'
 ];
 const DEFAULT_TRACTION_SNAPSHOT = {
   totalDownloads: 10852,
@@ -679,251 +667,6 @@ const buildMarkdown = (project, markdownUrl) => {
   return lines.join('\n');
 };
 
-const getFieldNoteUrl = (note) => `${FIELD_NOTES_PUBLIC_BASE}/${slugify(note.slug || note.title)}.md`;
-
-const buildFieldNoteMarkdown = (note) => {
-  const title = toAscii(note.title);
-  const lines = [
-    `# ${title}`,
-    '',
-    `> Day ${note.day} of the AI Agent Field Notes traffic experiment.`,
-    '',
-    `Format: ${toAscii(note.format)}`,
-    `Target reader: ${toAscii(note.targetReader)}`,
-    `Primary channel: ${toAscii(note.primaryChannel)}`,
-    `Secondary channel: ${toAscii(note.secondaryChannel)}`,
-    `Canonical URL: ${getFieldNoteUrl(note)}`,
-    '',
-    '## Reader Win',
-    toAscii(note.readerWin),
-    '',
-    '## Evidence To Use',
-    toAscii(note.evidence),
-    '',
-    '## Thumbnail Direction',
-    toAscii(note.thumbnailDirection),
-    '',
-    '## Writer Brief',
-    toAscii(note.writerBrief),
-    '',
-    '## Call To Action',
-    toAscii(note.cta),
-    '',
-    '## Public-Surface Rules',
-    '- Use real screenshots, generated public files, or dated public marketplace data as evidence.',
-    '- Do not include credentials, private account identifiers, unpublished analytics, or client-specific operational details.',
-    '- Treat marketplace downloads as listing-download evidence, not user-count proof.',
-    ''
-  ];
-  return lines.join('\n');
-};
-
-const buildFieldNotesIndexMarkdown = (notes, newsletterOffer, blogTrendSystem = {}) => {
-  const lines = [
-    '# 14-Day AI Agent Field Notes Experiment',
-    '',
-    '> Public daily-post plan for reaching a repeatable traffic loop without hiding weak assumptions.',
-    '',
-    `Newsletter: ${toAscii(newsletterOffer.name || 'AI Agent Field Notes')}`,
-    `Promise: ${toAscii(newsletterOffer.promise || '')}`,
-    `Cadence: ${toAscii(newsletterOffer.cadence || '')}`,
-    `Substack: ${newsletterOffer.substackUrl || SUBSTACK_URL}`,
-    `RSS feed: ${newsletterOffer.substackFeedUrl || SUBSTACK_FEED_URL}`,
-    `Canonical URL: ${FIELD_NOTES_INDEX_URL}`,
-    '',
-    '## Measurement Gates',
-    '- Day 14: reach 25 visits/day or rework topic/channel fit.',
-    '- Day 30: reach 30 visits/day 7-day average or stop daily posting.',
-    '- Day 45: reach 75 visits/day 7-day average or change the offer.',
-    '- Day 60: target 100 visits/day 7-day average before calling the loop validated.',
-    '',
-    '## Daily Plan',
-    ...notes.flatMap((note) => [
-      `### Day ${note.day}: ${toAscii(note.title)}`,
-      `- Format: ${toAscii(note.format)}`,
-      `- Target reader: ${toAscii(note.targetReader)}`,
-      `- Reader win: ${toAscii(note.readerWin)}`,
-      `- Evidence: ${toAscii(note.evidence)}`,
-      `- Channels: ${toAscii(note.primaryChannel)} primary; ${toAscii(note.secondaryChannel)} secondary`,
-      `- Field note URL: ${getFieldNoteUrl(note)}`,
-      ''
-    ]),
-    '## Newsletter',
-    `- Offer: ${toAscii(newsletterOffer.primaryCta || '')}`,
-    `- Privacy note: ${toAscii(newsletterOffer.privacyNote || '')}`,
-    `- Substack: ${newsletterOffer.substackUrl || SUBSTACK_URL}`,
-    `- RSS feed: ${newsletterOffer.substackFeedUrl || SUBSTACK_FEED_URL}`,
-    newsletterOffer.latestPostUrl
-      ? `- Latest Substack post: [${toAscii(newsletterOffer.latestPostTitle || 'Latest post')}](${newsletterOffer.latestPostUrl}) (${toAscii(newsletterOffer.latestPostPublishedAt || 'recent')})`
-      : '',
-    `- Newsletter URL: ${NEWSLETTER_URL}`,
-    '',
-    '## Trend-to-Skill Blog System',
-    `- System: [${toAscii(blogTrendSystem.name || 'Trend-to-Skill Blog System')}](${TREND_BLOG_SYSTEM_URL})`,
-    `- Promise: ${toAscii(blogTrendSystem.promise || 'Monitored technical publishing loop for trend signals, article briefs, and reusable skills.')}`,
-    ''
-  ];
-  return lines.join('\n');
-};
-
-const buildTrendBlogSystemMarkdown = (system = {}) => {
-  const sourceLabelById = new Map((system.sources || []).map((source) => [source.id, source.label]));
-  const lines = [
-    `# ${toAscii(system.name || 'Trend-to-Skill Blog System')}`,
-    '',
-    `> ${toAscii(system.promise || 'A monitored publishing loop for technical trend signals and reusable skill ideas.')}`,
-    '',
-    `Cadence: ${toAscii(system.cadence || '')}`,
-    `Canonical URL: ${TREND_BLOG_SYSTEM_URL}`,
-    '',
-    '## Workflow',
-    ...(system.workflow || []).map((step, index) => `${index + 1}. ${toAscii(step)}`),
-    '',
-    '## Source Policy',
-    ...(system.sourcePolicy || []).map((rule) => `- ${toAscii(rule)}`),
-    '',
-    '## Medium-Style Quality Rules',
-    ...(system.mediumStyleRules || []).map((rule) => `- ${toAscii(rule)}`),
-    '',
-    '## Codex Use-Case Anchors',
-    ...(system.codexUseCaseAnchors || []).map((anchor) => `- ${toAscii(anchor)}`),
-    '',
-    '## Sources',
-    ...(system.sources || []).flatMap((source) => [
-      `### ${toAscii(source.label)}`,
-      `- Monitor mode: ${toAscii(source.monitorMode)}`,
-      `- Cadence: ${toAscii(source.cadence)}`,
-      `- Query: ${toAscii(source.query)}`,
-      `- Signal use: ${toAscii(source.signalUse)}`,
-      source.publicSourceUrl ? `- Public route: ${source.publicSourceUrl}` : '',
-      `- Private handling: ${toAscii(source.privateHandling)}`,
-      ''
-    ]).filter((line) => line !== ''),
-    '## Starter Queue',
-    ...(system.starterQueue || []).flatMap((candidate) => [
-      `### ${toAscii(candidate.title)}`,
-      `- Source: ${toAscii(sourceLabelById.get(candidate.sourceId) || candidate.sourceId)}`,
-      `- Topic: ${toAscii(candidate.topic)}`,
-      `- Status: ${toAscii(candidate.status)}`,
-      `- Score: ${candidate.score}/100`,
-      `- Why now: ${toAscii(candidate.whyNow)}`,
-      `- Skill angle: ${toAscii(candidate.skillAngle)}`,
-      `- Article angle: ${toAscii(candidate.articleAngle)}`,
-      `- Guardrail: ${toAscii(candidate.guardrail)}`,
-      ...(candidate.proofLinks || []).map((link) => `- Proof link: [${toAscii(link.text)}](${link.url})`),
-      ''
-    ]),
-    '## Article Patterns',
-    ...(system.articlePatterns || []).flatMap((pattern) => [
-      `### ${toAscii(pattern.label)}`,
-      toAscii(pattern.purpose),
-      ...(pattern.structure || []).map((step, index) => `${index + 1}. ${toAscii(step)}`),
-      ''
-    ]),
-    '## Public-Surface Rules',
-    '- Treat X as discovery unless the claim is backed by a second public source.',
-    '- Redact or exclude logged-in screenshots, private messages, account-only recommendations, and unpublished analytics.',
-    '- Keep final articles human-authored; use AI for outline, fact-check, spelling, and grammar support only.',
-    '- Link skills and projects only when the public page is stable and matches the article claim.',
-    ''
-  ];
-  return lines.join('\n');
-};
-
-const buildNewsletterMarkdown = (newsletterOffer, notes) => {
-  const heroImageUrl = toPublicAssetUrl(newsletterOffer.heroImageUrl);
-  const lines = [
-    `# ${toAscii(newsletterOffer.name || 'Newsletter')}`,
-    '',
-    `> ${toAscii(newsletterOffer.promise || '')}`,
-    '',
-    `Cadence: ${toAscii(newsletterOffer.cadence || '')}`,
-    `Signup CTA: ${toAscii(newsletterOffer.primaryCta || '')}`,
-    `Substack: ${newsletterOffer.substackUrl || SUBSTACK_URL}`,
-    `RSS feed: ${newsletterOffer.substackFeedUrl || SUBSTACK_FEED_URL}`,
-    `Canonical URL: ${NEWSLETTER_URL}`,
-    '',
-    '## What Subscribers Receive',
-    '- One weekly digest of public AI-agent build notes.',
-    '- Links to public field notes, project pages, crawler files, and release evidence.',
-    '- Reusable checklists for public-surface review, thumbnails, tracking, and deployment gates.',
-    '',
-    '## Current Capture Mode',
-    toAscii(newsletterOffer.privacyNote || ''),
-    '',
-    '## Substack Publication',
-    `- Read: ${newsletterOffer.substackUrl || SUBSTACK_URL}`,
-    `- Feed: ${newsletterOffer.substackFeedUrl || SUBSTACK_FEED_URL}`,
-    newsletterOffer.latestPostUrl
-      ? `- Latest post: [${toAscii(newsletterOffer.latestPostTitle || 'Latest post')}](${newsletterOffer.latestPostUrl}) (${toAscii(newsletterOffer.latestPostPublishedAt || 'recent')})`
-      : '',
-    heroImageUrl ? `- Hero illustration: ${heroImageUrl}` : '',
-    '',
-    '## First 14 Notes',
-    ...notes.map((note) => `- Day ${note.day}: [${toAscii(note.title)}](${getFieldNoteUrl(note)})`),
-    ''
-  ];
-  return lines.join('\n');
-};
-
-const readManualFieldNotes = async (generatedFileNames) => {
-  let entries = [];
-  try {
-    entries = await fs.readdir(FIELD_NOTES_OUTPUT_DIR, { withFileTypes: true });
-  } catch (error) {
-    if (error?.code === 'ENOENT') return [];
-    throw error;
-  }
-
-  const manualNotes = [];
-  for (const entry of entries) {
-    if (!entry.isFile() || !entry.name.endsWith('.md') || generatedFileNames.has(entry.name)) continue;
-    const content = await fs.readFile(path.resolve(FIELD_NOTES_OUTPUT_DIR, entry.name), 'utf8');
-    manualNotes.push({
-      fileName: entry.name,
-      content,
-      url: `${FIELD_NOTES_PUBLIC_BASE}/${entry.name}`
-    });
-  }
-  return manualNotes;
-};
-
-const readManualBlogPosts = async () => {
-  let entries = [];
-  try {
-    entries = await fs.readdir(BLOG_OUTPUT_DIR, { withFileTypes: true });
-  } catch (error) {
-    if (error?.code === 'ENOENT') return [];
-    throw error;
-  }
-
-  return entries
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
-    .map((entry) => ({
-      fileName: entry.name,
-      url: `${BLOG_PUBLIC_BASE}/${entry.name}`
-    }));
-};
-
-const formatLinkLine = (title, url, description) => {
-  const safeTitle = toAscii(title);
-  const safeDescription = toAscii(description);
-  return `- [${safeTitle}](${url}): ${safeDescription}`;
-};
-
-const formatTopProjectLine = (project) => {
-  const markdownUrl = project.markdownUrl;
-  const baseDescription = project.description || project.longDescription || 'Project summary.';
-  const asciiDescription = toAscii(baseDescription);
-  const linkNotes = project.links
-    .slice(0, 2)
-    .map((link) => `${toAscii(link.text)}: ${link.url}`)
-    .join(' | ');
-  const suffix = linkNotes ? ` ${linkNotes}` : '';
-  const trimmedDescription = asciiDescription.replace(/[.!?]+$/, '') || 'Project summary';
-  return `- [${toAscii(project.title)}](${markdownUrl}): ${trimmedDescription}.${suffix}`;
-};
-
 const formatServiceSignalLine = (signal) => {
   const canonicalLinks = signal.canonicalUrls.map((url) => url).join(', ');
   return `- ${signal.name}: ${signal.description} Query intents: ${signal.queryIntents.join('; ')} Evidence: ${signal.evidence.join('; ')} Canonical URLs: ${canonicalLinks}`;
@@ -945,6 +688,18 @@ const buildProjectEvidence = (project) => {
     parts.push(firstBenchmark);
   }
   return parts.join(' | ');
+};
+
+const formatLinkLine = (title, url, description) => {
+  return `- [${toAscii(title)}](${url}): ${toAscii(description)}`;
+};
+
+const formatTopProjectLine = (project) => {
+  return formatLinkLine(
+    project.title,
+    project.markdownUrl,
+    project.description || project.longDescription || 'Project detail page.'
+  );
 };
 
 const pickClusterProjects = (projects, cluster, limit = 6) => {
@@ -987,21 +742,6 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
       title: 'chrome-extension-stats.json',
       url: `${SITE_BASE}/docs/chrome-extension-stats.json`,
       description: 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'
-    },
-    {
-      title: 'AI Agent Field Notes',
-      url: FIELD_NOTES_INDEX_URL,
-      description: '14-day daily-post, thumbnail, distribution, and newsletter experiment plan.'
-    },
-    {
-      title: 'Trend-to-Skill Blog System',
-      url: TREND_BLOG_SYSTEM_URL,
-      description: 'Monitored publishing loop for X, DeepSeek, CV, LLM, and agentic workflow signals.'
-    },
-    {
-      title: 'Newsletter',
-      url: NEWSLETTER_URL,
-      description: 'Weekly proof-pack offer and current manual signup path.'
     },
     {
       title: 'geo.txt',
@@ -1220,7 +960,7 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent) => {
   const metaDescription =
     `Zakhar Pashkin portfolio for production computer vision, VLM/LLM workflows, custom AI systems, AI product delivery, 75 public case studies, ${tractionLabel}, and machine-readable AEO context files.`;
   const aiSummary =
-    `Zakhar Pashkin is a senior computer vision and AI product engineer with 75 public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, AI Agent Field Notes, and machine-readable AEO context files.`;
+    `Zakhar Pashkin is a senior computer vision and AI product engineer with 75 public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, and machine-readable AEO context files.`;
   const updated = template
     .replace(snapshotPattern, snapshotBlock)
     .replace(schemaPattern, schemaBlock)
@@ -1287,11 +1027,6 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
     formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'),
-    formatLinkLine('AI Agent Field Notes', FIELD_NOTES_INDEX_URL, '14-day daily-post experiment for proof-backed traffic, thumbnails, and newsletter capture.'),
-    formatLinkLine('Trend-to-Skill Blog System', TREND_BLOG_SYSTEM_URL, 'Monitored technical publishing loop that turns trend signals into articles and skill candidates.'),
-    formatLinkLine('Newsletter', NEWSLETTER_URL, 'Weekly proof-pack offer with Substack and manual signup fallback.'),
-    formatLinkLine('Substack', SUBSTACK_URL, 'Public Substack blog for AI-agent and product field notes.'),
-    formatLinkLine('Substack RSS', SUBSTACK_FEED_URL, 'RSS feed for the public Substack publication.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
     formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable ML, computer vision, and AI products resume.'),
@@ -1309,13 +1044,6 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('About', `${SITE_BASE}/#about`, 'Bio and positioning.'),
     formatLinkLine('Tech Stack', `${SITE_BASE}/#stack`, 'Tools and frameworks used across projects.'),
     formatLinkLine('Projects', `${SITE_BASE}/#projects`, 'Project cards with descriptions and tech stacks.'),
-    '',
-    '## Field Notes',
-    formatLinkLine('AI Agent Field Notes', `${SITE_BASE}/#field-notes`, 'Human-readable 14-day traffic experiment section on the homepage.'),
-    formatLinkLine('14-day field notes plan', FIELD_NOTES_INDEX_URL, 'Crawlable markdown plan for daily posts, thumbnails, channels, and newsletter CTAs.'),
-    formatLinkLine('Trend-to-Skill Blog System', TREND_BLOG_SYSTEM_URL, 'Crawlable plan for X, DeepSeek, CV, LLM, and agentic trend monitoring with skill conversion gates.'),
-    formatLinkLine('Newsletter', NEWSLETTER_URL, 'Weekly proof-pack newsletter offer.'),
-    formatLinkLine('Substack', SUBSTACK_URL, 'Public Substack blog for AI-agent and product field notes.'),
     '',
     '## Latest Updates',
     formatLinkLine('Latest', `${SITE_BASE}/#latest`, 'Recently shipped work and updates.'),
@@ -1378,12 +1106,6 @@ const buildGeo = (projects) => {
       `Canonical project pages: ${pickClusterProjects(projects, cluster, 6).map((project) => project.markdownUrl).join(', ')}`,
       ''
     ]),
-    '## Field Notes and Newsletter',
-    formatLinkLine('AI Agent Field Notes', FIELD_NOTES_INDEX_URL, '14-day daily-post experiment for proof-backed traffic, screenshot-first thumbnails, distribution, and newsletter capture.'),
-    formatLinkLine('Trend-to-Skill Blog System', TREND_BLOG_SYSTEM_URL, 'Monitored trend-to-article-to-skill publishing system.'),
-    formatLinkLine('Newsletter', NEWSLETTER_URL, 'Weekly proof-pack offer with Substack and manual signup fallback.'),
-    formatLinkLine('Substack', SUBSTACK_URL, 'Public Substack blog for AI-agent and product field notes.'),
-    '',
     '## Projects',
     ...projects.map((project) =>
       formatLinkLine(
@@ -1431,14 +1153,6 @@ const buildLlmsFull = (projects, topProjects) => {
       `Canonical examples: ${pickClusterProjects(projects, cluster, 6).map((project) => `${project.title} (${project.markdownUrl})`).join('; ')}`,
       ''
     ]),
-    '',
-    '## Field Notes and Newsletter',
-    `AI Agent Field Notes: ${FIELD_NOTES_INDEX_URL}`,
-    `Trend-to-Skill Blog System: ${TREND_BLOG_SYSTEM_URL}`,
-    `Newsletter: ${NEWSLETTER_URL}`,
-    `Substack: ${SUBSTACK_URL}`,
-    `Substack RSS: ${SUBSTACK_FEED_URL}`,
-    'Purpose: a 14-day proof-backed publishing experiment with daily notes, screenshot-first thumbnails, distribution channels, and a weekly proof-pack CTA.',
     '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
@@ -1513,9 +1227,6 @@ const buildAgentContext = (projects, topProjects) => {
     `- ${SITE_BASE}/geo.txt`,
     `- ${SITE_BASE}/schema.jsonld`,
     `- ${SITE_BASE}/docs/chrome-extension-stats.json`,
-    `- ${FIELD_NOTES_INDEX_URL}`,
-    `- ${TREND_BLOG_SYSTEM_URL}`,
-    `- ${NEWSLETTER_URL}`,
     `- ${RESUME_URL}`,
     '',
     '## Suggested Public Reading Order',
@@ -1523,8 +1234,6 @@ const buildAgentContext = (projects, topProjects) => {
     '- llms.txt is the compact orientation pass.',
     '- llms-full.txt is the expanded memory pass.',
     '- geo.txt is optimized for retrieval-style project summaries.',
-    '- AI Agent Field Notes is the public daily-post experiment and newsletter capture plan.',
-    '- Trend-to-Skill Blog System is the monitored idea-to-article-to-skill publishing loop.',
     '- Project markdown pages are the canonical detail pages for evidence and links.',
     '- The home page is the human-readable overview and contact route.',
     '',
@@ -1593,11 +1302,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/llms.txt`,
           `${SITE_BASE}/llms-full.txt`,
           `${SITE_BASE}/geo.txt`,
-          `${SITE_BASE}/schema.jsonld`,
-          FIELD_NOTES_INDEX_URL,
-          TREND_BLOG_SYSTEM_URL,
-          NEWSLETTER_URL,
-          SUBSTACK_URL
+          `${SITE_BASE}/schema.jsonld`
         ],
         projectCitationRule: 'Use the concrete project markdown URLs listed in allProjects and canonicalProjects.',
         publicEvidenceOnly: true,
@@ -1613,11 +1318,6 @@ const buildAgentDiscovery = (projects, topProjects) => {
         { label: 'Agent context', url: `${SITE_BASE}/agent-context.md`, mediaType: 'text/markdown' },
         { label: 'Structured data graph', url: `${SITE_BASE}/schema.jsonld`, mediaType: 'application/ld+json' },
         { label: 'Sitemap', url: `${SITE_BASE}/sitemap.xml`, mediaType: 'application/xml' },
-        { label: 'AI Agent Field Notes', url: FIELD_NOTES_INDEX_URL, mediaType: 'text/markdown' },
-        { label: 'Trend-to-Skill Blog System', url: TREND_BLOG_SYSTEM_URL, mediaType: 'text/markdown' },
-        { label: 'Newsletter offer', url: NEWSLETTER_URL, mediaType: 'text/markdown' },
-        { label: 'Substack publication', url: SUBSTACK_URL, mediaType: 'text/html' },
-        { label: 'Substack RSS feed', url: SUBSTACK_FEED_URL, mediaType: 'application/rss+xml' },
         { label: 'Resume PDF', url: RESUME_URL, mediaType: 'application/pdf' },
         { label: 'Senior CV resume PDF', url: SENIOR_CV_RESUME_URL, mediaType: 'application/pdf' }
       ],
@@ -1643,10 +1343,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/llms-full.txt`,
           `${SITE_BASE}/geo.txt`,
           `${SITE_BASE}/schema.jsonld`,
-          `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`,
-          FIELD_NOTES_INDEX_URL,
-          TREND_BLOG_SYSTEM_URL,
-          NEWSLETTER_URL
+          `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
         ]
       },
       topicalClusters: TOPICAL_CLUSTERS.map((cluster) => ({
@@ -1758,9 +1455,7 @@ const buildSchemaJsonld = (projects) => {
         `${SITE_BASE}/llms-full.txt`,
         `${SITE_BASE}/geo.txt`,
         `${SITE_BASE}/schema.jsonld`,
-        `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`,
-        FIELD_NOTES_INDEX_URL,
-        NEWSLETTER_URL
+        `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
       ],
       speakable: {
         '@type': 'SpeakableSpecification',
@@ -1835,54 +1530,8 @@ const buildSchemaJsonld = (projects) => {
           name: 'Agent context',
           url: `${SITE_BASE}/agent-context.md`,
           encodingFormat: 'text/markdown'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'AI Agent Field Notes',
-          url: FIELD_NOTES_INDEX_URL,
-          encodingFormat: 'text/markdown'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'Trend-to-Skill Blog System',
-          url: TREND_BLOG_SYSTEM_URL,
-          encodingFormat: 'text/markdown'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'Newsletter offer',
-          url: NEWSLETTER_URL,
-          encodingFormat: 'text/markdown'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'Substack RSS feed',
-          url: SUBSTACK_FEED_URL,
-          encodingFormat: 'application/rss+xml'
         }
       ]
-    },
-    {
-      '@type': 'CreativeWork',
-      '@id': `${SITE_BASE}/#field-notes-plan`,
-      name: 'AI Agent Field Notes 14-day experiment',
-      description:
-        'Public daily-post plan for proof-backed AI-agent field notes, screenshot-first thumbnails, newsletter capture, and deployment checks.',
-      url: FIELD_NOTES_INDEX_URL,
-      author: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
-      creator: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
-      isAccessibleForFree: true
-    },
-    {
-      '@type': 'CreativeWork',
-      '@id': `${SITE_BASE}/#trend-to-skill-blog-system`,
-      name: 'Trend-to-Skill Blog System',
-      description:
-        'Public plan for monitoring X, DeepSeek, CV, LLM, and agentic workflow signals, then turning qualified trends into useful articles and reusable skills.',
-      url: TREND_BLOG_SYSTEM_URL,
-      author: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
-      creator: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
-      isAccessibleForFree: true
     },
     {
       '@type': 'ItemList',
@@ -1912,7 +1561,7 @@ const buildSchemaJsonld = (projects) => {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2);
 };
 
-const buildSitemap = (projects, fieldNotes, manualFieldNotes = [], blogPosts = []) => {
+const buildSitemap = (projects) => {
   const today = new Date().toISOString().split('T')[0];
   const urls = [
     { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
@@ -1923,29 +1572,8 @@ const buildSitemap = (projects, fieldNotes, manualFieldNotes = [], blogPosts = [
     { loc: `${SITE_BASE}/geo.txt`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/schema.jsonld`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/docs/chrome-extension-stats.json`, lastmod: today, changefreq: 'weekly', priority: '0.5' },
-    { loc: FIELD_NOTES_INDEX_URL, lastmod: today, changefreq: 'weekly', priority: '0.6' },
-    { loc: TREND_BLOG_SYSTEM_URL, lastmod: today, changefreq: 'weekly', priority: '0.6' },
-    { loc: NEWSLETTER_URL, lastmod: today, changefreq: 'weekly', priority: '0.5' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     { loc: SENIOR_CV_RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
-    ...fieldNotes.map((note) => ({
-      loc: getFieldNoteUrl(note),
-      lastmod: today,
-      changefreq: 'weekly',
-      priority: '0.5'
-    })),
-    ...manualFieldNotes.map((note) => ({
-      loc: note.url,
-      lastmod: today,
-      changefreq: 'weekly',
-      priority: '0.5'
-    })),
-    ...blogPosts.map((post) => ({
-      loc: post.url,
-      lastmod: today,
-      changefreq: 'weekly',
-      priority: '0.6'
-    })),
     ...projects.map((project) => ({
       loc: project.markdownUrl,
       lastmod: today,
@@ -1974,20 +1602,8 @@ const main = async () => {
   const projects = extractProjects(sourceFile);
   tractionSnapshot = extractClawHubSnapshot(sourceFile);
   const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);
-  const fieldNotes = extractJsonVariable(sourceFile, 'FIELD_NOTES_PLAN', []);
-  const newsletterOffer = extractJsonVariable(sourceFile, 'NEWSLETTER_OFFER', {});
-  const blogTrendSystem = extractJsonVariable(sourceFile, 'BLOG_TREND_SYSTEM', {});
-  const generatedFieldNoteFileNames = new Set([
-    `${FIELD_NOTES_INDEX_SLUG}.md`,
-    `${TREND_BLOG_SYSTEM_SLUG}.md`,
-    ...fieldNotes.map((note) => `${slugify(note.slug || note.title)}.md`)
-  ]);
-  const manualFieldNotes = await readManualFieldNotes(generatedFieldNoteFileNames);
-  const blogPosts = await readManualBlogPosts();
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
-  await fs.rm(FIELD_NOTES_OUTPUT_DIR, { recursive: true, force: true });
-  await fs.mkdir(FIELD_NOTES_OUTPUT_DIR, { recursive: true });
   await fs.writeFile(CHROME_EXTENSION_STATS_PATH, `${JSON.stringify(chromeExtensionStats, null, 2)}\n`, 'utf8');
 
   const slugCounts = new Map();
@@ -2014,25 +1630,6 @@ const main = async () => {
       markdownUrl
     });
   }
-
-  await fs.writeFile(
-    path.resolve(FIELD_NOTES_OUTPUT_DIR, `${FIELD_NOTES_INDEX_SLUG}.md`),
-    buildFieldNotesIndexMarkdown(fieldNotes, newsletterOffer, blogTrendSystem),
-    'utf8'
-  );
-  await fs.writeFile(
-    path.resolve(FIELD_NOTES_OUTPUT_DIR, `${TREND_BLOG_SYSTEM_SLUG}.md`),
-    buildTrendBlogSystemMarkdown(blogTrendSystem),
-    'utf8'
-  );
-  for (const note of fieldNotes) {
-    const notePath = path.resolve(FIELD_NOTES_OUTPUT_DIR, `${slugify(note.slug || note.title)}.md`);
-    await fs.writeFile(notePath, buildFieldNoteMarkdown(note), 'utf8');
-  }
-  for (const note of manualFieldNotes) {
-    await fs.writeFile(path.resolve(FIELD_NOTES_OUTPUT_DIR, note.fileName), note.content, 'utf8');
-  }
-  await fs.writeFile(path.resolve(ROOT_DIR, 'newsletter.md'), buildNewsletterMarkdown(newsletterOffer, fieldNotes), 'utf8');
 
   const topProjectTitles = [
     'GitHub + ClawHub Downloads Tracker',
@@ -2064,7 +1661,7 @@ const main = async () => {
   await fs.writeFile(AGENT_DISCOVERY_PATH, agentDiscoveryContent, 'utf8');
   const schemaJsonldContent = buildSchemaJsonld(projectEntries);
   await fs.writeFile(SCHEMA_JSONLD_PATH, schemaJsonldContent, 'utf8');
-  const sitemapContent = buildSitemap(projectEntries, fieldNotes, manualFieldNotes, blogPosts);
+  const sitemapContent = buildSitemap(projectEntries);
   await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');
   const today = new Date().toISOString().split('T')[0];
   const staticHomeSnapshot = buildStaticHomeSnapshot(projectEntries, topProjects);

@@ -66,7 +66,6 @@ const PUBLIC_ROOT_FILES = new Set([
   'llms-full.txt',
   'llms.txt',
   'metadata.json',
-  'newsletter.md',
   'robots.txt',
   'schema.jsonld',
   'sitemap.xml',
@@ -82,9 +81,7 @@ const PUBLIC_SOURCE_FILES = new Set([
 ]);
 
 const PUBLIC_PREFIXES = [
-  'blog/',
   'docs/',
-  'field-notes/',
   'projects/',
   'public/',
 ];
@@ -123,6 +120,20 @@ const PUBLIC_INSTRUCTION_BLEED_PATTERNS = [
   ['deployment secret env name', /\b(?:DEV_CM_GITHUB_TOKEN|SYNC_SECRET|CLOUDFLARE_API_TOKEN|OPENAI_API_KEY|ANTHROPIC_API_KEY)\b/],
 ];
 
+const HIDDEN_PUBLISHED_SURFACES = [
+  'docs/blog',
+  'docs/field-notes',
+  'docs/newsletter.md',
+];
+
+const PUBLIC_DRAFT_SURFACE_PATTERNS = [
+  ['hidden field-notes surface', /\b(?:AI Agent Field Notes|14-Day AI Agent Field Notes|14-day AI Agent Field Notes)\b/i],
+  ['hidden trend-blog surface', /\bTrend-to-Skill Blog System\b/i],
+  ['hidden publishing CTA', /\b(?:Read on Substack|Latest Substack post|weekly proof-pack offer)\b/i],
+  ['exposed asset or writer brief field', /\b(?:thumbnailDirection|writerBrief|Thumbnail and writer brief|Thumbnail Direction|Writer Brief)\b/],
+  ['hidden draft publication URL', /https?:\/\/zackpashkin\.substack\.com(?:\/|$)/i],
+];
+
 const errors = [];
 const CODEX_DOCS_SOURCE = 'codex-docs';
 const CODEX_DOCS_OUTPUT = 'docs/codex';
@@ -144,6 +155,10 @@ const isSkipped = (relativePath) => SKIP_PREFIXES.some((prefix) => relativePath.
 
 const isPublicSurface = (relativePath) => {
   return PUBLIC_ROOT_FILES.has(relativePath) || PUBLIC_SOURCE_FILES.has(relativePath) || PUBLIC_PREFIXES.some((prefix) => relativePath.startsWith(prefix));
+};
+
+const isPublishedOutput = (relativePath) => {
+  return relativePath.startsWith('docs/') || PUBLIC_ROOT_FILES.has(relativePath);
 };
 
 const loadTrackedFilePaths = async () => {
@@ -306,6 +321,18 @@ const assertCodexDocsAreInSync = async () => {
   }
 };
 
+const assertHiddenPublishingSurfacesAreNotPublished = async () => {
+  for (const relativePath of HIDDEN_PUBLISHED_SURFACES) {
+    try {
+      await fs.access(path.join(ROOT_DIR, relativePath));
+      errors.push(`${relativePath}: hidden draft publishing surface must not be present in docs output`);
+    } catch (error) {
+      if (error && error.code === 'ENOENT') continue;
+      throw error;
+    }
+  }
+};
+
 const scanPublicPdfText = async () => {
   if (SKIP_PDF_TEXT_SCAN) {
     console.warn('PDF text scan skipped because SKIP_PDF_TEXT_SCAN=true');
@@ -380,11 +407,15 @@ const main = async () => {
       scanPatterns(file.relativePath, text, PUBLIC_LEAK_PATTERNS);
       scanPatterns(file.relativePath, text, PUBLIC_INSTRUCTION_BLEED_PATTERNS);
     }
+    if (isPublishedOutput(file.relativePath)) {
+      scanPatterns(file.relativePath, text, PUBLIC_DRAFT_SURFACE_PATTERNS);
+    }
   }
 
   await assertPrivateRepoSyncFailsClosed();
   await assertPublicUpdatesDoNotExposePrivateMetadata();
   await assertCodexDocsAreInSync();
+  await assertHiddenPublishingSurfacesAreNotPublished();
   await scanPublicPdfText();
 
   if (errors.length > 0) {

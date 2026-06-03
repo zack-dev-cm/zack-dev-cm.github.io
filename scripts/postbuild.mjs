@@ -20,15 +20,17 @@ const extraFiles = [
   'agent-discovery.json',
   'geo.txt',
   'schema.jsonld',
-  'newsletter.md',
   'metadata.json',
   'favicon.svg'
 ];
 const extraDirectories = [
   { source: 'projects', destination: 'projects' },
-  { source: 'field-notes', destination: 'field-notes' },
-  { source: 'blog', destination: 'blog' },
   { source: 'codex-docs', destination: 'codex' }
+];
+const hiddenPublishedSurfaces = [
+  'newsletter.md',
+  'field-notes',
+  'blog'
 ];
 
 const copyRequiredFile = async (src, dest) => {
@@ -47,6 +49,14 @@ try {
   await copyRequiredFile(source, destination);
 
   await copyRequiredFile(manifestSource, manifestDestination);
+
+  await Promise.all(
+    hiddenPublishedSurfaces.map(async (fileOrDirectory) => {
+      const target = resolve(outDir, fileOrDirectory);
+      await rm(target, { recursive: true, force: true });
+      console.log(`Removed hidden published surface ${target}`);
+    })
+  );
 
   const extraCopies = extraFiles.map(async (file) => {
     const src = resolve(rootDir, file);

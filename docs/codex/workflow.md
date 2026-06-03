@@ -54,6 +54,21 @@ publisher search as current published-extension stats. Rows without a visible
 user count stay `null`/`Not reported`; stale Chrome-Stats rank or risk values
 must not be mixed into a current Chrome Web Store detail-page snapshot.
 
+## Hidden Draft Publishing Surfaces
+
+Draft blog systems, traffic experiments, prompt-like image briefs, newsletter
+offers, and article queues are not public portfolio surfaces by default. They
+must not be rendered in the React app, copied into `docs/`, listed in
+`sitemap.xml`, embedded in `llms.txt`, `llms-full.txt`, `geo.txt`,
+`agent-context.md`, `agent-discovery.json`, `schema.jsonld`, or the static
+HTML snapshot until a reviewer confirms:
+
+1. The writing is evidence-led and useful on its own.
+2. Image directions have been replaced with finished assets or removed.
+3. No prompt, writer brief, instruction, unpublished plan, or traffic tactic is
+   exposed as public copy.
+4. The public-surface gate and ClawPatch review pass on the generated output.
+
 ## GitHub Project Feed Loop
 
 1. Refresh: run `npm run sync:github -- --write` to rebuild `public/portfolio-updates.json` and `docs/portfolio-updates.json` from public GitHub metadata.

@@ -21,7 +21,6 @@ const PUBLIC_URL_SOURCE_FILES = [
   'llms.txt',
   'llms-full.txt',
   'metadata.json',
-  'newsletter.md',
   'schema.jsonld',
   'sitemap.xml',
   'docs/index.html',
@@ -36,8 +35,6 @@ const PUBLIC_URL_SOURCE_FILES = [
   'docs/sitemap.xml',
 ];
 const PUBLIC_URL_SOURCE_DIRECTORIES = [
-  'blog',
-  'field-notes',
   'projects',
   'codex-docs',
   'public',
@@ -113,6 +110,17 @@ const userAgent =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const resolveExistingPageFile = (candidate) => {
+  if (!fs.existsSync(candidate)) return null;
+  const stat = fs.statSync(candidate);
+  if (stat.isFile()) return candidate;
+  if (!stat.isDirectory()) return null;
+
+  const indexPath = path.join(candidate, 'index.html');
+  if (!fs.existsSync(indexPath)) return null;
+  return fs.statSync(indexPath).isFile() ? indexPath : null;
+};
+
 const resolveOwnSiteUrl = (url) => {
   const parsed = new URL(url);
   if (parsed.hostname !== siteHost) return null;
@@ -128,7 +136,11 @@ const resolveOwnSiteUrl = (url) => {
     path.join(repoRoot, 'docs', relativePath.replace(/^docs\//, '')),
   ];
 
-  return candidates.find((candidate) => fs.existsSync(candidate)) ?? null;
+  for (const candidate of candidates) {
+    const pageFile = resolveExistingPageFile(candidate);
+    if (pageFile) return pageFile;
+  }
+  return null;
 };
 
 const fetchWithTimeout = async (url, timeoutMs = 15000) => {

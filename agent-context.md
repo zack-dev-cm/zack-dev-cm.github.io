@@ -17,9 +17,6 @@ Entity keywords: Machine Learning, ML Engineering, Computer Vision, OCR, Segment
 - https://zack-dev-cm.github.io/geo.txt
 - https://zack-dev-cm.github.io/schema.jsonld
 - https://zack-dev-cm.github.io/docs/chrome-extension-stats.json
-- https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md
-- https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md
-- https://zack-dev-cm.github.io/docs/newsletter.md
 - https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf
 
 ## Suggested Public Reading Order
@@ -27,8 +24,6 @@ Entity keywords: Machine Learning, ML Engineering, Computer Vision, OCR, Segment
 - llms.txt is the compact orientation pass.
 - llms-full.txt is the expanded memory pass.
 - geo.txt is optimized for retrieval-style project summaries.
-- AI Agent Field Notes is the public daily-post experiment and newsletter capture plan.
-- Trend-to-Skill Blog System is the monitored idea-to-article-to-skill publishing loop.
 - Project markdown pages are the canonical detail pages for evidence and links.
 - The home page is the human-readable overview and contact route.
 
@@ -67,8 +62,8 @@ Entity keywords: Machine Learning, ML Engineering, Computer Vision, OCR, Segment
 - Query intents: Telegram mini app AI engineer portfolio; Chrome extension AI product engineer; crawlable Telegram mini app SEO GEO bridge
 
 ## Top Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
+- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.

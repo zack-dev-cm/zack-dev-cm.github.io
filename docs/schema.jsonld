@@ -20,8 +20,7 @@
         "https://x.com/Zackdevcv",
         "https://github.com/zack-dev-cm",
         "https://github.com/ZackPashkin",
-        "https://t.me/rheuiii",
-        "https://zackpashkin.substack.com"
+        "https://t.me/rheuiii"
       ],
       "knowsAbout": [
         "Machine Learning",
@@ -158,9 +157,7 @@
         "https://zack-dev-cm.github.io/llms-full.txt",
         "https://zack-dev-cm.github.io/geo.txt",
         "https://zack-dev-cm.github.io/schema.jsonld",
-        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-        "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
-        "https://zack-dev-cm.github.io/docs/newsletter.md"
+        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -493,60 +490,8 @@
           "name": "Agent context",
           "url": "https://zack-dev-cm.github.io/agent-context.md",
           "encodingFormat": "text/markdown"
-        },
-        {
-          "@type": "Dataset",
-          "name": "AI Agent Field Notes",
-          "url": "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
-          "encodingFormat": "text/markdown"
-        },
-        {
-          "@type": "Dataset",
-          "name": "Trend-to-Skill Blog System",
-          "url": "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
-          "encodingFormat": "text/markdown"
-        },
-        {
-          "@type": "Dataset",
-          "name": "Newsletter offer",
-          "url": "https://zack-dev-cm.github.io/docs/newsletter.md",
-          "encodingFormat": "text/markdown"
-        },
-        {
-          "@type": "Dataset",
-          "name": "Substack RSS feed",
-          "url": "https://zackpashkin.substack.com/feed",
-          "encodingFormat": "application/rss+xml"
         }
       ]
-    },
-    {
-      "@type": "CreativeWork",
-      "@id": "https://zack-dev-cm.github.io/#field-notes-plan",
-      "name": "AI Agent Field Notes 14-day experiment",
-      "description": "Public daily-post plan for proof-backed AI-agent field notes, screenshot-first thumbnails, newsletter capture, and deployment checks.",
-      "url": "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
-      "author": {
-        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-      },
-      "creator": {
-        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-      },
-      "isAccessibleForFree": true
-    },
-    {
-      "@type": "CreativeWork",
-      "@id": "https://zack-dev-cm.github.io/#trend-to-skill-blog-system",
-      "name": "Trend-to-Skill Blog System",
-      "description": "Public plan for monitoring X, DeepSeek, CV, LLM, and agentic workflow signals, then turning qualified trends into useful articles and reusable skills.",
-      "url": "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
-      "author": {
-        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-      },
-      "creator": {
-        "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
-      },
-      "isAccessibleForFree": true
     },
     {
       "@type": "ItemList",

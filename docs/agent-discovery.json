@@ -12,8 +12,7 @@
       "https://x.com/Zackdevcv",
       "https://github.com/zack-dev-cm",
       "https://github.com/ZackPashkin",
-      "https://t.me/rheuiii",
-      "https://zackpashkin.substack.com"
+      "https://t.me/rheuiii"
     ],
     "knowsAbout": [
       "Machine Learning",
@@ -58,11 +57,7 @@
       "https://zack-dev-cm.github.io/llms.txt",
       "https://zack-dev-cm.github.io/llms-full.txt",
       "https://zack-dev-cm.github.io/geo.txt",
-      "https://zack-dev-cm.github.io/schema.jsonld",
-      "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
-      "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
-      "https://zack-dev-cm.github.io/docs/newsletter.md",
-      "https://zackpashkin.substack.com"
+      "https://zack-dev-cm.github.io/schema.jsonld"
     ],
     "projectCitationRule": "Use the concrete project markdown URLs listed in allProjects and canonicalProjects.",
     "publicEvidenceOnly": true,
@@ -108,31 +103,6 @@
       "label": "Sitemap",
       "url": "https://zack-dev-cm.github.io/sitemap.xml",
       "mediaType": "application/xml"
-    },
-    {
-      "label": "AI Agent Field Notes",
-      "url": "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
-      "mediaType": "text/markdown"
-    },
-    {
-      "label": "Trend-to-Skill Blog System",
-      "url": "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
-      "mediaType": "text/markdown"
-    },
-    {
-      "label": "Newsletter offer",
-      "url": "https://zack-dev-cm.github.io/docs/newsletter.md",
-      "mediaType": "text/markdown"
-    },
-    {
-      "label": "Substack publication",
-      "url": "https://zackpashkin.substack.com",
-      "mediaType": "text/html"
-    },
-    {
-      "label": "Substack RSS feed",
-      "url": "https://zackpashkin.substack.com/feed",
-      "mediaType": "application/rss+xml"
     },
     {
       "label": "Resume PDF",
@@ -300,10 +270,7 @@
       "https://zack-dev-cm.github.io/llms-full.txt",
       "https://zack-dev-cm.github.io/geo.txt",
       "https://zack-dev-cm.github.io/schema.jsonld",
-      "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-      "https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md",
-      "https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md",
-      "https://zack-dev-cm.github.io/docs/newsletter.md"
+      "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     ]
   },
   "topicalClusters": [
@@ -5821,10 +5788,6 @@
         {
           "label": "Open on ClawHub",
           "url": "https://clawhub.ai/zack-dev-cm/research-claim-ledger"
-        },
-        {
-          "label": "Read field note",
-          "url": "https://zack-dev-cm.github.io/docs/field-notes/research-claim-ledger-before-another-ai-research-suite.md"
         },
         {
           "label": "Reference academic-research-skills",

@@ -60,20 +60,15 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [agent-context.md](https://zack-dev-cm.github.io/agent-context.md): Quick facts, contact info, and key project highlights.
 - [schema.jsonld](https://zack-dev-cm.github.io/schema.jsonld): JSON-LD graph for author, site, and project list.
 - [chrome-extension-stats.json](https://zack-dev-cm.github.io/docs/chrome-extension-stats.json): Dated Chrome Web Store detail-page snapshot for the public extension tracker.
-- [AI Agent Field Notes](https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md): 14-day daily-post experiment for proof-backed traffic, thumbnails, and newsletter capture.
-- [Trend-to-Skill Blog System](https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md): Monitored technical publishing loop that turns trend signals into articles and skill candidates.
-- [Newsletter](https://zack-dev-cm.github.io/docs/newsletter.md): Weekly proof-pack offer with Substack and manual signup fallback.
-- [Substack](https://zackpashkin.substack.com): Public Substack blog for AI-agent and product field notes.
-- [Substack RSS](https://zackpashkin.substack.com/feed): RSS feed for the public Substack publication.
 - [geo.txt](https://zack-dev-cm.github.io/geo.txt): GEO index of projects with short descriptions.
 - [sitemap.xml](https://zack-dev-cm.github.io/sitemap.xml): XML sitemap for the home page and generated project detail pages.
 - [Resume PDF](https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf): ATS-readable ML, computer vision, and AI products resume.
 
 ## Top 5 Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas. Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab | Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent
+- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.
 - [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating. View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill | Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery. Open Telegram Mini App: https://t.me/geofix_app_bot/launch
+- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
+- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
 - [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
 
 ## Projects (Markdown)
@@ -158,13 +153,6 @@ Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, 
 - [About](https://zack-dev-cm.github.io/#about): Bio and positioning.
 - [Tech Stack](https://zack-dev-cm.github.io/#stack): Tools and frameworks used across projects.
 - [Projects](https://zack-dev-cm.github.io/#projects): Project cards with descriptions and tech stacks.
-
-## Field Notes
-- [AI Agent Field Notes](https://zack-dev-cm.github.io/#field-notes): Human-readable 14-day traffic experiment section on the homepage.
-- [14-day field notes plan](https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-field-notes.md): Crawlable markdown plan for daily posts, thumbnails, channels, and newsletter CTAs.
-- [Trend-to-Skill Blog System](https://zack-dev-cm.github.io/docs/field-notes/trend-to-skill-blog-system.md): Crawlable plan for X, DeepSeek, CV, LLM, and agentic trend monitoring with skill conversion gates.
-- [Newsletter](https://zack-dev-cm.github.io/docs/newsletter.md): Weekly proof-pack newsletter offer.
-- [Substack](https://zackpashkin.substack.com): Public Substack blog for AI-agent and product field notes.
 
 ## Latest Updates
 - [Latest](https://zack-dev-cm.github.io/#latest): Recently shipped work and updates.
