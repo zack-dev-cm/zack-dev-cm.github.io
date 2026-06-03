@@ -1,16 +1,18 @@
-# Browser Proof
+# Browser QA Report Pack
 
-> Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.
+> Legacy project URL kept for compatibility. Use the canonical project link below.
+
+> Public browser QA skill that turns a live browser session into a reusable validation pack with steps, artifacts, checks, and a report.
 
 ## Summary
-Browser Proof is a small public OpenClaw skill for browser QA and debugging. It creates a machine-readable session manifest, records expected-versus-actual browser steps, ties screenshots and logs to each step, validates the resulting bundle, and renders a markdown report that is easier to hand off than screenshots in chat.
+Browser QA Report Pack is a small public OpenClaw skill for browser QA and debugging. It creates a machine-readable session manifest, records expected-versus-actual browser steps, ties screenshots and logs to each step, validates the resulting bundle, and renders a markdown report that is easier to hand off than screenshots in chat.
 
 ## Project Link
-https://zack-dev-cm.github.io/projects/browser-proof.md
+https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md
 
 ## Key Features
 - Creates one machine-readable browser session manifest with app, goal, surfaces, and run context
-- Appends evidence-backed steps with expected result, actual result, status, and artifact references
+- Appends artifact-backed steps with expected result, actual result, status, and artifact references
 - Checks the bundle for missing screenshots, incomplete failed steps, and absolute artifact paths before sharing
 - Renders a shareable markdown report for GitHub issues, release checks, and engineering handoffs
 
@@ -26,7 +28,7 @@ https://zack-dev-cm.github.io/projects/browser-proof.md
 - Published versions: 6 (public ClawHub listing, 2026-06-03)
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
-- Evidence fields: 5 (screenshot, dom, console, network, video)
+- Artifact fields: 5 (screenshot, dom, console, network, video)
 - Validation posture: release-checked (smoke test + publish-guard audit)
 
 ## Links

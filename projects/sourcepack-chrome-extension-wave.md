@@ -3,7 +3,7 @@
 > Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.
 
 ## Summary
-SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E evidence, media gates, package ZIPs, and Chrome Web Store tracking.
+SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
@@ -11,7 +11,7 @@ https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
 ## Key Features
 - Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions
 - Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions
-- Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence
+- Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E artifacts
 - Embeds Chrome Web Store detail-page tracking in this portfolio so reported user counts and risk metadata stay visible
 
 ## Tech Stack

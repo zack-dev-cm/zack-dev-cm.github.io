@@ -24,4 +24,3 @@ https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md
 
 ## Links
 - [View on GitHub](https://github.com/zack-dev-cm/probes-oss)
-- [Release v0.1.0](https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0)

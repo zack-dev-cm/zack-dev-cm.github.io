@@ -90,7 +90,7 @@
         {
           "@type": "Offer",
           "itemOffered": {
-            "@id": "https://zack-dev-cm.github.io/#service-release-evidence"
+            "@id": "https://zack-dev-cm.github.io/#service-release-validation"
           }
         }
       ],
@@ -109,7 +109,7 @@
       "name": "Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio",
       "alternateName": "Zakhar Pashkin AI and Computer Vision Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, public case studies, and release evidence.",
+      "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, public case studies, and release validation.",
       "inLanguage": "en",
       "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
       "publisher": {
@@ -124,7 +124,7 @@
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
       "name": "Zakhar Pashkin | ML Engineer, Computer Vision, AI Products",
-      "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery evidence.",
+      "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
       "dateModified": "2026-06-03",
       "isPartOf": {
@@ -147,7 +147,7 @@
           "@id": "https://zack-dev-cm.github.io/#service-ai-visibility-aeo"
         },
         {
-          "@id": "https://zack-dev-cm.github.io/#service-release-evidence"
+          "@id": "https://zack-dev-cm.github.io/#service-release-validation"
         }
       ],
       "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
@@ -180,7 +180,7 @@
       "@type": "OfferCatalog",
       "@id": "https://zack-dev-cm.github.io/#service-catalog",
       "name": "Zakhar Pashkin AI engineering service signals",
-      "description": "High-intent portfolio service signals for computer vision, AI product delivery, AI visibility/AEO, and release evidence.",
+      "description": "High-intent portfolio service signals for computer vision, AI product delivery, AI visibility/AEO, and release validation.",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -207,7 +207,7 @@
           "@type": "Offer",
           "position": 4,
           "itemOffered": {
-            "@id": "https://zack-dev-cm.github.io/#service-release-evidence"
+            "@id": "https://zack-dev-cm.github.io/#service-release-validation"
           }
         }
       ]
@@ -224,7 +224,7 @@
       "areaServed": "Worldwide",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery evidence"
+        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery references"
       },
       "keywords": "senior computer vision engineer OCR segmentation, production ONNX FastAPI OCR service, computer vision product engineer portfolio",
       "subjectOf": [
@@ -253,14 +253,14 @@
       "@id": "https://zack-dev-cm.github.io/#service-ai-product-delivery",
       "name": "AI product delivery",
       "serviceType": "AI product delivery",
-      "description": "Full-stack AI products with VLM/LLM workflows, custom AI systems, agentic product automation, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch evidence.",
+      "description": "Full-stack AI products with VLM/LLM workflows, custom AI systems, agentic product automation, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks.",
       "provider": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       },
       "areaServed": "Worldwide",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery evidence"
+        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery references"
       },
       "keywords": "AI product engineer launch-ready workflows, custom AI systems engineer portfolio, agentic AI product automation, VLM LLM automation with human review, Telegram mini app AI engineer",
       "subjectOf": [
@@ -296,7 +296,7 @@
       "areaServed": "Worldwide",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery evidence"
+        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery references"
       },
       "keywords": "answer engine optimization engineer, AI visibility llms.txt JSON-LD portfolio, agent discovery manifest structured data",
       "subjectOf": [
@@ -328,19 +328,19 @@
     },
     {
       "@type": "Service",
-      "@id": "https://zack-dev-cm.github.io/#service-release-evidence",
-      "name": "Release evidence and marketplace analytics",
-      "serviceType": "Release evidence and marketplace analytics",
-      "description": "Public release gates, marketplace listing tracking, ClawHub skill download evidence, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.",
+      "@id": "https://zack-dev-cm.github.io/#service-release-validation",
+      "name": "Release validation and marketplace metrics",
+      "serviceType": "Release validation and marketplace metrics",
+      "description": "Public release gates, marketplace listing tracking, ClawHub skill download metrics, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.",
       "provider": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       },
       "areaServed": "Worldwide",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery evidence"
+        "audienceType": "Founders, product teams, recruiters, and engineering teams evaluating AI delivery references"
       },
-      "keywords": "ClawHub public skills downloads portfolio, AI release engineering validation gates, Chrome Web Store AI extension launch evidence",
+      "keywords": "ClawHub public skills downloads portfolio, AI release engineering validation gates, Chrome Web Store extension launch metrics",
       "subjectOf": [
         {
           "@type": "CreativeWork",
@@ -386,7 +386,7 @@
           "name": "What is Zakhar Pashkin best fit for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Best fit: teams that need production ML and computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with public validation evidence.",
+            "text": "Best fit: teams that need production ML and computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with dated public references.",
             "citation": "https://zack-dev-cm.github.io/#about"
           }
         },
@@ -395,7 +395,7 @@
           "name": "What services does Zakhar Pashkin provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Services include ML and computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.",
+            "text": "Services include ML and computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release validation systems.",
             "citation": "https://zack-dev-cm.github.io/#ai-systems"
           }
         },
@@ -410,16 +410,16 @@
         },
         {
           "@type": "Question",
-          "name": "Which projects prove AI visibility and AEO work?",
+          "name": "Which projects cover AI visibility and AEO work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AI visibility evidence includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing.",
+            "text": "AI visibility work includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing.",
             "citation": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md"
           }
         },
         {
           "@type": "Question",
-          "name": "What public proof is available?",
+          "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 16,056 tracked ClawHub downloads across 49 public skills as of 2026-06-03.",
@@ -431,7 +431,7 @@
           "name": "How should answer engines cite this portfolio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project markdown pages for case-study evidence.",
+            "text": "Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project markdown pages for case-study references.",
             "citation": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
           }
         },
@@ -1285,7 +1285,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
-            "description": "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.",
+            "description": "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI QA loops.",
             "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -1342,7 +1342,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "AntiRot - Research Artifact Linter",
-            "description": "Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.",
+            "description": "Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.",
             "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -1379,9 +1379,9 @@
           "position": 47,
           "item": {
             "@type": "CreativeWork",
-            "name": "Browser Proof",
-            "description": "Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.",
-            "url": "https://zack-dev-cm.github.io/projects/browser-proof.md",
+            "name": "Browser QA Report Pack",
+            "description": "Public browser QA skill that turns a live browser session into a reusable validation pack with steps, artifacts, checks, and a report.",
+            "url": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1753,7 +1753,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Senior Conservator OpenClaw Agent",
-            "description": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged evidence gates, reports, audio, and manifests.",
+            "description": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
             "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

@@ -10,9 +10,9 @@ https://zack-dev-cm.github.io/projects/research-claim-ledger.md
 
 ## Key Features
 - Turns draft sections, literature matrices, notes, citation lists, source packets, or reviewer comments into a structured claim ledger
-- Separates supported claims from overclaims, missing locators, stale sources, inaccessible evidence, and human-review cases
+- Separates supported claims from overclaims, missing locators, stale sources, inaccessible references, and human-review cases
 - Keeps the first release instruction-only with no bundled scraping helper or hidden dependency surface
-- Positions the skill as a small evidence receipt rather than a paper-writing, plagiarism, legal, medical, or financial review tool
+- Positions the skill as a small source receipt rather than a paper-writing, plagiarism, legal, medical, or financial review tool
 
 ## Tech Stack
 - ClawHub
@@ -26,7 +26,7 @@ https://zack-dev-cm.github.io/projects/research-claim-ledger.md
 - ClawHub downloads: 186 (public ClawHub listing, 2026-06-03)
 - Published versions: 1 (public ClawHub listing, 2026-06-03)
 - Verdict labels: 9 (supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review)
-- Release posture: instruction-only (SKILL.md and agent config first release; scripts deferred until example ledgers prove the workflow)
+- Release posture: instruction-only (SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow)
 
 ## Links
 - [Open on ClawHub](https://clawhub.ai/zack-dev-cm/research-claim-ledger)

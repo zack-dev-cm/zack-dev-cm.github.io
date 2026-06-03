@@ -44,7 +44,7 @@ export const COMPANIES: Company[] = [
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping ML, AI, and computer vision systems across OCR, segmentation, detection, edge inference, VLM/LLM workflows, and production APIs.",
   "75 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "16,056 tracked ClawHub downloads across 49 public skills as of 2026-06-03, with review-gated delivery, benchmark evidence, approvals, rollback paths, and measurable outcomes."
+  "16,056 tracked ClawHub downloads across 49 public skills as of 2026-06-03, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -127,7 +127,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   },
   {
     slug: "browser-proof",
-    displayName: "Browser Proof",
+    displayName: "Browser QA Report Pack",
     downloads: 470,
     versions: 6,
     stars: 0,
@@ -433,7 +433,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   },
   {
     slug: "proof-card-forge",
-    displayName: "Proof Card Forge",
+    displayName: "Signal Card Forge",
     downloads: 185,
     versions: 1,
     stars: 0,
@@ -636,8 +636,8 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
     },
     {
       id: "meacaibiniihendfkomkkeojoaophcke",
-      name: "GitHub Proof Tracker",
-      description: "Captures visible GitHub builder stats and turns them into a shareable local proof card.",
+      name: "GitHub Signal Tracker",
+      description: "Captures visible GitHub builder stats and turns them into a shareable local metrics card.",
       users: null,
       usersSource: "No visible user count on Chrome Web Store detail page",
       rating: 0,
@@ -662,7 +662,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Calorio Admin-Report Metrics Added",
-    description: "Added sanitized production admin-report evidence for Calorio: May MTD usage, closed April comparison, aggregate food-log/event counts, model-cost telemetry, and health checks without publishing server identifiers or user-level support content.",
+    description: "Added sanitized production admin-report metrics for Calorio: May MTD usage, closed April comparison, aggregate food-log/event counts, model-cost telemetry, and health checks without publishing server identifiers or user-level support content.",
     links: [
       { text: "Open Calorio case study", url: "https://zack-dev-cm.github.io/?project=dishes-recognition-nutrition-goals-telegram-bot" },
       { text: "Try Calorio on Telegram", url: "https://t.me/calorio_yf_bot" }
@@ -682,7 +682,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Public CV/DL Archive Added",
-    description: "Added GitHub API-backed CV/DL archive cards for YOLO/EfficientNet, Cyrillic OCR, ML Kit face contours, TFLite glasses, vision-transformer notebooks, and Colab-style prototypes, with evidence limited to authored GitHub repos and generated case studies.",
+    description: "Added GitHub API-backed CV/DL archive cards for YOLO/EfficientNet, Cyrillic OCR, ML Kit face contours, TFLite glasses, vision-transformer notebooks, and Colab-style prototypes, using only authored GitHub repos and generated case studies.",
     links: [
       { text: "Open public CV/DL archive", url: "https://zack-dev-cm.github.io/?project=public-cv-and-deep-learning-github-archive" },
       { text: "Open notebook prototype archive", url: "https://zack-dev-cm.github.io/?project=colab-cv-dl-prototype-archive" },
@@ -693,7 +693,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Computer Vision and AI Systems Refresh",
-    description: "Added public-safe case studies for OCR serving, multimodal video search, and skin-texture segmentation, with Mermaid diagrams and architecture-first evidence.",
+    description: "Added public-safe case studies for OCR serving, multimodal video search, and skin-texture segmentation, with Mermaid diagrams and architecture-first references.",
     links: [
       { text: "Open OCR case study", url: "https://zack-dev-cm.github.io/?project=fast-ocr-onnx-inference-server" },
       { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=multimodal-video-search-platform" },
@@ -733,7 +733,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Dermaself Flutter Skin Analysis App",
-    description: "Updated mobile CV case study: Flutter/Firebase skin-analysis flow with guided capture, offline model runtime, ROI gates, and deployment-blocked fine-line QA evidence.",
+    description: "Updated mobile CV case study: Flutter/Firebase skin-analysis flow with guided capture, offline model runtime, ROI gates, and deployment-blocked fine-line QA notes.",
     links: [
       { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=dermaself-flutter-skin-analysis-app" }
     ],
@@ -769,7 +769,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Senior Conservator OpenClaw Agent",
-    description: "New autonomous-workflow case study: OpenClaw-driven conservation review with staged evidence gates, segmentation overlays, reports, voice output, and reproducibility manifests.",
+    description: "New autonomous-workflow case study: OpenClaw-driven conservation review with staged review gates, segmentation overlays, reports, voice output, and reproducibility manifests.",
     links: [
       { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=senior-conservator-openclaw-agent" }
     ],
@@ -843,7 +843,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "LocalLens Private AI Summaries",
-    description: "Published extension release: local summaries, simplification, translation, and safe-share cleanup using Chrome built-in AI with Chrome Web Store and GitHub evidence.",
+    description: "Published extension release: local summaries, simplification, translation, and safe-share cleanup using Chrome built-in AI with Chrome Web Store and GitHub records.",
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/locallens-private-ai-summaries" },
@@ -880,8 +880,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Probes - AI Magazine Mini App",
     description: "New open-source release: a Telegram magazine app with daily AI-generated articles, cover images, and engagement flows backed by a public API and test suite.",
     links: [
-      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes-oss" },
-      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0" }
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes-oss" }
     ],
     projectId: 36,
     repoFullName: "zack-dev-cm/probes-oss",
@@ -911,7 +910,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "GitHub + ClawHub Downloads Tracker",
-    description: "New portfolio evidence surface: a CLI/reporting flow that tracks GitHub metadata, dated ClawHub listing snapshots, Chrome Web Store detail-page stats, deltas, and next evidence bets.",
+    description: "New portfolio metrics dashboard: a CLI/reporting flow that tracks GitHub metadata, dated ClawHub listing snapshots, Chrome Web Store detail-page stats, deltas, and next optimization bets.",
     links: [
       { text: "Read tracker case study", url: "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md" }
     ],
@@ -958,8 +957,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     projectId: 50
   },
   {
-    title: "Browser Proof",
-    description: "New open-source release: a small browser QA skill that turns screenshots, console notes, and step-by-step validation into one reproducible evidence pack.",
+    title: "Browser QA Report Pack",
+    description: "New open-source release: a small browser QA skill that turns screenshots, console notes, and step-by-step validation into one reproducible validation pack.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/browser-proof" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/browser-proof" },
@@ -989,7 +988,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "AntiRot - Research Artifact Linter",
-    description: "New open-source release: a local-first CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts before they ship.",
+    description: "New open-source release: a local-first CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts before they ship.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/antirot" },
       { text: "Release v0.2.0", url: "https://github.com/zack-dev-cm/antirot/releases/tag/v0.2.0" }
@@ -1014,7 +1013,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
-    description: "Hands-on OpenClaw automation for Telegram mini app QA, launch verification, and evidence-driven UI iterations.",
+    description: "Hands-on OpenClaw automation for Telegram mini app QA, launch verification, and trace-driven UI iterations.",
     links: [
       { text: "OpenClaw Upstream", url: "https://github.com/openclaw/openclaw" }
     ],
@@ -1235,7 +1234,7 @@ export const PROJECTS: Project[] = [
     title: "Dishes Recognition & Nutrition Goals Telegram Bot",
     aliases: ["calorio", "kalorio", "nutrition bot", "yourfit"],
     description: "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
-    longDescription: "Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio evidence, with server identifiers and user-level support content omitted.",
+    longDescription: "Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio metrics, with server identifiers and user-level support content omitted.",
     projectKind: "user-product",
     surfaceTags: ["telegram", "mobile"],
     mobileReady: true,
@@ -1244,7 +1243,7 @@ export const PROJECTS: Project[] = [
       "Nutrition goal tracking with profile and diary surfaces",
       "Telegram Mini App for profile, diary, analytics, and support entry points",
       "Admin reports for usage, retention, model-cost, health, webhook, and support signals",
-      "Public-safe portfolio evidence that keeps production identifiers and user-level details out of crawlable pages"
+      "Public-safe portfolio metrics that keep production identifiers and user-level details out of crawlable pages"
     ],
     techStack: ["Telegram Bot API", "FastAPI", "OpenAI APIs", "Vision LLMs", "Speech-to-Text", "SQLite", "Telegram Mini Apps", "Admin Analytics"],
     benchmarks: [
@@ -1681,8 +1680,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     keyFeatures: ["Telegram mini app magazine feed", "Automated article + cover generation", "Engagement stats with likes/bookmarks/comments"],
     techStack: ["Vite", "React", "TypeScript", "Express", "Prisma", "Postgres", "Telegram Bot API"],
     links: [
-      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes-oss" },
-      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/probes-oss/releases/tag/v0.1.0" }
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/probes-oss" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/probes.png`, alt: "Probes mini app preview" }
@@ -1878,18 +1876,18 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 42,
     title: "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
     legacySlugs: ["openclaw-workstream-telegram-mini-app-e2e-launch-ops"],
-    description: "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI evidence loops.",
-    longDescription: "This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot evidence packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.",
+    description: "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI QA loops.",
+    longDescription: "This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot QA packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.",
     keyFeatures: [
       "Reproducible Telegram Web E2E checks for mini app launch, auth, and request/inbox flows",
       "OpenClaw gateway reliability hardening and runtime compatibility fixes",
-      "Desktop + mobile GUI evidence capture for fast UI redesign and regression review",
+      "Desktop + mobile GUI artifact capture for fast UI redesign and regression review",
       "Structured launch verification for bot + Mini App setup and QA handoff"
     ],
     techStack: ["OpenClaw", "Telegram Web", "Playwright", "Node.js", "Python", "Runbooks", "Mini Apps"],
     benchmarks: [
       { label: "Reproducible E2E actions", value: "8", context: "AI-Humans Mini App OpenClaw log (2026-02-06)" },
-      { label: "GUI evidence assets", value: "26 files", context: "screens + moodboard + Midjourney packs" },
+      { label: "GUI artifacts", value: "26 files", context: "screens + moodboard + Midjourney packs" },
       { label: "Latest regression run", value: "6/6 passed", context: "Task 7.2 pytest report (2026-02-15)" },
       { label: "UI redesign cycles", value: "2", context: "Task 7.1 and Task 7.2" }
     ],
@@ -1905,12 +1903,12 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "CV Repro Lab Skills",
     legacySlugs: ["agentic-cv-repro-lab-skill"],
     description: "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
-    longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.",
+    longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.",
     keyFeatures: [
       "Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse",
       "Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots",
       "Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards",
-      "Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence"
+      "Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark metrics"
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
@@ -1963,11 +1961,11 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 45,
     title: "AntiRot - Research Artifact Linter",
-    description: "Open-source CLI that catches unsupported claims, broken citations, weak evidence anchors, and draft markers in AI-written research drafts.",
-    longDescription: "AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing evidence anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.",
+    description: "Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.",
+    longDescription: "AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing source anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.",
     keyFeatures: [
       "Catches unsupported claims, citation drift, hype language, comparative overreach, absolute claims, and leftover draft markers in Markdown drafts",
-      "Supports paragraph-aware evidence carry, footnotes, inline links, DOIs, arXiv ids, and in-document references sections",
+      "Supports paragraph-aware source carry, footnotes, inline links, DOIs, arXiv ids, and in-document references sections",
       "Runs locally with no API key and no network dependency, so it fits agent loops, proposals, and paper pipelines",
       "Emits text, JSON, Markdown, and SARIF outputs for terminal use, CI gates, and GitHub-native review flows"
     ],
@@ -2020,12 +2018,13 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     id: 47,
-    title: "Browser Proof",
-    description: "Public browser QA skill that turns a live browser session into a reusable evidence pack with steps, artifacts, checks, and a report.",
-    longDescription: "Browser Proof is a small public OpenClaw skill for browser QA and debugging. It creates a machine-readable session manifest, records expected-versus-actual browser steps, ties screenshots and logs to each step, validates the resulting bundle, and renders a markdown report that is easier to hand off than screenshots in chat.",
+    title: "Browser QA Report Pack",
+    legacySlugs: ["browser-proof"],
+    description: "Public browser QA skill that turns a live browser session into a reusable validation pack with steps, artifacts, checks, and a report.",
+    longDescription: "Browser QA Report Pack is a small public OpenClaw skill for browser QA and debugging. It creates a machine-readable session manifest, records expected-versus-actual browser steps, ties screenshots and logs to each step, validates the resulting bundle, and renders a markdown report that is easier to hand off than screenshots in chat.",
     keyFeatures: [
       "Creates one machine-readable browser session manifest with app, goal, surfaces, and run context",
-      "Appends evidence-backed steps with expected result, actual result, status, and artifact references",
+      "Appends artifact-backed steps with expected result, actual result, status, and artifact references",
       "Checks the bundle for missing screenshots, incomplete failed steps, and absolute artifact paths before sharing",
       "Renders a shareable markdown report for GitHub issues, release checks, and engineering handoffs"
     ],
@@ -2035,7 +2034,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-06-03" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
-      { label: "Evidence fields", value: "5", context: "screenshot, dom, console, network, video" },
+      { label: "Artifact fields", value: "5", context: "screenshot, dom, console, network, video" },
       { label: "Validation posture", value: "release-checked", context: "smoke test + publish-guard audit" }
     ],
     links: [
@@ -2177,7 +2176,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "GitHub + ClawHub Downloads Tracker",
     aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub listing tracker"],
     description: "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
-    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public evidence surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
+    longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public metrics surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
     projectKind: "open-source",
     surfaceTags: ["open-source", "automation", "analytics"],
     keyFeatures: [
@@ -2241,7 +2240,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Saves readable page snapshots and selected text into a local-first archive",
       "Imports Pocket data and keeps the archive portable through Markdown, HTML, and JSON exports",
       "Keeps the product surface narrow: extension storage, export controls, and a public Chrome Web Store listing",
-      "Ships as a reproducible public release with Chrome Web Store metadata and repo evidence"
+      "Ships as a reproducible public release with Chrome Web Store metadata and repo records"
     ],
     techStack: ["Chrome Extension", "JavaScript", "Local-first Storage", "Readability", "Markdown Export", "Chrome Web Store"],
     benchmarks: [
@@ -2271,7 +2270,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "LocalLens Private AI Summaries",
     aliases: ["local lens", "private ai summaries", "built-in ai extension"],
     description: "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
-    longDescription: "LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The release emphasizes local browser execution, clear support pages, and reproducible GitHub evidence; the current Chrome Web Store publisher snapshot no longer lists this item.",
+    longDescription: "LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The release emphasizes local browser execution, clear support pages, and reproducible GitHub records; the current Chrome Web Store publisher snapshot no longer lists this item.",
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web", "open-source"],
     keyFeatures: [
@@ -2317,7 +2316,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Structures lesson source material into reusable Chinese learning packets",
       "Keeps Drive references and review state explicit for repeatable lesson preparation",
       "Publishes the workflow as a sanitized OpenClaw skill instead of exposing private tutoring artifacts",
-      "Adds the package to the public ClawHub tracker with dated download, version, and star evidence"
+      "Adds the package to the public ClawHub tracker with dated download, version, and star metrics"
     ],
     techStack: ["OpenClaw", "ClawHub", "Google Drive", "Language Learning", "Markdown", "Release Engineering"],
     benchmarks: [
@@ -2419,14 +2418,14 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Telegram Mini App Security Auditor",
     aliases: ["tma security auditor", "telegram launch gate", "telegram mini app audit"],
     description: "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
-    longDescription: "Telegram Mini App Security Auditor packages a deterministic static audit for TMA projects before bot tokens, BotFather settings, or public channels are connected. It scans the project root for server-side initData validation signals, token-shaped literals, admin routes without obvious guards, wildcard CORS, unsafe HTML usage, frame-header risks, contact/PII/token request-form leaks, and live Bot API actions without dry-run or review gates. The public contract is intentionally conservative: it returns PASS, REVIEW, or BLOCK, and it does not claim runtime security proof.",
+    longDescription: "Telegram Mini App Security Auditor packages a deterministic static audit for TMA projects before bot tokens, BotFather settings, or public channels are connected. It scans the project root for server-side initData validation signals, token-shaped literals, admin routes without obvious guards, wildcard CORS, unsafe HTML usage, frame-header risks, contact/PII/token request-form leaks, and live Bot API actions without dry-run or review gates. The public contract is intentionally conservative: it returns PASS, REVIEW, or BLOCK, and it does not claim complete runtime security.",
     projectKind: "open-source",
     surfaceTags: ["open-source", "automation", "security", "mini-app-security"],
     keyFeatures: [
       "Audits Telegram initData validation, committed token patterns, admin route guards, CORS, frame headers, and unsafe HTML signals",
       "Flags PII/token collection risks in request forms before a public Telegram Mini App launch",
       "Returns PASS, REVIEW, or BLOCK with JSON and Markdown reports for release review",
-      "Keeps the guarantee narrow: a static heuristic launch gate, not proof of runtime security"
+      "Keeps the guarantee narrow: a static heuristic launch gate, not a complete runtime-security guarantee"
     ],
     techStack: ["Python", "Static Analysis", "Telegram Mini Apps", "Security Review", "Markdown Reports", "Codex Skills"],
     benchmarks: [
@@ -2526,13 +2525,13 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points",
       "Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim",
       "Includes offline model runtime, ROI gating, and tile-bounded wrinkle/fine-line processing in the mobile delivery path",
-      "Keeps debug-only segmentation evidence separate from launch claims when a model should not be promoted"
+      "Keeps debug-only segmentation notes separate from launch claims when a model should not be promoted"
     ],
     techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "ONNX", "TFLite", "Mobile CV", "iOS", "Android"],
     benchmarks: [
       { label: "Native targets", value: "2", context: "Android and iOS app structure" },
       { label: "Feature modules", value: "7", context: "auth, onboarding, questionnaire, photo capture, device capture, analysis, home" },
-      { label: "Debug Dice ceiling", value: "0.975 mean", context: "12-image overfit diagnostic, not holdout evidence, 2026-05-12" },
+      { label: "Debug Dice ceiling", value: "0.975 mean", context: "12-image overfit diagnostic, not holdout validation, 2026-05-12" },
       { label: "Promotion decision", value: "blocked", context: "fine-line model not promoted to server or Flutter after QA review" }
     ],
     links: [],
@@ -2566,7 +2565,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     benchmarks: [
       { label: "Publish types", value: "4", context: "prototype-local, beta-private, cws-public, source-release" },
       { label: "Release scripts", value: "6", context: "create, design brief, store listing, release plan, release cycle, profile validation" },
-      { label: "Source review date", value: "2026-04-18", context: "project evidence review" }
+      { label: "Source review date", value: "2026-04-18", context: "project source review" }
     ],
     links: [],
     images: [],
@@ -2592,7 +2591,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     benchmarks: [
       { label: "Command families", value: "6", context: "diagnose, repair, collect logs, inspect recovery, inspect sync, wait sync" },
       { label: "Destructive data actions", value: "0", context: "0 cache, CloudStorage, account, or user-data deletion paths in reviewed repair flow, 2026-04-17" },
-      { label: "Source review date", value: "2026-04-17", context: "project evidence review" }
+      { label: "Source review date", value: "2026-04-17", context: "project source review" }
     ],
     links: [],
     images: [],
@@ -2618,7 +2617,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     benchmarks: [
       { label: "MCP tools", value: "10", context: "documented app tool surface" },
       { label: "Load harness", value: "10-user", context: "explicit concurrency test described in release checks" },
-      { label: "Source review date", value: "2026-03-04", context: "project evidence review" }
+      { label: "Source review date", value: "2026-03-04", context: "project source review" }
     ],
     links: [],
     images: [],
@@ -2630,8 +2629,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 67,
     title: "Senior Conservator OpenClaw Agent",
     aliases: ["senior conservator agent", "conservation openclaw workflow", "autonomous conservation report"],
-    description: "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged evidence gates, reports, audio, and manifests.",
-    longDescription: "Senior Conservator OpenClaw Agent is an evidence-heavy conservation review case study. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The public case study summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.",
+    description: "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
+    longDescription: "Senior Conservator OpenClaw Agent is an artifact-heavy conservation review case study. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The public case study summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.",
     projectKind: "case-study",
     surfaceTags: ["automation", "computer-vision", "openclaw", "operations"],
     keyFeatures: [
@@ -2643,8 +2642,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["FastAPI", "OpenClaw", "Python", "MCP", "Pillow", "ReportLab", "Computer Vision", "Review Gates"],
     benchmarks: [
       { label: "Artifact families", value: "8+", context: "reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status" },
-      { label: "Review posture", value: "strict", context: "stage-by-stage gates documented in project evidence" },
-      { label: "Source review date", value: "2026-03-01", context: "project evidence review" }
+      { label: "Review posture", value: "strict", context: "stage-by-stage gates documented in project records" },
+      { label: "Source review date", value: "2026-03-01", context: "project source review" }
     ],
     links: [],
     images: [],
@@ -2657,13 +2656,13 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "SourcePack Chrome Extension Wave",
     aliases: ["sourcepack suite", "web2csv", "video2source", "repo2agent", "sourcepack hub", "cws scout", "chatarchive"],
     description: "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
-    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E evidence, media gates, package ZIPs, and Chrome Web Store tracking.",
+    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking.",
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web", "automation", "release-engineering"],
     keyFeatures: [
       "Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions",
       "Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions",
-      "Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E evidence",
+      "Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E artifacts",
       "Embeds Chrome Web Store detail-page tracking in this portfolio so reported user counts and risk metadata stay visible"
     ],
     techStack: ["Chrome Extension", "Manifest V3", "React", "TypeScript", "SourcePack", "Playwright", "Chrome Web Store"],
@@ -2708,7 +2707,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["Python", "CLI", "OpenClaw", "ClawHub", "Security Review", "Receipt Verification"],
     benchmarks: [
       { label: "Verdict states", value: "3", context: "PASS, REVIEW, BLOCK in project contract" },
-      { label: "Default unsafe install policy", value: "deny", context: "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 evidence review" },
+      { label: "Default unsafe install policy", value: "deny", context: "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review" },
       { label: "Verification model", value: "receipt-aware", context: "installed hash and approved verdict must match receipt" }
     ],
     links: [],
@@ -2729,7 +2728,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "Stages OCR as line segmentation, word segmentation, and CRNN text recognition",
       "Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text",
       "Packages the model stack for Docker-based CPU deployment",
-      "Documents deployment shape and response contracts with sanitized architecture evidence"
+      "Documents deployment shape and response contracts with sanitized architecture notes"
     ],
     techStack: ["Python", "FastAPI", "ONNX Runtime", "CRNN", "OCR", "Docker", "Cloud Run"],
     benchmarks: [
@@ -2755,7 +2754,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Full-Face Wrinkle and Skin Texture Segmentation Lab",
     aliases: ["wrinkle segmentation lab", "skin texture segmentation", "cosmetic face analysis"],
     description: "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
-    longDescription: "Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment proof.",
+    longDescription: "Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment claim.",
     projectKind: "case-study",
     surfaceTags: ["computer-vision", "segmentation", "deep-learning", "health-ai"],
     keyFeatures: [
@@ -2768,7 +2767,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     benchmarks: [
       { label: "Face regions", value: "9", context: "forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck" },
       { label: "Artifact families", value: "6", context: "overlays, masks, skeletons, CSV, events, QA panels" },
-      { label: "Gate posture", value: "advisory", context: "review signal, not automatic deployment proof" }
+      { label: "Gate posture", value: "advisory", context: "review signal, not automatic deployment claim" }
     ],
     links: [],
     mermaidDiagram: `flowchart LR
@@ -2789,7 +2788,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Multimodal Video Search Platform",
     aliases: ["SVS4 search", "video neural search", "hybrid media search"],
     description: "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
-    longDescription: "Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture evidence.",
+    longDescription: "Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture notes.",
     projectKind: "case-study",
     surfaceTags: ["computer-vision", "ai", "search", "video", "mlops"],
     keyFeatures: [
@@ -2803,7 +2802,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Signal lanes", value: "5", context: "keyframes, ASR, OCR, objects, faces" },
       { label: "Index types", value: "2", context: "dense vector and sparse retrieval" },
       { label: "Agent roles", value: "5", context: "ingestion, embedding, retrieval, quality, recovery" },
-      { label: "Metric posture", value: "sample benchmark", context: "regression evidence, not production accuracy claim" }
+      { label: "Metric posture", value: "sample benchmark", context: "regression signal, not production accuracy claim" }
     ],
     links: [],
     mermaidDiagram: `flowchart LR
@@ -2827,11 +2826,11 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Public CV and Deep Learning GitHub Archive",
     aliases: ["public cv dl archive", "github computer vision archive", "older cv research repos"],
     description: "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
-    longDescription: "Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio proof.",
+    longDescription: "Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio claim.",
     projectKind: "research",
     surfaceTags: ["computer-vision", "deep-learning", "ocr", "mobile", "github"],
     keyFeatures: [
-      "Separates authored public repos from forks and reference clones before using GitHub evidence",
+      "Separates authored public repos from forks and reference clones before using GitHub records",
       "Surfaces OCR, object detection, face landmarks, mobile inference, and vision-transformer work as one searchable archive",
       "Uses public repo metadata and generated case studies instead of unpublished notebook or service links",
       "Frames older prototypes as research and engineering breadth without claiming production deployment"
@@ -2839,9 +2838,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["Python", "PyTorch", "TensorFlow", "YOLO", "EfficientNet", "OCR", "ML Kit", "TFLite", "OpenCV", "Android", "Flutter"],
     benchmarks: [
       { label: "GitHub accounts reviewed", value: "2", context: "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14" },
-      { label: "Public CV/DL repos sampled", value: "18+", context: "authored or project-specific public repositories, forks excluded from proof" },
+      { label: "Public CV/DL repos sampled", value: "18+", context: "authored or project-specific public repositories, forks excluded from authored-count metrics" },
       { label: "Top public repo", value: "14 stars / 6 forks", context: "YOLOv3-EfficientNet-EffYolo API snapshot" },
-      { label: "Evidence posture", value: "public-only", context: "public GitHub repos and generated case studies only" }
+      { label: "Source posture", value: "public-only", context: "public GitHub repos and generated case studies only" }
     ],
     links: [
       { text: "YOLOv3 EfficientNet EffYolo", url: "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo" },
@@ -2862,7 +2861,7 @@ Operations Layer (Console, Alerts, Runbooks)`
   Detect --> Portfolio
   Mobile --> Portfolio
   VIT --> Portfolio
-  Portfolio --> Guard["Public Evidence Only"]`,
+  Portfolio --> Guard["Public References Only"]`,
     images: [
       { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Computer vision systems map used for public CV and deep learning archive" }
     ],
@@ -2874,21 +2873,21 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Colab CV/DL Prototype Archive",
     aliases: ["colab notebooks archive", "cv dl prototype archive", "vision notebook prototypes"],
     description: "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
-    longDescription: "Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research evidence: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.",
+    longDescription: "Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research context: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.",
     projectKind: "research",
     surfaceTags: ["computer-vision", "deep-learning", "colab", "notebooks", "generative-ai"],
     keyFeatures: [
       "Groups older public notebooks into a coherent CV/DL research surface for agents and recruiters",
       "Covers image classification, OCR finetuning, document capture, multimodal video search, and generative media",
-      "Keeps notebook evidence tied to public GitHub repos and generated case studies",
+      "Keeps notebook references tied to public GitHub repos and generated case studies",
       "Labels the work as prototypes so agents do not confuse notebooks with maintained production services"
     ],
     techStack: ["Jupyter Notebook", "Google Colab", "PyTorch", "TensorFlow", "Swin Transformer", "CvT", "CLIP", "MMOCR", "OpenCV", "CameraX"],
     benchmarks: [
       { label: "Public prototype links", value: "8", context: "GitHub API and repo URL review, 2026-05-14" },
       { label: "Research families", value: "5", context: "classification, OCR, mobile capture, video retrieval, generative media" },
-      { label: "Notebook posture", value: "prototype", context: "not presented as live service or production accuracy proof" },
-      { label: "Evidence links", value: "public-only", context: "GitHub repos and generated case studies only" }
+      { label: "Notebook posture", value: "prototype", context: "not presented as live service or production accuracy claim" },
+      { label: "Source links", value: "public-only", context: "GitHub repos and generated case studies only" }
     ],
     links: [
       { text: "Swin transformer starter", url: "https://github.com/ZackPashkin/swin-transformer-pytorch-starter" },
@@ -2927,16 +2926,16 @@ Operations Layer (Console, Alerts, Runbooks)`
     surfaceTags: ["research", "ai", "release-engineering", "openclaw"],
     keyFeatures: [
       "Turns draft sections, literature matrices, notes, citation lists, source packets, or reviewer comments into a structured claim ledger",
-      "Separates supported claims from overclaims, missing locators, stale sources, inaccessible evidence, and human-review cases",
+      "Separates supported claims from overclaims, missing locators, stale sources, inaccessible references, and human-review cases",
       "Keeps the first release instruction-only with no bundled scraping helper or hidden dependency surface",
-      "Positions the skill as a small evidence receipt rather than a paper-writing, plagiarism, legal, medical, or financial review tool"
+      "Positions the skill as a small source receipt rather than a paper-writing, plagiarism, legal, medical, or financial review tool"
     ],
     techStack: ["ClawHub", "Codex Skills", "Research QA", "Citation Review", "Markdown", "Release Engineering"],
     benchmarks: [
       { label: "ClawHub downloads", value: "186", context: "public ClawHub listing, 2026-06-03" },
       { label: "Published versions", value: "1", context: "public ClawHub listing, 2026-06-03" },
       { label: "Verdict labels", value: "9", context: "supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review" },
-      { label: "Release posture", value: "instruction-only", context: "SKILL.md and agent config first release; scripts deferred until example ledgers prove the workflow" }
+      { label: "Release posture", value: "instruction-only", context: "SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow" }
     ],
     links: [
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger" },
@@ -2955,10 +2954,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 50,
     title: "HH OpenClaw Agent",
     description: "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
-    longDescription: "HH OpenClaw Agent is a small public OpenClaw skill for hh.ru application work through OpenClaw. It creates a machine-readable packet for one vacancy response flow, logs the live browser steps with evidence, validates the resulting bundle, and renders a markdown report for review, debugging, or funnel tracking. The public workflow requires an approved review state before submit and treats login, CAPTCHA, passkey, and 2FA as operator-owned interruptions.",
+    longDescription: "HH OpenClaw Agent is a small public OpenClaw skill for hh.ru application work through OpenClaw. It creates a machine-readable packet for one vacancy response flow, logs the live browser steps with artifacts, validates the resulting bundle, and renders a markdown report for review, debugging, or funnel tracking. The public workflow requires an approved review state before submit and treats login, CAPTCHA, passkey, and 2FA as operator-owned interruptions.",
     keyFeatures: [
       "Creates one machine-readable application packet with vacancy details, cover letter content, review state, and blocked actions",
-      "Appends evidence-backed browser steps with status, effect, artifacts, issue keys, and optional outcome URL",
+      "Appends artifact-backed browser steps with status, effect, artifacts, issue keys, and optional outcome URL",
       "Checks approval state, failed-step detail, screenshot coverage, and unsafe absolute artifact paths before the bundle is shared",
       "Renders a concise markdown report for job-funnel review, debugging, and operator handoff"
     ],

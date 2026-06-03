@@ -3,7 +3,7 @@
 > Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.
 
 ## Summary
-Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment proof.
+Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment claim.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md
@@ -26,7 +26,7 @@ https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmen
 ## Benchmarks & Analytics
 - Face regions: 9 (forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck)
 - Artifact families: 6 (overlays, masks, skeletons, CSV, events, QA panels)
-- Gate posture: advisory (review signal, not automatic deployment proof)
+- Gate posture: advisory (review signal, not automatic deployment claim)
 
 ## Architecture Diagram
 ```mermaid

@@ -63,7 +63,7 @@ must not be rendered in the React app, copied into `docs/`, listed in
 `agent-context.md`, `agent-discovery.json`, `schema.jsonld`, or the static
 HTML snapshot until a reviewer confirms:
 
-1. The writing is evidence-led and useful on its own.
+1. The writing is specific, referenceable, and useful on its own.
 2. Image directions have been replaced with finished assets or removed.
 3. No prompt, writer brief, instruction, unpublished plan, or traffic tactic is
    exposed as public copy.
@@ -82,7 +82,7 @@ HTML snapshot until a reviewer confirms:
 - `architect` for positioning, scope, acceptance criteria, and tradeoffs.
 - `implementer` for focused source/script/test changes.
 - `reviewer` for correctness, recruiter signal, public-surface risk, and missing checks.
-- `evolver` for measured alternatives in copy, ranking, layout, or evidence presentation.
+- `evolver` for measured alternatives in copy, ranking, layout, or metric/reference presentation.
 - `cleanup` for source/generated drift, stale docs, and follow-up hygiene.
 
 ## Parallel work

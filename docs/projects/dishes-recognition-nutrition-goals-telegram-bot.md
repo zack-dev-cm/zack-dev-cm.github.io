@@ -3,7 +3,7 @@
 > Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.
 
 ## Summary
-Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio evidence, with server identifiers and user-level support content omitted.
+Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio metrics, with server identifiers and user-level support content omitted.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md
@@ -13,7 +13,7 @@ https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegr
 - Nutrition goal tracking with profile and diary surfaces
 - Telegram Mini App for profile, diary, analytics, and support entry points
 - Admin reports for usage, retention, model-cost, health, webhook, and support signals
-- Public-safe portfolio evidence that keeps production identifiers and user-level details out of crawlable pages
+- Public-safe portfolio metrics that keep production identifiers and user-level details out of crawlable pages
 
 ## Tech Stack
 - Telegram Bot API

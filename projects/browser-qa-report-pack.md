@@ -1,7 +1,5 @@
 # Browser QA Report Pack
 
-> Legacy project URL kept for compatibility. Use the canonical project link below.
-
 > Public browser QA skill that turns a live browser session into a reusable validation pack with steps, artifacts, checks, and a report.
 
 ## Summary

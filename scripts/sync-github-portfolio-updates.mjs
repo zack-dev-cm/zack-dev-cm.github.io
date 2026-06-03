@@ -32,12 +32,12 @@ const BLOCKED_TEXT_PATTERNS = [
   ['literal bearer token', /\bBearer\s+[A-Za-z0-9._-]{24,}\b/i],
   ['assigned secret literal', /\b(?:api[_-]?key|secret|token|password)\b\s*[:=]\s*['"]?(?!process\.env\b|import\.meta\.env\b)[A-Za-z0-9._~+/=-]{16,}['"]?/i],
   ['internal analytics wording', /\b(?:internal snapshot|prod pulse|DB slice|Profiles in DB|Sessions in DB|DAU\s*\/\s*WAU\s*\/\s*MAU)\b/i],
-  ['client-facing process wording', /\b(?:internal process|client-facing proof|should not appear|do not leak|local Mac (?:project )?scan|local Mac repo history reviewed before portfolio add)\b/i],
+  ['client-facing process wording', /\b(?:internal process|client-facing claim|should not appear|do not leak|local Mac (?:project )?scan|local Mac repo history reviewed before portfolio add)\b/i],
   ['local source review wording', /\b(?:local source (?:README|review)|documented in local source)\b/i],
   ['private repo/path disclaimer wording', /\b(?:private[-\s]workflow case study|private (?:repo|repository) (?:link|url)s?|private repo link is intentionally omitted|does not publish the private repo URL|omitting private repository links|local source paths?|local artifact paths?)\b/i],
   ['client-data redaction wording', /\b(?:redacts? the client name|client identity.*removed|schema details|endpoint specifics|patient-identifying data)\b/i],
-  ['unaudited metric proof wording', /\b(?:>\s*90%\s+accuracy|operator-reported public total|rounded public product snapshot|rounded public launch comparison|publish-ready)\b/i],
-  ['Google Drive proof link', /https:\/\/drive\.google\.com\/file\/d\//i],
+  ['unaudited metric claim wording', /\b(?:>\s*90%\s+accuracy|operator-reported public total|rounded public product snapshot|rounded public launch comparison|publish-ready)\b/i],
+  ['Google Drive private link', /https:\/\/drive\.google\.com\/file\/d\//i],
   ['non-public Google Drive or Colab URL', /https?:\/\/(?:drive\.google\.com\/|docs\.google\.com\/|colab\.research\.google\.com\/drive\/)/i],
   ['local absolute path', /(?:^|[^A-Za-z0-9_])(?:\/Users\/[A-Za-z0-9._-]+|\/home\/[A-Za-z0-9._-]+|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+)/],
   ['private URL', /https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^/\s]+\.(?:local|internal))(?:[/:?#][^\s"'<>)]*)?/i],
@@ -124,6 +124,30 @@ const trimSentence = (value, maxLength = 220) => {
   return `${clipped.replace(/[.,;:!?]+$/, '')}.`;
 };
 
+const POSITIONING_TEXT_REWRITES = [
+  [/\bBrowser Proof\b/g, 'Browser QA Report Pack'],
+  [/\bGitHub Proof Tracker\b/g, 'GitHub Signal Tracker'],
+  [/\bProof Card Forge\b/g, 'Signal Card Forge'],
+  [/\bproof pack\b/gi, 'validation pack'],
+  [/\bproof card\b/gi, 'metrics card'],
+  [/\bevidence pack\b/gi, 'validation pack'],
+  [/\bevidence-backed\b/gi, 'artifact-backed'],
+  [/\bevidence\b/gi, 'references'],
+  [/\bproof\b/gi, 'signal'],
+  [/\bproves\b/gi, 'validates'],
+  [/\bprove\b/gi, 'validate']
+];
+
+const normalizePositioningText = (value) => {
+  let output = String(value || '');
+  for (const [pattern, replacement] of POSITIONING_TEXT_REWRITES) {
+    output = output.replace(pattern, replacement);
+  }
+  return output;
+};
+
+const normalizeTopicTag = (topic) => slugify(normalizePositioningText(topic));
+
 const isPrivateHostname = (hostname) => {
   const normalized = hostname.trim().toLowerCase();
   if (!normalized) return true;
@@ -169,11 +193,11 @@ const scanBlockedText = (label, value) => {
 };
 
 const publicTextOrFallback = (value, fallback, label, cleanupNotes) => {
-  const clean = trimSentence(value);
+  const clean = normalizePositioningText(trimSentence(value));
   const reasons = scanBlockedText(label, clean);
   if (clean && reasons.length === 0) return clean;
   if (reasons.length > 0) cleanupNotes.push(...reasons);
-  return fallback;
+  return normalizePositioningText(fallback);
 };
 
 const createReview = (checkedAt) => ({
@@ -224,18 +248,20 @@ const fetchReadmeText = async (owner, repo) => {
 };
 
 const buildTitle = (name) =>
-  name
-    .replace(/[-_]+/g, ' ')
-    .replace(/\b\w/g, (char) => char.toUpperCase())
-    .replace(/\bAi\b/g, 'AI')
-    .replace(/\bApi\b/g, 'API')
-    .replace(/\bClawhub\b/g, 'ClawHub')
-    .replace(/\bGithub\b/g, 'GitHub')
-    .replace(/\bCv\b/g, 'CV')
-    .replace(/\bOcr\b/g, 'OCR')
-    .replace(/\bOpenclaw\b/g, 'OpenClaw')
-    .replace(/\bPptx\b/g, 'PPTX')
-    .replace(/\bTma\b/g, 'TMA');
+  normalizePositioningText(
+    name
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase())
+      .replace(/\bAi\b/g, 'AI')
+      .replace(/\bApi\b/g, 'API')
+      .replace(/\bClawhub\b/g, 'ClawHub')
+      .replace(/\bGithub\b/g, 'GitHub')
+      .replace(/\bCv\b/g, 'CV')
+      .replace(/\bOcr\b/g, 'OCR')
+      .replace(/\bOpenclaw\b/g, 'OpenClaw')
+      .replace(/\bPptx\b/g, 'PPTX')
+      .replace(/\bTma\b/g, 'TMA')
+  );
 
 const stripMarkdown = (value) =>
   value
@@ -270,7 +296,7 @@ const extractReadmeSummary = (readme) => {
 };
 
 const topicLabel = (topic) =>
-  topic
+  normalizePositioningText(topic)
     .replace(/-/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase())
     .replace(/\bAi\b/g, 'AI')
@@ -292,7 +318,7 @@ const buildTechStack = (repo) => {
 
 const buildFeatures = (repo, checkedAt, readme, clawHubStat) => {
   const features = [
-    'Public GitHub repository with README-backed source evidence',
+    'Public GitHub repository with README-backed source references',
     `Public GitHub API snapshot captured on ${checkedAt}`,
   ];
   if (repo.language) features.push(`${repo.language} code surface is visible in repository metadata`);
@@ -373,7 +399,7 @@ const buildEntries = async (repo, checkedAt, shouldPromote, clawHubStat) => {
   const readme = await fetchReadmeText(repo.owner.login, repo.name);
   const title = buildTitle(repo.name);
   const cleanupNotes = [];
-  const fallbackDescription = `Public GitHub repository for ${title} with reviewable source, README evidence, and repository metadata.`;
+  const fallbackDescription = `Public GitHub repository for ${title} with reviewable source, README references, and repository metadata.`;
   const description = publicTextOrFallback(
     repo.description || extractReadmeSummary(readme) || fallbackDescription,
     fallbackDescription,
@@ -402,7 +428,7 @@ const buildEntries = async (repo, checkedAt, shouldPromote, clawHubStat) => {
     description,
     longDescription: `${description} This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps${clawHubStat ? ', and matched ClawHub public listing data' : ''} checked on ${checkedAt}.`,
     projectKind: 'open-source',
-    surfaceTags: Array.from(new Set(['open-source', ...(repo.topics || []).map((topic) => topic.toLowerCase())])).slice(0, 8),
+    surfaceTags: Array.from(new Set(['open-source', ...(repo.topics || []).map(normalizeTopicTag)])).slice(0, 8),
     mobileReady: /(mobile|android|ios|telegram|tma|pwa)/i.test(`${repo.name} ${(repo.topics || []).join(' ')}`),
     keyFeatures: buildFeatures(repo, checkedAt, readme, clawHubStat),
     techStack: buildTechStack(repo),

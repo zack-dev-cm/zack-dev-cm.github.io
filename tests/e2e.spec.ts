@@ -85,7 +85,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const chromeStatsSection = page.locator('#chrome-stats');
   await expect(chromeStatsSection.getByRole('heading', { name: 'Extension Stats Tracker' })).toBeVisible();
   await expect(
-    chromeStatsSection.locator('.proof-chip').filter({ hasText: 'reported users as of' }).locator('strong')
+    chromeStatsSection.locator('.metric-chip').filter({ hasText: 'reported users as of' }).locator('strong')
   ).toHaveText(CHROME_EXTENSION_STATS.totalUsers.toLocaleString('en-US'));
   await expect(chromeStatsSection.getByText('GitHub Repo Summarizer')).toBeVisible();
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
@@ -228,7 +228,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await page.screenshot({ path: 'test-results/home.png', fullPage: false });
 });
 
-test('proof tracker sections stay compact and disclose full source rows', async ({ page }) => {
+test('metric tracker sections stay compact and disclose full source rows', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1200 });
   await gotoPortfolio(page);
 
@@ -278,7 +278,7 @@ test('proof tracker sections stay compact and disclose full source rows', async 
   await page.locator('#chrome-stats').scrollIntoViewIfNeeded();
   await expect
     .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
-      message: 'Expected compact proof tracker sections to avoid mobile horizontal overflow',
+      message: 'Expected compact metric tracker sections to avoid mobile horizontal overflow',
     })
     .toBeLessThanOrEqual(4);
 });

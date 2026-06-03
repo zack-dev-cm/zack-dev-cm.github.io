@@ -28,42 +28,42 @@ const CV_REPRO_DOWNLOADS = CLAWHUB_DOWNLOAD_STATS
   .filter((stat) => stat.slug === 'data-science-cv-repro-lab' || stat.slug === 'sota-agent')
   .reduce((sum, stat) => sum + stat.downloads, 0);
 
-const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; proof: string[] }> = {
+const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; referenceLines: string[] }> = {
   70: {
     label: 'Production OCR serving',
     summary:
       'A containerized OCR serving pattern that turns line segmentation, word segmentation, and CRNN recognition into a reviewable FastAPI contract.',
-    proof: ['3-stage OCR pipeline', 'FastAPI + ONNX Runtime', 'JSON text + box outputs']
+    referenceLines: ['3-stage OCR pipeline', 'FastAPI + ONNX Runtime', 'JSON text + box outputs']
   },
   53: {
-    label: 'Evidence tracking system',
+    label: 'Marketplace metrics system',
     summary:
       'A public CLI/reporting flow that keeps GitHub metadata, dated ClawHub listing snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    proof: [`${CLAWHUB_TOTAL_DOWNLOADS.toLocaleString('en-US')} tracked ClawHub downloads`, `${CLAWHUB_DOWNLOAD_STATS.length} public skills`, 'Live owner-profile verification']
+    referenceLines: [`${CLAWHUB_TOTAL_DOWNLOADS.toLocaleString('en-US')} tracked ClawHub downloads`, `${CLAWHUB_DOWNLOAD_STATS.length} public skills`, 'Live owner-profile validation']
   },
   45: {
     label: 'Open-source review harness',
     summary:
       'A public CLI that treats AI-written research as an artifact to lint, gate, and push through CI before it reaches a paper, proposal, or lab note.',
-    proof: ['4 output formats', '6 issue families', 'No network dependency']
+    referenceLines: ['4 output formats', '6 issue families', 'No network dependency']
   },
   44: {
     label: 'Legacy-safe revenue automation',
     summary:
       'An anonymized clinic-network deployment: AI qualification and follow-up automation layered onto a legacy stack without forcing a rewrite.',
-    proof: ['Legacy DB preserved', 'Human approvals built in', 'Lead routing stayed human-safe']
+    referenceLines: ['Legacy DB preserved', 'Human approvals built in', 'Lead routing stayed human-safe']
   },
   40: {
     label: 'AI visibility product',
     summary:
       'An end-to-end product for AI discoverability: scan a site, score it, generate memorizer assets, and deliver them through web and Telegram surfaces.',
-    proof: ['Asset generation engine', 'Three-service Cloud Run topology', 'Web plus Telegram delivery']
+    referenceLines: ['Asset generation engine', 'Three-service Cloud Run topology', 'Web plus Telegram delivery']
   },
   43: {
     label: 'CV / MLOps productization',
     summary:
-      'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion-ready evidence.',
-    proof: [`${CV_REPRO_DOWNLOADS.toLocaleString('en-US')} ClawHub downloads`, 'Review dashboards + promotion gates', '29 structured helpers']
+      'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion decisions.',
+    referenceLines: [`${CV_REPRO_DOWNLOADS.toLocaleString('en-US')} ClawHub downloads`, 'Review dashboards + promotion gates', '29 structured helpers']
   },
 };
 
@@ -126,9 +126,9 @@ const HERO_WORK_ROUTES = [
     href: '#ai-systems'
   },
   {
-    label: 'Public proof',
-    value: 'Case studies, users, release gates',
-    detail: 'Dated evidence across GitHub, ClawHub, Chrome Web Store, and Telegram.',
+    label: 'Public references',
+    value: 'Case studies, users, release checks',
+    detail: 'Dated signals across GitHub, ClawHub, Chrome Web Store, and Telegram.',
     href: '#featured'
   }
 ];
@@ -423,7 +423,7 @@ const getProjectSignals = (project: Project) => {
     isAiSystem ? 'AI system' : undefined,
     project.benchmarks?.length ? 'Metrics included' : undefined,
   ]);
-  const proofScore =
+  const signalScore =
     (FEATURED_PROJECT_INDEX.has(project.id) ? 100 : 0) +
     (isRealUsers ? 24 : 0) +
     ((project.benchmarks?.length ?? 0) > 0 ? 12 : 0) +
@@ -442,7 +442,7 @@ const getProjectSignals = (project: Project) => {
     isComputerVision,
     isAiSystem,
     badges,
-    proofScore,
+    signalScore,
   };
 };
 
@@ -467,8 +467,8 @@ const sortProjectsByDomainPriority = (projects: Project[], priorityIds: readonly
   return [...projects].sort((a, b) => {
     const priorityDelta = getPriorityIndex(priorityIds, a.id) - getPriorityIndex(priorityIds, b.id);
     if (priorityDelta !== 0) return priorityDelta;
-    const proofDelta = getProjectSignals(b).proofScore - getProjectSignals(a).proofScore;
-    if (proofDelta !== 0) return proofDelta;
+    const signalDelta = getProjectSignals(b).signalScore - getProjectSignals(a).signalScore;
+    if (signalDelta !== 0) return signalDelta;
     return b.id - a.id;
   });
 };
@@ -593,7 +593,7 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
 
 const COMMAND_NAV_ITEMS = [
   { label: 'Overview', href: '#intro' },
-  { label: 'Proof', href: '#featured' },
+  { label: 'Work', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
   { label: 'Explore', href: '#projects' }
@@ -810,7 +810,7 @@ const App: React.FC = () => {
     };
   }, [projectById]);
 
-  const heroEvidenceRows = useMemo(
+  const heroSignalRows = useMemo(
     () => [
       {
         label: 'Case-study map',
@@ -858,7 +858,7 @@ const App: React.FC = () => {
         value: telegramProjectCount.toLocaleString(),
         detail: `${telegramReachSnapshot.loggingUsers} logging users / ${telegramReachSnapshot.eventActive} event-active in Calorio`,
         percent: Math.round((telegramProjectCount / denominator) * 100),
-        tone: 'evidence'
+        tone: 'metric'
       },
       {
         label: 'Measured',
@@ -918,7 +918,7 @@ const App: React.FC = () => {
       {
         label: 'Release posture',
         value: 'Gate-first',
-        detail: 'benchmarks, public-surface review, browser evidence, rollback criteria'
+        detail: 'benchmarks, public-surface review, browser traces, rollback criteria'
       }
     ],
     [aiSystemProjects.length, clawHubSummary]
@@ -1100,7 +1100,7 @@ const App: React.FC = () => {
     }
 
     return [...withFilters].sort((a, b) => {
-      const scoreDelta = getProjectSignals(b).proofScore - getProjectSignals(a).proofScore;
+      const scoreDelta = getProjectSignals(b).signalScore - getProjectSignals(a).signalScore;
       if (scoreDelta !== 0) return scoreDelta;
       return b.id - a.id;
     });
@@ -1182,13 +1182,13 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <aside className="artifact-console" aria-label="Portfolio evidence routing summary">
+              <aside className="artifact-console" aria-label="Portfolio reference summary">
                 <div className="artifact-console__header">
                   <span>Artifact map</span>
                   <strong>Dated public signals</strong>
                 </div>
                 <div className="artifact-console__rows">
-                  {heroEvidenceRows.map((row) => (
+                  {heroSignalRows.map((row) => (
                     <div key={row.label} className="artifact-console__row">
                       <span>{row.label}</span>
                       <strong>{row.value}</strong>
@@ -1196,7 +1196,7 @@ const App: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <div className="artifact-console__plots" aria-label="Artifact map evidence plots">
+                <div className="artifact-console__plots" aria-label="Artifact map signal plots">
                   {artifactPlotRows.map((row) => (
                     <div
                       key={row.label}
@@ -1307,12 +1307,12 @@ const App: React.FC = () => {
                 const context = FEATURED_PROJECT_CONTEXT[project.id];
                 const metrics = project.benchmarks?.slice(0, 3) ?? [];
                 const leadAsset = project.images[0];
-                const proofItems =
+                const referenceItems =
                   metrics.length > 0
                     ? metrics.map((metric) =>
                         metric.context ? `${metric.label}: ${metric.value} (${metric.context})` : `${metric.label}: ${metric.value}`
                       )
-                    : context?.proof ?? [];
+                    : context?.referenceLines ?? [];
 
                 return (
                   <article
@@ -1331,9 +1331,9 @@ const App: React.FC = () => {
                           <li key={feature}>{feature}</li>
                         ))}
                       </ul>
-                      <div className="proof-grid">
-                        {proofItems.slice(0, 3).map((item) => (
-                          <div key={item} className="proof-chip">
+                      <div className="metric-grid">
+                        {referenceItems.slice(0, 3).map((item) => (
+                          <div key={item} className="metric-chip">
                             {item}
                           </div>
                         ))}
@@ -1399,7 +1399,7 @@ const App: React.FC = () => {
             id="computer-vision"
             eyebrow="Computer Vision"
             title="Computer Vision Systems"
-            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, multimodal video search, and GitHub-backed research archives, with architecture-first evidence, sanitized metrics, and reviewable Mermaid diagrams.`}
+            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, multimodal video search, and GitHub-backed research archives, with architecture-first references, sanitized metrics, and reviewable Mermaid diagrams.`}
           >
             <div className="domain-spotlight">
               <div className="domain-spotlight__media">
@@ -1410,7 +1410,7 @@ const App: React.FC = () => {
                   decoding="async"
                 />
               </div>
-              <div className="domain-lanes" aria-label="Computer vision evidence lanes">
+              <div className="domain-lanes" aria-label="Computer vision delivery lanes">
                 {COMPUTER_VISION_LANES.map((lane) => (
                   <article key={lane.label} className="domain-lane">
                     <span>{lane.label}</span>
@@ -1533,10 +1533,10 @@ const App: React.FC = () => {
             id="clawhub"
             eyebrow="ClawHub"
             title="Downloads Tracker"
-            description="Dated public ClawHub skill listing counters used as marketplace evidence, not user-count claims."
+            description="Dated public ClawHub skill listing counters shown as marketplace metrics, not user-count claims."
           >
-            <div className="evidence-board evidence-board--clawhub" data-testid="clawhub-board">
-              <div className="evidence-board__header">
+            <div className="metric-board metric-board--clawhub" data-testid="clawhub-board">
+              <div className="metric-board__header">
                 <div>
                   <p className="panel__eyebrow">Public listing snapshot</p>
                   <h3>Top skill listings by downloads</h3>
@@ -1555,16 +1555,16 @@ const App: React.FC = () => {
                 </a>
               </div>
 
-              <div className="proof-grid proof-grid--compact" aria-label="ClawHub summary counters">
-                <div className="proof-chip proof-chip--compact">
+              <div className="metric-grid metric-grid--compact" aria-label="ClawHub summary counters">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
                   <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public skills</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{clawHubSummary.totalVersions}</strong>
                   <em>published versions in tracked listings</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{clawHubSummary.totalStars}</strong>
                   <em>stars shown separately from downloads</em>
                 </div>
@@ -1624,8 +1624,8 @@ const App: React.FC = () => {
             title="Extension Stats Tracker"
             description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Missing row values stay marked as not reported."
           >
-            <div className="evidence-board evidence-board--cws" data-testid="cws-board">
-              <div className="evidence-board__header">
+            <div className="metric-board metric-board--cws" data-testid="cws-board">
+              <div className="metric-board__header">
                 <div>
                   <p className="panel__eyebrow">Dated public snapshot</p>
                   <h3>Chrome Web Store publisher detail</h3>
@@ -1654,32 +1654,32 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              <div className="proof-grid proof-grid--compact chrome-stats__summary" aria-label="Chrome extension publisher summary">
-                <div className="proof-chip proof-chip--compact">
+              <div className="metric-grid metric-grid--compact chrome-stats__summary" aria-label="Chrome extension publisher summary">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
                   <em>published extensions</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
                   <em>reported users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{chromeStatsSummary.averageRating}</strong>
                   <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{chromeStatsSummary.rowsAddedIn2026}</strong>
                   <em>2026 listing rows</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{chromeStatsSummary.reportedRows}</strong>
                   <em>rows with explicit user counts</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{chromeStatsSummary.unreportedRows}</strong>
                   <em>rows without visible user count</em>
                 </div>
-                <div className="proof-chip proof-chip--compact">
+                <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
                   <em>average reported users per extension</em>
                 </div>

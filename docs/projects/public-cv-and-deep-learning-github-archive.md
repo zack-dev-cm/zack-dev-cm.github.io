@@ -3,13 +3,13 @@
 > GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.
 
 ## Summary
-Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio proof.
+Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio claim.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md
 
 ## Key Features
-- Separates authored public repos from forks and reference clones before using GitHub evidence
+- Separates authored public repos from forks and reference clones before using GitHub records
 - Surfaces OCR, object detection, face landmarks, mobile inference, and vision-transformer work as one searchable archive
 - Uses public repo metadata and generated case studies instead of unpublished notebook or service links
 - Frames older prototypes as research and engineering breadth without claiming production deployment
@@ -29,9 +29,9 @@ https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archiv
 
 ## Benchmarks & Analytics
 - GitHub accounts reviewed: 2 (zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14)
-- Public CV/DL repos sampled: 18+ (authored or project-specific public repositories, forks excluded from proof)
+- Public CV/DL repos sampled: 18+ (authored or project-specific public repositories, forks excluded from authored-count metrics)
 - Top public repo: 14 stars / 6 forks (YOLOv3-EfficientNet-EffYolo API snapshot)
-- Evidence posture: public-only (public GitHub repos and generated case studies only)
+- Source posture: public-only (public GitHub repos and generated case studies only)
 
 ## Links
 - [YOLOv3 EfficientNet EffYolo](https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo)
@@ -54,5 +54,5 @@ flowchart LR
   Detect --> Portfolio
   Mobile --> Portfolio
   VIT --> Portfolio
-  Portfolio --> Guard["Public Evidence Only"]
+  Portfolio --> Guard["Public References Only"]
 ```

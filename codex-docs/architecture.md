@@ -14,7 +14,7 @@ Use this file to preserve the boundaries that keep the portfolio maintainable an
 ## Guardrails
 
 - Source changes should flow through generation scripts instead of hand-editing generated project pages.
-- Public metrics need source context, dates, and careful wording that avoids user-count claims unless usage is proven.
+- Public metrics need source context, dates, and careful wording that avoids user-count claims unless usage is directly supported by the source.
 - Same-site GitHub Pages links should resolve locally in link checks before deployment.
 - Resume claims must be ATS-readable and consistent with portfolio claims.
 - Public-surface files must not include local paths, local URLs, secrets, or private operational notes.

@@ -1,11 +1,11 @@
 # Overview
 
-This repository publishes a portfolio for Zakhar Pashkin as an ML and computer vision engineer who builds AI products with VLM/LLM, automation, custom-model, and launch-delivery evidence.
+This repository publishes a portfolio for Zakhar Pashkin as an ML and computer vision engineer who builds AI products with VLM/LLM, automation, custom models, and launch validation.
 
 ## Product
 
 - Primary users: recruiters, hiring managers, clients, collaborators, search crawlers, and AI retrieval systems.
-- Core job: make shipped AI product work scannable, evidence-backed, linkable, and safe to publish.
+- Core job: make shipped AI product work scannable, referenceable, metric-aware, linkable, and safe to publish.
 - Non-goals: private client operations, raw internal notes, secret-bearing deployment details, or unverified traction claims.
 
 ## Repo landmarks

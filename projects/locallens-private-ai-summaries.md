@@ -3,7 +3,7 @@
 > Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.
 
 ## Summary
-LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The release emphasizes local browser execution, clear support pages, and reproducible GitHub evidence; the current Chrome Web Store publisher snapshot no longer lists this item.
+LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The release emphasizes local browser execution, clear support pages, and reproducible GitHub records; the current Chrome Web Store publisher snapshot no longer lists this item.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md

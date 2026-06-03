@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md
 - Structures lesson source material into reusable Chinese learning packets
 - Keeps Drive references and review state explicit for repeatable lesson preparation
 - Publishes the workflow as a sanitized OpenClaw skill instead of exposing private tutoring artifacts
-- Adds the package to the public ClawHub tracker with dated download, version, and star evidence
+- Adds the package to the public ClawHub tracker with dated download, version, and star metrics
 
 ## Tech Stack
 - OpenClaw

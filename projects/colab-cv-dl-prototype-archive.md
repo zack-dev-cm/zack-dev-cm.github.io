@@ -3,7 +3,7 @@
 > Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.
 
 ## Summary
-Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research evidence: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.
+Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research context: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md
@@ -11,7 +11,7 @@ https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md
 ## Key Features
 - Groups older public notebooks into a coherent CV/DL research surface for agents and recruiters
 - Covers image classification, OCR finetuning, document capture, multimodal video search, and generative media
-- Keeps notebook evidence tied to public GitHub repos and generated case studies
+- Keeps notebook references tied to public GitHub repos and generated case studies
 - Labels the work as prototypes so agents do not confuse notebooks with maintained production services
 
 ## Tech Stack
@@ -29,8 +29,8 @@ https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md
 ## Benchmarks & Analytics
 - Public prototype links: 8 (GitHub API and repo URL review, 2026-05-14)
 - Research families: 5 (classification, OCR, mobile capture, video retrieval, generative media)
-- Notebook posture: prototype (not presented as live service or production accuracy proof)
-- Evidence links: public-only (GitHub repos and generated case studies only)
+- Notebook posture: prototype (not presented as live service or production accuracy claim)
+- Source links: public-only (GitHub repos and generated case studies only)
 
 ## Links
 - [Swin transformer starter](https://github.com/ZackPashkin/swin-transformer-pytorch-starter)

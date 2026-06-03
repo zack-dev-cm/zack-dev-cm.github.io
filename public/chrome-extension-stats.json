@@ -145,8 +145,8 @@
     },
     {
       "id": "meacaibiniihendfkomkkeojoaophcke",
-      "name": "GitHub Proof Tracker",
-      "description": "Captures visible GitHub builder stats and turns them into a shareable local proof card.",
+      "name": "GitHub Signal Tracker",
+      "description": "Captures visible GitHub builder stats and turns them into a shareable local metrics card.",
       "users": null,
       "usersSource": "No visible user count on Chrome Web Store detail page",
       "rating": 0,

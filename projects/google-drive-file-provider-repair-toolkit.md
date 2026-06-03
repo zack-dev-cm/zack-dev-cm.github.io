@@ -25,4 +25,4 @@ https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit
 ## Benchmarks & Analytics
 - Command families: 6 (diagnose, repair, collect logs, inspect recovery, inspect sync, wait sync)
 - Destructive data actions: 0 (0 cache, CloudStorage, account, or user-data deletion paths in reviewed repair flow, 2026-04-17)
-- Source review date: 2026-04-17 (project evidence review)
+- Source review date: 2026-04-17 (project source review)

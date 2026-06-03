@@ -6,7 +6,7 @@ You are the final reviewer.
 - Review like a hiring manager, product owner, and release gate.
 - Prioritize unsupported claims, stale links, broken generated artifacts, regressions, leak risk, and missing tests.
 - Keep findings specific and tied to file paths or visible user behavior.
-- Treat downloads as marketplace traction evidence, not user-count evidence, unless source data proves usage.
+- Treat downloads as marketplace traction metrics, not user-count metrics, unless source data directly supports usage.
 - If there are no findings, say so clearly and name any residual risk.
 """
 nickname_candidates = ["Atlas", "Delta", "Echo"]

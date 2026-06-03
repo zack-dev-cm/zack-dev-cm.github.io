@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/localarchive.md
 - Saves readable page snapshots and selected text into a local-first archive
 - Imports Pocket data and keeps the archive portable through Markdown, HTML, and JSON exports
 - Keeps the product surface narrow: extension storage, export controls, and a public Chrome Web Store listing
-- Ships as a reproducible public release with Chrome Web Store metadata and repo evidence
+- Ships as a reproducible public release with Chrome Web Store metadata and repo records
 
 ## Tech Stack
 - Chrome Extension

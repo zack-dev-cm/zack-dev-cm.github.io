@@ -26,4 +26,4 @@ Use this file to define the checks that keep portfolio changes honest.
 
 | Date | Change | Metric | Result | Kept |
 | --- | --- | --- | --- | --- |
-| 2026-04-23 | AI Product Engineer repositioning plus ClawHub downloads tracker | Recruiter scan clarity and public traction visibility | Added hero, featured, resume, and downloads evidence surfaces | yes |
+| 2026-04-23 | AI Product Engineer repositioning plus ClawHub downloads tracker | Recruiter scan clarity and public traction visibility | Added hero, featured, resume, and downloads metrics surfaces | yes |

@@ -46,7 +46,7 @@ const POSITIONING_BLOCK_PATTERNS = [
   ['Real users label', /\bReal users\b/],
   ['Extension adoption label', /\bExtension adoption\b/],
   ['Public traction label', /\bPublic traction\b/],
-  ['traction evidence framing', /\btraction evidence\b/i],
+  ['traction validation framing', /\btraction validation\b/i],
   ['marketplace traction framing', /\bmarketplace traction\b/i],
   ['download traction framing', /\bdownload traction\b/i],
   ['competitive landscape filler', /\bcompetitive landscape\b/i],
@@ -402,7 +402,7 @@ const validateProject = (project) => {
   const hasCanonicalPublicSurface = Object.values(project.canonicalLinks || {}).some((url) => Boolean(url?.trim()));
 
   if (project.projectKind === 'user-product' && (project.links || []).length === 0) {
-    fail(`${projectLabel} is marked as user-product but has no public proof link`);
+    fail(`${projectLabel} is marked as user-product but has no public surface link`);
   }
 
   if (project.projectKind === 'user-product' && !hasCanonicalPublicSurface) {
@@ -422,7 +422,7 @@ const validateProject = (project) => {
         fail(`${projectLabel} benchmark "${benchmark.label}" needs context/source`);
       } else if (
         !/\d/.test(benchmark.context) &&
-        !/(launch|listing|snapshot|reported|public|evidence review|case study)/i.test(benchmark.context)
+        !/(launch|listing|snapshot|reported|public|source review|case study)/i.test(benchmark.context)
       ) {
         fail(`${projectLabel} benchmark "${benchmark.label}" context is too vague`);
       }

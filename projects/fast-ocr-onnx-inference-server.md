@@ -12,7 +12,7 @@ https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md
 - Stages OCR as line segmentation, word segmentation, and CRNN text recognition
 - Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text
 - Packages the model stack for Docker-based CPU deployment
-- Documents deployment shape and response contracts with sanitized architecture evidence
+- Documents deployment shape and response contracts with sanitized architecture notes
 
 ## Tech Stack
 - Python

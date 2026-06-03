@@ -13,7 +13,7 @@ https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md
 - Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points
 - Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim
 - Includes offline model runtime, ROI gating, and tile-bounded wrinkle/fine-line processing in the mobile delivery path
-- Keeps debug-only segmentation evidence separate from launch claims when a model should not be promoted
+- Keeps debug-only segmentation notes separate from launch claims when a model should not be promoted
 
 ## Tech Stack
 - Flutter
@@ -30,7 +30,7 @@ https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md
 ## Benchmarks & Analytics
 - Native targets: 2 (Android and iOS app structure)
 - Feature modules: 7 (auth, onboarding, questionnaire, photo capture, device capture, analysis, home)
-- Debug Dice ceiling: 0.975 mean (12-image overfit diagnostic, not holdout evidence, 2026-05-12)
+- Debug Dice ceiling: 0.975 mean (12-image overfit diagnostic, not holdout validation, 2026-05-12)
 - Promotion decision: blocked (fine-line model not promoted to server or Flutter after QA review)
 
 ## Architecture Diagram

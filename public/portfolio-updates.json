@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-03T11:14:01.999Z",
+  "lastSyncedAt": "2026-06-03T12:04:37.813Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-03",
-    "syncedAt": "2026-06-03T11:14:01.999Z",
+    "syncedAt": "2026-06-03T12:04:37.813Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -60,7 +60,7 @@
     },
     {
       "title": "Tutorial To Skill Free Pack",
-      "description": "Free OpenClaw/Codex tutorial-to-skill proof pack with source notes and smoke-test receipts",
+      "description": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts",
       "links": [
         {
           "text": "GitHub",
@@ -522,8 +522,8 @@
       "projectId": 1206911119
     },
     {
-      "title": "Browser Proof",
-      "description": "Create a reproducible browser evidence pack before you file a bug, approve a launch, or claim a fix.",
+      "title": "Browser QA Report Pack",
+      "description": "Create a reproducible browser validation pack before you file a bug, approve a launch, or claim a fix.",
       "links": [
         {
           "text": "GitHub",
@@ -672,7 +672,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Codex, Discord, Linkedin, Matching",
@@ -764,8 +764,8 @@
     {
       "id": 1244370879,
       "title": "Tutorial To Skill Free Pack",
-      "description": "Free OpenClaw/Codex tutorial-to-skill proof pack with source notes and smoke-test receipts",
-      "longDescription": "Free OpenClaw/Codex tutorial-to-skill proof pack with source notes and smoke-test receipts This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-03.",
+      "description": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts",
+      "longDescription": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-03.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -779,7 +779,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "TypeScript code surface is visible in repository metadata",
         "Repository topics include Affiliate Marketing, Agent Skills, AI Video, Claude Skills",
@@ -866,7 +866,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include ClawHub, OpenClaw, Security",
@@ -964,7 +964,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
@@ -1058,7 +1058,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
@@ -1139,7 +1139,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include ClawHub, GitHub, OpenClaw, Publishing",
@@ -1243,7 +1243,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Architecture, ClawHub, Codex, Documentation",
@@ -1342,7 +1342,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
@@ -1420,7 +1420,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
@@ -1498,7 +1498,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "JavaScript code surface is visible in repository metadata"
       ],
@@ -1581,7 +1581,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include AI Video, ClawHub, Codex Skills, OpenClaw",
@@ -1665,7 +1665,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
@@ -1743,7 +1743,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata"
       ],
@@ -1825,7 +1825,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Chrome Extension, Chrome Web Store, OpenClaw, Privacy",
@@ -1932,7 +1932,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Agentic Workflows, Benchmarking, Browser Automation, ClawHub",
@@ -2028,7 +2028,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include ClawHub, Linting, Open Source, OpenClaw",
@@ -2109,24 +2109,24 @@
     },
     {
       "id": 1207181863,
-      "title": "Browser Proof",
-      "description": "Create a reproducible browser evidence pack before you file a bug, approve a launch, or claim a fix.",
-      "longDescription": "Create a reproducible browser evidence pack before you file a bug, approve a launch, or claim a fix. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-03.",
+      "title": "Browser QA Report Pack",
+      "description": "Create a reproducible browser validation pack before you file a bug, approve a launch, or claim a fix.",
+      "longDescription": "Create a reproducible browser validation pack before you file a bug, approve a launch, or claim a fix. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-03.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
         "browser",
         "clawhub",
-        "evidence",
+        "references",
         "openclaw",
         "qa"
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
-        "Repository topics include Browser, ClawHub, Evidence, OpenClaw",
+        "Repository topics include Browser, ClawHub, References, OpenClaw",
         "Public homepage or listing is linked from repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
@@ -2134,7 +2134,7 @@
         "Python",
         "Browser",
         "ClawHub",
-        "Evidence",
+        "References",
         "OpenClaw",
         "Qa",
         "GitHub",
@@ -2153,7 +2153,7 @@
       "images": [
         {
           "url": "images/project-placeholder.svg",
-          "alt": "Browser Proof preview"
+          "alt": "Browser QA Report Pack preview"
         }
       ],
       "thumbnail": "images/project-placeholder.svg",
@@ -2228,7 +2228,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Automation, Career Tools, Hh, Job Search",
@@ -2333,7 +2333,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Automation, Creator Tools, OpenClaw, Shorts",
@@ -2438,7 +2438,7 @@
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source evidence",
+        "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-03",
         "Python code surface is visible in repository metadata",
         "Repository topics include Artifacts, OpenClaw, Privacy, Redaction",

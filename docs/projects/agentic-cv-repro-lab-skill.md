@@ -5,7 +5,7 @@
 > Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
 
 ## Summary
-I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook evidence, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
+I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
@@ -14,7 +14,7 @@ https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
 - Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse
 - Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots
 - Validates Colab, Kaggle, and browser-driven CV workflows with browser run cards and per-image validation scorecards
-- Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark evidence
+- Adds campaign planning and claim review with contamination checks, rerun policy, and benchmark metrics
 
 ## Tech Stack
 - ClawHub

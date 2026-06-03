@@ -1,5 +1,5 @@
 name = "evolver"
-description = "Use for measured iteration when copy, layout, ranking, or evidence presentation needs alternatives."
+description = "Use for measured iteration when copy, layout, ranking, or metric/reference presentation needs alternatives."
 developer_instructions = """
 You are the measured-search specialist.
 

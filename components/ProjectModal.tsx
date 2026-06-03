@@ -187,9 +187,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <section className="panel">
               <p className="panel__eyebrow">Metrics</p>
               <h3>Benchmarks and analytics</h3>
-              <div className="proof-grid">
+              <div className="metric-grid">
                 {project.benchmarks.map((benchmark, index) => (
-                  <div key={`${benchmark.label}-${index}`} className="proof-chip">
+                  <div key={`${benchmark.label}-${index}`} className="metric-chip">
                     <strong>{benchmark.label}</strong>
                     <span>{benchmark.value}</span>
                     {benchmark.context && <em>{benchmark.context}</em>}
