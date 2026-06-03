@@ -1179,14 +1179,6 @@ const App: React.FC = () => {
                     <DownloadIcon className="h-4 w-4" />
                     Download resume
                   </a>
-                  <a
-                    href={SOCIAL_LINKS.githubPrimary}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button button--ghost"
-                  >
-                    GitHub
-                  </a>
                 </div>
               </div>
 
