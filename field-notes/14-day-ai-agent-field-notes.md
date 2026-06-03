@@ -20,7 +20,7 @@ Canonical URL: https://zack-dev-cm.github.io/docs/field-notes/14-day-ai-agent-fi
 - Format: Debug Autopsy
 - Target reader: AI product builders who publish public proof from changing marketplace data.
 - Reader win: A short checklist for finding drift between source constants, generated files, and the live static site.
-- Evidence: ClawHub tracker refresh from stale public values to 13,388 downloads across 49 skills.
+- Evidence: ClawHub tracker refresh from stale public values to 16,056 downloads across 49 skills.
 - Channels: LinkedIn primary; X secondary
 - Field note URL: https://zack-dev-cm.github.io/docs/field-notes/stale-portfolio-stats-debug.md
 

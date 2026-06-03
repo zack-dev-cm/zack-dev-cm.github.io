@@ -31,12 +31,17 @@ const TREND_BLOG_SYSTEM_URL = `${FIELD_NOTES_PUBLIC_BASE}/${TREND_BLOG_SYSTEM_SL
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
 const AUTHOR_TITLE = 'Senior Computer Vision Engineer and AI Product Engineer';
-const SITE_TITLE = `${AUTHOR_NAME} | Computer Vision, AI Product & AEO Engineer`;
+const SITE_TITLE = `${AUTHOR_NAME} | Computer Vision Engineer, AI Products`;
 const SITE_NAME = `${AUTHOR_NAME} - Senior Computer Vision Engineer Portfolio`;
+const SOCIAL_DESCRIPTION =
+  'Production computer vision, VLM/LLM workflows, custom models, AI systems, and agentic product automation.';
+const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card.png`;
+const SOCIAL_IMAGE_ALT =
+  'Zakhar Pashkin portfolio cover with computer vision frames, VLM/LLM workflow nodes, custom model signals, and release checks.';
 const AUTHOR_DESCRIPTION =
-  'Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, AI visibility/AEO assets, and full-stack AI products across web, mobile, and cloud.';
+  'Senior computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.';
 const PORTFOLIO_TAGLINE =
-  'Computer vision services, automation with human review, AI visibility/AEO assets, Telegram mini apps, and full-stack AI products built for production constraints.';
+  'Computer vision services, custom models, VLM/LLM workflows, AI systems with human review, AI visibility/AEO context, Telegram mini apps, and full-stack products built for production constraints.';
 const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenAI APIs, VLMs, LLMs, OpenCV, FastAPI, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
@@ -72,7 +77,9 @@ const KNOWS_ABOUT = [
   'Object Detection',
   'Deep Learning',
   'Multimodal Search',
+  'Custom AI Models',
   'VLM/LLM Workflows',
+  'Agentic AI Systems',
   'OpenAI APIs',
   'PyTorch',
   'OpenCV',
@@ -121,9 +128,11 @@ const buildServiceSignals = () => [
     id: 'ai-product-delivery',
     name: 'AI product delivery',
     description:
-      'Full-stack AI products with VLM/LLM workflows, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch evidence.',
+      'Full-stack AI products with VLM/LLM workflows, custom AI systems, agentic product automation, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch evidence.',
     queryIntents: [
       'AI product engineer launch-ready workflows',
+      'custom AI systems engineer portfolio',
+      'agentic AI product automation',
       'VLM LLM automation with human review',
       'Telegram mini app AI engineer'
     ],
@@ -188,7 +197,7 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'Who is Zakhar Pashkin?',
       answer:
-        'Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, VLM/LLM workflows, AI visibility assets, and full-stack AI products.',
+        'Zakhar Pashkin is a senior computer vision engineer and AI product engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack AI products.',
       cite: `${SITE_BASE}/`
     },
     {
@@ -200,7 +209,7 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'What services does Zakhar Pashkin provide?',
       answer:
-        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; AI product delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.',
+        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release evidence systems.',
       cite: `${SITE_BASE}/#ai-systems`
     },
     {
@@ -1205,14 +1214,25 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent) => {
   const schemaBlock = `    <script type="application/ld+json">\n${inlineSchema}\n    </script>`;
   const tractionLabel = `${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads`;
   const metaDescription =
-    `Zakhar Pashkin portfolio for production computer vision, AI product delivery, VLM/LLM automation, 75 public case studies, ${tractionLabel}, and AI Agent Field Notes.`;
+    `Zakhar Pashkin portfolio for production computer vision, VLM/LLM workflows, custom AI systems, AI product delivery, 75 public case studies, ${tractionLabel}, and machine-readable AEO context files.`;
   const aiSummary =
-    `Zakhar Pashkin is a senior computer vision and AI product engineer with 75 public case studies, production OCR/segmentation/detection, VLM/LLM workflows, release gates, ${tractionLabel}, AI Agent Field Notes, and machine-readable AEO context files.`;
+    `Zakhar Pashkin is a senior computer vision and AI product engineer with 75 public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, AI Agent Field Notes, and machine-readable AEO context files.`;
   const updated = template
     .replace(snapshotPattern, snapshotBlock)
     .replace(schemaPattern, schemaBlock)
+    .replace(/<title>[^<]*<\/title>/, `<title>${SITE_TITLE}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${metaDescription}" />`)
     .replace(/<meta name="ai-summary" content="[^"]*" \/>/, `<meta name="ai-summary" content="${aiSummary}" />`)
+    .replace(/<meta name="citation_title" content="[^"]*" \/>/, `<meta name="citation_title" content="${SITE_TITLE}" />`)
+    .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${SITE_TITLE}" />`)
+    .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${SOCIAL_DESCRIPTION}" />`)
+    .replace(/<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="${SOCIAL_IMAGE_URL}" />`)
+    .replace(/<meta property="og:image:height" content="[^"]*" \/>/, '<meta property="og:image:height" content="630" />')
+    .replace(/<meta property="og:image:alt" content="[^"]*" \/>/, `<meta property="og:image:alt" content="${SOCIAL_IMAGE_ALT}" />`)
+    .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${SITE_TITLE}" />`)
+    .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${SOCIAL_DESCRIPTION}" />`)
+    .replace(/<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${SOCIAL_IMAGE_URL}" />`)
+    .replace(/<meta name="twitter:image:alt" content="[^"]*" \/>/, `<meta name="twitter:image:alt" content="${SOCIAL_IMAGE_ALT}" />`)
     .replace(/"dateModified":\s*"[^"]+"/, `"dateModified": "${today}"`);
 
   await fs.writeFile(INDEX_HTML_PATH, updated, 'utf8');
@@ -1237,7 +1257,7 @@ const buildLlms = (projects, topProjects) => {
     '',
     '## Quick Answers',
     `- Who is Zakhar Pashkin? ${AUTHOR_DESCRIPTION}`,
-    '- What does he ship? Production computer vision, automation with human review, VLM/LLM workflows, launch-ready AI product interfaces, and AI visibility/AEO context files.',
+    '- What does he ship? Production computer vision, custom models, AI systems with human review, VLM/LLM workflows, agentic product automation, and AI visibility/AEO context files.',
     '- Best fit: teams that need CV or AI product delivery tied to public evidence, release gates, crawler-readable context, and measurable marketplace listing evidence.',
     `- How much public evidence is here? ${projects.length} public case studies, with ${benchmarkedCount} projects carrying explicit benchmarks or analytics.`,
     `- Public listing evidence: ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
@@ -1682,7 +1702,7 @@ const buildSchemaJsonld = (projects) => {
       url: `${SITE_BASE}/`,
       email: `mailto:${CONTACT_EMAIL}`,
       description: AUTHOR_DESCRIPTION,
-      image: `${SITE_BASE}/docs/images/skill-wind-social.png`,
+      image: SOCIAL_IMAGE_URL,
       sameAs: AUTHOR_SAME_AS,
       knowsAbout: KNOWS_ABOUT,
       contactPoint: [
@@ -1744,8 +1764,8 @@ const buildSchemaJsonld = (projects) => {
       },
       primaryImageOfPage: {
         '@type': 'ImageObject',
-        url: `${SITE_BASE}/docs/images/cv-ai-systems-map.png`,
-        caption: 'Conceptual computer vision systems map for OCR, face analysis, and video search.'
+        url: SOCIAL_IMAGE_URL,
+        caption: SOCIAL_IMAGE_ALT
       },
       breadcrumb: { '@id': `${SITE_BASE}/#breadcrumb` }
     },

@@ -12,6 +12,34 @@ This repo uses a small public-surface loop for portfolio work.
 6. Verify: run the documented checks.
 7. Report: summarize changed surfaces and residual risks.
 
+## Publish and Live-Site Verification
+
+GitHub Pages does not read local `docs/` edits. The site updates only after the
+corrected source and generated files are committed on `main`, pushed to
+`origin/main`, and the `Deploy Pages` workflow finishes successfully.
+
+For share-card, SEO, AEO, resume, generated project, or public metadata fixes:
+
+1. Update source files first. For durable agent docs, edit `codex-docs/`; the
+   `docs/codex/` copy is rebuilt by `npm run build`.
+2. Run `npm run build` so `index.html`, `schema.jsonld`, `llms.txt`,
+   `agent-discovery.json`, project markdown, and `docs/` are refreshed together.
+3. Run the default verification stack before publishing: `npm run validate`,
+   `npm run build`, `npm run security:gate`,
+   `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e`, `npm run check:links`, and
+   `npm run audit:codex`. Add `npm run validate:seo-aeo` for metadata/AEO work.
+4. Commit and push the source and generated `docs/` changes to `main`.
+5. Watch the `Deploy Pages` workflow for the pushed commit until it completes.
+6. Verify the live URL with cache-busting requests. For metadata fixes, fetch
+   `https://zack-dev-cm.github.io/?v=<commit-or-timestamp>` and confirm the
+   expected `<title>`, `og:title`, `og:description`, `og:image`,
+   `twitter:image`, structured-data image, and dated stats. Also fetch any new
+   image URL with `curl -I` and require HTTP 200.
+
+If the local `docs/index.html` is correct but the live site is stale, do not
+keep editing copy. Check whether the commit was pushed, whether the Pages
+workflow ran on that commit, and whether the live asset URL exists.
+
 ## GitHub Project Feed Loop
 
 1. Refresh: run `npm run sync:github -- --write` to rebuild `public/portfolio-updates.json` and `docs/portfolio-updates.json` from public GitHub metadata.

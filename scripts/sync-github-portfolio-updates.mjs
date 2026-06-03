@@ -416,7 +416,7 @@ const buildEntries = async (repo, checkedAt, shouldPromote, clawHubStat) => {
   return { latestEntry: { ...latestEntry, projectId: repo.id }, projectEntry, cleanupNotes };
 };
 
-const assertSafePayload = (updates) => {
+const assertSafePayload = (updates, expectedOwner) => {
   const errors = [];
   const serialized = JSON.stringify(updates);
   errors.push(...scanBlockedText('portfolio update payload', serialized));
@@ -437,7 +437,7 @@ const assertSafePayload = (updates) => {
           errors.push(`${label} has unsafe public URL: ${link.url}`);
         }
       }
-      if (item.repoFullName && !item.repoFullName.startsWith(`${DEFAULT_OWNER}/`)) {
+      if (item.repoFullName && !item.repoFullName.startsWith(`${expectedOwner}/`)) {
         errors.push(`${label} has unexpected repo owner: ${item.repoFullName}`);
       }
     }
@@ -495,7 +495,7 @@ const main = async () => {
     if (projectEntry) updates.projects.push(projectEntry);
   }
 
-  assertSafePayload(updates);
+  assertSafePayload(updates, options.owner);
   const serialized = `${JSON.stringify(updates, null, 2)}\n`;
 
   if (options.verify) {
