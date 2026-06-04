@@ -11,6 +11,10 @@ import type {
 
 const LOCAL_IMG_BASE = resolveAssetUrl('images');
 const LOCAL_COMPANY_LOGO_BASE = resolveAssetUrl('company-logos');
+const SELECTED_AI_CV_EXCALIDRAW_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/selected-ai-cv-excalidraw-map.webp`,
+  alt: "Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects"
+};
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
@@ -2706,9 +2710,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Word --> CRNN["CRNN Text Recognition"]
   CRNN --> Response["JSON Text + Boxes"]
   Response --> Review["Timing + Debug Metadata"]`,
-    images: [],
-    thumbnail: "",
-    hideImages: true,
+    images: [SELECTED_AI_CV_EXCALIDRAW_IMAGE],
+    thumbnail: SELECTED_AI_CV_EXCALIDRAW_IMAGE.url,
     createdAt: "2026-05-14"
   },
   {
@@ -2740,9 +2743,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Regions --> QA["QA Panel + Coverage Checks"]
   Skeleton --> QA
   QA --> Artifacts["Overlays + CSV + Events"]`,
-    images: [],
-    thumbnail: "",
-    hideImages: true,
+    images: [SELECTED_AI_CV_EXCALIDRAW_IMAGE],
+    thumbnail: SELECTED_AI_CV_EXCALIDRAW_IMAGE.url,
     createdAt: "2026-05-14"
   },
   {
@@ -2778,7 +2780,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Index --> Rank["Hybrid Scorer"]
   Rank --> Results["Ranked Results + Review Metrics"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Conceptual computer vision systems map for OCR, face analysis, and video neural search" }
+      { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Conceptual computer vision systems map for OCR, face analysis, and video neural search" },
+      SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`,
     createdAt: "2026-05-14"
@@ -2916,7 +2919,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   QA --> Review["Aesthetic Review Overlay"]
   Review --> Guard["Public Sanitization Gate"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/jaw-face-type-classifier-card.png`, alt: "Anonymized jaw and face-type classification interface with facial landmarks and review charts" }
+      { url: `${LOCAL_IMG_BASE}/jaw-face-type-classifier-card.png`, alt: "Anonymized jaw and face-type classification interface with facial landmarks and review charts" },
+      SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/jaw-face-type-classifier-card.png`,
     createdAt: "2026-06-04"
@@ -2962,7 +2966,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Review --> Export["Structured Plan Output"]`,
     images: [
       { url: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`, alt: "Architectural floorplan recognition and interior catalog matching visualization" },
-      { url: `${LOCAL_IMG_BASE}/interior-marble.png`, alt: "Interior inpainting and material replacement example used as related visual evidence" }
+      { url: `${LOCAL_IMG_BASE}/interior-marble.png`, alt: "Interior inpainting and material replacement example used as related visual evidence" },
+      SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`,
     createdAt: "2026-06-04"
@@ -3006,7 +3011,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Answer --> Save["PDF + Generated Files"]
   Save --> QA["Scenario QA Matrix"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/inqi-quest-binder-agent-card.png`, alt: "InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" }
+      { url: `${LOCAL_IMG_BASE}/inqi-quest-binder-agent-card.png`, alt: "InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" },
+      SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/inqi-quest-binder-agent-card.png`,
     createdAt: "2026-06-04"
@@ -3056,7 +3062,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Media --> Review
   Review --> Public["Public Links Only"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/comfy-colab-prototype-lab-card.png`, alt: "Generative AI notebook and ComfyUI prototype lab with node graphs and media pipeline frames" }
+      { url: `${LOCAL_IMG_BASE}/comfy-colab-prototype-lab-card.png`, alt: "Generative AI notebook and ComfyUI prototype lab with node graphs and media pipeline frames" },
+      SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/comfy-colab-prototype-lab-card.png`,
     createdAt: "2026-06-04"

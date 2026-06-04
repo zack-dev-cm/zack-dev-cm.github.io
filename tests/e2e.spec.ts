@@ -186,7 +186,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await fastOcrCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page).toHaveURL(/\?project=fast-ocr-onnx-inference-server/);
-  await expect(page.getByRole('dialog').getByText('Mermaid diagram')).toBeVisible();
+  await expect(page.getByRole('dialog').getByText('Rendered flowchart')).toBeVisible();
+  await expect(page.getByRole('dialog').getByTestId('mermaid-visual')).toBeVisible();
+  await expect(page.getByRole('dialog').getByText('Mermaid source')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 

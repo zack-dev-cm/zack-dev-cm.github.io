@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { Project } from '../types';
 import { ExternalLinkIcon, XIcon, ChevronLeftIcon, ChevronRightIcon, LinkIcon } from './Icons';
+import { MermaidDiagram } from './MermaidDiagram';
 
 interface ProjectModalProps {
   project: Project;
@@ -210,8 +211,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {project.mermaidDiagram && (
             <section className="panel">
               <p className="panel__eyebrow">Architecture</p>
-              <h3>Mermaid diagram</h3>
-              <pre className="code-block code-block--mermaid">{project.mermaidDiagram}</pre>
+              <h3>Rendered flowchart</h3>
+              <MermaidDiagram chart={project.mermaidDiagram} />
+              <details className="diagram-source">
+                <summary>Mermaid source</summary>
+                <pre className="code-block code-block--mermaid">{project.mermaidDiagram}</pre>
+              </details>
             </section>
           )}
 
