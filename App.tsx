@@ -588,6 +588,7 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
 ];
 
 const COMMAND_NAV_ITEMS = [
+  { label: 'Companies', href: '#experience' },
   { label: 'Overview', href: '#intro' },
   { label: 'Work', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
@@ -836,6 +837,11 @@ const App: React.FC = () => {
         label: 'Measured releases',
         value: `${benchmarkedProjectCount} measured`,
         detail: 'projects with benchmarks, review notes, or dated metrics'
+      },
+      {
+        label: 'Teaching CV/DL',
+        value: '>3 years',
+        detail: 'teaching deep learning and computer vision through practical model and product work'
       }
     ],
     [benchmarkedProjectCount, chromeStatsSummary.reportedRows, clawHubSummary, mergedProjects.length, telegramReachSnapshot]
@@ -1155,6 +1161,33 @@ const App: React.FC = () => {
             </a>
           </nav>
 
+          <Section
+            id="experience"
+            eyebrow="Selected Teams"
+            title="Companies I Work With"
+            description="Some of the teams and brands I have built with."
+          >
+            <div className="logo-grid">
+              {COMPANIES.map((company, index) => (
+                <div
+                  key={company.name}
+                  tabIndex={0}
+                  title={company.name}
+                  aria-label={company.name}
+                  className="logo-card"
+                >
+                  <img
+                    src={company.logoUrl}
+                    alt={`${company.name} logo`}
+                    className="logo-card__image"
+                    loading={index < 4 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          </Section>
+
           <section id="intro" className="hero">
             <div className="hero__layout">
               <div className="hero__copy">
@@ -1270,33 +1303,6 @@ const App: React.FC = () => {
                   <h3>{pillar.title}</h3>
                   <p>{pillar.description}</p>
                 </article>
-              ))}
-            </div>
-          </Section>
-
-          <Section
-            id="experience"
-            eyebrow="Selected Teams"
-            title="Collaborations"
-            description="Some of the teams and brands I have built with."
-          >
-            <div className="logo-grid">
-              {COMPANIES.map((company, index) => (
-                <div
-                  key={company.name}
-                  tabIndex={0}
-                  title={company.name}
-                  aria-label={company.name}
-                  className="logo-card"
-                >
-                  <img
-                    src={company.logoUrl}
-                    alt={`${company.name} logo`}
-                    className="logo-card__image"
-                    loading={index < 4 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
-                </div>
               ))}
             </div>
           </Section>
