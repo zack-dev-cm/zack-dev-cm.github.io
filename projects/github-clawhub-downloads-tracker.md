@@ -10,7 +10,7 @@ https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 
 ## Key Features
 - Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo metadata
-- Records Chrome Web Store detail-page stats for explicit user counts, ratings, versions, and not-reported rows
+- Records Chrome Web Store detail-page stats only when public user counts, ratings, and versions are visible
 - Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace
 - Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting
 
@@ -24,10 +24,10 @@ https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 - Open-source Analytics
 
 ## Benchmarks & Analytics
-- Tracked ClawHub downloads: 16,056 (public ClawHub owner profile, 2026-06-03 across 49 skills)
-- Tracked public skills: 49 (49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-03)
-- CV Repro Lab downloads: 1,420 total (770 data-science-cv-repro-lab + 650 sota-agent, 2026-06-03)
-- Strongest skill: 770 downloads (data-science-cv-repro-lab public listing, 2026-06-03)
+- Tracked ClawHub downloads: 16,453 (public ClawHub owner profile, 2026-06-04 across 49 skills)
+- Tracked public skills: 49 (49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-04)
+- CV Repro Lab downloads: 1,439 total (783 data-science-cv-repro-lab + 656 sota-agent, 2026-06-04)
+- Strongest skill: 783 downloads (data-science-cv-repro-lab public listing, 2026-06-04)
 - Report outputs: 3 (text, JSON, Markdown)
 - Projection horizon: 30 days (pace and peer-conversion upside scenarios)
 

@@ -10,10 +10,10 @@
         "zack-dev-cm",
         "Zackdevcv"
       ],
-      "jobTitle": "ML Engineer, Computer Vision, AI Products",
+      "jobTitle": "Computer Vision and AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.",
+      "description": "Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility/AEO context, and full-stack products across web, mobile, and cloud.",
       "image": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png",
       "sameAs": [
         "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
@@ -31,8 +31,10 @@
         "Object Detection",
         "Deep Learning",
         "Multimodal Search",
+        "Model Serving",
         "Custom AI Models",
         "VLM/LLM Workflows",
+        "AI Agents",
         "Agentic AI Systems",
         "AI Products",
         "AI Product Engineering",
@@ -45,6 +47,7 @@
         "Chrome Extensions",
         "Telegram Mini Apps",
         "AI Product Delivery",
+        "Evaluation Gates",
         "Release Engineering",
         "GEO",
         "SEO",
@@ -100,18 +103,18 @@
       "hasOccupation": {
         "@type": "Occupation",
         "name": "ML Engineer and Computer Vision Engineer",
-        "skills": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD"
+        "skills": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Model Serving, Custom AI Models, VLM/LLM Workflows, AI Agents, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Evaluation Gates, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD"
       }
     },
     {
       "@type": "WebSite",
       "@id": "https://zack-dev-cm.github.io/#website",
-      "name": "Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio",
+      "name": "Zakhar Pashkin - Computer Vision and Agentic AI Product Portfolio",
       "alternateName": "Zakhar Pashkin AI and Computer Vision Portfolio",
       "url": "https://zack-dev-cm.github.io/",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, public case studies, and release validation.",
       "inLanguage": "en",
-      "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
+      "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Model Serving, Custom AI Models, VLM/LLM Workflows, AI Agents, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Evaluation Gates, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
       "publisher": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       }
@@ -123,10 +126,10 @@
       ],
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
-      "name": "Zakhar Pashkin | ML Engineer, Computer Vision, AI Products",
+      "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-03",
+      "dateModified": "2026-06-04",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -150,7 +153,7 @@
           "@id": "https://zack-dev-cm.github.io/#service-release-validation"
         }
       ],
-      "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Custom AI Models, VLM/LLM Workflows, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
+      "keywords": "Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Model Serving, Custom AI Models, VLM/LLM Workflows, AI Agents, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Evaluation Gates, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD",
       "significantLink": [
         "https://zack-dev-cm.github.io/docs/agent-discovery.json",
         "https://zack-dev-cm.github.io/llms.txt",
@@ -170,7 +173,7 @@
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png",
-        "caption": "Zakhar Pashkin ML Engineer, Computer Vision, AI Products social preview with production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation."
+        "caption": "Zakhar Pashkin computer vision and AI product engineer social preview with production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows."
       },
       "breadcrumb": {
         "@id": "https://zack-dev-cm.github.io/#breadcrumb"
@@ -253,7 +256,7 @@
       "@id": "https://zack-dev-cm.github.io/#service-ai-product-delivery",
       "name": "AI product delivery",
       "serviceType": "AI product delivery",
-      "description": "Full-stack AI products with VLM/LLM workflows, custom AI systems, agentic product automation, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks.",
+      "description": "Full-stack AI products with VLM/LLM agents, custom AI systems, agentic workflows, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks.",
       "provider": {
         "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
       },
@@ -344,7 +347,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "16,056 tracked ClawHub downloads across 49 public skills",
+          "name": "16,453 tracked ClawHub downloads across 49 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -377,7 +380,7 @@
           "name": "Who is Zakhar Pashkin?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Zakhar Pashkin is an ML and computer vision engineer building AI products, including OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack product surfaces.",
+            "text": "Zakhar Pashkin is a computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility assets, and full-stack product surfaces.",
             "citation": "https://zack-dev-cm.github.io/"
           }
         },
@@ -386,7 +389,7 @@
           "name": "What is Zakhar Pashkin best fit for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Best fit: teams that need production ML and computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with dated public references.",
+            "text": "Best fit: teams that need production computer vision, model-serving APIs, launch-ready agentic AI workflows, automation with human review, or AI visibility/AEO assets with dated public references.",
             "citation": "https://zack-dev-cm.github.io/#about"
           }
         },
@@ -395,7 +398,7 @@
           "name": "What services does Zakhar Pashkin provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Services include ML and computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release validation systems.",
+            "text": "Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.",
             "citation": "https://zack-dev-cm.github.io/#ai-systems"
           }
         },
@@ -422,7 +425,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 75 public case studies, 43 projects with explicit benchmarks or analytics, and 16,056 tracked ClawHub downloads across 49 public skills as of 2026-06-03.",
+            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 16,453 tracked ClawHub downloads across 49 public skills as of 2026-06-04.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -498,7 +501,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 75,
+      "numberOfItems": 79,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1912,6 +1915,86 @@
           "position": 74,
           "item": {
             "@type": "CreativeWork",
+            "name": "Jaw and Face-Type Classifier for Aesthetic Review",
+            "description": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
+            "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "computer-vision, classification, beautytech, health-ai, face-analysis, Python, PyTorch, OpenCV, Computer Vision, Facial Landmarks, Classification, K-fold Validation, Visual QA",
+            "dateCreated": "2026-06-04",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 75,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Architectural Drawing and Interior Catalog Matching",
+            "description": "CV pipeline for reading architectural drawings, recognizing rooms, filling designs, and matching catalog items to each room.",
+            "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "computer-vision, architecture, ocr, segmentation, interior-ai, retrieval, Python, OpenCV, OCR, PDF Processing, Object Detection, Segmentation, Multimodal Retrieval, 3D/CV, Visual QA",
+            "dateCreated": "2026-06-04",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 76,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "InQuest Project Binder RAG QA",
+            "description": "Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.",
+            "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "case-study",
+            "keywords": "ai, rag, project-context, qa, vector-storage, site-planning, RAG, Vector Stores, OpenAI APIs, Project Context, Binder Workflows, PDF Generation, S3, QA Matrix, Web Search",
+            "dateCreated": "2026-06-04",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 77,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "ComfyUI and Colab Generative Prototype Lab",
+            "description": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
+            "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "research",
+            "keywords": "generative-ai, colab, notebooks, computer-vision, custom-models, automation, Google Colab, ComfyUI, Python, PyTorch, MMOCR, PaddleOCR, LangChain, Pinecone, MoviePy, FFmpeg, LivePortrait, WebSocket",
+            "dateCreated": "2026-06-04",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 78,
+          "item": {
+            "@type": "CreativeWork",
             "name": "Research Claim Ledger",
             "description": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
             "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
@@ -1929,7 +2012,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 75,
+          "position": 79,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

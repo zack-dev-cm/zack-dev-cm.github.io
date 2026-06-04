@@ -6,13 +6,13 @@
   "sourceUrl": "https://chromewebstore.google.com/search/kaisenaiko?hl=en",
   "totalPublished": 6,
   "totalUsers": 216,
-  "averageUsersPerExtension": 36,
+  "averageUsersPerExtension": 43.2,
   "averageRating": 5,
   "ratingCount": 4,
   "notes": [
     "Chrome Web Store publisher search showed 6 current public listings for kaisenaiko on 2026-06-03.",
-    "Chrome Web Store detail pages showed 216 explicitly reported users across 5 rows, 36 reported users per current listing, and 5.00 average rating from 4 reported ratings on 2026-06-03.",
-    "Rows without a visible Chrome Web Store user count are treated as not reported rather than inferred into user totals. Chrome-Stats links remain secondary metadata and are not used for current counts."
+    "Chrome Web Store detail pages showed 216 explicitly reported users across 5 measured rows, 43.2 reported users per measured row, and 5.00 average rating from 4 reported ratings on 2026-06-03.",
+    "The current listing without a visible Chrome Web Store user count is omitted from row-level published data. Chrome-Stats links remain secondary metadata and are not used for current counts."
   ],
   "extensions": [
     {
@@ -27,10 +27,6 @@
       "lastUpdated": "2025-07-03",
       "createdAt": "2025-06-21",
       "category": "Developer Tools",
-      "overallRank": null,
-      "categoryRank": null,
-      "riskImpact": "Not reported",
-      "riskLikelihood": "Not reported",
       "permissions": [
         "storage",
         "activeTab",
@@ -55,10 +51,6 @@
       "lastUpdated": "2025-07-26",
       "createdAt": "2025-07-20",
       "category": "Workflow & Planning",
-      "overallRank": null,
-      "categoryRank": null,
-      "riskImpact": "Not reported",
-      "riskLikelihood": "Not reported",
       "permissions": [
         "storage"
       ],
@@ -73,19 +65,10 @@
       "description": "Moves YouTube videos into a transcript, notes, thumbnail, clean-link, and quick-open companion workflow.",
       "users": 4,
       "usersSource": "Chrome Web Store detail page",
-      "rating": 0,
-      "ratingCount": 0,
       "version": "0.2.1",
       "lastUpdated": "2026-05-29",
       "createdAt": "2026-05-29",
       "category": "Workflow & Planning",
-      "overallRank": null,
-      "categoryRank": null,
-      "riskImpact": "Not reported",
-      "riskLikelihood": "Not reported",
-      "permissions": [
-        "Not reported"
-      ],
       "sizeKb": 37.17,
       "chromeStatsUrl": "https://chrome-stats.com/d/naaipacpncigmehpcnejahgfbeabccpk",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ytdownloader-companion/naaipacpncigmehpcnejahgfbeabccpk?hl=en",
@@ -97,19 +80,10 @@
       "description": "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
       "users": 3,
       "usersSource": "Chrome Web Store detail page",
-      "rating": 0,
-      "ratingCount": 0,
       "version": "0.1.4",
       "lastUpdated": "2026-05-30",
       "createdAt": "2026-05-30",
       "category": "Just for Fun",
-      "overallRank": null,
-      "categoryRank": null,
-      "riskImpact": "Not reported",
-      "riskLikelihood": "Not reported",
-      "permissions": [
-        "Not reported"
-      ],
       "sizeKb": 29.74,
       "chromeStatsUrl": "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
@@ -121,16 +95,10 @@
       "description": "Local-first reader archive for pages, selections, Pocket imports, and portable Markdown/HTML/JSON exports.",
       "users": 2,
       "usersSource": "Chrome Web Store detail page",
-      "rating": 0,
-      "ratingCount": 0,
       "version": "0.1.1",
       "lastUpdated": "2026-04-23",
       "createdAt": "2026-04-23",
       "category": "Tools",
-      "overallRank": null,
-      "categoryRank": null,
-      "riskImpact": "Not reported",
-      "riskLikelihood": "Not reported",
       "permissions": [
         "storage",
         "activeTab",
@@ -141,30 +109,6 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo?hl=en",
       "productUrl": "https://localarchive.pages.dev/",
-      "dataIngestedAt": "2026-06-03"
-    },
-    {
-      "id": "meacaibiniihendfkomkkeojoaophcke",
-      "name": "GitHub Signal Tracker",
-      "description": "Captures visible GitHub builder stats and turns them into a shareable local metrics card.",
-      "users": null,
-      "usersSource": "No visible user count on Chrome Web Store detail page",
-      "rating": 0,
-      "ratingCount": 0,
-      "version": "0.1.1",
-      "lastUpdated": "2026-05-29",
-      "createdAt": "2026-05-29",
-      "category": "Developer Tools",
-      "overallRank": null,
-      "categoryRank": null,
-      "riskImpact": "Not reported",
-      "riskLikelihood": "Not reported",
-      "permissions": [
-        "Not reported"
-      ],
-      "sizeKb": 37.52,
-      "chromeStatsUrl": "https://chrome-stats.com/d/meacaibiniihendfkomkkeojoaophcke",
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/github-proof-tracker/meacaibiniihendfkomkkeojoaophcke?hl=en",
       "dataIngestedAt": "2026-06-03"
     }
   ]

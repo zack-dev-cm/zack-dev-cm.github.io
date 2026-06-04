@@ -98,7 +98,7 @@ const DELIVERY_PILLARS = [
   {
     title: 'Automation with human review',
     description:
-      'I design automations that fit real operating constraints: approvals, fallbacks, legacy systems, and clear next steps for people.'
+      'I design agentic workflows that fit real operating constraints: approvals, fallbacks, legacy systems, and clear next steps for people.'
   },
   {
     title: 'Computer vision that ships as a product',
@@ -121,8 +121,8 @@ const HERO_WORK_ROUTES = [
   },
   {
     label: 'AI products',
-    value: 'VLM/LLM workflows, agents',
-    detail: 'Custom systems that connect models to backend delivery and product surfaces.',
+    value: 'VLM/LLM agents, eval gates',
+    detail: 'Custom systems that connect models to backend delivery, product surfaces, and release checks.',
     href: '#ai-systems'
   },
   {
@@ -177,73 +177,69 @@ const isVideoUrl = (url: string) => {
   return normalized.endsWith('.mp4') || normalized.endsWith('.webm') || normalized.endsWith('.ogg');
 };
 
-const formatCompactNumber = (value: number | null | undefined) => {
-  if (typeof value !== 'number' || Number.isNaN(value)) return 'Not reported';
+const formatCompactNumber = (value: number) => {
   return value.toLocaleString();
 };
 
-const formatRank = (value: number | null | undefined) => {
-  if (typeof value !== 'number' || Number.isNaN(value)) return 'n/a';
-  return `#${value.toLocaleString()}`;
-};
+const renderChromeExtensionStatCard = (extension: ChromeExtensionStat) => {
+  const hasRating =
+    typeof extension.rating === 'number' && typeof extension.ratingCount === 'number' && extension.ratingCount > 0;
+  const hasPermissions = Array.isArray(extension.permissions) && extension.permissions.length > 0;
 
-const renderChromeExtensionStatCard = (extension: ChromeExtensionStat) => (
-  <article key={extension.id} className="extension-stat-card">
-    <div className="extension-stat-card__main">
-      <div>
-        <h3>{extension.name}</h3>
-        <p>{extension.description}</p>
+  return (
+    <article key={extension.id} className="extension-stat-card">
+      <div className="extension-stat-card__main">
+        <div>
+          <h3>{extension.name}</h3>
+          <p>{extension.description}</p>
+        </div>
+        <div className="extension-stat-card__metric">
+          <strong>{formatCompactNumber(extension.users)}</strong>
+          <span>{extension.usersSource}</span>
+        </div>
       </div>
-      <div className="extension-stat-card__metric">
-        <strong>{formatCompactNumber(extension.users)}</strong>
-        <span>{extension.usersSource}</span>
+      <div className="extension-stat-card__grid">
+        {hasRating && (
+          <span>
+            <strong>Rating</strong>
+            {extension.rating!.toFixed(2)} ({extension.ratingCount})
+          </span>
+        )}
+        <span>
+          <strong>Version</strong>
+          {extension.version}
+        </span>
+        <span>
+          <strong>Updated</strong>
+          {extension.lastUpdated}
+        </span>
+        <span>
+          <strong>Category</strong>
+          {extension.category}
+        </span>
+        {hasPermissions && (
+          <span>
+            <strong>Permissions</strong>
+            {extension.permissions!.join(', ')}
+          </span>
+        )}
       </div>
-    </div>
-    <div className="extension-stat-card__grid">
-      <span>
-        <strong>Rating</strong>
-        {extension.rating !== null ? `${extension.rating.toFixed(2)} (${extension.ratingCount})` : 'n/a'}
-      </span>
-      <span>
-        <strong>Version</strong>
-        {extension.version}
-      </span>
-      <span>
-        <strong>Updated</strong>
-        {extension.lastUpdated}
-      </span>
-      <span>
-        <strong>Category</strong>
-        {extension.category}
-      </span>
-      <span>
-        <strong>Ranks</strong>
-        {formatRank(extension.overallRank)} / {formatRank(extension.categoryRank)}
-      </span>
-      <span>
-        <strong>Risk</strong>
-        {extension.riskImpact} / {extension.riskLikelihood}
-      </span>
-      <span>
-        <strong>Permissions</strong>
-        {extension.permissions.join(', ')}
-      </span>
-    </div>
-    <div className="latest-card__links extension-stat-card__links">
-      <a href={extension.chromeWebStoreUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-        Chrome Web Store
-      </a>
-      <a href={extension.chromeStatsUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-        Chrome-Stats detail
-      </a>
-      {extension.productUrl && (
-        <a href={extension.productUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-          Product page
+      <div className="latest-card__links extension-stat-card__links">
+        <a href={extension.chromeWebStoreUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+          Chrome Web Store
         </a>
-      )}
-    </div>
-  </article>
-);
+        <a href={extension.chromeStatsUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+          Chrome-Stats detail
+        </a>
+        {extension.productUrl && (
+          <a href={extension.productUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+            Product page
+          </a>
+        )}
+      </div>
+    </article>
+  );
+};
 
 const slugify = (value: string) => {
   const slug = value
@@ -775,11 +771,10 @@ const App: React.FC = () => {
   const remainingClawHubStats = useMemo(() => CLAWHUB_DOWNLOAD_STATS.slice(12), []);
 
   const chromeStatsSummary = useMemo(() => {
-    const reportedRows = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.users !== null).length;
+    const reportedRows = CHROME_EXTENSION_STATS.extensions.length;
     const rowsAddedIn2026 = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.createdAt.startsWith('2026-')).length;
-    const unreportedRows = CHROME_EXTENSION_STATS.extensions.length - reportedRows;
-    const averageRating = CHROME_EXTENSION_STATS.averageRating.toFixed(2);
-    return { reportedRows, rowsAddedIn2026, unreportedRows, averageRating };
+    const averageRating = CHROME_EXTENSION_STATS.ratingCount > 0 ? CHROME_EXTENSION_STATS.averageRating.toFixed(2) : null;
+    return { reportedRows, rowsAddedIn2026, averageRating };
   }, []);
 
   const chromeExtensionRows = useMemo(() => CHROME_EXTENSION_STATS.extensions, []);
@@ -897,7 +892,7 @@ const App: React.FC = () => {
       {
         label: 'CWS reported users',
         value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `${chromeStatsSummary.reportedRows} visible rows; not-reported rows excluded`
+        detail: `${chromeStatsSummary.reportedRows} measured public rows`
       },
       {
         label: 'Telegram users',
@@ -923,7 +918,7 @@ const App: React.FC = () => {
       {
         label: 'Reported CWS users',
         value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `Chrome Web Store reported users across ${CHROME_EXTENSION_STATS.totalPublished} published extensions as of ${CHROME_EXTENSION_STATS.checkedAt}`
+        detail: `Chrome Web Store reported users across ${chromeStatsSummary.reportedRows} measured rows as of ${CHROME_EXTENSION_STATS.checkedAt}`
       },
       {
         label: 'Release posture',
@@ -931,7 +926,7 @@ const App: React.FC = () => {
         detail: 'benchmarks, public-surface review, browser traces, rollback criteria'
       }
     ],
-    [aiSystemProjects.length, clawHubSummary]
+    [aiSystemProjects.length, chromeStatsSummary.reportedRows, clawHubSummary]
   );
 
   const syncFromUrl = useCallback(() => {
@@ -1163,11 +1158,11 @@ const App: React.FC = () => {
           <section id="intro" className="hero">
             <div className="hero__layout">
               <div className="hero__copy">
-                <p className="hero__eyebrow">ML Engineer · Computer Vision · AI Products</p>
-                <h1 className="hero__title">Zakhar Pashkin builds computer vision and AI products.</h1>
+                <p className="hero__eyebrow">Computer Vision · Agentic AI · Product Engineering</p>
+                <h1 className="hero__title">Zakhar Pashkin ships computer vision and agentic AI products.</h1>
                 <p className="hero__lead">
-                  I turn OCR, segmentation, detection, multimodal retrieval, custom models, VLM/LLM workflows,
-                  and agentic automation into tested APIs, apps, backend workflows, and launch gates.
+                  I take visual AI from prototype to launch: OCR, detection, segmentation, multimodal search,
+                  model-serving APIs, VLM/LLM agents, and release gates.
                 </p>
                 <div className="hero-route-grid" aria-label="Portfolio exploration routes">
                   {HERO_WORK_ROUTES.map((route) => (
@@ -1632,7 +1627,7 @@ const App: React.FC = () => {
             id="chrome-stats"
             eyebrow="Chrome Web Store"
             title="Extension Stats Tracker"
-            description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Missing row values stay marked as not reported."
+            description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Row-level data is published only when the public count is visible."
           >
             <div className="metric-board metric-board--cws" data-testid="cws-board">
               <div className="metric-board__header">
@@ -1641,7 +1636,7 @@ const App: React.FC = () => {
                   <h3>Chrome Web Store publisher detail</h3>
                   <p>
                     Source: {CHROME_EXTENSION_STATS.sourceName}, checked {CHROME_EXTENSION_STATS.checkedAt}.
-                    Rows without a visible Chrome Web Store user count stay marked as not reported, so each row shows the source of its user count.
+                    Extensions without a visible Chrome Web Store user count are omitted from the row-level dataset.
                   </p>
                 </div>
                 <div className="button-row">
@@ -1673,21 +1668,19 @@ const App: React.FC = () => {
                   <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
                   <em>reported users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
                 </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{chromeStatsSummary.averageRating}</strong>
-                  <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
-                </div>
+                {chromeStatsSummary.averageRating && (
+                  <div className="metric-chip metric-chip--compact">
+                    <strong>{chromeStatsSummary.averageRating}</strong>
+                    <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
+                  </div>
+                )}
                 <div className="metric-chip metric-chip--compact">
                   <strong>{chromeStatsSummary.rowsAddedIn2026}</strong>
                   <em>2026 listing rows</em>
                 </div>
                 <div className="metric-chip metric-chip--compact">
                   <strong>{chromeStatsSummary.reportedRows}</strong>
-                  <em>rows with explicit user counts</em>
-                </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{chromeStatsSummary.unreportedRows}</strong>
-                  <em>rows without visible user count</em>
+                  <em>measured public rows</em>
                 </div>
                 <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>

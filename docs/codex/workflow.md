@@ -51,8 +51,9 @@ and current detail pages, then update `CHROME_EXTENSION_STATS` in
 
 Do not carry forward old rows that are no longer visible in the current
 publisher search as current published-extension stats. Rows without a visible
-user count stay `null`/`Not reported`; stale Chrome-Stats rank or risk values
-must not be mixed into a current Chrome Web Store detail-page snapshot.
+user count must be omitted from row-level public data; do not publish filler
+fields, rank estimates, or stale Chrome-Stats risk values in a current Chrome
+Web Store detail-page snapshot.
 
 ## Telegram Product Metric Snapshot Loop
 

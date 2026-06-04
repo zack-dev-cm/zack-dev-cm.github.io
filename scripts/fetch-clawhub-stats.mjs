@@ -11,6 +11,10 @@ const CLAWHUB_CONVEX_URL =
   process.env.CLAWHUB_CONVEX_URL ?? 'https://wry-manatee-359.convex.cloud';
 const MIN_EXPECTED_SKILLS = Number(process.env.CLAWHUB_MIN_EXPECTED_SKILLS ?? 30);
 const MIN_EXPECTED_DOWNLOADS = Number(process.env.CLAWHUB_MIN_EXPECTED_DOWNLOADS ?? 6000);
+const PUBLIC_DISPLAY_NAME_OVERRIDES = new Map([
+  ['browser-proof', 'Browser QA Report Pack'],
+  ['proof-card-forge', 'Signal Card Forge']
+]);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -103,6 +107,10 @@ const parseSlugFromHref = (href, owner) => {
   return parts[1];
 };
 
+const getPublicDisplayName = ({ slug, displayName, fallbackDisplayName }) => {
+  return PUBLIC_DISPLAY_NAME_OVERRIDES.get(slug) ?? displayName ?? fallbackDisplayName ?? slug;
+};
+
 const fetchSkillDetail = async ({ owner, slug, fallback }) => {
   const response = await fetchWithRetry(`${CLAWHUB_HTTP_API_URL}/skills/${encodeURIComponent(slug)}`, {
     headers: {
@@ -123,7 +131,11 @@ const fetchSkillDetail = async ({ owner, slug, fallback }) => {
   const stats = detail.skill?.stats ?? {};
   return {
     slug,
-    displayName: detail.skill?.displayName ?? fallback.displayName ?? slug,
+    displayName: getPublicDisplayName({
+      slug,
+      displayName: detail.skill?.displayName,
+      fallbackDisplayName: fallback.displayName
+    }),
     downloads: Number(stats.downloads ?? fallback.downloads ?? 0),
     versions: Number(stats.versions ?? 0),
     stars: Number(stats.stars ?? fallback.stars ?? 0),

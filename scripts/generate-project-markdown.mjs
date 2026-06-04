@@ -21,20 +21,20 @@ const CHROME_EXTENSION_STATS_PATH = path.resolve(ROOT_DIR, 'public', 'chrome-ext
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
-const AUTHOR_TITLE = 'ML Engineer, Computer Vision, AI Products';
-const SITE_TITLE = `${AUTHOR_NAME} | ML Engineer, Computer Vision, AI Products`;
-const SITE_NAME = `${AUTHOR_NAME} - ML, Computer Vision, and AI Products Portfolio`;
+const AUTHOR_TITLE = 'Computer Vision and AI Product Engineer';
+const SITE_TITLE = `${AUTHOR_NAME} | Computer Vision and AI Product Engineer`;
+const SITE_NAME = `${AUTHOR_NAME} - Computer Vision and Agentic AI Product Portfolio`;
 const SOCIAL_DESCRIPTION =
-  'Production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation.';
+  'Production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows.';
 const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card-ml-ai-products.png`;
 const SOCIAL_IMAGE_ALT =
-  'Zakhar Pashkin ML Engineer, Computer Vision, AI Products social preview with production computer vision, custom ML models, VLM/LLM workflows, AI systems, and agentic product automation.';
+  'Zakhar Pashkin computer vision and AI product engineer social preview with production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows.';
 const AUTHOR_DESCRIPTION =
-  'ML and computer vision engineer shipping OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility/AEO context, and full-stack AI products across web, mobile, and cloud.';
+  'Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility/AEO context, and full-stack products across web, mobile, and cloud.';
 const PORTFOLIO_TAGLINE =
-  'ML engineering, computer vision services, custom models, VLM/LLM workflows, AI systems with human review, AI visibility/AEO context, Telegram mini apps, and full-stack products built for production constraints.';
+  'Computer vision services, model-serving APIs, multimodal retrieval, VLM/LLM agents, AI systems with human review, AI visibility/AEO context, Telegram mini apps, and full-stack products built for production constraints.';
 const PRIMARY_STACK_LINE =
-  'Python, PyTorch, OpenAI APIs, VLMs, LLMs, OpenCV, FastAPI, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
+  'Python, PyTorch, OpenCV, ONNX Runtime, FastAPI, OpenAI APIs, VLMs, LLMs, AI agents, evals, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
 const SENIOR_CV_RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf`;
 const LINKEDIN_URL = 'https://de.linkedin.com/in/zakhar-pashkin-a524a6163';
@@ -67,8 +67,10 @@ const KNOWS_ABOUT = [
   'Object Detection',
   'Deep Learning',
   'Multimodal Search',
+  'Model Serving',
   'Custom AI Models',
   'VLM/LLM Workflows',
+  'AI Agents',
   'Agentic AI Systems',
   'AI Products',
   'AI Product Engineering',
@@ -81,6 +83,7 @@ const KNOWS_ABOUT = [
   'Chrome Extensions',
   'Telegram Mini Apps',
   'AI Product Delivery',
+  'Evaluation Gates',
   'Release Engineering',
   'GEO',
   'SEO',
@@ -120,7 +123,7 @@ const buildServiceSignals = () => [
     id: 'ai-product-delivery',
     name: 'AI product delivery',
     description:
-      'Full-stack AI products with VLM/LLM workflows, custom AI systems, agentic product automation, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks.',
+      'Full-stack AI products with VLM/LLM agents, custom AI systems, agentic workflows, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks.',
     queryIntents: [
       'AI product engineer launch-ready workflows',
       'custom AI systems engineer portfolio',
@@ -189,19 +192,19 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'Who is Zakhar Pashkin?',
       answer:
-        'Zakhar Pashkin is an ML and computer vision engineer building AI products, including OCR, segmentation, detection, multimodal search, custom models, VLM/LLM workflows, AI visibility assets, and full-stack product surfaces.',
+        'Zakhar Pashkin is a computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility assets, and full-stack product surfaces.',
       cite: `${SITE_BASE}/`
     },
     {
       question: 'What is Zakhar Pashkin best fit for?',
       answer:
-        'Best fit: teams that need production ML and computer vision, launch-ready AI product workflows, automation with human review, or AI visibility/AEO assets with dated public references.',
+        'Best fit: teams that need production computer vision, model-serving APIs, launch-ready agentic AI workflows, automation with human review, or AI visibility/AEO assets with dated public references.',
       cite: `${SITE_BASE}/#about`
     },
     {
       question: 'What services does Zakhar Pashkin provide?',
       answer:
-        'Services include ML and computer vision engineering for OCR, segmentation, detection, and multimodal search; custom model and AI systems delivery with VLM/LLM workflows; AI visibility/AEO files; and release validation systems.',
+        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.',
       cite: `${SITE_BASE}/#ai-systems`
     },
     {
@@ -839,7 +842,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   return [
     '<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">',
     `  <p class="crawlable-shell__eyebrow">${escapeHtml(AUTHOR_TITLE)}</p>`,
-    '  <h1>Zakhar Pashkin builds computer vision and AI products.</h1>',
+    '  <h1>Zakhar Pashkin ships computer vision and agentic AI products.</h1>',
     `  <p class="crawlable-shell__lede">${escapeHtml(
       `${PORTFOLIO_TAGLINE} This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.`
     )}</p>`,
