@@ -589,6 +589,7 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
 
 const COMMAND_NAV_ITEMS = [
   { label: 'Companies', href: '#experience' },
+  { label: 'About', href: '#about' },
   { label: 'Overview', href: '#intro' },
   { label: 'Work', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
@@ -1188,6 +1189,48 @@ const App: React.FC = () => {
             </div>
           </Section>
 
+          <Section
+            id="about"
+            eyebrow="Positioning"
+            title="About Me"
+            description="What clients get when they hire me and how I frame the work."
+          >
+            <div className="about-grid">
+              <article className="panel">
+                <p className="panel__eyebrow">Built for delivery</p>
+                <h3>Built for delivery, not demos</h3>
+                <p>
+                  I work across AI automation, applied computer vision, mini apps, and full-stack AI
+                  delivery. The common thread is not a single framework. It is getting from prototype to
+                  production without hiding the hard parts.
+                </p>
+                <p>
+                  That means human review points where they matter, measurable outputs, and systems that can
+                  live beside legacy software instead of demanding a complete rewrite.
+                </p>
+              </article>
+
+              <article className="panel panel--accent">
+                <p className="panel__eyebrow">Signal over noise</p>
+                <h3>What you can evaluate quickly</h3>
+                <ul className="bullet-list">
+                  {KEY_HIGHLIGHTS.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+
+            <div className="pillar-grid">
+              {DELIVERY_PILLARS.map((pillar) => (
+                <article key={pillar.title} className="pillar-card">
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </article>
+              ))}
+            </div>
+          </Section>
+
           <section id="intro" className="hero">
             <div className="hero__layout">
               <div className="hero__copy">
@@ -1264,48 +1307,6 @@ const App: React.FC = () => {
               </aside>
             </div>
           </section>
-
-          <Section
-            id="about"
-            eyebrow="Positioning"
-            title="About Me"
-            description="What clients get when they hire me and how I frame the work."
-          >
-            <div className="about-grid">
-              <article className="panel">
-                <p className="panel__eyebrow">Built for delivery</p>
-                <h3>Built for delivery, not demos</h3>
-                <p>
-                  I work across AI automation, applied computer vision, mini apps, and full-stack AI
-                  delivery. The common thread is not a single framework. It is getting from prototype to
-                  production without hiding the hard parts.
-                </p>
-                <p>
-                  That means human review points where they matter, measurable outputs, and systems that can
-                  live beside legacy software instead of demanding a complete rewrite.
-                </p>
-              </article>
-
-              <article className="panel panel--accent">
-                <p className="panel__eyebrow">Signal over noise</p>
-                <h3>What you can evaluate quickly</h3>
-                <ul className="bullet-list">
-                  {KEY_HIGHLIGHTS.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-
-            <div className="pillar-grid">
-              {DELIVERY_PILLARS.map((pillar) => (
-                <article key={pillar.title} className="pillar-card">
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </article>
-              ))}
-            </div>
-          </Section>
 
           <Section
             id="featured"
