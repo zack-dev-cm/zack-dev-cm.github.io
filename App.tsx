@@ -90,8 +90,8 @@ const COMPUTER_VISION_LANES = [
   },
   {
     label: 'Plans + interiors',
-    value: 'Room matching',
-    detail: 'architectural drawings, room-plan recognition, whole-building planning, and catalog item matching'
+    value: 'Catalog matching',
+    detail: 'raw plans, elevations, room graphs, casework/catalog callouts, and commercial reception previews'
   }
 ];
 
@@ -778,7 +778,7 @@ const COMMAND_NAV_ITEMS = [
 ];
 
 const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: ProjectFilter; projectIds: readonly number[] }> = [
-  { label: 'Architecture', query: 'architectural drawing room plan interior catalog', filter: 'computer-vision', projectIds: [77, 74, 73] },
+  { label: 'Architecture', query: 'architectural drawing elevation catalog casework reception plan', filter: 'computer-vision', projectIds: [77, 74, 73] },
   { label: 'Segment Anything', query: 'segmentation masks skin texture computer vision', filter: 'computer-vision', projectIds: [71, 67, 77, 74] },
   { label: 'Agentic OCR', query: 'agentic OCR ONNX line segmentation word recognition', filter: 'computer-vision', projectIds: [70, 73, 74, 72] },
   { label: 'Jaw / face type', query: 'jaw face type classifier aesthetic review landmarks', filter: 'computer-vision', projectIds: [76, 71, 63, 67] },
@@ -1701,7 +1701,7 @@ const App: React.FC = () => {
             id="computer-vision"
             eyebrow="Computer Vision"
             title="Computer Vision Systems"
-            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies across OCR, SAM-style segmentation, jaw and face-type classification, skin texture analysis, architectural drawing and room-plan recognition, interior catalog matching, multimodal video search, and GitHub-backed research archives.`}
+            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies across OCR, SAM-style segmentation, jaw and face-type classification, skin texture analysis, architectural plan/elevation parsing, catalog callout matching, commercial reception previews, multimodal video search, and GitHub-backed research archives.`}
           >
             <div className="domain-spotlight">
               <div className="domain-spotlight__media">

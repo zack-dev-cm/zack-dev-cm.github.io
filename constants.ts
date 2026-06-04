@@ -15,6 +15,10 @@ const SELECTED_AI_CV_EXCALIDRAW_IMAGE = {
   url: `${LOCAL_IMG_BASE}/selected-ai-cv-excalidraw-map.webp`,
   alt: "Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects"
 };
+const ARCHITECTURAL_CATALOG_RECEPTION_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/architectural-catalog-reception-preview.webp`,
+  alt: "Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework"
+};
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
@@ -616,7 +620,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "CV and AI Project Coverage Added",
-    description: "Added public-safe portfolio coverage for jaw and face-type classification, architectural floorplan/interior catalog matching, InQuest binder-RAG QA, and ComfyUI/Colab prototype work. Private source files, raw patient/building data, and unpublished notebook links are intentionally excluded.",
+    description: "Added public-safe portfolio coverage for jaw and face-type classification, raw architectural plan and catalog-item matching, InQuest binder-RAG QA, and ComfyUI/Colab prototype work. Private source files, raw patient/building data, manufacturer documents, and unpublished notebook links are intentionally excluded.",
     links: [
       { text: "Open jaw and face-type classifier", url: "https://zack-dev-cm.github.io/?project=jaw-and-face-type-classifier-for-aesthetic-review" },
       { text: "Open architectural plan matcher", url: "https://zack-dev-cm.github.io/?project=architectural-drawing-and-interior-catalog-matching" },
@@ -2933,40 +2937,46 @@ Operations Layer (Console, Alerts, Runbooks)`
       "floor plan recognition",
       "room plan recognition",
       "interior catalog matching",
+      "casework catalog matching",
+      "commercial reception catalog preview",
+      "school reception design configuration",
+      "utility building interior planning",
       "whole building interior planning",
       "blueprint symbol detection"
     ],
-    description: "CV pipeline for reading architectural drawings, recognizing rooms, filling designs, and matching catalog items to each room.",
-    longDescription: "Architectural Drawing and Interior Catalog Matching extends the existing room-interior segmentation and inpainting work into building-level planning. The 2026-06-04 source review covered blueprint/floorplan notes for PDF conversion, symbol detection, structured counts with page references, and model-training interfaces, plus related notes on 3D digital replicas and object insertion from research-paper implementations. The public case study describes a privacy-safe architecture for floorplan parsing, room recognition, design filling, interior variant planning, and catalog-item matching without publishing private plans, addresses, client files, or unreleased datasets.",
+    description: "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
+    longDescription: "Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.",
     projectKind: "case-study",
-    surfaceTags: ["computer-vision", "architecture", "ocr", "segmentation", "interior-ai", "retrieval"],
+    surfaceTags: ["computer-vision", "architecture", "ocr", "catalog-matching", "interior-ai", "retrieval"],
     keyFeatures: [
-      "Converts PDFs and blueprint images into model-ready page and symbol inputs",
-      "Detects walls, rooms, fixtures, furniture zones, and countable blueprint symbols",
-      "Connects recognized room types to design filling, visual variants, and catalog candidates",
-      "Supports building-scope planning while keeping private plans and addresses out of public assets"
+      "Parses PDFs, blueprint images, and elevation sheets into room graphs, dimensions, OCR labels, and catalog callouts",
+      "Maps visible callout codes to casework, finish, lighting, storage, and furniture catalog records with evidence notes",
+      "Optimizes reception and room presets against coverage, fit, style, circulation, and building-level ensemble constraints",
+      "Exports reviewable plan previews, commercial interior/exterior context renders, BOM CSVs, and rationale packets without exposing private source documents"
     ],
-    techStack: ["Python", "OpenCV", "OCR", "PDF Processing", "Object Detection", "Segmentation", "Multimodal Retrieval", "3D/CV", "Visual QA"],
+    techStack: ["Python", "OpenCV", "OCR", "PDF Processing", "LLM/Vision Parsing", "Catalog Indexing", "OpenEvolve", "BOM Export", "3D/CV", "Visual QA"],
     benchmarks: [
-      { label: "Input families", value: "2", context: "PDF floorplans and blueprint/raster plan images from source review, 2026-06-04" },
-      { label: "Planning scope", value: "building-level", context: "room recognition, design filling, and catalog matching across full plan layouts" },
-      { label: "Output shape", value: "rooms + items", context: "structured room zones, symbol counts, page references, and catalog candidates" },
-      { label: "Public posture", value: "sanitized", context: "no private floorplans, addresses, client drawings, or unreleased datasets published" }
+      { label: "Input families", value: "3", context: "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04" },
+      { label: "Catalog flow", value: "callouts -> items", context: "visible drawing codes mapped to catalog records, evidence notes, and candidate pools" },
+      { label: "Output artifacts", value: "5", context: "room graph, catalog mapping, layout preview, render, and BOM/rationale export" },
+      { label: "Public posture", value: "sanitized", context: "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published" }
     ],
     links: [],
     mermaidDiagram: `flowchart LR
-  PDF["PDF / Blueprint"] --> Raster["Page Rasterization"]
-  Raster --> Detect["Walls + Symbols + Fixtures"]
-  Detect --> Rooms["Room Recognition"]
-  Rooms --> Design["Design Fill Variants"]
-  Rooms --> Retrieve["Catalog Retrieval"]
-  Retrieve --> Match["Room-to-Item Matching"]
-  Design --> Review["Planner Review"]
-  Match --> Review
-  Review --> Export["Structured Plan Output"]`,
+  Docs["PDF / Blueprint / Elevation"] --> Parse["Vision + OCR Parsing"]
+  Parse --> Rooms["Room Graph + Dimensions"]
+  Parse --> Callouts["Catalog Callouts"]
+  Callouts --> Catalog["Catalog Index + Evidence Notes"]
+  Rooms --> Constraints["Program + Circulation Constraints"]
+  Catalog --> Presets["Candidate Presets"]
+  Constraints --> Presets
+  Presets --> Render["Reception / School / Utility Preview"]
+  Presets --> QA["Fit + Style + BOM QA"]
+  Render --> Export["Rationale + BOM Bundle"]
+  QA --> Export`,
     images: [
       { url: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`, alt: "Architectural floorplan recognition and interior catalog matching visualization" },
-      { url: `${LOCAL_IMG_BASE}/interior-marble.png`, alt: "Interior inpainting and material replacement example used as related visual evidence" },
+      ARCHITECTURAL_CATALOG_RECEPTION_IMAGE,
       SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`,

@@ -192,6 +192,21 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 
+  await projectSearch.fill('architectural drawing catalog reception');
+  const architectureCard = page.getByRole('button', { name: /Open project: Architectural Drawing and Interior Catalog Matching/i });
+  await expect(architectureCard).toBeVisible();
+  await architectureCard.click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/\?project=architectural-drawing-and-interior-catalog-matching/);
+  await page.getByRole('button', { name: 'Next image' }).click();
+  await expect(page.getByRole('dialog').locator('img.modal-media__asset')).toHaveAttribute(
+    'src',
+    /architectural-catalog-reception-preview\.webp/
+  );
+  await expect(page.getByRole('dialog').locator('img[src*="interior-marble"]')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
   await projectSearch.fill('file provider repair');
   const driveRepairCard = page.getByRole('button', { name: /Open project: Google Drive File Provider Repair Toolkit/i });
   await expect(driveRepairCard).toBeVisible();
@@ -248,7 +263,7 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
   const quickTopics = [
     {
       label: 'Architecture',
-      query: 'architectural drawing room plan interior catalog',
+      query: 'architectural drawing elevation catalog casework reception plan',
       expected: 'Architectural Drawing and Interior Catalog Matching',
     },
     {
