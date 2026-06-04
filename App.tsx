@@ -67,8 +67,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   },
 };
 
-const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 73, 74, 63, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
-const AI_SYSTEM_PRIORITY_IDS = [68, 53, 43, 66, 44, 69, 61, 64, 62, 60, 40, 39, 38, 36, 35, 31, 29, 56, 75, 45, 46, 47, 48, 49, 50, 51, 52, 57, 58, 65, 72, 30, 26, 23, 24, 27, 28, 3, 2, 1, 5, 11] as const;
+const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
+const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 72, 70, 77, 76, 71, 74, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 50, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
+const LOW_PRIORITY_AI_SURFACE_IDS = new Set<number>([68, 64, 62, 60, 61, 46, 47, 48, 49, 50, 51, 52, 57, 58, 31, 30, 39, 38, 36, 23, 24, 27, 3, 11, 43, 69, 75]);
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 24;
 
 const COMPUTER_VISION_LANES = [
@@ -79,8 +80,8 @@ const COMPUTER_VISION_LANES = [
   },
   {
     label: 'Face texture',
-    value: 'ROI + masks',
-    detail: 'landmarks, cosmetic regions, wrinkle/fine-line traces, quality gates'
+    value: 'ROI + classifiers',
+    detail: 'landmarks, jaw and face-type labels, cosmetic regions, wrinkle/fine-line traces, quality gates'
   },
   {
     label: 'Video search',
@@ -88,9 +89,9 @@ const COMPUTER_VISION_LANES = [
     detail: 'keyframes, ASR/OCR, visual embeddings, transcript embeddings, ranked results'
   },
   {
-    label: 'Public archive',
-    value: '2 GitHub accounts',
-    detail: 'authored OCR, detection, mobile inference, and notebook repos separated from forks'
+    label: 'Plans + interiors',
+    value: 'Room matching',
+    detail: 'architectural drawings, room-plan recognition, whole-building planning, and catalog item matching'
   }
 ];
 
@@ -469,6 +470,33 @@ const sortProjectsByDomainPriority = (projects: Project[], priorityIds: readonly
   });
 };
 
+const scoreAiProjectRank = (project: Project) => {
+  const signals = getProjectSignals(project);
+  const priorityIndex = getPriorityIndex(AI_SYSTEM_PRIORITY_IDS, project.id);
+  const priorityScore = priorityIndex === Number.MAX_SAFE_INTEGER ? 0 : 900 - priorityIndex * 12;
+  const coreSystemBonus =
+    /\b(chatgpt|mcp|rag|retrieval|ocr|onnx|multimodal|comfyui|colab|vlm|llm|classifier|architectural|interior|automation)\b/i.test(
+      signals.searchText
+    )
+      ? 70
+      : 0;
+  const lowerSurfacePenalty =
+    (LOW_PRIORITY_AI_SURFACE_IDS.has(project.id) ? 160 : 0) +
+    (signals.hasTelegram ? 70 : 0) +
+    (signals.hasChromeWebStore ? 70 : 0) +
+    (/\b(skill|clawhub)\b/i.test(signals.searchText) ? 55 : 0);
+
+  return signals.signalScore + priorityScore + coreSystemBonus - lowerSurfacePenalty;
+};
+
+const sortAiSystemProjects = (projects: Project[]) => {
+  return [...projects].sort((a, b) => {
+    const scoreDelta = scoreAiProjectRank(b) - scoreAiProjectRank(a);
+    if (scoreDelta !== 0) return scoreDelta;
+    return b.id - a.id;
+  });
+};
+
 const isHighSignalSyncedProject = (project: Project) => {
   const summary = (project.longDescription || project.description || '').trim();
   const links = project.links ?? [];
@@ -590,11 +618,25 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
 const COMMAND_NAV_ITEMS = [
   { label: 'Companies', href: '#experience' },
   { label: 'About', href: '#about' },
+  { label: 'Search', href: '#smart-search' },
   { label: 'Overview', href: '#intro' },
   { label: 'Work', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
   { label: 'Explore', href: '#projects' }
+];
+
+const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: ProjectFilter }> = [
+  { label: 'Architecture', query: 'architectural drawing room plan interior catalog', filter: 'computer-vision' },
+  { label: 'Segment Anything', query: 'segmentation masks skin texture computer vision', filter: 'computer-vision' },
+  { label: 'Agentic OCR', query: 'agentic OCR ONNX line segmentation word recognition', filter: 'computer-vision' },
+  { label: 'Jaw / face type', query: 'jaw face type classifier aesthetic review landmarks', filter: 'computer-vision' },
+  { label: 'Multimodal retrieval', query: 'multimodal video search retrieval embeddings OCR transcript', filter: 'computer-vision' },
+  { label: 'InQuest RAG', query: 'InQuest binder RAG QA project binder retrieval', filter: 'ai-systems' },
+  { label: 'ComfyUI', query: 'ComfyUI Colab generative prototype custom models', filter: 'ai-systems' },
+  { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems' },
+  { label: 'HH automation', query: 'hh.ru OpenClaw application packet career automation', filter: 'ai-systems' },
+  { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems' }
 ];
 
 const App: React.FC = () => {
@@ -722,10 +764,7 @@ const App: React.FC = () => {
 
   const aiSystemProjects = useMemo(
     () =>
-      sortProjectsByDomainPriority(
-        mergedProjects.filter(isAiSystemDomainProject),
-        AI_SYSTEM_PRIORITY_IDS
-      ),
+      sortAiSystemProjects(mergedProjects.filter(isAiSystemDomainProject)),
     [mergedProjects]
   );
 
@@ -1126,6 +1165,37 @@ const App: React.FC = () => {
   const activeProjectFilterLabel = useMemo(() => {
     return projectFilterOptions.find((filter) => filter.value === projectFilter)?.label || 'All projects';
   }, [projectFilter, projectFilterOptions]);
+
+  const scrollToProjectExplorer = useCallback(() => {
+    window.requestAnimationFrame(() => {
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }, []);
+
+  const runSmartSearch = useCallback(
+    (query: string, filter: ProjectFilter = 'all') => {
+      setProjectQuery(query);
+      setProjectFilter(filter);
+      setBenchmarkedOnly(false);
+      setProjectSort('impact');
+      setShowAllProjects(true);
+      scrollToProjectExplorer();
+    },
+    [scrollToProjectExplorer]
+  );
+
+  const handleSmartSearchSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setProjectFilter('all');
+      setBenchmarkedOnly(false);
+      setProjectSort('impact');
+      setShowAllProjects(true);
+      scrollToProjectExplorer();
+    },
+    [scrollToProjectExplorer]
+  );
+
   const canToggleProjectArchive =
     !normalizedProjectQuery &&
     projectFilter === 'all' &&
@@ -1231,14 +1301,52 @@ const App: React.FC = () => {
             </div>
           </Section>
 
+          <Section
+            id="smart-search"
+            eyebrow="Discovery"
+            title="Find the Relevant Work"
+            description="Search by domain, model family, workflow, stack, client field, or hiring keyword."
+          >
+            <form className="smart-search-panel" onSubmit={handleSmartSearchSubmit}>
+              <label className="sr-only" htmlFor="portfolio-smart-search">
+                Search portfolio projects
+              </label>
+              <div className="smart-search-field">
+                <input
+                  id="portfolio-smart-search"
+                  type="search"
+                  value={projectQuery}
+                  onChange={(event) => setProjectQuery(event.target.value)}
+                  placeholder="Try architectural drawings, Segment Anything, agentic OCR, jaw classifier, InQuest RAG..."
+                  className="smart-search-field__input"
+                />
+                <button type="submit" className="button button--primary">
+                  Search
+                </button>
+              </div>
+              <div className="quick-topic-row" aria-label="Quick topic searches">
+                {QUICK_TOPIC_SEARCHES.map((topic) => (
+                  <button
+                    key={topic.label}
+                    type="button"
+                    className="quick-topic"
+                    onClick={() => runSmartSearch(topic.query, topic.filter)}
+                  >
+                    {topic.label}
+                  </button>
+                ))}
+              </div>
+            </form>
+          </Section>
+
           <section id="intro" className="hero">
             <div className="hero__layout">
               <div className="hero__copy">
-                <p className="hero__eyebrow">Computer Vision · Agentic AI · Product Engineering</p>
-                <h1 className="hero__title">Zakhar Pashkin ships computer vision and agentic AI products.</h1>
+                <p className="hero__eyebrow">ML · AI Products · Computer Vision</p>
+                <h1 className="hero__title">Zakhar Pashkin builds ML, AI, and computer vision products.</h1>
                 <p className="hero__lead">
-                  I take visual AI from prototype to launch: OCR, detection, segmentation, multimodal search,
-                  model-serving APIs, VLM/LLM agents, and release gates.
+                  Agentic OCR, segmentation, detection, multimodal retrieval, VLM/LLM workflows, custom models,
+                  and launch-ready APIs, apps, backend flows, and review gates.
                 </p>
                 <div className="hero-route-grid" aria-label="Portfolio exploration routes">
                   {HERO_WORK_ROUTES.map((route) => (
@@ -1411,7 +1519,7 @@ const App: React.FC = () => {
             id="computer-vision"
             eyebrow="Computer Vision"
             title="Computer Vision Systems"
-            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies from OCR, cosmetic face analysis, nutrition OCR, segmentation, multimodal video search, and GitHub-backed research archives, with architecture-first references, sanitized metrics, and reviewable Mermaid diagrams.`}
+            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies across OCR, SAM-style segmentation, jaw and face-type classification, skin texture analysis, architectural drawing and room-plan recognition, interior catalog matching, multimodal video search, and GitHub-backed research archives.`}
           >
             <div className="domain-spotlight">
               <div className="domain-spotlight__media">
@@ -1483,7 +1591,7 @@ const App: React.FC = () => {
             id="ai-systems"
             eyebrow="AI Systems"
             title="AI Product and Release Systems"
-            description={`${aiSystemProjects.length} product-facing AI systems around extension launches, public listing trackers, reproducible experimentation, ChatGPT/MCP apps, automation, and install safety.`}
+            description={`${aiSystemProjects.length} AI systems led by product-weight work: ChatGPT/MCP apps, agentic OCR, InQuest-style RAG QA, ComfyUI and Colab prototypes, multimodal retrieval, VLM/LLM workflows, automation, and launch gates, with Telegram, extension, and skill surfaces kept as supporting delivery channels.`}
           >
             <div className="domain-lanes domain-lanes--summary" aria-label="AI systems summary">
               {aiSystemLanes.map((lane) => (

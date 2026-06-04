@@ -1129,6 +1129,64 @@ section[id] {
   color: var(--muted-strong);
 }
 
+.smart-search-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.smart-search-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.smart-search-field__input {
+  width: 100%;
+  min-height: 58px;
+  padding: 0 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: rgba(5, 7, 11, 0.96);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.smart-search-field__input::placeholder {
+  color: var(--muted-strong);
+}
+
+.quick-topic-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.quick-topic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 13px;
+  border: 1px solid rgba(139, 214, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(16, 22, 29, 0.82);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.quick-topic:hover {
+  transform: translateY(-1px);
+  border-color: rgba(139, 214, 255, 0.42);
+  background: rgba(21, 29, 37, 0.94);
+  color: var(--text);
+}
+
 .explorer-panel__summary {
   color: var(--muted);
   line-height: 1.6;
@@ -2241,6 +2299,14 @@ details.compact-disclosure:not([open]) > :not(summary) {
   .hero-route-grid,
   .artifact-console__plots {
     grid-template-columns: 1fr;
+  }
+
+  .smart-search-field {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-topic {
+    min-height: 34px;
   }
 
   .hero-route-card {

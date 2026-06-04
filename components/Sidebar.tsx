@@ -6,6 +6,7 @@ import { resolveAssetUrl } from '../utils/assets';
 const NAV_ITEMS = [
   { group: 'Start', name: 'Collaborations', href: '#experience' },
   { group: 'Start', name: 'About', href: '#about' },
+  { group: 'Start', name: 'Search', href: '#smart-search' },
   { group: 'Start', name: 'Intro', href: '#intro' },
   { group: 'Work', name: 'Featured', href: '#featured' },
   { group: 'Work', name: 'CV Systems', href: '#computer-vision' },
