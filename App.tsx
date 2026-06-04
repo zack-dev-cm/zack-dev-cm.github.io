@@ -375,6 +375,157 @@ const getProjectSearchText = (project: Project) => {
     .toLowerCase();
 };
 
+const SEARCH_STOP_WORDS = new Set([
+  'a',
+  'an',
+  'and',
+  'app',
+  'apps',
+  'by',
+  'for',
+  'from',
+  'in',
+  'into',
+  'of',
+  'on',
+  'or',
+  'the',
+  'to',
+  'with',
+]);
+
+const SMART_SEARCH_SYNONYM_GROUPS = [
+  ['architecture', 'architectural', 'blueprint', 'floorplan', 'floorplans', 'floor', 'plan', 'plans', 'room', 'rooms', 'interior', 'catalog', 'furniture', 'building'],
+  ['segment', 'segmentation', 'segmented', 'mask', 'masks', 'sam', 'segment anything', 'yolo', 'wrinkle', 'texture', 'skin', 'roi'],
+  ['ocr', 'text', 'recognition', 'line', 'word', 'crnn', 'onnx', 'document', 'meter', 'digits', 'handwriting'],
+  ['jaw', 'jawline', 'face', 'facial', 'face-type', 'morphology', 'beauty', 'aesthetic', 'plastic', 'surgery', 'classifier', 'classification', 'landmarks'],
+  ['multimodal', 'multi-modal', 'retrieval', 'search', 'video', 'embedding', 'embeddings', 'clip', 'keyframe', 'transcript', 'asr', 'hybrid'],
+  ['inquest', 'inqi', 'binder', 'rag', 'vector', 'storage', 'project', 'reference', 'site', 'plan', 'elevation', 'qa'],
+  ['comfy', 'comfyui', 'colab', 'notebook', 'notebooks', 'prototype', 'custom', 'model', 'models', 'workflow', 'workflows', 'liveportrait', 'moviepy', 'ffmpeg'],
+  ['mcp', 'chatgpt', 'tool', 'tools', 'widget', 'widgets', 'app', 'apps', 'agent', 'agents', 'tool-calling', 'conservation'],
+  ['hh', 'hh.ru', 'career', 'vacancy', 'application', 'packet', 'proposal', 'openclaw', 'submission', 'review'],
+  ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
+  ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
+  ['moltbook', 'content', 'factory', 'generative', 'suno', 'midjourney', 'video', 'shorts', 'liveportrait'],
+] as const;
+
+const normalizeSearchValue = (value: string) => {
+  return value
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[/_]+/g, ' ')
+    .replace(/[^a-z0-9+#.-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
+const normalizeSearchTerm = (value: string) => {
+  let term = normalizeSearchValue(value).replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, '');
+  if (term.length > 5 && term.endsWith('ies')) term = `${term.slice(0, -3)}y`;
+  else if (term.length > 5 && term.endsWith('ing')) term = term.slice(0, -3);
+  else if (term.length > 4 && term.endsWith('es')) term = term.slice(0, -2);
+  else if (term.length > 3 && term.endsWith('s')) term = term.slice(0, -1);
+  return term;
+};
+
+const extractSearchTerms = (value: string) => {
+  const normalized = normalizeSearchValue(value);
+  const rawTerms = normalized.match(/[a-z0-9+#.-]+/g) ?? [];
+  return dedupeStrings(
+    rawTerms
+      .map(normalizeSearchTerm)
+      .filter((term) => term.length > 1 && !SEARCH_STOP_WORDS.has(term))
+  );
+};
+
+const buildSemanticQueryTerms = (query: string) => {
+  const normalized = normalizeSearchValue(query);
+  const baseTerms = new Set(extractSearchTerms(query));
+  const terms = new Set(baseTerms);
+
+  for (const group of SMART_SEARCH_SYNONYM_GROUPS) {
+    const isGroupMatch = group.some((entry) => {
+      const normalizedEntry = normalizeSearchValue(entry);
+      if (!normalizedEntry) return false;
+      return normalized.includes(normalizedEntry) || extractSearchTerms(entry).some((term) => baseTerms.has(term));
+    });
+    if (!isGroupMatch) continue;
+    group.forEach((entry) => {
+      extractSearchTerms(entry).forEach((term) => terms.add(term));
+    });
+  }
+
+  return {
+    normalized,
+    terms: [...terms],
+  };
+};
+
+const getWeightedProjectSearchFields = (project: Project) => [
+  { text: project.title, weight: 12 },
+  { text: (project.aliases ?? []).join(' '), weight: 10 },
+  { text: (project.surfaceTags ?? []).join(' '), weight: 8 },
+  { text: project.techStack.join(' '), weight: 7 },
+  { text: project.description, weight: 6 },
+  { text: project.keyFeatures.join(' '), weight: 5 },
+  { text: project.longDescription || '', weight: 4 },
+  {
+    text: (project.benchmarks ?? [])
+      .map((benchmark) => `${benchmark.label} ${benchmark.value} ${benchmark.context ?? ''}`)
+      .join(' '),
+    weight: 3,
+  },
+  { text: project.links.map((link) => `${link.text} ${link.url}`).join(' '), weight: 2 },
+  { text: project.projectKind || '', weight: 2 },
+];
+
+const scoreTokenAgainstField = (term: string, fieldTerms: Set<string>) => {
+  if (fieldTerms.has(term)) return 1;
+  if (term.length < 4) return 0;
+  for (const fieldTerm of fieldTerms) {
+    if (fieldTerm.length < 4) continue;
+    if (fieldTerm.startsWith(term) || term.startsWith(fieldTerm)) return 0.42;
+  }
+  return 0;
+};
+
+const scoreProjectSearch = (project: Project, query: string, boostedProjectIds: readonly number[] = []) => {
+  const { normalized, terms } = buildSemanticQueryTerms(query);
+  const topicBoostIndex = boostedProjectIds.indexOf(project.id);
+  const topicBoost = topicBoostIndex === -1 ? 0 : 180 - topicBoostIndex * 24;
+  if (!normalized && topicBoost === 0) return 0;
+
+  const matchedTerms = new Set<string>();
+  let score = topicBoost;
+  const projectSearchText = normalizeSearchValue(getProjectSearchText(project));
+
+  if (normalized && projectSearchText.includes(normalized)) {
+    score += 80;
+  }
+
+  getWeightedProjectSearchFields(project).forEach((field) => {
+    const fieldText = normalizeSearchValue(field.text);
+    const fieldTerms = new Set(extractSearchTerms(fieldText));
+    if (normalized && fieldText.includes(normalized)) {
+      score += field.weight * 6;
+    }
+
+    terms.forEach((term) => {
+      const matchStrength = scoreTokenAgainstField(term, fieldTerms);
+      if (matchStrength <= 0) return;
+      matchedTerms.add(term);
+      score += field.weight * 2.8 * matchStrength;
+    });
+  });
+
+  if (matchedTerms.size === 0 && topicBoost === 0) return 0;
+  if (terms.length > 0) {
+    score += (matchedTerms.size / terms.length) * 70;
+  }
+  score += getProjectSignals(project).signalScore * 0.18;
+  return score;
+};
+
 const getProjectSignals = (project: Project) => {
   const searchText = getProjectSearchText(project);
   const urls = project.links.map((link) => link.url.toLowerCase());
@@ -626,17 +777,17 @@ const COMMAND_NAV_ITEMS = [
   { label: 'Explore', href: '#projects' }
 ];
 
-const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: ProjectFilter }> = [
-  { label: 'Architecture', query: 'architectural drawing room plan interior catalog', filter: 'computer-vision' },
-  { label: 'Segment Anything', query: 'segmentation masks skin texture computer vision', filter: 'computer-vision' },
-  { label: 'Agentic OCR', query: 'agentic OCR ONNX line segmentation word recognition', filter: 'computer-vision' },
-  { label: 'Jaw / face type', query: 'jaw face type classifier aesthetic review landmarks', filter: 'computer-vision' },
-  { label: 'Multimodal retrieval', query: 'multimodal video search retrieval embeddings OCR transcript', filter: 'computer-vision' },
-  { label: 'InQuest RAG', query: 'InQuest binder RAG QA project binder retrieval', filter: 'ai-systems' },
-  { label: 'ComfyUI', query: 'ComfyUI Colab generative prototype custom models', filter: 'ai-systems' },
-  { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems' },
-  { label: 'HH automation', query: 'hh.ru OpenClaw application packet career automation', filter: 'ai-systems' },
-  { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems' }
+const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: ProjectFilter; projectIds: readonly number[] }> = [
+  { label: 'Architecture', query: 'architectural drawing room plan interior catalog', filter: 'computer-vision', projectIds: [77, 74, 73] },
+  { label: 'Segment Anything', query: 'segmentation masks skin texture computer vision', filter: 'computer-vision', projectIds: [71, 67, 77, 74] },
+  { label: 'Agentic OCR', query: 'agentic OCR ONNX line segmentation word recognition', filter: 'computer-vision', projectIds: [70, 73, 74, 72] },
+  { label: 'Jaw / face type', query: 'jaw face type classifier aesthetic review landmarks', filter: 'computer-vision', projectIds: [76, 71, 63, 67] },
+  { label: 'Multimodal retrieval', query: 'multimodal video search retrieval embeddings OCR transcript', filter: 'computer-vision', projectIds: [72, 77, 40] },
+  { label: 'InQuest RAG', query: 'InQuest binder RAG QA project binder retrieval', filter: 'ai-systems', projectIds: [78, 66, 40] },
+  { label: 'ComfyUI', query: 'ComfyUI Colab generative prototype custom models', filter: 'ai-systems', projectIds: [79, 74] },
+  { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems', projectIds: [66, 78, 40] },
+  { label: 'HH automation', query: 'hh.ru OpenClaw application packet career automation', filter: 'ai-systems', projectIds: [50] },
+  { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
 ];
 
 const App: React.FC = () => {
@@ -646,6 +797,7 @@ const App: React.FC = () => {
   const [expandedLatestSlugs, setExpandedLatestSlugs] = useState<string[]>([]);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [projectQuery, setProjectQuery] = useState('');
+  const [smartSearchBoostIds, setSmartSearchBoostIds] = useState<readonly number[]>([]);
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
@@ -1128,34 +1280,57 @@ const App: React.FC = () => {
   const normalizedProjectQuery = deferredProjectQuery.trim().toLowerCase();
 
   const filteredProjects = useMemo(() => {
-    const withFilters = mergedProjects.filter((project) => {
-      const signals = getProjectSignals(project);
-      if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
-      if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
-      if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
-      if (projectFilter === 'mobile' && !signals.isMobile) return false;
-      if (projectFilter === 'automation' && !signals.isAutomation) return false;
-      if (projectFilter === 'computer-vision' && !isComputerVisionDomainProject(project)) return false;
-      if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
-      if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
-      if (!normalizedProjectQuery) return true;
-      return signals.searchText.includes(normalizedProjectQuery);
-    });
+    const withFilters = mergedProjects
+      .map((project) => ({
+        project,
+        searchScore: normalizedProjectQuery
+          ? scoreProjectSearch(project, normalizedProjectQuery, smartSearchBoostIds)
+          : 0,
+      }))
+      .filter(({ project, searchScore }) => {
+        const signals = getProjectSignals(project);
+        if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
+        if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
+        if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
+        if (projectFilter === 'mobile' && !signals.isMobile) return false;
+        if (projectFilter === 'automation' && !signals.isAutomation) return false;
+        if (projectFilter === 'computer-vision' && !isComputerVisionDomainProject(project)) return false;
+        if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
+        if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
+        if (!normalizedProjectQuery) return true;
+        return searchScore > 0;
+      });
+
+    if (normalizedProjectQuery) {
+      return [...withFilters]
+        .sort((a, b) => {
+          const scoreDelta = b.searchScore - a.searchScore;
+          if (scoreDelta !== 0) return scoreDelta;
+          const signalDelta = getProjectSignals(b.project).signalScore - getProjectSignals(a.project).signalScore;
+          if (signalDelta !== 0) return signalDelta;
+          return b.project.id - a.project.id;
+        })
+        .map(({ project }) => project);
+    }
 
     if (projectSort === 'alpha') {
-      return [...withFilters].sort((a, b) => a.title.localeCompare(b.title));
+      return [...withFilters]
+        .sort((a, b) => a.project.title.localeCompare(b.project.title))
+        .map(({ project }) => project);
     }
 
     if (projectSort === 'recent') {
-      return [...withFilters].sort((a, b) => b.id - a.id);
+      return [...withFilters].sort((a, b) => b.project.id - a.project.id).map(({ project }) => project);
     }
 
-    return [...withFilters].sort((a, b) => {
-      const scoreDelta = getProjectSignals(b).signalScore - getProjectSignals(a).signalScore;
-      if (scoreDelta !== 0) return scoreDelta;
-      return b.id - a.id;
-    });
-  }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectFilter, projectSort]);
+    return [...withFilters]
+      .sort((a, b) => {
+        const scoreDelta = getProjectSignals(b.project).signalScore - getProjectSignals(a.project).signalScore;
+        if (scoreDelta !== 0) return scoreDelta;
+        return b.project.id - a.project.id;
+      })
+      .map(({ project }) => project);
+  }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectFilter, projectSort, smartSearchBoostIds]);
 
   const selectedProjectBadges = useMemo(
     () => (selectedProject ? getProjectSignals(selectedProject).badges : []),
@@ -1172,9 +1347,15 @@ const App: React.FC = () => {
     });
   }, []);
 
+  const handleProjectQueryChange = useCallback((query: string) => {
+    setProjectQuery(query);
+    setSmartSearchBoostIds([]);
+  }, []);
+
   const runSmartSearch = useCallback(
-    (query: string, filter: ProjectFilter = 'all') => {
+    (query: string, filter: ProjectFilter = 'all', projectIds: readonly number[] = []) => {
       setProjectQuery(query);
+      setSmartSearchBoostIds(projectIds);
       setProjectFilter(filter);
       setBenchmarkedOnly(false);
       setProjectSort('impact');
@@ -1187,6 +1368,7 @@ const App: React.FC = () => {
   const handleSmartSearchSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+      setSmartSearchBoostIds([]);
       setProjectFilter('all');
       setBenchmarkedOnly(false);
       setProjectSort('impact');
@@ -1316,7 +1498,7 @@ const App: React.FC = () => {
                   id="portfolio-smart-search"
                   type="search"
                   value={projectQuery}
-                  onChange={(event) => setProjectQuery(event.target.value)}
+                  onChange={(event) => handleProjectQueryChange(event.target.value)}
                   placeholder="Try architectural drawings, Segment Anything, agentic OCR, jaw classifier, InQuest RAG..."
                   className="smart-search-field__input"
                 />
@@ -1330,7 +1512,7 @@ const App: React.FC = () => {
                     key={topic.label}
                     type="button"
                     className="quick-topic"
-                    onClick={() => runSmartSearch(topic.query, topic.filter)}
+                    onClick={() => runSmartSearch(topic.query, topic.filter, topic.projectIds)}
                   >
                     {topic.label}
                   </button>
@@ -1998,7 +2180,7 @@ const App: React.FC = () => {
                     id="project-search"
                     type="search"
                     value={projectQuery}
-                    onChange={(event) => setProjectQuery(event.target.value)}
+                    onChange={(event) => handleProjectQueryChange(event.target.value)}
                     placeholder="Search by project, bot handle, alias, stack, workflow, or domain..."
                     className="search-input"
                   />

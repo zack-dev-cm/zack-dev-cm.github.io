@@ -228,6 +228,117 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await page.screenshot({ path: 'test-results/home.png', fullPage: false });
 });
 
+test('smart search bubbles and semantic queries surface relevant projects', async ({ page }) => {
+  test.setTimeout(180_000);
+  await gotoPortfolio(page);
+
+  const smartSearch = page.locator('#smart-search');
+  const explorer = page.locator('#projects');
+  const explorerSearch = page.getByLabel('Search projects');
+  const firstProjectCard = page.getByTestId('project-card').first();
+
+  const expectFirstProject = async (title: string | RegExp) => {
+    await expect(explorer.locator('.empty-state')).toHaveCount(0);
+    await expect(firstProjectCard).toBeVisible({ timeout: 15000 });
+    await expect(firstProjectCard).toContainText(title, { timeout: 15000 });
+  };
+
+  const quickTopics = [
+    {
+      label: 'Architecture',
+      query: 'architectural drawing room plan interior catalog',
+      expected: 'Architectural Drawing and Interior Catalog Matching',
+    },
+    {
+      label: 'Segment Anything',
+      query: 'segmentation masks skin texture computer vision',
+      expected: 'Full-Face Wrinkle and Skin Texture Segmentation Lab',
+    },
+    {
+      label: 'Agentic OCR',
+      query: 'agentic OCR ONNX line segmentation word recognition',
+      expected: 'Fast OCR ONNX Inference Server',
+    },
+    {
+      label: 'Jaw / face type',
+      query: 'jaw face type classifier aesthetic review landmarks',
+      expected: 'Jaw and Face-Type Classifier for Aesthetic Review',
+    },
+    {
+      label: 'Multimodal retrieval',
+      query: 'multimodal video search retrieval embeddings OCR transcript',
+      expected: 'Multimodal Video Search Platform',
+    },
+    {
+      label: 'InQuest RAG',
+      query: 'InQuest binder RAG QA project binder retrieval',
+      expected: 'InQuest Project Binder RAG QA',
+    },
+    {
+      label: 'ComfyUI',
+      query: 'ComfyUI Colab generative prototype custom models',
+      expected: 'ComfyUI and Colab Generative Prototype Lab',
+    },
+    {
+      label: 'MCP / ChatGPT apps',
+      query: 'MCP ChatGPT app tool calling senior conservator',
+      expected: 'CollectionsAI ChatGPT App',
+    },
+    {
+      label: 'HH automation',
+      query: 'hh.ru OpenClaw application packet career automation',
+      expected: 'HH OpenClaw Agent',
+    },
+    {
+      label: 'VLM / LLM agents',
+      query: 'VLM LLM agents multimodal automation human review',
+      expected: 'CollectionsAI ChatGPT App',
+    },
+  ];
+
+  for (const topic of quickTopics) {
+    await smartSearch.scrollIntoViewIfNeeded();
+    await smartSearch.getByRole('button', { name: topic.label, exact: true }).click();
+    await expect(explorerSearch).toHaveValue(topic.query);
+    await expectFirstProject(topic.expected);
+  }
+
+  const customQueries = [
+    {
+      query: 'plastic surgery jaw classifier',
+      expected: 'Jaw and Face-Type Classifier for Aesthetic Review',
+    },
+    {
+      query: 'whole building catalog room matching',
+      expected: 'Architectural Drawing and Interior Catalog Matching',
+    },
+    {
+      query: 'custom model comfy workflow',
+      expected: 'ComfyUI and Colab Generative Prototype Lab',
+    },
+    {
+      query: 'project binder vector storage',
+      expected: 'InQuest Project Binder RAG QA',
+    },
+    {
+      query: 'video transcript embeddings search',
+      expected: 'Multimodal Video Search Platform',
+    },
+    {
+      query: 'chrome built in ai summaries',
+      expected: 'LocalLens Private AI Summaries',
+    },
+  ];
+
+  for (const item of customQueries) {
+    await smartSearch.scrollIntoViewIfNeeded();
+    await smartSearch.locator('#portfolio-smart-search').fill(item.query);
+    await smartSearch.getByRole('button', { name: 'Search', exact: true }).click();
+    await expect(explorerSearch).toHaveValue(item.query);
+    await expectFirstProject(item.expected);
+  }
+});
+
 test('metric tracker sections stay compact and disclose full source rows', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1200 });
   await gotoPortfolio(page);
