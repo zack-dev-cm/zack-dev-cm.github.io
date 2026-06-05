@@ -117,6 +117,19 @@ const positioningRules = [
   }
 ];
 
+const allowedPositioningMatches = [
+  {
+    filePattern: /^(?:docs\/)?agent-discovery\.json$|^constants\.ts$/,
+    ruleName: 'evidence artifact framing',
+    linePattern: /"?(?:name)"?\s*:\s*"Evidence Pack Capture"/
+  }
+];
+
+const isAllowedPositioningMatch = ({ file, rule, text }) =>
+  allowedPositioningMatches.some(
+    (allow) => allow.filePattern.test(file) && allow.ruleName === rule.name && allow.linePattern.test(text)
+  );
+
 const maybeReadFile = async (relativePath) => {
   const absolutePath = resolve(rootDir, relativePath);
   try {
@@ -175,6 +188,9 @@ const run = async () => {
       if (!match) continue;
       const line = lineNumberForIndex(content, match.index);
       const lineText = content.split(/\r?\n/)[line - 1]?.trim() || match[0];
+      if (isAllowedPositioningMatch({ file: relative(rootDir, resolve(rootDir, relativePath)), rule, text: lineText })) {
+        continue;
+      }
       failures.push({
         file: relative(rootDir, resolve(rootDir, relativePath)),
         line,

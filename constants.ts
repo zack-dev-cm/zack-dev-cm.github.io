@@ -544,25 +544,25 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
 export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
   publisherName: "kaisenaiko",
   publisherUrl: "https://chromewebstore.google.com/search/kaisenaiko",
-  checkedAt: "2026-06-03",
+  checkedAt: "2026-06-05",
   sourceName: "Chrome Web Store detail pages",
   sourceUrl: "https://chromewebstore.google.com/search/kaisenaiko?hl=en",
-  totalPublished: 6,
-  totalUsers: 216,
-  averageUsersPerExtension: 43.2,
+  totalPublished: 16,
+  totalUsers: 236,
+  averageUsersPerExtension: 18.2,
   averageRating: 5,
   ratingCount: 4,
   notes: [
-    "Chrome Web Store publisher search showed 6 current public listings for kaisenaiko on 2026-06-03.",
-    "Chrome Web Store detail pages showed 216 explicitly reported users across 5 measured rows, 43.2 reported users per measured row, and 5.00 average rating from 4 reported ratings on 2026-06-03.",
-    "The current listing without a visible Chrome Web Store user count is omitted from row-level published data. Chrome-Stats links remain secondary metadata and are not used for current counts."
+    "Chrome Web Store publisher search showed 16 current public listings for kaisenaiko on 2026-06-05 after loading all public result pages.",
+    "Chrome Web Store detail pages showed 236 explicitly reported users across 13 measured rows, 18.2 reported users per measured row, and 5.00 average rating from 4 reported ratings on 2026-06-05.",
+    "Listings without a visible Chrome Web Store user count are omitted from row-level published data; no placeholder rows are published. Chrome-Stats links remain secondary metadata and are not used for current counts."
   ],
   extensions: [
     {
       id: "ccikgbjalcbokaalidnfcjhhbhjoljfm",
       name: "GitHub Repo Summarizer",
       description: "Summarizes GitHub repository structure and README context for faster code review.",
-      users: 133,
+      users: 130,
       usersSource: "Chrome Web Store detail page",
       rating: 5,
       ratingCount: 3,
@@ -575,13 +575,13 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm?hl=en",
       productUrl: "https://zack-dev-cm.github.io/github-repo-sum.github.io/",
-      dataIngestedAt: "2026-06-03"
+      dataIngestedAt: "2026-06-05"
     },
     {
       id: "jnoonpeekddinkiecaonhocaflcgbhap",
       name: "AI Chat Navigator",
-      description: "Adds keyboard navigation and prompt controls for ChatGPT, Deepseek, and AI Studio chats.",
-      users: 74,
+      description: "Seamlessly jump, refine, and sync prompts across AI chat tools.",
+      users: 73,
       usersSource: "Chrome Web Store detail page",
       rating: 5,
       ratingCount: 1,
@@ -593,37 +593,75 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       sizeKb: 126,
       chromeStatsUrl: "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en",
-      dataIngestedAt: "2026-06-03"
-    },
-    {
-      id: "naaipacpncigmehpcnejahgfbeabccpk",
-      name: "YTDownloader Companion",
-      description: "Moves YouTube videos into a transcript, notes, thumbnail, clean-link, and quick-open companion workflow.",
-      users: 4,
-      usersSource: "Chrome Web Store detail page",
-      version: "0.2.1",
-      lastUpdated: "2026-05-29",
-      createdAt: "2026-05-29",
-      category: "Workflow & Planning",
-      sizeKb: 37.17,
-      chromeStatsUrl: "https://chrome-stats.com/d/naaipacpncigmehpcnejahgfbeabccpk",
-      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/ytdownloader-companion/naaipacpncigmehpcnejahgfbeabccpk?hl=en",
-      dataIngestedAt: "2026-06-03"
+      dataIngestedAt: "2026-06-05"
     },
     {
       id: "dejokbjghdjlhhlddflgolheejdmbgea",
       name: "Tab Time Machine",
       description: "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
-      users: 3,
+      users: 10,
       usersSource: "Chrome Web Store detail page",
-      version: "0.1.4",
-      lastUpdated: "2026-05-30",
+      version: "0.1.5",
+      lastUpdated: "2026-06-05",
       createdAt: "2026-05-30",
       category: "Just for Fun",
-      sizeKb: 29.74,
+      sizeKb: 29.39,
       chromeStatsUrl: "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
-      dataIngestedAt: "2026-06-03"
+      productUrl: "https://getgeofix.xyz/",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
+      name: "Web2CSV - Table & List Extractor",
+      description: "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
+      users: 3,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.0",
+      lastUpdated: "2026-05-03",
+      category: "Tools",
+      sizeKb: 65.47,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/web2csv-table-list-extrac/egjcdmlfdnkpgkmffkhfdooacmglnjbc?hl=en",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "lacnenopgbimijabjaadkgeoldoogein",
+      name: "GTA 6 Countdown",
+      description: "Simple unofficial countdown to the announced GTA VI release date.",
+      users: 3,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.1",
+      lastUpdated: "2026-05-29",
+      category: "Just for Fun",
+      sizeKb: 44.76,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/gta-6-countdown/lacnenopgbimijabjaadkgeoldoogein?hl=en",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "hlbflaklicefinhckdkbamhhkfklmgao",
+      name: "SourcePack Hub - Local AI Research Library",
+      description: "Saves and exports local AI research source packs from the current page.",
+      users: 3,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.0",
+      lastUpdated: "2026-05-03",
+      category: "Workflow & Planning",
+      sizeKb: 65.36,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-r/hlbflaklicefinhckdkbamhhkfklmgao?hl=en",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "dlhhfacpkohmojegdpmmnmoapcpphfbh",
+      name: "Browser Run Receipt",
+      description: "Captures manual browser-work steps, redacts details, and exports a local run receipt.",
+      users: 3,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.0",
+      lastUpdated: "2026-05-14",
+      category: "Workflow & Planning",
+      sizeKb: 39.71,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/browser-run-receipt/dlhhfacpkohmojegdpmmnmoapcpphfbh?hl=en",
+      dataIngestedAt: "2026-06-05"
     },
     {
       id: "glcecbjpdknkmlpcbnbpikjjclboeglo",
@@ -640,7 +678,73 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot = {
       chromeStatsUrl: "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
       chromeWebStoreUrl: "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo?hl=en",
       productUrl: "https://localarchive.pages.dev/",
-      dataIngestedAt: "2026-06-03"
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "pmofpiclpglbdnjgkgijlolefiojjomn",
+      name: "ChatArchive - ChatGPT Exporter",
+      description: "Exports ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
+      users: 2,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.0",
+      lastUpdated: "2026-05-05",
+      category: "Workflow & Planning",
+      sizeKb: 65.36,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/chatarchive-chatgpt-expor/pmofpiclpglbdnjgkgijlolefiojjomn?hl=en",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "kpjokdophleoefolidphajjllaaddnpj",
+      name: "Evidence Pack Capture",
+      description: "Captures a visible tab, redacts sensitive details locally, and exports a support-ready evidence packet.",
+      users: 2,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.0",
+      lastUpdated: "2026-05-14",
+      category: "Workflow & Planning",
+      sizeKb: 40.67,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/evidence-pack-capture/kpjokdophleoefolidphajjllaaddnpj?hl=en",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "hoklaadapaobdbkeiacebnnciponcmnf",
+      name: "Session Rescue",
+      description: "Saves local browser session snapshots, restores tabs, and exports portable backups.",
+      users: 2,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.4",
+      lastUpdated: "2026-04-29",
+      category: "Workflow & Planning",
+      sizeKb: 16.61,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf?hl=en",
+      productUrl: "https://session-rescue.pages.dev/",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "dphlhifhafonbolljmdlpecpcicnpjen",
+      name: "Skool Discovery Positioning Lens",
+      description: "Audits public Skool positioning with local benchmarks and optional Chrome built-in AI critique.",
+      users: 2,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.1",
+      lastUpdated: "2026-05-15",
+      category: "Workflow & Planning",
+      sizeKb: 21.96,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/skool-discovery-positioni/dphlhifhafonbolljmdlpecpcicnpjen?hl=en",
+      dataIngestedAt: "2026-06-05"
+    },
+    {
+      id: "hjfdpklldhofiehpcfcfdonjppdkmgoh",
+      name: "Video2Source - YouTube Transcript Exporter",
+      description: "Saves visible YouTube transcript text, timestamps, and notes as local source pack files.",
+      users: 1,
+      usersSource: "Chrome Web Store detail page",
+      version: "0.1.0",
+      lastUpdated: "2026-05-03",
+      category: "Workflow & Planning",
+      sizeKb: 65.08,
+      chromeWebStoreUrl: "https://chromewebstore.google.com/detail/video2source-youtube-tran/hjfdpklldhofiehpcfcfdonjppdkmgoh?hl=en",
+      dataIngestedAt: "2026-06-05"
     },
   ]
 };
@@ -702,7 +806,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 17,059 downloads across 49 public skills on 2026-06-05 and kept the Chrome Web Store snapshot at 216 visible reported users across 6 current listings from 2026-06-03.",
+    description: "Updated the public ClawHub tracker to 17,059 downloads across 49 public skills on 2026-06-05 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -1311,7 +1415,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Privacy-first (local token usage)", "Automated repository structure summarization"],
     techStack: ["Chrome Extension", "JavaScript", "GitHub API"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "133", context: "Chrome Web Store detail page, 2026-06-03" }
+      { label: "Public Chrome Web Store users", value: "130", context: "Chrome Web Store detail page, 2026-06-05" }
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm" },
@@ -1335,7 +1439,7 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Improved chat navigation", "Prompt autocomplete", "Community-ranked prompts"],
     techStack: ["Chrome Extension", "JavaScript", "UI/UX"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "74", context: "Chrome Web Store detail page, 2026-06-03" }
+      { label: "Public Chrome Web Store users", value: "73", context: "Chrome Web Store detail page, 2026-06-05" }
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en" }
@@ -2242,7 +2346,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Chrome Extension", "JavaScript", "Local-first Storage", "Readability", "Markdown Export", "Chrome Web Store"],
     benchmarks: [
-      { label: "Public Chrome Web Store users", value: "2", context: "Chrome Web Store detail page, 2026-06-03" },
+      { label: "Public Chrome Web Store users", value: "2", context: "Chrome Web Store detail page, 2026-06-05" },
       { label: "Chrome Web Store version", value: "0.1.1", context: "public listing updated 2026-04-23" },
       { label: "Export formats", value: "3", context: "Markdown, HTML, JSON" },
       { label: "Import path", value: "Pocket", context: "local migration workflow" },
@@ -2649,32 +2753,30 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 68,
     title: "SourcePack Chrome Extension Wave",
-    aliases: ["sourcepack suite", "web2csv", "video2source", "repo2agent", "sourcepack hub", "cws scout", "chatarchive"],
-    description: "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
-    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus six focused Chrome extensions: Web2CSV for visible table/list/card extraction, Video2Source for YouTube transcript exports, Repo2Agent for visible GitHub repository context packs, SourcePack Hub for a local research library, CWS Scout for Chrome-Stats competitor notes, and ChatArchive for visible ChatGPT conversation exports. The delivery work included CWS listing contracts, public product pages, privacy/support/reviewer pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking.",
+    aliases: ["sourcepack suite", "web2csv", "video2source", "sourcepack hub", "chatarchive", "browser run receipt", "support packet"],
+    description: "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
+    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus focused Chrome extensions for visible table/list/card extraction, YouTube transcript exports, local source-pack libraries, ChatGPT conversation exports, browser-run receipts, and support packets. The delivery work included CWS listing contracts, public product pages, privacy/support pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking. Current public links are limited to listings visible in the Chrome Web Store publisher search.",
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web", "automation", "release-engineering"],
     keyFeatures: [
-      "Ships six narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions",
+      "Ships narrow Manifest V3 extensions from one shared SourcePack runtime without broad host permissions",
       "Exports local Markdown, JSON, CSV, NotebookLM-style Markdown, and SourcePack bundles after explicit user actions",
       "Includes public CWS reviewer pages, privacy/support pages, listing contracts, media manifests, and real-browser E2E artifacts",
       "Embeds Chrome Web Store detail-page tracking in this portfolio so reported user counts and risk metadata stay visible"
     ],
     techStack: ["Chrome Extension", "Manifest V3", "React", "TypeScript", "SourcePack", "Playwright", "Chrome Web Store"],
     benchmarks: [
-      { label: "Current public publisher listings", value: "6", context: "Chrome Web Store publisher search and detail pages, 2026-06-03" },
-      { label: "Current publisher users", value: "216", context: "sum of explicitly reported Chrome Web Store detail-page users, 2026-06-03" },
-      { label: "Average rating", value: "5.00", context: "4 reported Chrome Web Store ratings, 2026-06-03" },
-      { label: "New SourcePack products", value: "6", context: "Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, ChatArchive" }
+      { label: "Current public publisher listings", value: "16", context: "Chrome Web Store publisher search and detail pages, 2026-06-05" },
+      { label: "Current publisher users", value: "236", context: "sum of 13 explicitly reported Chrome Web Store detail-page user counts, 2026-06-05" },
+      { label: "Average rating", value: "5.00", context: "4 reported Chrome Web Store ratings, 2026-06-05" },
+      { label: "Visible SourcePack products", value: "4", context: "Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-05" }
     ],
     links: [
       { text: "SourcePack product pages", url: "https://sourcepack-tools.pages.dev/" },
       { text: "Chrome Web Store publisher", url: "https://chromewebstore.google.com/search/kaisenaiko" },
       { text: "Web2CSV CWS", url: "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc" },
       { text: "Video2Source CWS", url: "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh" },
-      { text: "Repo2Agent CWS", url: "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd" },
       { text: "SourcePack Hub CWS", url: "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao" },
-      { text: "CWS Scout CWS", url: "https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji" },
       { text: "ChatArchive CWS", url: "https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn" }
     ],
     images: [],

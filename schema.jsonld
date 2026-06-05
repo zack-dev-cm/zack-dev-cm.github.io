@@ -1837,7 +1837,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "SourcePack Chrome Extension Wave",
-            "description": "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
+            "description": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
             "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"

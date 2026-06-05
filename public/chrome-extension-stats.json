@@ -1,25 +1,25 @@
 {
   "publisherName": "kaisenaiko",
   "publisherUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "checkedAt": "2026-06-03",
+  "checkedAt": "2026-06-05",
   "sourceName": "Chrome Web Store detail pages",
   "sourceUrl": "https://chromewebstore.google.com/search/kaisenaiko?hl=en",
-  "totalPublished": 6,
-  "totalUsers": 216,
-  "averageUsersPerExtension": 43.2,
+  "totalPublished": 16,
+  "totalUsers": 236,
+  "averageUsersPerExtension": 18.2,
   "averageRating": 5,
   "ratingCount": 4,
   "notes": [
-    "Chrome Web Store publisher search showed 6 current public listings for kaisenaiko on 2026-06-03.",
-    "Chrome Web Store detail pages showed 216 explicitly reported users across 5 measured rows, 43.2 reported users per measured row, and 5.00 average rating from 4 reported ratings on 2026-06-03.",
-    "The current listing without a visible Chrome Web Store user count is omitted from row-level published data. Chrome-Stats links remain secondary metadata and are not used for current counts."
+    "Chrome Web Store publisher search showed 16 current public listings for kaisenaiko on 2026-06-05 after loading all public result pages.",
+    "Chrome Web Store detail pages showed 236 explicitly reported users across 13 measured rows, 18.2 reported users per measured row, and 5.00 average rating from 4 reported ratings on 2026-06-05.",
+    "Listings without a visible Chrome Web Store user count are omitted from row-level published data; no placeholder rows are published. Chrome-Stats links remain secondary metadata and are not used for current counts."
   ],
   "extensions": [
     {
       "id": "ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "name": "GitHub Repo Summarizer",
       "description": "Summarizes GitHub repository structure and README context for faster code review.",
-      "users": 133,
+      "users": 130,
       "usersSource": "Chrome Web Store detail page",
       "rating": 5,
       "ratingCount": 3,
@@ -37,13 +37,13 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm?hl=en",
       "productUrl": "https://zack-dev-cm.github.io/github-repo-sum.github.io/",
-      "dataIngestedAt": "2026-06-03"
+      "dataIngestedAt": "2026-06-05"
     },
     {
       "id": "jnoonpeekddinkiecaonhocaflcgbhap",
       "name": "AI Chat Navigator",
-      "description": "Adds keyboard navigation and prompt controls for ChatGPT, Deepseek, and AI Studio chats.",
-      "users": 74,
+      "description": "Seamlessly jump, refine, and sync prompts across AI chat tools.",
+      "users": 73,
       "usersSource": "Chrome Web Store detail page",
       "rating": 5,
       "ratingCount": 1,
@@ -57,37 +57,75 @@
       "sizeKb": 126,
       "chromeStatsUrl": "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en",
-      "dataIngestedAt": "2026-06-03"
-    },
-    {
-      "id": "naaipacpncigmehpcnejahgfbeabccpk",
-      "name": "YTDownloader Companion",
-      "description": "Moves YouTube videos into a transcript, notes, thumbnail, clean-link, and quick-open companion workflow.",
-      "users": 4,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.2.1",
-      "lastUpdated": "2026-05-29",
-      "createdAt": "2026-05-29",
-      "category": "Workflow & Planning",
-      "sizeKb": 37.17,
-      "chromeStatsUrl": "https://chrome-stats.com/d/naaipacpncigmehpcnejahgfbeabccpk",
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ytdownloader-companion/naaipacpncigmehpcnejahgfbeabccpk?hl=en",
-      "dataIngestedAt": "2026-06-03"
+      "dataIngestedAt": "2026-06-05"
     },
     {
       "id": "dejokbjghdjlhhlddflgolheejdmbgea",
       "name": "Tab Time Machine",
       "description": "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
-      "users": 3,
+      "users": 10,
       "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.4",
-      "lastUpdated": "2026-05-30",
+      "version": "0.1.5",
+      "lastUpdated": "2026-06-05",
       "createdAt": "2026-05-30",
       "category": "Just for Fun",
-      "sizeKb": 29.74,
+      "sizeKb": 29.39,
       "chromeStatsUrl": "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
-      "dataIngestedAt": "2026-06-03"
+      "productUrl": "https://getgeofix.xyz/",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
+      "name": "Web2CSV - Table & List Extractor",
+      "description": "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
+      "users": 3,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-03",
+      "category": "Tools",
+      "sizeKb": 65.47,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/web2csv-table-list-extrac/egjcdmlfdnkpgkmffkhfdooacmglnjbc?hl=en",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "lacnenopgbimijabjaadkgeoldoogein",
+      "name": "GTA 6 Countdown",
+      "description": "Simple unofficial countdown to the announced GTA VI release date.",
+      "users": 3,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.1",
+      "lastUpdated": "2026-05-29",
+      "category": "Just for Fun",
+      "sizeKb": 44.76,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/gta-6-countdown/lacnenopgbimijabjaadkgeoldoogein?hl=en",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "hlbflaklicefinhckdkbamhhkfklmgao",
+      "name": "SourcePack Hub - Local AI Research Library",
+      "description": "Saves and exports local AI research source packs from the current page.",
+      "users": 3,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-03",
+      "category": "Workflow & Planning",
+      "sizeKb": 65.36,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-r/hlbflaklicefinhckdkbamhhkfklmgao?hl=en",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "dlhhfacpkohmojegdpmmnmoapcpphfbh",
+      "name": "Browser Run Receipt",
+      "description": "Captures manual browser-work steps, redacts details, and exports a local run receipt.",
+      "users": 3,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-14",
+      "category": "Workflow & Planning",
+      "sizeKb": 39.71,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/browser-run-receipt/dlhhfacpkohmojegdpmmnmoapcpphfbh?hl=en",
+      "dataIngestedAt": "2026-06-05"
     },
     {
       "id": "glcecbjpdknkmlpcbnbpikjjclboeglo",
@@ -109,7 +147,73 @@
       "chromeStatsUrl": "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo?hl=en",
       "productUrl": "https://localarchive.pages.dev/",
-      "dataIngestedAt": "2026-06-03"
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "pmofpiclpglbdnjgkgijlolefiojjomn",
+      "name": "ChatArchive - ChatGPT Exporter",
+      "description": "Exports ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
+      "users": 2,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-05",
+      "category": "Workflow & Planning",
+      "sizeKb": 65.36,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-expor/pmofpiclpglbdnjgkgijlolefiojjomn?hl=en",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "kpjokdophleoefolidphajjllaaddnpj",
+      "name": "Evidence Pack Capture",
+      "description": "Captures a visible tab, redacts sensitive details locally, and exports a support-ready evidence packet.",
+      "users": 2,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-14",
+      "category": "Workflow & Planning",
+      "sizeKb": 40.67,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/evidence-pack-capture/kpjokdophleoefolidphajjllaaddnpj?hl=en",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "hoklaadapaobdbkeiacebnnciponcmnf",
+      "name": "Session Rescue",
+      "description": "Saves local browser session snapshots, restores tabs, and exports portable backups.",
+      "users": 2,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.4",
+      "lastUpdated": "2026-04-29",
+      "category": "Workflow & Planning",
+      "sizeKb": 16.61,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf?hl=en",
+      "productUrl": "https://session-rescue.pages.dev/",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "dphlhifhafonbolljmdlpecpcicnpjen",
+      "name": "Skool Discovery Positioning Lens",
+      "description": "Audits public Skool positioning with local benchmarks and optional Chrome built-in AI critique.",
+      "users": 2,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.1",
+      "lastUpdated": "2026-05-15",
+      "category": "Workflow & Planning",
+      "sizeKb": 21.96,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/skool-discovery-positioni/dphlhifhafonbolljmdlpecpcicnpjen?hl=en",
+      "dataIngestedAt": "2026-06-05"
+    },
+    {
+      "id": "hjfdpklldhofiehpcfcfdonjppdkmgoh",
+      "name": "Video2Source - YouTube Transcript Exporter",
+      "description": "Saves visible YouTube transcript text, timestamps, and notes as local source pack files.",
+      "users": 1,
+      "usersSource": "Chrome Web Store detail page",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-03",
+      "category": "Workflow & Planning",
+      "sizeKb": 65.08,
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/video2source-youtube-tran/hjfdpklldhofiehpcfcfdonjppdkmgoh?hl=en",
+      "dataIngestedAt": "2026-06-05"
     }
   ]
 }

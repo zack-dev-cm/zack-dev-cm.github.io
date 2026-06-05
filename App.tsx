@@ -229,9 +229,11 @@ const renderChromeExtensionStatCard = (extension: ChromeExtensionStat) => {
         <a href={extension.chromeWebStoreUrl} target="_blank" rel="noopener noreferrer" className="text-link">
           Chrome Web Store
         </a>
-        <a href={extension.chromeStatsUrl} target="_blank" rel="noopener noreferrer" className="text-link">
-          Chrome-Stats detail
-        </a>
+        {extension.chromeStatsUrl && (
+          <a href={extension.chromeStatsUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+            Chrome-Stats detail
+          </a>
+        )}
         {extension.productUrl && (
           <a href={extension.productUrl} target="_blank" rel="noopener noreferrer" className="text-link">
             Product page
@@ -1046,20 +1048,15 @@ const App: React.FC = () => {
 
   const chromeStatsSummary = useMemo(() => {
     const reportedRows = CHROME_EXTENSION_STATS.extensions.length;
-    const rowsAddedIn2026 = CHROME_EXTENSION_STATS.extensions.filter((extension) => extension.createdAt.startsWith('2026-')).length;
+    const rowsAddedIn2026 = CHROME_EXTENSION_STATS.extensions.filter((extension) =>
+      (extension.createdAt ?? extension.lastUpdated).startsWith('2026-')
+    ).length;
     const averageRating = CHROME_EXTENSION_STATS.ratingCount > 0 ? CHROME_EXTENSION_STATS.averageRating.toFixed(2) : null;
     return { reportedRows, rowsAddedIn2026, averageRating };
   }, []);
 
   const chromeExtensionRows = useMemo(() => CHROME_EXTENSION_STATS.extensions, []);
-  const featuredChromeExtensionRows = useMemo(() => {
-    const mustKeepVisible = new Set(
-      chromeExtensionRows
-        .filter((extension) => extension.name === 'SourcePack Hub - Local AI Research Library')
-        .map((extension) => extension.id)
-    );
-    return chromeExtensionRows.filter((extension, index) => index < 3 || mustKeepVisible.has(extension.id));
-  }, [chromeExtensionRows]);
+  const featuredChromeExtensionRows = useMemo(() => chromeExtensionRows.slice(0, 3), [chromeExtensionRows]);
   const remainingChromeExtensionRows = useMemo(() => {
     const visibleIds = new Set(featuredChromeExtensionRows.map((extension) => extension.id));
     return chromeExtensionRows.filter((extension) => !visibleIds.has(extension.id));

@@ -989,7 +989,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -1465,7 +1465,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -1834,8 +1834,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "133",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "130",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -1872,8 +1872,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "74",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "73",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -2013,7 +2013,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -2371,8 +2371,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "133",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "130",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -2409,8 +2409,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "74",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "73",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -2514,7 +2514,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -3321,8 +3321,8 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "133",
-          "context": "Chrome Web Store detail page, 2026-06-03"
+          "value": "130",
+          "context": "Chrome Web Store detail page, 2026-06-05"
         }
       ],
       "links": [
@@ -3359,8 +3359,8 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "74",
-          "context": "Chrome Web Store detail page, 2026-06-03"
+          "value": "73",
+          "context": "Chrome Web Store detail page, 2026-06-05"
         }
       ],
       "links": [
@@ -4736,7 +4736,7 @@
         {
           "label": "Public Chrome Web Store users",
           "value": "2",
-          "context": "Chrome Web Store detail page, 2026-06-03"
+          "context": "Chrome Web Store detail page, 2026-06-05"
         },
         {
           "label": "Chrome Web Store version",
@@ -5402,7 +5402,7 @@
       "id": 68,
       "title": "SourcePack Chrome Extension Wave",
       "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
-      "summary": "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
+      "summary": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
       "kind": "user-product",
       "tags": [
         "browser-extension",
@@ -5414,10 +5414,10 @@
         "sourcepack suite",
         "web2csv",
         "video2source",
-        "repo2agent",
         "sourcepack hub",
-        "cws scout",
-        "chatarchive"
+        "chatarchive",
+        "browser run receipt",
+        "support packet"
       ],
       "techStack": [
         "Chrome Extension",
@@ -5431,23 +5431,23 @@
       "benchmarks": [
         {
           "label": "Current public publisher listings",
-          "value": "6",
-          "context": "Chrome Web Store publisher search and detail pages, 2026-06-03"
+          "value": "16",
+          "context": "Chrome Web Store publisher search and detail pages, 2026-06-05"
         },
         {
           "label": "Current publisher users",
-          "value": "216",
-          "context": "sum of explicitly reported Chrome Web Store detail-page users, 2026-06-03"
+          "value": "236",
+          "context": "sum of 13 explicitly reported Chrome Web Store detail-page user counts, 2026-06-05"
         },
         {
           "label": "Average rating",
           "value": "5.00",
-          "context": "4 reported Chrome Web Store ratings, 2026-06-03"
+          "context": "4 reported Chrome Web Store ratings, 2026-06-05"
         },
         {
-          "label": "New SourcePack products",
-          "value": "6",
-          "context": "Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, ChatArchive"
+          "label": "Visible SourcePack products",
+          "value": "4",
+          "context": "Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-05"
         }
       ],
       "links": [
@@ -5468,16 +5468,8 @@
           "url": "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh"
         },
         {
-          "label": "Repo2Agent CWS",
-          "url": "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd"
-        },
-        {
           "label": "SourcePack Hub CWS",
           "url": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao"
-        },
-        {
-          "label": "CWS Scout CWS",
-          "url": "https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji"
         },
         {
           "label": "ChatArchive CWS",

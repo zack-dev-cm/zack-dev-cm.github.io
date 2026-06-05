@@ -112,11 +112,11 @@ export interface ChromeExtensionStat {
   ratingCount?: number;
   version: string;
   lastUpdated: string;
-  createdAt: string;
+  createdAt?: string;
   category: string;
   permissions?: string[];
   sizeKb?: number;
-  chromeStatsUrl: string;
+  chromeStatsUrl?: string;
   chromeWebStoreUrl: string;
   productUrl?: string;
   dataIngestedAt: string;
