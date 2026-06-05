@@ -58,6 +58,17 @@ const TOPIC_RULES = [
       'Use a tiny benchmark with known invalid paths, then check whether the method fails loudly enough for a product gate to catch it.',
   },
   {
+    id: 'physical-world-models',
+    match:
+      /\b(jepa|joint embedding predictive|world model|world models|physical ai|physics|causal video|interaction-aware|human-object|hoi|robot|navigation|trajectory|dynamics|kinematic)\b/i,
+    tags: ['physical-ai', 'world-models', 'computer-vision'],
+    reader: 'teams building visual world models, robotics perception, and physical-AI prototypes',
+    verdict:
+      'The paper is worth reading if it makes visual prediction less texture-driven and more accountable to objects, contact, motion, and causal state.',
+    productionTest:
+      'Before using it in a physical-AI stack, test whether the representation predicts rare contacts and state changes, not only visually smooth future frames.',
+  },
+  {
     id: 'vision-language',
     match: /\b(video|vision|visual|image|camera|multimodal|segmentation|detection|retinal|font|generation|vqa)\b/i,
     tags: ['computer-vision', 'multimodal', 'evaluation'],
@@ -309,6 +320,7 @@ const scoreCandidate = (paper, reviewedIds) => {
   const topic = inferTopic(paper);
   let score = 150 - paper.recencyIndex * 4;
   score += topic.id === 'agent-systems' ? 48 : 0;
+  score += topic.id === 'physical-world-models' ? 46 : 0;
   score += topic.id === 'vision-language' ? 42 : 0;
   score += topic.id === 'retrieval' ? 38 : 0;
   score += topic.id === 'reasoning' ? 34 : 0;
@@ -316,7 +328,9 @@ const scoreCandidate = (paper, reviewedIds) => {
   score += topic.id === 'ml-systems' ? 28 : 0;
   score += /\bbenchmark|bench|survey|review|position\b/i.test(paper.title) ? 12 : 0;
   score += /\bmedical|alzheimer|clinical|patient\b/i.test(`${paper.title} ${paper.summary}`) ? -45 : 0;
-  score += /\bagent|video|retrieval|transformer|continual|collapse|reasoning\b/i.test(paper.title) ? 20 : 0;
+  score += /\bagent|video|retrieval|transformer|continual|collapse|reasoning|jepa|world model|physical\b/i.test(paper.title)
+    ? 20
+    : 0;
   score += paper.announceType === 'new' ? 8 : 0;
   return score;
 };
@@ -332,6 +346,7 @@ const makeDek = (paper, topic) => {
   if (topic.id === 'agent-systems') return 'A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.';
   if (topic.id === 'agent-safety') return 'A field-experiment paper to read as a release warning: if an agent can persuade, the product needs a trace, a boundary, and a stop rule.';
   if (topic.id === 'continual-rl') return 'A position paper to read as a deployment contract: when a policy is allowed to keep learning, who audits it, and what stops it.';
+  if (topic.id === 'physical-world-models') return 'A physical-AI paper to read for object state, motion, contact, and whether the model learns a usable world contract instead of a pretty prediction.';
   if (topic.id === 'vision-language') return 'A multimodal paper to read through failure cases: what the model can verify, where it hallucinates, and what a user can inspect.';
   if (topic.id === 'retrieval') return 'A retrieval paper to read for the evidence boundary: what is kept, compressed, explained, and lost.';
   if (topic.id === 'reasoning') return 'A reasoning paper to read as a constraint design, not a benchmark headline.';
@@ -344,6 +359,7 @@ const makeClaim = (paper, topic) => {
   if (topic.id === 'agent-safety') return `${title} examines how LLM agents use persuasive tactics when operating in a field setting, which makes the paper more relevant to launch review than to leaderboard comparison.`;
   if (topic.id === 'continual-rl') return `${title} argues that deployed reinforcement learning should keep adapting after launch, but under explicit constraints rather than silent drift.`;
   if (topic.id === 'agent-systems') return `${title} argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.`;
+  if (topic.id === 'physical-world-models') return `${title} tries to make video prediction care about physical state: objects, interactions, motion, and the causal events that are easy for patch-level objectives to miss.`;
   if (topic.id === 'vision-language') return `${title} pushes on visual understanding where the important output is not a fluent caption, but a model behavior that can be inspected against the underlying scene.`;
   if (topic.id === 'retrieval') return `${title} works on the retrieval layer: how evidence is represented, narrowed, and served back to a model or user.`;
   if (topic.id === 'reasoning') return `${title} treats reasoning as something that should be constrained inside the computation, not merely requested in the prompt.`;
@@ -355,6 +371,7 @@ const makeTechnicalHinge = (paper, topic) => {
   if (topic.id === 'agent-safety') return 'The hinge is behavioral evidence. A persuasive-agent risk is not visible in aggregate task success; it appears in message sequence, escalation style, disclosure, and whether the system keeps pushing after a boundary appears.';
   if (topic.id === 'continual-rl') return 'The hinge is control after launch. Continual learning is only useful when the update path is observable, reversible, and tied to signals that are harder to game than reward alone.';
   if (topic.id === 'agent-systems') return 'The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.';
+  if (topic.id === 'physical-world-models') return 'The hinge is whether the learned state changes at the moment the physical system changes: contact, occlusion, object identity, trajectory, and causal interaction.';
   if (topic.id === 'vision-language') return 'The hinge is whether the method aligns visual evidence with the answer path. A model that only produces a polished answer still needs a separate gate for groundedness.';
   if (topic.id === 'retrieval') return 'The hinge is compression without amnesia. Retrieval systems often look strong until near-duplicates, stale evidence, and missing citations expose what the index discarded.';
   if (topic.id === 'reasoning') return 'The hinge is the intermediate state. The more the paper makes that state explicit, the easier it becomes to test invalid paths instead of trusting a final answer.';

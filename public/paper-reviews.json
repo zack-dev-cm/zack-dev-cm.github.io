@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-06-05T08:52:51.251Z",
+  "updatedAt": "2026-06-05T09:39:30.000Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -19,6 +19,116 @@
     "writing": "Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished."
   },
   "reviews": [
+    {
+      "id": "entity-centric-world-models-interaction-aware-masking-for-causal-video-prediction-2605-15466",
+      "title": "Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction",
+      "dek": "A JEPA-style physical-AI paper to read for the hard part: whether video prediction learns object state, contact, and causal motion rather than polished pixels.",
+      "language": "en",
+      "selectedAt": "2026-06-05T09:39:30.000Z",
+      "paperUrl": "https://arxiv.org/abs/2605.15466",
+      "pdfUrl": "https://arxiv.org/pdf/2605.15466",
+      "arxivId": "2605.15466",
+      "authors": [
+        "Santosh Kumar Paidi"
+      ],
+      "publishedAt": "2026-05-14T00:00:00Z",
+      "updatedAt": "2026-05-14T00:00:00Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "tags": [
+        "physical-ai",
+        "jepa",
+        "world-models",
+        "computer-vision",
+        "video"
+      ],
+      "selectionScore": 236,
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The useful question is whether JEPA-style prediction changes representation around physical events. If the embedding stays calm when objects touch, separate, occlude, or change trajectory, it is not yet a world model for builders.",
+      "whatItClaims": "Entity-Centric World Models argues that standard patch masking can make JEPA-like video objectives miss rare but important kinematic events, and proposes interaction-aware masking to push learning toward objects and causal motion.",
+      "technicalHinge": "The hinge is the mask policy. It has to expose the moments where the physical system actually changes: contact, identity, occlusion, relative motion, and state transitions. Otherwise the model can still optimize for texture continuity.",
+      "productionAngle": "Before putting this into a robotics or physical-AI prototype, build a failure set around object handoffs, near-collisions, hidden state, and grasp/no-grasp transitions. Score whether the representation predicts the event, not only the next frame.",
+      "skepticism": "This is a triage review from cs.CV, not a reproduction. I would want code, ablations for the masking strategy, object-tracking error analysis, and tests on real robot or egocentric video before treating it as a deployable physical-AI component.",
+      "readingPath": [
+        "Start with the masking objective and ask what physical event it forces the model to care about.",
+        "Check whether the evaluation separates visual smoothness from causal state prediction.",
+        "Look for ablations where interaction-aware masking is removed or replaced with random patch masking."
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2605.15466"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2605.15466"
+        },
+        {
+          "label": "cs.CV research feed",
+          "url": "https://rss.arxiv.org/rss/cs.CV"
+        }
+      ]
+    },
+    {
+      "id": "ultravr-a-diagnostic-ultra-resolution-image-vqa-benchmark-for-evidence-grounded-reasoning-2606-05576",
+      "title": "UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning",
+      "dek": "A fresh computer-vision review for high-resolution VQA: can the model find tiny, distant evidence, or does it answer from priors and captions?",
+      "language": "en",
+      "selectedAt": "2026-06-05T09:39:00.000Z",
+      "paperUrl": "https://arxiv.org/abs/2606.05576",
+      "pdfUrl": "https://arxiv.org/pdf/2606.05576",
+      "arxivId": "2606.05576",
+      "authors": [
+        "Gexin Huang",
+        "Yanting Yang",
+        "Myeongkyun Kang",
+        "Beidi Zhao",
+        "Jun Zhou",
+        "Chen Zhou",
+        "Gang Wang",
+        "Zu-hua Gao",
+        "Xiaoxiao Li"
+      ],
+      "publishedAt": "2026-06-04T00:00:00Z",
+      "updatedAt": "2026-06-04T00:00:00Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "tags": [
+        "computer-vision",
+        "vlm-evaluation",
+        "high-resolution",
+        "evidence-grounding",
+        "vqa"
+      ],
+      "selectionScore": 232,
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "This is the right kind of CV benchmark to watch: it makes the model earn an answer by finding small evidence at scale. Final-answer accuracy is not enough when the relevant pixels are tiny, far apart, or easy to skip.",
+      "whatItClaims": "UltraVR evaluates ultra-resolution image VQA where the answer depends on subtle or spatially distributed visual evidence, pushing beyond benchmarks that only check whether the final answer sounds plausible.",
+      "technicalHinge": "The hinge is evidence routing. A useful system has to crop, retrieve, or attend to the decisive regions before reasoning. If the model cannot expose what visual evidence it used, the answer is hard to trust in inspection workflows.",
+      "productionAngle": "Use it as a release-gate shape for OCR, floor-plan review, medical imaging triage, satellite inspection, and catalog matching: require the model to return the answer plus the supporting crop or coordinate evidence.",
+      "skepticism": "This is a triage review from cs.CV, not a reproduction. I would check data overlap, image resolution handling, evidence annotations, and whether strong baselines fail because of reasoning or because of image tiling and compression.",
+      "readingPath": [
+        "Read the task construction before the headline model table.",
+        "Check whether evidence localization is evaluated separately from answer accuracy.",
+        "Map one benchmark task to a real inspection workflow and define the required proof artifact."
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.05576"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.05576"
+        },
+        {
+          "label": "cs.CV research feed",
+          "url": "https://rss.arxiv.org/rss/cs.CV"
+        }
+      ]
+    },
     {
       "id": "sentinelbench-a-benchmark-for-long-running-monitoring-agents-2606-05342",
       "title": "SentinelBench: A Benchmark for Long-Running Monitoring Agents",
