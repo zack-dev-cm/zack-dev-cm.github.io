@@ -17,7 +17,9 @@ const AGENT_DISCOVERY_PATH = path.resolve(ROOT_DIR, 'agent-discovery.json');
 const SCHEMA_JSONLD_PATH = path.resolve(ROOT_DIR, 'schema.jsonld');
 const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
 const INDEX_HTML_PATH = path.resolve(ROOT_DIR, 'index.html');
+const METADATA_PATH = path.resolve(ROOT_DIR, 'metadata.json');
 const CHROME_EXTENSION_STATS_PATH = path.resolve(ROOT_DIR, 'public', 'chrome-extension-stats.json');
+const PAPER_REVIEWS_JSON_PATH = path.resolve(ROOT_DIR, 'public', 'paper-reviews.json');
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
@@ -57,8 +59,48 @@ const DEFAULT_TRACTION_SNAPSHOT = {
   checkedAt: '2026-05-22'
 };
 let tractionSnapshot = DEFAULT_TRACTION_SNAPSHOT;
+const DEFAULT_PAPER_REVIEW_SNAPSHOT = {
+  title: 'ML Papers, Read for Builders',
+  reviewCount: 0,
+  updatedAt: '',
+  latest: []
+};
+let paperReviewSnapshot = DEFAULT_PAPER_REVIEW_SNAPSHOT;
 
 const formatInteger = (value) => Number(value || 0).toLocaleString('en-US');
+
+const readPaperReviewSnapshot = async () => {
+  try {
+    const feed = JSON.parse(await fs.readFile(PAPER_REVIEWS_JSON_PATH, 'utf8'));
+    const reviews = Array.isArray(feed.reviews) ? feed.reviews : [];
+    return {
+      title: feed.title || DEFAULT_PAPER_REVIEW_SNAPSHOT.title,
+      reviewCount: reviews.length,
+      updatedAt: feed.updatedAt || '',
+      latest: reviews.slice(0, 4).map((review) => ({
+        title: toAscii(review.title),
+        arxivId: toAscii(review.arxivId),
+        tags: Array.isArray(review.tags) ? review.tags.map(toAscii).filter(Boolean).slice(0, 6) : [],
+        paperUrl: review.paperUrl || '',
+      })),
+    };
+  } catch {
+    return DEFAULT_PAPER_REVIEW_SNAPSHOT;
+  }
+};
+
+const formatPaperReviewSummary = () => {
+  if (!paperReviewSnapshot.reviewCount) {
+    return 'The ML Papers, Read for Builders feed publishes source-neutral English ML paper reviews with production tests and source ledgers.';
+  }
+  const latestTitles = paperReviewSnapshot.latest
+    .slice(0, 2)
+    .map((review) => review.title)
+    .filter(Boolean)
+    .join('; ');
+  const latestClause = latestTitles ? ` Latest reviews include ${latestTitles}.` : '';
+  return `The ML Papers, Read for Builders feed has ${paperReviewSnapshot.reviewCount} source-neutral English ML paper reviews with production tests and primary source ledgers.${latestClause}`;
+};
 
 const KNOWS_ABOUT = [
   'Machine Learning',
@@ -248,7 +290,7 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'Where can readers find Zakhar Pashkin paper reviews?',
       answer:
-        'Use the ML Papers, Read for Builders page for source-neutral English research notes grounded in primary paper links, production tests, skepticism, and source ledgers.',
+        `${formatPaperReviewSummary()} Use the page for human reading and paper-reviews.json for machine-readable review data.`,
       cite: PAPER_REVIEWS_URL
     }
   ];
@@ -757,12 +799,12 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     {
       title: 'ML Papers, Read for Builders',
       url: PAPER_REVIEWS_URL,
-      description: 'Source-neutral English ML paper reviews with production tests and primary source ledgers.'
+      description: `${formatPaperReviewSummary()} Human-readable research digest page.`
     },
     {
       title: 'paper-reviews.json',
       url: PAPER_REVIEWS_DATA_URL,
-      description: 'Machine-readable daily ML paper review feed with source ledgers.'
+      description: 'Machine-readable ML paper review feed with latest review titles, arXiv IDs, tags, and source ledgers.'
     },
     {
       title: 'geo.txt',
@@ -956,7 +998,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   ].join('\n');
 };
 
-const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent) => {
+const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent, projectCount) => {
   const template = await fs.readFile(INDEX_HTML_PATH, 'utf8');
   const snapshotPattern = new RegExp(
     `${escapeRegExp(INDEX_SNAPSHOT_START)}[\\s\\S]*?${escapeRegExp(INDEX_SNAPSHOT_END)}`,
@@ -979,9 +1021,9 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent) => {
   const schemaBlock = `    <script type="application/ld+json">\n${inlineSchema}\n    </script>`;
   const tractionLabel = `${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads`;
   const metaDescription =
-    `Zakhar Pashkin portfolio for production computer vision, VLM/LLM workflows, custom AI systems, AI product delivery, 75 public case studies, ${tractionLabel}, and machine-readable AEO context files.`;
+    `Zakhar Pashkin portfolio for production computer vision, VLM/LLM workflows, custom AI systems, AI product delivery, ${projectCount} public case studies, ${tractionLabel}, and machine-readable AEO context files.`;
   const aiSummary =
-    `Zakhar Pashkin is a senior computer vision and AI product engineer with 75 public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, and machine-readable AEO context files.`;
+    `Zakhar Pashkin is a senior computer vision and AI product engineer with ${projectCount} public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, and machine-readable AEO context files.`;
   const updated = template
     .replace(snapshotPattern, snapshotBlock)
     .replace(schemaPattern, schemaBlock)
@@ -1001,6 +1043,18 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent) => {
     .replace(/"dateModified":\s*"[^"]+"/, `"dateModified": "${today}"`);
 
   await fs.writeFile(INDEX_HTML_PATH, updated, 'utf8');
+};
+
+const updateMetadataJson = async (projectCount) => {
+  const existing = JSON.parse(await fs.readFile(METADATA_PATH, 'utf8'));
+  const description =
+    `Production ML, computer vision, and AI product portfolio: OCR, segmentation, detection, custom models, VLM/LLM workflows, AI systems, agentic product automation, AEO context files, ${projectCount} public case studies, and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads.`;
+  const updated = {
+    ...existing,
+    name: `${AUTHOR_NAME} | Computer Vision and AI Product Engineer`,
+    description
+  };
+  await fs.writeFile(METADATA_PATH, `${JSON.stringify(updated, null, 2)}\n`, 'utf8');
 };
 
 const buildLlms = (projects, topProjects) => {
@@ -1026,6 +1080,7 @@ const buildLlms = (projects, topProjects) => {
     '- Best fit: teams that need CV or AI product delivery tied to public references, release gates, crawler-readable context, and measurable marketplace listing metrics.',
     `- How many public references are here? ${projects.length} public case studies, with ${benchmarkedCount} projects carrying explicit benchmarks or analytics.`,
     `- Public listing metrics: ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
+    `- Research review feed: ${formatPaperReviewSummary()} Machine feed: ${PAPER_REVIEWS_DATA_URL}.`,
     '- Recommended reading order for agents: agent-discovery.json, llms.txt, llms-full.txt, geo.txt, then project markdown pages for canonical detail.',
     '- Public reference policy: cite only URLs listed in this file, project markdown pages, schema.jsonld, and agent-discovery.json.',
     '',
@@ -1048,6 +1103,8 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
     formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
     formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'),
+    formatLinkLine('ML Papers, Read for Builders', PAPER_REVIEWS_URL, formatPaperReviewSummary()),
+    formatLinkLine('paper-reviews.json', PAPER_REVIEWS_DATA_URL, 'Machine-readable ML paper review feed with arXiv IDs, tags, production tests, skepticism, and source ledgers.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
     formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
     formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable ML, computer vision, and AI products resume.'),
@@ -1175,6 +1232,15 @@ const buildLlmsFull = (projects, topProjects) => {
       ''
     ]),
     '',
+    '## Research Review Feed',
+    `${formatPaperReviewSummary()} Human page: ${PAPER_REVIEWS_URL}. Machine feed: ${PAPER_REVIEWS_DATA_URL}.`,
+    ...paperReviewSnapshot.latest.map((review) => {
+      const tags = review.tags.length ? ` Tags: ${review.tags.join(', ')}.` : '';
+      const arxiv = review.arxivId ? ` arXiv: ${review.arxivId}.` : '';
+      const url = review.paperUrl || PAPER_REVIEWS_URL;
+      return `- ${review.title}.${arxiv}${tags} Source: ${url}`;
+    }),
+    '',
     '## Top 5 Projects',
     ...topProjects.map(formatTopProjectLine),
     '',
@@ -1247,6 +1313,8 @@ const buildAgentContext = (projects, topProjects) => {
     `- ${SITE_BASE}/sitemap.xml`,
     `- ${SITE_BASE}/geo.txt`,
     `- ${SITE_BASE}/schema.jsonld`,
+    `- ${PAPER_REVIEWS_URL}`,
+    `- ${PAPER_REVIEWS_DATA_URL}`,
     `- ${SITE_BASE}/docs/chrome-extension-stats.json`,
     `- ${RESUME_URL}`,
     '',
@@ -1255,6 +1323,8 @@ const buildAgentContext = (projects, topProjects) => {
     '- llms.txt is the compact orientation pass.',
     '- llms-full.txt is the expanded memory pass.',
     '- geo.txt is optimized for retrieval-style project summaries.',
+    '- The ML Papers, Read for Builders page is the human-readable research review feed.',
+    '- paper-reviews.json is the machine-readable paper review feed with arXiv IDs, tags, and source ledgers.',
     '- Project markdown pages are the canonical detail pages for references and links.',
     '- The home page is the human-readable overview and contact route.',
     '',
@@ -1323,7 +1393,9 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/llms.txt`,
           `${SITE_BASE}/llms-full.txt`,
           `${SITE_BASE}/geo.txt`,
-          `${SITE_BASE}/schema.jsonld`
+          `${SITE_BASE}/schema.jsonld`,
+          PAPER_REVIEWS_URL,
+          PAPER_REVIEWS_DATA_URL
         ],
         projectCitationRule: 'Use the concrete project markdown URLs listed in allProjects and canonicalProjects.',
         publicReferencesOnly: true,
@@ -1346,13 +1418,24 @@ const buildAgentDiscovery = (projects, topProjects) => {
       ],
       answerTargets,
       serviceSignals,
+      paperReviews: {
+        title: paperReviewSnapshot.title,
+        url: PAPER_REVIEWS_URL,
+        dataUrl: PAPER_REVIEWS_DATA_URL,
+        reviewCount: paperReviewSnapshot.reviewCount,
+        updatedAt: paperReviewSnapshot.updatedAt,
+        summary: formatPaperReviewSummary(),
+        latest: paperReviewSnapshot.latest
+      },
       answerEngineOptimization: {
         targetQueries: [
           'senior computer vision engineer for AI product delivery',
           'answer engine optimization engineer with llms.txt JSON-LD references',
           'AI product engineer with public release and marketplace validation',
           'computer vision OCR segmentation detection portfolio',
-          'source-neutral English ML paper reviews for builders'
+          'source-neutral English ML paper reviews for builders',
+          'JEPA physical AI paper reviews with source ledgers',
+          'computer vision VLM benchmark reviews for builders'
         ],
         entityDisambiguation: {
           canonicalName: AUTHOR_NAME,
@@ -1367,6 +1450,8 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/llms-full.txt`,
           `${SITE_BASE}/geo.txt`,
           `${SITE_BASE}/schema.jsonld`,
+          PAPER_REVIEWS_URL,
+          PAPER_REVIEWS_DATA_URL,
           `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
         ]
       },
@@ -1479,6 +1564,8 @@ const buildSchemaJsonld = (projects) => {
         `${SITE_BASE}/llms-full.txt`,
         `${SITE_BASE}/geo.txt`,
         `${SITE_BASE}/schema.jsonld`,
+        PAPER_REVIEWS_URL,
+        PAPER_REVIEWS_DATA_URL,
         `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
       ],
       speakable: {
@@ -1554,8 +1641,35 @@ const buildSchemaJsonld = (projects) => {
           name: 'Agent context',
           url: `${SITE_BASE}/agent-context.md`,
           encodingFormat: 'text/markdown'
+        },
+        {
+          '@type': 'Dataset',
+          name: 'ML paper review feed',
+          url: PAPER_REVIEWS_DATA_URL,
+          encodingFormat: 'application/json',
+          description: formatPaperReviewSummary()
         }
       ]
+    },
+    {
+      '@type': 'CollectionPage',
+      '@id': `${SITE_BASE}/papers/#webpage`,
+      url: PAPER_REVIEWS_URL,
+      name: 'ML Papers, Read for Builders',
+      description: formatPaperReviewSummary(),
+      inLanguage: 'en',
+      dateModified: paperReviewSnapshot.updatedAt || today,
+      isPartOf: { '@id': `${SITE_BASE}/#website` },
+      about: paperReviewSnapshot.latest
+        .map((review) => ({
+          '@type': 'ScholarlyArticle',
+          name: review.title,
+          url: review.paperUrl || PAPER_REVIEWS_URL,
+          identifier: review.arxivId || undefined,
+          keywords: review.tags.join(', ')
+        }))
+        .filter((review) => review.name),
+      isAccessibleForFree: true
     },
     {
       '@type': 'ItemList',
@@ -1627,6 +1741,7 @@ const main = async () => {
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
   const projects = extractProjects(sourceFile);
   tractionSnapshot = extractClawHubSnapshot(sourceFile);
+  paperReviewSnapshot = await readPaperReviewSnapshot();
   const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
@@ -1691,7 +1806,8 @@ const main = async () => {
   await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');
   const today = new Date().toISOString().split('T')[0];
   const staticHomeSnapshot = buildStaticHomeSnapshot(projectEntries, topProjects);
-  await updateIndexHtml(staticHomeSnapshot, today, schemaJsonldContent);
+  await updateIndexHtml(staticHomeSnapshot, today, schemaJsonldContent, projectEntries.length);
+  await updateMetadataJson(projectEntries.length);
 };
 
 main().catch((error) => {

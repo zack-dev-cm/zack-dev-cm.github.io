@@ -52,7 +52,7 @@ export const COMPANIES: Company[] = [
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping computer vision, ML, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
   "79 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "17,031 tracked ClawHub downloads across 49 public skills as of 2026-06-05, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
+  "17,059 tracked ClawHub downloads across 49 public skills as of 2026-06-05, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -73,7 +73,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Reviewer",
-    downloads: 794,
+    downloads: 795,
     versions: 12,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
@@ -82,7 +82,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 689,
+    downloads: 690,
     versions: 14,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
@@ -91,7 +91,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "agentic-codex-dev",
     displayName: "Agentic Codex Dev Reviewer",
-    downloads: 687,
+    downloads: 688,
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/agentic-codex-dev",
@@ -109,7 +109,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub ClawHub Release Reviewer",
-    downloads: 659,
+    downloads: 660,
     versions: 9,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
@@ -127,7 +127,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 510,
+    downloads: 511,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
@@ -136,7 +136,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 496,
+    downloads: 497,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
@@ -181,7 +181,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "telegram-miniapp-security-auditor",
     displayName: "Telegram Mini App Security Auditor",
-    downloads: 453,
+    downloads: 454,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/telegram-miniapp-security-auditor",
@@ -190,7 +190,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "hh-openclaw-proposal-submitter",
     displayName: "HH Application Packet Reviewer",
-    downloads: 378,
+    downloads: 379,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-proposal-submitter",
@@ -199,7 +199,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "youtube-openclaw-creator",
     displayName: "YouTube Publish Reviewer",
-    downloads: 364,
+    downloads: 365,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/youtube-openclaw-creator",
@@ -217,7 +217,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "affiliate-video-campaign-operator",
     displayName: "Affiliate Video Campaign Reviewer",
-    downloads: 361,
+    downloads: 362,
     versions: 9,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-video-campaign-operator",
@@ -226,7 +226,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "agentic-video-production-publisher",
     displayName: "Agentic Video Production Reviewer",
-    downloads: 359,
+    downloads: 360,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentic-video-production-publisher",
@@ -235,7 +235,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "meshmcp-remotescreen",
     displayName: "Screen Support Review Planner",
-    downloads: 356,
+    downloads: 357,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-remotescreen",
@@ -244,7 +244,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "avito-outreach-manager",
     displayName: "Avito Message QA Reviewer",
-    downloads: 338,
+    downloads: 339,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/avito-outreach-manager",
@@ -253,7 +253,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "skool-growth-teardown-poster",
     displayName: "Skool Growth Teardown Poster",
-    downloads: 326,
+    downloads: 327,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-growth-teardown-poster",
@@ -262,7 +262,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "skill-sprint-pack-builder",
     displayName: "Skill Sprint Pack Builder",
-    downloads: 319,
+    downloads: 320,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-sprint-pack-builder",
@@ -271,7 +271,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "meshmcp-offline-chat",
     displayName: "Offline Message Test Planner",
-    downloads: 309,
+    downloads: 310,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-offline-chat",
@@ -280,7 +280,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "x-algo-claim-auditor",
     displayName: "X Algo Claim Reviewer",
-    downloads: 300,
+    downloads: 301,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/x-algo-claim-auditor",
@@ -298,7 +298,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "trusted-clawhub-install-gate",
     displayName: "Trusted ClawHub Install Gate",
-    downloads: 286,
+    downloads: 287,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate",
@@ -307,7 +307,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "open-feed-recsys-lab",
     displayName: "Open Feed Recsys Reviewer",
-    downloads: 285,
+    downloads: 286,
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab",
@@ -325,7 +325,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "spec-plan-build-review",
     displayName: "Spec Plan Build Review",
-    downloads: 259,
+    downloads: 260,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/spec-plan-build-review",
@@ -361,7 +361,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "chrome-extension-studio",
     displayName: "Chrome Extension Studio",
-    downloads: 250,
+    downloads: 251,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/chrome-extension-studio",
@@ -379,7 +379,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "interactive-doc-mapper",
     displayName: "Interactive Doc Mapper",
-    downloads: 246,
+    downloads: 247,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper",
@@ -388,7 +388,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "tinytroupe-feed-research-lab",
     displayName: "TinyTroupe Feed Research Lab",
-    downloads: 241,
+    downloads: 242,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/tinytroupe-feed-research-lab",
@@ -397,7 +397,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "product-share-trigger-reviewer",
     displayName: "Product Share Trigger Reviewer",
-    downloads: 234,
+    downloads: 235,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/product-share-trigger-reviewer",
@@ -406,7 +406,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "codex-claude-clawhub-skill-bridge",
     displayName: "Codex Claude ClawHub Skill Bridge",
-    downloads: 233,
+    downloads: 234,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/codex-claude-clawhub-skill-bridge",
@@ -478,7 +478,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "doubt-driven-development",
     displayName: "Doubt Driven Development",
-    downloads: 198,
+    downloads: 199,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
@@ -487,7 +487,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "using-agent-skills-router",
     displayName: "Using Agent Skills Router",
-    downloads: 197,
+    downloads: 198,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
@@ -505,7 +505,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "agent-skills-portability-auditor",
     displayName: "Agent Skills Portability Auditor",
-    downloads: 192,
+    downloads: 193,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agent-skills-portability-auditor",
@@ -674,7 +674,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 17,031 downloads across 49 public skills on 2026-06-05 and kept the Chrome Web Store snapshot at 216 visible reported users across 6 current listings from 2026-06-03.",
+    description: "Updated the public ClawHub tracker to 17,059 downloads across 49 public skills on 2026-06-05 and kept the Chrome Web Store snapshot at 216 visible reported users across 6 current listings from 2026-06-03.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -2158,10 +2158,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "16,453", context: "public ClawHub owner profile, 2026-06-04 across 49 skills" },
-      { label: "Tracked public skills", value: "49", context: "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-04" },
-      { label: "CV Repro Lab downloads", value: "1,439 total", context: "783 data-science-cv-repro-lab + 656 sota-agent, 2026-06-04" },
-      { label: "Strongest skill", value: "783 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-04" },
+      { label: "Tracked ClawHub downloads", value: "17,059", context: "public ClawHub owner profile, 2026-06-05 across 49 skills" },
+      { label: "Tracked public skills", value: "49", context: "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-05" },
+      { label: "CV Repro Lab downloads", value: "1,461 total", context: "795 data-science-cv-repro-lab + 666 sota-agent, 2026-06-05" },
+      { label: "Strongest skill", value: "795 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-05" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],

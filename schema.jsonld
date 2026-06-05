@@ -129,7 +129,7 @@
       "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-04",
+      "dateModified": "2026-06-05",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -160,6 +160,8 @@
         "https://zack-dev-cm.github.io/llms-full.txt",
         "https://zack-dev-cm.github.io/geo.txt",
         "https://zack-dev-cm.github.io/schema.jsonld",
+        "https://zack-dev-cm.github.io/papers/",
+        "https://zack-dev-cm.github.io/docs/paper-reviews.json",
         "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
       ],
       "speakable": {
@@ -347,7 +349,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "16,453 tracked ClawHub downloads across 49 public skills",
+          "name": "17,059 tracked ClawHub downloads across 49 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -425,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 16,453 tracked ClawHub downloads across 49 public skills as of 2026-06-04.",
+            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,059 tracked ClawHub downloads across 49 public skills as of 2026-06-05.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -454,6 +456,15 @@
             "@type": "Answer",
             "text": "Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project markdown pages for verification before outreach.",
             "citation": "https://zack-dev-cm.github.io/#contact"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can readers find Zakhar Pashkin paper reviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The ML Papers, Read for Builders feed has 4 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction; UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning. Use the page for human reading and paper-reviews.json for machine-readable review data.",
+            "citation": "https://zack-dev-cm.github.io/papers/"
           }
         }
       ]
@@ -493,8 +504,58 @@
           "name": "Agent context",
           "url": "https://zack-dev-cm.github.io/agent-context.md",
           "encodingFormat": "text/markdown"
+        },
+        {
+          "@type": "Dataset",
+          "name": "ML paper review feed",
+          "url": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
+          "encodingFormat": "application/json",
+          "description": "The ML Papers, Read for Builders feed has 4 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction; UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning."
         }
       ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://zack-dev-cm.github.io/papers/#webpage",
+      "url": "https://zack-dev-cm.github.io/papers/",
+      "name": "ML Papers, Read for Builders",
+      "description": "The ML Papers, Read for Builders feed has 4 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction; UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning.",
+      "inLanguage": "en",
+      "dateModified": "2026-06-05T09:39:30.000Z",
+      "isPartOf": {
+        "@id": "https://zack-dev-cm.github.io/#website"
+      },
+      "about": [
+        {
+          "@type": "ScholarlyArticle",
+          "name": "Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction",
+          "url": "https://arxiv.org/abs/2605.15466",
+          "identifier": "2605.15466",
+          "keywords": "physical-ai, jepa, world-models, computer-vision, video"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning",
+          "url": "https://arxiv.org/abs/2606.05576",
+          "identifier": "2606.05576",
+          "keywords": "computer-vision, vlm-evaluation, high-resolution, evidence-grounding, vqa"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "SentinelBench: A Benchmark for Long-Running Monitoring Agents",
+          "url": "https://arxiv.org/abs/2606.05342",
+          "identifier": "2606.05342",
+          "keywords": "agents, runtime, evaluation"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "name": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems",
+          "url": "https://arxiv.org/abs/2606.05304",
+          "identifier": "2606.05304",
+          "keywords": "agents, runtime, evaluation"
+        }
+      ],
+      "isAccessibleForFree": true
     },
     {
       "@type": "ItemList",
@@ -1936,7 +1997,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Architectural Drawing and Interior Catalog Matching",
-            "description": "CV pipeline for reading architectural drawings, recognizing rooms, filling designs, and matching catalog items to each room.",
+            "description": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
             "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -1945,7 +2006,7 @@
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
             "genre": "case-study",
-            "keywords": "computer-vision, architecture, ocr, segmentation, interior-ai, retrieval, Python, OpenCV, OCR, PDF Processing, Object Detection, Segmentation, Multimodal Retrieval, 3D/CV, Visual QA",
+            "keywords": "computer-vision, architecture, ocr, catalog-matching, interior-ai, retrieval, Python, OpenCV, OCR, PDF Processing, LLM/Vision Parsing, Catalog Indexing, OpenEvolve, BOM Export, 3D/CV, Visual QA",
             "dateCreated": "2026-06-04",
             "isAccessibleForFree": true
           }

@@ -278,6 +278,31 @@ const updateConstantsSource = (source, stats) => {
     latestUpdateSummary
   );
 
+  const statBySlug = new Map(stats.map((stat) => [stat.slug, stat]));
+  const cvReproDownloads = Number(statBySlug.get('data-science-cv-repro-lab')?.downloads ?? 0);
+  const sotaDownloads = Number(statBySlug.get('sota-agent')?.downloads ?? 0);
+  const strongestSkill = stats[0];
+  const cvReproTotal = cvReproDownloads + sotaDownloads;
+
+  nextSource = nextSource.replace(
+    /(\{ label: "Tracked ClawHub downloads", value: ")\d[\d,]*(", context: ")public ClawHub owner profile, \d{4}-\d{2}-\d{2} across \d+ skills(" \},)/,
+    `$1${formatInteger(totalDownloads)}$2public ClawHub owner profile, ${checkedAt} across ${stats.length} skills$3`
+  );
+  nextSource = nextSource.replace(
+    /(\{ label: "Tracked public skills", value: ")\d+(", context: ")\d+ rows from live ClawHub publisher profile and paginated published-skill query, \d{4}-\d{2}-\d{2}(" \},)/,
+    `$1${stats.length}$2${stats.length} rows from live ClawHub publisher profile and paginated published-skill query, ${checkedAt}$3`
+  );
+  nextSource = nextSource.replace(
+    /(\{ label: "CV Repro Lab downloads", value: ")\d[\d,]* total(", context: ")\d[\d,]* data-science-cv-repro-lab \+ \d[\d,]* sota-agent, \d{4}-\d{2}-\d{2}(" \},)/,
+    `$1${formatInteger(cvReproTotal)} total$2${formatInteger(cvReproDownloads)} data-science-cv-repro-lab + ${formatInteger(sotaDownloads)} sota-agent, ${checkedAt}$3`
+  );
+  if (strongestSkill) {
+    nextSource = nextSource.replace(
+      /(\{ label: "Strongest skill", value: ")\d[\d,]* downloads(", context: ")[^"]+ public listing, \d{4}-\d{2}-\d{2}(" \},)/,
+      `$1${formatInteger(strongestSkill.downloads)} downloads$2${strongestSkill.slug} public listing, ${checkedAt}$3`
+    );
+  }
+
   if (nextSource === source) {
     throw new Error('constants.ts was not updated; expected ClawHub stats block or summary copy was not found.');
   }

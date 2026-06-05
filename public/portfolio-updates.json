@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-05T09:30:45.267Z",
+  "lastSyncedAt": "2026-06-05T09:46:43.764Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-05",
-    "syncedAt": "2026-06-05T09:30:45.267Z",
+    "syncedAt": "2026-06-05T09:46:43.764Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -677,7 +677,7 @@
         "Python code surface is visible in repository metadata",
         "Repository topics include Codex, Discord, Linkedin, Matching",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
-        "ClawHub listing cross-checked with 363 downloads as of 2026-06-05"
+        "ClawHub listing cross-checked with 352 downloads as of 2026-06-04"
       ],
       "techStack": [
         "Python",
@@ -729,13 +729,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "363",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "352",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "5",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -921,13 +921,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "286",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "275",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "3",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -968,7 +968,7 @@
         "Public GitHub API snapshot captured on 2026-06-05",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
-        "ClawHub listing cross-checked with 285 downloads as of 2026-06-05"
+        "ClawHub listing cross-checked with 273 downloads as of 2026-06-04"
       ],
       "techStack": [
         "Python",
@@ -1015,13 +1015,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "285",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "273",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "5",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -1195,13 +1195,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "659",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "646",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "9",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -1247,7 +1247,7 @@
         "Public GitHub API snapshot captured on 2026-06-05",
         "Python code surface is visible in repository metadata",
         "Repository topics include Architecture, ClawHub, Codex, Documentation",
-        "ClawHub listing cross-checked with 246 downloads as of 2026-06-05"
+        "ClawHub listing cross-checked with 235 downloads as of 2026-06-04"
       ],
       "techStack": [
         "Python",
@@ -1299,13 +1299,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "246",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "235",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "2",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -1882,13 +1882,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "689",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "676",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "14",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -2180,13 +2180,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "487",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "475",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -2285,13 +2285,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "468",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "455",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -2390,13 +2390,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "547",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "530",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "13",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
@@ -2495,13 +2495,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "462",
-          "context": "public ClawHub listing, 2026-06-05"
+          "value": "447",
+          "context": "public ClawHub listing, 2026-06-04"
         },
         {
           "label": "ClawHub versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-06-05"
+          "context": "public ClawHub listing, 2026-06-04"
         }
       ],
       "canonicalLinks": {
