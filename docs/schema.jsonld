@@ -129,7 +129,7 @@
       "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-04",
+      "dateModified": "2026-06-05",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -347,7 +347,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "16,453 tracked ClawHub downloads across 49 public skills",
+          "name": "17,031 tracked ClawHub downloads across 49 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -425,7 +425,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 16,453 tracked ClawHub downloads across 49 public skills as of 2026-06-04.",
+            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,031 tracked ClawHub downloads across 49 public skills as of 2026-06-05.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -454,6 +454,15 @@
             "@type": "Answer",
             "text": "Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project markdown pages for verification before outreach.",
             "citation": "https://zack-dev-cm.github.io/#contact"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can readers find Zakhar Pashkin paper reviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the ML Papers, Read for Builders page for source-neutral English research notes grounded in primary paper links, production tests, skepticism, and source ledgers.",
+            "citation": "https://zack-dev-cm.github.io/papers/"
           }
         }
       ]
@@ -1936,7 +1945,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Architectural Drawing and Interior Catalog Matching",
-            "description": "CV pipeline for reading architectural drawings, recognizing rooms, filling designs, and matching catalog items to each room.",
+            "description": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
             "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
@@ -1945,7 +1954,7 @@
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
             "genre": "case-study",
-            "keywords": "computer-vision, architecture, ocr, segmentation, interior-ai, retrieval, Python, OpenCV, OCR, PDF Processing, Object Detection, Segmentation, Multimodal Retrieval, 3D/CV, Visual QA",
+            "keywords": "computer-vision, architecture, ocr, catalog-matching, interior-ai, retrieval, Python, OpenCV, OCR, PDF Processing, LLM/Vision Parsing, Catalog Indexing, OpenEvolve, BOM Export, 3D/CV, Visual QA",
             "dateCreated": "2026-06-04",
             "isAccessibleForFree": true
           }

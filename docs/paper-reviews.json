@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "2026-06-05",
+  "language": "en",
+  "title": "ML Papers, Read for Builders",
+  "siteUrl": "https://zack-dev-cm.github.io/papers/",
+  "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
+  "updatedAt": "2026-06-05T08:52:51.251Z",
+  "selectionPolicy": {
+    "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
+    "sources": [
+      "arXiv cs.AI",
+      "arXiv cs.LG",
+      "arXiv cs.CV",
+      "arXiv cs.CL",
+      "arXiv cs.IR",
+      "arXiv stat.ML"
+    ],
+    "selection": "The selector favors primary papers with strong fit for agents, computer vision, retrieval, reasoning, representation learning, and deployable ML systems.",
+    "writing": "Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished."
+  },
+  "reviews": [
+    {
+      "id": "sentinelbench-a-benchmark-for-long-running-monitoring-agents-2606-05342",
+      "title": "SentinelBench: A Benchmark for Long-Running Monitoring Agents",
+      "dek": "A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.",
+      "language": "en",
+      "selectedAt": "2026-06-05T08:52:51.251Z",
+      "paperUrl": "https://arxiv.org/abs/2606.05342",
+      "pdfUrl": "https://arxiv.org/pdf/2606.05342",
+      "arxivId": "2606.05342",
+      "authors": [
+        "Matheus Kunzler Maldaner",
+        "Adam Fourney",
+        "Amanda Swearngin",
+        "Hussein Mozzanar",
+        "Gagan Bansal",
+        "Maya Murad",
+        "Rafah Hosn",
+        "Saleema Amershi"
+      ],
+      "publishedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation"
+      ],
+      "selectionScore": 218,
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
+      "whatItClaims": "SentinelBench: A Benchmark for Long-Running Monitoring Agents argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
+      "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",
+      "productionAngle": "Try to turn the method into a trace contract: every action should leave behind state, evidence, and a reason a reviewer can accept or reject.",
+      "skepticism": "This is a triage review from cs.AI, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.",
+      "readingPath": [
+        "Read the method before the benchmark table.",
+        "Find the ablation that removes the claimed mechanism.",
+        "Write one product failure case the paper should survive."
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.05342"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.05342"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
+    {
+      "id": "what-should-agents-say-action-state-communication-for-efficient-multi-agent-systems-2606-05304",
+      "title": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems",
+      "dek": "A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.",
+      "language": "en",
+      "selectedAt": "2026-06-05T08:37:15.376Z",
+      "paperUrl": "https://arxiv.org/abs/2606.05304",
+      "pdfUrl": "https://arxiv.org/pdf/2606.05304",
+      "arxivId": "2606.05304",
+      "authors": [
+        "Chen Huang",
+        "Yuhao Wu",
+        "Wenxuan Zhang"
+      ],
+      "publishedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation"
+      ],
+      "selectionScore": 222,
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
+      "whatItClaims": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
+      "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",
+      "productionAngle": "Try to turn the method into a trace contract: every action should leave behind state, evidence, and a reason a reviewer can accept or reject.",
+      "skepticism": "This is a triage review from cs.AI, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.",
+      "readingPath": [
+        "Read the method before the benchmark table.",
+        "Find the ablation that removes the claimed mechanism.",
+        "Write one product failure case the paper should survive."
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.05304"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.05304"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    }
+  ]
+}

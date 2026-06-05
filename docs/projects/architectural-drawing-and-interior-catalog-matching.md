@@ -1,46 +1,49 @@
 # Architectural Drawing and Interior Catalog Matching
 
-> CV pipeline for reading architectural drawings, recognizing rooms, filling designs, and matching catalog items to each room.
+> CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.
 
 ## Summary
-Architectural Drawing and Interior Catalog Matching extends the existing room-interior segmentation and inpainting work into building-level planning. The 2026-06-04 source review covered blueprint/floorplan notes for PDF conversion, symbol detection, structured counts with page references, and model-training interfaces, plus related notes on 3D digital replicas and object insertion from research-paper implementations. The public case study describes a privacy-safe architecture for floorplan parsing, room recognition, design filling, interior variant planning, and catalog-item matching without publishing private plans, addresses, client files, or unreleased datasets.
+Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 
 ## Key Features
-- Converts PDFs and blueprint images into model-ready page and symbol inputs
-- Detects walls, rooms, fixtures, furniture zones, and countable blueprint symbols
-- Connects recognized room types to design filling, visual variants, and catalog candidates
-- Supports building-scope planning while keeping private plans and addresses out of public assets
+- Parses PDFs, blueprint images, and elevation sheets into room graphs, dimensions, OCR labels, and catalog callouts
+- Maps visible callout codes to casework, finish, lighting, storage, and furniture catalog records with evidence notes
+- Optimizes reception and room presets against coverage, fit, style, circulation, and building-level ensemble constraints
+- Exports reviewable plan previews, commercial interior/exterior context renders, BOM CSVs, and rationale packets without exposing private source documents
 
 ## Tech Stack
 - Python
 - OpenCV
 - OCR
 - PDF Processing
-- Object Detection
-- Segmentation
-- Multimodal Retrieval
+- LLM/Vision Parsing
+- Catalog Indexing
+- OpenEvolve
+- BOM Export
 - 3D/CV
 - Visual QA
 
 ## Benchmarks & Analytics
-- Input families: 2 (PDF floorplans and blueprint/raster plan images from source review, 2026-06-04)
-- Planning scope: building-level (room recognition, design filling, and catalog matching across full plan layouts)
-- Output shape: rooms + items (structured room zones, symbol counts, page references, and catalog candidates)
-- Public posture: sanitized (no private floorplans, addresses, client drawings, or unreleased datasets published)
+- Input families: 3 (PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04)
+- Catalog flow: callouts -> items (visible drawing codes mapped to catalog records, evidence notes, and candidate pools)
+- Output artifacts: 5 (room graph, catalog mapping, layout preview, render, and BOM/rationale export)
+- Public posture: sanitized (no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published)
 
 ## Architecture Diagram
 ```mermaid
 flowchart LR
-  PDF["PDF / Blueprint"] --> Raster["Page Rasterization"]
-  Raster --> Detect["Walls + Symbols + Fixtures"]
-  Detect --> Rooms["Room Recognition"]
-  Rooms --> Design["Design Fill Variants"]
-  Rooms --> Retrieve["Catalog Retrieval"]
-  Retrieve --> Match["Room-to-Item Matching"]
-  Design --> Review["Planner Review"]
-  Match --> Review
-  Review --> Export["Structured Plan Output"]
+  Docs["PDF / Blueprint / Elevation"] --> Parse["Vision + OCR Parsing"]
+  Parse --> Rooms["Room Graph + Dimensions"]
+  Parse --> Callouts["Catalog Callouts"]
+  Callouts --> Catalog["Catalog Index + Evidence Notes"]
+  Rooms --> Constraints["Program + Circulation Constraints"]
+  Catalog --> Presets["Candidate Presets"]
+  Constraints --> Presets
+  Presets --> Render["Reception / School / Utility Preview"]
+  Presets --> QA["Fit + Style + BOM QA"]
+  Render --> Export["Rationale + BOM Bundle"]
+  QA --> Export
 ```

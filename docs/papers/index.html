@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML Papers, Read for Builders | Zakhar Pashkin</title>
+    <meta
+      name="description"
+      content="Source-neutral English ML paper reviews for builders: editor verdicts, production tests, skepticism, and primary paper source ledgers."
+    />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/papers/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ML Papers, Read for Builders" />
+    <meta
+      property="og:description"
+      content="Concise research reviews that turn ML papers into implementation judgment, release checks, and reading paths."
+    />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/papers/" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/ml-paper-review-digest-hero.webp" />
+    <meta property="og:image:alt" content="Editorial research desk with primary papers, neural diagrams, and review cards for an ML paper digest." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "ML Papers, Read for Builders",
+        "url": "https://zack-dev-cm.github.io/papers/",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Zakhar Pashkin Portfolio",
+          "url": "https://zack-dev-cm.github.io/"
+        },
+        "about": [
+          "machine learning research",
+          "AI agents",
+          "computer vision",
+          "retrieval systems",
+          "ML systems evaluation"
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --page: #05070b;
+        --surface: #0b1117;
+        --surface-2: #101820;
+        --ink: #f8fbff;
+        --muted: #a7b4c4;
+        --quiet: #748296;
+        --primary: #8bd6ff;
+        --review: #46d49d;
+        --amber: #f4b659;
+        --line: rgba(167, 180, 196, 0.22);
+        --line-strong: rgba(139, 214, 255, 0.32);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--page);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1160px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 24px 0 58px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding-bottom: 22px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #0a1016;
+        color: var(--primary);
+      }
+
+      .topbar nav,
+      .link-row,
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav-link,
+      .button {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 13px;
+        color: var(--ink);
+        text-decoration: none;
+        background: rgba(11, 17, 23, 0.72);
+        font-size: 0.92rem;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 520px;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #071018;
+      }
+
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(5, 7, 11, 0.96) 0%, rgba(5, 7, 11, 0.78) 42%, rgba(5, 7, 11, 0.18) 100%),
+          linear-gradient(0deg, rgba(5, 7, 11, 0.92) 0%, rgba(5, 7, 11, 0.08) 55%);
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        width: min(760px, 100%);
+        padding: 44px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--amber);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 4.2rem;
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 18px 0 0;
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.68;
+      }
+
+      .proof-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 18px 0 28px;
+      }
+
+      .proof {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        background: var(--surface);
+      }
+
+      .proof strong {
+        display: block;
+        font-size: 1.25rem;
+        margin-bottom: 4px;
+      }
+
+      .proof span,
+      .muted,
+      .meta {
+        color: var(--muted);
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 22px;
+        align-items: start;
+      }
+
+      .article {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .article-head {
+        padding: 30px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .article h2 {
+        margin: 0;
+        font-size: 2.25rem;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .dek {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      .article-body {
+        display: grid;
+        gap: 18px;
+        padding: 30px;
+      }
+
+      .verdict {
+        padding: 24px;
+        border-left: 4px solid var(--review);
+        background: rgba(70, 212, 157, 0.08);
+      }
+
+      .verdict p {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.28rem;
+        line-height: 1.55;
+      }
+
+      .article-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .note {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(5, 7, 11, 0.28);
+      }
+
+      .note h3,
+      .side-panel h3 {
+        margin: 0 0 10px;
+        font-size: 0.96rem;
+      }
+
+      .note p,
+      .side-panel p,
+      .side-panel li {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .reading-path {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .chip {
+        border: 1px solid rgba(139, 214, 255, 0.26);
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: var(--primary);
+        background: rgba(139, 214, 255, 0.08);
+        font-size: 0.82rem;
+      }
+
+      .source-link {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--line-strong);
+      }
+
+      .sidebar {
+        display: grid;
+        gap: 14px;
+      }
+
+      .side-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        background: var(--surface-2);
+      }
+
+      .search {
+        width: 100%;
+        min-height: 46px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #070d13;
+        color: var(--ink);
+        padding: 0 12px;
+        font: inherit;
+      }
+
+      .archive-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .archive-item {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 13px;
+        background: rgba(5, 7, 11, 0.28);
+        color: var(--ink);
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .archive-item strong {
+        display: block;
+        line-height: 1.32;
+      }
+
+      .archive-item span {
+        display: block;
+        margin-top: 6px;
+        color: var(--quiet);
+        font-size: 0.86rem;
+      }
+
+      .status {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--muted);
+      }
+
+      .footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 30px;
+        color: var(--quiet);
+        font-size: 0.92rem;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 900px) {
+        .layout,
+        .proof-strip,
+        .article-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: 470px;
+        }
+
+        h1 {
+          font-size: 3.05rem;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .shell {
+          width: min(100vw - 22px, 620px);
+          padding-top: 14px;
+        }
+
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero {
+          min-height: 520px;
+        }
+
+        .hero-copy,
+        .article-head,
+        .article-body {
+          padding: 22px;
+        }
+
+        h1 {
+          font-size: 2.44rem;
+        }
+
+        .article h2 {
+          font-size: 1.65rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/">
+          <span class="brand-mark">ZP</span>
+          <span>Zakhar Pashkin</span>
+        </a>
+        <nav aria-label="Paper page navigation">
+          <a class="nav-link" href="/">Portfolio</a>
+          <a class="nav-link" href="/docs/paper-reviews.json">JSON feed</a>
+          <a class="nav-link" href="https://arxiv.org/" rel="noopener noreferrer">arXiv</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <img src="/docs/images/ml-paper-review-digest-hero.webp" alt="Editorial research desk with ML papers and neural diagrams" />
+        <div class="hero-copy">
+          <p class="eyebrow">Research digest</p>
+          <h1>ML Papers, Read for Builders.</h1>
+          <p class="lead">
+            A source-neutral review feed for turning fresh ML papers into implementation judgment:
+            what the paper claims, what would matter in production, and what to verify before trusting it.
+          </p>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Review method summary">
+        <div class="proof">
+          <strong id="review-count">0</strong>
+          <span id="review-count-label">reviews in the feed</span>
+        </div>
+        <div class="proof">
+          <strong>Primary sources</strong>
+          <span>paper and PDF links only</span>
+        </div>
+        <div class="proof">
+          <strong>Daily refresh</strong>
+          <span>publishes when a paper clears selection</span>
+        </div>
+      </section>
+
+      <div class="layout">
+        <article id="latest-review" class="article" aria-live="polite">
+          <div class="article-head">
+            <p class="eyebrow">Latest review</p>
+            <h2>Loading latest review...</h2>
+            <p class="dek">Loading the paper review feed.</p>
+          </div>
+        </article>
+
+        <aside class="sidebar">
+          <section class="side-panel">
+            <h3>Find a review</h3>
+            <label class="sr-only" for="review-search">Search reviews</label>
+            <input id="review-search" class="search" type="search" placeholder="Search topic, title, author, arXiv id" />
+          </section>
+
+          <section class="side-panel">
+            <h3>Archive</h3>
+            <div id="archive-list" class="archive-list">
+              <p class="muted">Loading reviews...</p>
+            </div>
+          </section>
+
+          <section class="side-panel">
+            <h3>Method</h3>
+            <p>
+              The selector reads public primary research feeds, then writes an original English note.
+              It does not republish abstracts or commentary; every review keeps a source ledger.
+            </p>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="footer">
+        <span id="updated-at">Updated by scheduled refresh.</span>
+        <span>Use papers as candidates, not proof of production readiness.</span>
+      </footer>
+    </main>
+
+    <script>
+      const DATA_CANDIDATES = ['../paper-reviews.json', '/docs/paper-reviews.json', '/paper-reviews.json'];
+      const latestEl = document.getElementById('latest-review');
+      const archiveEl = document.getElementById('archive-list');
+      const countEl = document.getElementById('review-count');
+      const countLabelEl = document.getElementById('review-count-label');
+      const updatedEl = document.getElementById('updated-at');
+      const searchEl = document.getElementById('review-search');
+      let feed = null;
+      let activeReviewId = null;
+
+      const escapeHtml = (value) =>
+        String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+
+      const formatDate = (value) => {
+        if (!value) return 'date pending';
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return value.slice(0, 16);
+        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      };
+
+      const matches = (review, query) => {
+        if (!query) return true;
+        const text = [
+          review.title,
+          review.dek,
+          review.arxivId,
+          (review.authors || []).join(' '),
+          (review.tags || []).join(' '),
+          review.editorVerdict,
+          review.whatItClaims,
+          review.technicalHinge,
+          review.productionAngle,
+          review.skepticism,
+        ].join(' ').toLowerCase();
+        return text.includes(query.toLowerCase());
+      };
+
+      const renderLinks = (links) =>
+        (links || [])
+          .map((link) => `<a class="source-link" href="${escapeHtml(link.url)}" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`)
+          .join(' ');
+
+      const renderReview = (review) => {
+        const authors = (review.authors || []).slice(0, 5).join(', ');
+        const more = (review.authors || []).length > 5 ? ` and ${(review.authors || []).length - 5} more` : '';
+        const tags = (review.tags || []).map((tag) => `<span class="chip">${escapeHtml(tag)}</span>`).join('');
+        const readingPath = (review.readingPath || [])
+          .map((item) => `<li>${escapeHtml(item)}</li>`)
+          .join('');
+
+        latestEl.innerHTML = `
+          <div class="article-head">
+            <p class="eyebrow">${escapeHtml(formatDate(review.selectedAt))} / ${escapeHtml(review.arxivId)}</p>
+            <h2>${escapeHtml(review.title)}</h2>
+            <p class="dek">${escapeHtml(review.dek)}</p>
+            <p class="meta">${escapeHtml(authors)}${escapeHtml(more)}</p>
+            <div class="chips">${tags}</div>
+          </div>
+          <div class="article-body">
+            <section class="verdict">
+              <p>${escapeHtml(review.editorVerdict)}</p>
+            </section>
+            <div class="article-grid">
+              <section class="note">
+                <h3>What the paper claims</h3>
+                <p>${escapeHtml(review.whatItClaims)}</p>
+              </section>
+              <section class="note">
+                <h3>Technical hinge</h3>
+                <p>${escapeHtml(review.technicalHinge)}</p>
+              </section>
+              <section class="note">
+                <h3>Production test</h3>
+                <p>${escapeHtml(review.productionAngle)}</p>
+              </section>
+              <section class="note">
+                <h3>Skepticism</h3>
+                <p>${escapeHtml(review.skepticism)}</p>
+              </section>
+            </div>
+            <section class="note">
+              <h3>Reading path</h3>
+              <ol class="reading-path">${readingPath}</ol>
+            </section>
+            <section class="note">
+              <h3>Source ledger</h3>
+              <div class="link-row">${renderLinks(review.sourceLedger)}</div>
+            </section>
+          </div>
+        `;
+      };
+
+      const renderArchive = () => {
+        const query = searchEl.value.trim();
+        const reviews = (feed?.reviews || []).filter((review) => matches(review, query));
+        if (!reviews.length) {
+          archiveEl.innerHTML = '<p class="muted">No reviews match this search.</p>';
+          return;
+        }
+        archiveEl.innerHTML = reviews
+          .map(
+            (review) => `
+              <button class="archive-item" type="button" data-review-id="${escapeHtml(review.id)}">
+                <strong>${escapeHtml(review.title)}</strong>
+                <span>${escapeHtml(formatDate(review.selectedAt))} / ${escapeHtml((review.tags || []).slice(0, 2).join(', '))}</span>
+              </button>
+            `
+          )
+          .join('');
+        archiveEl.querySelectorAll('button[data-review-id]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const review = (feed?.reviews || []).find((item) => item.id === button.dataset.reviewId);
+            if (!review) return;
+            activeReviewId = review.id;
+            renderReview(review);
+            latestEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      };
+
+      const render = () => {
+        const reviews = feed?.reviews || [];
+        countEl.textContent = String(reviews.length);
+        countLabelEl.textContent = reviews.length === 1 ? 'review in the feed' : 'reviews in the feed';
+        updatedEl.textContent = feed?.updatedAt ? `Updated ${formatDate(feed.updatedAt)}.` : 'Updated by scheduled refresh.';
+        const active = reviews.find((review) => review.id === activeReviewId) || reviews[0];
+        if (active) {
+          activeReviewId = active.id;
+          renderReview(active);
+        } else {
+          latestEl.innerHTML = '<p class="status">No paper reviews are available yet.</p>';
+        }
+        renderArchive();
+      };
+
+      const loadFeed = async () => {
+        let lastError = null;
+        for (const url of DATA_CANDIDATES) {
+          try {
+            const response = await fetch(url, { cache: 'no-store' });
+            if (!response.ok) throw new Error(`Feed request failed: ${response.status}`);
+            feed = await response.json();
+            render();
+            return;
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        latestEl.innerHTML = `<p class="status">Unable to load the paper review feed. ${escapeHtml(lastError?.message || '')}</p>`;
+      };
+
+      searchEl.addEventListener('input', renderArchive);
+      loadFeed();
+    </script>
+  </body>
+</html>
