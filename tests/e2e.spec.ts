@@ -151,6 +151,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const projectSearch = page.getByLabel('Search projects');
   await expect(projectSearch).toBeVisible();
+  await expect(page.locator('input[type="search"]')).toHaveCount(1);
+  await expect(page.locator('#projects input[type="search"]')).toHaveCount(0);
   await expect(page.getByTestId('project-card').first().getByText('Open case study')).toBeVisible();
 
   await projectSearch.fill('session rescue');
@@ -253,6 +255,9 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
   const explorer = page.locator('#projects');
   const explorerSearch = page.getByLabel('Search projects');
   const firstProjectCard = page.getByTestId('project-card').first();
+
+  await expect(page.locator('input[type="search"]')).toHaveCount(1);
+  await expect(explorer.locator('input[type="search"]')).toHaveCount(0);
 
   const expectFirstProject = async (title: string | RegExp) => {
     await expect(explorer.locator('.empty-state')).toHaveCount(0);

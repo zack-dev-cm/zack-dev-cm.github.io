@@ -395,9 +395,9 @@ const SEARCH_STOP_WORDS = new Set([
 ]);
 
 const SMART_SEARCH_SYNONYM_GROUPS = [
-  ['architecture', 'architectural', 'blueprint', 'floorplan', 'floorplans', 'floor', 'plan', 'plans', 'room', 'rooms', 'interior', 'catalog', 'furniture', 'building'],
-  ['segment', 'segmentation', 'segmented', 'mask', 'masks', 'sam', 'segment anything', 'yolo', 'wrinkle', 'texture', 'skin', 'roi'],
-  ['ocr', 'text', 'recognition', 'line', 'word', 'crnn', 'onnx', 'document', 'meter', 'digits', 'handwriting'],
+  ['architecture', 'architectural', 'blueprint', 'floorplan', 'floorplans', 'floor', 'plan', 'plans', 'room', 'rooms', 'interior', 'catalog', 'furniture', 'building', 'casework', 'reception', 'elevation'],
+  ['segment', 'segmentation', 'segmented', 'mask', 'masks', 'sam', 'segment anything', 'yolo', 'wrinkle', 'texture', 'skin', 'roi', 'pore', 'pores'],
+  ['ocr', 'text', 'recognition', 'line', 'word', 'crnn', 'onnx', 'document', 'meter', 'digits', 'handwriting', 'api', 'serving'],
   ['jaw', 'jawline', 'face', 'facial', 'face-type', 'morphology', 'beauty', 'aesthetic', 'plastic', 'surgery', 'classifier', 'classification', 'landmarks'],
   ['multimodal', 'multi-modal', 'retrieval', 'search', 'video', 'embedding', 'embeddings', 'clip', 'keyframe', 'transcript', 'asr', 'hybrid'],
   ['inquest', 'inqi', 'binder', 'rag', 'vector', 'storage', 'project', 'reference', 'site', 'plan', 'elevation', 'qa'],
@@ -406,8 +406,62 @@ const SMART_SEARCH_SYNONYM_GROUPS = [
   ['hh', 'hh.ru', 'career', 'vacancy', 'application', 'packet', 'proposal', 'openclaw', 'submission', 'review'],
   ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
   ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
+  ['telegram', 'tg', 'tma', 'miniapp', 'mini-app', 'bot', 'bots', 'webapp', 'web-app'],
+  ['cv', 'computer vision', 'vision', 'opencv', 'pytorch', 'deep learning', 'model', 'models', 'inference'],
   ['moltbook', 'content', 'factory', 'generative', 'suno', 'midjourney', 'video', 'shorts', 'liveportrait'],
 ] as const;
+
+const SEARCH_INTENT_BOOSTS: Array<{ projectIds: readonly number[]; phrases: readonly string[]; weight?: number }> = [
+  {
+    projectIds: [77, 74, 73],
+    phrases: ['architecture', 'architectural', 'floor plan', 'floorplan', 'blueprint', 'room plan', 'catalog matching', 'casework', 'reception', 'whole building', 'elevation'],
+  },
+  {
+    projectIds: [71, 41, 63],
+    phrases: ['segment anything', 'segmentation', 'skin texture', 'wrinkle', 'wrinkles', 'pores', 'face texture', 'cosmetic analysis'],
+  },
+  {
+    projectIds: [70, 73, 74],
+    phrases: ['agentic ocr', 'ocr api', 'onnx ocr', 'fast ocr', 'line segmentation', 'word recognition', 'document recognition'],
+  },
+  {
+    projectIds: [76, 71, 63],
+    phrases: ['jaw', 'jawline', 'face type', 'face-type', 'plastic surgery', 'beauty examination', 'aesthetic review', 'facial landmarks'],
+  },
+  {
+    projectIds: [72, 74, 73],
+    phrases: ['multimodal retrieval', 'video search', 'video transcript', 'transcript embeddings', 'keyframe', 'asr', 'hybrid search'],
+  },
+  {
+    projectIds: [78, 66, 40],
+    phrases: ['inquest', 'inqi', 'binder', 'project binder', 'rag qa', 'vector storage', 'site plan', 'reference binder'],
+  },
+  {
+    projectIds: [79, 74],
+    phrases: ['comfyui', 'comfy', 'colab', 'custom model', 'custom models', 'notebook prototype', 'liveportrait', 'moviepy'],
+  },
+  {
+    projectIds: [66, 67, 78],
+    phrases: ['mcp', 'chatgpt app', 'tool calling', 'senior conservator', 'conservation agent', 'widget'],
+  },
+  {
+    projectIds: [50],
+    phrases: ['hh', 'hh.ru', 'career automation', 'application packet', 'vacancy', 'submission'],
+  },
+  {
+    projectIds: [56, 68, 15, 16, 59, 55],
+    phrases: ['chrome ai', 'built in ai', 'built-in ai', 'chrome extension', 'browser extension', 'sourcepack', 'local summaries'],
+  },
+  {
+    projectIds: [40, 31],
+    phrases: ['ai visibility', 'geo', 'seo geo', 'seo/geo', 'aeo', 'answer engine', 'llms.txt', 'schema jsonld', 'memorizer', 'crawlable'],
+    weight: 260,
+  },
+  {
+    projectIds: [40, 39, 38, 32, 31, 36, 35, 34, 33],
+    phrases: ['telegram', 'tg', 'tma', 'mini app', 'miniapp', 'bot', 'telegram app'],
+  },
+];
 
 const normalizeSearchValue = (value: string) => {
   return value
@@ -446,8 +500,9 @@ const buildSemanticQueryTerms = (query: string) => {
   for (const group of SMART_SEARCH_SYNONYM_GROUPS) {
     const isGroupMatch = group.some((entry) => {
       const normalizedEntry = normalizeSearchValue(entry);
-      if (!normalizedEntry) return false;
-      return normalized.includes(normalizedEntry) || extractSearchTerms(entry).some((term) => baseTerms.has(term));
+      const entryTerms = extractSearchTerms(entry);
+      if (!normalizedEntry || entryTerms.length === 0) return false;
+      return normalized.includes(normalizedEntry) || entryTerms.some((term) => baseTerms.has(term));
     });
     if (!isGroupMatch) continue;
     group.forEach((entry) => {
@@ -459,6 +514,30 @@ const buildSemanticQueryTerms = (query: string) => {
     normalized,
     terms: [...terms],
   };
+};
+
+const getSearchIntentBoost = (project: Project, normalizedQuery: string, queryTerms: readonly string[]) => {
+  if (!normalizedQuery) return 0;
+  const queryTermSet = new Set(queryTerms);
+  let boost = 0;
+
+  SEARCH_INTENT_BOOSTS.forEach((intent) => {
+    const projectIndex = intent.projectIds.indexOf(project.id);
+    if (projectIndex === -1) return;
+
+    const phraseMatch = intent.phrases.some((phrase) => {
+      const normalizedPhrase = normalizeSearchValue(phrase);
+      if (!normalizedPhrase) return false;
+      if (normalizedQuery.includes(normalizedPhrase)) return true;
+      const phraseTerms = extractSearchTerms(phrase);
+      return phraseTerms.length > 0 && phraseTerms.every((term) => queryTermSet.has(term));
+    });
+
+    if (!phraseMatch) return;
+    boost = Math.max(boost, (intent.weight ?? 130) - projectIndex * 18);
+  });
+
+  return boost;
 };
 
 const getWeightedProjectSearchFields = (project: Project) => [
@@ -493,10 +572,11 @@ const scoreProjectSearch = (project: Project, query: string, boostedProjectIds: 
   const { normalized, terms } = buildSemanticQueryTerms(query);
   const topicBoostIndex = boostedProjectIds.indexOf(project.id);
   const topicBoost = topicBoostIndex === -1 ? 0 : 180 - topicBoostIndex * 24;
-  if (!normalized && topicBoost === 0) return 0;
+  const intentBoost = getSearchIntentBoost(project, normalized, terms);
+  if (!normalized && topicBoost === 0 && intentBoost === 0) return 0;
 
   const matchedTerms = new Set<string>();
-  let score = topicBoost;
+  let score = topicBoost + intentBoost;
   const projectSearchText = normalizeSearchValue(getProjectSearchText(project));
 
   if (normalized && projectSearchText.includes(normalized)) {
@@ -518,7 +598,7 @@ const scoreProjectSearch = (project: Project, query: string, boostedProjectIds: 
     });
   });
 
-  if (matchedTerms.size === 0 && topicBoost === 0) return 0;
+  if (matchedTerms.size === 0 && topicBoost === 0 && intentBoost === 0) return 0;
   if (terms.length > 0) {
     score += (matchedTerms.size / terms.length) * 70;
   }
@@ -1490,9 +1570,9 @@ const App: React.FC = () => {
             title="Find the Relevant Work"
             description="Search by domain, model family, workflow, stack, client field, or hiring keyword."
           >
-            <form className="smart-search-panel" onSubmit={handleSmartSearchSubmit}>
+            <form className="smart-search-panel" role="search" onSubmit={handleSmartSearchSubmit}>
               <label className="sr-only" htmlFor="portfolio-smart-search">
-                Search portfolio projects
+                Search projects
               </label>
               <div className="smart-search-field">
                 <input
@@ -1502,6 +1582,7 @@ const App: React.FC = () => {
                   onChange={(event) => handleProjectQueryChange(event.target.value)}
                   placeholder="Try architectural drawings, Segment Anything, agentic OCR, jaw classifier, InQuest RAG..."
                   className="smart-search-field__input"
+                  aria-controls="projects"
                 />
                 <button type="submit" className="button button--primary">
                   Search
@@ -2169,24 +2250,10 @@ const App: React.FC = () => {
             id="projects"
             eyebrow="Explorer"
             title="Projects"
-            description="Search by project name, bot handle, alias, stack, or delivery surface. The User-facing filter is limited to curated user products and metric-backed launches, not every Telegram case study."
+            description="Ranked project archive with domain filters, delivery-surface filters, references, validation notes, metrics, and public signals."
           >
             <div className="explorer-panel">
               <div className="explorer-panel__controls">
-                <div className="explorer-panel__search">
-                  <label htmlFor="project-search" className="sr-only">
-                    Search projects
-                  </label>
-                  <input
-                    id="project-search"
-                    type="search"
-                    value={projectQuery}
-                    onChange={(event) => handleProjectQueryChange(event.target.value)}
-                    placeholder="Search by project, bot handle, alias, stack, workflow, or domain..."
-                    className="search-input"
-                  />
-                </div>
-
                 <div className="chip-row explorer-panel__sorts" role="group" aria-label="Project sorting">
                   <button
                     type="button"
@@ -2214,6 +2281,23 @@ const App: React.FC = () => {
                   </button>
                 </div>
               </div>
+
+              {normalizedProjectQuery && (
+                <div className="explorer-panel__active-query" aria-live="polite">
+                  <span>Query</span>
+                  <strong>{projectQuery}</strong>
+                  <button
+                    type="button"
+                    className="text-link"
+                    onClick={() => {
+                      setProjectQuery('');
+                      setSmartSearchBoostIds([]);
+                    }}
+                  >
+                    Clear
+                  </button>
+                </div>
+              )}
 
               <div className="explorer-panel__filters" role="toolbar" aria-label="Project filters">
                 {projectFilterOptions.map((filter) => (
