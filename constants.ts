@@ -19,6 +19,34 @@ const ARCHITECTURAL_CATALOG_RECEPTION_IMAGE = {
   url: `${LOCAL_IMG_BASE}/architectural-catalog-reception-preview.webp`,
   alt: "Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework"
 };
+const DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/dermaself-flutter-skin-analysis-card.webp`,
+  alt: "Generated public-safe mobile computer-vision card showing Dermaself capture, ROI gates, model runtime, and results flow without patient imagery"
+};
+const FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/face-texture-analysis-service-card.webp`,
+  alt: "Generated public-safe face texture analysis card with anonymized mesh, ROI masks, pore heatmap, and wrinkle trace overlays"
+};
+const SENIOR_CONSERVATOR_VISUAL_INSPECTION_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/senior-conservator-visual-inspection-agent-card.webp`,
+  alt: "Generated public-safe conservation visual-inspection card with object segmentation overlays, ROI crops, review gates, and report artifacts"
+};
+const FAST_OCR_ONNX_INFERENCE_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/fast-ocr-onnx-inference-card.webp`,
+  alt: "Generated OCR serving card showing anonymized document blocks, line and word segmentation, ONNX stages, and blank API response panels"
+};
+const FULL_FACE_WRINKLE_SEGMENTATION_LAB_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/full-face-wrinkle-segmentation-lab-card.webp`,
+  alt: "Generated full-face wrinkle segmentation lab card with anonymized face mesh, region masks, skeletonized traces, and QA artifact panels"
+};
+const MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/multimodal-video-search-platform-card.webp`,
+  alt: "Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels"
+};
+const COLAB_CVDL_PROTOTYPE_ARCHIVE_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/colab-cvdl-prototype-archive-card.webp`,
+  alt: "Generated CV and deep-learning prototype archive card with notebook lanes for transformers, OCR, mobile capture, video retrieval, and CLIP media work"
+};
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
@@ -1839,9 +1867,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Lines --> Overlays["Labeled Overlays + CSV"]
   Overlays --> Gate["Visual Quality Gate"]
   Gate --> Results["Async Result API"]`,
-    images: [],
-    thumbnail: "",
-    hideImages: true
+    images: [FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE],
+    thumbnail: FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE.url
   },
   {
     id: 42,
@@ -2512,9 +2539,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Runtime --> Texture["Wrinkle, Pore, Acne Signals"]
   Texture --> QA["QA Review + Promotion Decision"]
   QA --> Results["Results + Recommendations"]`,
-    images: [],
-    thumbnail: "",
-    hideImages: true,
+    images: [DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE],
+    thumbnail: DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE.url,
     createdAt: "2026-05-05"
   },
   {
@@ -2616,9 +2642,8 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Source review date", value: "2026-03-01", context: "project source review" }
     ],
     links: [],
-    images: [],
-    thumbnail: "",
-    hideImages: true,
+    images: [SENIOR_CONSERVATOR_VISUAL_INSPECTION_IMAGE],
+    thumbnail: SENIOR_CONSERVATOR_VISUAL_INSPECTION_IMAGE.url,
     createdAt: "2026-03-01"
   },
   {
@@ -2714,8 +2739,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Word --> CRNN["CRNN Text Recognition"]
   CRNN --> Response["JSON Text + Boxes"]
   Response --> Review["Timing + Debug Metadata"]`,
-    images: [SELECTED_AI_CV_EXCALIDRAW_IMAGE],
-    thumbnail: SELECTED_AI_CV_EXCALIDRAW_IMAGE.url,
+    images: [FAST_OCR_ONNX_INFERENCE_IMAGE, SELECTED_AI_CV_EXCALIDRAW_IMAGE],
+    thumbnail: FAST_OCR_ONNX_INFERENCE_IMAGE.url,
     createdAt: "2026-05-14"
   },
   {
@@ -2747,8 +2772,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Regions --> QA["QA Panel + Coverage Checks"]
   Skeleton --> QA
   QA --> Artifacts["Overlays + CSV + Events"]`,
-    images: [SELECTED_AI_CV_EXCALIDRAW_IMAGE],
-    thumbnail: SELECTED_AI_CV_EXCALIDRAW_IMAGE.url,
+    images: [FULL_FACE_WRINKLE_SEGMENTATION_LAB_IMAGE, SELECTED_AI_CV_EXCALIDRAW_IMAGE],
+    thumbnail: FULL_FACE_WRINKLE_SEGMENTATION_LAB_IMAGE.url,
     createdAt: "2026-05-14"
   },
   {
@@ -2784,10 +2809,11 @@ Operations Layer (Console, Alerts, Runbooks)`
   Index --> Rank["Hybrid Scorer"]
   Rank --> Results["Ranked Results + Review Metrics"]`,
     images: [
+      MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE,
       { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Conceptual computer vision systems map for OCR, face analysis, and video neural search" },
       SELECTED_AI_CV_EXCALIDRAW_IMAGE
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`,
+    thumbnail: MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE.url,
     createdAt: "2026-05-14"
   },
   {
@@ -2880,9 +2906,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Video --> Archive
   CLIP --> Archive
   Archive --> Agents["LLM + Recruiter Discovery"]`,
-    images: [],
-    thumbnail: "",
-    hideImages: true,
+    images: [COLAB_CVDL_PROTOTYPE_ARCHIVE_IMAGE, SELECTED_AI_CV_EXCALIDRAW_IMAGE],
+    thumbnail: COLAB_CVDL_PROTOTYPE_ARCHIVE_IMAGE.url,
     createdAt: "2026-05-14"
   },
   {
