@@ -44,7 +44,7 @@ jobs:
         run: |
           npm run stats:clawhub -- --write
           npm run sync:github -- --write
-          npm run papers:gonzo -- --write --allow-noop
+          npm run papers:review -- --write --allow-noop
 
       - name: Validate portfolio source
         run: npm run validate
