@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "2026-06-05",
+  "language": "en",
+  "title": "Daily ML Paper Reviews",
+  "siteUrl": "https://zack-dev-cm.github.io/papers/",
+  "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
+  "updatedAt": "2026-06-05T07:12:41.655Z",
+  "source": {
+    "name": "Gonzo ML",
+    "channelUrl": "https://t.me/gonzo_ML",
+    "publicMirrorUrl": "https://t.me/s/gonzo_ML",
+    "role": "public paper-discovery signal"
+  },
+  "policy": {
+    "selection": "One paper per refresh is selected from public Gonzo ML posts using recency, primary-paper availability, and fit with computer vision, agents, retrieval, reasoning, and ML systems.",
+    "writing": "Reviews are original English notes based on primary paper metadata and source links. Telegram review text is not republished or translated.",
+    "automation": "The daily GitHub Actions refresh updates this JSON feed and the static paper page without a paid backend."
+  },
+  "reviews": [
+    {
+      "id": "lattice-deduction-transformers-2605-08605",
+      "title": "Lattice Deduction Transformers",
+      "language": "en",
+      "selectedAt": "2026-06-05T07:12:41.655Z",
+      "sourceChannel": "Gonzo ML",
+      "sourceChannelUrl": "https://t.me/gonzo_ML",
+      "telegramPostUrl": "https://t.me/gonzo_ML/5475",
+      "paperUrl": "https://arxiv.org/abs/2605.08605",
+      "pdfUrl": "https://arxiv.org/pdf/2605.08605",
+      "arxivId": "2605.08605",
+      "authors": [
+        "Liam Davis",
+        "Leopold Haller",
+        "Alberto Alfarano",
+        "Mark Santolucito"
+      ],
+      "publishedAt": "2026-05-09T01:55:45Z",
+      "updatedAt": "2026-05-09T01:55:45Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.LO"
+      ],
+      "tags": [
+        "reasoning",
+        "verification",
+        "small-models",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "selectionScore": 141,
+      "selectionReason": "Selected from the latest public Gonzo ML posts because it has a primary paper link and strong fit with applied CV, agents, retrieval, reasoning, or ML systems.",
+      "oneLine": "Lattice Deduction Transformers is worth tracking for reliable reasoning systems; I would read it for the implementation constraints, not only the headline result.",
+      "review": {
+        "problem": "The paper sits in reliable reasoning systems. The practical question is whether the idea changes what a builder should measure, store, or gate before a model reaches users.",
+        "contribution": "Liam Davis, Leopold Haller, Alberto Alfarano and 1 coauthor publish in cs.LG, cs.AI, cs.LO. The authors explore a recurrent transformer design that passes latent state through lattice-style constraints, aiming to make neural reasoning behave more like auditable deduction.",
+        "whyItMatters": "For product work, the useful part is the pressure it puts on evaluation: a paper is only operationally valuable when its claim can become a test, artifact, or review step.",
+        "builderAngle": "Treat the result as a design prompt for small, inspectable reasoning modules that can be tested before a larger model is trusted.",
+        "limits": "This daily note is a triage review, not a reproduction. Treat the paper as a candidate for deeper reading until code, datasets, or independent replications are checked.",
+        "readingPlan": [
+          "Read the abstract and figures first; write down the claimed improvement before looking at examples.",
+          "Find the evaluation setup and decide whether it matches a real product failure mode.",
+          "Look for code, data, ablations, and negative cases before trusting the result."
+        ]
+      },
+      "sourceLedger": [
+        {
+          "label": "Gonzo ML channel post",
+          "url": "https://t.me/gonzo_ML/5475"
+        },
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2605.08605"
+        },
+        {
+          "label": "arXiv PDF",
+          "url": "https://arxiv.org/pdf/2605.08605"
+        },
+        {
+          "label": "Source review link from channel",
+          "url": "https://arxiviq.substack.com/p/lattice-deduction-transformers"
+        }
+      ]
+    }
+  ]
+}

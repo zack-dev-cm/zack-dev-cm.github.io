@@ -774,6 +774,7 @@ const COMMAND_NAV_ITEMS = [
   { label: 'Work', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
+  { label: 'Papers', href: '/papers/' },
   { label: 'Explore', href: '#projects' }
 ];
 

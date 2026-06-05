@@ -37,6 +37,8 @@ const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenCV, ONNX Runtime, FastAPI, OpenAI APIs, VLMs, LLMs, AI agents, evals, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
 const SENIOR_CV_RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf`;
+const PAPER_REVIEWS_URL = `${SITE_BASE}/papers/`;
+const PAPER_REVIEWS_DATA_URL = `${SITE_BASE}/docs/paper-reviews.json`;
 const LINKEDIN_URL = 'https://de.linkedin.com/in/zakhar-pashkin-a524a6163';
 const X_URL = 'https://x.com/Zackdevcv';
 const DISCOVERY_FILE_URL = `${SITE_BASE}/docs/agent-discovery.json`;
@@ -242,6 +244,12 @@ const buildAnswerTargets = (projects) => {
       answer:
         `Email ${CONTACT_EMAIL}; use the resume PDF, LinkedIn, GitHub, and public project markdown pages for verification before outreach.`,
       cite: `${SITE_BASE}/#contact`
+    },
+    {
+      question: 'Where can readers find Zakhar Pashkin paper reviews?',
+      answer:
+        'Use the Daily ML Paper Reviews page for English engineering notes selected from public Gonzo ML paper posts and grounded in primary paper links.',
+      cite: PAPER_REVIEWS_URL
     }
   ];
 };
@@ -745,6 +753,16 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
       title: 'chrome-extension-stats.json',
       url: `${SITE_BASE}/docs/chrome-extension-stats.json`,
       description: 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'
+    },
+    {
+      title: 'Daily ML Paper Reviews',
+      url: PAPER_REVIEWS_URL,
+      description: 'English daily paper review page selected from public Gonzo ML paper posts.'
+    },
+    {
+      title: 'paper-reviews.json',
+      url: PAPER_REVIEWS_DATA_URL,
+      description: 'Machine-readable daily ML paper review feed with source ledgers.'
     },
     {
       title: 'geo.txt',
@@ -1321,6 +1339,8 @@ const buildAgentDiscovery = (projects, topProjects) => {
         { label: 'Agent context', url: `${SITE_BASE}/agent-context.md`, mediaType: 'text/markdown' },
         { label: 'Structured data graph', url: `${SITE_BASE}/schema.jsonld`, mediaType: 'application/ld+json' },
         { label: 'Sitemap', url: `${SITE_BASE}/sitemap.xml`, mediaType: 'application/xml' },
+        { label: 'Daily ML paper reviews', url: PAPER_REVIEWS_URL, mediaType: 'text/html' },
+        { label: 'Paper review data feed', url: PAPER_REVIEWS_DATA_URL, mediaType: 'application/json' },
         { label: 'Resume PDF', url: RESUME_URL, mediaType: 'application/pdf' },
         { label: 'Senior CV resume PDF', url: SENIOR_CV_RESUME_URL, mediaType: 'application/pdf' }
       ],
@@ -1331,7 +1351,8 @@ const buildAgentDiscovery = (projects, topProjects) => {
           'senior computer vision engineer for AI product delivery',
           'answer engine optimization engineer with llms.txt JSON-LD references',
           'AI product engineer with public release and marketplace validation',
-          'computer vision OCR segmentation detection portfolio'
+          'computer vision OCR segmentation detection portfolio',
+          'daily English ML paper reviews from Gonzo ML'
         ],
         entityDisambiguation: {
           canonicalName: AUTHOR_NAME,
@@ -1575,6 +1596,8 @@ const buildSitemap = (projects) => {
     { loc: `${SITE_BASE}/geo.txt`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/schema.jsonld`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
     { loc: `${SITE_BASE}/docs/chrome-extension-stats.json`, lastmod: today, changefreq: 'weekly', priority: '0.5' },
+    { loc: PAPER_REVIEWS_URL, lastmod: today, changefreq: 'daily', priority: '0.6' },
+    { loc: PAPER_REVIEWS_DATA_URL, lastmod: today, changefreq: 'daily', priority: '0.4' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     { loc: SENIOR_CV_RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     ...projects.map((project) => ({

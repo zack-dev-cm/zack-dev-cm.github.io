@@ -497,6 +497,36 @@ test('project deep links open and close cleanly', async ({ page }) => {
   await expect(page).not.toHaveURL(/project=session-rescue/);
 });
 
+test('daily ML paper reviews page renders English feed with source ledgers', async ({ page }) => {
+  test.setTimeout(90_000);
+  await gotoStandalone(page, 'papers');
+
+  await expect(page).toHaveTitle(/Daily ML Paper Reviews/);
+  await expect(page.getByRole('heading', { name: /English ML paper reviews selected from Gonzo ML/i })).toBeVisible();
+  await expect(page.getByText('No channel review text is republished.')).toBeVisible();
+
+  const feedResponse = await page.request.get('/docs/paper-reviews.json');
+  expect(feedResponse.status()).toBe(200);
+  expect(feedResponse.headers()['content-type']).toMatch(/application\/json|text\/plain|octet-stream/);
+  const feed = await feedResponse.json();
+  expect(feed.language).toBe('en');
+  expect(feed.reviews.length).toBeGreaterThanOrEqual(1);
+  expect(JSON.stringify(feed)).not.toMatch(/\bN\/A\b|AQ\.Ab8RN6I55tmuy2eY0kXBTk2xsR47rdSufEw5xW1iF-zJGNSSSQ/);
+
+  const latest = feed.reviews[0];
+  await expect(page.getByRole('heading', { name: latest.title })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('link', { name: 'Gonzo ML channel post' })).toHaveAttribute('href', latest.telegramPostUrl);
+  await expect(page.getByRole('link', { name: 'Primary paper' })).toHaveAttribute('href', latest.paperUrl);
+  await expect(page.getByRole('link', { name: 'arXiv PDF' })).toHaveAttribute('href', latest.pdfUrl);
+
+  await page.getByPlaceholder(/Search topic/i).fill(latest.tags[0]);
+  await expect(page.getByRole('heading', { name: latest.title })).toBeVisible();
+
+  await expect
+    .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth))
+    .toBeLessThanOrEqual(4);
+});
+
 test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 

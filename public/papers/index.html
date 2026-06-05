@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily ML Paper Reviews | Zakhar Pashkin</title>
+    <meta
+      name="description"
+      content="Daily English ML paper reviews selected from the public Gonzo ML paper queue, rewritten as original engineering notes with primary paper links."
+    />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/papers/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Daily ML Paper Reviews" />
+    <meta
+      property="og:description"
+      content="A daily English review feed for ML papers selected from public Gonzo ML posts and checked against primary paper metadata."
+    />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/papers/" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Daily ML Paper Reviews",
+        "url": "https://zack-dev-cm.github.io/papers/",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Zakhar Pashkin Portfolio",
+          "url": "https://zack-dev-cm.github.io/"
+        },
+        "about": [
+          "machine learning papers",
+          "computer vision",
+          "AI agents",
+          "retrieval systems",
+          "ML systems"
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --page: #05070b;
+        --rail: #090d12;
+        --surface: #10161d;
+        --surface-strong: #151d25;
+        --ink: #f7fafc;
+        --muted: #94a3b8;
+        --primary: #8bd6ff;
+        --review: #40d399;
+        --metrics: #f6b44b;
+        --border: rgba(148, 163, 184, 0.24);
+        font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--page);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 26px 0 56px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0 28px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--primary);
+      }
+
+      .topbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav-link,
+      .button {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 10px 14px;
+        color: var(--ink);
+        text-decoration: none;
+        background: rgba(16, 22, 29, 0.72);
+        font-size: 0.92rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+        gap: 24px;
+        align-items: stretch;
+        padding: 34px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--rail);
+      }
+
+      .eyebrow,
+      .label {
+        margin: 0 0 10px;
+        color: var(--metrics);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 780px;
+        font-size: 3.35rem;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 18px 0 0;
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .hero-panel {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        padding: 22px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .hero-panel strong {
+        font-size: 2rem;
+      }
+
+      .hero-panel span,
+      .meta,
+      .small {
+        color: var(--muted);
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        margin: 24px 0;
+      }
+
+      .search {
+        min-height: 48px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--ink);
+        padding: 0 14px;
+        font: inherit;
+      }
+
+      .review-list {
+        display: grid;
+        gap: 18px;
+      }
+
+      .review-card {
+        display: grid;
+        gap: 18px;
+        padding: 24px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .review-card h2 {
+        margin: 0;
+        font-size: 1.72rem;
+        line-height: 1.16;
+        letter-spacing: 0;
+      }
+
+      .review-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .review-note {
+        min-height: 100%;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: rgba(5, 7, 11, 0.32);
+      }
+
+      .review-note strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--ink);
+      }
+
+      .chips,
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .chip {
+        border: 1px solid rgba(139, 214, 255, 0.24);
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: var(--primary);
+        background: rgba(139, 214, 255, 0.08);
+        font-size: 0.82rem;
+      }
+
+      .source-link {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(139, 214, 255, 0.5);
+      }
+
+      .status {
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--muted);
+      }
+
+      .footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+        margin-top: 34px;
+        color: var(--muted);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 780px) {
+        .shell {
+          width: min(100vw - 22px, 680px);
+          padding-top: 12px;
+        }
+
+        .topbar,
+        .hero,
+        .toolbar,
+        .review-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          align-items: flex-start;
+        }
+
+        h1 {
+          font-size: 2.35rem;
+        }
+
+        .hero {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/">
+          <span class="brand-mark">ZP</span>
+          <span>Zakhar Pashkin</span>
+        </a>
+        <nav aria-label="Paper page navigation">
+          <a class="nav-link" href="/">Portfolio</a>
+          <a class="nav-link" href="/docs/paper-reviews.json">JSON feed</a>
+          <a class="nav-link" href="https://t.me/gonzo_ML" rel="noopener noreferrer">Gonzo ML</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Daily research triage</p>
+          <h1>English ML paper reviews selected from Gonzo ML.</h1>
+          <p class="lead">
+            A small daily feed for papers worth turning into engineering judgment: what the paper claims,
+            why it matters for AI products, and what to check before using it in a real system.
+          </p>
+        </div>
+        <aside class="hero-panel" aria-label="Feed policy">
+          <p class="label">Policy</p>
+          <strong id="review-count">0</strong>
+          <span>reviews tracked</span>
+          <p class="small">
+            Gonzo ML is used as the public discovery signal. The notes here are original English reviews
+            grounded in primary paper links and source ledgers.
+          </p>
+        </aside>
+      </section>
+
+      <section class="toolbar" aria-label="Paper review filters">
+        <label class="sr-only" for="review-search">Search reviews</label>
+        <input id="review-search" class="search" type="search" placeholder="Search topic, title, author, tag, or arXiv id" />
+        <a class="button" href="/docs/paper-reviews.json">Open data</a>
+      </section>
+
+      <section id="reviews" class="review-list" aria-live="polite">
+        <p class="status">Loading paper reviews...</p>
+      </section>
+
+      <footer class="footer">
+        <span id="updated-at">Updated by daily GitHub Actions refresh.</span>
+        <span>No channel review text is republished.</span>
+      </footer>
+    </main>
+
+    <script>
+      const DATA_CANDIDATES = ['../paper-reviews.json', '/docs/paper-reviews.json', '/paper-reviews.json'];
+      const reviewsEl = document.getElementById('reviews');
+      const countEl = document.getElementById('review-count');
+      const updatedEl = document.getElementById('updated-at');
+      const searchEl = document.getElementById('review-search');
+      let feed = null;
+
+      const escapeHtml = (value) =>
+        String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+
+      const formatDate = (value) => {
+        if (!value) return 'Date pending';
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return value.slice(0, 10);
+        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      };
+
+      const renderLinks = (links) =>
+        (links || [])
+          .map((link) => `<a class="source-link" href="${escapeHtml(link.url)}" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`)
+          .join(' ');
+
+      const renderReview = (review) => {
+        const tags = (review.tags || []).map((tag) => `<span class="chip">${escapeHtml(tag)}</span>`).join('');
+        const authors = (review.authors || []).slice(0, 6).join(', ');
+        const moreAuthors = (review.authors || []).length > 6 ? ` and ${(review.authors || []).length - 6} more` : '';
+        const notes = [
+          ['Problem', review.review?.problem],
+          ['Contribution', review.review?.contribution],
+          ['Why it matters', review.review?.whyItMatters],
+          ['Builder angle', review.review?.builderAngle],
+          ['Limits', review.review?.limits],
+        ];
+        const noteMarkup = notes
+          .map(([label, text]) => `<div class="review-note"><strong>${escapeHtml(label)}</strong><p>${escapeHtml(text)}</p></div>`)
+          .join('');
+
+        return `
+          <article class="review-card" data-review-id="${escapeHtml(review.id)}">
+            <div>
+              <p class="eyebrow">${escapeHtml(formatDate(review.selectedAt))} / ${escapeHtml(review.arxivId)}</p>
+              <h2>${escapeHtml(review.title)}</h2>
+            </div>
+            <p>${escapeHtml(review.oneLine)}</p>
+            <p class="meta">${escapeHtml(authors)}${escapeHtml(moreAuthors)}</p>
+            <div class="chips">${tags}</div>
+            <div class="review-grid">${noteMarkup}</div>
+            <div class="links">${renderLinks(review.sourceLedger)}</div>
+          </article>
+        `;
+      };
+
+      const reviewMatches = (review, query) => {
+        if (!query) return true;
+        const haystack = [
+          review.title,
+          review.oneLine,
+          review.arxivId,
+          (review.authors || []).join(' '),
+          (review.tags || []).join(' '),
+          Object.values(review.review || {}).join(' '),
+        ]
+          .join(' ')
+          .toLowerCase();
+        return haystack.includes(query.toLowerCase());
+      };
+
+      const render = () => {
+        const reviews = (feed?.reviews || []).filter((review) => reviewMatches(review, searchEl.value.trim()));
+        countEl.textContent = String(feed?.reviews?.length || 0);
+        updatedEl.textContent = feed?.updatedAt ? `Updated ${formatDate(feed.updatedAt)}.` : 'Updated by daily GitHub Actions refresh.';
+        reviewsEl.innerHTML = reviews.length ? reviews.map(renderReview).join('') : '<p class="status">No reviews match the current search.</p>';
+      };
+
+      const loadFeed = async () => {
+        let lastError = null;
+        for (const url of DATA_CANDIDATES) {
+          try {
+            const response = await fetch(url, { cache: 'no-store' });
+            if (!response.ok) throw new Error(`Feed request failed: ${response.status}`);
+            feed = await response.json();
+            render();
+            return;
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        reviewsEl.innerHTML = `<p class="status">Unable to load the paper review feed. ${escapeHtml(lastError?.message || '')}</p>`;
+      };
+
+      searchEl.addEventListener('input', render);
+      loadFeed();
+    </script>
+  </body>
+</html>
