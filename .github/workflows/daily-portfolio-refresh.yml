@@ -61,6 +61,9 @@ jobs:
       - name: Run release security gate
         run: npm run security:gate
 
+      - name: Install Codex audit harness
+        run: python3 -m pip install "git+https://github.com/zack-dev-cm/antirot.git"
+
       - name: Run Codex public-surface audit
         run: npm run audit:codex
 
