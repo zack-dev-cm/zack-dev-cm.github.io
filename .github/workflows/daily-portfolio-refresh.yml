@@ -62,9 +62,11 @@ jobs:
         run: npm run security:gate
 
       - name: Install Codex audit harness
+        env:
+          DEV_CM_GITHUB_TOKEN: ${{ secrets.DEV_CM_GITHUB_TOKEN || github.token }}
         run: |
-          rm -rf ../antirot
-          git clone --depth 1 https://github.com/zack-dev-cm/antirot.git ../antirot
+          rm -rf ../github_stars_optimizer
+          git clone --depth 1 "https://x-access-token:${DEV_CM_GITHUB_TOKEN}@github.com/zack-dev-cm/github_stars_optimizer.git" ../github_stars_optimizer
 
       - name: Run Codex public-surface audit
         run: npm run audit:codex
