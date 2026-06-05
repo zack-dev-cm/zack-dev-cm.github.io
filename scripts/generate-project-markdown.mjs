@@ -248,7 +248,7 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'Where can readers find Zakhar Pashkin paper reviews?',
       answer:
-        'Use the Daily ML Paper Reviews page for English engineering notes selected from public Gonzo ML paper posts and grounded in primary paper links.',
+        'Use the ML Papers, Read for Builders page for source-neutral English research notes grounded in primary paper links, production tests, skepticism, and source ledgers.',
       cite: PAPER_REVIEWS_URL
     }
   ];
@@ -755,9 +755,9 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
       description: 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'
     },
     {
-      title: 'Daily ML Paper Reviews',
+      title: 'ML Papers, Read for Builders',
       url: PAPER_REVIEWS_URL,
-      description: 'English daily paper review page selected from public Gonzo ML paper posts.'
+      description: 'Source-neutral English ML paper reviews with production tests and primary source ledgers.'
     },
     {
       title: 'paper-reviews.json',
@@ -1352,7 +1352,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
           'answer engine optimization engineer with llms.txt JSON-LD references',
           'AI product engineer with public release and marketplace validation',
           'computer vision OCR segmentation detection portfolio',
-          'daily English ML paper reviews from Gonzo ML'
+          'source-neutral English ML paper reviews for builders'
         ],
         entityDisambiguation: {
           canonicalName: AUTHOR_NAME,

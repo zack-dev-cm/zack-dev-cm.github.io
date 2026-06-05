@@ -501,23 +501,25 @@ test('daily ML paper reviews page renders English feed with source ledgers', asy
   test.setTimeout(90_000);
   await gotoStandalone(page, 'papers');
 
-  await expect(page).toHaveTitle(/Daily ML Paper Reviews/);
-  await expect(page.getByRole('heading', { name: /English ML paper reviews selected from Gonzo ML/i })).toBeVisible();
-  await expect(page.getByText('No channel review text is republished.')).toBeVisible();
+  await expect(page).toHaveTitle(/ML Papers, Read for Builders/);
+  await expect(page.getByRole('heading', { name: /ML Papers, Read for Builders/i })).toBeVisible();
+  await expect(page.getByText(/Use papers as candidates, not proof of production readiness/i)).toBeVisible();
 
   const feedResponse = await page.request.get('/docs/paper-reviews.json');
   expect(feedResponse.status()).toBe(200);
   expect(feedResponse.headers()['content-type']).toMatch(/application\/json|text\/plain|octet-stream/);
   const feed = await feedResponse.json();
+  const forbiddenSourceName = ['Gon', 'zo'].join('');
+  const forbiddenSourceUrl = ['t.me/', 'gon', 'zo'].join('');
   expect(feed.language).toBe('en');
   expect(feed.reviews.length).toBeGreaterThanOrEqual(1);
-  expect(JSON.stringify(feed)).not.toMatch(/\bN\/A\b|AQ\.Ab8RN6I55tmuy2eY0kXBTk2xsR47rdSufEw5xW1iF-zJGNSSSQ/);
+  expect(JSON.stringify(feed)).not.toMatch(new RegExp(`\\bN\\/A\\b|AQ\\.Ab8RN6I55tmuy2eY0kXBTk2xsR47rdSufEw5xW1iF-zJGNSSSQ|${forbiddenSourceName}|${forbiddenSourceUrl}`, 'i'));
 
   const latest = feed.reviews[0];
   await expect(page.getByRole('heading', { name: latest.title })).toBeVisible({ timeout: 15000 });
-  await expect(page.getByRole('link', { name: 'Gonzo ML channel post' })).toHaveAttribute('href', latest.telegramPostUrl);
   await expect(page.getByRole('link', { name: 'Primary paper' })).toHaveAttribute('href', latest.paperUrl);
-  await expect(page.getByRole('link', { name: 'arXiv PDF' })).toHaveAttribute('href', latest.pdfUrl);
+  await expect(page.getByRole('link', { name: 'PDF' })).toHaveAttribute('href', latest.pdfUrl);
+  await expect(page.locator('body')).not.toContainText(new RegExp(`${forbiddenSourceName}|${forbiddenSourceUrl}`, 'i'));
 
   await page.getByPlaceholder(/Search topic/i).fill(latest.tags[0]);
   await expect(page.getByRole('heading', { name: latest.title })).toBeVisible();

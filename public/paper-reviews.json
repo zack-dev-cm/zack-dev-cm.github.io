@@ -1,84 +1,128 @@
 {
   "schemaVersion": "2026-06-05",
   "language": "en",
-  "title": "Daily ML Paper Reviews",
+  "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-06-05T07:12:41.655Z",
-  "source": {
-    "name": "Gonzo ML",
-    "channelUrl": "https://t.me/gonzo_ML",
-    "publicMirrorUrl": "https://t.me/s/gonzo_ML",
-    "role": "public paper-discovery signal"
-  },
-  "policy": {
-    "selection": "One paper per refresh is selected from public Gonzo ML posts using recency, primary-paper availability, and fit with computer vision, agents, retrieval, reasoning, and ML systems.",
-    "writing": "Reviews are original English notes based on primary paper metadata and source links. Telegram review text is not republished or translated.",
-    "automation": "The daily GitHub Actions refresh updates this JSON feed and the static paper page without a paid backend."
+  "updatedAt": "2026-06-05T08:52:51.251Z",
+  "selectionPolicy": {
+    "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
+    "sources": [
+      "arXiv cs.AI",
+      "arXiv cs.LG",
+      "arXiv cs.CV",
+      "arXiv cs.CL",
+      "arXiv cs.IR",
+      "arXiv stat.ML"
+    ],
+    "selection": "The selector favors primary papers with strong fit for agents, computer vision, retrieval, reasoning, representation learning, and deployable ML systems.",
+    "writing": "Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished."
   },
   "reviews": [
     {
-      "id": "lattice-deduction-transformers-2605-08605",
-      "title": "Lattice Deduction Transformers",
+      "id": "sentinelbench-a-benchmark-for-long-running-monitoring-agents-2606-05342",
+      "title": "SentinelBench: A Benchmark for Long-Running Monitoring Agents",
+      "dek": "A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.",
       "language": "en",
-      "selectedAt": "2026-06-05T07:12:41.655Z",
-      "sourceChannel": "Gonzo ML",
-      "sourceChannelUrl": "https://t.me/gonzo_ML",
-      "telegramPostUrl": "https://t.me/gonzo_ML/5475",
-      "paperUrl": "https://arxiv.org/abs/2605.08605",
-      "pdfUrl": "https://arxiv.org/pdf/2605.08605",
-      "arxivId": "2605.08605",
+      "selectedAt": "2026-06-05T08:52:51.251Z",
+      "paperUrl": "https://arxiv.org/abs/2606.05342",
+      "pdfUrl": "https://arxiv.org/pdf/2606.05342",
+      "arxivId": "2606.05342",
       "authors": [
-        "Liam Davis",
-        "Leopold Haller",
-        "Alberto Alfarano",
-        "Mark Santolucito"
+        "Matheus Kunzler Maldaner",
+        "Adam Fourney",
+        "Amanda Swearngin",
+        "Hussein Mozzanar",
+        "Gagan Bansal",
+        "Maya Murad",
+        "Rafah Hosn",
+        "Saleema Amershi"
       ],
-      "publishedAt": "2026-05-09T01:55:45Z",
-      "updatedAt": "2026-05-09T01:55:45Z",
+      "publishedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
       "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.LO"
-      ],
-      "tags": [
-        "reasoning",
-        "verification",
-        "small-models",
-        "cs.LG",
         "cs.AI"
       ],
-      "selectionScore": 141,
-      "selectionReason": "Selected from the latest public Gonzo ML posts because it has a primary paper link and strong fit with applied CV, agents, retrieval, reasoning, or ML systems.",
-      "oneLine": "Lattice Deduction Transformers is worth tracking for reliable reasoning systems; I would read it for the implementation constraints, not only the headline result.",
-      "review": {
-        "problem": "The paper sits in reliable reasoning systems. The practical question is whether the idea changes what a builder should measure, store, or gate before a model reaches users.",
-        "contribution": "Liam Davis, Leopold Haller, Alberto Alfarano and 1 coauthor publish in cs.LG, cs.AI, cs.LO. The authors explore a recurrent transformer design that passes latent state through lattice-style constraints, aiming to make neural reasoning behave more like auditable deduction.",
-        "whyItMatters": "For product work, the useful part is the pressure it puts on evaluation: a paper is only operationally valuable when its claim can become a test, artifact, or review step.",
-        "builderAngle": "Treat the result as a design prompt for small, inspectable reasoning modules that can be tested before a larger model is trusted.",
-        "limits": "This daily note is a triage review, not a reproduction. Treat the paper as a candidate for deeper reading until code, datasets, or independent replications are checked.",
-        "readingPlan": [
-          "Read the abstract and figures first; write down the claimed improvement before looking at examples.",
-          "Find the evaluation setup and decide whether it matches a real product failure mode.",
-          "Look for code, data, ablations, and negative cases before trusting the result."
-        ]
-      },
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation"
+      ],
+      "selectionScore": 218,
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
+      "whatItClaims": "SentinelBench: A Benchmark for Long-Running Monitoring Agents argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
+      "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",
+      "productionAngle": "Try to turn the method into a trace contract: every action should leave behind state, evidence, and a reason a reviewer can accept or reject.",
+      "skepticism": "This is a triage review from cs.AI, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.",
+      "readingPath": [
+        "Read the method before the benchmark table.",
+        "Find the ablation that removes the claimed mechanism.",
+        "Write one product failure case the paper should survive."
+      ],
       "sourceLedger": [
         {
-          "label": "Gonzo ML channel post",
-          "url": "https://t.me/gonzo_ML/5475"
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.05342"
         },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.05342"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
+    {
+      "id": "what-should-agents-say-action-state-communication-for-efficient-multi-agent-systems-2606-05304",
+      "title": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems",
+      "dek": "A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.",
+      "language": "en",
+      "selectedAt": "2026-06-05T08:37:15.376Z",
+      "paperUrl": "https://arxiv.org/abs/2606.05304",
+      "pdfUrl": "https://arxiv.org/pdf/2606.05304",
+      "arxivId": "2606.05304",
+      "authors": [
+        "Chen Huang",
+        "Yuhao Wu",
+        "Wenxuan Zhang"
+      ],
+      "publishedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Fri, 05 Jun 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation"
+      ],
+      "selectionScore": 222,
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
+      "whatItClaims": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
+      "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",
+      "productionAngle": "Try to turn the method into a trace contract: every action should leave behind state, evidence, and a reason a reviewer can accept or reject.",
+      "skepticism": "This is a triage review from cs.AI, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.",
+      "readingPath": [
+        "Read the method before the benchmark table.",
+        "Find the ablation that removes the claimed mechanism.",
+        "Write one product failure case the paper should survive."
+      ],
+      "sourceLedger": [
         {
           "label": "Primary paper",
-          "url": "https://arxiv.org/abs/2605.08605"
+          "url": "https://arxiv.org/abs/2606.05304"
         },
         {
-          "label": "arXiv PDF",
-          "url": "https://arxiv.org/pdf/2605.08605"
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.05304"
         },
         {
-          "label": "Source review link from channel",
-          "url": "https://arxiviq.substack.com/p/lattice-deduction-transformers"
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
         }
       ]
     }

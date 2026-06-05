@@ -8,7 +8,7 @@
     "stats:clawhub": "node scripts/fetch-clawhub-stats.mjs",
     "sync:github": "node scripts/sync-github-portfolio-updates.mjs",
     "sync:github:verify": "node scripts/sync-github-portfolio-updates.mjs --verify",
-    "papers:gonzo": "node scripts/update-gonzo-paper-reviews.mjs",
+    "papers:review": "node scripts/update-paper-reviews.mjs",
     "review:clawpatch": "node scripts/run-clawpatch-review.mjs",
     "review:github": "npm run sync:github:verify && npm run validate && npm run security:gate && npm run audit:codex",
     "validate": "node scripts/validate-portfolio.mjs && npm run validate:positioning",
