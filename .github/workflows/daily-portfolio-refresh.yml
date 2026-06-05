@@ -61,14 +61,6 @@ jobs:
       - name: Run release security gate
         run: npm run security:gate
 
-      - name: Install Codex audit harness
-        env:
-          DEV_CM_GITHUB_TOKEN: ${{ secrets.DEV_CM_GITHUB_TOKEN || github.token }}
-        run: |
-          rm -rf ../github_stars_optimizer
-          AUTH_HEADER="$(printf 'x-access-token:%s' "$DEV_CM_GITHUB_TOKEN" | base64 | tr -d '\n')"
-          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic ${AUTH_HEADER}" clone --depth 1 https://github.com/zack-dev-cm/github_stars_optimizer.git ../github_stars_optimizer
-
       - name: Run Codex public-surface audit
         run: npm run audit:codex
 
