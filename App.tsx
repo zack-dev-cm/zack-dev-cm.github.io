@@ -1524,35 +1524,29 @@ const App: React.FC = () => {
             id="contributed-to"
             eyebrow="Open Source"
             title="Contributed To"
-            description="Public merged pull requests into external open-source organizations and projects."
+            description="Real GitHub organizations with public PR, issue, or issue-comment evidence from my two accounts."
           >
             <div className="contribution-grid">
-              {OPEN_SOURCE_CONTRIBUTIONS.map((item) => (
-                <article key={item.repo} className="contribution-card">
-                  <div className="contribution-card__header">
-                    <div>
-                      <p className="panel__eyebrow">{item.repo}</p>
-                      <h3>{item.name}</h3>
-                    </div>
-                    <span className="contribution-card__count">
-                      {item.mergedPullRequests} merged PR{item.mergedPullRequests === 1 ? '' : 's'}
-                    </span>
-                  </div>
-                  <p>{item.contribution}</p>
-                  <div className="contribution-card__meta">
-                    <span>{item.scope}</span>
-                    <time dateTime={item.mergedAt}>Merged {item.mergedAt}</time>
-                  </div>
-                  <a
-                    className="inline-source-link"
-                    href={item.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`View merged pull request evidence for ${item.name}`}
-                  >
-                    GitHub evidence
-                  </a>
-                </article>
+              {OPEN_SOURCE_CONTRIBUTIONS.map((item, index) => (
+                <a
+                  key={item.login}
+                  className="contribution-card"
+                  href={item.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={`${item.contribution} Source: ${item.repo}`}
+                  aria-label={`View ${item.evidenceLabel.toLowerCase()} evidence for ${item.name} in ${item.repo}`}
+                >
+                  <img
+                    src={item.avatarUrl}
+                    alt={`${item.name} GitHub avatar`}
+                    className="contribution-card__avatar"
+                    loading={index < 6 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                  <span className="contribution-card__name">{item.name}</span>
+                  <span className="contribution-card__meta">{item.evidenceLabel}</span>
+                </a>
               ))}
             </div>
           </Section>

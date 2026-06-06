@@ -67,12 +67,13 @@ export interface Company {
 
 export interface OpenSourceContribution {
   name: string;
+  login: string;
+  avatarUrl: string;
   repo: string;
   contribution: string;
-  mergedAt: string;
-  mergedPullRequests: number;
+  evidenceLabel: string;
   sourceUrl: string;
-  scope: string;
+  account: 'zack-dev-cm' | 'ZackPashkin';
 }
 
 export interface SocialLinks {

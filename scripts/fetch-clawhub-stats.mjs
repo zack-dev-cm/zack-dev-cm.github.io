@@ -304,6 +304,12 @@ const updateConstantsSource = (source, stats) => {
   }
 
   if (nextSource === source) {
+    const currentStats = parseConstantsStatsFromSource(source);
+    const statsMatch =
+      JSON.stringify(normalizeForCompare(currentStats)) === JSON.stringify(normalizeForCompare(stats));
+    if (statsMatch && source.includes(summary) && source.includes(latestUpdateSummary)) {
+      return source;
+    }
     throw new Error('constants.ts was not updated; expected ClawHub stats block or summary copy was not found.');
   }
 
@@ -336,8 +342,7 @@ const parseLiteralNumber = (node) => {
   return Number(node.text);
 };
 
-const readConstantsStats = async () => {
-  const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
+const parseConstantsStatsFromSource = (sourceText) => {
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
   let statsNode = null;
   const visit = (node) => {
@@ -364,6 +369,11 @@ const readConstantsStats = async () => {
       url: parseLiteralString(getPropertyValue(element, 'url')),
       checkedAt: parseLiteralString(getPropertyValue(element, 'checkedAt'))
     }));
+};
+
+const readConstantsStats = async () => {
+  const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
+  return parseConstantsStatsFromSource(sourceText);
 };
 
 const normalizeForCompare = (stats) =>

@@ -81,30 +81,123 @@ export const COMPANIES: Company[] = [
 export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
   {
     name: "OpenClaw",
+    login: "openclaw",
+    avatarUrl: "https://avatars.githubusercontent.com/u/252820863?s=96&v=4",
     repo: "openclaw/clawpatch",
     contribution: "Fixed site crawler checks in the ClawPatch code-review workflow.",
-    mergedAt: "2026-05-22",
-    mergedPullRequests: 1,
+    evidenceLabel: "Merged PR",
     sourceUrl: "https://github.com/openclaw/clawpatch/pull/95",
-    scope: "TypeScript review automation"
+    account: "zack-dev-cm"
+  },
+  {
+    name: "OpenAI",
+    login: "openai",
+    avatarUrl: "https://avatars.githubusercontent.com/u/14957082?s=96&v=4",
+    repo: "openai/codex",
+    contribution: "Reported a Codex Desktop sidebar interaction issue.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/openai/codex/issues/22363",
+    account: "zack-dev-cm"
+  },
+  {
+    name: "Unitree Robotics",
+    login: "unitreerobotics",
+    avatarUrl: "https://avatars.githubusercontent.com/u/44998897?s=96&v=4",
+    repo: "unitreerobotics/xr_teleoperate",
+    contribution: "Opened a teleoperation documentation and runtime PR.",
+    evidenceLabel: "Open PR",
+    sourceUrl: "https://github.com/unitreerobotics/xr_teleoperate/pull/310",
+    account: "zack-dev-cm"
+  },
+  {
+    name: "Toloka",
+    login: "Toloka",
+    avatarUrl: "https://avatars.githubusercontent.com/u/76212487?s=96&v=4",
+    repo: "Toloka/toloka-kit",
+    contribution: "Reported an SDK regression around allowed_methods.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/Toloka/toloka-kit/issues/57",
+    account: "ZackPashkin"
+  },
+  {
+    name: "Xilinx",
+    login: "Xilinx",
+    avatarUrl: "https://avatars.githubusercontent.com/u/3189299?s=96&v=4",
+    repo: "Xilinx/brevitas",
+    contribution: "Reported a tutorial failure in Brevitas quantization examples.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/Xilinx/brevitas/issues/304",
+    account: "ZackPashkin"
+  },
+  {
+    name: "PyTorch",
+    login: "pytorch",
+    avatarUrl: "https://avatars.githubusercontent.com/u/21003710?s=96&v=4",
+    repo: "pytorch/pytorch",
+    contribution: "Participated in debugging a torch.load compatibility issue.",
+    evidenceLabel: "Issue comment",
+    sourceUrl: "https://github.com/pytorch/pytorch/issues/25214",
+    account: "ZackPashkin"
   },
   {
     name: "Keras",
+    login: "keras-team",
+    avatarUrl: "https://avatars.githubusercontent.com/u/34455048?s=96&v=4",
     repo: "keras-team/keras-io",
     contribution: "Updated dependencies for a public Keras documentation example.",
-    mergedAt: "2021-06-27",
-    mergedPullRequests: 1,
+    evidenceLabel: "Merged PR",
     sourceUrl: "https://github.com/keras-team/keras-io/pull/520",
-    scope: "ML documentation and notebooks"
+    account: "ZackPashkin"
   },
   {
-    name: "CompTech Winter School",
-    repo: "comptech-winter-school/who-signed",
-    contribution: "Contributed bot updates to a handwritten-signature verification service.",
-    mergedAt: "2022-02-05",
-    mergedPullRequests: 2,
-    sourceUrl: "https://github.com/comptech-winter-school/who-signed/pulls?q=is%3Apr+author%3AZackPashkin+is%3Amerged",
-    scope: "Computer-vision service tooling"
+    name: "Flutter",
+    login: "flutter",
+    avatarUrl: "https://avatars.githubusercontent.com/u/14101776?s=96&v=4",
+    repo: "flutter/flutter",
+    contribution: "Reported Flutter Gallery and plugin build breakages.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/flutter/flutter/issues/25916",
+    account: "ZackPashkin"
+  },
+  {
+    name: "TensorFlow",
+    login: "tensorflow",
+    avatarUrl: "https://avatars.githubusercontent.com/u/15658638?s=96&v=4",
+    repo: "tensorflow/tensorflow",
+    contribution: "Reported TensorFlow Lite converter documentation/runtime issues.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/tensorflow/tensorflow/issues/33502",
+    account: "ZackPashkin"
+  },
+  {
+    name: "AppTree Software",
+    login: "apptreesoftware",
+    avatarUrl: "https://avatars.githubusercontent.com/u/22401895?s=96&v=4",
+    repo: "apptreesoftware/flutter_google_map_view",
+    contribution: "Reported a nullable map receiver crash in the Flutter map view plugin.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/apptreesoftware/flutter_google_map_view/issues/136",
+    account: "ZackPashkin"
+  },
+  {
+    name: "Google Colab",
+    login: "googlecolab",
+    avatarUrl: "https://avatars.githubusercontent.com/u/33467679?s=96&v=4",
+    repo: "googlecolab/colabtools",
+    contribution: "Reported a Colab browser failure case.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/googlecolab/colabtools/issues/528",
+    account: "ZackPashkin"
+  },
+  {
+    name: "Apple",
+    login: "apple",
+    avatarUrl: "https://avatars.githubusercontent.com/u/10639145?s=96&v=4",
+    repo: "apple/coremltools",
+    contribution: "Reported Core ML Tools operation support gaps.",
+    evidenceLabel: "Issue",
+    sourceUrl: "https://github.com/apple/coremltools/issues/2085",
+    account: "zack-dev-cm"
   }
 ];
 

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-06T04:18:17.959Z",
+  "lastSyncedAt": "2026-06-06T05:00:17.379Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-06",
-    "syncedAt": "2026-06-06T04:18:17.959Z",
+    "syncedAt": "2026-06-06T05:00:17.379Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -25,6 +25,35 @@
     ]
   },
   "latestUpdates": [
+    {
+      "title": "Unitree G1 Colab Ik",
+      "description": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/unitree-g1-colab-ik"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/unitree-g1-colab-ik",
+      "repoId": 1260969567,
+      "createdAt": "2026-06-06T04:52:03Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-06",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1260969567
+    },
     {
       "title": "Random Coffee Best Fit Outreach",
       "description": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets.",
@@ -619,23 +648,70 @@
         ]
       },
       "projectId": 1207621923
-    },
+    }
+  ],
+  "projects": [
     {
-      "title": "Artifact Redactor",
-      "description": "Redact private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
+      "id": 1260969567,
+      "title": "Unitree G1 Colab Ik",
+      "description": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation",
+      "longDescription": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-06.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source references",
+        "Public GitHub API snapshot captured on 2026-06-06",
+        "Python code surface is visible in repository metadata"
+      ],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
       "links": [
         {
           "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/artifact-redactor"
-        },
-        {
-          "text": "ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/artifact-redactor"
+          "url": "https://github.com/zack-dev-cm/unitree-g1-colab-ik"
         }
       ],
-      "repoFullName": "zack-dev-cm/artifact-redactor",
-      "repoId": 1209493487,
-      "createdAt": "2026-04-30T05:18:13Z",
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Unitree G1 Colab Ik preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-06-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-06-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-06-06",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-06-06",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/unitree-g1-colab-ik"
+      },
+      "repoFullName": "zack-dev-cm/unitree-g1-colab-ik",
+      "repoId": 1260969567,
+      "createdAt": "2026-06-06T04:52:03Z",
       "review": {
         "status": "PASS",
         "checkedAt": "2026-06-06",
@@ -650,11 +726,8 @@
           "clawhub-stat-crosslink",
           "clawpatch-review-ready"
         ]
-      },
-      "projectId": 1209493487
-    }
-  ],
-  "projects": [
+      }
+    },
     {
       "id": 1219878272,
       "title": "Random Coffee Best Fit Outreach",
@@ -2406,111 +2479,6 @@
       "repoFullName": "zack-dev-cm/youtube-creator-ops",
       "repoId": 1207621923,
       "createdAt": "2026-04-30T05:18:17Z",
-      "review": {
-        "status": "PASS",
-        "checkedAt": "2026-06-06",
-        "gateVersion": 2,
-        "gates": [
-          "public-github-api-only",
-          "private-repo-default-off",
-          "safe-public-links-only",
-          "readme-code-blocks-stripped",
-          "leak-pattern-scan",
-          "instruction-bleed-scan",
-          "clawhub-stat-crosslink",
-          "clawpatch-review-ready"
-        ]
-      }
-    },
-    {
-      "id": 1209493487,
-      "title": "Artifact Redactor",
-      "description": "Redact private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them.",
-      "longDescription": "Redact private paths, secret-like strings, private URLs, and common PII from text artifacts before sharing them. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-06.",
-      "projectKind": "open-source",
-      "surfaceTags": [
-        "open-source",
-        "artifacts",
-        "openclaw",
-        "privacy",
-        "redaction",
-        "sanitization"
-      ],
-      "mobileReady": false,
-      "keyFeatures": [
-        "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-06",
-        "Python code surface is visible in repository metadata",
-        "Repository topics include Artifacts, OpenClaw, Privacy, Redaction",
-        "Public homepage or listing is linked from repository metadata",
-        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
-      ],
-      "techStack": [
-        "Python",
-        "Artifacts",
-        "OpenClaw",
-        "Privacy",
-        "Redaction",
-        "Sanitization",
-        "GitHub",
-        "Open Source"
-      ],
-      "links": [
-        {
-          "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/artifact-redactor"
-        },
-        {
-          "text": "ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/artifact-redactor"
-        }
-      ],
-      "images": [
-        {
-          "url": "images/project-placeholder.svg",
-          "alt": "Artifact Redactor preview"
-        }
-      ],
-      "thumbnail": "images/project-placeholder.svg",
-      "benchmarks": [
-        {
-          "label": "GitHub stars",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-06"
-        },
-        {
-          "label": "GitHub forks",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-06"
-        },
-        {
-          "label": "Created",
-          "value": "2026-04-13",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "Last push",
-          "value": "2026-04-30",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "ClawHub downloads",
-          "value": "465",
-          "context": "public ClawHub listing, 2026-06-06"
-        },
-        {
-          "label": "ClawHub versions",
-          "value": "8",
-          "context": "public ClawHub listing, 2026-06-06"
-        }
-      ],
-      "canonicalLinks": {
-        "github": "https://github.com/zack-dev-cm/artifact-redactor",
-        "website": "https://clawhub.ai/zack-dev-cm/artifact-redactor"
-      },
-      "repoFullName": "zack-dev-cm/artifact-redactor",
-      "repoId": 1209493487,
-      "createdAt": "2026-04-30T05:18:13Z",
       "review": {
         "status": "PASS",
         "checkedAt": "2026-06-06",

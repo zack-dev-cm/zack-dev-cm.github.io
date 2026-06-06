@@ -913,18 +913,23 @@ section[id] {
 }
 
 .contribution-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(124px, 1fr));
+  gap: 12px;
 }
 
 .contribution-card {
   display: grid;
-  align-content: start;
-  gap: 16px;
-  min-height: 260px;
-  padding: 22px;
-  border-radius: var(--radius-lg);
+  justify-items: center;
+  align-content: center;
+  gap: 8px;
+  min-height: 116px;
+  padding: 12px 10px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--line);
   background: rgba(16, 22, 29, 0.88);
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
@@ -933,52 +938,41 @@ section[id] {
   box-shadow: var(--shadow-soft);
 }
 
-.contribution-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 14px;
+.contribution-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(236, 244, 255, 0.08);
+  object-fit: cover;
 }
 
-.contribution-card h3 {
-  margin-top: 6px;
-  font-size: 1.2rem;
-  letter-spacing: 0;
-}
-
-.contribution-card p:not(.panel__eyebrow) {
-  color: var(--muted);
-  line-height: 1.62;
-}
-
-.contribution-card__count {
-  flex: 0 0 auto;
-  padding: 6px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(64, 211, 153, 0.28);
-  background: rgba(64, 211, 153, 0.1);
-  color: var(--text);
-  font-size: 0.78rem;
-  font-weight: 700;
-  white-space: nowrap;
+.contribution-card__name {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.18;
 }
 
 .contribution-card__meta {
-  display: grid;
-  gap: 7px;
+  max-width: 100%;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(64, 211, 153, 0.09);
   color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.inline-source-link {
-  width: fit-content;
-  color: var(--accent);
+  font-size: 0.68rem;
   font-weight: 700;
-  text-decoration: none;
+  line-height: 1.2;
 }
 
-.inline-source-link:hover {
-  text-decoration: underline;
+@media (max-width: 640px) {
+  .contribution-grid {
+    padding-bottom: 76px;
+  }
+
+  .contribution-card {
+    min-height: 112px;
+  }
 }
 
 .featured-grid {
@@ -2333,7 +2327,6 @@ details.compact-disclosure:not([open]) > :not(summary) {
   .pillar-grid,
   .contact-grid,
   .logo-grid,
-  .contribution-grid,
   .about-grid,
   .project-grid,
   .modal-body__grid {
@@ -2400,7 +2393,6 @@ details.compact-disclosure:not([open]) > :not(summary) {
   .domain-project-grid,
   .pillar-grid,
   .contact-grid,
-  .contribution-grid,
   .about-grid,
   .featured-grid,
   .latest-card__media-grid,
