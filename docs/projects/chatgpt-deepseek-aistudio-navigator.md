@@ -19,7 +19,7 @@ https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md
 - UI/UX
 
 ## Benchmarks & Analytics
-- Public Chrome Web Store users: 74 (Chrome Web Store detail page, 2026-06-03)
+- Public Chrome Web Store users: 73 (Chrome Web Store detail page, 2026-06-05)
 
 ## Links
 - [View on Chrome Web Store](https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en)

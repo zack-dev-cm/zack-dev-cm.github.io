@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-06-05T09:39:30.000Z",
+  "updatedAt": "2026-06-06T04:18:26.431Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -19,6 +19,59 @@
     "writing": "Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished."
   },
   "reviews": [
+    {
+      "id": "i-know-what-you-meme-even-if-it-emerged-today-understanding-evolving-memes-through-open-wo-2606-05316",
+      "title": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition",
+      "dek": "A multimodal paper to read through failure cases: what the model can verify, where it hallucinates, and what a user can inspect.",
+      "language": "en",
+      "selectedAt": "2026-06-06T04:18:26.431Z",
+      "paperUrl": "https://arxiv.org/abs/2606.05316",
+      "pdfUrl": "https://arxiv.org/pdf/2606.05316",
+      "arxivId": "2606.05316",
+      "authors": [
+        "Shanhong Liu",
+        "Rui Cao",
+        "Pai Chet Ng",
+        "De Wen Soh"
+      ],
+      "publishedAt": "Sat, 06 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Sat, 06 Jun 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI"
+      ],
+      "tags": [
+        "computer-vision",
+        "multimodal",
+        "evaluation",
+        "cs.AI"
+      ],
+      "selectionScore": 192,
+      "selectionReason": "Selected from primary ML research feeds because it is recent, source-linked, and has a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The paper matters if it changes what the system can verify about an image or video, not just what the model can caption after the fact.",
+      "whatItClaims": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition pushes on visual understanding where the important output is not a fluent caption, but a model behavior that can be inspected against the underlying scene.",
+      "technicalHinge": "The hinge is whether the method aligns visual evidence with the answer path. A model that only produces a polished answer still needs a separate gate for groundedness.",
+      "productionAngle": "Build a failure gallery before a demo gallery: occlusion, domain shift, ambiguous prompts, and outputs that look plausible but are wrong.",
+      "skepticism": "This is a triage review from cs.AI, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.",
+      "readingPath": [
+        "Read the method before the benchmark table.",
+        "Find the ablation that removes the claimed mechanism.",
+        "Write one product failure case the paper should survive."
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.05316"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.05316"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
     {
       "id": "entity-centric-world-models-interaction-aware-masking-for-causal-video-prediction-2605-15466",
       "title": "Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-05-15",
-  "generatedAt": "2026-06-05",
+  "generatedAt": "2026-06-06",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Computer Vision and AI Product Engineer",
@@ -158,7 +158,7 @@
     },
     {
       "question": "What public signals are available?",
-      "answer": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,059 tracked ClawHub downloads across 49 public skills as of 2026-06-05.",
+      "answer": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,235 tracked ClawHub downloads across 49 public skills as of 2026-06-06.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -178,7 +178,7 @@
     },
     {
       "question": "Where can readers find Zakhar Pashkin paper reviews?",
-      "answer": "The ML Papers, Read for Builders feed has 4 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction; UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning. Use the page for human reading and paper-reviews.json for machine-readable review data.",
+      "answer": "The ML Papers, Read for Builders feed has 5 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition; Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction. Use the page for human reading and paper-reviews.json for machine-readable review data.",
       "cite": "https://zack-dev-cm.github.io/papers/"
     }
   ],
@@ -256,7 +256,7 @@
         "Chrome Web Store extension launch metrics"
       ],
       "references": [
-        "17,059 tracked ClawHub downloads across 49 public skills",
+        "17,235 tracked ClawHub downloads across 49 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],
@@ -270,10 +270,21 @@
     "title": "ML Papers, Read for Builders",
     "url": "https://zack-dev-cm.github.io/papers/",
     "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-    "reviewCount": 4,
-    "updatedAt": "2026-06-05T09:39:30.000Z",
-    "summary": "The ML Papers, Read for Builders feed has 4 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction; UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning.",
+    "reviewCount": 5,
+    "updatedAt": "2026-06-06T04:18:26.431Z",
+    "summary": "The ML Papers, Read for Builders feed has 5 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition; Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction.",
     "latest": [
+      {
+        "title": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition",
+        "arxivId": "2606.05316",
+        "tags": [
+          "computer-vision",
+          "multimodal",
+          "evaluation",
+          "cs.AI"
+        ],
+        "paperUrl": "https://arxiv.org/abs/2606.05316"
+      },
       {
         "title": "Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction",
         "arxivId": "2605.15466",
@@ -307,16 +318,6 @@
           "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.05342"
-      },
-      {
-        "title": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems",
-        "arxivId": "2606.05304",
-        "tags": [
-          "agents",
-          "runtime",
-          "evaluation"
-        ],
-        "paperUrl": "https://arxiv.org/abs/2606.05304"
       }
     ]
   },
@@ -887,23 +888,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "17,059",
-              "context": "public ClawHub owner profile, 2026-06-05 across 49 skills"
+              "value": "17,235",
+              "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
             },
             {
               "label": "Tracked public skills",
               "value": "49",
-              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-05"
+              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,461 total",
-              "context": "795 data-science-cv-repro-lab + 666 sota-agent, 2026-06-05"
+              "value": "1,477 total",
+              "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
             },
             {
               "label": "Strongest skill",
-              "value": "795 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-05"
+              "value": "802 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-06"
             },
             {
               "label": "Report outputs",
@@ -989,7 +990,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -1363,23 +1364,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "17,059",
-              "context": "public ClawHub owner profile, 2026-06-05 across 49 skills"
+              "value": "17,235",
+              "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
             },
             {
               "label": "Tracked public skills",
               "value": "49",
-              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-05"
+              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,461 total",
-              "context": "795 data-science-cv-repro-lab + 666 sota-agent, 2026-06-05"
+              "value": "1,477 total",
+              "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
             },
             {
               "label": "Strongest skill",
-              "value": "795 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-05"
+              "value": "802 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-06"
             },
             {
               "label": "Report outputs",
@@ -1465,7 +1466,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -1834,8 +1835,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "133",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "130",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -1872,8 +1873,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "74",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "73",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -1911,23 +1912,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "17,059",
-              "context": "public ClawHub owner profile, 2026-06-05 across 49 skills"
+              "value": "17,235",
+              "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
             },
             {
               "label": "Tracked public skills",
               "value": "49",
-              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-05"
+              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,461 total",
-              "context": "795 data-science-cv-repro-lab + 666 sota-agent, 2026-06-05"
+              "value": "1,477 total",
+              "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
             },
             {
               "label": "Strongest skill",
-              "value": "795 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-05"
+              "value": "802 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-06"
             },
             {
               "label": "Report outputs",
@@ -2013,7 +2014,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -2371,8 +2372,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "133",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "130",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -2409,8 +2410,8 @@
           "benchmarks": [
             {
               "label": "Public Chrome Web Store users",
-              "value": "74",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "value": "73",
+              "context": "Chrome Web Store detail page, 2026-06-05"
             }
           ],
           "links": [
@@ -2514,7 +2515,7 @@
             {
               "label": "Public Chrome Web Store users",
               "value": "2",
-              "context": "Chrome Web Store detail page, 2026-06-03"
+              "context": "Chrome Web Store detail page, 2026-06-05"
             },
             {
               "label": "Chrome Web Store version",
@@ -2705,23 +2706,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "17,059",
-          "context": "public ClawHub owner profile, 2026-06-05 across 49 skills"
+          "value": "17,235",
+          "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
         },
         {
           "label": "Tracked public skills",
           "value": "49",
-          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-05"
+          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,461 total",
-          "context": "795 data-science-cv-repro-lab + 666 sota-agent, 2026-06-05"
+          "value": "1,477 total",
+          "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
         },
         {
           "label": "Strongest skill",
-          "value": "795 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-06-05"
+          "value": "802 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-06-06"
         },
         {
           "label": "Report outputs",
@@ -3321,8 +3322,8 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "133",
-          "context": "Chrome Web Store detail page, 2026-06-03"
+          "value": "130",
+          "context": "Chrome Web Store detail page, 2026-06-05"
         }
       ],
       "links": [
@@ -3359,8 +3360,8 @@
       "benchmarks": [
         {
           "label": "Public Chrome Web Store users",
-          "value": "74",
-          "context": "Chrome Web Store detail page, 2026-06-03"
+          "value": "73",
+          "context": "Chrome Web Store detail page, 2026-06-05"
         }
       ],
       "links": [
@@ -4634,23 +4635,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "17,059",
-          "context": "public ClawHub owner profile, 2026-06-05 across 49 skills"
+          "value": "17,235",
+          "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
         },
         {
           "label": "Tracked public skills",
           "value": "49",
-          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-05"
+          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,461 total",
-          "context": "795 data-science-cv-repro-lab + 666 sota-agent, 2026-06-05"
+          "value": "1,477 total",
+          "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
         },
         {
           "label": "Strongest skill",
-          "value": "795 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-06-05"
+          "value": "802 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-06-06"
         },
         {
           "label": "Report outputs",
@@ -4736,7 +4737,7 @@
         {
           "label": "Public Chrome Web Store users",
           "value": "2",
-          "context": "Chrome Web Store detail page, 2026-06-03"
+          "context": "Chrome Web Store detail page, 2026-06-05"
         },
         {
           "label": "Chrome Web Store version",
@@ -5402,7 +5403,7 @@
       "id": 68,
       "title": "SourcePack Chrome Extension Wave",
       "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
-      "summary": "Six-extension Chrome Web Store wave for local research exports, repo context packs, table extraction, YouTube transcript capture, AI chat export, and CWS competitor notes.",
+      "summary": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
       "kind": "user-product",
       "tags": [
         "browser-extension",
@@ -5414,10 +5415,10 @@
         "sourcepack suite",
         "web2csv",
         "video2source",
-        "repo2agent",
         "sourcepack hub",
-        "cws scout",
-        "chatarchive"
+        "chatarchive",
+        "browser run receipt",
+        "support packet"
       ],
       "techStack": [
         "Chrome Extension",
@@ -5431,23 +5432,23 @@
       "benchmarks": [
         {
           "label": "Current public publisher listings",
-          "value": "6",
-          "context": "Chrome Web Store publisher search and detail pages, 2026-06-03"
+          "value": "16",
+          "context": "Chrome Web Store publisher search and detail pages, 2026-06-05"
         },
         {
           "label": "Current publisher users",
-          "value": "216",
-          "context": "sum of explicitly reported Chrome Web Store detail-page users, 2026-06-03"
+          "value": "236",
+          "context": "sum of 13 explicitly reported Chrome Web Store detail-page user counts, 2026-06-05"
         },
         {
           "label": "Average rating",
           "value": "5.00",
-          "context": "4 reported Chrome Web Store ratings, 2026-06-03"
+          "context": "4 reported Chrome Web Store ratings, 2026-06-05"
         },
         {
-          "label": "New SourcePack products",
-          "value": "6",
-          "context": "Web2CSV, Video2Source, Repo2Agent, SourcePack Hub, CWS Scout, ChatArchive"
+          "label": "Visible SourcePack products",
+          "value": "4",
+          "context": "Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-05"
         }
       ],
       "links": [
@@ -5468,16 +5469,8 @@
           "url": "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh"
         },
         {
-          "label": "Repo2Agent CWS",
-          "url": "https://chromewebstore.google.com/detail/repo2agent-github-to-ai-co/hkfeiaapcdjlccinbcbibnlaapcliobd"
-        },
-        {
           "label": "SourcePack Hub CWS",
           "url": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao"
-        },
-        {
-          "label": "CWS Scout CWS",
-          "url": "https://chromewebstore.google.com/detail/cws-scout-extension-compet/ahalbgecklcboflgkloaceogjmfjckji"
         },
         {
           "label": "ChatArchive CWS",

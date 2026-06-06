@@ -33,6 +33,7 @@ const REQUIRED_SYNC_REVIEW_GATES = [
 const PUBLIC_UPDATE_BLOCK_PATTERNS = [
   ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
   ['credentialed URL', /https?:\/\/[^/\s:@]+:[^/\s@]+@/i],
+  ['N/A placeholder', /\bN\/A\b|\bn\/a\b/i],
   ['local absolute path', /(?:^|[^A-Za-z0-9_])(?:\/Users\/[A-Za-z0-9._-]+|\/home\/[A-Za-z0-9._-]+|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+)/],
   ['private URL', /https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^/\s]+\.(?:local|internal))(?:[/:?#][^\s"'<>)]*)?/i],
   ['environment file reference', /(?:^|[\\/])\.env(?:$|[._-])/i],

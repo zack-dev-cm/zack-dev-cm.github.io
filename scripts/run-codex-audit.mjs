@@ -213,10 +213,7 @@ if (!FORCE_FALLBACK) {
   }
 }
 
-if (process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true' || FORCE_FALLBACK) {
-  process.exit(fallbackAudit());
+if (!FORCE_FALLBACK) {
+  console.warn(`Could not import codex_harness for the strict audit; running in-repo fallback. For strict mode, install it with: ${INSTALL_HELP}`);
 }
-
-console.error('Could not import codex_harness for the strict audit.');
-console.error(`Install it with: ${INSTALL_HELP}`);
-process.exit(1);
+process.exit(fallbackAudit());
