@@ -134,6 +134,14 @@ const PUBLIC_DRAFT_SURFACE_PATTERNS = [
   ['hidden draft publication URL', /https?:\/\/zackpashkin\.substack\.com(?:\/|$)/i],
 ];
 
+const REQUIRED_SECURITY_HEADERS = new Map([
+  ['Content-Security-Policy', ['default-src', "object-src 'none'", "frame-ancestors 'none'", 'upgrade-insecure-requests']],
+  ['Referrer-Policy', ['strict-origin-when-cross-origin']],
+  ['Permissions-Policy', ['camera=()', 'microphone=()', 'geolocation=()']],
+  ['X-Content-Type-Options', ['nosniff']],
+  ['X-Frame-Options', ['DENY']],
+]);
+
 const errors = [];
 const CODEX_DOCS_SOURCE = 'codex-docs';
 const CODEX_DOCS_OUTPUT = 'docs/codex';
@@ -333,6 +341,67 @@ const assertHiddenPublishingSurfacesAreNotPublished = async () => {
   }
 };
 
+const assertHeaderValue = (sourceLabel, headerMap, headerName) => {
+  const value = headerMap.get(headerName);
+  if (!value) {
+    errors.push(`${sourceLabel}: missing ${headerName}`);
+    return;
+  }
+  for (const requiredFragment of REQUIRED_SECURITY_HEADERS.get(headerName) || []) {
+    if (!value.includes(requiredFragment)) {
+      errors.push(`${sourceLabel}: ${headerName} must include "${requiredFragment}"`);
+    }
+  }
+};
+
+const assertVercelSecurityHeaders = async () => {
+  const relativePath = 'vercel.json';
+  let parsed;
+  try {
+    parsed = JSON.parse(await fs.readFile(path.join(ROOT_DIR, relativePath), 'utf8'));
+  } catch (error) {
+    errors.push(`${relativePath}: could not parse Vercel configuration (${error.message})`);
+    return;
+  }
+
+  const globalHeaderRule = (parsed.headers || []).find((rule) => rule.source === '/(.*)');
+  if (!globalHeaderRule || !Array.isArray(globalHeaderRule.headers)) {
+    errors.push(`${relativePath}: missing global /(.*) header rule`);
+    return;
+  }
+
+  const headerMap = new Map(globalHeaderRule.headers.map((header) => [header.key, header.value]));
+  for (const headerName of REQUIRED_SECURITY_HEADERS.keys()) {
+    assertHeaderValue(relativePath, headerMap, headerName);
+  }
+};
+
+const assertCloudflareSecurityHeaders = async () => {
+  const relativePath = 'public/_headers';
+  let source;
+  try {
+    source = await fs.readFile(path.join(ROOT_DIR, relativePath), 'utf8');
+  } catch (error) {
+    errors.push(`${relativePath}: Cloudflare Pages header file is missing (${error.message})`);
+    return;
+  }
+
+  const rootBlockMatch = source.match(/^\/\*\n([\s\S]*?)(?:\n\n|$)/);
+  if (!rootBlockMatch) {
+    errors.push(`${relativePath}: missing /* header block`);
+    return;
+  }
+
+  const headerMap = new Map();
+  for (const line of rootBlockMatch[1].split('\n')) {
+    const match = line.trim().match(/^([^:]+):\s*(.+)$/);
+    if (match) headerMap.set(match[1], match[2]);
+  }
+  for (const headerName of REQUIRED_SECURITY_HEADERS.keys()) {
+    assertHeaderValue(relativePath, headerMap, headerName);
+  }
+};
+
 const scanPublicPdfText = async () => {
   if (SKIP_PDF_TEXT_SCAN) {
     console.warn('PDF text scan skipped because SKIP_PDF_TEXT_SCAN=true');
@@ -416,6 +485,8 @@ const main = async () => {
   await assertPublicUpdatesDoNotExposePrivateMetadata();
   await assertCodexDocsAreInSync();
   await assertHiddenPublishingSurfacesAreNotPublished();
+  await assertVercelSecurityHeaders();
+  await assertCloudflareSecurityHeaders();
   await scanPublicPdfText();
 
   if (errors.length > 0) {

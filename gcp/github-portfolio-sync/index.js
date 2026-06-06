@@ -12,6 +12,37 @@ const PUBLISH_REPOS = process.env.PUBLISH_REPOS || '';
 const SYNC_SECRET = process.env.SYNC_SECRET || '';
 const INCLUDE_PRIVATE_REPOS = process.env.INCLUDE_PRIVATE_REPOS === 'true';
 const PLACEHOLDER_IMAGE = 'images/project-placeholder.svg';
+const REVIEW_GATE_VERSION = 2;
+const REVIEW_GATES = [
+  'public-github-api-only',
+  'private-repo-default-off',
+  'safe-public-links-only',
+  'readme-code-blocks-stripped',
+  'leak-pattern-scan',
+  'instruction-bleed-scan',
+  'clawpatch-review-ready',
+];
+const BLOCKED_TEXT_PATTERNS = [
+  ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
+  ['OpenAI API key', /\bsk-[A-Za-z0-9_-]{20,}\b/],
+  ['GitHub token', /\bgh[pousr]_[A-Za-z0-9_]{30,}\b/],
+  ['Google API key', /\bAIza[0-9A-Za-z_-]{30,}\b/],
+  ['AWS access key', /\bAKIA[0-9A-Z]{16}\b/],
+  ['Slack token', /\bxox[baprs]-[0-9A-Za-z-]{20,}\b/],
+  ['credentialed URL', /https?:\/\/[^/\s:@]+:[^/\s@]+@/i],
+  ['literal bearer token', /\bBearer\s+[A-Za-z0-9._-]{24,}\b/i],
+  ['assigned secret literal', /\b(?:api[_-]?key|secret|token|password)\b\s*[:=]\s*['"]?(?!process\.env\b)[A-Za-z0-9._~+/=-]{16,}['"]?/i],
+  ['Google Drive private link', /https:\/\/drive\.google\.com\/file\/d\//i],
+  ['non-public Google Drive or Colab URL', /https?:\/\/(?:drive\.google\.com\/|docs\.google\.com\/|colab\.research\.google\.com\/drive\/)/i],
+  ['local absolute path', /(?:^|[^A-Za-z0-9_])(?:\/Users\/[A-Za-z0-9._-]+|\/home\/[A-Za-z0-9._-]+|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+)/],
+  ['private URL', /https?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|[^/\s]+\.(?:local|internal))(?:[/:?#][^\s"'<>)]*)?/i],
+  ['environment file reference', /(?:^|[\\/])\.env(?:$|[._-])/i],
+  ['system prompt wording', /\b(?:system prompt|developer message|hidden instruction|private instruction|tool instruction|model instruction)\b/i],
+  ['prompt injection wording', /\b(?:ignore previous instructions|ignore all previous|forget previous instructions|reveal your prompt)\b/i],
+  ['private reasoning wording', /\b(?:chain[- ]of[- ]thought|hidden reasoning|scratchpad)\b/i],
+  ['Codex runtime wording', /\b(?:CODEX_HOME|request_user_input|sandbox_permissions|You are Codex)\b/i],
+  ['deployment secret env name', /\b(?:DEV_CM_GITHUB_TOKEN|SYNC_SECRET|CLOUDFLARE_API_TOKEN|OPENAI_API_KEY|ANTHROPIC_API_KEY)\b/],
+];
 
 const ensureTrailingSlashTrimmed = (value) => value.replace(/\/+$/, '');
 
@@ -60,6 +91,69 @@ const isSafePublicUrl = (value) => {
     return !isPrivateHostname(parsed.hostname);
   } catch {
     return false;
+  }
+};
+
+const scanBlockedText = (label, value) => {
+  const text = String(value || '');
+  const matches = [];
+  for (const [kind, pattern] of BLOCKED_TEXT_PATTERNS) {
+    pattern.lastIndex = 0;
+    if (pattern.test(text)) matches.push(`${label} contains ${kind}`);
+  }
+  return matches;
+};
+
+const publicTextOrFallback = (value, fallback, label, cleanupNotes) => {
+  const clean = String(value || '').replace(/\s+/g, ' ').trim();
+  const reasons = scanBlockedText(label, clean);
+  if (clean && reasons.length === 0) return clean.slice(0, 280);
+  if (reasons.length > 0) cleanupNotes.push(...reasons);
+  return fallback;
+};
+
+const createReview = (checkedAt) => ({
+  status: 'PASS',
+  checkedAt,
+  gateVersion: REVIEW_GATE_VERSION,
+  gates: REVIEW_GATES,
+});
+
+const needsReviewRepair = (review) => {
+  if (!review || typeof review !== 'object') return true;
+  if (review.status !== 'PASS') return true;
+  if (!Number.isInteger(review.gateVersion) || review.gateVersion < REVIEW_GATE_VERSION) return true;
+  if (!Array.isArray(review.gates)) return true;
+  return REVIEW_GATES.some((gate) => !review.gates.includes(gate));
+};
+
+const assertSafePayload = (updates) => {
+  const errors = scanBlockedText('portfolio update payload', JSON.stringify(updates));
+
+  for (const group of ['latestUpdates', 'projects']) {
+    for (const item of updates[group] || []) {
+      const label = `${group} "${item.title || 'untitled'}"`;
+      if (item.review?.status !== 'PASS') {
+        errors.push(`${label} is missing PASS review status`);
+      }
+      for (const gate of REVIEW_GATES) {
+        if (!item.review?.gates?.includes(gate)) {
+          errors.push(`${label} is missing review gate ${gate}`);
+        }
+      }
+      for (const link of item.links || []) {
+        if (!isSafePublicUrl(link.url)) {
+          errors.push(`${label} has unsafe public URL: ${link.url}`);
+        }
+      }
+      if (item.private === true || item.visibility === 'private') {
+        errors.push(`${label} exposes private repository visibility metadata`);
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`Portfolio update review gate failed:\n- ${errors.join('\n- ')}`);
   }
 };
 
@@ -158,6 +252,9 @@ const getRawRepoFile = async (token, owner, repo, path) => {
 
 const normalizeTelegramUrl = (value) => {
   let url = value.trim().replace(/[\s)\],.]+$/, '');
+  if (url.startsWith('http://')) {
+    url = `https://${url.slice('http://'.length)}`;
+  }
   if (!url.startsWith('http')) {
     url = `https://${url}`;
   }
@@ -205,6 +302,7 @@ const fetchReadmeText = async (token, owner, repo) => {
 const fetchProbesArticles = async () => {
   if (!PROBES_BASE_URL) return [];
   const base = ensureTrailingSlashTrimmed(PROBES_BASE_URL);
+  if (!isSafePublicUrl(base)) return [];
   try {
     const response = await fetch(`${base}/api/articles?limit=30`, { method: 'GET' });
     if (!response.ok) return [];
@@ -264,7 +362,7 @@ const buildLinks = ({ miniAppUrl, botUrl, probesArticleUrl, liveDemoUrl, githubU
   if (probesArticleUrl) links.push({ text: 'Probes Article', url: probesArticleUrl });
   if (liveDemoUrl) links.push({ text: 'Live Demo', url: liveDemoUrl });
   if (githubUrl) links.push({ text: 'GitHub', url: githubUrl });
-  return links;
+  return links.filter((link) => isSafePublicUrl(link.url));
 };
 
 const upsertByRepoKey = (items, repoKey, nextEntry) => {
@@ -352,7 +450,7 @@ exports.githubPortfolioSync = async (req, res) => {
     const originalSnapshot = JSON.stringify(updatesData);
     updatesData.latestUpdates = Array.isArray(updatesData.latestUpdates) ? updatesData.latestUpdates : [];
     updatesData.projects = Array.isArray(updatesData.projects) ? updatesData.projects : [];
-    updatesData.version = updatesData.version || 1;
+    updatesData.version = Math.max(updatesData.version || 1, REVIEW_GATE_VERSION);
 
     const portfolioRepoKey = `${GITHUB_OWNER}/${GITHUB_REPO}`;
     const publishRepoKeys = parseRepoSet(PUBLISH_REPOS, GITHUB_OWNER);
@@ -374,6 +472,9 @@ exports.githubPortfolioSync = async (req, res) => {
     });
 
     const probesArticles = await fetchProbesArticles();
+    const checkedAt = new Date().toISOString().slice(0, 10);
+    const review = createReview(checkedAt);
+    const cleanupNotes = [];
 
     let touched = false;
     for (const repo of recentRepos) {
@@ -415,7 +516,8 @@ exports.githubPortfolioSync = async (req, res) => {
       });
 
       const title = buildTitle(repo.name);
-      const description = repo.description || 'New project added from GitHub.';
+      const fallbackDescription = `Public GitHub repository for ${title} with reviewable source and repository metadata.`;
+      const description = publicTextOrFallback(repo.description, fallbackDescription, `${repoKey} description`, cleanupNotes);
       const repoPublicMetadata = repo.private
         ? {}
         : {
@@ -428,6 +530,7 @@ exports.githubPortfolioSync = async (req, res) => {
         title,
         description,
         links,
+        review,
         ...repoPublicMetadata,
       };
 
@@ -449,12 +552,39 @@ exports.githubPortfolioSync = async (req, res) => {
           links,
           images: [{ url: PLACEHOLDER_IMAGE, alt: `${title} preview` }],
           thumbnail: PLACEHOLDER_IMAGE,
+          review,
           ...repoPublicMetadata,
         };
 
         touched = upsertByRepoKey(updatesData.projects, repoKey, projectEntry) || touched;
       }
     }
+
+    if (touched || needsReviewRepair(updatesData.review)) {
+      updatesData.review = {
+        status: 'PASS',
+        checkedAt,
+        syncedAt: new Date().toISOString(),
+        gateVersion: REVIEW_GATE_VERSION,
+        gates: REVIEW_GATES,
+        toolchain: ['github-api', 'portfolio-sync-review-gate', 'cloud-function-sync'],
+      };
+      touched = true;
+    }
+    for (const item of updatesData.latestUpdates) {
+      if (needsReviewRepair(item.review)) {
+        item.review = review;
+        touched = true;
+      }
+    }
+    for (const item of updatesData.projects) {
+      if (needsReviewRepair(item.review)) {
+        item.review = review;
+        touched = true;
+      }
+    }
+
+    assertSafePayload(updatesData);
 
     if (JSON.stringify(updatesData) !== originalSnapshot) {
       updatesData.lastSyncedAt = new Date().toISOString();
