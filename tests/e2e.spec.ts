@@ -247,6 +247,20 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await page.screenshot({ path: 'test-results/home.png', fullPage: false });
 });
 
+test('docs route bootstraps without duplicate manifest probe', async ({ page }) => {
+  const duplicateManifestFailures: string[] = [];
+
+  page.on('response', (response) => {
+    if (response.status() >= 400 && response.url().includes('/docs/docs/manifest.json')) {
+      duplicateManifestFailures.push(`${response.status()} ${response.url()}`);
+    }
+  });
+
+  await page.goto('/docs/', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
+  expect(duplicateManifestFailures).toEqual([]);
+});
+
 test('smart search bubbles and semantic queries surface relevant projects', async ({ page }) => {
   test.setTimeout(180_000);
   await gotoPortfolio(page);

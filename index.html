@@ -2613,8 +2613,15 @@
         return `${normalizedBase}/${normalizedPath}`;
       };
 
+      const getAssetBaseCandidates = () => {
+        const normalizedPath = window.location.pathname.replace(/\/+$/, '');
+        return normalizedPath === '/docs' || normalizedPath.startsWith('/docs/')
+          ? ['./', './docs']
+          : ['./docs', './'];
+      };
+
       const tryAssetBases = async (loader) => {
-        const bases = ['./docs', './'];
+        const bases = getAssetBaseCandidates();
         let lastError = null;
 
         for (const base of bases) {
