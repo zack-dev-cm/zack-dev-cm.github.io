@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-06T05:00:17.379Z",
+  "lastSyncedAt": "2026-06-06T08:12:46.620Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-06",
-    "syncedAt": "2026-06-06T05:00:17.379Z",
+    "syncedAt": "2026-06-06T08:12:46.620Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -36,7 +36,7 @@
       ],
       "repoFullName": "zack-dev-cm/unitree-g1-colab-ik",
       "repoId": 1260969567,
-      "createdAt": "2026-06-06T04:52:03Z",
+      "createdAt": "2026-06-06T06:03:51Z",
       "review": {
         "status": "PASS",
         "checkedAt": "2026-06-06",
@@ -664,7 +664,8 @@
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
         "Public GitHub API snapshot captured on 2026-06-06",
-        "Python code surface is visible in repository metadata"
+        "Python code surface is visible in repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
       "techStack": [
         "Python",
@@ -711,7 +712,7 @@
       },
       "repoFullName": "zack-dev-cm/unitree-g1-colab-ik",
       "repoId": 1260969567,
-      "createdAt": "2026-06-06T04:52:03Z",
+      "createdAt": "2026-06-06T06:03:51Z",
       "review": {
         "status": "PASS",
         "checkedAt": "2026-06-06",
@@ -1320,7 +1321,7 @@
         "Public GitHub API snapshot captured on 2026-06-06",
         "Python code surface is visible in repository metadata",
         "Repository topics include Architecture, ClawHub, Codex, Documentation",
-        "ClawHub listing cross-checked with 251 downloads as of 2026-06-06"
+        "ClawHub listing cross-checked with 252 downloads as of 2026-06-06"
       ],
       "techStack": [
         "Python",
@@ -1372,7 +1373,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "251",
+          "value": "252",
           "context": "public ClawHub listing, 2026-06-06"
         },
         {
@@ -2253,7 +2254,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "489",
+          "value": "490",
           "context": "public ClawHub listing, 2026-06-06"
         },
         {
@@ -2358,7 +2359,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "473",
+          "value": "474",
           "context": "public ClawHub listing, 2026-06-06"
         },
         {

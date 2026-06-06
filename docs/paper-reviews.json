@@ -42,11 +42,10 @@
       "tags": [
         "computer-vision",
         "multimodal",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 192,
-      "selectionReason": "Selected from primary ML research feeds because it is recent, source-linked, and has a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper matters if it changes what the system can verify about an image or video, not just what the model can caption after the fact.",
       "whatItClaims": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition pushes on visual understanding where the important output is not a fluent caption, but a model behavior that can be inspected against the underlying scene.",
       "technicalHinge": "The hinge is whether the method aligns visual evidence with the answer path. A model that only produces a polished answer still needs a separate gate for groundedness.",

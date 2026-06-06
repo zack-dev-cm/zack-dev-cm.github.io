@@ -349,7 +349,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "17,235 tracked ClawHub downloads across 49 public skills",
+          "name": "17,302 tracked ClawHub downloads across 50 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -427,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,235 tracked ClawHub downloads across 49 public skills as of 2026-06-06.",
+            "text": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,302 tracked ClawHub downloads across 50 public skills as of 2026-06-06.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -531,7 +531,7 @@
           "name": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition",
           "url": "https://arxiv.org/abs/2606.05316",
           "identifier": "2606.05316",
-          "keywords": "computer-vision, multimodal, evaluation, cs.AI"
+          "keywords": "computer-vision, multimodal, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
