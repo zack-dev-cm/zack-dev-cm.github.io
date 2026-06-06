@@ -9,6 +9,7 @@ import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, XSocial
 import {
   PROJECTS,
   COMPANIES,
+  OPEN_SOURCE_CONTRIBUTIONS,
   LATEST_UPDATES,
   KEY_HIGHLIGHTS,
   SOCIAL_LINKS,
@@ -1515,6 +1516,43 @@ const App: React.FC = () => {
                     decoding="async"
                   />
                 </div>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="contributed-to"
+            eyebrow="Open Source"
+            title="Contributed To"
+            description="Public merged pull requests into external open-source organizations and projects."
+          >
+            <div className="contribution-grid">
+              {OPEN_SOURCE_CONTRIBUTIONS.map((item) => (
+                <article key={item.repo} className="contribution-card">
+                  <div className="contribution-card__header">
+                    <div>
+                      <p className="panel__eyebrow">{item.repo}</p>
+                      <h3>{item.name}</h3>
+                    </div>
+                    <span className="contribution-card__count">
+                      {item.mergedPullRequests} merged PR{item.mergedPullRequests === 1 ? '' : 's'}
+                    </span>
+                  </div>
+                  <p>{item.contribution}</p>
+                  <div className="contribution-card__meta">
+                    <span>{item.scope}</span>
+                    <time dateTime={item.mergedAt}>Merged {item.mergedAt}</time>
+                  </div>
+                  <a
+                    className="inline-source-link"
+                    href={item.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View merged pull request evidence for ${item.name}`}
+                  >
+                    GitHub evidence
+                  </a>
+                </article>
               ))}
             </div>
           </Section>

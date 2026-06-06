@@ -65,6 +65,16 @@ export interface Company {
   logoUrl: string;
 }
 
+export interface OpenSourceContribution {
+  name: string;
+  repo: string;
+  contribution: string;
+  mergedAt: string;
+  mergedPullRequests: number;
+  sourceUrl: string;
+  scope: string;
+}
+
 export interface SocialLinks {
   linkedin: string;
   x: string;

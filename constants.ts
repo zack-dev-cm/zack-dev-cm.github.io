@@ -2,6 +2,7 @@ import { resolveAssetUrl } from './utils/assets';
 import type {
   Project,
   Company,
+  OpenSourceContribution,
   SocialLinks,
   AuthorInfo,
   LatestUpdate,
@@ -75,6 +76,36 @@ export const COMPANIES: Company[] = [
   { name: "CFT", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/cft.png` },
   { name: "Korona Pay", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/koronapay.svg` },
   { name: "Curv Innovation", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/curv.png` }
+];
+
+export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
+  {
+    name: "OpenClaw",
+    repo: "openclaw/clawpatch",
+    contribution: "Fixed site crawler checks in the ClawPatch code-review workflow.",
+    mergedAt: "2026-05-22",
+    mergedPullRequests: 1,
+    sourceUrl: "https://github.com/openclaw/clawpatch/pull/95",
+    scope: "TypeScript review automation"
+  },
+  {
+    name: "Keras",
+    repo: "keras-team/keras-io",
+    contribution: "Updated dependencies for a public Keras documentation example.",
+    mergedAt: "2021-06-27",
+    mergedPullRequests: 1,
+    sourceUrl: "https://github.com/keras-team/keras-io/pull/520",
+    scope: "ML documentation and notebooks"
+  },
+  {
+    name: "CompTech Winter School",
+    repo: "comptech-winter-school/who-signed",
+    contribution: "Contributed bot updates to a handwritten-signature verification service.",
+    mergedAt: "2022-02-05",
+    mergedPullRequests: 2,
+    sourceUrl: "https://github.com/comptech-winter-school/who-signed/pulls?q=is%3Apr+author%3AZackPashkin+is%3Amerged",
+    scope: "Computer-vision service tooling"
+  }
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [

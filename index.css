@@ -828,6 +828,7 @@ section[id] {
 .about-grid,
 .pillar-grid,
 .logo-grid,
+.contribution-grid,
 .featured-grid,
 .contact-grid,
 .modal-body__grid {
@@ -909,6 +910,75 @@ section[id] {
 .logo-card__image {
   max-height: 54px;
   object-fit: contain;
+}
+
+.contribution-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contribution-card {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 260px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: rgba(16, 22, 29, 0.88);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.contribution-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.contribution-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.contribution-card h3 {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.contribution-card p:not(.panel__eyebrow) {
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.contribution-card__count {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(64, 211, 153, 0.28);
+  background: rgba(64, 211, 153, 0.1);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.contribution-card__meta {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.inline-source-link {
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.inline-source-link:hover {
+  text-decoration: underline;
 }
 
 .featured-grid {
@@ -2263,6 +2333,7 @@ details.compact-disclosure:not([open]) > :not(summary) {
   .pillar-grid,
   .contact-grid,
   .logo-grid,
+  .contribution-grid,
   .about-grid,
   .project-grid,
   .modal-body__grid {
@@ -2329,6 +2400,7 @@ details.compact-disclosure:not([open]) > :not(summary) {
   .domain-project-grid,
   .pillar-grid,
   .contact-grid,
+  .contribution-grid,
   .about-grid,
   .featured-grid,
   .latest-card__media-grid,
