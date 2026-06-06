@@ -913,17 +913,17 @@ section[id] {
 }
 
 .contribution-grid {
-  grid-template-columns: repeat(auto-fit, minmax(124px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+  gap: 10px;
 }
 
 .contribution-card {
   display: grid;
   justify-items: center;
   align-content: center;
-  gap: 8px;
-  min-height: 116px;
-  padding: 12px 10px;
+  gap: 7px;
+  min-height: 90px;
+  padding: 10px 8px;
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
   background: rgba(16, 22, 29, 0.88);
@@ -939,8 +939,8 @@ section[id] {
 }
 
 .contribution-card__avatar {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
   background: rgba(236, 244, 255, 0.08);
   object-fit: cover;
@@ -954,24 +954,13 @@ section[id] {
   line-height: 1.18;
 }
 
-.contribution-card__meta {
-  max-width: 100%;
-  padding: 3px 7px;
-  border-radius: 999px;
-  background: rgba(64, 211, 153, 0.09);
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
 @media (max-width: 640px) {
   .contribution-grid {
     padding-bottom: 76px;
   }
 
   .contribution-card {
-    min-height: 112px;
+    min-height: 88px;
   }
 }
 

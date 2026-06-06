@@ -1,5 +1,5 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
-import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS } from '../constants';
+import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, OPEN_SOURCE_CONTRIBUTIONS } from '../constants';
 
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
 const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
@@ -121,6 +121,15 @@ test('homepage renders core sections and project discovery controls', async ({ p
   expect(logoCount).toBeGreaterThan(0);
   for (let i = 0; i < Math.min(3, logoCount); i += 1) {
     await expectImageLoaded(logoImages.nth(i), `logo ${i + 1}`);
+  }
+
+  const contributedSection = page.locator('#contributed-to');
+  await expect(contributedSection.getByRole('heading', { name: 'Contributed To' })).toBeVisible();
+  await expect(contributedSection.getByRole('link')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
+  await expect(contributedSection.getByText(/Merged PR|Open PR|Issue comment|Issue/)).toHaveCount(0);
+  await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
+  for (const contribution of OPEN_SOURCE_CONTRIBUTIONS) {
+    await expect(contributedSection.getByRole('link', { name: contribution.name })).toBeVisible();
   }
 
   const projectImages = page.locator('#projects img');

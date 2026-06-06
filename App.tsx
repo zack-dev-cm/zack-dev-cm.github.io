@@ -1524,7 +1524,6 @@ const App: React.FC = () => {
             id="contributed-to"
             eyebrow="Open Source"
             title="Contributed To"
-            description="Real GitHub organizations with public PR, issue, or issue-comment evidence from my two accounts."
           >
             <div className="contribution-grid">
               {OPEN_SOURCE_CONTRIBUTIONS.map((item, index) => (
@@ -1534,18 +1533,16 @@ const App: React.FC = () => {
                   href={item.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
-                  title={`${item.contribution} Source: ${item.repo}`}
-                  aria-label={`View ${item.evidenceLabel.toLowerCase()} evidence for ${item.name} in ${item.repo}`}
+                  title={item.name}
                 >
                   <img
                     src={item.avatarUrl}
-                    alt={`${item.name} GitHub avatar`}
+                    alt=""
                     className="contribution-card__avatar"
                     loading={index < 6 ? 'eager' : 'lazy'}
                     decoding="async"
                   />
                   <span className="contribution-card__name">{item.name}</span>
-                  <span className="contribution-card__meta">{item.evidenceLabel}</span>
                 </a>
               ))}
             </div>
