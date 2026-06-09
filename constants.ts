@@ -24,6 +24,10 @@ const DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE = {
   url: `${LOCAL_IMG_BASE}/dermaself-flutter-skin-analysis-card.webp`,
   alt: "Generated public-safe mobile computer-vision card showing Dermaself capture, ROI gates, model runtime, and results flow without patient imagery"
 };
+const CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/clearml-dermaself-experiment-tracking-card.png`,
+  alt: "Public-safe MLOps card showing Dermaself ClearML experiment tracking with datasets, parameters, metrics, artifacts, QA gates, and promotion boundaries"
+};
 const FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE = {
   url: `${LOCAL_IMG_BASE}/face-texture-analysis-service-card.webp`,
   alt: "Generated public-safe face texture analysis card with anonymized mesh, ROI masks, pore heatmap, and wrinkle trace overlays"
@@ -203,8 +207,8 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping computer vision, ML, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
-  "79 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "18,163 tracked ClawHub downloads across 50 public skills as of 2026-06-09, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
+  "80 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -279,7 +283,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 533,
+    downloads: 534,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
@@ -324,7 +328,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 481,
+    downloads: 482,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
@@ -567,7 +571,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "gstack-review-stack",
     displayName: "GStack Review Stack",
-    downloads: 248,
+    downloads: 249,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/gstack-review-stack",
@@ -576,7 +580,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "ai-video-scene-director",
     displayName: "AI Video Scene Director",
-    downloads: 242,
+    downloads: 243,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/ai-video-scene-director",
@@ -594,7 +598,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "doubt-driven-development",
     displayName: "Doubt Driven Development",
-    downloads: 229,
+    downloads: 230,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
@@ -612,10 +616,19 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "proof-card-forge",
     displayName: "Signal Card Forge",
-    downloads: 225,
+    downloads: 227,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/proof-card-forge",
+    checkedAt: "2026-06-09"
+  },
+  {
+    slug: "skill-install-bridge",
+    displayName: "Skill Install Bridge",
+    downloads: 222,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
     checkedAt: "2026-06-09"
   },
   {
@@ -625,15 +638,6 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
-    checkedAt: "2026-06-09"
-  },
-  {
-    slug: "skill-install-bridge",
-    displayName: "Skill Install Bridge",
-    downloads: 221,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
     checkedAt: "2026-06-09"
   },
   {
@@ -666,7 +670,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "unitree-hermes-colab",
     displayName: "Unitree Hermes Colab",
-    downloads: 73,
+    downloads: 74,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab",
@@ -896,6 +900,15 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     createdAt: "2026-06-04"
   },
   {
+    title: "ClearML Experiment Tracking for Dermaself",
+    description: "Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=clearml-experiment-tracking-for-dermaself" }
+    ],
+    projectId: 80,
+    createdAt: "2026-06-09"
+  },
+  {
     title: "Calorio June Admin Metrics Updated",
     description: "Updated aggregate Calorio metrics from the 2026-06-03 12:00 UTC admin report: 1,713 Telegram users, 28 daily / 109 weekly / 375 monthly active users, 77 rolling-24h logs, 8 Mini App users, and 555,392 OpenAI tokens / $1.14; user-level identifiers and support contents stay out of public files.",
     links: [
@@ -939,7 +952,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 18,163 downloads across 50 public skills on 2026-06-09 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
+    description: "Updated the public ClawHub tracker to 18,172 downloads across 50 public skills on 2026-06-09 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -1183,7 +1196,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "HH OpenClaw Agent",
-    description: "New open-source release: a public OpenClaw skill for reviewed hh.ru application packets, logged browser execution, approval gates, and submission reports.",
+    description: "HH OpenClaw Agent skill entry retained by name only.",
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent" },
@@ -2422,7 +2435,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "18,163", context: "public ClawHub owner profile, 2026-06-09 across 50 skills" },
+      { label: "Tracked ClawHub downloads", value: "18,172", context: "public ClawHub owner profile, 2026-06-09 across 50 skills" },
       { label: "Tracked public skills", value: "50", context: "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-09" },
       { label: "CV Repro Lab downloads", value: "1,516 total", context: "829 data-science-cv-repro-lab + 687 sota-agent, 2026-06-09" },
       { label: "Strongest skill", value: "829 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-09" },
@@ -2779,6 +2792,41 @@ Operations Layer (Console, Alerts, Runbooks)`
     images: [DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE],
     thumbnail: DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE.url,
     createdAt: "2026-05-05"
+  },
+  {
+    id: 80,
+    title: "ClearML Experiment Tracking for Dermaself",
+    aliases: ["clearml dermaself", "dermaself mlops", "skin analysis experiment tracking", "clear ml"],
+    description: "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+    longDescription: "ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on setting up ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions around the same public-safe Dermaself CV pipeline. It deliberately avoids publishing raw skin images, private datasets, model weights, ClearML server URLs, or user-level records.",
+    projectKind: "case-study",
+    surfaceTags: ["computer-vision", "mlops", "experiment-tracking", "clearml", "health-ai"],
+    keyFeatures: [
+      "Sets up ClearML experiment tracking for Dermaself model runs without exposing private workspaces",
+      "Keeps datasets, parameters, metrics, artifacts, and promotion decisions reviewable across CV iterations",
+      "Separates debug or overfit experiment notes from release-ready mobile and server claims",
+      "Keeps raw skin images, private datasets, model weights, and ClearML server URLs out of public portfolio files"
+    ],
+    techStack: ["ClearML", "Python", "PyTorch", "ONNX", "TFLite", "Flutter", "Computer Vision", "MLOps", "Experiment Tracking"],
+    benchmarks: [
+      { label: "Tracking stack", value: "ClearML", context: "Dermaself MLOps setup added to public portfolio scope, 2026-06-09" },
+      { label: "Tracked surfaces", value: "5", context: "dataset, parameters, metrics, artifacts, and promotion decisions" },
+      { label: "Public posture", value: "sanitized", context: "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs" },
+      { label: "Promotion boundary", value: "review-gated", context: "debug experiments stay separate from release-ready mobile/server claims" }
+    ],
+    links: [],
+    mermaidDiagram: `flowchart LR
+  Data["Dermaself CV Dataset"] --> Runs["Model Training Runs"]
+  Runs --> ClearML["ClearML Tracking"]
+  ClearML --> Metrics["Metrics + Parameters"]
+  ClearML --> Artifacts["Artifacts + Model Candidates"]
+  Metrics --> Review["QA Review Gate"]
+  Artifacts --> Review
+  Review --> Promote["Mobile / Server Promotion Decision"]
+  Review --> Public["Public Sanitization Boundary"]`,
+    images: [CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE],
+    thumbnail: CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE.url,
+    createdAt: "2026-06-09"
   },
   {
     id: 64,
@@ -3375,22 +3423,18 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 50,
     title: "HH OpenClaw Agent",
-    description: "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
-    longDescription: "HH OpenClaw Agent is a small public OpenClaw skill for hh.ru application work through OpenClaw. It creates a machine-readable packet for one vacancy response flow, logs the live browser steps with artifacts, validates the resulting bundle, and renders a markdown report for review, debugging, or funnel tracking. The public workflow requires an approved review state before submit and treats login, CAPTCHA, passkey, and 2FA as operator-owned interruptions.",
+    description: "HH OpenClaw Agent skill entry retained by name only.",
+    longDescription: "HH OpenClaw Agent skill entry retained by name only.",
     keyFeatures: [
-      "Creates one machine-readable application packet with vacancy details, cover letter content, review state, and blocked actions",
-      "Appends artifact-backed browser steps with status, effect, artifacts, issue keys, and optional outcome URL",
-      "Checks approval state, failed-step detail, screenshot coverage, and unsafe absolute artifact paths before the bundle is shared",
-      "Renders a concise markdown report for job-funnel review, debugging, and operator handoff"
+      "Skill name retained only",
+      "Public listing links retained for source continuity"
     ],
-    techStack: ["ClawHub", "Python", "hh.ru", "OpenClaw Skills", "Career Automation"],
+    techStack: ["ClawHub", "Python", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "455", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "487", context: "public ClawHub listing, 2026-06-09" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-06-09" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
-      { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
-      { label: "Approval gate", value: "required", context: "review must be approved before submit" },
-      { label: "Validation posture", value: "release-checked", context: "smoke test + publish-guard audit" }
+      { label: "Public posture", value: "name-only", context: "portfolio copy intentionally keeps only the skill name" }
     ],
     links: [
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/hh-openclaw-agent" },

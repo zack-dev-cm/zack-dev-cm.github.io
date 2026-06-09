@@ -330,9 +330,9 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
       expected: 'CollectionsAI ChatGPT App',
     },
     {
-      label: 'HH automation',
-      query: 'hh.ru OpenClaw application packet career automation',
-      expected: 'HH OpenClaw Agent',
+      label: 'ClearML / MLOps',
+      query: 'ClearML Dermaself experiment tracking MLOps metrics promotion gates',
+      expected: 'ClearML Experiment Tracking for Dermaself',
     },
     {
       label: 'VLM / LLM agents',

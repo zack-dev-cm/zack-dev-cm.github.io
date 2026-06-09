@@ -68,8 +68,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   },
 };
 
-const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
-const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 72, 70, 77, 76, 71, 74, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 50, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
+const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
+const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
 const LOW_PRIORITY_AI_SURFACE_IDS = new Set<number>([68, 64, 62, 60, 61, 46, 47, 48, 49, 50, 51, 52, 57, 58, 31, 30, 39, 38, 36, 23, 24, 27, 3, 11, 43, 69, 75]);
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 24;
 
@@ -406,7 +406,7 @@ const SMART_SEARCH_SYNONYM_GROUPS = [
   ['inquest', 'inqi', 'binder', 'rag', 'vector', 'storage', 'project', 'reference', 'site', 'plan', 'elevation', 'qa'],
   ['comfy', 'comfyui', 'colab', 'notebook', 'notebooks', 'prototype', 'custom', 'model', 'models', 'workflow', 'workflows', 'liveportrait', 'moviepy', 'ffmpeg'],
   ['mcp', 'chatgpt', 'tool', 'tools', 'widget', 'widgets', 'app', 'apps', 'agent', 'agents', 'tool-calling', 'conservation'],
-  ['hh', 'hh.ru', 'career', 'vacancy', 'application', 'packet', 'proposal', 'openclaw', 'submission', 'review'],
+  ['clearml', 'clear ml', 'mlops', 'experiment', 'experiments', 'tracking', 'metrics', 'promotion', 'dermaself'],
   ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
   ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
   ['telegram', 'tg', 'tma', 'miniapp', 'mini-app', 'bot', 'bots', 'webapp', 'web-app'],
@@ -448,8 +448,8 @@ const SEARCH_INTENT_BOOSTS: Array<{ projectIds: readonly number[]; phrases: read
     phrases: ['mcp', 'chatgpt app', 'tool calling', 'senior conservator', 'conservation agent', 'widget'],
   },
   {
-    projectIds: [50],
-    phrases: ['hh', 'hh.ru', 'career automation', 'application packet', 'vacancy', 'submission'],
+    projectIds: [80, 63],
+    phrases: ['clearml', 'clear ml', 'mlops', 'experiment tracking', 'model metrics', 'promotion gate', 'dermaself tracking'],
   },
   {
     projectIds: [56, 68, 15, 16, 59, 55],
@@ -870,7 +870,7 @@ const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: Proje
   { label: 'InQuest RAG', query: 'InQuest binder RAG QA project binder retrieval', filter: 'ai-systems', projectIds: [78, 66, 40] },
   { label: 'ComfyUI', query: 'ComfyUI Colab generative prototype custom models', filter: 'ai-systems', projectIds: [79, 74] },
   { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems', projectIds: [66, 78, 40] },
-  { label: 'HH automation', query: 'hh.ru OpenClaw application packet career automation', filter: 'ai-systems', projectIds: [50] },
+  { label: 'ClearML / MLOps', query: 'ClearML Dermaself experiment tracking MLOps metrics promotion gates', filter: 'computer-vision', projectIds: [80, 63] },
   { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
 ];
 

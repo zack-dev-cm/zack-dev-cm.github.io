@@ -254,7 +254,7 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'What computer vision projects are featured?',
       answer:
-        'Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.',
+        'Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, ClearML experiment tracking for Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.',
       cite: `${SITE_BASE}/#computer-vision`
     },
     {

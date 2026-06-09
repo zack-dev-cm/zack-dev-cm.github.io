@@ -20,6 +20,14 @@ const REVIEW_GATES = [
   'clawhub-stat-crosslink',
   'clawpatch-review-ready',
 ];
+const PORTFOLIO_STATIC_REVIEW_GATES = [
+  'portfolio-static-source-backed',
+  ...REVIEW_GATES.filter((gate) => gate !== 'public-github-api-only'),
+];
+const CLEARML_DERMASELF_PROJECT_ID = 80;
+const CLEARML_DERMASELF_SLUG = 'clearml-experiment-tracking-for-dermaself';
+const CLEARML_DERMASELF_TITLE = 'ClearML Experiment Tracking for Dermaself';
+const CLEARML_DERMASELF_IMAGE = 'images/clearml-dermaself-experiment-tracking-card.png';
 
 const BLOCKED_TEXT_PATTERNS = [
   ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
@@ -200,11 +208,11 @@ const publicTextOrFallback = (value, fallback, label, cleanupNotes) => {
   return normalizePositioningText(fallback);
 };
 
-const createReview = (checkedAt) => ({
+const createReview = (checkedAt, gates = REVIEW_GATES) => ({
   status: 'PASS',
   checkedAt,
   gateVersion: REVIEW_GATE_VERSION,
-  gates: REVIEW_GATES,
+  gates,
 });
 
 const headers = () => ({
@@ -368,6 +376,126 @@ const buildBenchmarks = (repo, checkedAt, clawHubStat) => {
   return benchmarks;
 };
 
+const buildNameOnlyEntries = (repo, checkedAt, shouldPromote, clawHubStat) => {
+  if (repo.full_name !== `${DEFAULT_OWNER}/hh-openclaw-agent`) return null;
+
+  const review = createReview(checkedAt);
+  const title = 'HH OpenClaw Agent';
+  const description = 'HH OpenClaw Agent skill entry retained by name only.';
+  const links = buildLinks(repo, clawHubStat);
+  const common = {
+    repoFullName: repo.full_name,
+    repoId: repo.id,
+    createdAt: getRepoActivityAt(repo),
+    review,
+  };
+  const latestEntry = {
+    title,
+    description,
+    links,
+    ...common,
+  };
+
+  if (!shouldPromote) return { latestEntry, projectEntry: null, cleanupNotes: [] };
+
+  const benchmarks = [
+    { label: 'GitHub stars', value: String(repo.stargazers_count || 0), context: `public GitHub API snapshot, ${checkedAt}` },
+    { label: 'GitHub forks', value: String(repo.forks_count || 0), context: `public GitHub API snapshot, ${checkedAt}` },
+    { label: 'Public posture', value: 'name-only', context: 'portfolio copy intentionally keeps only the skill name' },
+  ];
+  if (clawHubStat) {
+    benchmarks.push(
+      { label: 'ClawHub downloads', value: String(clawHubStat.downloads), context: `public ClawHub listing, ${clawHubStat.checkedAt}` },
+      { label: 'ClawHub versions', value: String(clawHubStat.versions), context: `public ClawHub listing, ${clawHubStat.checkedAt}` },
+    );
+  }
+
+  return {
+    latestEntry: { ...latestEntry, projectId: repo.id },
+    projectEntry: {
+      id: repo.id,
+      title,
+      description,
+      longDescription: `${description} Synced metadata is kept only for public source continuity.`,
+      projectKind: 'open-source',
+      surfaceTags: ['open-source', 'openclaw'],
+      mobileReady: false,
+      keyFeatures: ['Skill name retained only', 'Public listing links retained for source continuity'],
+      techStack: ['Python', 'OpenClaw Skills'],
+      links,
+      images: [{ url: PLACEHOLDER_IMAGE, alt: `${title} preview` }],
+      thumbnail: PLACEHOLDER_IMAGE,
+      benchmarks,
+      canonicalLinks: { github: repo.html_url, ...(clawHubStat?.url ? { website: clawHubStat.url } : {}) },
+      ...common,
+    },
+    cleanupNotes: [],
+  };
+};
+
+const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
+  const review = createReview(checkedAt, PORTFOLIO_STATIC_REVIEW_GATES);
+  const source = 'portfolio-static';
+  const sourceId = CLEARML_DERMASELF_SLUG;
+  const caseStudyUrl = `https://zack-dev-cm.github.io/projects/${CLEARML_DERMASELF_SLUG}.md`;
+  const appUrl = `https://zack-dev-cm.github.io/?project=${CLEARML_DERMASELF_SLUG}`;
+  const description =
+    'MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.';
+  const links = [
+    { text: 'Open case study', url: appUrl },
+    { text: 'Read Markdown case study', url: caseStudyUrl },
+  ];
+  const common = {
+    source,
+    sourceId,
+    createdAt: '2026-06-09',
+    review,
+  };
+
+  updates.latestUpdates.unshift({
+    title: CLEARML_DERMASELF_TITLE,
+    description:
+      'Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.',
+    links,
+    projectId: CLEARML_DERMASELF_PROJECT_ID,
+    ...common,
+  });
+
+  updates.projects.unshift({
+    id: CLEARML_DERMASELF_PROJECT_ID,
+    title: CLEARML_DERMASELF_TITLE,
+    description,
+    longDescription:
+      'ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions. Raw skin images, datasets, model weights, ClearML server URLs, and user-level records are outside the public feed.',
+    projectKind: 'case-study',
+    surfaceTags: ['computer-vision', 'mlops', 'experiment-tracking', 'clearml', 'health-ai'],
+    mobileReady: false,
+    keyFeatures: [
+      'Sets up ClearML experiment tracking for Dermaself model runs without exposing workspaces',
+      'Keeps datasets, parameters, metrics, artifacts, and promotion decisions reviewable across CV iterations',
+      'Separates debug experiment notes from release-ready mobile and server claims',
+      'Keeps sensitive image, dataset, model, and workspace details out of public portfolio files',
+    ],
+    techStack: ['ClearML', 'Python', 'PyTorch', 'ONNX', 'TFLite', 'Flutter', 'Computer Vision', 'MLOps'],
+    links,
+    images: [
+      {
+        url: CLEARML_DERMASELF_IMAGE,
+        alt: 'Public-safe MLOps card showing Dermaself ClearML experiment tracking, metrics, artifacts, and review gates',
+      },
+    ],
+    thumbnail: CLEARML_DERMASELF_IMAGE,
+    benchmarks: [
+      { label: 'Tracking stack', value: 'ClearML', context: 'Dermaself MLOps setup added to public portfolio scope, 2026-06-09' },
+      { label: 'Tracked surfaces', value: '5', context: 'dataset, parameters, metrics, artifacts, and promotion decisions' },
+      { label: 'Public posture', value: 'sanitized', context: 'public case study excludes sensitive images, datasets, model weights, workspace URLs, and records' },
+      { label: 'Promotion boundary', value: 'review-gated', context: 'debug experiments stay separate from release-ready mobile/server claims' },
+    ],
+    canonicalLinks: { website: caseStudyUrl },
+    ...common,
+  });
+};
+
 const getStaticExclusions = async (owner) => {
   const source = await fs.readFile('constants.ts', 'utf8');
   const repoKeys = new Set([`${owner}/zack-dev-cm.github.io`]);
@@ -396,6 +524,9 @@ const getStaticExclusions = async (owner) => {
 };
 
 const buildEntries = async (repo, checkedAt, shouldPromote, clawHubStat) => {
+  const nameOnlyEntries = buildNameOnlyEntries(repo, checkedAt, shouldPromote, clawHubStat);
+  if (nameOnlyEntries) return nameOnlyEntries;
+
   const readme = await fetchReadmeText(repo.owner.login, repo.name);
   const title = buildTitle(repo.name);
   const cleanupNotes = [];
@@ -462,7 +593,8 @@ const assertSafePayload = (updates, expectedOwner) => {
       if (item.review?.status !== 'PASS') {
         errors.push(`${label} is missing PASS review status`);
       }
-      for (const gate of REVIEW_GATES) {
+      const requiredGates = item.source === 'portfolio-static' ? PORTFOLIO_STATIC_REVIEW_GATES : REVIEW_GATES;
+      for (const gate of requiredGates) {
         if (!item.review?.gates?.includes(gate)) {
           errors.push(`${label} is missing review gate ${gate}`);
         }
@@ -513,8 +645,8 @@ const main = async () => {
       checkedAt,
       syncedAt: new Date().toISOString(),
       gateVersion: REVIEW_GATE_VERSION,
-      gates: REVIEW_GATES,
-      toolchain: ['github-api', 'portfolio-sync-review-gate', 'security-gate', 'codex-audit', 'clawpatch'],
+      gates: [...REVIEW_GATES, 'portfolio-static-source-backed'],
+      toolchain: ['github-api', 'portfolio-static-overlay', 'portfolio-sync-review-gate', 'security-gate', 'codex-audit', 'clawpatch'],
     },
     latestUpdates: [],
     projects: [],
@@ -529,6 +661,7 @@ const main = async () => {
     updates.latestUpdates.push(latestEntry);
     if (projectEntry) updates.projects.push(projectEntry);
   }
+  addPortfolioCaseStudyEntries(updates, checkedAt);
 
   assertSafePayload(updates, options.owner);
   const serialized = `${JSON.stringify(updates, null, 2)}\n`;
@@ -564,7 +697,7 @@ const main = async () => {
         cleanupNotes,
         latestUpdates: updates.latestUpdates.length,
         projects: updates.projects.length,
-        repos: updates.latestUpdates.map((update) => update.repoFullName),
+        repos: updates.latestUpdates.map((update) => update.repoFullName || update.sourceId || update.title),
       },
       null,
       2

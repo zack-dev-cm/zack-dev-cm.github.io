@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-09T08:34:22.396Z",
+  "lastSyncedAt": "2026-06-09T15:13:30.602Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-09",
-    "syncedAt": "2026-06-09T08:34:22.396Z",
+    "syncedAt": "2026-06-09T15:13:30.602Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -14,10 +14,12 @@
       "leak-pattern-scan",
       "instruction-bleed-scan",
       "clawhub-stat-crosslink",
-      "clawpatch-review-ready"
+      "clawpatch-review-ready",
+      "portfolio-static-source-backed"
     ],
     "toolchain": [
       "github-api",
+      "portfolio-static-overlay",
       "portfolio-sync-review-gate",
       "security-gate",
       "codex-audit",
@@ -25,6 +27,39 @@
     ]
   },
   "latestUpdates": [
+    {
+      "title": "ClearML Experiment Tracking for Dermaself",
+      "description": "Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.",
+      "links": [
+        {
+          "text": "Open case study",
+          "url": "https://zack-dev-cm.github.io/?project=clearml-experiment-tracking-for-dermaself"
+        },
+        {
+          "text": "Read Markdown case study",
+          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md"
+        }
+      ],
+      "projectId": 80,
+      "source": "portfolio-static",
+      "sourceId": "clearml-experiment-tracking-for-dermaself",
+      "createdAt": "2026-06-09",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-09",
+        "gateVersion": 2,
+        "gates": [
+          "portfolio-static-source-backed",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
     {
       "title": "Unitree G1 Colab Ik",
       "description": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation",
@@ -584,8 +619,8 @@
       "projectId": 1207181863
     },
     {
-      "title": "Hh OpenClaw Agent",
-      "description": "Public OpenClaw skill for preparing a reviewed hh.ru application packet, executing the browser flow in a logged-in profile, and capturing one auditable submission bundle.",
+      "title": "HH OpenClaw Agent",
+      "description": "HH OpenClaw Agent skill entry retained by name only.",
       "links": [
         {
           "text": "GitHub",
@@ -651,6 +686,97 @@
     }
   ],
   "projects": [
+    {
+      "id": 80,
+      "title": "ClearML Experiment Tracking for Dermaself",
+      "description": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+      "longDescription": "ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions. Raw skin images, datasets, model weights, ClearML server URLs, and user-level records are outside the public feed.",
+      "projectKind": "case-study",
+      "surfaceTags": [
+        "computer-vision",
+        "mlops",
+        "experiment-tracking",
+        "clearml",
+        "health-ai"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Sets up ClearML experiment tracking for Dermaself model runs without exposing workspaces",
+        "Keeps datasets, parameters, metrics, artifacts, and promotion decisions reviewable across CV iterations",
+        "Separates debug experiment notes from release-ready mobile and server claims",
+        "Keeps sensitive image, dataset, model, and workspace details out of public portfolio files"
+      ],
+      "techStack": [
+        "ClearML",
+        "Python",
+        "PyTorch",
+        "ONNX",
+        "TFLite",
+        "Flutter",
+        "Computer Vision",
+        "MLOps"
+      ],
+      "links": [
+        {
+          "text": "Open case study",
+          "url": "https://zack-dev-cm.github.io/?project=clearml-experiment-tracking-for-dermaself"
+        },
+        {
+          "text": "Read Markdown case study",
+          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/clearml-dermaself-experiment-tracking-card.png",
+          "alt": "Public-safe MLOps card showing Dermaself ClearML experiment tracking, metrics, artifacts, and review gates"
+        }
+      ],
+      "thumbnail": "images/clearml-dermaself-experiment-tracking-card.png",
+      "benchmarks": [
+        {
+          "label": "Tracking stack",
+          "value": "ClearML",
+          "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
+        },
+        {
+          "label": "Tracked surfaces",
+          "value": "5",
+          "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "public case study excludes sensitive images, datasets, model weights, workspace URLs, and records"
+        },
+        {
+          "label": "Promotion boundary",
+          "value": "review-gated",
+          "context": "debug experiments stay separate from release-ready mobile/server claims"
+        }
+      ],
+      "canonicalLinks": {
+        "website": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md"
+      },
+      "source": "portfolio-static",
+      "sourceId": "clearml-experiment-tracking-for-dermaself",
+      "createdAt": "2026-06-09",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-09",
+        "gateVersion": 2,
+        "gates": [
+          "portfolio-static-source-backed",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
     {
       "id": 1260969567,
       "title": "Unitree G1 Colab Ik",
@@ -2288,36 +2414,22 @@
     },
     {
       "id": 1207621924,
-      "title": "Hh OpenClaw Agent",
-      "description": "Public OpenClaw skill for preparing a reviewed hh.ru application packet, executing the browser flow in a logged-in profile, and capturing one auditable submission bundle.",
-      "longDescription": "Public OpenClaw skill for preparing a reviewed hh.ru application packet, executing the browser flow in a logged-in profile, and capturing one auditable submission bundle. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-09.",
+      "title": "HH OpenClaw Agent",
+      "description": "HH OpenClaw Agent skill entry retained by name only.",
+      "longDescription": "HH OpenClaw Agent skill entry retained by name only. Synced metadata is kept only for public source continuity.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
-        "automation",
-        "career-tools",
-        "hh",
-        "job-search",
         "openclaw"
       ],
       "mobileReady": false,
       "keyFeatures": [
-        "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-09",
-        "Python code surface is visible in repository metadata",
-        "Repository topics include Automation, Career Tools, Hh, Job Search",
-        "Public homepage or listing is linked from repository metadata",
-        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+        "Skill name retained only",
+        "Public listing links retained for source continuity"
       ],
       "techStack": [
         "Python",
-        "Automation",
-        "Career Tools",
-        "Hh",
-        "Job Search",
-        "OpenClaw",
-        "GitHub",
-        "Open Source"
+        "OpenClaw Skills"
       ],
       "links": [
         {
@@ -2332,7 +2444,7 @@
       "images": [
         {
           "url": "images/project-placeholder.svg",
-          "alt": "Hh OpenClaw Agent preview"
+          "alt": "HH OpenClaw Agent preview"
         }
       ],
       "thumbnail": "images/project-placeholder.svg",
@@ -2348,14 +2460,9 @@
           "context": "public GitHub API snapshot, 2026-06-09"
         },
         {
-          "label": "Created",
-          "value": "2026-04-11",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "Last push",
-          "value": "2026-04-30",
-          "context": "public GitHub repository metadata"
+          "label": "Public posture",
+          "value": "name-only",
+          "context": "portfolio copy intentionally keeps only the skill name"
         },
         {
           "label": "ClawHub downloads",

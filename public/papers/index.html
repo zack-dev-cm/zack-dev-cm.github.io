@@ -515,6 +515,13 @@
               It does not republish abstracts or commentary; every review keeps a source ledger.
             </p>
           </section>
+
+          <section class="side-panel">
+            <h3>Source watch</h3>
+            <div id="source-watch-list">
+              <p class="muted">Loading source checks...</p>
+            </div>
+          </section>
         </aside>
       </div>
 
@@ -532,6 +539,7 @@
       const countLabelEl = document.getElementById('review-count-label');
       const updatedEl = document.getElementById('updated-at');
       const searchEl = document.getElementById('review-search');
+      const sourceWatchEl = document.getElementById('source-watch-list');
       let feed = null;
       let activeReviewId = null;
 
@@ -650,6 +658,26 @@
         });
       };
 
+      const renderSourceWatch = () => {
+        const sourceChecks = feed?.reviewSourceWatch || [];
+        if (!sourceChecks.length) {
+          sourceWatchEl.innerHTML = '<p class="muted">No source watches configured.</p>';
+          return;
+        }
+        sourceWatchEl.innerHTML = sourceChecks
+          .map(
+            (item) => `
+              <div class="archive-item" role="group">
+                <strong>${escapeHtml(item.label)}</strong>
+                <span>${escapeHtml(item.status || 'watch-only')} / checked ${escapeHtml(formatDate(item.checkedAt))}</span>
+                <p class="muted">${escapeHtml(item.note)}</p>
+                <div class="link-row">${renderLinks(item.sources)}</div>
+              </div>
+            `
+          )
+          .join('');
+      };
+
       const render = () => {
         const reviews = feed?.reviews || [];
         countEl.textContent = String(reviews.length);
@@ -663,6 +691,7 @@
           latestEl.innerHTML = '<p class="status">No paper reviews are available yet.</p>';
         }
         renderArchive();
+        renderSourceWatch();
       };
 
       const loadFeed = async () => {

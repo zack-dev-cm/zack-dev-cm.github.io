@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-05-15",
-  "generatedAt": "2026-06-06",
+  "generatedAt": "2026-06-09",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Computer Vision and AI Product Engineer",
@@ -148,7 +148,7 @@
     },
     {
       "question": "What computer vision projects are featured?",
-      "answer": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.",
+      "answer": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, ClearML experiment tracking for Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.",
       "cite": "https://zack-dev-cm.github.io/#computer-vision"
     },
     {
@@ -158,7 +158,7 @@
     },
     {
       "question": "What public signals are available?",
-      "answer": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 17,235 tracked ClawHub downloads across 49 public skills as of 2026-06-06.",
+      "answer": "The portfolio lists 80 public case studies, 48 projects with explicit benchmarks or analytics, and 18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -178,7 +178,7 @@
     },
     {
       "question": "Where can readers find Zakhar Pashkin paper reviews?",
-      "answer": "The ML Papers, Read for Builders feed has 5 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition; Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction. Use the page for human reading and paper-reviews.json for machine-readable review data.",
+      "answer": "The ML Papers, Read for Builders feed has 7 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow; GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning. Use the page for human reading and paper-reviews.json for machine-readable review data.",
       "cite": "https://zack-dev-cm.github.io/papers/"
     }
   ],
@@ -256,7 +256,7 @@
         "Chrome Web Store extension launch metrics"
       ],
       "references": [
-        "17,235 tracked ClawHub downloads across 49 public skills",
+        "18,172 tracked ClawHub downloads across 50 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],
@@ -270,18 +270,37 @@
     "title": "ML Papers, Read for Builders",
     "url": "https://zack-dev-cm.github.io/papers/",
     "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-    "reviewCount": 5,
-    "updatedAt": "2026-06-06T04:18:26.431Z",
-    "summary": "The ML Papers, Read for Builders feed has 5 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition; Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction.",
+    "reviewCount": 7,
+    "updatedAt": "2026-06-09T08:34:27.681Z",
+    "summary": "The ML Papers, Read for Builders feed has 7 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow; GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning.",
     "latest": [
+      {
+        "title": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow",
+        "arxivId": "2606.07549",
+        "tags": [
+          "agents",
+          "runtime",
+          "evaluation"
+        ],
+        "paperUrl": "https://arxiv.org/abs/2606.07549"
+      },
+      {
+        "title": "GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning",
+        "arxivId": "2606.06532",
+        "tags": [
+          "agents",
+          "runtime",
+          "evaluation"
+        ],
+        "paperUrl": "https://arxiv.org/abs/2606.06532"
+      },
       {
         "title": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition",
         "arxivId": "2606.05316",
         "tags": [
           "computer-vision",
           "multimodal",
-          "evaluation",
-          "cs.AI"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.05316"
       },
@@ -296,28 +315,6 @@
           "video"
         ],
         "paperUrl": "https://arxiv.org/abs/2605.15466"
-      },
-      {
-        "title": "UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning",
-        "arxivId": "2606.05576",
-        "tags": [
-          "computer-vision",
-          "vlm-evaluation",
-          "high-resolution",
-          "evidence-grounding",
-          "vqa"
-        ],
-        "paperUrl": "https://arxiv.org/abs/2606.05576"
-      },
-      {
-        "title": "SentinelBench: A Benchmark for Long-Running Monitoring Agents",
-        "arxivId": "2606.05342",
-        "tags": [
-          "agents",
-          "runtime",
-          "evaluation"
-        ],
-        "paperUrl": "https://arxiv.org/abs/2606.05342"
       }
     ]
   },
@@ -419,6 +416,60 @@
               "label": "Promotion decision",
               "value": "blocked",
               "context": "fine-line model not promoted to server or Flutter after QA review"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": 80,
+          "title": "ClearML Experiment Tracking for Dermaself",
+          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+          "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+          "kind": "case-study",
+          "tags": [
+            "computer-vision",
+            "mlops",
+            "experiment-tracking",
+            "clearml",
+            "health-ai"
+          ],
+          "aliases": [
+            "clearml dermaself",
+            "dermaself mlops",
+            "skin analysis experiment tracking",
+            "clear ml"
+          ],
+          "techStack": [
+            "ClearML",
+            "Python",
+            "PyTorch",
+            "ONNX",
+            "TFLite",
+            "Flutter",
+            "Computer Vision",
+            "MLOps",
+            "Experiment Tracking"
+          ],
+          "benchmarks": [
+            {
+              "label": "Tracking stack",
+              "value": "ClearML",
+              "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
+            },
+            {
+              "label": "Tracked surfaces",
+              "value": "5",
+              "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
+            },
+            {
+              "label": "Public posture",
+              "value": "sanitized",
+              "context": "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs"
+            },
+            {
+              "label": "Promotion boundary",
+              "value": "review-gated",
+              "context": "debug experiments stay separate from release-ready mobile/server claims"
             }
           ],
           "links": []
@@ -787,60 +838,6 @@
               "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
             }
           ]
-        },
-        {
-          "id": 76,
-          "title": "Jaw and Face-Type Classifier for Aesthetic Review",
-          "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
-          "summary": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
-          "kind": "case-study",
-          "tags": [
-            "computer-vision",
-            "classification",
-            "beautytech",
-            "health-ai",
-            "face-analysis"
-          ],
-          "aliases": [
-            "jaw classifier",
-            "face type classifier",
-            "plastic surgery review",
-            "beauty examination classifier",
-            "aesthetic face analysis"
-          ],
-          "techStack": [
-            "Python",
-            "PyTorch",
-            "OpenCV",
-            "Computer Vision",
-            "Facial Landmarks",
-            "Classification",
-            "K-fold Validation",
-            "Visual QA"
-          ],
-          "benchmarks": [
-            {
-              "label": "Review deck",
-              "value": "v0.12.7",
-              "context": "Jaw / Face-type analyser project deck checked 2026-06-04"
-            },
-            {
-              "label": "Experiment pattern",
-              "value": "k-fold",
-              "context": "classifier experiment folder review, 2026-06-04"
-            },
-            {
-              "label": "Reviewed references",
-              "value": "5+",
-              "context": "jaw-class workspaces, jaw database, analyzer deck, labels, and experiment folders"
-            },
-            {
-              "label": "Public posture",
-              "value": "sanitized",
-              "context": "no raw patient images, private labels, or model weights published"
-            }
-          ],
-          "links": []
         }
       ]
     },
@@ -888,23 +885,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "17,235",
-              "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
+              "value": "18,172",
+              "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "49",
-              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
+              "value": "50",
+              "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-09"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,477 total",
-              "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
+              "value": "1,516 total",
+              "context": "829 data-science-cv-repro-lab + 687 sota-agent, 2026-06-09"
             },
             {
               "label": "Strongest skill",
-              "value": "802 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-06"
+              "value": "829 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-09"
             },
             {
               "label": "Report outputs",
@@ -1364,23 +1361,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "17,235",
-              "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
+              "value": "18,172",
+              "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "49",
-              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
+              "value": "50",
+              "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-09"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,477 total",
-              "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
+              "value": "1,516 total",
+              "context": "829 data-science-cv-repro-lab + 687 sota-agent, 2026-06-09"
             },
             {
               "label": "Strongest skill",
-              "value": "802 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-06"
+              "value": "829 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-09"
             },
             {
               "label": "Report outputs",
@@ -1912,23 +1909,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "17,235",
-              "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
+              "value": "18,172",
+              "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "49",
-              "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
+              "value": "50",
+              "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-09"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,477 total",
-              "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
+              "value": "1,516 total",
+              "context": "829 data-science-cv-repro-lab + 687 sota-agent, 2026-06-09"
             },
             {
               "label": "Strongest skill",
-              "value": "802 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-06"
+              "value": "829 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-09"
             },
             {
               "label": "Report outputs",
@@ -2706,23 +2703,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "17,235",
-          "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
+          "value": "18,172",
+          "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
         },
         {
           "label": "Tracked public skills",
-          "value": "49",
-          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
+          "value": "50",
+          "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-09"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,477 total",
-          "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
+          "value": "1,516 total",
+          "context": "829 data-science-cv-repro-lab + 687 sota-agent, 2026-06-09"
         },
         {
           "label": "Strongest skill",
-          "value": "802 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-06-06"
+          "value": "829 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-06-09"
         },
         {
           "label": "Report outputs",
@@ -4635,23 +4632,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "17,235",
-          "context": "public ClawHub owner profile, 2026-06-06 across 49 skills"
+          "value": "18,172",
+          "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
         },
         {
           "label": "Tracked public skills",
-          "value": "49",
-          "context": "49 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-06"
+          "value": "50",
+          "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-09"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,477 total",
-          "context": "802 data-science-cv-repro-lab + 675 sota-agent, 2026-06-06"
+          "value": "1,516 total",
+          "context": "829 data-science-cv-repro-lab + 687 sota-agent, 2026-06-09"
         },
         {
           "label": "Strongest skill",
-          "value": "802 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-06-06"
+          "value": "829 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-06-09"
         },
         {
           "label": "Report outputs",
@@ -5216,6 +5213,60 @@
           "label": "Promotion decision",
           "value": "blocked",
           "context": "fine-line model not promoted to server or Flutter after QA review"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 80,
+      "title": "ClearML Experiment Tracking for Dermaself",
+      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+      "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "mlops",
+        "experiment-tracking",
+        "clearml",
+        "health-ai"
+      ],
+      "aliases": [
+        "clearml dermaself",
+        "dermaself mlops",
+        "skin analysis experiment tracking",
+        "clear ml"
+      ],
+      "techStack": [
+        "ClearML",
+        "Python",
+        "PyTorch",
+        "ONNX",
+        "TFLite",
+        "Flutter",
+        "Computer Vision",
+        "MLOps",
+        "Experiment Tracking"
+      ],
+      "benchmarks": [
+        {
+          "label": "Tracking stack",
+          "value": "ClearML",
+          "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
+        },
+        {
+          "label": "Tracked surfaces",
+          "value": "5",
+          "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs"
+        },
+        {
+          "label": "Promotion boundary",
+          "value": "review-gated",
+          "context": "debug experiments stay separate from release-ready mobile/server claims"
         }
       ],
       "links": []
@@ -6151,27 +6202,25 @@
       "id": 50,
       "title": "HH OpenClaw Agent",
       "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
-      "summary": "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
+      "summary": "HH OpenClaw Agent skill entry retained by name only.",
       "kind": "case-study",
       "tags": [],
       "aliases": [],
       "techStack": [
         "ClawHub",
         "Python",
-        "hh.ru",
-        "OpenClaw Skills",
-        "Career Automation"
+        "OpenClaw Skills"
       ],
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "455",
-          "context": "public ClawHub listing, 2026-06-04"
+          "value": "487",
+          "context": "public ClawHub listing, 2026-06-09"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-06-04"
+          "context": "public ClawHub listing, 2026-06-09"
         },
         {
           "label": "Public release",
@@ -6179,19 +6228,9 @@
           "context": "GitHub + ClawHub"
         },
         {
-          "label": "Bundled scripts",
-          "value": "4",
-          "context": "init, append, check, render"
-        },
-        {
-          "label": "Approval gate",
-          "value": "required",
-          "context": "review must be approved before submit"
-        },
-        {
-          "label": "Validation posture",
-          "value": "release-checked",
-          "context": "smoke test + publish-guard audit"
+          "label": "Public posture",
+          "value": "name-only",
+          "context": "portfolio copy intentionally keeps only the skill name"
         }
       ],
       "links": [

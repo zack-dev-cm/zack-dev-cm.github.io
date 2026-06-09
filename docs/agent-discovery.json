@@ -148,7 +148,7 @@
     },
     {
       "question": "What computer vision projects are featured?",
-      "answer": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.",
+      "answer": "Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, ClearML experiment tracking for Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.",
       "cite": "https://zack-dev-cm.github.io/#computer-vision"
     },
     {
@@ -158,7 +158,7 @@
     },
     {
       "question": "What public signals are available?",
-      "answer": "The portfolio lists 79 public case studies, 47 projects with explicit benchmarks or analytics, and 18,163 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
+      "answer": "The portfolio lists 80 public case studies, 48 projects with explicit benchmarks or analytics, and 18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -256,7 +256,7 @@
         "Chrome Web Store extension launch metrics"
       ],
       "references": [
-        "18,163 tracked ClawHub downloads across 50 public skills",
+        "18,172 tracked ClawHub downloads across 50 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],
@@ -280,8 +280,7 @@
         "tags": [
           "agents",
           "runtime",
-          "evaluation",
-          "cs.AI"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.07549"
       },
@@ -417,6 +416,60 @@
               "label": "Promotion decision",
               "value": "blocked",
               "context": "fine-line model not promoted to server or Flutter after QA review"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": 80,
+          "title": "ClearML Experiment Tracking for Dermaself",
+          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+          "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+          "kind": "case-study",
+          "tags": [
+            "computer-vision",
+            "mlops",
+            "experiment-tracking",
+            "clearml",
+            "health-ai"
+          ],
+          "aliases": [
+            "clearml dermaself",
+            "dermaself mlops",
+            "skin analysis experiment tracking",
+            "clear ml"
+          ],
+          "techStack": [
+            "ClearML",
+            "Python",
+            "PyTorch",
+            "ONNX",
+            "TFLite",
+            "Flutter",
+            "Computer Vision",
+            "MLOps",
+            "Experiment Tracking"
+          ],
+          "benchmarks": [
+            {
+              "label": "Tracking stack",
+              "value": "ClearML",
+              "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
+            },
+            {
+              "label": "Tracked surfaces",
+              "value": "5",
+              "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
+            },
+            {
+              "label": "Public posture",
+              "value": "sanitized",
+              "context": "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs"
+            },
+            {
+              "label": "Promotion boundary",
+              "value": "review-gated",
+              "context": "debug experiments stay separate from release-ready mobile/server claims"
             }
           ],
           "links": []
@@ -785,60 +838,6 @@
               "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
             }
           ]
-        },
-        {
-          "id": 76,
-          "title": "Jaw and Face-Type Classifier for Aesthetic Review",
-          "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
-          "summary": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
-          "kind": "case-study",
-          "tags": [
-            "computer-vision",
-            "classification",
-            "beautytech",
-            "health-ai",
-            "face-analysis"
-          ],
-          "aliases": [
-            "jaw classifier",
-            "face type classifier",
-            "plastic surgery review",
-            "beauty examination classifier",
-            "aesthetic face analysis"
-          ],
-          "techStack": [
-            "Python",
-            "PyTorch",
-            "OpenCV",
-            "Computer Vision",
-            "Facial Landmarks",
-            "Classification",
-            "K-fold Validation",
-            "Visual QA"
-          ],
-          "benchmarks": [
-            {
-              "label": "Review deck",
-              "value": "v0.12.7",
-              "context": "Jaw / Face-type analyser project deck checked 2026-06-04"
-            },
-            {
-              "label": "Experiment pattern",
-              "value": "k-fold",
-              "context": "classifier experiment folder review, 2026-06-04"
-            },
-            {
-              "label": "Reviewed references",
-              "value": "5+",
-              "context": "jaw-class workspaces, jaw database, analyzer deck, labels, and experiment folders"
-            },
-            {
-              "label": "Public posture",
-              "value": "sanitized",
-              "context": "no raw patient images, private labels, or model weights published"
-            }
-          ],
-          "links": []
         }
       ]
     },
@@ -886,7 +885,7 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "18,163",
+              "value": "18,172",
               "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
             },
             {
@@ -1362,7 +1361,7 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "18,163",
+              "value": "18,172",
               "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
             },
             {
@@ -1910,7 +1909,7 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "18,163",
+              "value": "18,172",
               "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
             },
             {
@@ -2704,7 +2703,7 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "18,163",
+          "value": "18,172",
           "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
         },
         {
@@ -4633,7 +4632,7 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "18,163",
+          "value": "18,172",
           "context": "public ClawHub owner profile, 2026-06-09 across 50 skills"
         },
         {
@@ -5214,6 +5213,60 @@
           "label": "Promotion decision",
           "value": "blocked",
           "context": "fine-line model not promoted to server or Flutter after QA review"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 80,
+      "title": "ClearML Experiment Tracking for Dermaself",
+      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+      "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "mlops",
+        "experiment-tracking",
+        "clearml",
+        "health-ai"
+      ],
+      "aliases": [
+        "clearml dermaself",
+        "dermaself mlops",
+        "skin analysis experiment tracking",
+        "clear ml"
+      ],
+      "techStack": [
+        "ClearML",
+        "Python",
+        "PyTorch",
+        "ONNX",
+        "TFLite",
+        "Flutter",
+        "Computer Vision",
+        "MLOps",
+        "Experiment Tracking"
+      ],
+      "benchmarks": [
+        {
+          "label": "Tracking stack",
+          "value": "ClearML",
+          "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
+        },
+        {
+          "label": "Tracked surfaces",
+          "value": "5",
+          "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs"
+        },
+        {
+          "label": "Promotion boundary",
+          "value": "review-gated",
+          "context": "debug experiments stay separate from release-ready mobile/server claims"
         }
       ],
       "links": []
@@ -6149,27 +6202,25 @@
       "id": 50,
       "title": "HH OpenClaw Agent",
       "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
-      "summary": "Public OpenClaw skill for reviewed hh.ru application packets, live browser execution, approval gates, and auditable submission bundles.",
+      "summary": "HH OpenClaw Agent skill entry retained by name only.",
       "kind": "case-study",
       "tags": [],
       "aliases": [],
       "techStack": [
         "ClawHub",
         "Python",
-        "hh.ru",
-        "OpenClaw Skills",
-        "Career Automation"
+        "OpenClaw Skills"
       ],
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "455",
-          "context": "public ClawHub listing, 2026-06-04"
+          "value": "487",
+          "context": "public ClawHub listing, 2026-06-09"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-06-04"
+          "context": "public ClawHub listing, 2026-06-09"
         },
         {
           "label": "Public release",
@@ -6177,19 +6228,9 @@
           "context": "GitHub + ClawHub"
         },
         {
-          "label": "Bundled scripts",
-          "value": "4",
-          "context": "init, append, check, render"
-        },
-        {
-          "label": "Approval gate",
-          "value": "required",
-          "context": "review must be approved before submit"
-        },
-        {
-          "label": "Validation posture",
-          "value": "release-checked",
-          "context": "smoke test + publish-guard audit"
+          "label": "Public posture",
+          "value": "name-only",
+          "context": "portfolio copy intentionally keeps only the skill name"
         }
       ],
       "links": [

@@ -156,6 +156,20 @@ const defaultFeed = () => ({
     writing:
       'Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished.',
   },
+  reviewSourceWatch: [
+    {
+      id: 'yannic-kilcher-cvpr',
+      label: 'Yannic Kilcher / CVPR source watch',
+      status: 'watch-only',
+      checkedAt: new Date().toISOString().slice(0, 10),
+      note:
+        'Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.',
+      sources: [
+        { label: 'Yannic Kilcher site', url: 'https://www.ykilcher.com/' },
+        { label: 'CVPR 2026 conference page', url: 'https://cvpr.thecvf.com/Conferences/2026' }
+      ]
+    }
+  ],
   reviews: [],
 });
 

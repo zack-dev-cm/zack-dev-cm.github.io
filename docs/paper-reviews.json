@@ -18,6 +18,25 @@
     "selection": "The selector favors primary papers with strong fit for agents, computer vision, retrieval, reasoning, representation learning, and deployable ML systems.",
     "writing": "Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished."
   },
+  "reviewSourceWatch": [
+    {
+      "id": "yannic-kilcher-cvpr",
+      "label": "Yannic Kilcher / CVPR source watch",
+      "status": "watch-only",
+      "checkedAt": "2026-06-09",
+      "note": "Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.",
+      "sources": [
+        {
+          "label": "Yannic Kilcher site",
+          "url": "https://www.ykilcher.com/"
+        },
+        {
+          "label": "CVPR 2026 conference page",
+          "url": "https://cvpr.thecvf.com/Conferences/2026"
+        }
+      ]
+    }
+  ],
   "reviews": [
     {
       "id": "pathosage-towards-multi-source-evidence-adjudication-in-pathology-via-experience-aware-age-2606-07549",
@@ -46,11 +65,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected from primary ML research feeds because it is recent, source-linked, and has a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
       "whatItClaims": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
       "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",

@@ -30,6 +30,10 @@ const REQUIRED_SYNC_REVIEW_GATES = [
   'instruction-bleed-scan',
   'clawpatch-review-ready',
 ];
+const REQUIRED_PORTFOLIO_STATIC_REVIEW_GATES = [
+  'portfolio-static-source-backed',
+  ...REQUIRED_SYNC_REVIEW_GATES.filter((gate) => gate !== 'public-github-api-only'),
+];
 const PUBLIC_UPDATE_BLOCK_PATTERNS = [
   ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
   ['credentialed URL', /https?:\/\/[^/\s:@]+:[^/\s@]+@/i],
@@ -304,7 +308,7 @@ const validateLinks = (links, label) => {
   }
 };
 
-const validatePortfolioUpdateReview = (review, label) => {
+const validatePortfolioUpdateReview = (review, label, requiredGates = REQUIRED_SYNC_REVIEW_GATES) => {
   if (!review || typeof review !== 'object') {
     fail(`${label} is missing GitHub sync review metadata`);
     return;
@@ -322,12 +326,15 @@ const validatePortfolioUpdateReview = (review, label) => {
     fail(`${label} review gates must be an array`);
     return;
   }
-  for (const gate of REQUIRED_SYNC_REVIEW_GATES) {
+  for (const gate of requiredGates) {
     if (!review.gates.includes(gate)) {
       fail(`${label} review gates must include ${gate}`);
     }
   }
 };
+
+const requiredPortfolioUpdateGates = (item) =>
+  item?.source === 'portfolio-static' ? REQUIRED_PORTFOLIO_STATIC_REVIEW_GATES : REQUIRED_SYNC_REVIEW_GATES;
 
 const validateProject = (project) => {
   const projectLabel = `Project #${project.id} (${project.title || 'untitled'})`;
@@ -511,7 +518,7 @@ const ensureUniqueValues = (items, getValues, labelForItem, thingLabel) => {
 
 const validateSyncedProject = (project) => {
   const label = `Synced project "${project.title || 'untitled'}"`;
-  validatePortfolioUpdateReview(project.review, label);
+  validatePortfolioUpdateReview(project.review, label, requiredPortfolioUpdateGates(project));
   if (hasPlaceholderText(project.description) || hasPlaceholderText(project.longDescription)) {
     fail(`${label} still contains placeholder/slop copy`);
   }
@@ -529,7 +536,7 @@ const validateSyncedProject = (project) => {
 
 const validateSyncedLatestUpdate = (update, projectIds) => {
   const label = `Synced latest update "${update.title || 'untitled'}"`;
-  validatePortfolioUpdateReview(update.review, label);
+  validatePortfolioUpdateReview(update.review, label, requiredPortfolioUpdateGates(update));
   if (hasPlaceholderText(update.description)) {
     fail(`${label} contains placeholder/slop copy`);
   }
