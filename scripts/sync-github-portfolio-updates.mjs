@@ -28,6 +28,10 @@ const CLEARML_DERMASELF_PROJECT_ID = 80;
 const CLEARML_DERMASELF_SLUG = 'clearml-experiment-tracking-for-dermaself';
 const CLEARML_DERMASELF_TITLE = 'ClearML Experiment Tracking for Dermaself';
 const CLEARML_DERMASELF_IMAGE = 'images/clearml-dermaself-experiment-tracking-card.png';
+const AGNITRA_AI_PROJECT_ID = 81;
+const AGNITRA_AI_SLUG = 'agnitra-ai-inference-optimizer';
+const AGNITRA_AI_TITLE = 'Agnitra AI Inference Optimizer';
+const AGNITRA_AI_IMAGE = 'images/agnitra-ai-inference-optimizer-card.png';
 
 const BLOCKED_TEXT_PATTERNS = [
   ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
@@ -435,65 +439,120 @@ const buildNameOnlyEntries = (repo, checkedAt, shouldPromote, clawHubStat) => {
 
 const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
   const review = createReview(checkedAt, PORTFOLIO_STATIC_REVIEW_GATES);
-  const source = 'portfolio-static';
-  const sourceId = CLEARML_DERMASELF_SLUG;
-  const caseStudyUrl = `https://zack-dev-cm.github.io/projects/${CLEARML_DERMASELF_SLUG}.md`;
-  const appUrl = `https://zack-dev-cm.github.io/?project=${CLEARML_DERMASELF_SLUG}`;
-  const description =
-    'MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.';
-  const links = [
-    { text: 'Open case study', url: appUrl },
-    { text: 'Read Markdown case study', url: caseStudyUrl },
-  ];
-  const common = {
-    source,
-    sourceId,
-    createdAt: '2026-06-09',
-    review,
-  };
-
-  updates.latestUpdates.unshift({
-    title: CLEARML_DERMASELF_TITLE,
-    description:
-      'Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.',
-    links,
-    projectId: CLEARML_DERMASELF_PROJECT_ID,
-    ...common,
-  });
-
-  updates.projects.unshift({
-    id: CLEARML_DERMASELF_PROJECT_ID,
-    title: CLEARML_DERMASELF_TITLE,
-    description,
-    longDescription:
-      'ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions. Raw skin images, datasets, model weights, ClearML server URLs, and user-level records are outside the public feed.',
-    projectKind: 'case-study',
-    surfaceTags: ['computer-vision', 'mlops', 'experiment-tracking', 'clearml', 'health-ai'],
-    mobileReady: false,
-    keyFeatures: [
-      'Sets up ClearML experiment tracking for Dermaself model runs without exposing workspaces',
-      'Keeps datasets, parameters, metrics, artifacts, and promotion decisions reviewable across CV iterations',
-      'Separates debug experiment notes from release-ready mobile and server claims',
-      'Keeps sensitive image, dataset, model, and workspace details out of public portfolio files',
-    ],
-    techStack: ['ClearML', 'Python', 'PyTorch', 'ONNX', 'TFLite', 'Flutter', 'Computer Vision', 'MLOps'],
-    links,
-    images: [
-      {
+  const staticEntries = [
+    {
+      id: AGNITRA_AI_PROJECT_ID,
+      slug: AGNITRA_AI_SLUG,
+      title: AGNITRA_AI_TITLE,
+      latestDescription:
+        'Added Agnitra AI public package case study: decoder-only LLM inference optimization, quantization choices, framework integrations, CLI/API surfaces, and signed inference-manifest support.',
+      description:
+        'Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.',
+      longDescription:
+        'Agnitra AI Inference Optimizer covers the public package surface for Agnitra: a PyPI-distributed Python SDK by Agnitra Labs for decoder-only LLM inference optimization. The public feed focuses on PyPI metadata, HuggingFace-style usage, quantization choices, framework integrations, CLI/API surfaces, and trust/provenance manifests. Unpublished source links, keys, runtime hosts, customer models, unpublished benchmark claims, and configuration details are outside the public feed.',
+      projectKind: 'open-source',
+      surfaceTags: ['open-source', 'ai-systems', 'llm-inference', 'mlops', 'optimization'],
+      mobileReady: false,
+      keyFeatures: [
+        'Packages decoder-only LLM inference optimization as a Python SDK with HuggingFace-style usage',
+        'Documents quantization choices, supported decoder-LM architectures, and pass-through behavior for unsupported model families',
+        'Includes public integration paths for HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes',
+        'Keeps portfolio claims bounded to public PyPI and package metadata',
+      ],
+      techStack: ['Python', 'PyTorch', 'Transformers', 'torchao', 'HuggingFace', 'LangChain', 'LlamaIndex', 'MLOps'],
+      links: [
+        { text: 'Open PyPI package', url: 'https://pypi.org/project/agnitra/' },
+        { text: 'Open PyPI publisher profile', url: 'https://pypi.org/user/agnitra.ai/' },
+      ],
+      image: {
+        url: AGNITRA_AI_IMAGE,
+        alt: 'Public-safe Agnitra AI inference optimizer card showing decoder-only LLM runtime, quantization, integrations, and review gates',
+      },
+      benchmarks: [
+        { label: 'Latest public release', value: '0.2.4', context: 'PyPI project page, released 2026-05-06' },
+        { label: 'Package status', value: 'Beta', context: 'PyPI classifier: Development Status :: 4 - Beta' },
+        { label: 'Python support', value: '3.8-3.12', context: 'PyPI classifiers and requires-python metadata' },
+        { label: 'Supported decoder families', value: '13', context: 'public package description lists decoder-LM model_type families' },
+        { label: 'Documented integrations', value: '5', context: 'HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description' },
+        { label: 'Public license', value: 'Apache-2.0', context: 'PyPI project metadata' },
+      ],
+      canonicalWebsite: 'https://pypi.org/project/agnitra/',
+      createdAt: '2026-06-09',
+    },
+    {
+      id: CLEARML_DERMASELF_PROJECT_ID,
+      slug: CLEARML_DERMASELF_SLUG,
+      title: CLEARML_DERMASELF_TITLE,
+      latestDescription:
+        'Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.',
+      description:
+        'MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.',
+      longDescription:
+        'ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions. Raw skin images, datasets, model weights, ClearML server URLs, and user-level records are outside the public feed.',
+      projectKind: 'case-study',
+      surfaceTags: ['computer-vision', 'mlops', 'experiment-tracking', 'clearml', 'health-ai'],
+      mobileReady: false,
+      keyFeatures: [
+        'Sets up ClearML experiment tracking for Dermaself model runs without exposing workspaces',
+        'Keeps datasets, parameters, metrics, artifacts, and promotion decisions reviewable across CV iterations',
+        'Separates debug experiment notes from release-ready mobile and server claims',
+        'Keeps sensitive image, dataset, model, and workspace details out of public portfolio files',
+      ],
+      techStack: ['ClearML', 'Python', 'PyTorch', 'ONNX', 'TFLite', 'Flutter', 'Computer Vision', 'MLOps'],
+      image: {
         url: CLEARML_DERMASELF_IMAGE,
         alt: 'Public-safe MLOps card showing Dermaself ClearML experiment tracking, metrics, artifacts, and review gates',
       },
-    ],
-    thumbnail: CLEARML_DERMASELF_IMAGE,
-    benchmarks: [
-      { label: 'Tracking stack', value: 'ClearML', context: 'Dermaself MLOps setup added to public portfolio scope, 2026-06-09' },
-      { label: 'Tracked surfaces', value: '5', context: 'dataset, parameters, metrics, artifacts, and promotion decisions' },
-      { label: 'Public posture', value: 'sanitized', context: 'public case study excludes sensitive images, datasets, model weights, workspace URLs, and records' },
-      { label: 'Promotion boundary', value: 'review-gated', context: 'debug experiments stay separate from release-ready mobile/server claims' },
-    ],
-    canonicalLinks: { website: caseStudyUrl },
-    ...common,
-  });
+      benchmarks: [
+        { label: 'Tracking stack', value: 'ClearML', context: 'Dermaself MLOps setup added to public portfolio scope, 2026-06-09' },
+        { label: 'Tracked surfaces', value: '5', context: 'dataset, parameters, metrics, artifacts, and promotion decisions' },
+        { label: 'Public posture', value: 'sanitized', context: 'public case study excludes sensitive images, datasets, model weights, workspace URLs, and records' },
+        { label: 'Promotion boundary', value: 'review-gated', context: 'debug experiments stay separate from release-ready mobile/server claims' },
+      ],
+      createdAt: '2026-06-09',
+    },
+  ];
+
+  for (const item of [...staticEntries].reverse()) {
+    const caseStudyUrl = `https://zack-dev-cm.github.io/projects/${item.slug}.md`;
+    const appUrl = `https://zack-dev-cm.github.io/?project=${item.slug}`;
+    const links = item.links || [
+      { text: 'Open case study', url: appUrl },
+      { text: 'Read Markdown case study', url: caseStudyUrl },
+    ];
+    const common = {
+      source: 'portfolio-static',
+      sourceId: item.slug,
+      createdAt: item.createdAt,
+      review,
+    };
+
+    updates.latestUpdates.unshift({
+      title: item.title,
+      description: item.latestDescription,
+      links,
+      projectId: item.id,
+      ...common,
+    });
+
+    updates.projects.unshift({
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      longDescription: item.longDescription,
+      projectKind: item.projectKind,
+      surfaceTags: item.surfaceTags,
+      mobileReady: item.mobileReady,
+      keyFeatures: item.keyFeatures,
+      techStack: item.techStack,
+      links,
+      images: [item.image],
+      thumbnail: item.image.url,
+      benchmarks: item.benchmarks,
+      canonicalLinks: { website: item.canonicalWebsite || caseStudyUrl },
+      ...common,
+    });
+  }
 };
 
 const getStaticExclusions = async (owner) => {

@@ -400,7 +400,7 @@
           "name": "What services does Zakhar Pashkin provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.",
+            "text": "Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs, LLM inference optimization, and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.",
             "citation": "https://zack-dev-cm.github.io/#ai-systems"
           }
         },
@@ -427,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 80 public case studies, 48 projects with explicit benchmarks or analytics, and 18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
+            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -562,7 +562,7 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 80,
+      "numberOfItems": 81,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -1776,6 +1776,26 @@
           "position": 64,
           "item": {
             "@type": "CreativeWork",
+            "name": "Agnitra AI Inference Optimizer",
+            "description": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
+            "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "open-source",
+            "keywords": "open-source, ai-systems, llm-inference, mlops, optimization, Python, PyTorch, Transformers, torchao, HuggingFace, LangChain, LlamaIndex, TensorRT-LLM, MLOps, LLM Inference",
+            "dateCreated": "2026-06-09",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 65,
+          "item": {
+            "@type": "CreativeWork",
             "name": "Chrome Extension Studio Plugin",
             "description": "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
             "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
@@ -1793,7 +1813,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 65,
+          "position": 66,
           "item": {
             "@type": "CreativeWork",
             "name": "Google Drive File Provider Repair Toolkit",
@@ -1813,7 +1833,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 66,
+          "position": 67,
           "item": {
             "@type": "CreativeWork",
             "name": "CollectionsAI ChatGPT App",
@@ -1833,7 +1853,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 67,
+          "position": 68,
           "item": {
             "@type": "CreativeWork",
             "name": "Senior Conservator OpenClaw Agent",
@@ -1853,7 +1873,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 68,
+          "position": 69,
           "item": {
             "@type": "CreativeWork",
             "name": "SourcePack Chrome Extension Wave",
@@ -1873,7 +1893,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 69,
+          "position": 70,
           "item": {
             "@type": "CreativeWork",
             "name": "Trusted ClawHub Install Gate",
@@ -1893,7 +1913,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 70,
+          "position": 71,
           "item": {
             "@type": "CreativeWork",
             "name": "Fast OCR ONNX Inference Server",
@@ -1913,7 +1933,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 71,
+          "position": 72,
           "item": {
             "@type": "CreativeWork",
             "name": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
@@ -1933,7 +1953,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 72,
+          "position": 73,
           "item": {
             "@type": "CreativeWork",
             "name": "Multimodal Video Search Platform",
@@ -1953,7 +1973,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 73,
+          "position": 74,
           "item": {
             "@type": "CreativeWork",
             "name": "Public CV and Deep Learning GitHub Archive",
@@ -1973,7 +1993,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 74,
+          "position": 75,
           "item": {
             "@type": "CreativeWork",
             "name": "Colab CV/DL Prototype Archive",
@@ -1993,7 +2013,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 75,
+          "position": 76,
           "item": {
             "@type": "CreativeWork",
             "name": "Jaw and Face-Type Classifier for Aesthetic Review",
@@ -2013,7 +2033,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 76,
+          "position": 77,
           "item": {
             "@type": "CreativeWork",
             "name": "Architectural Drawing and Interior Catalog Matching",
@@ -2033,7 +2053,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 77,
+          "position": 78,
           "item": {
             "@type": "CreativeWork",
             "name": "InQuest Project Binder RAG QA",
@@ -2053,7 +2073,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 78,
+          "position": 79,
           "item": {
             "@type": "CreativeWork",
             "name": "ComfyUI and Colab Generative Prototype Lab",
@@ -2073,7 +2093,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 79,
+          "position": 80,
           "item": {
             "@type": "CreativeWork",
             "name": "Research Claim Ledger",
@@ -2093,7 +2113,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 80,
+          "position": 81,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

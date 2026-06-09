@@ -335,6 +335,11 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
       expected: 'ClearML Experiment Tracking for Dermaself',
     },
     {
+      label: 'LLM inference',
+      query: 'Agnitra AI LLM inference optimizer quantization HuggingFace signed manifest',
+      expected: 'Agnitra AI Inference Optimizer',
+    },
+    {
       label: 'VLM / LLM agents',
       query: 'VLM LLM agents multimodal automation human review',
       expected: 'CollectionsAI ChatGPT App',

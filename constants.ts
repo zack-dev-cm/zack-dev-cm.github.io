@@ -28,6 +28,10 @@ const CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE = {
   url: `${LOCAL_IMG_BASE}/clearml-dermaself-experiment-tracking-card.png`,
   alt: "Public-safe MLOps card showing Dermaself ClearML experiment tracking with datasets, parameters, metrics, artifacts, QA gates, and promotion boundaries"
 };
+const AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/agnitra-ai-inference-optimizer-card.png`,
+  alt: "Public-safe Agnitra AI inference optimizer card showing decoder-only LLM runtime, quantization, integrations, trust manifest, and package release surfaces"
+};
 const FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE = {
   url: `${LOCAL_IMG_BASE}/face-texture-analysis-service-card.webp`,
   alt: "Generated public-safe face texture analysis card with anonymized mesh, ROI masks, pore heatmap, and wrinkle trace overlays"
@@ -207,7 +211,7 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
 
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping computer vision, ML, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
-  "80 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "81 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
   "18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
 ];
 
@@ -898,6 +902,16 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     ],
     projectId: 76,
     createdAt: "2026-06-04"
+  },
+  {
+    title: "Agnitra AI Inference Optimizer",
+    description: "Added Agnitra AI public package case study: a decoder-only LLM inference optimizer with HuggingFace-style drop-in usage, quantization options, integrations, CLI/API surfaces, and signed inference-manifest support.",
+    links: [
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=agnitra-ai-inference-optimizer" },
+      { text: "Open PyPI package", url: "https://pypi.org/project/agnitra/" }
+    ],
+    projectId: 81,
+    createdAt: "2026-06-09"
   },
   {
     title: "ClearML Experiment Tracking for Dermaself",
@@ -2827,6 +2841,49 @@ Operations Layer (Console, Alerts, Runbooks)`
     images: [CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE],
     thumbnail: CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE.url,
     createdAt: "2026-06-09"
+  },
+  {
+    id: 81,
+    title: "Agnitra AI Inference Optimizer",
+    aliases: ["agnitra", "agnitra ai", "agnitra labs", "llm inference optimizer", "decoder-only llm optimizer", "huggingface optimizer"],
+    description: "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
+    longDescription: "Agnitra AI Inference Optimizer covers the public package surface for Agnitra: a PyPI-distributed Python SDK by Agnitra Labs for decoder-only LLM inference optimization. The public entry focuses on the package contract visible on PyPI: HuggingFace-style drop-in usage, quantization modes, integrations with HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes, CLI/API surfaces, and trust/provenance manifests. It deliberately avoids publishing unpublished source URLs, signing material, runtime hosts, customer models, unpublished benchmark claims, or configuration details from the package documentation.",
+    projectKind: "open-source",
+    surfaceTags: ["open-source", "ai-systems", "llm-inference", "mlops", "optimization"],
+    keyFeatures: [
+      "Packages decoder-only LLM inference optimization as a Python SDK with HuggingFace-style drop-in usage",
+      "Documents quantization choices, supported decoder-LM architectures, and pass-through behavior for unsupported model families",
+      "Includes public integration paths for HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes",
+      "Adds trust/provenance manifest support so optimized inference artifacts can be reviewed without exposing signing material or runtime hosts",
+      "Keeps the portfolio claim bounded to public PyPI and package metadata instead of unpublished benchmarks or source URLs"
+    ],
+    techStack: ["Python", "PyTorch", "Transformers", "torchao", "HuggingFace", "LangChain", "LlamaIndex", "TensorRT-LLM", "MLOps", "LLM Inference"],
+    benchmarks: [
+      { label: "Latest public release", value: "0.2.4", context: "PyPI project page, released 2026-05-06" },
+      { label: "Package status", value: "Beta", context: "PyPI classifier: Development Status :: 4 - Beta" },
+      { label: "Python support", value: "3.8-3.12", context: "PyPI classifiers and requires-python metadata" },
+      { label: "Supported decoder families", value: "13", context: "public package description lists decoder-LM model_type families" },
+      { label: "Documented integrations", value: "5", context: "HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description" },
+      { label: "Public license", value: "Apache-2.0", context: "PyPI project metadata" }
+    ],
+    links: [
+      { text: "Open PyPI package", url: "https://pypi.org/project/agnitra/" },
+      { text: "Open PyPI publisher profile", url: "https://pypi.org/user/agnitra.ai/" }
+    ],
+    mermaidDiagram: `flowchart LR
+  Package["PyPI Package"] --> SDK["Python SDK"]
+  SDK --> Model["Decoder-only LLM"]
+  Model --> Quant["Quantization Choice"]
+  Quant --> Runtime["Optimized Runtime"]
+  SDK --> Integrations["HF / LangChain / LlamaIndex / Accelerate"]
+  Runtime --> Trust["Signed Manifest"]
+  Trust --> Review["Public-safe Review Boundary"]`,
+    images: [AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE],
+    thumbnail: AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE.url,
+    createdAt: "2026-06-09",
+    canonicalLinks: {
+      website: "https://pypi.org/project/agnitra/"
+    }
   },
   {
     id: 64,

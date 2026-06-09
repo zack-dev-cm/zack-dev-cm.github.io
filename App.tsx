@@ -69,7 +69,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
 };
 
 const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
-const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
+const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
 const LOW_PRIORITY_AI_SURFACE_IDS = new Set<number>([68, 64, 62, 60, 61, 46, 47, 48, 49, 50, 51, 52, 57, 58, 31, 30, 39, 38, 36, 23, 24, 27, 3, 11, 43, 69, 75]);
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 24;
 
@@ -407,6 +407,7 @@ const SMART_SEARCH_SYNONYM_GROUPS = [
   ['comfy', 'comfyui', 'colab', 'notebook', 'notebooks', 'prototype', 'custom', 'model', 'models', 'workflow', 'workflows', 'liveportrait', 'moviepy', 'ffmpeg'],
   ['mcp', 'chatgpt', 'tool', 'tools', 'widget', 'widgets', 'app', 'apps', 'agent', 'agents', 'tool-calling', 'conservation'],
   ['clearml', 'clear ml', 'mlops', 'experiment', 'experiments', 'tracking', 'metrics', 'promotion', 'dermaself'],
+  ['agnitra', 'inference', 'optimizer', 'decoder', 'decoder-only', 'llm', 'quantization', 'huggingface', 'torchao', 'manifest'],
   ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
   ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
   ['telegram', 'tg', 'tma', 'miniapp', 'mini-app', 'bot', 'bots', 'webapp', 'web-app'],
@@ -450,6 +451,10 @@ const SEARCH_INTENT_BOOSTS: Array<{ projectIds: readonly number[]; phrases: read
   {
     projectIds: [80, 63],
     phrases: ['clearml', 'clear ml', 'mlops', 'experiment tracking', 'model metrics', 'promotion gate', 'dermaself tracking'],
+  },
+  {
+    projectIds: [81],
+    phrases: ['agnitra', 'agnitra ai', 'llm inference optimizer', 'decoder only llm', 'decoder-only llm', 'huggingface optimizer', 'quantization sdk', 'signed inference manifest'],
   },
   {
     projectIds: [56, 68, 15, 16, 59, 55],
@@ -871,6 +876,7 @@ const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: Proje
   { label: 'ComfyUI', query: 'ComfyUI Colab generative prototype custom models', filter: 'ai-systems', projectIds: [79, 74] },
   { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems', projectIds: [66, 78, 40] },
   { label: 'ClearML / MLOps', query: 'ClearML Dermaself experiment tracking MLOps metrics promotion gates', filter: 'computer-vision', projectIds: [80, 63] },
+  { label: 'LLM inference', query: 'Agnitra AI LLM inference optimizer quantization HuggingFace signed manifest', filter: 'ai-systems', projectIds: [81] },
   { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
 ];
 

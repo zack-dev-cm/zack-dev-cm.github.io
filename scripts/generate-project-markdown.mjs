@@ -248,7 +248,7 @@ const buildAnswerTargets = (projects) => {
     {
       question: 'What services does Zakhar Pashkin provide?',
       answer:
-        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.',
+        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs, LLM inference optimization, and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.',
       cite: `${SITE_BASE}/#ai-systems`
     },
     {

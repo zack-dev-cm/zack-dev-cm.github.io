@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-09T15:13:30.602Z",
+  "lastSyncedAt": "2026-06-09T15:38:05.627Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-09",
-    "syncedAt": "2026-06-09T15:13:30.602Z",
+    "syncedAt": "2026-06-09T15:38:05.627Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -27,6 +27,39 @@
     ]
   },
   "latestUpdates": [
+    {
+      "title": "Agnitra AI Inference Optimizer",
+      "description": "Added Agnitra AI public package case study: decoder-only LLM inference optimization, quantization choices, framework integrations, CLI/API surfaces, and signed inference-manifest support.",
+      "links": [
+        {
+          "text": "Open PyPI package",
+          "url": "https://pypi.org/project/agnitra/"
+        },
+        {
+          "text": "Open PyPI publisher profile",
+          "url": "https://pypi.org/user/agnitra.ai/"
+        }
+      ],
+      "projectId": 81,
+      "source": "portfolio-static",
+      "sourceId": "agnitra-ai-inference-optimizer",
+      "createdAt": "2026-06-09",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-09",
+        "gateVersion": 2,
+        "gates": [
+          "portfolio-static-source-backed",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
     {
       "title": "ClearML Experiment Tracking for Dermaself",
       "description": "Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.",
@@ -686,6 +719,107 @@
     }
   ],
   "projects": [
+    {
+      "id": 81,
+      "title": "Agnitra AI Inference Optimizer",
+      "description": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
+      "longDescription": "Agnitra AI Inference Optimizer covers the public package surface for Agnitra: a PyPI-distributed Python SDK by Agnitra Labs for decoder-only LLM inference optimization. The public feed focuses on PyPI metadata, HuggingFace-style usage, quantization choices, framework integrations, CLI/API surfaces, and trust/provenance manifests. Unpublished source links, keys, runtime hosts, customer models, unpublished benchmark claims, and configuration details are outside the public feed.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "ai-systems",
+        "llm-inference",
+        "mlops",
+        "optimization"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Packages decoder-only LLM inference optimization as a Python SDK with HuggingFace-style usage",
+        "Documents quantization choices, supported decoder-LM architectures, and pass-through behavior for unsupported model families",
+        "Includes public integration paths for HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes",
+        "Keeps portfolio claims bounded to public PyPI and package metadata"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "Transformers",
+        "torchao",
+        "HuggingFace",
+        "LangChain",
+        "LlamaIndex",
+        "MLOps"
+      ],
+      "links": [
+        {
+          "text": "Open PyPI package",
+          "url": "https://pypi.org/project/agnitra/"
+        },
+        {
+          "text": "Open PyPI publisher profile",
+          "url": "https://pypi.org/user/agnitra.ai/"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/agnitra-ai-inference-optimizer-card.png",
+          "alt": "Public-safe Agnitra AI inference optimizer card showing decoder-only LLM runtime, quantization, integrations, and review gates"
+        }
+      ],
+      "thumbnail": "images/agnitra-ai-inference-optimizer-card.png",
+      "benchmarks": [
+        {
+          "label": "Latest public release",
+          "value": "0.2.4",
+          "context": "PyPI project page, released 2026-05-06"
+        },
+        {
+          "label": "Package status",
+          "value": "Beta",
+          "context": "PyPI classifier: Development Status :: 4 - Beta"
+        },
+        {
+          "label": "Python support",
+          "value": "3.8-3.12",
+          "context": "PyPI classifiers and requires-python metadata"
+        },
+        {
+          "label": "Supported decoder families",
+          "value": "13",
+          "context": "public package description lists decoder-LM model_type families"
+        },
+        {
+          "label": "Documented integrations",
+          "value": "5",
+          "context": "HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description"
+        },
+        {
+          "label": "Public license",
+          "value": "Apache-2.0",
+          "context": "PyPI project metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "website": "https://pypi.org/project/agnitra/"
+      },
+      "source": "portfolio-static",
+      "sourceId": "agnitra-ai-inference-optimizer",
+      "createdAt": "2026-06-09",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-09",
+        "gateVersion": 2,
+        "gates": [
+          "portfolio-static-source-backed",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
     {
       "id": 80,
       "title": "ClearML Experiment Tracking for Dermaself",

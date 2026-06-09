@@ -143,7 +143,7 @@
     },
     {
       "question": "What services does Zakhar Pashkin provide?",
-      "answer": "Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.",
+      "answer": "Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs, LLM inference optimization, and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.",
       "cite": "https://zack-dev-cm.github.io/#ai-systems"
     },
     {
@@ -158,7 +158,7 @@
     },
     {
       "question": "What public signals are available?",
-      "answer": "The portfolio lists 80 public case studies, 48 projects with explicit benchmarks or analytics, and 18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
+      "answer": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 18,172 tracked ClawHub downloads across 50 public skills as of 2026-06-09.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -475,6 +475,82 @@
           "links": []
         },
         {
+          "id": 81,
+          "title": "Agnitra AI Inference Optimizer",
+          "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+          "summary": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
+          "kind": "open-source",
+          "tags": [
+            "open-source",
+            "ai-systems",
+            "llm-inference",
+            "mlops",
+            "optimization"
+          ],
+          "aliases": [
+            "agnitra",
+            "agnitra ai",
+            "agnitra labs",
+            "llm inference optimizer",
+            "decoder-only llm optimizer",
+            "huggingface optimizer"
+          ],
+          "techStack": [
+            "Python",
+            "PyTorch",
+            "Transformers",
+            "torchao",
+            "HuggingFace",
+            "LangChain",
+            "LlamaIndex",
+            "TensorRT-LLM",
+            "MLOps",
+            "LLM Inference"
+          ],
+          "benchmarks": [
+            {
+              "label": "Latest public release",
+              "value": "0.2.4",
+              "context": "PyPI project page, released 2026-05-06"
+            },
+            {
+              "label": "Package status",
+              "value": "Beta",
+              "context": "PyPI classifier: Development Status :: 4 - Beta"
+            },
+            {
+              "label": "Python support",
+              "value": "3.8-3.12",
+              "context": "PyPI classifiers and requires-python metadata"
+            },
+            {
+              "label": "Supported decoder families",
+              "value": "13",
+              "context": "public package description lists decoder-LM model_type families"
+            },
+            {
+              "label": "Documented integrations",
+              "value": "5",
+              "context": "HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description"
+            },
+            {
+              "label": "Public license",
+              "value": "Apache-2.0",
+              "context": "PyPI project metadata"
+            }
+          ],
+          "links": [
+            {
+              "label": "Open PyPI package",
+              "url": "https://pypi.org/project/agnitra/"
+            },
+            {
+              "label": "Open PyPI publisher profile",
+              "url": "https://pypi.org/user/agnitra.ai/"
+            }
+          ]
+        },
+        {
           "id": 67,
           "title": "Senior Conservator OpenClaw Agent",
           "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
@@ -749,93 +825,6 @@
             {
               "label": "CV Repro Lab skill",
               "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
-            }
-          ]
-        },
-        {
-          "id": 74,
-          "title": "Colab CV/DL Prototype Archive",
-          "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
-          "summary": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
-          "kind": "research",
-          "tags": [
-            "computer-vision",
-            "deep-learning",
-            "colab",
-            "notebooks",
-            "generative-ai"
-          ],
-          "aliases": [
-            "colab notebooks archive",
-            "cv dl prototype archive",
-            "vision notebook prototypes"
-          ],
-          "techStack": [
-            "Jupyter Notebook",
-            "Google Colab",
-            "PyTorch",
-            "TensorFlow",
-            "Swin Transformer",
-            "CvT",
-            "CLIP",
-            "MMOCR",
-            "OpenCV",
-            "CameraX"
-          ],
-          "benchmarks": [
-            {
-              "label": "Public prototype links",
-              "value": "8",
-              "context": "GitHub API and repo URL review, 2026-05-14"
-            },
-            {
-              "label": "Research families",
-              "value": "5",
-              "context": "classification, OCR, mobile capture, video retrieval, generative media"
-            },
-            {
-              "label": "Notebook posture",
-              "value": "prototype",
-              "context": "not presented as live service or production accuracy claim"
-            },
-            {
-              "label": "Source links",
-              "value": "public-only",
-              "context": "GitHub repos and generated case studies only"
-            }
-          ],
-          "links": [
-            {
-              "label": "Swin transformer starter",
-              "url": "https://github.com/ZackPashkin/swin-transformer-pytorch-starter"
-            },
-            {
-              "label": "CvT convolutional transformer starter",
-              "url": "https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch"
-            },
-            {
-              "label": "Digits recognition MMOCR",
-              "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
-            },
-            {
-              "label": "Android document scan",
-              "url": "https://github.com/ZackPashkin/DocumentsScan"
-            },
-            {
-              "label": "Search through videos",
-              "url": "https://github.com/ZackPashkin/search-through-videos"
-            },
-            {
-              "label": "Voice and lip sync Colab app",
-              "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
-            },
-            {
-              "label": "Text to cartoon CLIP",
-              "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
-            },
-            {
-              "label": "Sticker maker with CLIP",
-              "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
             }
           ]
         }
@@ -5270,6 +5259,82 @@
         }
       ],
       "links": []
+    },
+    {
+      "id": 81,
+      "title": "Agnitra AI Inference Optimizer",
+      "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+      "summary": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "ai-systems",
+        "llm-inference",
+        "mlops",
+        "optimization"
+      ],
+      "aliases": [
+        "agnitra",
+        "agnitra ai",
+        "agnitra labs",
+        "llm inference optimizer",
+        "decoder-only llm optimizer",
+        "huggingface optimizer"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "Transformers",
+        "torchao",
+        "HuggingFace",
+        "LangChain",
+        "LlamaIndex",
+        "TensorRT-LLM",
+        "MLOps",
+        "LLM Inference"
+      ],
+      "benchmarks": [
+        {
+          "label": "Latest public release",
+          "value": "0.2.4",
+          "context": "PyPI project page, released 2026-05-06"
+        },
+        {
+          "label": "Package status",
+          "value": "Beta",
+          "context": "PyPI classifier: Development Status :: 4 - Beta"
+        },
+        {
+          "label": "Python support",
+          "value": "3.8-3.12",
+          "context": "PyPI classifiers and requires-python metadata"
+        },
+        {
+          "label": "Supported decoder families",
+          "value": "13",
+          "context": "public package description lists decoder-LM model_type families"
+        },
+        {
+          "label": "Documented integrations",
+          "value": "5",
+          "context": "HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description"
+        },
+        {
+          "label": "Public license",
+          "value": "Apache-2.0",
+          "context": "PyPI project metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "Open PyPI package",
+          "url": "https://pypi.org/project/agnitra/"
+        },
+        {
+          "label": "Open PyPI publisher profile",
+          "url": "https://pypi.org/user/agnitra.ai/"
+        }
+      ]
     },
     {
       "id": 64,
