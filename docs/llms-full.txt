@@ -61,7 +61,7 @@ Canonical examples: Dishes Recognition & Nutrition Goals Telegram Bot (https://z
 
 ## Research Review Feed
 The ML Papers, Read for Builders feed has 8 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Business World Model; PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow. Human page: https://zack-dev-cm.github.io/papers/. Machine feed: https://zack-dev-cm.github.io/docs/paper-reviews.json.
-- Business World Model. arXiv: 2606.10044. Tags: agents, runtime, evaluation, cs.AI. Source: https://arxiv.org/abs/2606.10044
+- Business World Model. arXiv: 2606.10044. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.10044
 - PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow. arXiv: 2606.07549. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.07549
 - GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning. arXiv: 2606.06532. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.06532
 - I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition. arXiv: 2606.05316. Tags: computer-vision, multimodal, evaluation. Source: https://arxiv.org/abs/2606.05316

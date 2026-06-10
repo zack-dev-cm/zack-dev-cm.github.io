@@ -59,11 +59,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected from primary ML research feeds because it is recent, source-linked, and has a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
       "whatItClaims": "Business World Model argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
       "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",
