@@ -3412,8 +3412,7 @@ Operations Layer (Console, Alerts, Runbooks)`
   Answer --> Save["PDF + Generated Files"]
   Save --> QA["Scenario QA Matrix"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/inqi-quest-binder-agent-card.png`, alt: "InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" },
-      SELECTED_AI_CV_EXCALIDRAW_IMAGE
+      { url: `${LOCAL_IMG_BASE}/inqi-quest-binder-agent-card.png`, alt: "InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" }
     ],
     thumbnail: `${LOCAL_IMG_BASE}/inqi-quest-binder-agent-card.png`,
     createdAt: "2026-06-04"
