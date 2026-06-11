@@ -3368,8 +3368,7 @@ Operations Layer (Console, Alerts, Runbooks)`
   QA --> Export`,
     images: [
       { url: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`, alt: "Architectural floorplan recognition and interior catalog matching visualization" },
-      ARCHITECTURAL_CATALOG_RECEPTION_IMAGE,
-      SELECTED_AI_CV_EXCALIDRAW_IMAGE
+      ARCHITECTURAL_CATALOG_RECEPTION_IMAGE
     ],
     thumbnail: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`,
     createdAt: "2026-06-04"
