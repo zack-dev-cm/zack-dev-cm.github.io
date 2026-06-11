@@ -68,8 +68,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string;
   },
 };
 
-const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
-const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
+const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 82, 83, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
+const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 82, 83, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
 const LOW_PRIORITY_AI_SURFACE_IDS = new Set<number>([68, 64, 62, 60, 61, 46, 47, 48, 49, 50, 51, 52, 57, 58, 31, 30, 39, 38, 36, 23, 24, 27, 3, 11, 43, 69, 75]);
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 24;
 
@@ -93,6 +93,16 @@ const COMPUTER_VISION_LANES = [
     label: 'Plans + interiors',
     value: 'Catalog matching',
     detail: 'raw plans, elevations, room graphs, casework/catalog callouts, and commercial reception previews'
+  },
+  {
+    label: 'Robotics IK',
+    value: 'Colab-gated',
+    detail: 'Unitree G1 URDF parsing, batched wrist IK, joint-limit gates, hardware-free safety scope'
+  },
+  {
+    label: 'Kaggle evidence',
+    value: 'Dataset + notebooks',
+    detail: 'signature verification dataset, Siamese CV notebook, RSNA prep, Bengali.AI public leaderboard'
   }
 ];
 
@@ -408,6 +418,9 @@ const SMART_SEARCH_SYNONYM_GROUPS = [
   ['mcp', 'chatgpt', 'tool', 'tools', 'widget', 'widgets', 'app', 'apps', 'agent', 'agents', 'tool-calling', 'conservation'],
   ['clearml', 'clear ml', 'mlops', 'experiment', 'experiments', 'tracking', 'metrics', 'promotion', 'dermaself'],
   ['agnitra', 'inference', 'optimizer', 'decoder', 'decoder-only', 'llm', 'quantization', 'huggingface', 'torchao', 'manifest'],
+  ['robotics', 'robotic', 'robot', 'unitree', 'g1', 'hermes', 'inverse kinematics', 'kinematics', 'ik', 'urdf', 'teleoperation', 'wrist', 'joint limits'],
+  ['kyc', 'identity', 'verification', 'liveness', 'anti-spoof', 'antispoof', 'spoof', 'spoofing', 'presentation attack', 'face auth', 'biometric', 'replay', 'print'],
+  ['kaggle', 'tienen', 'signature verification', 'handwritten signature', 'siamese', 'rsna', 'bengali', 'bengaliai', 'leaderboard', 'competition evidence'],
   ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
   ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
   ['telegram', 'tg', 'tma', 'miniapp', 'mini-app', 'bot', 'bots', 'webapp', 'web-app'],
@@ -455,6 +468,21 @@ const SEARCH_INTENT_BOOSTS: Array<{ projectIds: readonly number[]; phrases: read
   {
     projectIds: [81],
     phrases: ['agnitra', 'agnitra ai', 'llm inference optimizer', 'decoder only llm', 'decoder-only llm', 'huggingface optimizer', 'quantization sdk', 'signed inference manifest'],
+  },
+  {
+    projectIds: [82],
+    phrases: ['unitree', 'unitree g1', 'robotics', 'robotics ik', 'robot arm ik', 'inverse kinematics', 'g1 teleoperation', 'hermes safety lab', 'urdf benchmark', 'colab robotics'],
+    weight: 260,
+  },
+  {
+    projectIds: [14],
+    phrases: ['kyc', 'kyc liveness', 'identity verification', 'face liveness', 'presentation attack', 'anti-spoofing', 'antispoofing', 'face auth', 'replay spoofing', 'print spoofing'],
+    weight: 240,
+  },
+  {
+    projectIds: [83],
+    phrases: ['kaggle', 'kaggle dataset', 'kaggle profile', 'tienen', 'handwritten signature verification', 'signature dataset', 'siamese signature', 'rsna spine kaggle', 'bengali ai leaderboard', 'bengaliai cv19'],
+    weight: 250,
   },
   {
     projectIds: [56, 68, 15, 16, 59, 55],
@@ -877,6 +905,9 @@ const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: Proje
   { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems', projectIds: [66, 78, 40] },
   { label: 'ClearML / MLOps', query: 'ClearML Dermaself experiment tracking MLOps metrics promotion gates', filter: 'computer-vision', projectIds: [80, 63] },
   { label: 'LLM inference', query: 'Agnitra AI LLM inference optimizer quantization HuggingFace signed manifest', filter: 'ai-systems', projectIds: [81] },
+  { label: 'Robotics IK', query: 'Unitree G1 robotics inverse kinematics URDF Colab teleoperation', filter: 'computer-vision', projectIds: [82] },
+  { label: 'KYC liveness', query: 'KYC identity verification liveness anti-spoofing presentation attack face auth', filter: 'computer-vision', projectIds: [14] },
+  { label: 'Kaggle datasets', query: 'Kaggle tienen handwritten signature dataset Siamese notebook BengaliAI leaderboard', filter: 'computer-vision', projectIds: [83] },
   { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
 ];
 
@@ -1815,7 +1846,7 @@ const App: React.FC = () => {
             id="computer-vision"
             eyebrow="Computer Vision"
             title="Computer Vision Systems"
-            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies across OCR, SAM-style segmentation, jaw and face-type classification, skin texture analysis, architectural plan/elevation parsing, catalog callout matching, commercial reception previews, multimodal video search, and GitHub-backed research archives.`}
+            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies across OCR, SAM-style segmentation, KYC-adjacent liveness checks, jaw and face-type classification, skin texture analysis, architectural plan/elevation parsing, catalog callout matching, robotics IK review, Kaggle dataset and notebook evidence, commercial reception previews, multimodal video search, and GitHub-backed research archives.`}
           >
             <div className="domain-spotlight">
               <div className="domain-spotlight__media">

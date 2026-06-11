@@ -32,6 +32,18 @@ const AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE = {
   url: `${LOCAL_IMG_BASE}/agnitra-ai-inference-optimizer-card.png`,
   alt: "Public-safe Agnitra AI inference optimizer card showing decoder-only LLM runtime, quantization, integrations, trust manifest, and package release surfaces"
 };
+const UNITREE_G1_COLAB_IK_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/unitree-g1-colab-ik-card.webp`,
+  alt: "Realistic generated robotics lab image showing an unbranded robot arm, calibration posts, target grid, and offline inverse-kinematics test bench"
+};
+const KYC_LIVENESS_ANTISPOOF_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/kyc-liveness-antispoof-card.webp`,
+  alt: "Generated public-safe face anti-spoofing and KYC liveness card showing print and replay presentation attack review gates without real faces"
+};
+const KAGGLE_DATASET_NOTEBOOK_IMAGE = {
+  url: `${LOCAL_IMG_BASE}/kaggle-dataset-notebook-contributions-card.webp`,
+  alt: "Realistic generated data-curation image showing anonymous signature-crop sheets, a laptop keyboard, notebook, and desk workspace"
+};
 const FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE = {
   url: `${LOCAL_IMG_BASE}/face-texture-analysis-service-card.webp`,
   alt: "Generated public-safe face texture analysis card with anonymized mesh, ROI masks, pore heatmap, and wrinkle trace overlays"
@@ -210,13 +222,13 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "7+ years shipping computer vision, ML, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
-  "81 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "18,511 tracked ClawHub downloads across 50 public skills as of 2026-06-10, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
+  "7+ years shipping computer vision, ML, robotics-adjacent, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
+  "83 public case studies and launches spanning public-safe CV systems, robotics labs, Kaggle datasets and notebooks, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
+  "18,930 tracked ClawHub downloads across 53 public skills as of 2026-06-11, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
-  "Python", "PyTorch", "OpenCV", "ONNX Runtime", "FastAPI", "OpenAI APIs", "VLMs", "LLMs", "AI Agents", "Multimodal Retrieval", "RAG", "Qdrant", "ComfyUI", "Google Colab", "Evals", "TensorFlow", "Keras", "CLIP", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
+  "Python", "PyTorch", "OpenCV", "ONNX Runtime", "FastAPI", "OpenAI APIs", "VLMs", "LLMs", "AI Agents", "Robotics", "Inverse Kinematics", "Multimodal Retrieval", "RAG", "Qdrant", "ComfyUI", "Google Colab", "Evals", "TensorFlow", "Keras", "CLIP", "TypeScript", "React", "Cloudflare Workers", "Android", "iOS", "GCP", "AWS", "Docker", "Kubernetes", "ML Ops", "TensorRT", "TFLite", "CoreML", "ONNX/OpenVino"
 ];
 
 export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS: string[] = [
@@ -233,452 +245,479 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Reviewer",
-    downloads: 835,
+    downloads: 843,
     versions: 12,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "agentic-codex-dev",
     displayName: "Agentic Codex Dev Reviewer",
-    downloads: 721,
+    downloads: 724,
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/agentic-codex-dev",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 710,
+    downloads: 716,
     versions: 14,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "sota-agent",
     displayName: "SOTA Agent",
-    downloads: 695,
+    downloads: 699,
     versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub ClawHub Release Reviewer",
-    downloads: 685,
+    downloads: 694,
     versions: 9,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "youtube-creator-ops",
     displayName: "OpenClaw YouTube Publisher",
-    downloads: 576,
+    downloads: 580,
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 541,
+    downloads: 547,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 523,
+    downloads: 527,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "browser-proof",
     displayName: "Browser QA Report Pack",
-    downloads: 511,
+    downloads: 516,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "public-surface-review",
     displayName: "Publish Guard",
-    downloads: 505,
+    downloads: 509,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "hh-openclaw-agent",
     displayName: "HH OpenClaw Agent",
-    downloads: 495,
+    downloads: 499,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 488,
+    downloads: 492,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "telegram-miniapp-security-auditor",
     displayName: "Telegram Mini App Security Auditor",
-    downloads: 482,
+    downloads: 485,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/telegram-miniapp-security-auditor",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "hh-openclaw-proposal-submitter",
     displayName: "HH Application Packet Reviewer",
-    downloads: 407,
+    downloads: 412,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-proposal-submitter",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "youtube-openclaw-creator",
     displayName: "YouTube Publish Reviewer",
-    downloads: 395,
+    downloads: 400,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/youtube-openclaw-creator",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "affiliate-video-campaign-operator",
     displayName: "Affiliate Video Campaign Reviewer",
-    downloads: 391,
+    downloads: 396,
     versions: 9,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-video-campaign-operator",
-    checkedAt: "2026-06-10"
-  },
-  {
-    slug: "random-coffee-best-fit-outreach",
-    displayName: "Random Coffee Best Fit Outreach",
-    downloads: 391,
-    versions: 5,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "agentic-video-production-publisher",
     displayName: "Agentic Video Production Reviewer",
-    downloads: 387,
+    downloads: 396,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentic-video-production-publisher",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "random-coffee-best-fit-outreach",
+    displayName: "Random Coffee Best Fit Outreach",
+    downloads: 394,
+    versions: 5,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "meshmcp-remotescreen",
     displayName: "Screen Support Review Planner",
-    downloads: 385,
+    downloads: 390,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-remotescreen",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "avito-outreach-manager",
     displayName: "Avito Message QA Reviewer",
-    downloads: 368,
+    downloads: 373,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/avito-outreach-manager",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skool-growth-teardown-poster",
     displayName: "Skool Growth Teardown Poster",
-    downloads: 356,
+    downloads: 361,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-growth-teardown-poster",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skill-sprint-pack-builder",
     displayName: "Skill Sprint Pack Builder",
-    downloads: 349,
+    downloads: 354,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-sprint-pack-builder",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "meshmcp-offline-chat",
     displayName: "Offline Message Test Planner",
-    downloads: 339,
+    downloads: 344,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-offline-chat",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "x-algo-claim-auditor",
     displayName: "X Algo Claim Reviewer",
-    downloads: 328,
+    downloads: 333,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/x-algo-claim-auditor",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skool-member-activation-concierge",
     displayName: "Skool Member Activation Concierge",
-    downloads: 323,
+    downloads: 329,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-member-activation-concierge",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "open-feed-recsys-lab",
     displayName: "Open Feed Recsys Reviewer",
-    downloads: 314,
+    downloads: 319,
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "trusted-clawhub-install-gate",
     displayName: "Trusted ClawHub Install Gate",
-    downloads: 313,
+    downloads: 318,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "community-topic-scout",
     displayName: "Community Topic Scout",
-    downloads: 295,
+    downloads: 301,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/community-topic-scout",
-    checkedAt: "2026-06-10"
-  },
-  {
-    slug: "spec-plan-build-review",
-    displayName: "Spec Plan Build Review",
-    downloads: 288,
-    versions: 2,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/spec-plan-build-review",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "agentmemory-adapter",
     displayName: "AgentMemory Adapter",
-    downloads: 286,
+    downloads: 294,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentmemory-adapter",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
-    slug: "skool-challenge-launcher",
-    displayName: "Skool Challenge Launcher",
-    downloads: 281,
-    versions: 1,
+    slug: "spec-plan-build-review",
+    displayName: "Spec Plan Build Review",
+    downloads: 292,
+    versions: 2,
     stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/skool-challenge-launcher",
-    checkedAt: "2026-06-10"
+    url: "https://clawhub.ai/zack-dev-cm/spec-plan-build-review",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skool-discovery-page-optimizer",
     displayName: "Skool Discovery Page Optimizer",
-    downloads: 281,
+    downloads: 287,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-discovery-page-optimizer",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "skool-challenge-launcher",
+    displayName: "Skool Challenge Launcher",
+    downloads: 286,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/skool-challenge-launcher",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "chrome-extension-studio",
     displayName: "Chrome Extension Studio",
-    downloads: 280,
+    downloads: 285,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/chrome-extension-studio",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skool-trust-ladder-builder",
     displayName: "Skool Trust Ladder Builder",
-    downloads: 280,
+    downloads: 283,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-trust-ladder-builder",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "interactive-doc-mapper",
     displayName: "Interactive Doc Mapper",
-    downloads: 275,
+    downloads: 278,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "tinytroupe-feed-research-lab",
     displayName: "TinyTroupe Feed Research Lab",
-    downloads: 265,
+    downloads: 270,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/tinytroupe-feed-research-lab",
-    checkedAt: "2026-06-10"
-  },
-  {
-    slug: "product-share-trigger-reviewer",
-    displayName: "Product Share Trigger Reviewer",
-    downloads: 260,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/product-share-trigger-reviewer",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "gstack-review-stack",
     displayName: "GStack Review Stack",
-    downloads: 257,
+    downloads: 265,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/gstack-review-stack",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
-    slug: "codex-claude-clawhub-skill-bridge",
-    displayName: "Codex Claude ClawHub Skill Bridge",
-    downloads: 253,
+    slug: "product-share-trigger-reviewer",
+    displayName: "Product Share Trigger Reviewer",
+    downloads: 265,
     versions: 1,
     stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/codex-claude-clawhub-skill-bridge",
-    checkedAt: "2026-06-10"
+    url: "https://clawhub.ai/zack-dev-cm/product-share-trigger-reviewer",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "ai-video-scene-director",
     displayName: "AI Video Scene Director",
-    downloads: 251,
+    downloads: 257,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/ai-video-scene-director",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "codex-claude-clawhub-skill-bridge",
+    displayName: "Codex Claude ClawHub Skill Bridge",
+    downloads: 257,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/codex-claude-clawhub-skill-bridge",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "research-claim-ledger",
     displayName: "Research Claim Ledger",
-    downloads: 241,
+    downloads: 250,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "affiliate-ugc-test-planner",
     displayName: "Affiliate UGC Test Planner",
-    downloads: 235,
+    downloads: 241,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-ugc-test-planner",
-    checkedAt: "2026-06-10"
-  },
-  {
-    slug: "doubt-driven-development",
-    displayName: "Doubt Driven Development",
-    downloads: 235,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "proof-card-forge",
     displayName: "Signal Card Forge",
-    downloads: 233,
+    downloads: 241,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/proof-card-forge",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "doubt-driven-development",
+    displayName: "Doubt Driven Development",
+    downloads: 239,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skill-package-doctor",
     displayName: "Skill Package Doctor",
-    downloads: 228,
+    downloads: 236,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-package-doctor",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "skill-install-bridge",
     displayName: "Skill Install Bridge",
-    downloads: 227,
+    downloads: 235,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
-    checkedAt: "2026-06-10"
-  },
-  {
-    slug: "using-agent-skills-router",
-    displayName: "Using Agent Skills Router",
-    downloads: 226,
-    versions: 1,
-    stars: 0,
-    url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "stowecraft-artisan-concierge",
     displayName: "StoweCraft Artisan Concierge",
-    downloads: 224,
+    downloads: 232,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/stowecraft-artisan-concierge",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "using-agent-skills-router",
+    displayName: "Using Agent Skills Router",
+    downloads: 230,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
+    checkedAt: "2026-06-11"
   },
   {
     slug: "agent-skills-portability-auditor",
     displayName: "Agent Skills Portability Auditor",
-    downloads: 215,
+    downloads: 218,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agent-skills-portability-auditor",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
   },
   {
     slug: "unitree-hermes-colab",
     displayName: "Unitree Hermes Colab",
-    downloads: 82,
+    downloads: 90,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab",
-    checkedAt: "2026-06-10"
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "imagegen",
+    displayName: "Image Gen",
+    downloads: 62,
+    versions: 2,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/imagegen",
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "design-md-ui-designer",
+    displayName: "DESIGN.md UI Designer",
+    downloads: 57,
+    versions: 2,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/design-md-ui-designer",
+    checkedAt: "2026-06-11"
+  },
+  {
+    slug: "chrome-extension-maintainer",
+    displayName: "Chrome Extension Maintainer",
+    downloads: 29,
+    versions: 1,
+    stars: 0,
+    url: "https://clawhub.ai/zack-dev-cm/chrome-extension-maintainer",
+    checkedAt: "2026-06-11"
   }
 ];
 
@@ -923,6 +962,28 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     createdAt: "2026-06-09"
   },
   {
+    title: "Unitree G1 Colab Ik",
+    description: "Curated the public Unitree robotics lab: GPU-backed Colab inverse-kinematics benchmarks, G1 URDF provenance, Hermes safety-review prompts, and explicit hardware-free scope limits.",
+    links: [
+      { text: "Open robotics case study", url: "https://zack-dev-cm.github.io/?project=unitree-g1-colab-ik" },
+      { text: "Open GitHub repository", url: "https://github.com/zack-dev-cm/unitree-g1-colab-ik" }
+    ],
+    projectId: 82,
+    repoFullName: "zack-dev-cm/unitree-g1-colab-ik",
+    repoId: 1260969567,
+    createdAt: "2026-06-06"
+  },
+  {
+    title: "Kaggle Dataset and Notebook Contributions",
+    description: "Added a public Kaggle contribution surface for the tienen profile: handwritten-signature dataset metrics, public CV notebooks, and Bengali.AI CV19 leaderboard evidence, while keeping API tokens, private notebooks, local paths, and hidden datasets out of the portfolio.",
+    links: [
+      { text: "Open Kaggle profile", url: "https://www.kaggle.com/tienen" },
+      { text: "Open signature dataset", url: "https://www.kaggle.com/datasets/tienen/handwritten-signature-verification" }
+    ],
+    projectId: 83,
+    createdAt: "2026-06-11"
+  },
+  {
     title: "Calorio June Admin Metrics Updated",
     description: "Updated aggregate Calorio metrics from the 2026-06-03 12:00 UTC admin report: 1,713 Telegram users, 28 daily / 109 weekly / 375 monthly active users, 77 rolling-24h logs, 8 Mini App users, and 555,392 OpenAI tokens / $1.14; user-level identifiers and support contents stay out of public files.",
     links: [
@@ -966,7 +1027,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 18,511 downloads across 50 public skills on 2026-06-10 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
+    description: "Updated the public ClawHub tracker to 18,930 downloads across 53 public skills on 2026-06-11 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -1556,13 +1617,29 @@ export const PROJECTS: Project[] = [
   {
     id: 14,
     title: "Face Antispoofing & Multi-Modal Vision-Language Models",
-    description: "CLIP-driven anti-spoofing experiments for secure face auth.",
-    longDescription: "Explores face anti-spoofing with multi-modal encoders (text + image cues) to flag replays/deepfakes in authentication flows.",
-    keyFeatures: ["Anti-spoofing", "Multi-modal learning", "Security application"],
-    techStack: ["CLIP", "Vision-Language Models", "Biometric Security"],
+    aliases: ["KYC liveness", "identity verification liveness", "face liveness", "presentation attack detection", "print replay spoofing", "face auth anti-spoof"],
+    description: "KYC-adjacent liveness and presentation-attack experiments for secure face-auth review.",
+    longDescription: "Explores face anti-spoofing with multi-modal encoders and review-gated dataset handling to flag print, replay, and deepfake-style presentation attacks in identity-verification-adjacent face-auth flows. The public entry is deliberately scoped as research and review infrastructure: it does not publish private source media, participant instructions, raw face data, or a claim that a complete regulated KYC/AML platform was shipped.",
+    projectKind: "research",
+    surfaceTags: ["computer-vision", "identity-verification", "kyc", "liveness", "security"],
+    keyFeatures: [
+      "Frames face anti-spoofing as liveness and presentation-attack review for identity-verification-adjacent workflows",
+      "Covers print-photo, screen-replay, and multi-modal face-auth spoof signals without exposing raw face media",
+      "Keeps dataset instructions, private source examples, participant materials, and biometric samples out of public files",
+      "Separates research/QA posture from unsupported claims about full KYC, AML, or compliance deployment"
+    ],
+    techStack: ["CLIP", "Vision-Language Models", "Biometric Security", "Presentation Attack Detection", "Liveness Detection", "Dataset QA"],
+    benchmarks: [
+      { label: "Attack families", value: "2+", context: "print-photo and screen-replay presentation-attack source review; public copy keeps private media excluded" },
+      { label: "Public posture", value: "sanitized", context: "no private source links, raw face samples, participant instructions, or regulated KYC claims published" },
+      { label: "Claim scope", value: "research", context: "identity-verification-adjacent anti-spoofing experiments, not a full KYC/AML platform" }
+    ],
     links: [{ text: "YouTube Presentation", url: "https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI" }],
-    images: [{ url: `${LOCAL_IMG_BASE}/antispoof.png`, alt: "Antispoofing concept" }],
-    thumbnail: `${LOCAL_IMG_BASE}/antispoof.png`
+    images: [
+      KYC_LIVENESS_ANTISPOOF_IMAGE,
+      { url: `${LOCAL_IMG_BASE}/antispoof.png`, alt: "Legacy anti-spoofing concept image" }
+    ],
+    thumbnail: KYC_LIVENESS_ANTISPOOF_IMAGE.url
   },
   {
     id: 15,
@@ -2449,10 +2526,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "18,511", context: "public ClawHub owner profile, 2026-06-10 across 50 skills" },
-      { label: "Tracked public skills", value: "50", context: "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-10" },
-      { label: "CV Repro Lab downloads", value: "1,530 total", context: "835 data-science-cv-repro-lab + 695 sota-agent, 2026-06-10" },
-      { label: "Strongest skill", value: "835 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-10" },
+      { label: "Tracked ClawHub downloads", value: "18,930", context: "public ClawHub owner profile, 2026-06-11 across 53 skills" },
+      { label: "Tracked public skills", value: "53", context: "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-11" },
+      { label: "CV Repro Lab downloads", value: "1,542 total", context: "843 data-science-cv-repro-lab + 699 sota-agent, 2026-06-11" },
+      { label: "Strongest skill", value: "843 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-11" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],
@@ -2883,6 +2960,123 @@ Operations Layer (Console, Alerts, Runbooks)`
     createdAt: "2026-06-09",
     canonicalLinks: {
       website: "https://pypi.org/project/agnitra/"
+    }
+  },
+  {
+    id: 82,
+    title: "Unitree G1 Colab IK",
+    aliases: [
+      "Unitree robotics",
+      "Unitree Hermes Colab",
+      "robotics inverse kinematics",
+      "G1 teleoperation smoke test",
+      "robot arm IK benchmark",
+      "Hermes Agent safety lab"
+    ],
+    description: "Public robotics lab for hardware-free Unitree G1 inverse-kinematics benchmarks and safety-reviewed agent prompts.",
+    longDescription: "Unitree G1 Colab IK is a public GitHub-backed robotics lab for checking G1 arm inverse-kinematics behavior before any physical robot workflow. The repo uses Google Colab and PyTorch to parse the upstream Unitree G1 URDF, solve batched wrist IK targets, report mean/p95/max position error, success rate, joint-limit violations, and throughput, and keep live-robot behavior explicitly out of scope. The companion Hermes Agent lab prepares read-only repository-analysis prompts and review artifacts for Unitree setup, log triage, and contribution scouting without treating Colab as a robot-control host.",
+    projectKind: "open-source",
+    surfaceTags: ["open-source", "robotics", "computer-vision", "colab", "safety-review", "agentic-workflows"],
+    keyFeatures: [
+      "Parses the upstream Unitree G1 URDF and builds torso-to-palm chains for both arms without vendoring robot assets",
+      "Solves batched position-only wrist IK targets with PyTorch and bounded joint parameterization",
+      "Reports mean, p95, max position error, success rate, joint-limit violations, and runtime throughput for benchmark review",
+      "Adds Hermes Agent safety-lab prompts for read-only Unitree repository analysis, setup review, log triage, and contribution planning",
+      "States hardware, orientation, collision, latency, controller behavior, and live teleoperation as out of scope"
+    ],
+    techStack: ["Python", "PyTorch", "Google Colab", "Robotics", "Inverse Kinematics", "Unitree G1", "URDF", "Hermes Agent", "Codex Skills"],
+    benchmarks: [
+      { label: "Runtime target", value: "GPU Colab", context: "public README requires a CUDA runtime for the benchmark notebook" },
+      { label: "IK metric gates", value: "<1 cm / >=98%", context: "README review gate: mean wrist error below 1 cm and success rate at or above 98%" },
+      { label: "Safety scope", value: "hardware-free", context: "public README states no robot hardware, orientation, collision, latency, or controller validation" },
+      { label: "GitHub stars", value: "0", context: "public GitHub API snapshot, 2026-06-11" },
+      { label: "Last push", value: "2026-06-06", context: "public GitHub repository metadata" },
+      { label: "ClawHub downloads", value: "90", context: "Unitree Hermes Colab public ClawHub listing, 2026-06-11" }
+    ],
+    links: [
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/unitree-g1-colab-ik" },
+      { text: "Run IK notebook in Colab", url: "https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_g1_colab_ik_bench.ipynb" },
+      { text: "Run Hermes safety lab in Colab", url: "https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_hermes_agent_lab.ipynb" },
+      { text: "Open ClawHub listing", url: "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab" }
+    ],
+    mermaidDiagram: `flowchart LR
+  URDF["Unitree G1 URDF"] --> Chains["Torso-to-Palm Chains"]
+  Chains --> Targets["Joint-Limit-Aware Wrist Targets"]
+  Targets --> Solver["PyTorch Batched IK"]
+  Solver --> Metrics["Error, Success, Joint Limits, Throughput"]
+  Metrics --> Review["Colab Report + Review Gates"]
+  Repos["Unitree Public Repos"] --> Hermes["Hermes Read-Only Safety Lab"]
+  Hermes --> Prompts["Setup, Logs, Contributions, IK Evidence"]
+  Prompts --> Review
+  Review --> Scope["Hardware-Free Scope Boundary"]`,
+    images: [UNITREE_G1_COLAB_IK_IMAGE],
+    thumbnail: UNITREE_G1_COLAB_IK_IMAGE.url,
+    repoFullName: "zack-dev-cm/unitree-g1-colab-ik",
+    repoId: 1260969567,
+    createdAt: "2026-06-06",
+    canonicalLinks: {
+      github: "https://github.com/zack-dev-cm/unitree-g1-colab-ik",
+      website: "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab"
+    }
+  },
+  {
+    id: 83,
+    title: "Kaggle Dataset and Notebook Contributions",
+    aliases: [
+      "Kaggle tienen",
+      "Kaggle profile",
+      "Kaggle datasets",
+      "handwritten signature verification",
+      "signature verification dataset",
+      "Siamese signature classification",
+      "RSNA 2022 spine subset",
+      "Bengali AI CV19",
+      "Bengali.AI leaderboard"
+    ],
+    description: "Public Kaggle contribution surface for dataset curation, CV notebooks, and competition evidence.",
+    longDescription: "Kaggle Dataset and Notebook Contributions collects the public tienen profile work into one source-backed portfolio entry: the CC0 handwritten-signature verification dataset, public Siamese-signature and RSNA spine notebook surfaces, and a Bengali.AI CV19 public leaderboard record. The case study is deliberately bounded to public Kaggle pages and downloaded leaderboard data; it does not publish Kaggle API keys, hidden notebooks, private datasets, local paths, or unsupported rank/medal claims.",
+    projectKind: "research",
+    surfaceTags: ["computer-vision", "kaggle", "datasets", "notebooks", "ocr", "medical-imaging"],
+    keyFeatures: [
+      "Publishes a public Kaggle dataset surface for handwritten signature verification with real/forged crop categories and TSV correspondence files",
+      "Links public computer-vision notebook work for Siamese signature classification and RSNA 2022 spine data preparation",
+      "Adds Bengali.AI CV19 public leaderboard evidence with exact public-row count and score context",
+      "Separates public Kaggle contribution evidence from API-token setup notes, hidden notebooks, local paths, or private datasets",
+      "Uses generated realistic media only as non-factual visual support; metrics remain in audited portfolio copy"
+    ],
+    techStack: ["Kaggle", "Datasets", "Computer Vision", "PyTorch", "Siamese Networks", "Signature Verification", "Medical Imaging", "Bengali OCR", "Google Colab"],
+    benchmarks: [
+      { label: "Dataset downloads", value: "4,387", context: "Kaggle Dataset interactionStatistic for handwritten-signature-verification, fetched 2026-06-11" },
+      { label: "Dataset views", value: "19,113", context: "Kaggle Dataset interactionStatistic, fetched 2026-06-11" },
+      { label: "Dataset likes", value: "33", context: "Kaggle Dataset interactionStatistic, fetched 2026-06-11" },
+      { label: "Dataset version", value: "v8", context: "Kaggle Dataset schema, modified 2022-02-07" },
+      { label: "Signature samples", value: "5,626", context: "2,913 real and 2,713 forged signatures in the public Kaggle dataset description" },
+      { label: "Leaderboard record", value: "687 / 2,060", context: "Bengali.AI CV19 public leaderboard download, score 0.9703, TeamMemberUserNames=tienen, fetched 2026-06-11" },
+      { label: "Public posture", value: "token-free", context: "no Kaggle API keys, hidden notebooks, local paths, or private data are published" }
+    ],
+    links: [
+      { text: "Kaggle profile", url: "https://www.kaggle.com/tienen" },
+      { text: "Handwritten signature dataset", url: "https://www.kaggle.com/datasets/tienen/handwritten-signature-verification" },
+      { text: "Siamese signature notebook", url: "https://www.kaggle.com/code/tienen/signature-classification-using-siamese-pytorch" },
+      { text: "RSNA spine subset notebook", url: "https://www.kaggle.com/code/tienen/quick-prepare-small-subset-rsna2022-spine-data" },
+      { text: "Bengali.AI CV19 leaderboard", url: "https://www.kaggle.com/c/bengaliai-cv19/leaderboard" }
+    ],
+    mermaidDiagram: `flowchart LR
+  Profile["Public Kaggle Profile"] --> Dataset["Signature Verification Dataset"]
+  Dataset --> Crops["Real and Forged Crop Sets"]
+  Dataset --> Notebook["Siamese PyTorch Notebook"]
+  Profile --> RSNA["RSNA Spine Prep Notebook"]
+  Profile --> Leaderboard["Bengali.AI CV19 Public Leaderboard"]
+  Leaderboard --> Evidence["Rank, Score, Row Count"]
+  Evidence --> Portfolio["Source-Backed Portfolio Entry"]
+  Notebook --> Portfolio
+  RSNA --> Portfolio
+  Portfolio --> Boundary["No Tokens, Private Notebooks, or Local Paths"]`,
+    images: [KAGGLE_DATASET_NOTEBOOK_IMAGE],
+    thumbnail: KAGGLE_DATASET_NOTEBOOK_IMAGE.url,
+    createdAt: "2026-06-11",
+    canonicalLinks: {
+      website: "https://www.kaggle.com/tienen"
     }
   },
   {

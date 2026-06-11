@@ -144,6 +144,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(latestSection.getByText('Computer Vision and AI Systems Refresh', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Marketplace Stats Refresh', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Dermaself Flutter Skin Analysis App', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Unitree G1 Colab Ik', { exact: false })).toBeVisible();
+  await expect(latestSection.getByText('Kaggle Dataset and Notebook Contributions', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('SourcePack Chrome Extension Wave', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Trusted ClawHub Install Gate', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('Google Drive File Provider Repair Toolkit', { exact: false })).toBeVisible();
@@ -225,6 +227,62 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page).toHaveURL(/\?project=google-drive-file-provider-repair-toolkit/);
   await expect(page.getByRole('dialog').getByText('Destructive data actions')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
+  await projectSearch.fill('unitree robotics inverse kinematics');
+  const unitreeCard = page.getByRole('button', { name: /Open project: Unitree G1 Colab IK/i });
+  await expect(unitreeCard).toBeVisible();
+  await unitreeCard.click();
+  const unitreeModal = page.getByRole('dialog');
+  await expect(unitreeModal).toBeVisible();
+  await expect(page).toHaveURL(/\?project=unitree-g1-colab-ik/);
+  await expect(
+    unitreeModal.locator('.metric-chip').filter({ hasText: 'Safety scope' }).getByText('hardware-free', { exact: true })
+  ).toBeVisible();
+  await expect(unitreeModal.locator('img.modal-media__asset')).toHaveAttribute(
+    'src',
+    /unitree-g1-colab-ik-card\.webp/
+  );
+  await expect(unitreeModal.getByRole('link', { name: 'Run IK notebook in Colab' })).toHaveAttribute(
+    'href',
+    'https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_g1_colab_ik_bench.ipynb'
+  );
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
+  await projectSearch.fill('kyc identity verification liveness');
+  const kycCard = page.getByRole('button', { name: /Open project: Face Antispoofing & Multi-Modal Vision-Language Models/i });
+  await expect(kycCard).toBeVisible();
+  await kycCard.click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/\?project=face-antispoofing-multi-modal-vision-language-models/);
+  await expect(page.getByRole('dialog').getByText('presentation-attack', { exact: false }).first()).toBeVisible();
+  await expect(page.getByRole('dialog').locator('img.modal-media__asset')).toHaveAttribute(
+    'src',
+    /kyc-liveness-antispoof-card\.webp/
+  );
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+
+  await projectSearch.fill('kaggle handwritten signature dataset');
+  const kaggleCard = page.getByRole('button', { name: /Open project: Kaggle Dataset and Notebook Contributions/i });
+  await expect(kaggleCard).toBeVisible();
+  await kaggleCard.click();
+  const kaggleModal = page.getByRole('dialog');
+  await expect(kaggleModal).toBeVisible();
+  await expect(page).toHaveURL(/\?project=kaggle-dataset-and-notebook-contributions/);
+  await expect(
+    kaggleModal.locator('.metric-chip').filter({ hasText: 'Dataset downloads' }).getByText('4,387', { exact: true })
+  ).toBeVisible();
+  await expect(kaggleModal.locator('img.modal-media__asset')).toHaveAttribute(
+    'src',
+    /kaggle-dataset-notebook-contributions-card\.webp/
+  );
+  await expect(kaggleModal.getByRole('link', { name: 'Handwritten signature dataset' })).toHaveAttribute(
+    'href',
+    'https://www.kaggle.com/datasets/tienen/handwritten-signature-verification'
+  );
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 
@@ -340,6 +398,21 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
       expected: 'Agnitra AI Inference Optimizer',
     },
     {
+      label: 'Robotics IK',
+      query: 'Unitree G1 robotics inverse kinematics URDF Colab teleoperation',
+      expected: 'Unitree G1 Colab IK',
+    },
+    {
+      label: 'KYC liveness',
+      query: 'KYC identity verification liveness anti-spoofing presentation attack face auth',
+      expected: 'Face Antispoofing & Multi-Modal Vision-Language Models',
+    },
+    {
+      label: 'Kaggle datasets',
+      query: 'Kaggle tienen handwritten signature dataset Siamese notebook BengaliAI leaderboard',
+      expected: 'Kaggle Dataset and Notebook Contributions',
+    },
+    {
       label: 'VLM / LLM agents',
       query: 'VLM LLM agents multimodal automation human review',
       expected: 'CollectionsAI ChatGPT App',
@@ -377,6 +450,18 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     {
       query: 'chrome built in ai summaries',
       expected: 'LocalLens Private AI Summaries',
+    },
+    {
+      query: 'hermes safety lab robot arm urdf benchmark',
+      expected: 'Unitree G1 Colab IK',
+    },
+    {
+      query: 'face auth presentation attack liveness',
+      expected: 'Face Antispoofing & Multi-Modal Vision-Language Models',
+    },
+    {
+      query: 'bengali ai cv19 leaderboard tienen',
+      expected: 'Kaggle Dataset and Notebook Contributions',
     },
   ];
 

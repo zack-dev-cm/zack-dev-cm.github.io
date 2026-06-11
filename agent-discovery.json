@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-05-15",
-  "generatedAt": "2026-06-10",
+  "generatedAt": "2026-06-11",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Computer Vision and AI Product Engineer",
@@ -158,7 +158,7 @@
     },
     {
       "question": "What public signals are available?",
-      "answer": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 18,511 tracked ClawHub downloads across 50 public skills as of 2026-06-10.",
+      "answer": "The portfolio lists 83 public case studies, 52 projects with explicit benchmarks or analytics, and 18,930 tracked ClawHub downloads across 53 public skills as of 2026-06-11.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
     },
     {
@@ -178,7 +178,7 @@
     },
     {
       "question": "Where can readers find Zakhar Pashkin paper reviews?",
-      "answer": "The ML Papers, Read for Builders feed has 8 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Business World Model; PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow. Use the page for human reading and paper-reviews.json for machine-readable review data.",
+      "answer": "The ML Papers, Read for Builders feed has 9 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Can AI Agents Synthesize Scientific Conclusions?; Business World Model. Use the page for human reading and paper-reviews.json for machine-readable review data.",
       "cite": "https://zack-dev-cm.github.io/papers/"
     }
   ],
@@ -256,7 +256,7 @@
         "Chrome Web Store extension launch metrics"
       ],
       "references": [
-        "18,511 tracked ClawHub downloads across 50 public skills",
+        "18,930 tracked ClawHub downloads across 53 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],
@@ -270,10 +270,22 @@
     "title": "ML Papers, Read for Builders",
     "url": "https://zack-dev-cm.github.io/papers/",
     "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-    "reviewCount": 8,
-    "updatedAt": "2026-06-10T08:39:57.080Z",
-    "summary": "The ML Papers, Read for Builders feed has 8 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Business World Model; PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow.",
+    "reviewCount": 9,
+    "updatedAt": "2026-06-11T07:59:35.071Z",
+    "summary": "The ML Papers, Read for Builders feed has 9 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Can AI Agents Synthesize Scientific Conclusions?; Business World Model.",
     "latest": [
+      {
+        "title": "Can AI Agents Synthesize Scientific Conclusions?",
+        "arxivId": "2606.11337",
+        "tags": [
+          "agents",
+          "runtime",
+          "evaluation",
+          "cs.AI",
+          "cs.CL"
+        ],
+        "paperUrl": "https://arxiv.org/abs/2606.11337"
+      },
       {
         "title": "Business World Model",
         "arxivId": "2606.10044",
@@ -303,16 +315,6 @@
           "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.06532"
-      },
-      {
-        "title": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition",
-        "arxivId": "2606.05316",
-        "tags": [
-          "computer-vision",
-          "multimodal",
-          "evaluation"
-        ],
-        "paperUrl": "https://arxiv.org/abs/2606.05316"
       }
     ]
   },
@@ -365,6 +367,59 @@
         "multimodal video search computer vision engineer"
       ],
       "canonicalProjects": [
+        {
+          "id": 14,
+          "title": "Face Antispoofing & Multi-Modal Vision-Language Models",
+          "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
+          "summary": "KYC-adjacent liveness and presentation-attack experiments for secure face-auth review.",
+          "kind": "research",
+          "tags": [
+            "computer-vision",
+            "identity-verification",
+            "kyc",
+            "liveness",
+            "security"
+          ],
+          "aliases": [
+            "KYC liveness",
+            "identity verification liveness",
+            "face liveness",
+            "presentation attack detection",
+            "print replay spoofing",
+            "face auth anti-spoof"
+          ],
+          "techStack": [
+            "CLIP",
+            "Vision-Language Models",
+            "Biometric Security",
+            "Presentation Attack Detection",
+            "Liveness Detection",
+            "Dataset QA"
+          ],
+          "benchmarks": [
+            {
+              "label": "Attack families",
+              "value": "2+",
+              "context": "print-photo and screen-replay presentation-attack source review; public copy keeps private media excluded"
+            },
+            {
+              "label": "Public posture",
+              "value": "sanitized",
+              "context": "no private source links, raw face samples, participant instructions, or regulated KYC claims published"
+            },
+            {
+              "label": "Claim scope",
+              "value": "research",
+              "context": "identity-verification-adjacent anti-spoofing experiments, not a full KYC/AML platform"
+            }
+          ],
+          "links": [
+            {
+              "label": "YouTube Presentation",
+              "url": "https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI"
+            }
+          ]
+        },
         {
           "id": 63,
           "title": "Dermaself Flutter Skin Analysis App",
@@ -549,6 +604,186 @@
           ]
         },
         {
+          "id": 82,
+          "title": "Unitree G1 Colab IK",
+          "url": "https://zack-dev-cm.github.io/projects/unitree-g1-colab-ik.md",
+          "summary": "Public robotics lab for hardware-free Unitree G1 inverse-kinematics benchmarks and safety-reviewed agent prompts.",
+          "kind": "open-source",
+          "tags": [
+            "open-source",
+            "robotics",
+            "computer-vision",
+            "colab",
+            "safety-review",
+            "agentic-workflows"
+          ],
+          "aliases": [
+            "Unitree robotics",
+            "Unitree Hermes Colab",
+            "robotics inverse kinematics",
+            "G1 teleoperation smoke test",
+            "robot arm IK benchmark",
+            "Hermes Agent safety lab"
+          ],
+          "techStack": [
+            "Python",
+            "PyTorch",
+            "Google Colab",
+            "Robotics",
+            "Inverse Kinematics",
+            "Unitree G1",
+            "URDF",
+            "Hermes Agent",
+            "Codex Skills"
+          ],
+          "benchmarks": [
+            {
+              "label": "Runtime target",
+              "value": "GPU Colab",
+              "context": "public README requires a CUDA runtime for the benchmark notebook"
+            },
+            {
+              "label": "IK metric gates",
+              "value": "<1 cm / >=98%",
+              "context": "README review gate: mean wrist error below 1 cm and success rate at or above 98%"
+            },
+            {
+              "label": "Safety scope",
+              "value": "hardware-free",
+              "context": "public README states no robot hardware, orientation, collision, latency, or controller validation"
+            },
+            {
+              "label": "GitHub stars",
+              "value": "0",
+              "context": "public GitHub API snapshot, 2026-06-11"
+            },
+            {
+              "label": "Last push",
+              "value": "2026-06-06",
+              "context": "public GitHub repository metadata"
+            },
+            {
+              "label": "ClawHub downloads",
+              "value": "90",
+              "context": "Unitree Hermes Colab public ClawHub listing, 2026-06-11"
+            }
+          ],
+          "links": [
+            {
+              "label": "View on GitHub",
+              "url": "https://github.com/zack-dev-cm/unitree-g1-colab-ik"
+            },
+            {
+              "label": "Run IK notebook in Colab",
+              "url": "https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_g1_colab_ik_bench.ipynb"
+            },
+            {
+              "label": "Run Hermes safety lab in Colab",
+              "url": "https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_hermes_agent_lab.ipynb"
+            },
+            {
+              "label": "Open ClawHub listing",
+              "url": "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab"
+            }
+          ]
+        },
+        {
+          "id": 83,
+          "title": "Kaggle Dataset and Notebook Contributions",
+          "url": "https://zack-dev-cm.github.io/projects/kaggle-dataset-and-notebook-contributions.md",
+          "summary": "Public Kaggle contribution surface for dataset curation, CV notebooks, and competition evidence.",
+          "kind": "research",
+          "tags": [
+            "computer-vision",
+            "kaggle",
+            "datasets",
+            "notebooks",
+            "ocr",
+            "medical-imaging"
+          ],
+          "aliases": [
+            "Kaggle tienen",
+            "Kaggle profile",
+            "Kaggle datasets",
+            "handwritten signature verification",
+            "signature verification dataset",
+            "Siamese signature classification",
+            "RSNA 2022 spine subset",
+            "Bengali AI CV19",
+            "Bengali.AI leaderboard"
+          ],
+          "techStack": [
+            "Kaggle",
+            "Datasets",
+            "Computer Vision",
+            "PyTorch",
+            "Siamese Networks",
+            "Signature Verification",
+            "Medical Imaging",
+            "Bengali OCR",
+            "Google Colab"
+          ],
+          "benchmarks": [
+            {
+              "label": "Dataset downloads",
+              "value": "4,387",
+              "context": "Kaggle Dataset interactionStatistic for handwritten-signature-verification, fetched 2026-06-11"
+            },
+            {
+              "label": "Dataset views",
+              "value": "19,113",
+              "context": "Kaggle Dataset interactionStatistic, fetched 2026-06-11"
+            },
+            {
+              "label": "Dataset likes",
+              "value": "33",
+              "context": "Kaggle Dataset interactionStatistic, fetched 2026-06-11"
+            },
+            {
+              "label": "Dataset version",
+              "value": "v8",
+              "context": "Kaggle Dataset schema, modified 2022-02-07"
+            },
+            {
+              "label": "Signature samples",
+              "value": "5,626",
+              "context": "2,913 real and 2,713 forged signatures in the public Kaggle dataset description"
+            },
+            {
+              "label": "Leaderboard record",
+              "value": "687 / 2,060",
+              "context": "Bengali.AI CV19 public leaderboard download, score 0.9703, TeamMemberUserNames=tienen, fetched 2026-06-11"
+            },
+            {
+              "label": "Public posture",
+              "value": "token-free",
+              "context": "no Kaggle API keys, hidden notebooks, local paths, or private data are published"
+            }
+          ],
+          "links": [
+            {
+              "label": "Kaggle profile",
+              "url": "https://www.kaggle.com/tienen"
+            },
+            {
+              "label": "Handwritten signature dataset",
+              "url": "https://www.kaggle.com/datasets/tienen/handwritten-signature-verification"
+            },
+            {
+              "label": "Siamese signature notebook",
+              "url": "https://www.kaggle.com/code/tienen/signature-classification-using-siamese-pytorch"
+            },
+            {
+              "label": "RSNA spine subset notebook",
+              "url": "https://www.kaggle.com/code/tienen/quick-prepare-small-subset-rsna2022-spine-data"
+            },
+            {
+              "label": "Bengali.AI CV19 leaderboard",
+              "url": "https://www.kaggle.com/c/bengaliai-cv19/leaderboard"
+            }
+          ]
+        },
+        {
           "id": 67,
           "title": "Senior Conservator OpenClaw Agent",
           "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
@@ -643,188 +878,6 @@
             }
           ],
           "links": []
-        },
-        {
-          "id": 71,
-          "title": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
-          "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
-          "summary": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
-          "kind": "case-study",
-          "tags": [
-            "computer-vision",
-            "segmentation",
-            "deep-learning",
-            "health-ai"
-          ],
-          "aliases": [
-            "wrinkle segmentation lab",
-            "skin texture segmentation",
-            "cosmetic face analysis"
-          ],
-          "techStack": [
-            "Python",
-            "YOLO",
-            "MediaPipe",
-            "OpenCV",
-            "ONNX",
-            "Segmentation",
-            "Visual QA"
-          ],
-          "benchmarks": [
-            {
-              "label": "Face regions",
-              "value": "9",
-              "context": "forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck"
-            },
-            {
-              "label": "Artifact families",
-              "value": "6",
-              "context": "overlays, masks, skeletons, CSV, events, QA panels"
-            },
-            {
-              "label": "Gate posture",
-              "value": "advisory",
-              "context": "review signal, not automatic deployment claim"
-            }
-          ],
-          "links": []
-        },
-        {
-          "id": 72,
-          "title": "Multimodal Video Search Platform",
-          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
-          "summary": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
-          "kind": "case-study",
-          "tags": [
-            "computer-vision",
-            "ai",
-            "search",
-            "video",
-            "mlops"
-          ],
-          "aliases": [
-            "SVS4 search",
-            "video neural search",
-            "hybrid media search"
-          ],
-          "techStack": [
-            "Python",
-            "FastAPI",
-            "Qdrant",
-            "Postgres",
-            "CLIP",
-            "OCR",
-            "ASR",
-            "Hybrid Search",
-            "Celery"
-          ],
-          "benchmarks": [
-            {
-              "label": "Signal lanes",
-              "value": "5",
-              "context": "keyframes, ASR, OCR, objects, faces"
-            },
-            {
-              "label": "Index types",
-              "value": "2",
-              "context": "dense vector and sparse retrieval"
-            },
-            {
-              "label": "Agent roles",
-              "value": "5",
-              "context": "ingestion, embedding, retrieval, quality, recovery"
-            },
-            {
-              "label": "Metric posture",
-              "value": "sample benchmark",
-              "context": "regression signal, not production accuracy claim"
-            }
-          ],
-          "links": []
-        },
-        {
-          "id": 73,
-          "title": "Public CV and Deep Learning GitHub Archive",
-          "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
-          "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
-          "kind": "research",
-          "tags": [
-            "computer-vision",
-            "deep-learning",
-            "ocr",
-            "mobile",
-            "github"
-          ],
-          "aliases": [
-            "public cv dl archive",
-            "github computer vision archive",
-            "older cv research repos"
-          ],
-          "techStack": [
-            "Python",
-            "PyTorch",
-            "TensorFlow",
-            "YOLO",
-            "EfficientNet",
-            "OCR",
-            "ML Kit",
-            "TFLite",
-            "OpenCV",
-            "Android",
-            "Flutter"
-          ],
-          "benchmarks": [
-            {
-              "label": "GitHub accounts reviewed",
-              "value": "2",
-              "context": "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14"
-            },
-            {
-              "label": "Public CV/DL repos sampled",
-              "value": "18+",
-              "context": "authored or project-specific public repositories, forks excluded from authored-count metrics"
-            },
-            {
-              "label": "Top public repo",
-              "value": "14 stars / 6 forks",
-              "context": "YOLOv3-EfficientNet-EffYolo API snapshot"
-            },
-            {
-              "label": "Source posture",
-              "value": "public-only",
-              "context": "public GitHub repos and generated case studies only"
-            }
-          ],
-          "links": [
-            {
-              "label": "YOLOv3 EfficientNet EffYolo",
-              "url": "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo"
-            },
-            {
-              "label": "shiftlab OCR",
-              "url": "https://github.com/ZackPashkin/shiftlab_ocr"
-            },
-            {
-              "label": "Cyrillic handwriting dataset",
-              "url": "https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset"
-            },
-            {
-              "label": "ML Kit face contours Android",
-              "url": "https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android"
-            },
-            {
-              "label": "TFLite glasses classifier",
-              "url": "https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite"
-            },
-            {
-              "label": "Flutter OpenCV image processing",
-              "url": "https://github.com/zack-dev-cm/cm_cpp_flutter_opencv"
-            },
-            {
-              "label": "CV Repro Lab skill",
-              "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
-            }
-          ]
         }
       ]
     },
@@ -872,23 +925,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "18,511",
-              "context": "public ClawHub owner profile, 2026-06-10 across 50 skills"
+              "value": "18,930",
+              "context": "public ClawHub owner profile, 2026-06-11 across 53 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "50",
-              "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-10"
+              "value": "53",
+              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-11"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,530 total",
-              "context": "835 data-science-cv-repro-lab + 695 sota-agent, 2026-06-10"
+              "value": "1,542 total",
+              "context": "843 data-science-cv-repro-lab + 699 sota-agent, 2026-06-11"
             },
             {
               "label": "Strongest skill",
-              "value": "835 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-10"
+              "value": "843 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-11"
             },
             {
               "label": "Report outputs",
@@ -1348,23 +1401,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "18,511",
-              "context": "public ClawHub owner profile, 2026-06-10 across 50 skills"
+              "value": "18,930",
+              "context": "public ClawHub owner profile, 2026-06-11 across 53 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "50",
-              "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-10"
+              "value": "53",
+              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-11"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,530 total",
-              "context": "835 data-science-cv-repro-lab + 695 sota-agent, 2026-06-10"
+              "value": "1,542 total",
+              "context": "843 data-science-cv-repro-lab + 699 sota-agent, 2026-06-11"
             },
             {
               "label": "Strongest skill",
-              "value": "835 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-10"
+              "value": "843 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-11"
             },
             {
               "label": "Report outputs",
@@ -1896,23 +1949,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "18,511",
-              "context": "public ClawHub owner profile, 2026-06-10 across 50 skills"
+              "value": "18,930",
+              "context": "public ClawHub owner profile, 2026-06-11 across 53 skills"
             },
             {
               "label": "Tracked public skills",
-              "value": "50",
-              "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-10"
+              "value": "53",
+              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-11"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,530 total",
-              "context": "835 data-science-cv-repro-lab + 695 sota-agent, 2026-06-10"
+              "value": "1,542 total",
+              "context": "843 data-science-cv-repro-lab + 699 sota-agent, 2026-06-11"
             },
             {
               "label": "Strongest skill",
-              "value": "835 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-06-10"
+              "value": "843 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-06-11"
             },
             {
               "label": "Report outputs",
@@ -2690,23 +2743,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "18,511",
-          "context": "public ClawHub owner profile, 2026-06-10 across 50 skills"
+          "value": "18,930",
+          "context": "public ClawHub owner profile, 2026-06-11 across 53 skills"
         },
         {
           "label": "Tracked public skills",
-          "value": "50",
-          "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-10"
+          "value": "53",
+          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-11"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,530 total",
-          "context": "835 data-science-cv-repro-lab + 695 sota-agent, 2026-06-10"
+          "value": "1,542 total",
+          "context": "843 data-science-cv-repro-lab + 699 sota-agent, 2026-06-11"
         },
         {
           "label": "Strongest skill",
-          "value": "835 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-06-10"
+          "value": "843 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-06-11"
         },
         {
           "label": "Report outputs",
@@ -3266,16 +3319,48 @@
       "id": 14,
       "title": "Face Antispoofing & Multi-Modal Vision-Language Models",
       "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
-      "summary": "CLIP-driven anti-spoofing experiments for secure face auth.",
-      "kind": "case-study",
-      "tags": [],
-      "aliases": [],
+      "summary": "KYC-adjacent liveness and presentation-attack experiments for secure face-auth review.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "identity-verification",
+        "kyc",
+        "liveness",
+        "security"
+      ],
+      "aliases": [
+        "KYC liveness",
+        "identity verification liveness",
+        "face liveness",
+        "presentation attack detection",
+        "print replay spoofing",
+        "face auth anti-spoof"
+      ],
       "techStack": [
         "CLIP",
         "Vision-Language Models",
-        "Biometric Security"
+        "Biometric Security",
+        "Presentation Attack Detection",
+        "Liveness Detection",
+        "Dataset QA"
       ],
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "label": "Attack families",
+          "value": "2+",
+          "context": "print-photo and screen-replay presentation-attack source review; public copy keeps private media excluded"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "no private source links, raw face samples, participant instructions, or regulated KYC claims published"
+        },
+        {
+          "label": "Claim scope",
+          "value": "research",
+          "context": "identity-verification-adjacent anti-spoofing experiments, not a full KYC/AML platform"
+        }
+      ],
       "links": [
         {
           "label": "YouTube Presentation",
@@ -4619,23 +4704,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "18,511",
-          "context": "public ClawHub owner profile, 2026-06-10 across 50 skills"
+          "value": "18,930",
+          "context": "public ClawHub owner profile, 2026-06-11 across 53 skills"
         },
         {
           "label": "Tracked public skills",
-          "value": "50",
-          "context": "50 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-10"
+          "value": "53",
+          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-11"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,530 total",
-          "context": "835 data-science-cv-repro-lab + 695 sota-agent, 2026-06-10"
+          "value": "1,542 total",
+          "context": "843 data-science-cv-repro-lab + 699 sota-agent, 2026-06-11"
         },
         {
           "label": "Strongest skill",
-          "value": "835 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-06-10"
+          "value": "843 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-06-11"
         },
         {
           "label": "Report outputs",
@@ -5331,6 +5416,186 @@
         {
           "label": "Open PyPI publisher profile",
           "url": "https://pypi.org/user/agnitra.ai/"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "title": "Unitree G1 Colab IK",
+      "url": "https://zack-dev-cm.github.io/projects/unitree-g1-colab-ik.md",
+      "summary": "Public robotics lab for hardware-free Unitree G1 inverse-kinematics benchmarks and safety-reviewed agent prompts.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "robotics",
+        "computer-vision",
+        "colab",
+        "safety-review",
+        "agentic-workflows"
+      ],
+      "aliases": [
+        "Unitree robotics",
+        "Unitree Hermes Colab",
+        "robotics inverse kinematics",
+        "G1 teleoperation smoke test",
+        "robot arm IK benchmark",
+        "Hermes Agent safety lab"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "Google Colab",
+        "Robotics",
+        "Inverse Kinematics",
+        "Unitree G1",
+        "URDF",
+        "Hermes Agent",
+        "Codex Skills"
+      ],
+      "benchmarks": [
+        {
+          "label": "Runtime target",
+          "value": "GPU Colab",
+          "context": "public README requires a CUDA runtime for the benchmark notebook"
+        },
+        {
+          "label": "IK metric gates",
+          "value": "<1 cm / >=98%",
+          "context": "README review gate: mean wrist error below 1 cm and success rate at or above 98%"
+        },
+        {
+          "label": "Safety scope",
+          "value": "hardware-free",
+          "context": "public README states no robot hardware, orientation, collision, latency, or controller validation"
+        },
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-06-11"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-06-06",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "90",
+          "context": "Unitree Hermes Colab public ClawHub listing, 2026-06-11"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/unitree-g1-colab-ik"
+        },
+        {
+          "label": "Run IK notebook in Colab",
+          "url": "https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_g1_colab_ik_bench.ipynb"
+        },
+        {
+          "label": "Run Hermes safety lab in Colab",
+          "url": "https://colab.research.google.com/github/zack-dev-cm/unitree-g1-colab-ik/blob/main/notebooks/unitree_hermes_agent_lab.ipynb"
+        },
+        {
+          "label": "Open ClawHub listing",
+          "url": "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "title": "Kaggle Dataset and Notebook Contributions",
+      "url": "https://zack-dev-cm.github.io/projects/kaggle-dataset-and-notebook-contributions.md",
+      "summary": "Public Kaggle contribution surface for dataset curation, CV notebooks, and competition evidence.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "kaggle",
+        "datasets",
+        "notebooks",
+        "ocr",
+        "medical-imaging"
+      ],
+      "aliases": [
+        "Kaggle tienen",
+        "Kaggle profile",
+        "Kaggle datasets",
+        "handwritten signature verification",
+        "signature verification dataset",
+        "Siamese signature classification",
+        "RSNA 2022 spine subset",
+        "Bengali AI CV19",
+        "Bengali.AI leaderboard"
+      ],
+      "techStack": [
+        "Kaggle",
+        "Datasets",
+        "Computer Vision",
+        "PyTorch",
+        "Siamese Networks",
+        "Signature Verification",
+        "Medical Imaging",
+        "Bengali OCR",
+        "Google Colab"
+      ],
+      "benchmarks": [
+        {
+          "label": "Dataset downloads",
+          "value": "4,387",
+          "context": "Kaggle Dataset interactionStatistic for handwritten-signature-verification, fetched 2026-06-11"
+        },
+        {
+          "label": "Dataset views",
+          "value": "19,113",
+          "context": "Kaggle Dataset interactionStatistic, fetched 2026-06-11"
+        },
+        {
+          "label": "Dataset likes",
+          "value": "33",
+          "context": "Kaggle Dataset interactionStatistic, fetched 2026-06-11"
+        },
+        {
+          "label": "Dataset version",
+          "value": "v8",
+          "context": "Kaggle Dataset schema, modified 2022-02-07"
+        },
+        {
+          "label": "Signature samples",
+          "value": "5,626",
+          "context": "2,913 real and 2,713 forged signatures in the public Kaggle dataset description"
+        },
+        {
+          "label": "Leaderboard record",
+          "value": "687 / 2,060",
+          "context": "Bengali.AI CV19 public leaderboard download, score 0.9703, TeamMemberUserNames=tienen, fetched 2026-06-11"
+        },
+        {
+          "label": "Public posture",
+          "value": "token-free",
+          "context": "no Kaggle API keys, hidden notebooks, local paths, or private data are published"
+        }
+      ],
+      "links": [
+        {
+          "label": "Kaggle profile",
+          "url": "https://www.kaggle.com/tienen"
+        },
+        {
+          "label": "Handwritten signature dataset",
+          "url": "https://www.kaggle.com/datasets/tienen/handwritten-signature-verification"
+        },
+        {
+          "label": "Siamese signature notebook",
+          "url": "https://www.kaggle.com/code/tienen/signature-classification-using-siamese-pytorch"
+        },
+        {
+          "label": "RSNA spine subset notebook",
+          "url": "https://www.kaggle.com/code/tienen/quick-prepare-small-subset-rsna2022-spine-data"
+        },
+        {
+          "label": "Bengali.AI CV19 leaderboard",
+          "url": "https://www.kaggle.com/c/bengaliai-cv19/leaderboard"
         }
       ]
     },

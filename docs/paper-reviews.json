@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-06-10T08:39:57.080Z",
+  "updatedAt": "2026-06-11T07:59:35.071Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -23,7 +23,7 @@
       "id": "yannic-kilcher-cvpr",
       "label": "Yannic Kilcher / CVPR source watch",
       "status": "watch-only",
-      "checkedAt": "2026-06-10",
+      "checkedAt": "2026-06-11",
       "note": "Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.",
       "sources": [
         {
@@ -38,6 +38,65 @@
     }
   ],
   "reviews": [
+    {
+      "id": "can-ai-agents-synthesize-scientific-conclusions-2606-11337",
+      "title": "Can AI Agents Synthesize Scientific Conclusions?",
+      "dek": "A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.",
+      "language": "en",
+      "selectedAt": "2026-06-11T07:59:35.071Z",
+      "paperUrl": "https://arxiv.org/abs/2606.11337",
+      "pdfUrl": "https://arxiv.org/pdf/2606.11337",
+      "arxivId": "2606.11337",
+      "authors": [
+        "Hayoung Jung",
+        "Pedro Viana Diniz",
+        "Jos\\'e Reinaldo Corr\\^ea Roveda",
+        "Abner Fernandes da Silva",
+        "Haeun Jung",
+        "Enoch Tsai",
+        "Aleksandra Korolova",
+        "Manoel Horta Ribeiro"
+      ],
+      "publishedAt": "Thu, 11 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Thu, 11 Jun 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "selectionScore": 218,
+      "selectionReason": "Selected from primary ML research feeds because it is recent, source-linked, and has a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
+      "editorVerdict": "The useful question is not whether the agent looks smart in a demo; it is whether its state, messages, and failure modes can be inspected after the run is over.",
+      "whatItClaims": "Can AI Agents Synthesize Scientific Conclusions? argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.",
+      "technicalHinge": "The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.",
+      "productionAngle": "Try to turn the method into a trace contract: every action should leave behind state, evidence, and a reason a reviewer can accept or reject.",
+      "skepticism": "This is a triage review from cs.AI, cs.CL, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.",
+      "readingPath": [
+        "Read the method before the benchmark table.",
+        "Find the ablation that removes the claimed mechanism.",
+        "Write one product failure case the paper should survive."
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.11337"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.11337"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
     {
       "id": "business-world-model-2606-10044",
       "title": "Business World Model",
