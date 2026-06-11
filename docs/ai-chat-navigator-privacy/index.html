@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Chat Navigator Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the AI Chat Navigator Chrome extension.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18202a;
+      --muted: #5a6472;
+      --line: #d8dee8;
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --accent: #0b6bcb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    article {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(24px, 5vw, 48px);
+    }
+    h1, h2 { line-height: 1.2; margin: 0 0 16px; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); }
+    h2 { font-size: 1.25rem; margin-top: 32px; }
+    p, li { color: var(--muted); }
+    a { color: var(--accent); }
+    .meta { color: var(--muted); margin: 0 0 32px; }
+    ul { padding-left: 1.25rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>AI Chat Navigator Privacy Policy</h1>
+      <p class="meta">Last updated: June 11, 2026</p>
+
+      <p>AI Chat Navigator is a Chrome extension for navigating supported AI chat pages, saving reusable prompt snippets, and locally refining draft prompts. This policy applies to extension ID <strong>jnoonpeekddinkiecaonhocaflcgbhap</strong>.</p>
+
+      <h2>Local-Only Operation</h2>
+      <p>The extension does not require an external server. Version 4.1.2 stores settings, saved prompts, feedback notes, usage counters, and local error events in <code>chrome.storage.local</code> on the user's device. It does not use <code>chrome.storage.sync</code>, remote analytics endpoints, remote prompt APIs, or remote code.</p>
+
+      <h2>Data The Extension Handles</h2>
+      <ul>
+        <li>Supported chat page content may be read in the browser to draw navigation dots and local helper controls.</li>
+        <li>Prompt text is processed locally when the user clicks a prompt improvement or adjustment control.</li>
+        <li>Saved prompts and feedback notes are kept locally only when the user chooses to save them.</li>
+        <li>Local usage and error events are kept on device to support debugging.</li>
+      </ul>
+
+      <h2>Data Sharing</h2>
+      <p>AI Chat Navigator does not sell, transfer, or share user data with third parties. Chat content, prompts, saved snippets, feedback, analytics events, and settings are not sent to the developer's servers.</p>
+
+      <h2>Permissions</h2>
+      <p>The extension uses <code>activeTab</code> so user-triggered settings changes can apply to the current supported chat tab. It uses <code>storage</code> to save local settings and user-saved snippets. Content scripts run only on the supported AI chat sites listed in the extension manifest.</p>
+
+      <h2>Retention And Deletion</h2>
+      <p>Local data remains on the user's device until the user clears extension data, resets extension settings, removes saved prompts, or uninstalls the extension. Uninstalling the extension removes its local Chrome extension storage.</p>
+
+      <h2>Contact</h2>
+      <p>For privacy or support questions, use the support link on the Chrome Web Store listing or open an issue through the public portfolio at <a href="https://zack-dev-cm.github.io/">zack-dev-cm.github.io</a>.</p>
+    </article>
+  </main>
+</body>
+</html>
