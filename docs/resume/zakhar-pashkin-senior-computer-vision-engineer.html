@@ -29,7 +29,7 @@
         width: 8.5in;
         min-height: 11in;
         margin: 0 auto;
-        padding: 0.48in 0.55in;
+        padding: 0.46in 0.52in;
         background: #ffffff;
       }
 
@@ -43,20 +43,20 @@
       h1 {
         margin: 0;
         font-size: 30px;
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
         line-height: 1;
       }
 
       .role {
         margin: 0;
         color: var(--accent);
-        font-size: 16px;
+        font-size: 15.5px;
         font-weight: 700;
       }
 
       .contact {
         color: var(--muted);
-        font-size: 11.5px;
+        font-size: 11.2px;
       }
 
       a {
@@ -65,7 +65,7 @@
       }
 
       section {
-        margin-top: 13px;
+        margin-top: 12px;
       }
 
       h2 {
@@ -92,14 +92,14 @@
       }
 
       .summary {
-        font-size: 12.4px;
+        font-size: 12.3px;
       }
 
       .skills {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 7px 16px;
-        font-size: 11.4px;
+        gap: 7px 15px;
+        font-size: 11.2px;
       }
 
       .skills strong {
@@ -135,21 +135,21 @@
 
       .company {
         color: var(--muted);
-        font-size: 11.5px;
+        font-size: 11.4px;
         margin: 1px 0 4px;
       }
 
       .skill-line {
         color: var(--muted);
-        font-size: 10.9px;
+        font-size: 10.8px;
         margin: 3px 0 0;
       }
 
       .project-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 8px 16px;
-        font-size: 11.2px;
+        gap: 8px 15px;
+        font-size: 11.1px;
       }
 
       .project {
@@ -163,23 +163,12 @@
         margin-bottom: 2px;
       }
 
-      .gate-list {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-        list-style: none;
-        padding: 0;
-        font-size: 11.2px;
-      }
-
-      .gate-list li {
-        margin: 0;
-        padding: 7px 8px;
-        border: 1px solid var(--line);
-      }
-
       .compact {
-        font-size: 11.3px;
+        font-size: 11.25px;
+      }
+
+      .tight-list {
+        font-size: 11.25px;
       }
 
       @media print {
@@ -196,8 +185,7 @@
 
         .job-head,
         li,
-        .project,
-        .gate-list li {
+        .project {
           break-inside: avoid;
         }
 
@@ -212,37 +200,33 @@
     <main class="page">
       <header>
         <h1>Zakhar Pashkin</h1>
-        <p class="role">Senior Computer Vision Engineer | AI Product Engineer | OCR, Segmentation, Detection, Agentic AI Systems</p>
+        <p class="role">Senior Computer Vision Engineer | OCR, Mobile/Cloud ML, Skin Analysis, Applied AI Delivery</p>
         <div class="contact" aria-label="Contact information">
           Yerevan, Armenia |
           <a href="mailto:kaisenaiko@gmail.com">kaisenaiko@gmail.com</a> |
           <a href="https://zack-dev-cm.github.io/">zack-dev-cm.github.io</a> |
-          <a href="https://de.linkedin.com/in/zakhar-pashkin-a524a6163">linkedin.com/in/zakhar-pashkin-a524a6163</a> |
-          <a href="https://github.com/zack-dev-cm">github.com/zack-dev-cm</a> |
-          <a href="https://t.me/rheuiii">t.me/rheuiii</a>
+          <a href="https://www.linkedin.com/in/zakhar-pashkin-a524a6163">linkedin.com/in/zakhar-pashkin-a524a6163</a> |
+          <a href="https://github.com/zack-dev-cm">github.com/zack-dev-cm</a>
         </div>
       </header>
 
       <section aria-labelledby="summary">
         <h2 id="summary">Summary</h2>
         <p class="summary">
-          Senior Computer Vision Engineer and AI Product Engineer with 7+ years shipping OCR,
-          segmentation, detection, multimodal search, VLM/LLM agentic workflows, backend services,
-          and production ML systems. Strongest where model quality, product behavior, operator
-          workflow, and launch reliability need one accountable owner: data quality, model
-          selection, API contracts, UI surfaces, observability, human review gates, leak checks,
-          and rollback-ready releases.
+          Senior computer-vision engineer with 7+ years building OCR, segmentation,
+          detection, mobile/cloud inference, and skin-analysis systems. Owns the path from
+          data quality and model evaluation to APIs, mobile/backend integration, QA evidence,
+          and client-ready releases.
         </p>
       </section>
 
       <section aria-labelledby="skills">
         <h2 id="skills">Core Stack</h2>
         <div class="skills">
-          <p><strong>AI products:</strong> VLM/LLM agentic workflows, OpenAI APIs, tool-calling systems, human-in-the-loop automation, Telegram mini apps, Chrome extensions, review gates</p>
-          <p><strong>Computer vision:</strong> OCR, segmentation, detection, landmarking, tracking, face texture analysis, neural search, multimodal CV</p>
-          <p><strong>Modeling:</strong> PyTorch, TensorFlow/Keras, OpenCV, YOLO, MMDetection, CLIP/VLMs, Transformers, ONNX conversion</p>
-          <p><strong>Edge/mobile:</strong> ONNX, TFLite, CoreML, TensorRT, PyTorch Mobile, quantization, mobile inference profiling, Flutter/Android/iOS integration</p>
-          <p><strong>Production:</strong> FastAPI, Tornado, REST/gRPC, Docker, Kubernetes, GitHub Actions, GCP, AWS, Cloud Run, monitoring, CI/CD, MLOps</p>
+          <p><strong>Computer vision:</strong> OCR, segmentation, detection, landmarks, face texture analysis, multimodal retrieval, visual QA</p>
+          <p><strong>Modeling:</strong> Python, PyTorch, TensorFlow/Keras, OpenCV, YOLO, MediaPipe, CLIP/VLMs, ONNX Runtime, TFLite, CoreML</p>
+          <p><strong>Product engineering:</strong> FastAPI, REST APIs, TypeScript, React, Flutter/Dart, Firebase, Qdrant, Postgres, SQL</p>
+          <p><strong>Delivery:</strong> Docker, Cloud Run, GCP, AWS, GitHub Actions, ClearML, MLflow, CI/CD, evals, release gates</p>
         </div>
       </section>
 
@@ -251,42 +235,32 @@
 
         <article class="job">
           <div class="job-head">
-            <h3>Senior Computer Vision &amp; AI Engineer</h3>
-            <p class="meta">Jun 2022 - Present (4 yrs)</p>
+            <h3>Senior Computer Vision &amp; AI Product Engineer, Contract</h3>
+            <p class="meta">Jun 2024 - Present</p>
           </div>
-          <p class="company">Various Startups - Contract</p>
-          <p class="compact">Senior computer-vision, agentic AI, and production-ML engineering across startup, independent, and direct client engagements.</p>
+          <p class="company">Dermaself &amp; Gorilla GmbH - Contract, Remote</p>
           <ul class="compact">
-            <li>Shipped OCR, segmentation, detection, landmarking, face-search, neural-search, agentic AI workflow systems, and video-AI systems from model design through FastAPI/Tornado services and cloud deployment.</li>
-            <li>Optimized TFLite/CoreML/ONNX edge inference to 50-60 FPS for OCR and segmentation workflows.</li>
-            <li>Cut labeling cost by 80% during an auto-annotation rollout used by two client apps.</li>
-            <li>Reduced rollback time under 60 seconds across cloud microservices with benchmark checks, human approvals, and release gates.</li>
-            <li>Covered client work across OCR, segmentation, detection, landmarking, face search, facial analysis, medical AI, health/wellness ML, agentic AI workflows, and video-AI systems.</li>
-            <li>Lumenis BE, AI Software Consultant, Contract: production-ML support in a medical/aesthetic device context.</li>
-            <li>Synoptic Technologies Inc, OCR Engineer, Contract: OCR for social-media image understanding.</li>
-            <li>BeagleMind GmbH, Deep Learning Engineer, Contract: facial feature analysis and computer-vision model work.</li>
-            <li>Gorilla GmbH, Computer Vision and Deep Learning Developer, Contract: long-running computer-vision/deep-learning client engagement active through 2025.</li>
+            <li><strong>Dermaself:</strong> led CV product engineering for a skincare-analysis workflow across guided image capture, face-region processing, pore/wrinkle texture signals, result review, and mobile/backend integration.</li>
+            <li>Defined API contracts, model-evaluation criteria, experiment tracking, QA checks, and mobile release boundaries for camera-heavy skincare analysis.</li>
+            <li><strong>Gorilla GmbH:</strong> delivered CV/deep-learning work across dataset-quality review, model evaluation, inference behavior analysis, and implementation-ready technical recommendations.</li>
+            <li>Managed contract delivery across requirements, milestones, acceptance criteria, client demos, QA evidence, and release notes.</li>
           </ul>
-          <p class="skill-line">Top skills: Computer Vision, OCR, Facial Analysis, PyTorch, ONNX, TFLite, CoreML, FastAPI, Agentic AI Workflows</p>
+          <p class="skill-line">Stack: Python, PyTorch, OpenCV, ONNX/TFLite, FastAPI, Flutter/Firebase, cloud deployment, Docker, GitHub Actions, MLOps, model evaluation, release QA</p>
         </article>
 
         <article class="job">
           <div class="job-head">
             <h3>Senior Computer Vision Engineer</h3>
-            <p class="meta">Jun 2022 - Jun 2024 (2 yrs 1 mo)</p>
+            <p class="meta">Jun 2022 - Jun 2024</p>
           </div>
-          <p class="company">Wombat Apps LLC / Carb Manage - Contract - Redmond, Washington, United States - Remote</p>
-          <p class="compact">Long-running health and fitness ML engagement for a user-facing nutrition product. Led and developed cloud and mobile ML workflows for food, OCR, and nutrition recognition, connecting model behavior, backend services, mobile inference, and release reliability into production-facing product systems.</p>
+          <p class="company">Wombat Apps LLC / Carb Manager - Contract - Remote</p>
           <ul class="compact">
-            <li>Led development of scalable cloud and mobile ML pipelines for food recognition, OCR-based nutrition extraction, and product-facing nutrition intelligence.</li>
-            <li>Built and improved model-to-product workflows across data preparation, model training/evaluation, API integration, mobile deployment, and production support.</li>
-            <li>Improved food/OCR recognition quality for users by up to 25% across evaluated product flows.</li>
-            <li>Reduced mobile inference latency by up to 40% during mobile deployment optimization.</li>
-            <li>Reduced cloud inference/API cost by up to 35% through model/backend optimization across cloud services.</li>
-            <li>Increased successful nutrition extraction for users by up to 20% across OCR-based nutrition flows.</li>
-            <li>Reduced manual review and correction time by up to 50% through OCR/nutrition extraction improvements.</li>
+            <li>Built cloud and mobile ML workflows for food recognition, nutrition-label OCR, and structured nutrition extraction in Carb Manager product flows.</li>
+            <li>Owned model-to-product integration across dataset preparation, model training/evaluation, backend APIs, mobile runtime constraints, and rollout support.</li>
+            <li>Improved recognition reliability and mobile inference behavior through model export, input-pipeline cleanup, runtime profiling, and backend integration.</li>
+            <li>Partnered with data, mobile, backend, and product teams on OCR/nutrition extraction quality, privacy constraints, and production reliability.</li>
           </ul>
-          <p class="skill-line">Skills: Machine Learning, Computer Vision, OCR, Food Recognition, Nutrition Recognition, Python, Production ML, Cloud ML, Mobile ML, Backend Integration, Model Reliability</p>
+          <p class="skill-line">Stack: Python, Computer Vision, OCR, food recognition, mobile ML, cloud ML, API integration, model evaluation</p>
         </article>
 
         <article class="job">
@@ -296,67 +270,49 @@
           </div>
           <p class="company">CFT - Akademgorodok, Novosibirsk</p>
           <ul class="compact">
-            <li>Developed classification, object detection, OCR, segmentation, and document-recognition algorithms for fintech and mobile products.</li>
-            <li>Optimized energy-meter OCR and segmentation models for stable 50 to 60 FPS on mid-range smartphones.</li>
-            <li>Built masked face anti-spoofing and Cyrillic offline signature-verification research systems with deployment-focused error analysis.</li>
-            <li>Improved specialized mobile-GPU model quality with neural architecture search and deployment-focused tuning.</li>
-            <li>Implemented CLIP pre-validation and Toloka automation to reduce labeling cost and review load through click-driven segmentation workflows.</li>
+            <li>Built OCR, segmentation, detection, classification, and document-recognition models for fintech and mobile applications.</li>
+            <li>Optimized energy-meter OCR and segmentation models for mobile inference through model architecture, quantization, and deployment-focused tuning.</li>
+            <li>Delivered masked-face anti-spoofing and offline signature-verification prototypes with error analysis tied to deployment constraints.</li>
+            <li>Created CLIP pre-validation and Toloka-assisted labeling workflows to reduce manual review load and improve dataset iteration quality.</li>
+            <li>Mentored apprenticeship engineers inside the CFT program on CV project structure, dataset quality, error analysis, and deployment constraints.</li>
           </ul>
+          <p class="skill-line">Stack: Python, OpenCV, PyTorch/TensorFlow, OCR, segmentation, detection, mobile inference, data labeling</p>
         </article>
 
         <article class="job">
           <div class="job-head">
-            <h3>Computer Vision Project Mentor</h3>
-            <p class="meta">Nov 2019 - Jun 2022</p>
-          </div>
-          <p class="company">CFT apprenticeship corporate program - Part-time</p>
-          <ul class="compact">
-            <li>Mentored pre-internship engineers on production-style CV projects including mobile energy-meter recognition, crowdsourcing with neural networks, and Cyrillic handwriting OCR.</li>
-            <li>Reviewed model choices, dataset quality, error analysis, and deployment constraints so student projects could pass engineering review rather than remain demos.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Machine Learning Project Mentor</h3>
+            <h3>Machine Learning Specialist &amp; Project Mentor</h3>
             <p class="meta">Oct 2018 - Oct 2019</p>
           </div>
-          <p class="company">School of AI - Remote / San Francisco Bay Area community</p>
+          <p class="company">School of AI - Part-time community ML program; ML Specialist (Oct 2018-Apr 2019), Project Mentor (Apr-Oct 2019)</p>
           <ul class="compact">
-            <li>Built and supported ML/DL software for analytics and online education, including Flutter product work and GCP infrastructure.</li>
-            <li>Helped secure and operate Google Cloud support for a global AI education platform while coordinating remote contributors and volunteers.</li>
+            <li>Built and maintained ML/DL learning software, including Flutter analytics/course surfaces and GCP-backed infrastructure for online education.</li>
+            <li>Coordinated remote volunteers and contributors on platform work, course operations, and community program delivery.</li>
+            <li>Turned TensorFlow and OpenCV topics into project-oriented learning paths and mentored participants on dataset setup, model iteration, and demo readiness.</li>
           </ul>
+          <p class="skill-line">Stack: Python, TensorFlow, OpenCV, Flutter, GCP, ML curriculum, mentoring</p>
         </article>
       </section>
 
       <section aria-labelledby="projects">
-        <h2 id="projects">Selected Project Evidence</h2>
+        <h2 id="projects">Selected Work</h2>
         <div class="project-grid">
-          <p class="project"><strong>Fast OCR ONNX Inference Server</strong> Three-stage OCR API: line segmentation, word segmentation, CRNN text recognition, Docker packaging, and JSON boxes/text responses.</p>
-          <p class="project"><strong>Multimodal Video Search Platform</strong> Keyframes, ASR/OCR, objects, faces, visual embeddings, transcript embeddings, Qdrant/Postgres retrieval, and quality-agent checks.</p>
-          <p class="project"><strong>Full-Face Wrinkle Segmentation Lab</strong> Cosmetic face-region masks, YOLO segmentation, skeletonized line traces, overlays, CSV outputs, timing events, and visual QA gates.</p>
-          <p class="project"><strong>Dermaself Flutter Skin Analysis App</strong> Flutter/Firebase guided capture app with onboarding, questionnaire intake, offline model runtime, ROI gates, and results screens.</p>
-          <p class="project"><strong>Nutrition Label OCR Mobile Lab</strong> SwiftUI food detection and nutrition-label OCR using ML Kit, crop-assisted text recognition, table parsing, and structured results.</p>
-          <p class="project"><strong>CV Repro Lab Skills</strong> Reproducible CV experiment workflow with benchmark gates, review dashboards, browser validation, and 1,294 public ClawHub downloads across two packages.</p>
+          <p class="project"><strong>Dermaself Skincare Analysis</strong> Mobile skincare-analysis work covering guided capture, face-region processing, pore/wrinkle texture signals, model evaluation, and release QA boundaries.</p>
+          <p class="project"><strong>Gorilla GmbH CV Delivery</strong> Client CV/deep-learning work covering dataset quality, inference behavior, model evaluation, and implementation-ready recommendations.</p>
+          <p class="project"><strong>Multimodal Video Search Platform</strong> Keyframes, ASR/OCR, object and face signals, CLIP-style embeddings, Qdrant/Postgres retrieval, and hybrid ranking checks.</p>
+          <p class="project"><strong>Full-Face Wrinkle &amp; Texture Lab</strong> Cosmetic face-region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, CSV outputs, timing events, and QA panels.</p>
+          <p class="project"><strong>Fast OCR ONNX Inference Server</strong> Containerized FastAPI OCR service with line segmentation, word segmentation, CRNN recognition, CPU ONNX runtime, and JSON text/box responses.</p>
+          <p class="project"><strong>CV Repro Lab Tooling</strong> Public reproducibility tooling for benchmark-gated CV experiments, browser validation, run cards, dataset manifests, and claim-review workflows.</p>
         </div>
       </section>
 
-      <section aria-labelledby="review-gates">
-        <h2 id="review-gates">Recruiter Evidence Checks</h2>
-        <ul class="gate-list">
-          <li><strong>AI product scope:</strong> Owns model, backend, workflow, UI, and launch reliability rather than stopping at notebooks or demos.</li>
-          <li><strong>CV depth:</strong> Can explain data, metrics, failure modes, conversion path, and edge/runtime constraints for shipped OCR, segmentation, and detection work.</li>
-          <li><strong>Evidence quality:</strong> Public work links to repos, releases, dated counters, and review gates; non-public CV work is summarized without repo or live-service links.</li>
+      <section aria-labelledby="additional">
+        <h2 id="additional">Education &amp; Credentials</h2>
+        <ul class="tight-list">
+          <li><strong>Siberian Federal University</strong> - Computer Science and Microelectronic Engineering, 2007-2012.</li>
+          <li><strong>School of AI Dean's Credential</strong> and Spring 2019 Fellowship Program training.</li>
+          <li><strong>Professional coursework:</strong> TensorFlow, deep learning and computer vision, SQL, JavaScript, Kubernetes on Google Cloud, and PyTorch scholarship work.</li>
         </ul>
-      </section>
-
-      <section aria-labelledby="education">
-        <h2 id="education">Education &amp; Certifications</h2>
-        <p class="compact">
-          Siberian Federal University, 2007-2012. Additional professional training includes TensorFlow,
-          Deep Learning and Computer Vision, SQL, JavaScript, Kubernetes on Google Cloud, and PyTorch
-          scholarship work.
-        </p>
       </section>
     </main>
   </body>

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-11T08:56:26.971Z",
+  "lastSyncedAt": "2026-06-12T08:47:24.075Z",
   "review": {
     "status": "PASS",
-    "checkedAt": "2026-06-11",
-    "syncedAt": "2026-06-11T08:56:26.971Z",
+    "checkedAt": "2026-06-12",
+    "syncedAt": "2026-06-12T08:47:24.075Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -46,7 +46,7 @@
       "createdAt": "2026-06-09",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -79,7 +79,7 @@
       "createdAt": "2026-06-09",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -92,6 +92,39 @@
           "clawpatch-review-ready"
         ]
       }
+    },
+    {
+      "title": "Session Rescue",
+      "description": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf Session Rescue is a local-first Chrome extension for saving browser session",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/session-rescue"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/session-rescue",
+      "repoId": 1218785042,
+      "createdAt": "2026-06-11T09:48:36Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-12",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1218785042
     },
     {
       "title": "Unitree G1 Colab Ik",
@@ -107,7 +140,7 @@
       "createdAt": "2026-06-06T06:03:51Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -140,7 +173,7 @@
       "createdAt": "2026-05-22T14:22:48Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -169,7 +202,7 @@
       "createdAt": "2026-05-21T04:46:36Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -202,7 +235,7 @@
       "createdAt": "2026-05-15T23:58:30Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -235,7 +268,7 @@
       "createdAt": "2026-05-15T17:16:38Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -264,7 +297,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -297,7 +330,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -330,7 +363,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -359,7 +392,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -388,7 +421,7 @@
       "createdAt": "2026-05-15T17:04:41Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -417,7 +450,7 @@
       "createdAt": "2026-05-15T12:21:59Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -446,7 +479,7 @@
       "createdAt": "2026-05-15T11:16:53Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -475,7 +508,7 @@
       "createdAt": "2026-05-14T07:32:43Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -504,7 +537,7 @@
       "createdAt": "2026-05-08T05:35:08Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -537,7 +570,7 @@
       "createdAt": "2026-05-04T00:02:57Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -570,7 +603,7 @@
       "createdAt": "2026-05-04T00:02:09Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -603,7 +636,7 @@
       "createdAt": "2026-04-30T05:18:31Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -636,7 +669,7 @@
       "createdAt": "2026-04-30T05:18:23Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -669,7 +702,7 @@
       "createdAt": "2026-04-30T05:18:20Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -683,39 +716,6 @@
         ]
       },
       "projectId": 1207621924
-    },
-    {
-      "title": "Youtube Creator Ops",
-      "description": "Publish a YouTube Short through a logged-in OpenClaw browser profile and keep reusable provenance for Midjourney, Suno, or local edits.",
-      "links": [
-        {
-          "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/youtube-creator-ops"
-        },
-        {
-          "text": "ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/youtube-creator-ops"
-        }
-      ],
-      "repoFullName": "zack-dev-cm/youtube-creator-ops",
-      "repoId": 1207621923,
-      "createdAt": "2026-04-30T05:18:17Z",
-      "review": {
-        "status": "PASS",
-        "checkedAt": "2026-06-11",
-        "gateVersion": 2,
-        "gates": [
-          "public-github-api-only",
-          "private-repo-default-off",
-          "safe-public-links-only",
-          "readme-code-blocks-stripped",
-          "leak-pattern-scan",
-          "instruction-bleed-scan",
-          "clawhub-stat-crosslink",
-          "clawpatch-review-ready"
-        ]
-      },
-      "projectId": 1207621923
     }
   ],
   "projects": [
@@ -806,7 +806,7 @@
       "createdAt": "2026-06-09",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -897,7 +897,7 @@
       "createdAt": "2026-06-09",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -912,10 +912,10 @@
       }
     },
     {
-      "id": 1260969567,
-      "title": "Unitree G1 Colab Ik",
-      "description": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation",
-      "longDescription": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "id": 1218785042,
+      "title": "Session Rescue",
+      "description": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf Session Rescue is a local-first Chrome extension for saving browser session",
+      "longDescription": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf Session Rescue is a local-first Chrome extension for saving browser session This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -923,7 +923,90 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
+        "JavaScript code surface is visible in repository metadata",
+        "Public homepage or listing is linked from repository metadata"
+      ],
+      "techStack": [
+        "JavaScript",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/session-rescue"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Session Rescue preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-06-12"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-06-12"
+        },
+        {
+          "label": "Created",
+          "value": "2026-04-23",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-06-11",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/session-rescue",
+        "website": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf"
+      },
+      "repoFullName": "zack-dev-cm/session-rescue",
+      "repoId": 1218785042,
+      "createdAt": "2026-06-11T09:48:36Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-06-12",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      }
+    },
+    {
+      "id": 1260969567,
+      "title": "Unitree G1 Colab Ik",
+      "description": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation",
+      "longDescription": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source references",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
@@ -949,12 +1032,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -975,7 +1058,7 @@
       "createdAt": "2026-06-06T06:03:51Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -993,7 +1076,7 @@
       "id": 1219878272,
       "title": "Random Coffee Best Fit Outreach",
       "description": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets.",
-      "longDescription": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Public-safe random coffee matcher with reviewed LinkedIn or Discord outreach packets. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -1007,11 +1090,11 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include Codex, Discord, Linkedin, Matching",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
-        "ClawHub listing cross-checked with 394 downloads as of 2026-06-11"
+        "ClawHub listing cross-checked with 407 downloads as of 2026-06-12"
       ],
       "techStack": [
         "Python",
@@ -1044,12 +1127,12 @@
         {
           "label": "GitHub stars",
           "value": "1",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1063,13 +1146,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "394",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "407",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "5",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -1081,7 +1164,7 @@
       "createdAt": "2026-05-22T14:22:48Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1099,7 +1182,7 @@
       "id": 1244370879,
       "title": "Tutorial To Skill Free Pack",
       "description": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts",
-      "longDescription": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -1114,7 +1197,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "TypeScript code surface is visible in repository metadata",
         "Repository topics include Affiliate Marketing, Agent Skills, AI Video, Claude Skills",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
@@ -1146,12 +1229,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1172,7 +1255,7 @@
       "createdAt": "2026-05-21T04:46:36Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1190,7 +1273,7 @@
       "id": 1232823211,
       "title": "Trusted ClawHub Install Gate",
       "description": "Local-first install gate for ClawHub and OpenClaw skills.",
-      "longDescription": "Local-first install gate for ClawHub and OpenClaw skills. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Local-first install gate for ClawHub and OpenClaw skills. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -1201,7 +1284,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include ClawHub, OpenClaw, Security",
         "Public homepage or listing is linked from repository metadata",
@@ -1236,12 +1319,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1255,13 +1338,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "320",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "327",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "3",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -1273,7 +1356,7 @@
       "createdAt": "2026-05-15T23:58:30Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1291,7 +1374,7 @@
       "id": 1239848703,
       "title": "Open Feed Recsys Lab",
       "description": "Commit-pinned reproducibility reports for open feed recommendation repos",
-      "longDescription": "Commit-pinned reproducibility reports for open feed recommendation repos This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Commit-pinned reproducibility reports for open feed recommendation repos This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -1299,10 +1382,10 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
-        "ClawHub listing cross-checked with 321 downloads as of 2026-06-11"
+        "ClawHub listing cross-checked with 326 downloads as of 2026-06-12"
       ],
       "techStack": [
         "Python",
@@ -1330,12 +1413,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1349,13 +1432,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "321",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "326",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "5",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -1367,7 +1450,7 @@
       "createdAt": "2026-05-15T17:16:38Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1385,7 +1468,7 @@
       "id": 1239596343,
       "title": "ClawHub Published Skills",
       "description": "Curated source bundle for ClawHub-published skills",
-      "longDescription": "Curated source bundle for ClawHub-published skills This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Curated source bundle for ClawHub-published skills This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -1393,7 +1476,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
       "techStack": [
@@ -1417,12 +1500,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1443,7 +1526,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1461,7 +1544,7 @@
       "id": 1207153595,
       "title": "GitHub ClawHub Launcher",
       "description": "Prepare a public GitHub repo and ClawHub skill release from one local project folder.",
-      "longDescription": "Prepare a public GitHub repo and ClawHub skill release from one local project folder. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Prepare a public GitHub repo and ClawHub skill release from one local project folder. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -1474,7 +1557,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include ClawHub, GitHub, OpenClaw, Publishing",
         "Public homepage or listing is linked from repository metadata",
@@ -1510,12 +1593,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1529,13 +1612,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "696",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "705",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "9",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -1547,7 +1630,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1565,7 +1648,7 @@
       "id": 1238345725,
       "title": "Interactive Doc Mapper",
       "description": "Create clickable JSON-driven HTML documentation for app workflows between packages and components.",
-      "longDescription": "Create clickable JSON-driven HTML documentation for app workflows between packages and components. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Create clickable JSON-driven HTML documentation for app workflows between packages and components. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -1578,10 +1661,10 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include Architecture, ClawHub, Codex, Documentation",
-        "ClawHub listing cross-checked with 279 downloads as of 2026-06-11"
+        "ClawHub listing cross-checked with 286 downloads as of 2026-06-12"
       ],
       "techStack": [
         "Python",
@@ -1614,12 +1697,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1633,13 +1716,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "279",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "286",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "2",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -1651,7 +1734,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1669,7 +1752,7 @@
       "id": 1238345904,
       "title": "Codex ClawHub Skill Pack",
       "description": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review.",
-      "longDescription": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -1677,7 +1760,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
@@ -1703,12 +1786,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1729,7 +1812,7 @@
       "createdAt": "2026-05-15T17:16:21Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1747,7 +1830,7 @@
       "id": 1239777240,
       "title": "Affiliate Video Skill Pack",
       "description": "Original skill for compliant AI affiliate-video campaign review across Claude.",
-      "longDescription": "Original skill for compliant AI affiliate-video campaign review across Claude. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Original skill for compliant AI affiliate-video campaign review across Claude. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -1755,7 +1838,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
@@ -1781,12 +1864,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1807,7 +1890,7 @@
       "createdAt": "2026-05-15T17:04:41Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1825,7 +1908,7 @@
       "id": 1239766603,
       "title": "Agentic Video Production Receipt",
       "description": "MV3 Chrome extension prototype for the Agentic Video Production Publisher",
-      "longDescription": "MV3 Chrome extension prototype for the Agentic Video Production Publisher This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "MV3 Chrome extension prototype for the Agentic Video Production Publisher This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -1833,7 +1916,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "JavaScript code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -1858,12 +1941,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1884,7 +1967,7 @@
       "createdAt": "2026-05-15T12:21:59Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1902,7 +1985,7 @@
       "id": 1239706151,
       "title": "Agentic Video Production Skill",
       "description": "Run consistent-character AI video production through OpenClaw publisher handoff.",
-      "longDescription": "Run consistent-character AI video production through OpenClaw publisher handoff. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Run consistent-character AI video production through OpenClaw publisher handoff. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -1916,7 +1999,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include AI Video, ClawHub, Codex Skills, OpenClaw",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
@@ -1948,12 +2031,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -1974,7 +2057,7 @@
       "createdAt": "2026-05-15T11:16:53Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -1992,7 +2075,7 @@
       "id": 1217739324,
       "title": "Agentic Codex Dev Skill",
       "description": "Instruction-only Codex/OpenClaw skill for simple agentic software development loops",
-      "longDescription": "Instruction-only Codex/OpenClaw skill for simple agentic software development loops This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Instruction-only Codex/OpenClaw skill for simple agentic software development loops This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -2000,7 +2083,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
       ],
@@ -2026,12 +2109,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -2052,7 +2135,7 @@
       "createdAt": "2026-05-14T07:32:43Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -2070,7 +2153,7 @@
       "id": 1232621215,
       "title": "Mudassir PPTX Layout Agent",
       "description": "Editable PPTX layout extraction, content mapping, regeneration, and validation screening package.",
-      "longDescription": "Editable PPTX layout extraction, content mapping, regeneration, and validation screening package. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Editable PPTX layout extraction, content mapping, regeneration, and validation screening package. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -2078,7 +2161,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -2103,12 +2186,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -2129,7 +2212,7 @@
       "createdAt": "2026-05-08T05:35:08Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -2147,7 +2230,7 @@
       "id": 1211180335,
       "title": "OpenClaw Cws Publisher",
       "description": "Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata.",
-      "longDescription": "Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Release kit for packaging Chrome extensions, scanning tracked files, and rendering GitHub or ClawHub publish metadata. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -2160,7 +2243,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include Chrome Extension, Chrome Web Store, OpenClaw, Privacy",
         "Public homepage or listing is linked from repository metadata",
@@ -2197,12 +2280,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -2216,13 +2299,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "717",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "723",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "14",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -2234,7 +2317,7 @@
       "createdAt": "2026-05-04T00:02:57Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -2252,7 +2335,7 @@
       "id": 1181384328,
       "title": "Agentic CV Repro Lab Skill",
       "description": "Public OpenClaw skills for benchmark-gated CV experimentation and SOTA campaigns across Colab, Kaggle, and GPU VMs.",
-      "longDescription": "Public OpenClaw skills for benchmark-gated CV experimentation and SOTA campaigns across Colab, Kaggle, and GPU VMs. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Public OpenClaw skills for benchmark-gated CV experimentation and SOTA campaigns across Colab, Kaggle, and GPU VMs. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -2267,7 +2350,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include Agentic Workflows, Benchmarking, Browser Automation, ClawHub",
         "Public homepage or listing is linked from repository metadata",
@@ -2304,12 +2387,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -2331,7 +2414,7 @@
       "createdAt": "2026-05-04T00:02:09Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -2349,7 +2432,7 @@
       "id": 1206911119,
       "title": "Publish Guard",
       "description": "Pre-release audit skill for GitHub repos and ClawHub packages. Catch leaks, weak launch copy, and broken first-run paths.",
-      "longDescription": "Pre-release audit skill for GitHub repos and ClawHub packages. Catch leaks, weak launch copy, and broken first-run paths. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-11.",
+      "longDescription": "Pre-release audit skill for GitHub repos and ClawHub packages. Catch leaks, weak launch copy, and broken first-run paths. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -2363,7 +2446,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include ClawHub, Linting, Open Source, OpenClaw",
         "Public homepage or listing is linked from repository metadata",
@@ -2400,12 +2483,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -2427,7 +2510,7 @@
       "createdAt": "2026-04-30T05:18:31Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -2445,7 +2528,7 @@
       "id": 1207181863,
       "title": "Browser QA Report Pack",
       "description": "Create a reproducible browser validation pack before you file a bug, approve a launch, or claim a fix.",
-      "longDescription": "Create a reproducible browser validation pack before you file a bug, approve a launch, or claim a fix. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
+      "longDescription": "Create a reproducible browser validation pack before you file a bug, approve a launch, or claim a fix. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-12.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -2458,7 +2541,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
+        "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include Browser, ClawHub, References, OpenClaw",
         "Public homepage or listing is linked from repository metadata",
@@ -2495,12 +2578,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Created",
@@ -2514,13 +2597,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "516",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "524",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -2532,7 +2615,7 @@
       "createdAt": "2026-04-30T05:18:23Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -2586,12 +2669,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
+          "context": "public GitHub API snapshot, 2026-06-12"
         },
         {
           "label": "Public posture",
@@ -2600,13 +2683,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "499",
-          "context": "public ClawHub listing, 2026-06-11"
+          "value": "506",
+          "context": "public ClawHub listing, 2026-06-12"
         },
         {
           "label": "ClawHub versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-06-11"
+          "context": "public ClawHub listing, 2026-06-12"
         }
       ],
       "canonicalLinks": {
@@ -2618,112 +2701,7 @@
       "createdAt": "2026-04-30T05:18:20Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-06-11",
-        "gateVersion": 2,
-        "gates": [
-          "public-github-api-only",
-          "private-repo-default-off",
-          "safe-public-links-only",
-          "readme-code-blocks-stripped",
-          "leak-pattern-scan",
-          "instruction-bleed-scan",
-          "clawhub-stat-crosslink",
-          "clawpatch-review-ready"
-        ]
-      }
-    },
-    {
-      "id": 1207621923,
-      "title": "Youtube Creator Ops",
-      "description": "Publish a YouTube Short through a logged-in OpenClaw browser profile and keep reusable provenance for Midjourney, Suno, or local edits.",
-      "longDescription": "Publish a YouTube Short through a logged-in OpenClaw browser profile and keep reusable provenance for Midjourney, Suno, or local edits. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-06-11.",
-      "projectKind": "open-source",
-      "surfaceTags": [
-        "open-source",
-        "automation",
-        "creator-tools",
-        "openclaw",
-        "shorts",
-        "youtube"
-      ],
-      "mobileReady": false,
-      "keyFeatures": [
-        "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-06-11",
-        "Python code surface is visible in repository metadata",
-        "Repository topics include Automation, Creator Tools, OpenClaw, Shorts",
-        "Public homepage or listing is linked from repository metadata",
-        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
-      ],
-      "techStack": [
-        "Python",
-        "Automation",
-        "Creator Tools",
-        "OpenClaw",
-        "Shorts",
-        "Youtube",
-        "GitHub",
-        "Open Source"
-      ],
-      "links": [
-        {
-          "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/youtube-creator-ops"
-        },
-        {
-          "text": "ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/youtube-creator-ops"
-        }
-      ],
-      "images": [
-        {
-          "url": "images/project-placeholder.svg",
-          "alt": "Youtube Creator Ops preview"
-        }
-      ],
-      "thumbnail": "images/project-placeholder.svg",
-      "benchmarks": [
-        {
-          "label": "GitHub stars",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
-        },
-        {
-          "label": "GitHub forks",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-06-11"
-        },
-        {
-          "label": "Created",
-          "value": "2026-04-11",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "Last push",
-          "value": "2026-04-30",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "ClawHub downloads",
-          "value": "581",
-          "context": "public ClawHub listing, 2026-06-11"
-        },
-        {
-          "label": "ClawHub versions",
-          "value": "13",
-          "context": "public ClawHub listing, 2026-06-11"
-        }
-      ],
-      "canonicalLinks": {
-        "github": "https://github.com/zack-dev-cm/youtube-creator-ops",
-        "website": "https://clawhub.ai/zack-dev-cm/youtube-creator-ops"
-      },
-      "repoFullName": "zack-dev-cm/youtube-creator-ops",
-      "repoId": 1207621923,
-      "createdAt": "2026-04-30T05:18:17Z",
-      "review": {
-        "status": "PASS",
-        "checkedAt": "2026-06-11",
+        "checkedAt": "2026-06-12",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
