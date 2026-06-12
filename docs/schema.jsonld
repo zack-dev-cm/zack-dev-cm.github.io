@@ -349,7 +349,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "19,444 tracked ClawHub downloads across 53 public skills",
+          "name": "19,535 tracked ClawHub downloads across 53 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -427,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 19,444 tracked ClawHub downloads across 53 public skills as of 2026-06-12.",
+            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 19,535 tracked ClawHub downloads across 53 public skills as of 2026-06-12.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -521,7 +521,7 @@
       "name": "ML Papers, Read for Builders",
       "description": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?.",
       "inLanguage": "en",
-      "dateModified": "2026-06-12T08:47:28.932Z",
+      "dateModified": "2026-06-12T17:03:57.809Z",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -538,21 +538,21 @@
           "name": "Can AI Agents Synthesize Scientific Conclusions?",
           "url": "https://arxiv.org/abs/2606.11337",
           "identifier": "2606.11337",
-          "keywords": "agents, runtime, evaluation"
+          "keywords": "agents, runtime, evaluation, cs.AI, cs.CL, cs.CY"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Business World Model",
           "url": "https://arxiv.org/abs/2606.10044",
           "identifier": "2606.10044",
-          "keywords": "agents, runtime, evaluation"
+          "keywords": "agents, runtime, evaluation, cs.AI"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow",
           "url": "https://arxiv.org/abs/2606.07549",
           "identifier": "2606.07549",
-          "keywords": "agents, runtime, evaluation"
+          "keywords": "agents, runtime, evaluation, cs.AI, cs.MA"
         }
       ],
       "isAccessibleForFree": true

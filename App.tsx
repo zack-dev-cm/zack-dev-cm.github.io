@@ -1106,9 +1106,9 @@ const App: React.FC = () => {
         detail: `${CLAWHUB_DOWNLOAD_STATS.length} public skills checked ${clawHubSummary.checkedAt}`
       },
       {
-        label: 'Product users',
-        value: `${CHROME_EXTENSION_STATS.totalUsers.toLocaleString()} CWS / ${telegramReachSnapshot.telegramUsers} TG`,
-        detail: `${chromeStatsSummary.reportedRows} visible CWS rows; ${telegramReachSnapshot.activeSummary} in Calorio`
+        label: 'Product signals',
+        value: `${CHROME_EXTENSION_STATS.totalUsers.toLocaleString()} CWS / ${telegramProjectCount} TG surfaces`,
+        detail: `${chromeStatsSummary.reportedRows} visible CWS rows; Telegram count is linked project surfaces, not a live audience claim`
       },
       {
         label: 'Measured releases',
@@ -1121,7 +1121,7 @@ const App: React.FC = () => {
         detail: 'teaching deep learning and computer vision through practical model and product work'
       }
     ],
-    [benchmarkedProjectCount, chromeStatsSummary.reportedRows, clawHubSummary, mergedProjects.length, telegramReachSnapshot]
+    [benchmarkedProjectCount, chromeStatsSummary.reportedRows, clawHubSummary, mergedProjects.length, telegramProjectCount]
   );
 
   const artifactPlotRows = useMemo(() => {
@@ -1144,7 +1144,7 @@ const App: React.FC = () => {
       {
         label: 'Telegram',
         value: telegramProjectCount.toLocaleString(),
-        detail: `${telegramReachSnapshot.telegramUsers} Telegram users / ${telegramReachSnapshot.activeSummary} in Calorio`,
+        detail: `linked Telegram surfaces; Calorio aggregate remains scoped to its project card`,
         percent: Math.round((telegramProjectCount / denominator) * 100),
         tone: 'metric'
       },
@@ -1178,12 +1178,12 @@ const App: React.FC = () => {
         detail: `${chromeStatsSummary.reportedRows} measured public rows`
       },
       {
-        label: 'Telegram users',
-        value: telegramReachSnapshot.telegramUsers,
-        detail: `${telegramReachSnapshot.activeSummary}; ${telegramProjectCount} Telegram projects`
+        label: 'Telegram surfaces',
+        value: telegramProjectCount.toLocaleString(),
+        detail: 'linked bots, mini apps, channels, and Telegram delivery projects'
       }
     ],
-    [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramProjectCount, telegramReachSnapshot]
+    [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramProjectCount]
   );
 
   const aiSystemLanes = useMemo(

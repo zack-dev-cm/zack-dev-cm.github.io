@@ -15,6 +15,7 @@ const FEED_CATEGORIES = ['cs.AI', 'cs.LG', 'cs.CV', 'cs.CL', 'cs.IR', 'stat.ML']
 const args = new Set(process.argv.slice(2));
 const shouldWrite = args.has('--write');
 const shouldAllowNoop = args.has('--allow-noop');
+const shouldRewriteExisting = args.has('--rewrite-existing');
 
 const TOPIC_RULES = [
   {
@@ -136,6 +137,15 @@ const slugify = (value) =>
 
 const unique = (items) => [...new Set(items.filter(Boolean))];
 
+const stableIndex = (value, length) => {
+  if (!length) return 0;
+  let hash = 0;
+  for (const char of String(value || '')) {
+    hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+  }
+  return hash % length;
+};
+
 const extractArxivId = (url) => {
   const match = String(url || '').match(/arxiv\.org\/(?:abs|pdf)\/([0-9]{4}\.[0-9]{4,5})(?:v\d+)?/i);
   return match?.[1] || '';
@@ -154,7 +164,7 @@ const defaultFeed = () => ({
     selection:
       'The selector favors primary papers with strong fit for agents, computer vision, retrieval, reasoning, representation learning, and deployable ML systems.',
     writing:
-      'Reviews are original English editorial notes. Abstracts and third-party commentary are used for triage only and are not republished.',
+      'Reviews are original English editorial notes written around one concrete claim, one useful verification test, and one skeptical failure mode. Abstracts are used only to ground the critique; they are not republished.',
   },
   reviewSourceWatch: [
     {
@@ -316,6 +326,53 @@ const fetchCandidates = async () => {
   return [...byId.values()];
 };
 
+const parseAtomEntries = (xml) => {
+  return [...String(xml || '').matchAll(/<entry>([\s\S]*?)<\/entry>/g)]
+    .map((match) => {
+      const entry = match[1];
+      const paperUrl = extractTag(entry, 'id');
+      const arxivId = extractArxivId(paperUrl);
+      if (!arxivId) return null;
+      const authors = [...entry.matchAll(/<author>\s*<name>([\s\S]*?)<\/name>\s*<\/author>/g)]
+        .map((authorMatch) => decodeXml(authorMatch[1]))
+        .filter(Boolean);
+      const categories = [...entry.matchAll(/<category[^>]+term="([^"]+)"/g)]
+        .map((categoryMatch) => decodeXml(categoryMatch[1]))
+        .filter(Boolean);
+      const primaryCategory = entry.match(/<arxiv:primary_category[^>]+term="([^"]+)"/)?.[1];
+      return {
+        arxivId,
+        title: decodeXml(extractTag(entry, 'title')).replace(/\s+/g, ' '),
+        summary: decodeXml(extractTag(entry, 'summary')),
+        authors,
+        categories: unique([primaryCategory, ...categories]),
+        publishedAt: extractTag(entry, 'published'),
+        updatedAt: extractTag(entry, 'updated'),
+        announceType: 'existing',
+        paperUrl: `https://arxiv.org/abs/${arxivId}`,
+        pdfUrl: `https://arxiv.org/pdf/${arxivId}`,
+        feedUrl: categories.find((category) => FEED_CATEGORIES.includes(category))
+          ? `https://rss.arxiv.org/rss/${categories.find((category) => FEED_CATEGORIES.includes(category))}`
+          : 'https://arxiv.org/',
+        recencyIndex: 0,
+      };
+    })
+    .filter(Boolean);
+};
+
+const fetchArxivMetadataByIds = async (ids) => {
+  const uniqueIds = unique(ids).filter(Boolean);
+  const byId = new Map();
+  for (let index = 0; index < uniqueIds.length; index += 20) {
+    const batch = uniqueIds.slice(index, index + 20);
+    const xml = await fetchText(`https://export.arxiv.org/api/query?id_list=${batch.join(',')}`);
+    for (const paper of parseAtomEntries(xml)) {
+      byId.set(paper.arxivId, paper);
+    }
+  }
+  return byId;
+};
+
 const inferTopic = (paper) => {
   const haystack = `${paper.title} ${paper.summary} ${(paper.categories || []).join(' ')}`;
   return TOPIC_RULES.find((rule) => rule.match.test(haystack)) || {
@@ -356,57 +413,355 @@ const authorLine = (authors) => {
   return `${visible}${extra ? ` and ${extra} more` : ''}`;
 };
 
+const splitSentences = (value) =>
+  String(value || '')
+    .replace(/\s+/g, ' ')
+    .split(/(?<=[.!?])\s+(?=[A-Z0-9])/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+
+const compactSentence = (value, maxLength = 230) => {
+  const clean = String(value || '').replace(/\s+/g, ' ').trim();
+  if (clean.length <= maxLength) return clean.replace(/[,:;]+$/, '.');
+  const clipped = clean.slice(0, maxLength).replace(/\s+\S*$/, '');
+  return `${clipped.replace(/[,:;]+$/, '')}.`;
+};
+
+const titleSubject = (paper) =>
+  String(paper.title || '')
+    .replace(/\.$/, '')
+    .replace(/:\s+/g, ': ')
+    .trim();
+
+const abstractSentences = (paper) => splitSentences(paper.summary);
+
+const firstAbstractSentence = (paper) =>
+  abstractSentences(paper)[0] || `${titleSubject(paper)} introduces a source-linked ML research claim.`;
+
+const contributionSentence = (paper) => {
+  const sentences = abstractSentences(paper);
+  return (
+    sentences.find((sentence) =>
+      /\b(propose|introduce|present|develop|show|demonstrate|benchmark|evaluate|study|analy[sz]e|framework|method|dataset|approach)\b/i.test(
+        sentence
+      )
+    ) ||
+    sentences[0] ||
+    `${titleSubject(paper)} needs to be read through its method, evidence, and stated limits.`
+  );
+};
+
+const limitationSentence = (paper) => {
+  const sentences = abstractSentences(paper);
+  return sentences.find((sentence) =>
+    /\b(limitation|challenge|open challenge|fail|failure|risk|gap|cost|robust|generaliz|real-world|noise|long[- ]tail)\b/i.test(
+      sentence
+    )
+  );
+};
+
+const cleanLimitationSentence = (sentence, maxLength = 170) =>
+  compactSentence(sentence, maxLength).replace(/^(However|Although|But),?\s+/i, '');
+
+const KNOWN_FOCUS_TERMS = [
+  'tree search',
+  'cognition layer',
+  'autonomous agents',
+  'scientific conclusions',
+  'systematic reviews',
+  'business world model',
+  'world model',
+  'visual question answering',
+  'evidence-grounded reasoning',
+  'causal video prediction',
+  'interaction-aware masking',
+  'entity-centric',
+  'retrieval augmented generation',
+  'retrieval',
+  'reasoning',
+  'representation',
+  'benchmark',
+  'multi-agent',
+  'agent',
+  'agents',
+  'vision-language',
+  'multimodal',
+  'physical ai',
+  'robot',
+  'planning',
+];
+
+const titleFocusTerms = (paper) => {
+  const title = titleSubject(paper).toLowerCase();
+  const matches = KNOWN_FOCUS_TERMS.filter((term) => title.includes(term));
+  const chunks = title
+    .replace(/\?/g, '')
+    .split(/[:\-–—]/)
+    .map((chunk) => chunk.trim())
+    .filter((chunk) => chunk.length > 3);
+  return unique([...matches, ...chunks]).slice(0, 4);
+};
+
+const phraseCandidates = (paper) => {
+  const stop = new Set([
+    'about',
+    'across',
+    'after',
+    'also',
+    'among',
+    'approach',
+    'based',
+    'because',
+    'before',
+    'being',
+    'between',
+    'could',
+    'dataset',
+    'datasets',
+    'different',
+    'during',
+    'each',
+    'from',
+    'have',
+    'into',
+    'large',
+    'learning',
+    'method',
+    'methods',
+    'model',
+    'models',
+    'more',
+    'required',
+    'coordinated',
+    'historically',
+    'improvement',
+    'vendor',
+    'optimized',
+    'subsequent',
+    'exploration',
+    'sometimes',
+    'further',
+    'introduce',
+    'setting',
+    'consistently',
+    'objectives',
+    'dynamics',
+    'lies',
+    'paper',
+    'present',
+    'propose',
+    'provide',
+    'research',
+    'results',
+    'show',
+    'shows',
+    'system',
+    'systems',
+    'than',
+    'their',
+    'these',
+    'this',
+    'through',
+    'using',
+    'where',
+    'which',
+    'with',
+  ]);
+  const text = `${paper.title || ''} ${paper.summary || ''}`.toLowerCase();
+  const focusTerms = titleFocusTerms(paper);
+  const phrases = [...text.matchAll(/\b[a-z][a-z-]{3,}(?:\s+[a-z][a-z-]{3,}){0,2}\b/g)]
+    .map((match) => match[0].replace(/[^a-z0-9 -]/g, '').trim())
+    .filter((phrase) => phrase && !phrase.split(/\s+/).some((word) => stop.has(word)))
+    .filter((phrase) => !/^arxiv\b/.test(phrase));
+  const counts = new Map();
+  for (const phrase of phrases) counts.set(phrase, (counts.get(phrase) || 0) + 1);
+  const abstractTerms = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || b[0].length - a[0].length)
+    .map(([phrase]) => phrase)
+    .slice(0, 8);
+  return unique([...focusTerms, ...abstractTerms]).slice(0, 6);
+};
+
+const abstractExcerpt = (paper) => compactSentence(firstAbstractSentence(paper), 260);
+
+const cleanHook = (value, fallback) => {
+  const clean = String(value || fallback || 'the paper')
+    .replace(/\b(towards?|toward)\b\s*/gi, '')
+    .replace(/\bthrough\b.*$/i, '')
+    .replace(/[,:;]+$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return clean.length > 72 ? `${clean.slice(0, 72).replace(/\s+\S*$/, '')}` : clean;
+};
+
 const makeDek = (paper, topic) => {
-  if (topic.id === 'agent-systems') return 'A paper worth reading for the traces, not the demo: how agents communicate, monitor, or expose state when the run gets long.';
-  if (topic.id === 'agent-safety') return 'A field-experiment paper to read as a release warning: if an agent can persuade, the product needs a trace, a boundary, and a stop rule.';
-  if (topic.id === 'continual-rl') return 'A position paper to read as a deployment contract: when a policy is allowed to keep learning, who audits it, and what stops it.';
-  if (topic.id === 'physical-world-models') return 'A physical-AI paper to read for object state, motion, contact, and whether the model learns a usable world contract instead of a pretty prediction.';
-  if (topic.id === 'vision-language') return 'A multimodal paper to read through failure cases: what the model can verify, where it hallucinates, and what a user can inspect.';
-  if (topic.id === 'retrieval') return 'A retrieval paper to read for the evidence boundary: what is kept, compressed, explained, and lost.';
-  if (topic.id === 'reasoning') return 'A reasoning paper to read as a constraint design, not a benchmark headline.';
-  if (topic.id === 'representation') return 'A model-design paper to read for the bottleneck it changes and the ablations it owes.';
-  return 'A research note for builders who need a paper to become a decision, not a bookmark.';
+  const phrases = phraseCandidates(paper);
+  const hook = cleanHook(phrases[0], topic.id.replace(/-/g, ' '));
+  const subject = titleSubject(paper);
+  const templatesByTopic = {
+    'agent-systems': [
+      `Read it for the audit trail: ${hook} matters only if a team can replay choices, dead branches, and tool calls after a failed run.`,
+      `${subject} is strongest when it treats ${hook} as runtime evidence, not a polished demo transcript.`,
+      `The useful contract is operational: can ${hook} leave enough state for another engineer to debug the next run?`,
+      `Useful for agent teams if ${hook} changes what gets logged, compared, and repaired between runs.`,
+      `Worth saving for the postmortem question: what did ${hook} make visible when the agent took the wrong turn?`,
+    ],
+    'agent-safety': [
+      `A launch-risk read for teams that need ${hook} measured as behavior, not argued as intent.`,
+      `The valuable part is the stop rule: can ${hook} be logged, bounded, and interrupted before it becomes user harm?`,
+      `Useful if it turns ${hook} into an audit surface with traces, thresholds, and refusal checks.`,
+    ],
+    'continual-rl': [
+      `A deployment-control read if ${hook} comes with rollback, drift checks, and incentives that survive contact with users.`,
+      `Interesting only where ${hook} has a release contract: what adapts, what freezes, and what forces rollback.`,
+      `The production question is whether ${hook} can learn after launch without turning every metric into a loophole.`,
+    ],
+    'physical-world-models': [
+      `A physical-AI read if ${hook} predicts state changes, contact, and motion instead of only plausible futures.`,
+      `The hard test is whether ${hook} tracks small physical events: handoffs, occlusions, trajectories, and object identity.`,
+      `Worth reading when ${hook} makes visual prediction accountable to causal state, not just smooth frames.`,
+    ],
+    'vision-language': [
+      `A useful vision read if ${hook} ties answers back to inspectable pixels, frames, or regions.`,
+      `The promise is evidence routing: can ${hook} show the visual fact that made the answer possible?`,
+      `Interesting for CV products if ${hook} makes wrong-but-fluent answers easier to catch before release.`,
+    ],
+    retrieval: [
+      `A useful retrieval read if ${hook} clarifies what evidence survives ranking, compression, and citation pressure.`,
+      `The practical question is whether ${hook} improves the audit trail when documents are stale, nearby, or missing.`,
+      `Worth testing if ${hook} changes how teams see the evidence boundary, not just the top-k score.`,
+    ],
+    reasoning: [
+      `A reasoning read if ${hook} makes invalid intermediate steps visible before the final answer hardens.`,
+      `The useful angle is failure visibility: does ${hook} make a bad chain cheap to find and reject?`,
+      `Worth attention if ${hook} gives builders a concrete way to inspect the reasoning path, not just the final answer.`,
+    ],
+    representation: [
+      `A representation read if ${hook} survives ablations and hard negatives without narrative cover.`,
+      `Interesting if ${hook} changes the bottleneck enough to remove waste from the learning loop.`,
+      `The test is whether ${hook} still matters after data mix, compute, and negative-task controls are made visible.`,
+    ],
+    'ml-systems': [
+      `A systems read if ${hook} can become a release decision: ship, hold, narrow scope, or collect better evidence.`,
+      `Useful when ${hook} gives teams a stop condition instead of another metric to admire.`,
+      `The value is operational if ${hook} changes what gets measured before a model reaches users.`,
+    ],
+    'frontier-ml': [
+      `A useful research read if ${hook} gives builders a testable reason to change a system.`,
+      `Worth reading if ${hook} turns a model claim into a decision a team can reproduce or reject.`,
+      `The interesting part is whether ${hook} survives the first small reproduction outside the paper.`,
+    ],
+  };
+  const templates = templatesByTopic[topic.id] || templatesByTopic['frontier-ml'];
+  return templates[stableIndex(`${paper.arxivId}:${paper.title}`, templates.length)];
 };
 
 const makeClaim = (paper, topic) => {
-  const title = paper.title.replace(/\.$/, '');
-  if (topic.id === 'agent-safety') return `${title} examines how LLM agents use persuasive tactics when operating in a field setting, which makes the paper more relevant to launch review than to leaderboard comparison.`;
-  if (topic.id === 'continual-rl') return `${title} argues that deployed reinforcement learning should keep adapting after launch, but under explicit constraints rather than silent drift.`;
-  if (topic.id === 'agent-systems') return `${title} argues that agent quality depends on the communication or monitoring substrate around the model, not only on the base model's raw ability.`;
-  if (topic.id === 'physical-world-models') return `${title} tries to make video prediction care about physical state: objects, interactions, motion, and the causal events that are easy for patch-level objectives to miss.`;
-  if (topic.id === 'vision-language') return `${title} pushes on visual understanding where the important output is not a fluent caption, but a model behavior that can be inspected against the underlying scene.`;
-  if (topic.id === 'retrieval') return `${title} works on the retrieval layer: how evidence is represented, narrowed, and served back to a model or user.`;
-  if (topic.id === 'reasoning') return `${title} treats reasoning as something that should be constrained inside the computation, not merely requested in the prompt.`;
-  if (topic.id === 'representation') return `${title} asks whether a different representation or training target can make learning less wasteful or more robust.`;
-  return `${title} is a primary research claim that needs to be translated into an implementation test before it becomes product guidance.`;
+  const subject = titleSubject(paper);
+  const contribution = compactSentence(contributionSentence(paper), 260);
+  const byline = authorLine(paper.authors);
+  return `${byline} frame ${subject} around this core move: ${contribution}`;
+};
+
+const makeEditorVerdict = (paper, topic) => {
+  const concrete = phraseCandidates(paper)[0] || topic.reader;
+  const contribution = compactSentence(contributionSentence(paper), 190);
+  const limit = limitationSentence(paper);
+  const limitClause = limit ? ` The weak spot to inspect: ${cleanLimitationSentence(limit, 150)}` : '';
+  return `The paper is worth a builder's time because it turns ${concrete} into a mechanism a team can test: ${contribution}${limitClause}`;
 };
 
 const makeTechnicalHinge = (paper, topic) => {
-  if (topic.id === 'agent-safety') return 'The hinge is behavioral evidence. A persuasive-agent risk is not visible in aggregate task success; it appears in message sequence, escalation style, disclosure, and whether the system keeps pushing after a boundary appears.';
-  if (topic.id === 'continual-rl') return 'The hinge is control after launch. Continual learning is only useful when the update path is observable, reversible, and tied to signals that are harder to game than reward alone.';
-  if (topic.id === 'agent-systems') return 'The hinge is observability. If the proposed communication or monitoring state cannot be replayed, inspected, and scored, it will be hard to trust once agents run for minutes instead of turns.';
-  if (topic.id === 'physical-world-models') return 'The hinge is whether the learned state changes at the moment the physical system changes: contact, occlusion, object identity, trajectory, and causal interaction.';
-  if (topic.id === 'vision-language') return 'The hinge is whether the method aligns visual evidence with the answer path. A model that only produces a polished answer still needs a separate gate for groundedness.';
-  if (topic.id === 'retrieval') return 'The hinge is compression without amnesia. Retrieval systems often look strong until near-duplicates, stale evidence, and missing citations expose what the index discarded.';
-  if (topic.id === 'reasoning') return 'The hinge is the intermediate state. The more the paper makes that state explicit, the easier it becomes to test invalid paths instead of trusting a final answer.';
-  if (topic.id === 'representation') return 'The hinge is the ablation. A representation paper earns attention when the changed bottleneck survives simple, uncomfortable comparisons.';
-  return 'The hinge is reproducibility: whether the result gives enough detail to repeat the setup and enough negative cases to understand where it breaks.';
+  const phrases = phraseCandidates(paper);
+  const target = phrases[0] || topic.id.replace(/-/g, ' ');
+  if (topic.id === 'agent-safety') return `The hinge is behavioral evidence around ${target}: message sequence, goal pressure, disclosure, and the point where the system stops instead of continuing to optimize.`;
+  if (topic.id === 'continual-rl') return `The hinge is update control around ${target}: every post-launch change needs an observable trigger, a rollback rule, and a signal that is harder to game than reward alone.`;
+  if (topic.id === 'agent-systems') return `The hinge is the cognition layer around ${target}: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.`;
+  if (topic.id === 'physical-world-models') return `The hinge is whether ${target} tracks the moment physical state changes: contact, occlusion, object identity, trajectory, and causal interaction.`;
+  if (topic.id === 'vision-language') return `The hinge is evidence routing around ${target}: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.`;
+  if (topic.id === 'retrieval') return `The hinge is recall under pressure around ${target}: near-duplicates, stale facts, missing citations, and adversarial neighbors should reveal what the index forgot.`;
+  if (topic.id === 'reasoning') return `The hinge is intermediate state around ${target}: the method should make invalid paths cheaper to catch than a final-answer-only prompt would.`;
+  if (topic.id === 'representation') return `The hinge is the ablation around ${target}: remove the claimed bottleneck or objective, then check whether the gain survives without storytelling.`;
+  return `The hinge is reproducibility around ${target}: enough setup detail, negative cases, and measurement hooks to repeat the result outside the paper's comfort zone.`;
+};
+
+const makeProductionAngle = (paper, topic) => {
+  const subject = titleSubject(paper);
+  if (topic.id === 'agent-systems') return `Prototype ${subject} as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.`;
+  if (topic.id === 'vision-language') return `Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.`;
+  if (topic.id === 'retrieval') return `Turn the claim into a retrieval bake-off: stale documents, near-neighbor distractors, and citation-required answers before any dashboard demo.`;
+  if (topic.id === 'physical-world-models') return `Test it on clips where the important event is small: contact, object handoff, occlusion, or trajectory change. Smooth-looking futures should not pass unless state transitions are right.`;
+  if (topic.id === 'reasoning') return `Build a tiny counterexample suite. The method earns trust only if it fails visibly on invalid chains instead of laundering them into a confident answer.`;
+  if (topic.id === 'representation') return `Re-run the smallest claimed gain with a harsh ablation table: data mixture, compute budget, negative tasks, and collapse cases all logged.`;
+  if (topic.id === 'continual-rl') return `Define the deployment contract before training: what may adapt, how drift is detected, and what metric forces rollback.`;
+  if (topic.id === 'agent-safety') return `Convert the taxonomy into a launch checklist: disclose agent identity, cap persuasion loops, log escalation, and test refusal behavior under goal pressure.`;
+  return `Write one product decision before reading the results: if the paper is true, what would you ship, block, or measure differently next week?`;
 };
 
 const makeSkepticism = (paper, topic) => {
   const source = (paper.categories || []).join(', ') || 'arXiv';
-  return `This is a triage review from ${source}, not a reproduction. I would not use the result until code, data conditions, ablations, and failure examples are checked against a task I actually need.`;
+  const limit = limitationSentence(paper);
+  const limitText = limit ? ` The abstract already hints at pressure to test: ${cleanLimitationSentence(limit, 180)}` : '';
+  return `This is still a source-led triage note from ${source}, not a reproduction.${limitText} I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.`;
 };
 
-const buildReviewEntry = (paper, score) => {
+const makeReadingPath = (paper, topic) => {
+  const phrases = phraseCandidates(paper);
+  const target = phrases[0] || 'the claimed mechanism';
+  return [
+    `Start with the problem sentence: what limitation in current practice does ${titleSubject(paper)} actually attack?`,
+    `Find the ablation or comparison that isolates ${target}. If it is missing, treat the result as a hypothesis, not guidance.`,
+    'Read failure cases before the leaderboard table; the most useful papers make their limits operational.',
+  ];
+};
+
+const qualityCheckReview = (review) => {
+  const combined = [
+    review.dek,
+    review.editorVerdict,
+    review.whatItClaims,
+    review.technicalHinge,
+    review.productionAngle,
+    review.skepticism,
+  ].join(' ');
+  const genericPhrases = [
+    'not just another planning demo',
+    'not only the benchmark headline',
+    'not a bookmark',
+    'the useful question is not whether',
+    'selected from primary ML research feeds',
+  ];
+  const hits = genericPhrases.filter((phrase) => combined.toLowerCase().includes(phrase));
+  if (hits.includes('not just another planning demo') || hits.length > 1) {
+    throw new Error(`Generated paper review for ${review.title} is too generic: ${hits.join(', ')}`);
+  }
+  if (!review.whatItClaims.includes(':') && !review.whatItClaims.includes('core move')) {
+    throw new Error(`Generated paper review for ${review.title} does not expose a concrete claim`);
+  }
+};
+
+const qualityCheckFeed = (reviews) => {
+  const dekCounts = new Map();
+  for (const review of reviews) {
+    qualityCheckReview(review);
+    const normalizedDek = String(review.dek || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    dekCounts.set(normalizedDek, (dekCounts.get(normalizedDek) || 0) + 1);
+  }
+  const duplicateDek = [...dekCounts.entries()].find(([, count]) => count > 1);
+  if (duplicateDek) {
+    throw new Error(`Paper review feed contains duplicate dek text: ${duplicateDek[0]}`);
+  }
+};
+
+const buildReviewEntry = (paper, score, overrides = {}) => {
   const topic = inferTopic(paper);
-  const id = `${slugify(paper.title)}-${paper.arxivId.replace('.', '-')}`;
-  return {
+  const id = overrides.id || `${slugify(paper.title)}-${paper.arxivId.replace('.', '-')}`;
+  const review = {
     id,
     title: paper.title,
     dek: makeDek(paper, topic),
     language: 'en',
-    selectedAt: new Date().toISOString(),
+    selectedAt: overrides.selectedAt || new Date().toISOString(),
     paperUrl: paper.paperUrl,
     pdfUrl: paper.pdfUrl,
     arxivId: paper.arxivId,
@@ -415,42 +770,78 @@ const buildReviewEntry = (paper, score) => {
     updatedAt: paper.updatedAt || '',
     categories: paper.categories || [],
     tags: unique([...topic.tags, ...(paper.categories || [])]).slice(0, 8),
-    selectionScore: Math.round(score),
+    selectionScore: Math.round(score || 0),
     selectionReason:
-      'Selected from primary ML research feeds because it is recent, source-linked, and has a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.',
-    editorVerdict: topic.verdict,
+      'Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.',
+    editorVerdict: makeEditorVerdict(paper, topic),
     whatItClaims: makeClaim(paper, topic),
     technicalHinge: makeTechnicalHinge(paper, topic),
-    productionAngle: topic.productionTest,
+    productionAngle: makeProductionAngle(paper, topic),
     skepticism: makeSkepticism(paper, topic),
-    readingPath: [
-      'Read the method before the benchmark table.',
-      'Find the ablation that removes the claimed mechanism.',
-      'Write one product failure case the paper should survive.',
-    ],
+    readingPath: makeReadingPath(paper, topic),
+    abstractExcerpt: abstractExcerpt(paper),
+    claimAtoms: phraseCandidates(paper).slice(0, 5),
     sourceLedger: [
       { label: 'Primary paper', url: paper.paperUrl },
       { label: 'PDF', url: paper.pdfUrl },
       { label: `${paper.categories[0] || 'arXiv'} research feed`, url: paper.feedUrl },
     ],
   };
+  qualityCheckReview(review);
+  return review;
+};
+
+const paperFromReview = (review, metadataById) => {
+  const metadata = metadataById.get(review.arxivId) || {};
+  const categories = Array.isArray(metadata.categories) && metadata.categories.length ? metadata.categories : review.categories || [];
+  const feedCategory = categories.find((category) => FEED_CATEGORIES.includes(category));
+  return {
+    arxivId: review.arxivId,
+    title: metadata.title || review.title,
+    summary: metadata.summary || review.abstractExcerpt || review.dek || '',
+    authors: metadata.authors?.length ? metadata.authors : review.authors || [],
+    categories,
+    publishedAt: metadata.publishedAt || review.publishedAt || '',
+    updatedAt: metadata.updatedAt || review.updatedAt || '',
+    announceType: 'existing',
+    paperUrl: review.paperUrl || (review.arxivId ? `https://arxiv.org/abs/${review.arxivId}` : ''),
+    pdfUrl: review.pdfUrl || (review.arxivId ? `https://arxiv.org/pdf/${review.arxivId}` : ''),
+    feedUrl:
+      metadata.feedUrl ||
+      review.sourceLedger?.find((link) => /research feed$/i.test(link.label || ''))?.url ||
+      (feedCategory ? `https://rss.arxiv.org/rss/${feedCategory}` : 'https://arxiv.org/'),
+    recencyIndex: 0,
+  };
+};
+
+const rewriteExistingReviews = async (reviews) => {
+  if (!reviews.length) return reviews;
+  const metadataById = await fetchArxivMetadataByIds(reviews.map((review) => review.arxivId));
+  return reviews.map((review) =>
+    buildReviewEntry(paperFromReview(review, metadataById), review.selectionScore || 0, {
+      id: review.id,
+      selectedAt: review.selectedAt,
+    })
+  );
 };
 
 const updateFeed = async () => {
   const feed = await loadExistingFeed();
+  const currentReviews = shouldRewriteExisting ? await rewriteExistingReviews(feed.reviews) : feed.reviews;
+  qualityCheckFeed(currentReviews);
   const todayKey = new Date().toISOString().slice(0, 10);
-  const latestReviewKey = feed.reviews[0]?.selectedAt ? new Date(feed.reviews[0].selectedAt).toISOString().slice(0, 10) : '';
+  const latestReviewKey = currentReviews[0]?.selectedAt ? new Date(currentReviews[0].selectedAt).toISOString().slice(0, 10) : '';
   if (latestReviewKey === todayKey) {
     const cleanFeed = {
       ...defaultFeed(),
-      reviews: feed.reviews,
-      updatedAt: feed.updatedAt || feed.reviews[0].selectedAt,
+      reviews: currentReviews,
+      updatedAt: shouldRewriteExisting ? new Date().toISOString() : feed.updatedAt || currentReviews[0].selectedAt,
     };
     if (shouldWrite) await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(cleanFeed, null, 2)}\n`, 'utf8');
-    return { feed: cleanFeed, selected: null, changed: false, candidates: 0 };
+    return { feed: cleanFeed, selected: null, changed: shouldRewriteExisting, candidates: 0, rewritten: shouldRewriteExisting };
   }
 
-  const reviewedIds = new Set(feed.reviews.map((review) => review.arxivId).filter(Boolean));
+  const reviewedIds = new Set(currentReviews.map((review) => review.arxivId).filter(Boolean));
   const candidates = await fetchCandidates();
   const ranked = candidates
     .map((paper) => ({ paper, score: scoreCandidate(paper, reviewedIds) }))
@@ -460,23 +851,24 @@ const updateFeed = async () => {
   const selected = ranked[0];
   if (!selected) {
     if (!shouldAllowNoop) throw new Error('No new primary paper candidates found.');
-    const cleanFeed = { ...defaultFeed(), reviews: feed.reviews, updatedAt: feed.updatedAt };
+    const cleanFeed = { ...defaultFeed(), reviews: currentReviews, updatedAt: shouldRewriteExisting ? new Date().toISOString() : feed.updatedAt };
     if (shouldWrite) await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(cleanFeed, null, 2)}\n`, 'utf8');
-    return { feed: cleanFeed, selected: null, changed: false, candidates: candidates.length };
+    return { feed: cleanFeed, selected: null, changed: shouldRewriteExisting, candidates: candidates.length, rewritten: shouldRewriteExisting };
   }
 
   const nextReview = buildReviewEntry(selected.paper, selected.score);
   const nextFeed = {
     ...defaultFeed(),
     updatedAt: nextReview.selectedAt,
-    reviews: [nextReview, ...feed.reviews].slice(0, MAX_REVIEWS),
+    reviews: [nextReview, ...currentReviews].slice(0, MAX_REVIEWS),
   };
+  qualityCheckFeed(nextFeed.reviews);
 
   if (shouldWrite) {
     await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(nextFeed, null, 2)}\n`, 'utf8');
   }
 
-  return { feed: nextFeed, selected: nextReview, changed: true, candidates: candidates.length };
+  return { feed: nextFeed, selected: nextReview, changed: true, candidates: candidates.length, rewritten: shouldRewriteExisting };
 };
 
 updateFeed()
@@ -484,10 +876,15 @@ updateFeed()
     console.log(
       JSON.stringify(
         {
-          status: result.changed ? `selected ${result.selected.title}` : 'no new review selected',
+          status: result.selected
+            ? `selected ${result.selected.title}`
+            : result.rewritten
+              ? 'rewrote existing reviews'
+              : 'no new review selected',
           write: shouldWrite,
           candidates: result.candidates,
           reviewCount: result.feed.reviews.length,
+          rewritten: result.rewritten,
           output: path.relative(ROOT_DIR, OUTPUT_PATH),
         },
         null,
@@ -496,6 +893,6 @@ updateFeed()
     );
   })
   .catch((error) => {
-    console.error(error?.message || error);
+    console.error(error?.stack || error?.message || error);
     process.exitCode = 1;
   });

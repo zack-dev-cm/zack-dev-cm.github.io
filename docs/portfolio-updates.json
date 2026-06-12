@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-06-12T08:47:24.075Z",
+  "lastSyncedAt": "2026-06-12T16:50:22.484Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-06-12",
-    "syncedAt": "2026-06-12T08:47:24.075Z",
+    "syncedAt": "2026-06-12T16:50:22.484Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -1094,7 +1094,7 @@
         "Python code surface is visible in repository metadata",
         "Repository topics include Codex, Discord, Linkedin, Matching",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
-        "ClawHub listing cross-checked with 407 downloads as of 2026-06-12"
+        "ClawHub listing cross-checked with 410 downloads as of 2026-06-12"
       ],
       "techStack": [
         "Python",
@@ -1146,7 +1146,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "407",
+          "value": "410",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -1338,7 +1338,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "327",
+          "value": "329",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -1385,7 +1385,7 @@
         "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source",
-        "ClawHub listing cross-checked with 326 downloads as of 2026-06-12"
+        "ClawHub listing cross-checked with 328 downloads as of 2026-06-12"
       ],
       "techStack": [
         "Python",
@@ -1432,7 +1432,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "326",
+          "value": "328",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -1612,7 +1612,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "705",
+          "value": "707",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -1664,7 +1664,7 @@
         "Public GitHub API snapshot captured on 2026-06-12",
         "Python code surface is visible in repository metadata",
         "Repository topics include Architecture, ClawHub, Codex, Documentation",
-        "ClawHub listing cross-checked with 286 downloads as of 2026-06-12"
+        "ClawHub listing cross-checked with 288 downloads as of 2026-06-12"
       ],
       "techStack": [
         "Python",
@@ -1716,7 +1716,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "286",
+          "value": "288",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -2299,7 +2299,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "723",
+          "value": "726",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -2597,7 +2597,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "524",
+          "value": "525",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {
@@ -2683,7 +2683,7 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "506",
+          "value": "508",
           "context": "public ClawHub listing, 2026-06-12"
         },
         {

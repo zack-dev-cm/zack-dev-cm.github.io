@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "stats:clawhub": "node scripts/fetch-clawhub-stats.mjs",
+    "stats:chrome": "node scripts/fetch-chrome-extension-stats.mjs",
     "sync:github": "node scripts/sync-github-portfolio-updates.mjs",
     "sync:github:verify": "node scripts/sync-github-portfolio-updates.mjs --verify",
     "papers:review": "node scripts/update-paper-reviews.mjs",
