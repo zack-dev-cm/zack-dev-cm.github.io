@@ -23,7 +23,7 @@
       "id": "yannic-kilcher-cvpr",
       "label": "Yannic Kilcher / CVPR source watch",
       "status": "watch-only",
-      "checkedAt": "2026-06-12",
+      "checkedAt": "2026-06-13",
       "note": "Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.",
       "sources": [
         {
@@ -65,11 +65,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns tree search into a mechanism a team can test: Arbor is a multi-agent framework that introduces structured tree search as a cognition layer for autonomous agents operating in large, stateful action spaces.",
       "whatItClaims": "Neha Prakriya, Chaojun Hou, Zheng Gong and 5 more frame Arbor: Tree Search as a Cognition Layer for Autonomous Agents around this core move: Arbor is a multi-agent framework that introduces structured tree search as a cognition layer for autonomous agents operating in large, stateful action spaces.",
       "technicalHinge": "The hinge is the cognition layer around tree search: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -79,14 +78,6 @@
         "Start with the problem sentence: what limitation in current practice does Arbor: Tree Search as a Cognition Layer for Autonomous Agents actually attack?",
         "Find the ablation or comparison that isolates tree search. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Arbor is a multi-agent framework that introduces structured tree search as a cognition layer for autonomous agents operating in large, stateful action spaces.",
-      "claimAtoms": [
-        "tree search",
-        "cognition layer",
-        "autonomous agents",
-        "agent",
-        "inference throughput-latency pareto"
       ],
       "sourceLedger": [
         {
@@ -132,13 +123,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI",
-        "cs.CL",
-        "cs.CY"
+        "evaluation"
       ],
       "selectionScore": 218,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns scientific conclusions into a mechanism a team can test: We introduce SciConBench, a large-scale live benchmark of 9.11K questions and expert-written conclusions from systematic reviews to evaluate open-domain scientific conclusion synthesis. The weak spot to inspect: Overall, our results show that reliable synthesis of scientific conclusions remains an open challenge, and that clean-room evaluation is essential.",
       "whatItClaims": "Hayoung Jung, Pedro Viana Diniz, José Reinaldo Corrêa Roveda and 5 more frame Can AI Agents Synthesize Scientific Conclusions? around this core move: We introduce SciConBench, a large-scale live benchmark of 9.11K questions and expert-written conclusions from systematic reviews to evaluate open-domain scientific conclusion synthesis.",
       "technicalHinge": "The hinge is the cognition layer around scientific conclusions: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -148,14 +136,6 @@
         "Start with the problem sentence: what limitation in current practice does Can AI Agents Synthesize Scientific Conclusions? actually attack?",
         "Find the ablation or comparison that isolates scientific conclusions. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Scientific AI agents increasingly retrieve evidence, reason across sources, and synthesize conclusions used in consequential decisions.",
-      "claimAtoms": [
-        "scientific conclusions",
-        "agent",
-        "agents",
-        "can ai agents synthesize scientific conclusions",
-        "expert-validated automated evaluation"
       ],
       "sourceLedger": [
         {
@@ -193,11 +173,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns business world model into a mechanism a team can test: We propose a business-semantics-centric formulation in which business states, dynamics and actions are linked to key business entities.",
       "whatItClaims": "Cecil Pang, Hiroki Sayama frame Business World Model around this core move: We propose a business-semantics-centric formulation in which business states, dynamics and actions are linked to key business entities.",
       "technicalHinge": "The hinge is the cognition layer around business world model: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -207,14 +186,6 @@
         "Start with the problem sentence: what limitation in current practice does Business World Model actually attack?",
         "Find the ablation or comparison that isolates business world model. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Businesses are increasingly adopting AI-enabled tools to improve productivity, reduce costs, and enhance products and services.",
-      "claimAtoms": [
-        "business world model",
-        "world model",
-        "planning",
-        "business-semantics-centric formulation",
-        "support autonomous decision-making"
       ],
       "sourceLedger": [
         {
@@ -259,12 +230,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI",
-        "cs.MA"
+        "evaluation"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns agent into a mechanism a team can test: We propose PathoSage, a three-stage framework that explicitly separates knowledge retrieval, evidence collection, and evidence adjudication for patch-level pathology multimodal reasoning. The weak spot to inspect: Our results highlight explicit evidence adjudication and reliability-aware tool modeling as key ingredients for robust pathology agents.",
       "whatItClaims": "Chengyang Zhang, Wenchuan Zhang, Bo Li and 5 more frame PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow around this core move: We propose PathoSage, a three-stage framework that explicitly separates knowledge retrieval, evidence collection, and evidence adjudication for patch-level pathology multimodal reasoning.",
       "technicalHinge": "The hinge is the cognition layer around agent: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -274,14 +243,6 @@
         "Start with the problem sentence: what limitation in current practice does PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow actually attack?",
         "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Recent advances in Multimodal Large Language Models (MLLMs) and agent workflows have shown strong promise for computational pathology, yet reliable patch-level reasoning remains challenging.",
-      "claimAtoms": [
-        "agent",
-        "pathosage",
-        "towards multi",
-        "source evidence adjudication in pathology via experience",
-        "evidence adjudication"
       ],
       "sourceLedger": [
         {
@@ -320,11 +281,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.CV"
+        "evaluation"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns reasoning into a mechanism a team can test: In this paper, we propose GOPAgen, a novel approach that first integrates video codec into the video understanding framework via a meticulously designed motion agent trained on Groups of.",
       "whatItClaims": "Haozhe Chi, Yang Jin, Yadong Mu frame GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning around this core move: In this paper, we propose GOPAgen, a novel approach that first integrates video codec into the video understanding framework via a meticulously designed motion agent trained on Groups of Pictures (GOPs) from video codec.",
       "technicalHinge": "The hinge is the cognition layer around reasoning: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -334,14 +294,6 @@
         "Start with the problem sentence: what limitation in current practice does GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning actually attack?",
         "Find the ablation or comparison that isolates reasoning. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Despite significant progress in agentic long video understanding, existing methods still lack detailed motion comprehension coupled with an efficient memory architecture.",
-      "claimAtoms": [
-        "reasoning",
-        "agent",
-        "gopagen",
-        "motion",
-        "efficient coarse-to-fine zoom-in"
       ],
       "sourceLedger": [
         {
@@ -381,11 +333,10 @@
       "tags": [
         "computer-vision",
         "multimodal",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 192,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns i know what you meme, even if it emerged today into a mechanism a team can test: We introduce Query Retrieve Conclude, a zero shot framework that identifies missing knowledge, retrieves open web evidence, and synthesizes evidence grounded background knowledge for meme.",
       "whatItClaims": "Shanhong Liu, Rui Cao, Pai Chet Ng and 1 more frame I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition around this core move: We introduce Query Retrieve Conclude, a zero shot framework that identifies missing knowledge, retrieves open web evidence, and synthesizes evidence grounded background knowledge for meme understanding and detection.",
       "technicalHinge": "The hinge is evidence routing around i know what you meme, even if it emerged today: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.",
@@ -395,14 +346,6 @@
         "Start with the problem sentence: what limitation in current practice does I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition actually attack?",
         "Find the ablation or comparison that isolates i know what you meme, even if it emerged today. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Multimodal memes are dynamic and often require up to date background knowledge for interpretation.",
-      "claimAtoms": [
-        "i know what you meme, even if it emerged today",
-        "understanding evolving memes through open",
-        "world knowledge acquisition",
-        "meme understanding",
-        "synthesizes evidence grounded"
       ],
       "sourceLedger": [
         {
@@ -439,11 +382,10 @@
       "tags": [
         "reasoning",
         "verification",
-        "small-models",
-        "cs.CV"
+        "small-models"
       ],
       "selectionScore": 236,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns world model into a mechanism a team can test: We propose Interaction-Aware JEPA (IA-JEPA), which utilizes a self-supervised motion-centric masking strategy to prioritize physical interactions. The weak spot to inspect: Learning predictive world models from unlabelled video is a foundational challenge in artificial intelligence.",
       "whatItClaims": "Santosh Kumar Paidi frame Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction around this core move: We propose Interaction-Aware JEPA (IA-JEPA), which utilizes a self-supervised motion-centric masking strategy to prioritize physical interactions.",
       "technicalHinge": "The hinge is intermediate state around world model: the method should make invalid paths cheaper to catch than a final-answer-only prompt would.",
@@ -453,14 +395,6 @@
         "Start with the problem sentence: what limitation in current practice does Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction actually attack?",
         "Find the ablation or comparison that isolates world model. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Learning predictive world models from unlabelled video is a foundational challenge in artificial intelligence.",
-      "claimAtoms": [
-        "world model",
-        "causal video prediction",
-        "interaction-aware masking",
-        "entity-centric",
-        "self-supervised motion-centric masking"
       ],
       "sourceLedger": [
         {
@@ -505,11 +439,10 @@
       "tags": [
         "reasoning",
         "verification",
-        "small-models",
-        "cs.CV"
+        "small-models"
       ],
       "selectionScore": 232,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns evidence-grounded reasoning into a mechanism a team can test: We introduce UltraVR, a diagnostic benchmark for evidence-grounded visual reasoning over ultra-resolution images.",
       "whatItClaims": "Gexin Huang, Yanting Yang, Myeongkyun Kang and 6 more frame UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning around this core move: We introduce UltraVR, a diagnostic benchmark for evidence-grounded visual reasoning over ultra-resolution images.",
       "technicalHinge": "The hinge is intermediate state around evidence-grounded reasoning: the method should make invalid paths cheaper to catch than a final-answer-only prompt would.",
@@ -519,14 +452,6 @@
         "Start with the problem sentence: what limitation in current practice does UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning actually attack?",
         "Find the ablation or comparison that isolates evidence-grounded reasoning. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Vision-language models (VLMs) excel on visual question answering and multimodal reasoning benchmarks.",
-      "claimAtoms": [
-        "evidence-grounded reasoning",
-        "reasoning",
-        "benchmark",
-        "ultravr",
-        "local perception"
       ],
       "sourceLedger": [
         {
@@ -570,11 +495,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 218,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns benchmark into a mechanism a team can test: This is the wrong approach for many long-running tasks, which are better served by a strategy of sustained attention. The weak spot to inspect: SentinelBench measures task completion, reaction time, and resource use, exposing the tradeoff between responsiveness and cost.",
       "whatItClaims": "Matheus Kunzler Maldaner, Adam Fourney, Amanda Swearngin and 5 more frame SentinelBench: A Benchmark for Long-Running Monitoring Agents around this core move: This is the wrong approach for many long-running tasks, which are better served by a strategy of sustained attention.",
       "technicalHinge": "The hinge is the cognition layer around benchmark: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -584,14 +508,6 @@
         "Start with the problem sentence: what limitation in current practice does SentinelBench: A Benchmark for Long-Running Monitoring Agents actually attack?",
         "Find the ablation or comparison that isolates benchmark. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "AI agents are increasingly asked to carry out work that spans minutes, hours, or longer.",
-      "claimAtoms": [
-        "benchmark",
-        "agent",
-        "agents",
-        "sentinelbench",
-        "agent behavior"
       ],
       "sourceLedger": [
         {
@@ -630,11 +546,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns multi-agent into a mechanism a team can test: We analyze five common inter-agent communication strategies across two MAS topologies, finding that no fixed strategy is universally optimal. The weak spot to inspect: this free-form communication can rapidly inflate token usage, consume the shared context window, and ultimately affect both system.",
       "whatItClaims": "Chen Huang, Yuhao Wu, Wenxuan Zhang frame What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems around this core move: We analyze five common inter-agent communication strategies across two MAS topologies, finding that no fixed strategy is universally optimal.",
       "technicalHinge": "The hinge is the cognition layer around multi-agent: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
@@ -644,14 +559,6 @@
         "Start with the problem sentence: what limitation in current practice does What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems actually attack?",
         "Find the ablation or comparison that isolates multi-agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Multi-agent systems (MAS) built on large language models are typically organized around roles, pipelines, and turn schedules, while the content that agents pass to one another is often left as unconstrained natural language.",
-      "claimAtoms": [
-        "multi-agent",
-        "agent",
-        "agents",
-        "what should agents say action",
-        "topologies"
       ],
       "sourceLedger": [
         {

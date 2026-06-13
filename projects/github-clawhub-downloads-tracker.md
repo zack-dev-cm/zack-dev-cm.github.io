@@ -24,10 +24,10 @@ https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md
 - Open-source Analytics
 
 ## Benchmarks & Analytics
-- Tracked ClawHub downloads: 19,535 (public ClawHub owner profile, 2026-06-12 across 53 skills)
-- Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-12)
-- CV Repro Lab downloads: 1,558 total (852 data-science-cv-repro-lab + 706 sota-agent, 2026-06-12)
-- Strongest skill: 852 downloads (data-science-cv-repro-lab public listing, 2026-06-12)
+- Tracked ClawHub downloads: 19,686 (public ClawHub owner profile, 2026-06-13 across 53 skills)
+- Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-13)
+- CV Repro Lab downloads: 1,569 total (857 data-science-cv-repro-lab + 712 sota-agent, 2026-06-13)
+- Strongest skill: 857 downloads (data-science-cv-repro-lab public listing, 2026-06-13)
 - Report outputs: 3 (text, JSON, Markdown)
 - Projection horizon: 30 days (pace and peer-conversion upside scenarios)
 

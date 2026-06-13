@@ -129,7 +129,7 @@
       "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-12",
+      "dateModified": "2026-06-13",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -349,7 +349,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "19,535 tracked ClawHub downloads across 53 public skills",
+          "name": "19,686 tracked ClawHub downloads across 53 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -427,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 19,535 tracked ClawHub downloads across 53 public skills as of 2026-06-12.",
+            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 19,686 tracked ClawHub downloads across 53 public skills as of 2026-06-13.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -531,28 +531,28 @@
           "name": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
           "url": "https://arxiv.org/abs/2606.12563",
           "identifier": "2606.12563",
-          "keywords": "agents, runtime, evaluation, cs.AI"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Can AI Agents Synthesize Scientific Conclusions?",
           "url": "https://arxiv.org/abs/2606.11337",
           "identifier": "2606.11337",
-          "keywords": "agents, runtime, evaluation, cs.AI, cs.CL, cs.CY"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Business World Model",
           "url": "https://arxiv.org/abs/2606.10044",
           "identifier": "2606.10044",
-          "keywords": "agents, runtime, evaluation, cs.AI"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow",
           "url": "https://arxiv.org/abs/2606.07549",
           "identifier": "2606.07549",
-          "keywords": "agents, runtime, evaluation, cs.AI, cs.MA"
+          "keywords": "agents, runtime, evaluation"
         }
       ],
       "isAccessibleForFree": true
