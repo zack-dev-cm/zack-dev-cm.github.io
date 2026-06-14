@@ -129,7 +129,7 @@
       "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-13",
+      "dateModified": "2026-06-14",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -349,7 +349,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "19,686 tracked ClawHub downloads across 53 public skills",
+          "name": "20,044 tracked ClawHub downloads across 53 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -427,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 19,686 tracked ClawHub downloads across 53 public skills as of 2026-06-13.",
+            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 20,044 tracked ClawHub downloads across 53 public skills as of 2026-06-14.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
