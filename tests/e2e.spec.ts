@@ -42,6 +42,111 @@ const resumePath = () => {
     : '/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf';
 };
 
+const requestFirstOk = async (page: Page, paths: string[]) => {
+  for (const candidate of paths) {
+    const response = await page.request.get(candidate);
+    if (response.status() < 400) return response;
+  }
+
+  throw new Error(`No request candidate returned OK: ${paths.join(', ')}`);
+};
+
+test('SEO and answer-engine signals stay focused above the fold', async ({ page }) => {
+  const consoleErrors: string[] = [];
+  const pageErrors: string[] = [];
+  page.on('console', (message) => {
+    if (message.type() === 'error') consoleErrors.push(message.text());
+  });
+  page.on('pageerror', (error) => pageErrors.push(error.message));
+
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await gotoPortfolio(page);
+
+  await expect(page).toHaveTitle('Zakhar Pashkin | Computer Vision and AI Product Engineer');
+  const h1 = page.getByRole('heading', { level: 1 });
+  await expect(h1).toHaveCount(1);
+  await expect(h1).toHaveText('Zakhar Pashkin is a computer vision and AI product engineer.');
+  await expect(h1).toBeInViewport();
+
+  const layout = await page.evaluate(() => {
+    const intro = document.getElementById('intro');
+    const experience = document.getElementById('experience');
+    const heading = document.querySelector('h1');
+    if (!intro || !experience || !heading) return null;
+    return {
+      introTop: intro.getBoundingClientRect().top,
+      experienceTop: experience.getBoundingClientRect().top,
+      h1Top: heading.getBoundingClientRect().top,
+      viewportHeight: window.innerHeight,
+      overflow: document.documentElement.scrollWidth - window.innerWidth
+    };
+  });
+  expect(layout).not.toBeNull();
+  if (!layout) throw new Error('Missing SEO layout metrics');
+  expect(layout.introTop).toBeLessThan(layout.experienceTop);
+  expect(layout.h1Top).toBeLessThan(layout.viewportHeight * 0.35);
+  expect(layout.overflow).toBeLessThanOrEqual(4);
+
+  const heroCopy = await page.locator('#intro').innerText();
+  expect(heroCopy).toMatch(/OCR/i);
+  expect(heroCopy).toMatch(/segmentation/i);
+  expect(heroCopy).toMatch(/multimodal retrieval/i);
+  expect(heroCopy).toMatch(/model-serving APIs/i);
+
+  const metaDescription = (await page.locator('meta[name="description"]').getAttribute('content')) || '';
+  expect(metaDescription.length).toBeGreaterThan(80);
+  expect(metaDescription.length).toBeLessThanOrEqual(170);
+  expect(metaDescription).toMatch(/computer vision/i);
+  expect(metaDescription).toMatch(/OCR|segmentation|multimodal/i);
+  await expect(page.locator('meta[name="keywords"]')).toHaveCount(0);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://zack-dev-cm.github.io/');
+
+  const sitemapResponse = await requestFirstOk(page, ['/docs/sitemap.xml', '/sitemap.xml']);
+  const sitemap = await sitemapResponse.text();
+  const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  expect(locs.length).toBeLessThanOrEqual(25);
+  expect(locs.filter((url) => /\.(?:json|jsonld|txt)$/i.test(url))).toHaveLength(0);
+  expect(locs.filter((url) => /\.md$/i.test(url))).toHaveLength(0);
+  expect(locs.filter((url) => /\/projects\/[^/]+\/$/i.test(url)).length).toBeGreaterThanOrEqual(10);
+  const projectResponse = await page.request.get('/docs/projects/fast-ocr-onnx-inference-server/');
+  expect(projectResponse.status()).toBe(200);
+  const projectHtml = await projectResponse.text();
+  expect(projectHtml).toContain('<h1>Fast OCR ONNX Inference Server</h1>');
+  expect(projectHtml).toContain('<link rel="canonical" href="https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/"');
+  expect(projectHtml).toContain('<link rel="alternate" type="text/markdown"');
+
+  const discoveryResponse = await requestFirstOk(page, ['/docs/agent-discovery.json', '/agent-discovery.json']);
+  const discovery = await discoveryResponse.json();
+  expect(discovery.answerTargets.length).toBeGreaterThanOrEqual(8);
+  expect(discovery.serviceSignals.length).toBeGreaterThanOrEqual(4);
+
+  const schemaResponse = await requestFirstOk(page, ['/docs/schema.jsonld', '/schema.jsonld']);
+  const schema = await schemaResponse.json();
+  const graph = (Array.isArray(schema['@graph']) ? schema['@graph'] : []) as Array<Record<string, unknown>>;
+  const schemaTypes = new Set(
+    graph.flatMap((node) => {
+      const type = node['@type'];
+      if (Array.isArray(type)) return type.filter((item): item is string => typeof item === 'string');
+      return typeof type === 'string' ? [type] : [];
+    })
+  );
+  for (const requiredType of ['Person', 'WebSite', 'WebPage', 'ProfilePage', 'FAQPage', 'Service', 'ItemList']) {
+    expect(schemaTypes.has(requiredType), `schema.jsonld should include ${requiredType}`).toBe(true);
+  }
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await gotoPortfolio(page);
+  await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
+  await expect
+    .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
+      message: 'Expected SEO hero to avoid mobile horizontal overflow'
+    })
+    .toBeLessThanOrEqual(4);
+
+  expect(pageErrors).toEqual([]);
+  expect(consoleErrors).toEqual([]);
+});
+
 test('homepage renders core sections and project discovery controls', async ({ page }) => {
   test.setTimeout(180_000);
   await gotoPortfolio(page);

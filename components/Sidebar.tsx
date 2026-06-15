@@ -4,11 +4,11 @@ import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, XSocialIcon } from '.
 import { resolveAssetUrl } from '../utils/assets';
 
 const NAV_ITEMS = [
-  { group: 'Start', name: 'Collaborations', href: '#experience' },
-  { group: 'Start', name: 'About', href: '#about' },
+  { group: 'Start', name: 'Overview', href: '#intro' },
+  { group: 'Start', name: 'Featured', href: '#featured' },
   { group: 'Start', name: 'Search', href: '#smart-search' },
-  { group: 'Start', name: 'Intro', href: '#intro' },
-  { group: 'Work', name: 'Featured', href: '#featured' },
+  { group: 'Start', name: 'References', href: '#experience' },
+  { group: 'Start', name: 'About', href: '#about' },
   { group: 'Work', name: 'CV Systems', href: '#computer-vision' },
   { group: 'Work', name: 'AI Systems', href: '#ai-systems' },
   { group: 'Work', name: 'ClawHub', href: '#clawhub' },

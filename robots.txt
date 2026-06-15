@@ -6,9 +6,27 @@ Host: zack-dev-cm.github.io
 
 User-agent: Googlebot
 Allow: /
+Disallow: /projects/*.md$
+Disallow: /agent-discovery.json$
+Disallow: /metadata.json$
+Disallow: /docs/*.json$
+Disallow: /agent-context.md$
+Disallow: /llms.txt$
+Disallow: /llms-full.txt$
+Disallow: /geo.txt$
+Disallow: /schema.jsonld$
 
 User-agent: Bingbot
 Allow: /
+Disallow: /projects/*.md$
+Disallow: /agent-discovery.json$
+Disallow: /metadata.json$
+Disallow: /docs/*.json$
+Disallow: /agent-context.md$
+Disallow: /llms.txt$
+Disallow: /llms-full.txt$
+Disallow: /geo.txt$
+Disallow: /schema.jsonld$
 
 User-agent: GPTBot
 Allow: /

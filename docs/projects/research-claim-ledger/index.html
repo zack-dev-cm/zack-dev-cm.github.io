@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Claim Ledger | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/research-claim-ledger/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/research-claim-ledger.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Research Claim Ledger" />
+    <meta property="og:description" content="ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/research-claim-ledger/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Research Claim Ledger" />
+    <meta name="twitter:description" content="ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/research-claim-ledger/#case-study",
+      "headline": "Research Claim Ledger",
+      "name": "Research Claim Ledger",
+      "description": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
+      "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/research-claim-ledger/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "research, ai, release-engineering, openclaw, ClawHub, Codex Skills, Research QA, Citation Review, Markdown, Release Engineering",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "research"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "release-engineering"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "openclaw"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ClawHub"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Codex Skills"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Research QA"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Citation Review"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Markdown"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Release Engineering"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Open on ClawHub",
+                  "url": "https://clawhub.ai/zack-dev-cm/research-claim-ledger"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Reference academic-research-skills",
+                  "url": "https://github.com/Imbad0202/academic-research-skills"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Reference academic-research-skills-codex",
+                  "url": "https://github.com/Imbad0202/academic-research-skills-codex"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>Research Claim Ledger</h1>
+          <p class="lede">ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Research Claim Ledger is a narrow public ClawHub skill for academic and technical writing review. It avoids the over-broad promise of a full research suite and focuses on one trust-building artifact: a claim-by-claim ledger that marks each sentence as supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, or needing human review. The public case study compares this narrower wedge against broad academic-agent workflows and frames the deliverable as a receipt a writer can share with a supervisor, coauthor, or reviewer.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Turns draft sections, literature matrices, notes, citation lists, source packets, or reviewer comments into a structured claim ledger</li>
+        <li>Separates supported claims from overclaims, missing locators, stale sources, inaccessible references, and human-review cases</li>
+        <li>Keeps the first release instruction-only with no bundled scraping helper or hidden dependency surface</li>
+        <li>Positions the skill as a small source receipt rather than a paper-writing, plagiarism, legal, medical, or financial review tool</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>ClawHub</li>
+        <li>Codex Skills</li>
+        <li>Research QA</li>
+        <li>Citation Review</li>
+        <li>Markdown</li>
+        <li>Release Engineering</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>ClawHub downloads:</strong> 198 <span>public ClawHub listing, 2026-06-04</span></li>
+        <li><strong>Published versions:</strong> 1 <span>public ClawHub listing, 2026-06-04</span></li>
+        <li><strong>Verdict labels:</strong> 9 <span>supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review</span></li>
+        <li><strong>Release posture:</strong> instruction-only <span>SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://clawhub.ai/zack-dev-cm/research-claim-ledger">Open on ClawHub</a></li>
+        <li><a href="https://github.com/Imbad0202/academic-research-skills">Reference academic-research-skills</a></li>
+        <li><a href="https://github.com/Imbad0202/academic-research-skills-codex">Reference academic-research-skills-codex</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/research-claim-ledger.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Research Claim Ledger.</p>
+      </article>
+    </main>
+  </body>
+</html>

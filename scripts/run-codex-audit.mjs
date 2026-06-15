@@ -10,6 +10,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const AUDIT_ARGS = ['-m', 'codex_harness', 'audit', '.', '--strict', '--min-score', '90'];
 const INSTALL_HELP = 'python3 -m pip install "git+https://github.com/zack-dev-cm/antirot.git"';
 const FORCE_FALLBACK = process.env.CODEX_AUDIT_FORCE_FALLBACK === '1';
+const ALLOW_FALLBACK = process.env.CODEX_AUDIT_ALLOW_FALLBACK === '1';
 const SNAPSHOT_SKIP_PREFIXES = [
   '.codex-audit-venv/',
   '.clawpatch/',
@@ -213,7 +214,15 @@ if (!FORCE_FALLBACK) {
   }
 }
 
-if (!FORCE_FALLBACK) {
-  console.warn(`Could not import codex_harness for the strict audit; running in-repo fallback. For strict mode, install it with: ${INSTALL_HELP}`);
+if (!ALLOW_FALLBACK) {
+  const reason = FORCE_FALLBACK
+    ? 'CODEX_AUDIT_FORCE_FALLBACK was requested'
+    : 'codex_harness could not be imported for the strict audit';
+  console.error(`${reason}. Refusing to pass the publish-facing audit with the narrower fallback.`);
+  console.error(`Install strict audit support with: ${INSTALL_HELP}`);
+  console.error('For local non-release diagnostics only, set CODEX_AUDIT_ALLOW_FALLBACK=1.');
+  process.exit(1);
 }
+
+console.warn('Running the narrower in-repo Codex fallback audit because CODEX_AUDIT_ALLOW_FALLBACK=1 is set.');
 process.exit(fallbackAudit());

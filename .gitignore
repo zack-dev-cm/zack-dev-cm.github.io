@@ -11,3 +11,7 @@ critical.md
 local-notes/
 /index.css.bak
 /tsconfig.json.unreadable
+/search-console-position-report.json
+/search-console-position-review.json
+/search-console-position-gate.json
+/.private/search-console/

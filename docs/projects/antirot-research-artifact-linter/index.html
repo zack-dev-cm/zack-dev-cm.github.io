@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AntiRot - Research Artifact Linter | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AntiRot - Research Artifact Linter" />
+    <meta property="og:description" content="Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AntiRot - Research Artifact Linter" />
+    <meta name="twitter:description" content="Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/#case-study",
+      "headline": "AntiRot - Research Artifact Linter",
+      "name": "AntiRot - Research Artifact Linter",
+      "description": "Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.",
+      "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "Python, CLI, Markdown, SARIF, GitHub Actions, Research Agents",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "CLI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Markdown"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "SARIF"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "GitHub Actions"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Research Agents"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "View on GitHub",
+                  "url": "https://github.com/zack-dev-cm/antirot"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Release v0.2.0",
+                  "url": "https://github.com/zack-dev-cm/antirot/releases/tag/v0.2.0"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">Portfolio case study</p>
+          <h1>AntiRot - Research Artifact Linter</h1>
+          <p class="lede">Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing source anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Catches unsupported claims, citation drift, hype language, comparative overreach, absolute claims, and leftover draft markers in Markdown drafts</li>
+        <li>Supports paragraph-aware source carry, footnotes, inline links, DOIs, arXiv ids, and in-document references sections</li>
+        <li>Runs locally with no API key and no network dependency, so it fits agent loops, proposals, and paper pipelines</li>
+        <li>Emits text, JSON, Markdown, and SARIF outputs for terminal use, CI gates, and GitHub-native review flows</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>CLI</li>
+        <li>Markdown</li>
+        <li>SARIF</li>
+        <li>GitHub Actions</li>
+        <li>Research Agents</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Public release:</strong> v0.2.0 <span>GitHub release</span></li>
+        <li><strong>Output formats:</strong> 4 <span>text, json, markdown, sarif</span></li>
+        <li><strong>Issue families:</strong> 8 <span>unsupported, numeric, citation-not-found, citation-unverified, hype, comparative, absolute, draft markers</span></li>
+        <li><strong>Runtime deps:</strong> 0 <span>standard-library CLI</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://github.com/zack-dev-cm/antirot">View on GitHub</a></li>
+        <li><a href="https://github.com/zack-dev-cm/antirot/releases/tag/v0.2.0">Release v0.2.0</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for AntiRot - Research Artifact Linter.</p>
+      </article>
+    </main>
+  </body>
+</html>

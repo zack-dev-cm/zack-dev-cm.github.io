@@ -211,7 +211,7 @@ const collectFiles = async (directory) => {
     }
     if (!entry.isFile()) continue;
     if (isSkipped(relativePath) || !isTextFile(relativePath)) continue;
-    if (!isTrackedFile(relativePath) && !isUntrackedFile(relativePath) && !isPublicSurface(relativePath)) continue;
+    if (!isTrackedFile(relativePath) && !isUntrackedFile(relativePath) && !isPublicSurface(relativePath) && !isSecretBearingPath(relativePath)) continue;
     files.push({ absolutePath, relativePath });
   }
   return files;

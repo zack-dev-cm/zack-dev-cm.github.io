@@ -25,7 +25,8 @@ const extraFiles = [
 ];
 const extraDirectories = [
   { source: 'projects', destination: 'projects' },
-  { source: 'codex-docs', destination: 'codex' }
+  { source: 'codex-docs', destination: 'codex' },
+  { source: 'ai-chat-navigator-privacy', destination: 'ai-chat-navigator-privacy' }
 ];
 const hiddenPublishedSurfaces = [
   'newsletter.md',

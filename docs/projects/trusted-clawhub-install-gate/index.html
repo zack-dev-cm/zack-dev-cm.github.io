@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trusted ClawHub Install Gate | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Trusted ClawHub Install Gate" />
+    <meta property="og:description" content="Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Trusted ClawHub Install Gate" />
+    <meta name="twitter:description" content="Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/#case-study",
+      "headline": "Trusted ClawHub Install Gate",
+      "name": "Trusted ClawHub Install Gate",
+      "description": "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
+      "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "security, automation, release-engineering, Python, CLI, OpenClaw, ClawHub, Security Review, Receipt Verification",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "security"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "automation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "release-engineering"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "CLI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "OpenClaw"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ClawHub"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Security Review"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Receipt Verification"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>Trusted ClawHub Install Gate</h1>
+          <p class="lede">Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and no silent workspace inference.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Classifies local skill artifacts as PASS, REVIEW, or BLOCK before installation</li>
+        <li>Denies REVIEW installs unless the operator explicitly allows review-level risk</li>
+        <li>Writes install receipts under a local data directory and verifies installed content against those receipts</li>
+        <li>Keeps v0.1 scope narrow: local unpacked skill directories only, no arbitrary remote slug resolution claim</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>CLI</li>
+        <li>OpenClaw</li>
+        <li>ClawHub</li>
+        <li>Security Review</li>
+        <li>Receipt Verification</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Verdict states:</strong> 3 <span>PASS, REVIEW, BLOCK in project contract</span></li>
+        <li><strong>Default unsafe install policy:</strong> deny <span>REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review</span></li>
+        <li><strong>Verification model:</strong> receipt-aware <span>installed hash and approved verdict must match receipt</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Trusted ClawHub Install Gate.</p>
+      </article>
+    </main>
+  </body>
+</html>

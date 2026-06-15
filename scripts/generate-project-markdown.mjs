@@ -27,14 +27,14 @@ const AUTHOR_TITLE = 'Computer Vision and AI Product Engineer';
 const SITE_TITLE = `${AUTHOR_NAME} | Computer Vision and AI Product Engineer`;
 const SITE_NAME = `${AUTHOR_NAME} - Computer Vision and Agentic AI Product Portfolio`;
 const SOCIAL_DESCRIPTION =
-  'Production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows.';
+  'Computer vision and AI product engineering portfolio with OCR, segmentation, multimodal retrieval, model APIs, and public delivery references.';
 const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card-ml-ai-products.png`;
 const SOCIAL_IMAGE_ALT =
   'Zakhar Pashkin computer vision and AI product engineer social preview with production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows.';
 const AUTHOR_DESCRIPTION =
-  'Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility/AEO context, and full-stack products across web, mobile, and cloud.';
+  'Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM workflows, and launch-ready product systems.';
 const PORTFOLIO_TAGLINE =
-  'Computer vision services, model-serving APIs, multimodal retrieval, VLM/LLM agents, AI systems with human review, AI visibility/AEO context, Telegram mini apps, and full-stack products built for production constraints.';
+  'Computer vision services, model-serving APIs, multimodal retrieval, VLM/LLM workflows, human-reviewed AI systems, and launch-ready product delivery built for production constraints.';
 const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenCV, ONNX Runtime, FastAPI, OpenAI APIs, VLMs, LLMs, AI agents, evals, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
 const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
@@ -158,9 +158,9 @@ const buildServiceSignals = () => [
       'Multimodal Video Search Platform'
     ],
     canonicalUrls: [
-      `${SITE_BASE}/projects/fast-ocr-onnx-inference-server.md`,
-      `${SITE_BASE}/projects/pores-wrinkles-detection-service.md`,
-      `${SITE_BASE}/projects/multimodal-video-search-platform.md`
+      projectHtmlUrlFromSlug('fast-ocr-onnx-inference-server'),
+      projectHtmlUrlFromSlug('pores-wrinkles-detection-service'),
+      projectHtmlUrlFromSlug('multimodal-video-search-platform')
     ]
   },
   {
@@ -181,9 +181,9 @@ const buildServiceSignals = () => [
       'Chrome Extension Studio Plugin'
     ],
     canonicalUrls: [
-      `${SITE_BASE}/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md`,
-      `${SITE_BASE}/projects/sourcepack-chrome-extension-wave.md`,
-      `${SITE_BASE}/projects/chrome-extension-studio-plugin.md`
+      projectHtmlUrlFromSlug('openclaw-sales-manager-automation-for-a-multi-clinic-chain'),
+      projectHtmlUrlFromSlug('sourcepack-chrome-extension-wave'),
+      projectHtmlUrlFromSlug('chrome-extension-studio-plugin')
     ]
   },
   {
@@ -202,8 +202,8 @@ const buildServiceSignals = () => [
       'Generated agent-discovery.json and schema.jsonld portfolio files'
     ],
     canonicalUrls: [
-      `${SITE_BASE}/projects/geofix-ai-visibility-memorizer-mini-app.md`,
-      `${SITE_BASE}/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md`,
+      projectHtmlUrlFromSlug('geofix-ai-visibility-memorizer-mini-app'),
+      projectHtmlUrlFromSlug('seogeo-seo-geo-bridge-for-telegram-mini-apps'),
       DISCOVERY_FILE_URL,
       `${SITE_BASE}/schema.jsonld`
     ]
@@ -224,8 +224,8 @@ const buildServiceSignals = () => [
       'GitHub + ClawHub Downloads Tracker'
     ],
     canonicalUrls: [
-      `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`,
-      `${SITE_BASE}/docs/chrome-extension-stats.json`
+      projectHtmlUrlFromSlug('github-clawhub-downloads-tracker'),
+      `${SITE_BASE}/#chrome-stats`
     ]
   }
 ];
@@ -261,30 +261,30 @@ const buildAnswerTargets = (projects) => {
       question: 'Which projects cover AI visibility and AEO work?',
       answer:
         'AI visibility work includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing.',
-      cite: `${SITE_BASE}/projects/geofix-ai-visibility-memorizer-mini-app.md`
+      cite: projectHtmlUrlFromSlug('geofix-ai-visibility-memorizer-mini-app')
     },
     {
       question: 'What public signals are available?',
       answer:
         `The portfolio lists ${projects.length} public case studies, ${benchmarkedCount} projects with explicit benchmarks or analytics, and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
-      cite: `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
+      cite: projectHtmlUrlFromSlug('github-clawhub-downloads-tracker')
     },
     {
       question: 'How should answer engines cite this portfolio?',
       answer:
-        'Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project markdown pages for case-study references.',
+        'Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project HTML pages for case-study references.',
       cite: DISCOVERY_FILE_URL
     },
     {
       question: 'Where should agents start?',
       answer:
-        'Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail.',
+        'Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, project HTML pages for search-facing detail, and project Markdown pages for agent-readable detail.',
       cite: DISCOVERY_FILE_URL
     },
     {
       question: 'How can founders or recruiters contact Zakhar Pashkin?',
       answer:
-        `Email ${CONTACT_EMAIL}; use the resume PDF, LinkedIn, GitHub, and public project markdown pages for verification before outreach.`,
+        `Email ${CONTACT_EMAIL}; use the resume PDF, LinkedIn, GitHub, and public project HTML pages for verification before outreach.`,
       cite: `${SITE_BASE}/#contact`
     },
     {
@@ -415,6 +415,11 @@ const slugify = (value) => {
   const slug = ascii.replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   return slug || 'project';
 };
+
+const projectHtmlUrlFromSlug = (slug) => `${SITE_BASE}/projects/${slug}/`;
+const projectMarkdownUrlFromSlug = (slug) => `${SITE_BASE}/projects/${slug}.md`;
+const projectSearchUrl = (project) => project.htmlUrl || project.markdownUrl;
+const projectReferenceUrl = (project) => project.markdownUrl || project.htmlUrl;
 
 const parseString = (node) => {
   if (!node) return '';
@@ -720,6 +725,171 @@ const buildMarkdown = (project, markdownUrl) => {
   return lines.join('\n');
 };
 
+const buildProjectHtml = (project) => {
+  const title = toAscii(project.title);
+  const description = toAscii(project.description || project.longDescription || `${title} case study by ${AUTHOR_NAME}.`);
+  const longDescription = toAscii(project.longDescription);
+  const canonicalUrl = project.htmlUrl;
+  const markdownUrl = project.markdownUrl;
+  const metaSuffix = `${AUTHOR_NAME} case study.`;
+  const metaDescription =
+    description.length + metaSuffix.length + 1 <= 160
+      ? `${description} ${metaSuffix}`
+      : `${description.slice(0, 157).replace(/\s+\S*$/, '').replace(/[,:;.-]+$/, '')}.`;
+  const keyFeatures = (project.keyFeatures || []).map(toAscii).filter(Boolean);
+  const techStack = (project.techStack || []).map(toAscii).filter(Boolean);
+  const benchmarks = (project.benchmarks || []).map((item) => ({
+    label: toAscii(item.label),
+    value: toAscii(item.value),
+    context: toAscii(item.context)
+  }));
+  const links = (project.links || []).map((link) => ({
+    text: toAscii(link.text),
+    url: link.url
+  }));
+  const image = toPublicAssetUrl(project.thumbnail || project.images?.[0]?.url || '');
+  const imageAlt = toAscii(project.images?.[0]?.alt || `${title} project visual`);
+  const keywords = [...(project.surfaceTags || []), ...techStack].map(toAscii).filter(Boolean).slice(0, 16);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    '@id': `${canonicalUrl}#case-study`,
+    headline: title,
+    name: title,
+    description,
+    url: canonicalUrl,
+    mainEntityOfPage: canonicalUrl,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: SITE_BASE
+    },
+    creator: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: SITE_BASE
+    },
+    genre: project.projectKind || 'case-study',
+    keywords: keywords.join(', '),
+    image: image || undefined,
+    isAccessibleForFree: true,
+    about: keywords.map((keyword) => ({ '@type': 'Thing', name: keyword })),
+    workExample: links.slice(0, 3).map((link) => ({
+      '@type': 'CreativeWork',
+      name: link.text,
+      url: link.url
+    }))
+  };
+  const featureList = keyFeatures.length
+    ? keyFeatures.map((feature) => `        <li>${escapeHtml(feature)}</li>`).join('\n')
+    : '        <li>Public case-study summary, implementation notes, and release context.</li>';
+  const techList = techStack.length
+    ? techStack.map((item) => `        <li>${escapeHtml(item)}</li>`).join('\n')
+    : '        <li>Project-specific stack listed in the full portfolio.</li>';
+  const benchmarkList = benchmarks.length
+    ? benchmarks
+        .map((item) => {
+          const context = item.context ? ` <span>${escapeHtml(item.context)}</span>` : '';
+          return `        <li><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}${context}</li>`;
+        })
+        .join('\n')
+    : '        <li>Public references and qualitative delivery signals are used where numeric benchmarks are not public.</li>';
+  const linkList = links.length
+    ? links
+        .map((link) => `        <li><a href="${escapeHtml(link.url)}">${escapeHtml(link.text)}</a></li>`)
+        .join('\n')
+    : '        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>';
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)} | ${escapeHtml(AUTHOR_NAME)} Case Study</title>
+    <meta name="description" content="${escapeHtml(metaDescription)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="${canonicalUrl}" />
+    <link rel="alternate" type="text/markdown" href="${markdownUrl}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="${escapeHtml(title)}" />
+    <meta property="og:description" content="${escapeHtml(description)}" />
+    <meta property="og:url" content="${canonicalUrl}" />
+    ${image ? `<meta property="og:image" content="${image}" />` : ''}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeHtml(title)}" />
+    <meta name="twitter:description" content="${escapeHtml(description)}" />
+    ${image ? `<meta name="twitter:image" content="${image}" />` : ''}
+    <script type="application/ld+json">
+${JSON.stringify(jsonLd, null, 6)}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="${SITE_BASE}/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">${escapeHtml(project.projectKind || 'Portfolio case study')}</p>
+          <h1>${escapeHtml(title)}</h1>
+          <p class="lede">${escapeHtml(description)}</p>
+          ${image ? `<img class="visual" src="${image}" alt="${escapeHtml(imageAlt)}" loading="eager" />` : ''}
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>${escapeHtml(longDescription || description)}</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+${featureList}
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+${techList}
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+${benchmarkList}
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+${linkList}
+            <li><a href="${markdownUrl}">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for ${escapeHtml(title)}.</p>
+      </article>
+    </main>
+  </body>
+</html>
+`;
+};
+
 const formatServiceSignalLine = (signal) => {
   const canonicalLinks = signal.canonicalUrls.map((url) => url).join(', ');
   return `- ${signal.name}: ${signal.description} Query intents: ${signal.queryIntents.join('; ')} References: ${signal.references.join('; ')} Canonical URLs: ${canonicalLinks}`;
@@ -750,7 +920,7 @@ const formatLinkLine = (title, url, description) => {
 const formatTopProjectLine = (project) => {
   return formatLinkLine(
     project.title,
-    project.markdownUrl,
+    projectSearchUrl(project),
     project.description || project.longDescription || 'Project detail page.'
   );
 };
@@ -814,7 +984,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     {
       title: 'sitemap.xml',
       url: `${SITE_BASE}/sitemap.xml`,
-      description: 'XML sitemap with the portfolio home and generated markdown pages.'
+      description: 'XML sitemap for human-facing portfolio pages. Machine-readable files stay linked from the home page, llms.txt, and agent-discovery.json.'
     },
     {
       title: 'Resume PDF',
@@ -834,7 +1004,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
 
     return [
       '      <article class="crawlable-shell__card">',
-      `        <h3><a href="${project.markdownUrl}">${title}</a></h3>`,
+      `        <h3><a href="${projectSearchUrl(project)}">${title}</a></h3>`,
       `        <p>${description}</p>`,
       referenceLine ? `        <p><strong>References:</strong> ${referenceLine}</p>` : '',
       links ? `        <p><strong>External links:</strong> ${links}</p>` : '',
@@ -847,7 +1017,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   const archiveMarkup = projects.map((project) => {
     const title = escapeHtml(toAscii(project.title));
     const description = escapeHtml(toAscii(project.description || project.longDescription || 'Project summary.'));
-    return `          <li><a href="${project.markdownUrl}">${title}</a>: ${description}</li>`;
+    return `          <li><a href="${projectSearchUrl(project)}">${title}</a>: ${description}</li>`;
   });
 
   const fileMarkup = machineFiles.map((file) => {
@@ -885,7 +1055,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   const clusterMarkup = TOPICAL_CLUSTERS.map((cluster) => {
     const clusterProjects = pickClusterProjects(projects, cluster, 5);
     const projectLinks = clusterProjects
-      .map((project) => `<a href="${project.markdownUrl}">${escapeHtml(toAscii(project.title))}</a>`)
+      .map((project) => `<a href="${projectSearchUrl(project)}">${escapeHtml(toAscii(project.title))}</a>`)
       .join(', ');
     const intents = cluster.queryIntents.map((intent) => escapeHtml(intent)).join('; ');
     return [
@@ -902,7 +1072,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
   return [
     '<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">',
     `  <p class="crawlable-shell__eyebrow">${escapeHtml(AUTHOR_TITLE)}</p>`,
-    '  <h1>Zakhar Pashkin ships computer vision and agentic AI products.</h1>',
+    '  <h1>Zakhar Pashkin is a computer vision and AI product engineer.</h1>',
     `  <p class="crawlable-shell__lede">${escapeHtml(
       `${PORTFOLIO_TAGLINE} This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.`
     )}</p>`,
@@ -1021,7 +1191,7 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent, proje
   const schemaBlock = `    <script type="application/ld+json">\n${inlineSchema}\n    </script>`;
   const tractionLabel = `${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads`;
   const metaDescription =
-    `Zakhar Pashkin portfolio for production computer vision, VLM/LLM workflows, custom AI systems, AI product delivery, ${projectCount} public case studies, ${tractionLabel}, and machine-readable AEO context files.`;
+    'Zakhar Pashkin builds production computer vision and AI systems: OCR, segmentation, multimodal retrieval, model APIs, VLM/LLM workflows, and case studies.';
   const aiSummary =
     `Zakhar Pashkin is a senior computer vision and AI product engineer with ${projectCount} public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, and machine-readable AEO context files.`;
   const updated = template
@@ -1029,6 +1199,7 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent, proje
     .replace(schemaPattern, schemaBlock)
     .replace(/<title>[^<]*<\/title>/, `<title>${SITE_TITLE}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${metaDescription}" />`)
+    .replace(/\n\s*<meta name="keywords" content="[^"]*" \/>/, '')
     .replace(/<meta name="ai-summary" content="[^"]*" \/>/, `<meta name="ai-summary" content="${aiSummary}" />`)
     .replace(/<meta name="citation_title" content="[^"]*" \/>/, `<meta name="citation_title" content="${SITE_TITLE}" />`)
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${SITE_TITLE}" />`)
@@ -1048,7 +1219,7 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent, proje
 const updateMetadataJson = async (projectCount) => {
   const existing = JSON.parse(await fs.readFile(METADATA_PATH, 'utf8'));
   const description =
-    `Production ML, computer vision, and AI product portfolio: OCR, segmentation, detection, custom models, VLM/LLM workflows, AI systems, agentic product automation, AEO context files, ${projectCount} public case studies, and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads.`;
+    `Production computer vision and AI portfolio: OCR, segmentation, detection, multimodal retrieval, model APIs, VLM/LLM workflows, AEO context files, ${projectCount} public case studies, and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads.`;
   const updated = {
     ...existing,
     name: `${AUTHOR_NAME} | Computer Vision and AI Product Engineer`,
@@ -1081,8 +1252,8 @@ const buildLlms = (projects, topProjects) => {
     `- How many public references are here? ${projects.length} public case studies, with ${benchmarkedCount} projects carrying explicit benchmarks or analytics.`,
     `- Public listing metrics: ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
     `- Research review feed: ${formatPaperReviewSummary()} Machine feed: ${PAPER_REVIEWS_DATA_URL}.`,
-    '- Recommended reading order for agents: agent-discovery.json, llms.txt, llms-full.txt, geo.txt, then project markdown pages for canonical detail.',
-    '- Public reference policy: cite only URLs listed in this file, project markdown pages, schema.jsonld, and agent-discovery.json.',
+    '- Recommended reading order for agents: agent-discovery.json, llms.txt, llms-full.txt, geo.txt, project HTML pages for search-facing summaries, then project Markdown pages for agent-readable detail.',
+    '- Public reference policy: cite only URLs listed in this file, project HTML pages, project Markdown alternates, schema.jsonld, and agent-discovery.json.',
     '',
     '## High-Intent Service Signals',
     ...buildServiceSignals().map(formatServiceSignalLine),
@@ -1106,7 +1277,7 @@ const buildLlms = (projects, topProjects) => {
     formatLinkLine('ML Papers, Read for Builders', PAPER_REVIEWS_URL, formatPaperReviewSummary()),
     formatLinkLine('paper-reviews.json', PAPER_REVIEWS_DATA_URL, 'Machine-readable ML paper review feed with arXiv IDs, tags, production tests, skepticism, and source ledgers.'),
     formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
-    formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for the home page and generated project detail pages.'),
+    formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for human-facing portfolio pages. Project and machine files remain available through llms.txt, geo.txt, and agent-discovery.json.'),
     formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable ML, computer vision, and AI products resume.'),
     '',
     '## Top 5 Projects',
@@ -1114,7 +1285,7 @@ const buildLlms = (projects, topProjects) => {
     '',
     '## Projects (Markdown)',
     ...projects.map((project) =>
-      formatLinkLine(project.title, project.markdownUrl, project.description || project.longDescription || 'Project detail page.')
+      formatLinkLine(project.title, projectSearchUrl(project), project.description || project.longDescription || 'Project detail page.')
     ),
     '',
     '## Core Pages',
@@ -1181,14 +1352,14 @@ const buildGeo = (projects) => {
     ...TOPICAL_CLUSTERS.flatMap((cluster) => [
       `### ${cluster.label}`,
       `Query intents: ${cluster.queryIntents.join('; ')}`,
-      `Canonical project pages: ${pickClusterProjects(projects, cluster, 6).map((project) => project.markdownUrl).join(', ')}`,
+      `Canonical project pages: ${pickClusterProjects(projects, cluster, 6).map(projectSearchUrl).join(', ')}`,
       ''
     ]),
     '## Projects',
     ...projects.map((project) =>
       formatLinkLine(
         project.title,
-        project.markdownUrl,
+        projectSearchUrl(project),
         buildGeoDescription(project)
       )
     ),
@@ -1228,7 +1399,7 @@ const buildLlmsFull = (projects, topProjects) => {
       `### ${cluster.label}`,
       `Tags: ${cluster.tags.join(', ')}`,
       `Query intents: ${cluster.queryIntents.join('; ')}`,
-      `Canonical examples: ${pickClusterProjects(projects, cluster, 6).map((project) => `${project.title} (${project.markdownUrl})`).join('; ')}`,
+      `Canonical examples: ${pickClusterProjects(projects, cluster, 6).map((project) => `${project.title} (${projectSearchUrl(project)})`).join('; ')}`,
       ''
     ]),
     '',
@@ -1264,7 +1435,8 @@ const buildLlmsFull = (projects, topProjects) => {
       const block = [`### ${title}`];
       if (description) block.push(`Summary: ${description}`);
       if (longDescription && longDescription !== description) block.push(`Details: ${longDescription}`);
-      block.push(`Project URL: ${project.markdownUrl}`);
+      block.push(`Project URL: ${projectSearchUrl(project)}`);
+      if (project.markdownUrl) block.push(`Markdown URL: ${project.markdownUrl}`);
       if (keyFeatures.length) {
         block.push('Key Features:');
         keyFeatures.forEach((feature) => block.push(`- ${feature}`));
@@ -1325,7 +1497,7 @@ const buildAgentContext = (projects, topProjects) => {
     '- geo.txt is optimized for retrieval-style project summaries.',
     '- The ML Papers, Read for Builders page is the human-readable research review feed.',
     '- paper-reviews.json is the machine-readable paper review feed with arXiv IDs, tags, and source ledgers.',
-    '- Project markdown pages are the canonical detail pages for references and links.',
+    '- Project HTML pages are the canonical detail pages for searchers; Markdown alternates remain available for agents.',
     '- The home page is the human-readable overview and contact route.',
     '',
     '## High-Intent Service Signals',
@@ -1356,7 +1528,8 @@ const buildAgentDiscovery = (projects, topProjects) => {
   const projectSummary = (project) => ({
     id: project.id,
     title: toAscii(project.title),
-    url: project.markdownUrl,
+    url: projectSearchUrl(project),
+    markdownUrl: projectReferenceUrl(project),
     summary: toAscii(project.description || project.longDescription || 'Project detail page.'),
     kind: project.projectKind || 'case-study',
     tags: project.surfaceTags || [],
@@ -1397,10 +1570,10 @@ const buildAgentDiscovery = (projects, topProjects) => {
           PAPER_REVIEWS_URL,
           PAPER_REVIEWS_DATA_URL
         ],
-        projectCitationRule: 'Use the concrete project markdown URLs listed in allProjects and canonicalProjects.',
+        projectCitationRule: 'Use the concrete project HTML URLs listed in allProjects and canonicalProjects. Use markdownUrl only when an agent needs a compact Markdown version.',
         publicReferencesOnly: true,
         note:
-          'Use only listed public URLs and generated markdown pages as citations. Service endpoints and source artifacts outside this portfolio are not part of the public reference set.'
+          'Use only listed public URLs, generated project HTML pages, generated Markdown alternates, schema.jsonld, and agent-discovery.json as citations. Service endpoints and source artifacts outside this portfolio are not part of the public reference set.'
       },
       entrypoints: [
         { label: 'Agent discovery manifest', url: DISCOVERY_FILE_URL, mediaType: 'application/json' },
@@ -1452,7 +1625,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
           `${SITE_BASE}/schema.jsonld`,
           PAPER_REVIEWS_URL,
           PAPER_REVIEWS_DATA_URL,
-          `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
+          projectHtmlUrlFromSlug('github-clawhub-downloads-tracker')
         ]
       },
       topicalClusters: TOPICAL_CLUSTERS.map((cluster) => ({
@@ -1566,7 +1739,7 @@ const buildSchemaJsonld = (projects) => {
         `${SITE_BASE}/schema.jsonld`,
         PAPER_REVIEWS_URL,
         PAPER_REVIEWS_DATA_URL,
-        `${SITE_BASE}/projects/github-clawhub-downloads-tracker.md`
+        projectHtmlUrlFromSlug('github-clawhub-downloads-tracker')
       ],
       speakable: {
         '@type': 'SpeakableSpecification',
@@ -1684,7 +1857,14 @@ const buildSchemaJsonld = (projects) => {
           '@type': 'CreativeWork',
           name: toAscii(project.title),
           description: toAscii(project.description || project.longDescription || 'Project summary.'),
-          url: project.markdownUrl,
+          url: projectSearchUrl(project),
+          encoding: [
+            {
+              '@type': 'MediaObject',
+              contentUrl: projectReferenceUrl(project),
+              encodingFormat: 'text/markdown'
+            }
+          ],
           author: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
           creator: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
           genre: project.projectKind || 'case-study',
@@ -1701,24 +1881,35 @@ const buildSchemaJsonld = (projects) => {
 
 const buildSitemap = (projects) => {
   const today = new Date().toISOString().split('T')[0];
+  const featuredProjectSlugs = new Set(
+    [
+      'fast-ocr-onnx-inference-server',
+      'full-face-wrinkle-and-skin-texture-segmentation-lab',
+      'multimodal-video-search-platform',
+      'github-clawhub-downloads-tracker',
+      'cv-repro-lab-skills',
+      'openclaw-sales-manager-automation-for-a-multi-clinic-chain',
+      'geofix-ai-visibility-memorizer-mini-app',
+      'chrome-extension-studio-plugin',
+      'sourcepack-chrome-extension-wave',
+      'collectionsai-chatgpt-app'
+    ]
+  );
+  const featuredProjectHtmlUrls = new Set(
+    projects
+      .filter((project) => featuredProjectSlugs.has(project.slug))
+      .map((project) => projectSearchUrl(project))
+  );
   const urls = [
     { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
-    { loc: DISCOVERY_FILE_URL, lastmod: today, changefreq: 'weekly', priority: '0.7' },
-    { loc: `${SITE_BASE}/llms.txt`, lastmod: today, changefreq: 'monthly', priority: '0.6' },
-    { loc: `${SITE_BASE}/llms-full.txt`, lastmod: today, changefreq: 'monthly', priority: '0.6' },
-    { loc: `${SITE_BASE}/agent-context.md`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
-    { loc: `${SITE_BASE}/geo.txt`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
-    { loc: `${SITE_BASE}/schema.jsonld`, lastmod: today, changefreq: 'monthly', priority: '0.5' },
-    { loc: `${SITE_BASE}/docs/chrome-extension-stats.json`, lastmod: today, changefreq: 'weekly', priority: '0.5' },
     { loc: PAPER_REVIEWS_URL, lastmod: today, changefreq: 'daily', priority: '0.6' },
-    { loc: PAPER_REVIEWS_DATA_URL, lastmod: today, changefreq: 'daily', priority: '0.4' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     { loc: SENIOR_CV_RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
-    ...projects.map((project) => ({
-      loc: project.markdownUrl,
+    ...projects.filter((project) => featuredProjectHtmlUrls.has(projectSearchUrl(project))).map((project) => ({
+      loc: projectSearchUrl(project),
       lastmod: today,
       changefreq: 'monthly',
-      priority: '0.7'
+      priority: '0.4'
     }))
   ];
 
@@ -1756,20 +1947,26 @@ const main = async () => {
     slugCounts.set(baseSlug, count);
     const slug = count > 1 && project.id ? `${baseSlug}-${project.id}` : baseSlug;
     const fileName = `${slug}.md`;
-    const markdownUrl = `${SITE_BASE}/projects/${fileName}`;
+    const markdownUrl = projectMarkdownUrlFromSlug(slug);
+    const htmlUrl = projectHtmlUrlFromSlug(slug);
     const outputPath = path.resolve(OUTPUT_DIR, fileName);
-    const markdown = buildMarkdown(project, markdownUrl);
-    await fs.writeFile(outputPath, markdown, 'utf8');
-    for (const legacySlug of project.legacySlugs || []) {
-      const aliasOutputPath = path.resolve(OUTPUT_DIR, `${legacySlug}.md`);
-      const aliasMarkdown = buildAliasMarkdown(project, markdownUrl);
-      await fs.writeFile(aliasOutputPath, aliasMarkdown, 'utf8');
-    }
-    projectEntries.push({
+    const projectEntry = {
       ...project,
       slug,
-      markdownUrl
-    });
+      markdownUrl,
+      htmlUrl
+    };
+    const markdown = buildMarkdown(projectEntry, markdownUrl);
+    await fs.writeFile(outputPath, markdown, 'utf8');
+    const htmlOutputDir = path.resolve(OUTPUT_DIR, slug);
+    await fs.mkdir(htmlOutputDir, { recursive: true });
+    await fs.writeFile(path.resolve(htmlOutputDir, 'index.html'), buildProjectHtml(projectEntry), 'utf8');
+    for (const legacySlug of project.legacySlugs || []) {
+      const aliasOutputPath = path.resolve(OUTPUT_DIR, `${legacySlug}.md`);
+      const aliasMarkdown = buildAliasMarkdown(projectEntry, markdownUrl);
+      await fs.writeFile(aliasOutputPath, aliasMarkdown, 'utf8');
+    }
+    projectEntries.push(projectEntry);
   }
 
   const topProjectTitles = [

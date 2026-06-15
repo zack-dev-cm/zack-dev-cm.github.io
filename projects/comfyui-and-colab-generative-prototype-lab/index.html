@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ComfyUI and Colab Generative Prototype Lab | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ComfyUI and Colab Generative Prototype Lab" />
+    <meta property="og:description" content="Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ComfyUI and Colab Generative Prototype Lab" />
+    <meta name="twitter:description" content="Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/#case-study",
+      "headline": "ComfyUI and Colab Generative Prototype Lab",
+      "name": "ComfyUI and Colab Generative Prototype Lab",
+      "description": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
+      "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "research",
+      "keywords": "generative-ai, colab, notebooks, computer-vision, custom-models, automation, Google Colab, ComfyUI, Python, PyTorch, MMOCR, PaddleOCR, LangChain, Pinecone, MoviePy, FFmpeg",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "generative-ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "colab"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "notebooks"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "computer-vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "custom-models"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "automation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Google Colab"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ComfyUI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PyTorch"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "MMOCR"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PaddleOCR"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "LangChain"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Pinecone"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "MoviePy"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "FFmpeg"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Digits recognition MMOCR",
+                  "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Voice and lip sync Colab app",
+                  "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Text to cartoon CLIP",
+                  "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">research</p>
+          <h1>ComfyUI and Colab Generative Prototype Lab</h1>
+          <p class="lede">Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>ComfyUI and Colab Generative Prototype Lab adds the source-reviewed notebook and advanced prototype work that was missing from the public portfolio. The 2026-06-04 review covered Colab notebook folders, OCR and PDF-analysis demos, MMOCR notes, Falcon/LLM fine-tuning proposal notes, mobile PyTorch custom-library build notes, ComfyUI API automation, LivePortrait batch animation, MoviePy/FFmpeg assembly, and generative media pipeline planning. The public entry links only public repositories and describes the system patterns; private notebook URLs, restricted datasets, unpublished weights, and private proposal artifacts are not published.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Turns notebook experiments into reusable prototype families rather than isolated demos</li>
+        <li>Automates ComfyUI workflow JSON through Python and WebSocket-style orchestration patterns</li>
+        <li>Groups custom model, OCR, document QA, LLM fine-tuning, and media-assembly work under one research lab surface</li>
+        <li>Keeps private Colab links, restricted datasets, unpublished weights, and proposal drafts out of public files</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Google Colab</li>
+        <li>ComfyUI</li>
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>MMOCR</li>
+        <li>PaddleOCR</li>
+        <li>LangChain</li>
+        <li>Pinecone</li>
+        <li>MoviePy</li>
+        <li>FFmpeg</li>
+        <li>LivePortrait</li>
+        <li>WebSocket</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Prototype lanes:</strong> 6 <span>ComfyUI, LivePortrait, OCR/PDF, retrieval QA, model fine-tuning, media assembly</span></li>
+        <li><strong>Source posture:</strong> public links only <span>private source and Colab URLs excluded from published portfolio files</span></li>
+        <li><strong>Notebook posture:</strong> prototype <span>research and implementation snippets, not presented as maintained production services</span></li>
+        <li><strong>Review date:</strong> 2026-06-04 <span>private-source and local portfolio review for missing notebook/prototype work</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://github.com/ZackPashkin/digits-recognition-mm-ocr">Digits recognition MMOCR</a></li>
+        <li><a href="https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab">Voice and lip sync Colab app</a></li>
+        <li><a href="https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP">Text to cartoon CLIP</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for ComfyUI and Colab Generative Prototype Lab.</p>
+      </article>
+    </main>
+  </body>
+</html>

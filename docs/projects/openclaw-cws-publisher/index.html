@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw CWS Publisher | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="OpenClaw CWS Publisher" />
+    <meta property="og:description" content="Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OpenClaw CWS Publisher" />
+    <meta name="twitter:description" content="Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/#case-study",
+      "headline": "OpenClaw CWS Publisher",
+      "name": "OpenClaw CWS Publisher",
+      "description": "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "open-source",
+      "keywords": "open-source, automation, browser-extension, release-engineering, ClawHub, Python, Chrome Web Store, Playwright, Release Engineering, Security Review",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "open-source"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "automation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "browser-extension"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "release-engineering"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ClawHub"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Chrome Web Store"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Playwright"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Release Engineering"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Security Review"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "View on GitHub",
+                  "url": "https://github.com/zack-dev-cm/openclaw-cws-publisher"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Open on ClawHub",
+                  "url": "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">open-source</p>
+          <h1>OpenClaw CWS Publisher</h1>
+          <p class="lede">Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>OpenClaw CWS Publisher is a public release kit for Chrome extension projects. It packages the exact extension ZIP intended for upload, validates the manifest and CWS listing contract, scans tracked and untracked public-surface files for leak patterns, runs discovered local E2E/reviewer gates, enforces design score reports, checks Chrome Stable freshness, and renders reproducible GitHub and ClawHub publish commands. It is a release helper, not a bundled extension product.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Builds and validates the exact Chrome Web Store ZIP against source manifest and listing JSON</li>
+        <li>Scans tracked and untracked non-ignored files for local paths, localhost URLs, websockets, and token-shaped strings</li>
+        <li>Runs local E2E, reviewer, design, Chrome Stable, and competitor checks when a target extension exposes them</li>
+        <li>Renders reproducible GitHub release and ClawHub publish commands from a launch manifest</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>ClawHub</li>
+        <li>Python</li>
+        <li>Chrome Web Store</li>
+        <li>Playwright</li>
+        <li>Release Engineering</li>
+        <li>Security Review</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>ClawHub downloads:</strong> 676 <span>public ClawHub listing, 2026-06-04</span></li>
+        <li><strong>Published versions:</strong> 14 <span>public ClawHub listing, 2026-06-04</span></li>
+        <li><strong>Release checks:</strong> 7 <span>ZIP, listing, leaks, E2E, design, Chrome Stable, competitors</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://github.com/zack-dev-cm/openclaw-cws-publisher">View on GitHub</a></li>
+        <li><a href="https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher">Open on ClawHub</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for OpenClaw CWS Publisher.</p>
+      </article>
+    </main>
+  </body>
+</html>

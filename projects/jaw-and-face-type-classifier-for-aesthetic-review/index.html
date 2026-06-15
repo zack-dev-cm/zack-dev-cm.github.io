@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jaw and Face-Type Classifier for Aesthetic Review | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Jaw and Face-Type Classifier for Aesthetic Review" />
+    <meta property="og:description" content="Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jaw and Face-Type Classifier for Aesthetic Review" />
+    <meta name="twitter:description" content="Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/#case-study",
+      "headline": "Jaw and Face-Type Classifier for Aesthetic Review",
+      "name": "Jaw and Face-Type Classifier for Aesthetic Review",
+      "description": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
+      "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "computer-vision, classification, beautytech, health-ai, face-analysis, Python, PyTorch, OpenCV, Computer Vision, Facial Landmarks, Classification, K-fold Validation, Visual QA",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "computer-vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "classification"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "beautytech"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "health-ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "face-analysis"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PyTorch"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "OpenCV"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Computer Vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Facial Landmarks"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Classification"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "K-fold Validation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Visual QA"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>Jaw and Face-Type Classifier for Aesthetic Review</h1>
+          <p class="lede">Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Jaw and Face-Type Classifier for Aesthetic Review is a public-safe case study for facial morphology classification work. A 2026-06-04 private-source review covered jaw-class workspaces, jaw database materials, k-fold experiment folders, label text files, and a Jaw / Face-type analyser v0.12.7 deck. The public entry focuses on the engineering pattern: dataset and label QA, front/profile landmark handling, jawline and face-type classification, review overlays, experiment tracking, and release-ready privacy boundaries. It is framed as aesthetic-review decision support, not diagnosis, treatment planning, or a surgical recommendation system; raw face images, patient data, and private model weights are not published.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Combines front and profile facial review surfaces with jawline and facial landmark overlays</li>
+        <li>Treats label QA and class taxonomy as first-class work before model comparison</li>
+        <li>Uses k-fold experiment structure for repeatable classifier review instead of one-off screenshots</li>
+        <li>Keeps private raw images, patient data, and model weights out of public portfolio artifacts</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>OpenCV</li>
+        <li>Computer Vision</li>
+        <li>Facial Landmarks</li>
+        <li>Classification</li>
+        <li>K-fold Validation</li>
+        <li>Visual QA</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Review deck:</strong> v0.12.7 <span>Jaw / Face-type analyser project deck checked 2026-06-04</span></li>
+        <li><strong>Experiment pattern:</strong> k-fold <span>classifier experiment folder review, 2026-06-04</span></li>
+        <li><strong>Reviewed references:</strong> 5+ <span>jaw-class workspaces, jaw database, analyzer deck, labels, and experiment folders</span></li>
+        <li><strong>Public posture:</strong> sanitized <span>no raw patient images, private labels, or model weights published</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Jaw and Face-Type Classifier for Aesthetic Review.</p>
+      </article>
+    </main>
+  </body>
+</html>

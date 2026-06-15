@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearML Experiment Tracking for Dermaself | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ClearML Experiment Tracking for Dermaself" />
+    <meta property="og:description" content="MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ClearML Experiment Tracking for Dermaself" />
+    <meta name="twitter:description" content="MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/#case-study",
+      "headline": "ClearML Experiment Tracking for Dermaself",
+      "name": "ClearML Experiment Tracking for Dermaself",
+      "description": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "computer-vision, mlops, experiment-tracking, clearml, health-ai, ClearML, Python, PyTorch, ONNX, TFLite, Flutter, Computer Vision, MLOps, Experiment Tracking",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "computer-vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "mlops"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "experiment-tracking"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "clearml"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "health-ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ClearML"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PyTorch"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ONNX"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "TFLite"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Flutter"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Computer Vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "MLOps"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Experiment Tracking"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>ClearML Experiment Tracking for Dermaself</h1>
+          <p class="lede">MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on setting up ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions around the same public-safe Dermaself CV pipeline. It deliberately avoids publishing raw skin images, private datasets, model weights, ClearML server URLs, or user-level records.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Sets up ClearML experiment tracking for Dermaself model runs without exposing private workspaces</li>
+        <li>Keeps datasets, parameters, metrics, artifacts, and promotion decisions reviewable across CV iterations</li>
+        <li>Separates debug or overfit experiment notes from release-ready mobile and server claims</li>
+        <li>Keeps raw skin images, private datasets, model weights, and ClearML server URLs out of public portfolio files</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>ClearML</li>
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>ONNX</li>
+        <li>TFLite</li>
+        <li>Flutter</li>
+        <li>Computer Vision</li>
+        <li>MLOps</li>
+        <li>Experiment Tracking</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Tracking stack:</strong> ClearML <span>Dermaself MLOps setup added to public portfolio scope, 2026-06-09</span></li>
+        <li><strong>Tracked surfaces:</strong> 5 <span>dataset, parameters, metrics, artifacts, and promotion decisions</span></li>
+        <li><strong>Public posture:</strong> sanitized <span>public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs</span></li>
+        <li><strong>Promotion boundary:</strong> review-gated <span>debug experiments stay separate from release-ready mobile/server claims</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for ClearML Experiment Tracking for Dermaself.</p>
+      </article>
+    </main>
+  </body>
+</html>

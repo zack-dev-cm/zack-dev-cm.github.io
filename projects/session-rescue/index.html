@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session Rescue | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/session-rescue/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/session-rescue.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Session Rescue" />
+    <meta property="og:description" content="Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/session-rescue/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Session Rescue" />
+    <meta name="twitter:description" content="Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/session-rescue/#case-study",
+      "headline": "Session Rescue",
+      "name": "Session Rescue",
+      "description": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
+      "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/session-rescue/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "user-product",
+      "keywords": "browser-extension, web, open-source, Chrome Extension, JavaScript, IndexedDB, Playwright, Chrome Web Store, Local-first UX",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "browser-extension"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "web"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "open-source"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Chrome Extension"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "JavaScript"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "IndexedDB"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Playwright"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Chrome Web Store"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Local-first UX"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "View on Chrome Web Store",
+                  "url": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "View on GitHub",
+                  "url": "https://github.com/zack-dev-cm/session-rescue"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Product site",
+                  "url": "https://session-rescue.pages.dev/"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">user-product</p>
+          <h1>Session Rescue</h1>
+          <p class="lede">Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Session Rescue is a published Chrome Web Store extension for people who want a simple local backup of browser sessions. It captures normal windows and restorable tabs, supports manual and user-enabled automatic snapshots, restores sessions into a new window or the current context, and exports/imports JSON backups without a backend, account, analytics, ads, or remote code.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Captures local session snapshots with tabs, window grouping, titles, URLs, pinned state, and timestamps</li>
+        <li>Restores saved sessions into a focused new window or the current browser context</li>
+        <li>Exports and imports portable JSON backups so the archive is not trapped in the extension</li>
+        <li>Ships with CWS readiness checks, real-browser E2E coverage, and sanitized store screenshots</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Chrome Extension</li>
+        <li>JavaScript</li>
+        <li>IndexedDB</li>
+        <li>Playwright</li>
+        <li>Chrome Web Store</li>
+        <li>Local-first UX</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Chrome Web Store version:</strong> 0.1.4 <span>public listing updated 2026-04-29</span></li>
+        <li><strong>Storage model:</strong> local-only <span>no backend, account, analytics, ads, or remote code</span></li>
+        <li><strong>Verification stack:</strong> unit + manifest + CWS + E2E <span>repo-local verification command</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf">View on Chrome Web Store</a></li>
+        <li><a href="https://github.com/zack-dev-cm/session-rescue">View on GitHub</a></li>
+        <li><a href="https://session-rescue.pages.dev/">Product site</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/session-rescue.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Session Rescue.</p>
+      </article>
+    </main>
+  </body>
+</html>

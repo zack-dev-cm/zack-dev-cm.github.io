@@ -866,13 +866,13 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
 ];
 
 const COMMAND_NAV_ITEMS = [
-  { label: 'Companies', href: '#experience' },
-  { label: 'About', href: '#about' },
-  { label: 'Search', href: '#smart-search' },
   { label: 'Overview', href: '#intro' },
   { label: 'Work', href: '#featured' },
   { label: 'CV', href: '#computer-vision' },
   { label: 'AI', href: '#ai-systems' },
+  { label: 'Search', href: '#smart-search' },
+  { label: 'References', href: '#experience' },
+  { label: 'About', href: '#about' },
   { label: 'Papers', href: '/papers/' },
   { label: 'Explore', href: '#projects' }
 ];
@@ -1561,6 +1561,83 @@ const App: React.FC = () => {
             </a>
           </nav>
 
+          <section id="intro" className="hero">
+            <div className="hero__layout">
+              <div className="hero__copy">
+                <p className="hero__eyebrow">Computer Vision · AI Product Engineering</p>
+                <h1 className="hero__title">Zakhar Pashkin is a computer vision and AI product engineer.</h1>
+                <p className="hero__lead">
+                  I ship OCR, segmentation, detection, multimodal retrieval, model-serving APIs, VLM/LLM workflows,
+                  and launch-ready product systems with review gates and public references.
+                </p>
+                <div className="hero-route-grid" aria-label="Portfolio exploration routes">
+                  {HERO_WORK_ROUTES.map((route) => (
+                    <a key={route.href} href={route.href} className="hero-route-card">
+                      <strong>{route.label}</strong>
+                      <span>{route.value}</span>
+                      <em>{route.detail}</em>
+                    </a>
+                  ))}
+                </div>
+                <div className="hero__actions">
+                  <a href="#featured" className="button button--primary">
+                    Explore work
+                  </a>
+                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
+                    Start a project
+                  </a>
+                  <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
+                    <DownloadIcon className="h-4 w-4" />
+                    Download resume
+                  </a>
+                </div>
+              </div>
+
+              <aside className="artifact-console" aria-label="Portfolio reference summary">
+                <div className="artifact-console__header">
+                  <span>Public references</span>
+                  <strong>Dated delivery signals</strong>
+                </div>
+                <div className="artifact-console__rows">
+                  {heroSignalRows.map((row) => (
+                    <div key={row.label} className="artifact-console__row">
+                      <span>{row.label}</span>
+                      <strong>{row.value}</strong>
+                      <em>{row.detail}</em>
+                    </div>
+                  ))}
+                </div>
+                <div className="artifact-console__plots" aria-label="Portfolio signal plots">
+                  {artifactPlotRows.map((row) => (
+                    <div
+                      key={row.label}
+                      className={`artifact-plot artifact-plot--${row.tone}`}
+                      style={{ '--plot-value': `${row.percent}%` } as React.CSSProperties}
+                    >
+                      <div className="artifact-plot__label">
+                        <span>{row.label}</span>
+                        <strong>{row.value}</strong>
+                      </div>
+                      <div className="artifact-plot__track" aria-hidden="true">
+                        <span />
+                      </div>
+                      <em>{row.detail}</em>
+                    </div>
+                  ))}
+                </div>
+                <div className="artifact-console__signals" aria-label="Marketplace and Telegram signal summary">
+                  {artifactSignalRows.map((row) => (
+                    <div key={row.label} className="artifact-signal">
+                      <strong>{row.value}</strong>
+                      <span>{row.label}</span>
+                      <em>{row.detail}</em>
+                    </div>
+                  ))}
+                </div>
+              </aside>
+            </div>
+          </section>
+
           <Section
             id="experience"
             eyebrow="Selected Teams"
@@ -1706,83 +1783,6 @@ const App: React.FC = () => {
               </div>
             </form>
           </Section>
-
-          <section id="intro" className="hero">
-            <div className="hero__layout">
-              <div className="hero__copy">
-                <p className="hero__eyebrow">ML · AI Products · Computer Vision</p>
-                <h1 className="hero__title">Zakhar Pashkin builds ML, AI, and computer vision products.</h1>
-                <p className="hero__lead">
-                  Agentic OCR, segmentation, detection, multimodal retrieval, VLM/LLM workflows, custom models,
-                  and launch-ready APIs, apps, backend flows, and review gates.
-                </p>
-                <div className="hero-route-grid" aria-label="Portfolio exploration routes">
-                  {HERO_WORK_ROUTES.map((route) => (
-                    <a key={route.href} href={route.href} className="hero-route-card">
-                      <strong>{route.label}</strong>
-                      <span>{route.value}</span>
-                      <em>{route.detail}</em>
-                    </a>
-                  ))}
-                </div>
-                <div className="hero__actions">
-                  <a href="#featured" className="button button--primary">
-                    Explore work
-                  </a>
-                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
-                    Start a project
-                  </a>
-                  <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
-                    <DownloadIcon className="h-4 w-4" />
-                    Download resume
-                  </a>
-                </div>
-              </div>
-
-              <aside className="artifact-console" aria-label="Portfolio reference summary">
-                <div className="artifact-console__header">
-                  <span>Artifact map</span>
-                  <strong>Dated public signals</strong>
-                </div>
-                <div className="artifact-console__rows">
-                  {heroSignalRows.map((row) => (
-                    <div key={row.label} className="artifact-console__row">
-                      <span>{row.label}</span>
-                      <strong>{row.value}</strong>
-                      <em>{row.detail}</em>
-                    </div>
-                  ))}
-                </div>
-                <div className="artifact-console__plots" aria-label="Artifact map signal plots">
-                  {artifactPlotRows.map((row) => (
-                    <div
-                      key={row.label}
-                      className={`artifact-plot artifact-plot--${row.tone}`}
-                      style={{ '--plot-value': `${row.percent}%` } as React.CSSProperties}
-                    >
-                      <div className="artifact-plot__label">
-                        <span>{row.label}</span>
-                        <strong>{row.value}</strong>
-                      </div>
-                      <div className="artifact-plot__track" aria-hidden="true">
-                        <span />
-                      </div>
-                      <em>{row.detail}</em>
-                    </div>
-                  ))}
-                </div>
-                <div className="artifact-console__signals" aria-label="Marketplace and Telegram signal summary">
-                  {artifactSignalRows.map((row) => (
-                    <div key={row.label} className="artifact-signal">
-                      <strong>{row.value}</strong>
-                      <span>{row.label}</span>
-                      <em>{row.detail}</em>
-                    </div>
-                  ))}
-                </div>
-              </aside>
-            </div>
-          </section>
 
           <Section
             id="featured"

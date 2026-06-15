@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InQuest Project Binder RAG QA | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="InQuest Project Binder RAG QA" />
+    <meta property="og:description" content="Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="InQuest Project Binder RAG QA" />
+    <meta name="twitter:description" content="Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/#case-study",
+      "headline": "InQuest Project Binder RAG QA",
+      "name": "InQuest Project Binder RAG QA",
+      "description": "Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.",
+      "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "ai, rag, project-context, qa, vector-storage, site-planning, RAG, Vector Stores, OpenAI APIs, Project Context, Binder Workflows, PDF Generation, S3, QA Matrix, Web Search",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "rag"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "project-context"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "qa"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "vector-storage"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "site-planning"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "RAG"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Vector Stores"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "OpenAI APIs"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Project Context"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Binder Workflows"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PDF Generation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "S3"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "QA Matrix"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Web Search"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>InQuest Project Binder RAG QA</h1>
+          <p class="lede">Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>InQuest Project Binder RAG QA captures the work behind InQuest/INQI Quest operation logic. A 2026-06-04 source review covered an operation-logic matrix for project metadata, site-plan data, elevation data, Project Binder, Reference Binder, All Projects Binder, vector-store retrieval, manual attachment priority, generated-file saving, PDF export, media attachments, and web-search toggles. The public case study turns that into a product-engineering surface for QA design, context routing, binder persistence, and public-safe evaluation without exposing project files, account data, private locations, or raw generated outputs.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Defines context precedence across project metadata, site-plan objects, elevation data, and manual attachments</li>
+        <li>Tests Project Binder, Reference Binder, and All Projects Binder retrieval modes</li>
+        <li>Covers save-to-binder behavior for PDFs, generated files, and media attachment outputs</li>
+        <li>Separates public QA architecture from private client files, locations, and generated artifacts</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>RAG</li>
+        <li>Vector Stores</li>
+        <li>OpenAI APIs</li>
+        <li>Project Context</li>
+        <li>Binder Workflows</li>
+        <li>PDF Generation</li>
+        <li>S3</li>
+        <li>QA Matrix</li>
+        <li>Web Search</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>QA matrix:</strong> 20+ scenarios <span>InQuest operation-logic spreadsheet checked 2026-06-04</span></li>
+        <li><strong>Context modes:</strong> 3 binders <span>Project Binder, Reference Binder, and All Projects Binder toggles</span></li>
+        <li><strong>Site context:</strong> parcel + elevation <span>project metadata, raw site-plan objects, and elevation-data checks</span></li>
+        <li><strong>Public posture:</strong> sanitized <span>no private project files, account data, locations, or raw outputs published</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for InQuest Project Binder RAG QA.</p>
+      </article>
+    </main>
+  </body>
+</html>

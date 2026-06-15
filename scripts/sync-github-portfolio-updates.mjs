@@ -219,15 +219,20 @@ const createReview = (checkedAt, gates = REVIEW_GATES) => ({
   gates,
 });
 
-const headers = () => ({
-  accept: 'application/vnd.github+json',
-  'user-agent': 'portfolio-local-github-sync',
-  ...(process.env.DEV_CM_GITHUB_TOKEN ? { authorization: `Bearer ${process.env.DEV_CM_GITHUB_TOKEN}` } : {}),
-});
+const headers = (requestUrl) => {
+  const destination = new URL(requestUrl);
+  const canAttachToken = destination.hostname === 'api.github.com';
+  return {
+    accept: 'application/vnd.github+json',
+    'user-agent': 'portfolio-local-github-sync',
+    ...(canAttachToken && process.env.DEV_CM_GITHUB_TOKEN ? { authorization: `Bearer ${process.env.DEV_CM_GITHUB_TOKEN}` } : {}),
+  };
+};
 
 const githubJson = async (pathName, accept = 'application/vnd.github+json') => {
-  const response = await fetch(`${GITHUB_API_BASE}${pathName}`, {
-    headers: { ...headers(), accept },
+  const requestUrl = `${GITHUB_API_BASE}${pathName}`;
+  const response = await fetch(requestUrl, {
+    headers: { ...headers(requestUrl), accept },
   });
   if (!response.ok) {
     throw new Error(`GitHub API request failed with HTTP ${response.status}: ${pathName}`);

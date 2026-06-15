@@ -170,6 +170,11 @@ const lineNumberForIndex = (content, index) => {
   return line;
 };
 
+const allPatternMatches = (pattern, content) => {
+  const flags = pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`;
+  return content.matchAll(new RegExp(pattern.source, flags));
+};
+
 const run = async () => {
   const files = new Set(sourceFiles);
   if (process.env.POSITIONING_SCAN_DOCS === 'true') {
@@ -183,20 +188,21 @@ const run = async () => {
   for (const relativePath of files) {
     const content = await maybeReadFile(relativePath);
     if (content === null) continue;
+    const lines = content.split(/\r?\n/);
     for (const rule of positioningRules) {
-      const match = rule.pattern.exec(content);
-      if (!match) continue;
-      const line = lineNumberForIndex(content, match.index);
-      const lineText = content.split(/\r?\n/)[line - 1]?.trim() || match[0];
-      if (isAllowedPositioningMatch({ file: relative(rootDir, resolve(rootDir, relativePath)), rule, text: lineText })) {
-        continue;
+      for (const match of allPatternMatches(rule.pattern, content)) {
+        const line = lineNumberForIndex(content, match.index);
+        const lineText = lines[line - 1]?.trim() || match[0];
+        if (isAllowedPositioningMatch({ file: relative(rootDir, resolve(rootDir, relativePath)), rule, text: lineText })) {
+          continue;
+        }
+        failures.push({
+          file: relative(rootDir, resolve(rootDir, relativePath)),
+          line,
+          rule: rule.name,
+          text: lineText
+        });
       }
-      failures.push({
-        file: relative(rootDir, resolve(rootDir, relativePath)),
-        line,
-        rule: rule.name,
-        text: lineText
-      });
     }
   }
 

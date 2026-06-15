@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full-Face Wrinkle and Skin Texture Segmentation Lab | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Full-Face Wrinkle and Skin Texture Segmentation Lab" />
+    <meta property="og:description" content="Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Full-Face Wrinkle and Skin Texture Segmentation Lab" />
+    <meta name="twitter:description" content="Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/#case-study",
+      "headline": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
+      "name": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
+      "description": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
+      "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "computer-vision, segmentation, deep-learning, health-ai, Python, YOLO, MediaPipe, OpenCV, ONNX, Segmentation, Visual QA",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "computer-vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "segmentation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "deep-learning"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "health-ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "YOLO"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "MediaPipe"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "OpenCV"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ONNX"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Segmentation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Visual QA"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>Full-Face Wrinkle and Skin Texture Segmentation Lab</h1>
+          <p class="lede">Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment claim.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Segments cosmetic face and neck regions before wrinkle/fine-line analysis</li>
+        <li>Uses YOLO segmentation masks and skeletonized line traces instead of generic image filters</li>
+        <li>Writes reviewable overlays, region masks, per-line CSV records, timing events, and QA panels</li>
+        <li>Keeps quality gates advisory so weak detections are reviewed instead of silently shipped</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>YOLO</li>
+        <li>MediaPipe</li>
+        <li>OpenCV</li>
+        <li>ONNX</li>
+        <li>Segmentation</li>
+        <li>Visual QA</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Face regions:</strong> 9 <span>forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck</span></li>
+        <li><strong>Artifact families:</strong> 6 <span>overlays, masks, skeletons, CSV, events, QA panels</span></li>
+        <li><strong>Gate posture:</strong> advisory <span>review signal, not automatic deployment claim</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Full-Face Wrinkle and Skin Texture Segmentation Lab.</p>
+      </article>
+    </main>
+  </body>
+</html>

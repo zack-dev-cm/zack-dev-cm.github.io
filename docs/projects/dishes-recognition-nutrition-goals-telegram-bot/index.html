@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dishes Recognition &amp; Nutrition Goals Telegram Bot | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Dishes Recognition &amp; Nutrition Goals Telegram Bot" />
+    <meta property="og:description" content="Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dishes Recognition &amp; Nutrition Goals Telegram Bot" />
+    <meta name="twitter:description" content="Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/#case-study",
+      "headline": "Dishes Recognition & Nutrition Goals Telegram Bot",
+      "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
+      "description": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
+      "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "user-product",
+      "keywords": "telegram, mobile, Telegram Bot API, FastAPI, OpenAI APIs, Vision LLMs, Speech-to-Text, SQLite, Telegram Mini Apps, Admin Analytics",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "telegram"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "mobile"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Telegram Bot API"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "FastAPI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "OpenAI APIs"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Vision LLMs"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Speech-to-Text"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "SQLite"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Telegram Mini Apps"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Admin Analytics"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Try on Telegram",
+                  "url": "https://t.me/calorio_yf_bot"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">user-product</p>
+          <h1>Dishes Recognition &amp; Nutrition Goals Telegram Bot</h1>
+          <p class="lede">Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio metrics, with server identifiers and user-level support content omitted.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Vision, voice, and text meal logging in Telegram</li>
+        <li>Nutrition goal tracking with profile and diary surfaces</li>
+        <li>Telegram Mini App for profile, diary, analytics, and support entry points</li>
+        <li>Admin reports for usage, retention, model-cost, health, webhook, and support signals</li>
+        <li>Public-safe portfolio metrics that keep production identifiers and user-level details out of crawlable pages</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Telegram Bot API</li>
+        <li>FastAPI</li>
+        <li>OpenAI APIs</li>
+        <li>Vision LLMs</li>
+        <li>Speech-to-Text</li>
+        <li>SQLite</li>
+        <li>Telegram Mini Apps</li>
+        <li>Admin Analytics</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Input modes:</strong> 3 <span>photo, voice, and text flows in public product case study</span></li>
+        <li><strong>Nutrition surfaces:</strong> 2 <span>2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow</span></li>
+        <li><strong>Admin report snapshot:</strong> 2026-06-03 12:00 UTC <span>latest aggregate Calorio admin report used for public metrics; user-level identifiers omitted</span></li>
+        <li><strong>Telegram audience:</strong> 1,713 users <span>Calorio admin report 2026-06-03T12:00:00Z; aggregate count only</span></li>
+        <li><strong>Active audience:</strong> 28 daily / 109 weekly / 375 monthly active users <span>Calorio admin report 2026-06-03T12:00:00Z</span></li>
+        <li><strong>Rolling 24h logs:</strong> 77 logs / 21 loggers <span>rolling 24h diary metrics from the 2026-06-03 admin report</span></li>
+        <li><strong>New users 24h:</strong> 13 <span>+8 versus the prior 24h window in the 2026-06-03 admin report</span></li>
+        <li><strong>Mini App 24h:</strong> 8 users / 67 events <span>28.6% of daily active users; http/auth/exception errors all 0 in the 2026-06-03 admin report</span></li>
+        <li><strong>OpenAI 24h telemetry:</strong> 555,392 tokens / $1.14 <span>aggregate model-cost telemetry from the 2026-06-03 admin report</span></li>
+        <li><strong>Feedback sample:</strong> 4.94 avg / 16 ratings <span>30d satisfaction sample from the 2026-06-03 admin report; user text omitted</span></li>
+        <li><strong>Production health:</strong> 0 critical signals / 0 Mini App errors <span>critical-signal and mini-app error summary from the 2026-06-03 admin report</span></li>
+        <li><strong>Public route:</strong> Telegram <span>bot link reviewed 2026-05-15</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://t.me/calorio_yf_bot">Try on Telegram</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Dishes Recognition &amp; Nutrition Goals Telegram Bot.</p>
+      </article>
+    </main>
+  </body>
+</html>

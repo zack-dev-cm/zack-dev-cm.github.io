@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub + ClawHub Downloads Tracker | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="GitHub + ClawHub Downloads Tracker" />
+    <meta property="og:description" content="CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GitHub + ClawHub Downloads Tracker" />
+    <meta name="twitter:description" content="CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/#case-study",
+      "headline": "GitHub + ClawHub Downloads Tracker",
+      "name": "GitHub + ClawHub Downloads Tracker",
+      "description": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
+      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "open-source",
+      "keywords": "open-source, automation, analytics, Python, CLI, GitHub API, ClawHub Convex, JSON Snapshots, Markdown Reports, Open-source Analytics",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "open-source"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "automation"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "analytics"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "CLI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "GitHub API"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ClawHub Convex"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "JSON Snapshots"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Markdown Reports"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Open-source Analytics"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Open CV Repro Lab on ClawHub",
+                  "url": "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Open SOTA Agent on ClawHub",
+                  "url": "https://clawhub.ai/zack-dev-cm/sota-agent"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">open-source</p>
+          <h1>GitHub + ClawHub Downloads Tracker</h1>
+          <p class="lede">CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public metrics surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Fetches live ClawHub package stats and keeps exact download counts visible beside GitHub repo metadata</li>
+        <li>Records Chrome Web Store detail-page stats only when public user counts, ratings, and versions are visible</li>
+        <li>Stores snapshots so repeated runs can show deltas, fastest package download gains, and current pace</li>
+        <li>Ranks consolidation and positioning bets when GitHub stars and ClawHub downloads are not converting</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>CLI</li>
+        <li>GitHub API</li>
+        <li>ClawHub Convex</li>
+        <li>JSON Snapshots</li>
+        <li>Markdown Reports</li>
+        <li>Open-source Analytics</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Tracked ClawHub downloads:</strong> 20,360 <span>public ClawHub owner profile, 2026-06-15 across 53 skills</span></li>
+        <li><strong>Tracked public skills:</strong> 53 <span>53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-15</span></li>
+        <li><strong>CV Repro Lab downloads:</strong> 1,594 total <span>872 data-science-cv-repro-lab + 722 sota-agent, 2026-06-15</span></li>
+        <li><strong>Strongest skill:</strong> 872 downloads <span>data-science-cv-repro-lab public listing, 2026-06-15</span></li>
+        <li><strong>Report outputs:</strong> 3 <span>text, JSON, Markdown</span></li>
+        <li><strong>Projection horizon:</strong> 30 days <span>pace and peer-conversion upside scenarios</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab">Open CV Repro Lab on ClawHub</a></li>
+        <li><a href="https://clawhub.ai/zack-dev-cm/sota-agent">Open SOTA Agent on ClawHub</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for GitHub + ClawHub Downloads Tracker.</p>
+      </article>
+    </main>
+  </body>
+</html>

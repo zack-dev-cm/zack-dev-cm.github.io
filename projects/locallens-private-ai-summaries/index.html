@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalLens Private AI Summaries | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="LocalLens Private AI Summaries" />
+    <meta property="og:description" content="Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LocalLens Private AI Summaries" />
+    <meta name="twitter:description" content="Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/#case-study",
+      "headline": "LocalLens Private AI Summaries",
+      "name": "LocalLens Private AI Summaries",
+      "description": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+      "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "user-product",
+      "keywords": "browser-extension, web, open-source, Chrome Extension, Built-in AI, JavaScript, Privacy, Summarization, Translation",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "browser-extension"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "web"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "open-source"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Chrome Extension"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Built-in AI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "JavaScript"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Privacy"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Summarization"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Translation"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Prior Chrome Web Store route",
+                  "url": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "View on GitHub",
+                  "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Release v0.1.2",
+                  "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">user-product</p>
+          <h1>LocalLens Private AI Summaries</h1>
+          <p class="lede">Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>LocalLens packages Chrome built-in AI into a privacy-first extension workflow: summarize a page, simplify dense text, translate selected content, and clean sensitive snippets before sharing. The release emphasizes local browser execution, clear support pages, and reproducible GitHub records.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Summarizes, simplifies, translates, and rewrites selected page content through Chrome built-in AI</li>
+        <li>Keeps the primary workflow local to the browser instead of routing page text through a custom backend</li>
+        <li>Includes support, privacy, and uninstall pages for Chrome Web Store operations</li>
+        <li>Ships a public release bundle with reproducible extension source</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Chrome Extension</li>
+        <li>Built-in AI</li>
+        <li>JavaScript</li>
+        <li>Privacy</li>
+        <li>Summarization</li>
+        <li>Translation</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Public release:</strong> v0.1.8 <span>Chrome Web Store listing updated 2026-05-05</span></li>
+        <li><strong>AI workflows:</strong> 4 <span>summarize, simplify, translate, safe-share cleanup</span></li>
+        <li><strong>Runtime posture:</strong> local browser <span>Chrome built-in AI surface</span></li>
+        <li><strong>Support pages:</strong> 4 <span>home, privacy, support, uninstall</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg">Prior Chrome Web Store route</a></li>
+        <li><a href="https://github.com/zack-dev-cm/locallens-private-ai-summaries">View on GitHub</a></li>
+        <li><a href="https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2">Release v0.1.2</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/locallens/">Product page</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for LocalLens Private AI Summaries.</p>
+      </article>
+    </main>
+  </body>
+</html>

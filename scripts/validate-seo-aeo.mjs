@@ -124,8 +124,19 @@ const assertDiscovery = (label, manifest) => {
 };
 
 const assertHtml = (label, html) => {
+  const metaDescription = html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i)?.[1] || '';
+  if (/<meta\b[^>]*name=["']keywords["']/i.test(html)) {
+    fail(`${label} should not include obsolete meta keywords.`);
+  }
+  if (!metaDescription) {
+    fail(`${label} should include a meta description.`);
+  }
+  if (metaDescription.length > 170) {
+    fail(`${label} meta description should stay under 170 characters; found ${metaDescription.length}.`);
+  }
   includesAll(label, html, [
     '<link rel="canonical" href="https://zack-dev-cm.github.io/"',
+    '<meta name="robots" content="index, follow',
     `${SITE_BASE}/llms.txt`,
     `${SITE_BASE}/llms-full.txt`,
     `${SITE_BASE}/docs/agent-discovery.json`,
@@ -139,16 +150,87 @@ const assertHtml = (label, html) => {
   assertSchemaGraph(label, extractInlineJsonLd(label, html));
 };
 
+const assertSitemap = (label, xml) => {
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  if (locs.length > 25) {
+    fail(`${label} should stay focused; found ${locs.length} URLs.`);
+  }
+  const machineUrls = locs.filter((url) => /\.(?:json|jsonld|txt)$/i.test(url));
+  if (machineUrls.length) {
+    fail(`${label} should not promote machine-readable files as primary XML sitemap URLs: ${machineUrls.join(', ')}`);
+  }
+  const markdownUrls = locs.filter((url) => /\.md$/i.test(url));
+  if (markdownUrls.length) {
+    fail(`${label} should not include raw Markdown URLs as search-facing sitemap entries: ${markdownUrls.join(', ')}`);
+  }
+  const projectHtmlUrls = locs.filter((url) => /\/projects\/[^/]+\/$/i.test(url));
+  if (projectHtmlUrls.length < 10) {
+    fail(`${label} should include at least 10 curated HTML project case-study URLs, found ${projectHtmlUrls.length}.`);
+  }
+  return locs;
+};
+
+const assertProjectHtmlPages = async (label, locs, rootPrefix = '') => {
+  const projectUrls = locs.filter((url) => /\/projects\/[^/]+\/$/i.test(url));
+  for (const url of projectUrls) {
+    const slug = new URL(url).pathname.split('/').filter(Boolean).at(-1);
+    const htmlPath = `${rootPrefix}projects/${slug}/index.html`;
+    const html = await readText(htmlPath).catch(() => '');
+    if (!html) {
+      fail(`${label} references missing generated project page ${htmlPath}.`);
+      continue;
+    }
+    includesAll(htmlPath, html, [
+      `<link rel="canonical" href="${url}"`,
+      '<link rel="alternate" type="text/markdown"',
+      '<script type="application/ld+json">',
+      '<h1>'
+    ]);
+    if (/<meta\b[^>]*name=["']description["'][^>]*content=["'][^"']{171,}["']/i.test(html)) {
+      fail(`${htmlPath} has an overlong meta description.`);
+    }
+  }
+};
+
+const assertSourceOrder = async () => {
+  const app = await readText('App.tsx');
+  const introIndex = app.indexOf('id="intro"');
+  const experienceIndex = app.indexOf('id="experience"');
+  if (introIndex === -1 || experienceIndex === -1 || introIndex > experienceIndex) {
+    fail('App.tsx should render the intent-first #intro hero before #experience proof logos.');
+  }
+};
+
+const assertRobots = (label, content) => {
+  includesAll(label, content, [
+    'User-agent: Googlebot',
+    'Disallow: /projects/*.md$',
+    'Disallow: /agent-discovery.json$',
+    'Disallow: /metadata.json$',
+    'Disallow: /docs/*.json$',
+    'Disallow: /llms.txt$',
+    'Disallow: /llms-full.txt$',
+    'Disallow: /geo.txt$',
+    'Disallow: /schema.jsonld$'
+  ]);
+};
+
 const main = async () => {
   const indexHtml = await readText('index.html');
+  const robots = await readText('robots.txt');
   const llms = await readText('llms.txt');
   const llmsFull = await readText('llms-full.txt');
   const geo = await readText('geo.txt');
   const agentContext = await readText('agent-context.md');
+  const sitemap = await readText('sitemap.xml');
   const discovery = parseJson('agent-discovery.json', await readText('agent-discovery.json'));
   const schema = parseJson('schema.jsonld', await readText('schema.jsonld'));
 
+  await assertSourceOrder();
   assertHtml('index.html', indexHtml);
+  assertRobots('robots.txt', robots);
+  const sitemapLocs = assertSitemap('sitemap.xml', sitemap);
+  await assertProjectHtmlPages('sitemap.xml', sitemapLocs);
   assertDiscovery('agent-discovery.json', discovery);
   assertSchemaGraph('schema.jsonld', schema);
 
@@ -164,6 +246,13 @@ const main = async () => {
 
   if (await fileExists('docs/index.html')) {
     assertHtml('docs/index.html', await readText('docs/index.html'));
+  }
+  if (await fileExists('docs/sitemap.xml')) {
+    const docsSitemapLocs = assertSitemap('docs/sitemap.xml', await readText('docs/sitemap.xml'));
+    await assertProjectHtmlPages('docs/sitemap.xml', docsSitemapLocs, 'docs/');
+  }
+  if (await fileExists('docs/robots.txt')) {
+    assertRobots('docs/robots.txt', await readText('docs/robots.txt'));
   }
   if (await fileExists('docs/agent-discovery.json')) {
     assertDiscovery('docs/agent-discovery.json', parseJson('docs/agent-discovery.json', await readText('docs/agent-discovery.json')));

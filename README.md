@@ -44,6 +44,9 @@ PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
 
 ```bash
 npm run stats:clawhub
+npm run search-console:analyze -- path/to/search-console-export.csv
+npm run search-console:gate -- path/to/search-console-export.csv --period=2026-05-10..2026-06-06
+npm run test:search-console
 npm run security:gate
 npm run check:links
 npm run audit:codex

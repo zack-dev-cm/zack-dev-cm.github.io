@@ -256,6 +256,14 @@ const renderStatsArray = (stats) => {
   return `[\n${rendered}\n]`;
 };
 
+const replaceRequired = (source, pattern, replacement, label) => {
+  const probe = new RegExp(pattern.source, pattern.flags);
+  if (!probe.test(source)) {
+    throw new Error(`constants.ts was not updated; expected ${label} was not found.`);
+  }
+  return source.replace(pattern, replacement);
+};
+
 const updateConstantsSource = (source, stats) => {
   const totalDownloads = stats.reduce((sum, stat) => sum + stat.downloads, 0);
   const checkedAt = stats[0]?.checkedAt ?? new Date().toISOString().slice(0, 10);
@@ -264,18 +272,24 @@ const updateConstantsSource = (source, stats) => {
     totalDownloads
   )} downloads across ${stats.length} public skills on ${checkedAt}`;
 
-  let nextSource = source.replace(
+  let nextSource = replaceRequired(
+    source,
     /export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat\[] = \[[\s\S]*?\n\];/,
-    `export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = ${renderStatsArray(stats)};`
+    `export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = ${renderStatsArray(stats)};`,
+    'CLAWHUB_DOWNLOAD_STATS block'
   );
 
-  nextSource = nextSource.replace(
+  nextSource = replaceRequired(
+    nextSource,
     /\d[\d,]* tracked ClawHub downloads across \d+ public (?:packages|skills) as of \d{4}-\d{2}-\d{2}/g,
-    summary
+    summary,
+    'ClawHub public summary copy'
   );
-  nextSource = nextSource.replace(
+  nextSource = replaceRequired(
+    nextSource,
     /Updated the public ClawHub tracker to \d[\d,]* downloads across \d+ (?:packages|public skills) on \d{4}-\d{2}-\d{2}/g,
-    latestUpdateSummary
+    latestUpdateSummary,
+    'ClawHub latest-update summary copy'
   );
 
   const statBySlug = new Map(stats.map((stat) => [stat.slug, stat]));
@@ -284,22 +298,30 @@ const updateConstantsSource = (source, stats) => {
   const strongestSkill = stats[0];
   const cvReproTotal = cvReproDownloads + sotaDownloads;
 
-  nextSource = nextSource.replace(
+  nextSource = replaceRequired(
+    nextSource,
     /(\{ label: "Tracked ClawHub downloads", value: ")\d[\d,]*(", context: ")public ClawHub owner profile, \d{4}-\d{2}-\d{2} across \d+ skills(" \},)/,
-    `$1${formatInteger(totalDownloads)}$2public ClawHub owner profile, ${checkedAt} across ${stats.length} skills$3`
+    `$1${formatInteger(totalDownloads)}$2public ClawHub owner profile, ${checkedAt} across ${stats.length} skills$3`,
+    'Tracked ClawHub downloads metric row'
   );
-  nextSource = nextSource.replace(
+  nextSource = replaceRequired(
+    nextSource,
     /(\{ label: "Tracked public skills", value: ")\d+(", context: ")\d+ rows from live ClawHub publisher profile and paginated published-skill query, \d{4}-\d{2}-\d{2}(" \},)/,
-    `$1${stats.length}$2${stats.length} rows from live ClawHub publisher profile and paginated published-skill query, ${checkedAt}$3`
+    `$1${stats.length}$2${stats.length} rows from live ClawHub publisher profile and paginated published-skill query, ${checkedAt}$3`,
+    'Tracked public skills metric row'
   );
-  nextSource = nextSource.replace(
+  nextSource = replaceRequired(
+    nextSource,
     /(\{ label: "CV Repro Lab downloads", value: ")\d[\d,]* total(", context: ")\d[\d,]* data-science-cv-repro-lab \+ \d[\d,]* sota-agent, \d{4}-\d{2}-\d{2}(" \},)/,
-    `$1${formatInteger(cvReproTotal)} total$2${formatInteger(cvReproDownloads)} data-science-cv-repro-lab + ${formatInteger(sotaDownloads)} sota-agent, ${checkedAt}$3`
+    `$1${formatInteger(cvReproTotal)} total$2${formatInteger(cvReproDownloads)} data-science-cv-repro-lab + ${formatInteger(sotaDownloads)} sota-agent, ${checkedAt}$3`,
+    'CV Repro Lab downloads metric row'
   );
   if (strongestSkill) {
-    nextSource = nextSource.replace(
+    nextSource = replaceRequired(
+      nextSource,
       /(\{ label: "Strongest skill", value: ")\d[\d,]* downloads(", context: ")[^"]+ public listing, \d{4}-\d{2}-\d{2}(" \},)/,
-      `$1${formatInteger(strongestSkill.downloads)} downloads$2${strongestSkill.slug} public listing, ${checkedAt}$3`
+      `$1${formatInteger(strongestSkill.downloads)} downloads$2${strongestSkill.slug} public listing, ${checkedAt}$3`,
+      'Strongest skill metric row'
     );
   }
 

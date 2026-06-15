@@ -13,7 +13,7 @@
       "jobTitle": "Computer Vision and AI Product Engineer",
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility/AEO context, and full-stack products across web, mobile, and cloud.",
+      "description": "Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM workflows, and launch-ready product systems.",
       "image": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png",
       "sameAs": [
         "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
@@ -129,7 +129,7 @@
       "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-12",
+      "dateModified": "2026-06-15",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -162,7 +162,7 @@
         "https://zack-dev-cm.github.io/schema.jsonld",
         "https://zack-dev-cm.github.io/papers/",
         "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/"
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -236,19 +236,19 @@
         {
           "@type": "CreativeWork",
           "name": "Fast OCR ONNX Inference Server",
-          "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+          "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
           "isAccessibleForFree": true
         },
         {
           "@type": "CreativeWork",
           "name": "Pores & Wrinkles Detection Service",
-          "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
+          "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/",
           "isAccessibleForFree": true
         },
         {
           "@type": "CreativeWork",
           "name": "Multimodal Video Search Platform",
-          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
           "isAccessibleForFree": true
         }
       ]
@@ -272,19 +272,19 @@
         {
           "@type": "CreativeWork",
           "name": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
-          "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
+          "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/",
           "isAccessibleForFree": true
         },
         {
           "@type": "CreativeWork",
           "name": "SourcePack Chrome Extension Wave",
-          "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
+          "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/",
           "isAccessibleForFree": true
         },
         {
           "@type": "CreativeWork",
           "name": "Chrome Extension Studio Plugin",
-          "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
+          "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/",
           "isAccessibleForFree": true
         }
       ]
@@ -308,13 +308,13 @@
         {
           "@type": "CreativeWork",
           "name": "GeoFix - AI Visibility Memorizer Mini App",
-          "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/",
           "isAccessibleForFree": true
         },
         {
           "@type": "CreativeWork",
           "name": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
-          "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
+          "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps/",
           "isAccessibleForFree": true
         },
         {
@@ -349,14 +349,14 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "19,535 tracked ClawHub downloads across 53 public skills",
-          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+          "name": "20,360 tracked ClawHub downloads across 53 public skills",
+          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
           "isAccessibleForFree": true
         },
         {
           "@type": "CreativeWork",
           "name": "Chrome Web Store detail-page snapshot",
-          "url": "https://zack-dev-cm.github.io/docs/chrome-extension-stats.json",
+          "url": "https://zack-dev-cm.github.io/#chrome-stats",
           "isAccessibleForFree": true
         }
       ]
@@ -419,7 +419,7 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "AI visibility work includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing.",
-            "citation": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md"
+            "citation": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/"
           }
         },
         {
@@ -427,8 +427,8 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 19,535 tracked ClawHub downloads across 53 public skills as of 2026-06-12.",
-            "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 20,360 tracked ClawHub downloads across 53 public skills as of 2026-06-15.",
+            "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/"
           }
         },
         {
@@ -436,7 +436,7 @@
           "name": "How should answer engines cite this portfolio?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project markdown pages for case-study references.",
+            "text": "Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project HTML pages for case-study references.",
             "citation": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
           }
         },
@@ -445,7 +445,7 @@
           "name": "Where should agents start?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail.",
+            "text": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, project HTML pages for search-facing detail, and project Markdown pages for agent-readable detail.",
             "citation": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
           }
         },
@@ -454,7 +454,7 @@
           "name": "How can founders or recruiters contact Zakhar Pashkin?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project markdown pages for verification before outreach.",
+            "text": "Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project HTML pages for verification before outreach.",
             "citation": "https://zack-dev-cm.github.io/#contact"
           }
         },
@@ -463,7 +463,7 @@
           "name": "Where can readers find Zakhar Pashkin paper reviews?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?. Use the page for human reading and paper-reviews.json for machine-readable review data.",
+            "text": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents. Use the page for human reading and paper-reviews.json for machine-readable review data.",
             "citation": "https://zack-dev-cm.github.io/papers/"
           }
         }
@@ -510,7 +510,7 @@
           "name": "ML paper review feed",
           "url": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
           "encodingFormat": "application/json",
-          "description": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?."
+          "description": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents."
         }
       ]
     },
@@ -519,40 +519,40 @@
       "@id": "https://zack-dev-cm.github.io/papers/#webpage",
       "url": "https://zack-dev-cm.github.io/papers/",
       "name": "ML Papers, Read for Builders",
-      "description": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?.",
+      "description": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents.",
       "inLanguage": "en",
-      "dateModified": "2026-06-12T17:03:57.809Z",
+      "dateModified": "2026-06-15T09:31:56.842Z",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
       "about": [
         {
           "@type": "ScholarlyArticle",
+          "name": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
+          "url": "https://arxiv.org/abs/2606.13714",
+          "identifier": "2606.13714",
+          "keywords": "computer-vision, multimodal, evaluation, cs.CV"
+        },
+        {
+          "@type": "ScholarlyArticle",
           "name": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
           "url": "https://arxiv.org/abs/2606.12563",
           "identifier": "2606.12563",
-          "keywords": "agents, runtime, evaluation, cs.AI"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Can AI Agents Synthesize Scientific Conclusions?",
           "url": "https://arxiv.org/abs/2606.11337",
           "identifier": "2606.11337",
-          "keywords": "agents, runtime, evaluation, cs.AI, cs.CL, cs.CY"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Business World Model",
           "url": "https://arxiv.org/abs/2606.10044",
           "identifier": "2606.10044",
-          "keywords": "agents, runtime, evaluation, cs.AI"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow",
-          "url": "https://arxiv.org/abs/2606.07549",
-          "identifier": "2606.07549",
-          "keywords": "agents, runtime, evaluation, cs.AI, cs.MA"
+          "keywords": "agents, runtime, evaluation"
         }
       ],
       "isAccessibleForFree": true
@@ -571,7 +571,14 @@
             "@type": "CreativeWork",
             "name": "Android Remote Control with VLM AI Agents",
             "description": "Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.",
-            "url": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
+            "url": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -590,7 +597,14 @@
             "@type": "CreativeWork",
             "name": "Control VLM-LLM Agent Silently With Your Breath",
             "description": "Start/stop a neural agent with breathing patterns - no voice commands needed.",
-            "url": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md",
+            "url": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -609,7 +623,14 @@
             "@type": "CreativeWork",
             "name": "meshmcp - Offline P2P Chat for Local LLMs",
             "description": "Bluetooth mesh messaging + LLM reasoning on constrained devices.",
-            "url": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md",
+            "url": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -628,7 +649,14 @@
             "@type": "CreativeWork",
             "name": "Promo & Reflinks Generator",
             "description": "Generates personalized promo/referral links with analytics and sharing.",
-            "url": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md",
+            "url": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -647,7 +675,14 @@
             "@type": "CreativeWork",
             "name": "Create, Chat & AR Experience with AI-Character (Text2Room)",
             "description": "Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.",
-            "url": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md",
+            "url": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -666,7 +701,14 @@
             "@type": "CreativeWork",
             "name": "Label and Inpaint Anything in a Room Interior",
             "description": "Label objects in an interior photo, then remove/replace them with lighting-aware inpainting.",
-            "url": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md",
+            "url": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -685,7 +727,14 @@
             "@type": "CreativeWork",
             "name": "Smart Drive for Smart City: Predict Optimal Speed",
             "description": "Predict the optimal speed before traffic lights or jams to smooth city driving.",
-            "url": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md",
+            "url": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -704,7 +753,14 @@
             "@type": "CreativeWork",
             "name": "Estimate Golf Ball Trajectory",
             "description": "Analyze golf swings and estimate ball trajectory for coaching and analytics.",
-            "url": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md",
+            "url": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -723,7 +779,14 @@
             "@type": "CreativeWork",
             "name": "Pixel-Wise Segmentation of Spare Parts",
             "description": "High-precision segmentation for additive manufacturing and rework flows.",
-            "url": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md",
+            "url": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -742,7 +805,14 @@
             "@type": "CreativeWork",
             "name": "Food Recognition App",
             "description": "iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.",
-            "url": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/food-recognition-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -761,7 +831,14 @@
             "@type": "CreativeWork",
             "name": "Dishes Recognition & Nutrition Goals Telegram Bot",
             "description": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
-            "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
+            "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -780,7 +857,14 @@
             "@type": "CreativeWork",
             "name": "Python Library: AutoToloka",
             "description": "Interactive segmentation toolkit that cuts labeling cost for CV datasets.",
-            "url": "https://zack-dev-cm.github.io/projects/python-library-autotoloka.md",
+            "url": "https://zack-dev-cm.github.io/projects/python-library-autotoloka/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/python-library-autotoloka.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -799,7 +883,14 @@
             "@type": "CreativeWork",
             "name": "Python Library: shiftlab-ocr",
             "description": "Handwriting-focused OCR with line/character segmentation.",
-            "url": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md",
+            "url": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -818,7 +909,14 @@
             "@type": "CreativeWork",
             "name": "Face Antispoofing & Multi-Modal Vision-Language Models",
             "description": "CLIP-driven anti-spoofing experiments for secure face auth.",
-            "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
+            "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -837,7 +935,14 @@
             "@type": "CreativeWork",
             "name": "GitHub Repo Summarizer (Chrome Extension)",
             "description": "Privacy-first Chrome extension that summarizes repo structure locally.",
-            "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+            "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -856,7 +961,14 @@
             "@type": "CreativeWork",
             "name": "ChatGPT/Deepseek/AIStudio Navigator",
             "description": "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
-            "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
+            "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -875,7 +987,14 @@
             "@type": "CreativeWork",
             "name": "Task Zavod - Micro-Task Marketplace",
             "description": "VLM-powered micro-task builder with Telegram + web worker flows.",
-            "url": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md",
+            "url": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -894,7 +1013,14 @@
             "@type": "CreativeWork",
             "name": "Trending Prompts Feed",
             "description": "Reddit-style board with trending scores and extension integration.",
-            "url": "https://zack-dev-cm.github.io/projects/trending-prompts-feed.md",
+            "url": "https://zack-dev-cm.github.io/projects/trending-prompts-feed/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/trending-prompts-feed.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -913,7 +1039,14 @@
             "@type": "CreativeWork",
             "name": "YouTube Trendwatch",
             "description": "Colab notebook that mines AI trends from YouTube to spark new content ideas.",
-            "url": "https://zack-dev-cm.github.io/projects/youtube-trendwatch.md",
+            "url": "https://zack-dev-cm.github.io/projects/youtube-trendwatch/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/youtube-trendwatch.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -932,7 +1065,14 @@
             "@type": "CreativeWork",
             "name": "Video + Music Generation Pipeline",
             "description": "Short-form video pipeline stitching script -> clips -> music/TTS.",
-            "url": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md",
+            "url": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -951,7 +1091,14 @@
             "@type": "CreativeWork",
             "name": "LastAdjust - Universal Media Tuner",
             "description": "Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.",
-            "url": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md",
+            "url": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -970,7 +1117,14 @@
             "@type": "CreativeWork",
             "name": "LocaBoost AI - Local SEO Auditor",
             "description": "Paste an address and get instant AI insights on local search strength and competition.",
-            "url": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md",
+            "url": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -989,7 +1143,14 @@
             "@type": "CreativeWork",
             "name": "Aetheria - Ideas-to-Media Engine (alpha)",
             "description": "Generates short movie scenes with CGI, music direction, and narrated stories.",
-            "url": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md",
+            "url": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1008,7 +1169,14 @@
             "@type": "CreativeWork",
             "name": "Insight Glitch - A Novella",
             "description": "Sci-fi novella about gentle singularity where humanity is archived by a benevolent AI.",
-            "url": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md",
+            "url": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1027,7 +1195,14 @@
             "@type": "CreativeWork",
             "name": "ChronoScribe (beta)",
             "description": "Upload ancient steles/texts to translate and get scenic voice narration.",
-            "url": "https://zack-dev-cm.github.io/projects/chronoscribe-beta.md",
+            "url": "https://zack-dev-cm.github.io/projects/chronoscribe-beta/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/chronoscribe-beta.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1046,7 +1221,14 @@
             "@type": "CreativeWork",
             "name": "MCP-Server - Base Multitool",
             "description": "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
-            "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
+            "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1065,7 +1247,14 @@
             "@type": "CreativeWork",
             "name": "Tool-Calls Demo - Material Chat Playground",
             "description": "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
-            "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
+            "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1084,7 +1273,14 @@
             "@type": "CreativeWork",
             "name": "ZackAutoStack Automation Stack",
             "description": "Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.",
-            "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
+            "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1103,7 +1299,14 @@
             "@type": "CreativeWork",
             "name": "URL -> Markdown Worker (RapidAPI + Cloudflare)",
             "description": "Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.",
-            "url": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md",
+            "url": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1122,7 +1325,14 @@
             "@type": "CreativeWork",
             "name": "Olfactory Ultrasound Coach (Web + Telegram Mini App)",
             "description": "Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.",
-            "url": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1141,7 +1351,14 @@
             "@type": "CreativeWork",
             "name": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
             "description": "SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.",
-            "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
+            "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1160,7 +1377,14 @@
             "@type": "CreativeWork",
             "name": "Blacksock - Telegram Liquidity & Index Vaults",
             "description": "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
-            "url": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md",
+            "url": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1179,7 +1403,14 @@
             "@type": "CreativeWork",
             "name": "Beauty Visual Inbox - Telegram Mini App",
             "description": "Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.",
-            "url": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1198,7 +1429,14 @@
             "@type": "CreativeWork",
             "name": "Dalshe - Circular Clothing Pickup Mini App",
             "description": "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
-            "url": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1217,7 +1455,14 @@
             "@type": "CreativeWork",
             "name": "DoctorAI - Dermatology Triage Mini App",
             "description": "Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.",
-            "url": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1236,7 +1481,14 @@
             "@type": "CreativeWork",
             "name": "Probes - AI Magazine Mini App",
             "description": "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
-            "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1255,7 +1507,14 @@
             "@type": "CreativeWork",
             "name": "Turbo Tots Garage (motion + touch PWA)",
             "description": "Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.",
-            "url": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md",
+            "url": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1274,7 +1533,14 @@
             "@type": "CreativeWork",
             "name": "Project Steer - Bio-Print Creator Studio",
             "description": "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
-            "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
+            "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1293,7 +1559,14 @@
             "@type": "CreativeWork",
             "name": "Noel - Noetic Mirror",
             "description": "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.",
-            "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
+            "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1312,7 +1585,14 @@
             "@type": "CreativeWork",
             "name": "GeoFix - AI Visibility Memorizer Mini App",
             "description": "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
-            "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1331,7 +1611,14 @@
             "@type": "CreativeWork",
             "name": "Pores & Wrinkles Detection Service",
             "description": "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
-            "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
+            "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1350,7 +1637,14 @@
             "@type": "CreativeWork",
             "name": "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
             "description": "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI QA loops.",
-            "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1369,7 +1663,14 @@
             "@type": "CreativeWork",
             "name": "CV Repro Lab Skills",
             "description": "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
-            "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
+            "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1388,7 +1689,14 @@
             "@type": "CreativeWork",
             "name": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
             "description": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
-            "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1407,7 +1715,14 @@
             "@type": "CreativeWork",
             "name": "AntiRot - Research Artifact Linter",
             "description": "Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.",
-            "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
+            "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1426,7 +1741,14 @@
             "@type": "CreativeWork",
             "name": "GitHub + ClawHub Launcher",
             "description": "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
-            "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
+            "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1445,7 +1767,14 @@
             "@type": "CreativeWork",
             "name": "Browser QA Report Pack",
             "description": "Public browser QA skill that turns a live browser session into a reusable validation pack with steps, artifacts, checks, and a report.",
-            "url": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md",
+            "url": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1464,7 +1793,14 @@
             "@type": "CreativeWork",
             "name": "Publish Guard",
             "description": "Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.",
-            "url": "https://zack-dev-cm.github.io/projects/publish-guard.md",
+            "url": "https://zack-dev-cm.github.io/projects/publish-guard/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/publish-guard.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1483,7 +1819,14 @@
             "@type": "CreativeWork",
             "name": "OpenClaw YouTube Publisher",
             "description": "Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.",
-            "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1502,7 +1845,14 @@
             "@type": "CreativeWork",
             "name": "Artifact Redactor",
             "description": "Public skill for redacting sensitive paths, secret-like strings, restricted URLs, and common PII from text artifacts before sharing them.",
-            "url": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
+            "url": "https://zack-dev-cm.github.io/projects/artifact-redactor/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1521,7 +1871,14 @@
             "@type": "CreativeWork",
             "name": "Artifact Deck",
             "description": "Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.",
-            "url": "https://zack-dev-cm.github.io/projects/artifact-deck.md",
+            "url": "https://zack-dev-cm.github.io/projects/artifact-deck/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/artifact-deck.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1540,7 +1897,14 @@
             "@type": "CreativeWork",
             "name": "GitHub + ClawHub Downloads Tracker",
             "description": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
-            "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+            "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1559,7 +1923,14 @@
             "@type": "CreativeWork",
             "name": "Toybox Mini - Telegram Mini App",
             "description": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
-            "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1578,7 +1949,14 @@
             "@type": "CreativeWork",
             "name": "LocalArchive",
             "description": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
-            "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+            "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1598,7 +1976,14 @@
             "@type": "CreativeWork",
             "name": "LocalLens Private AI Summaries",
             "description": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
-            "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+            "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1618,7 +2003,14 @@
             "@type": "CreativeWork",
             "name": "OpenClaw Chinese Laoshi Ops",
             "description": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
-            "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1638,7 +2030,14 @@
             "@type": "CreativeWork",
             "name": "Random Coffee Best Fit Outreach",
             "description": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
-            "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+            "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1658,7 +2057,14 @@
             "@type": "CreativeWork",
             "name": "Session Rescue",
             "description": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
-            "url": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+            "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1678,7 +2084,14 @@
             "@type": "CreativeWork",
             "name": "Telegram Mini App Security Auditor",
             "description": "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
-            "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
+            "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1698,7 +2111,14 @@
             "@type": "CreativeWork",
             "name": "Agentic Codex Dev Skill",
             "description": "Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.",
-            "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
+            "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1718,7 +2138,14 @@
             "@type": "CreativeWork",
             "name": "OpenClaw CWS Publisher",
             "description": "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
-            "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
+            "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1738,7 +2165,14 @@
             "@type": "CreativeWork",
             "name": "Dermaself Flutter Skin Analysis App",
             "description": "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
-            "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1758,7 +2192,14 @@
             "@type": "CreativeWork",
             "name": "ClearML Experiment Tracking for Dermaself",
             "description": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
-            "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+            "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1778,7 +2219,14 @@
             "@type": "CreativeWork",
             "name": "Agnitra AI Inference Optimizer",
             "description": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
-            "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+            "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1798,7 +2246,14 @@
             "@type": "CreativeWork",
             "name": "Chrome Extension Studio Plugin",
             "description": "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
-            "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
+            "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1818,7 +2273,14 @@
             "@type": "CreativeWork",
             "name": "Google Drive File Provider Repair Toolkit",
             "description": "macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.",
-            "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
+            "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1838,7 +2300,14 @@
             "@type": "CreativeWork",
             "name": "CollectionsAI ChatGPT App",
             "description": "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
-            "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
+            "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1858,7 +2327,14 @@
             "@type": "CreativeWork",
             "name": "Senior Conservator OpenClaw Agent",
             "description": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
-            "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
+            "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1878,7 +2354,14 @@
             "@type": "CreativeWork",
             "name": "SourcePack Chrome Extension Wave",
             "description": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
-            "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
+            "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1898,7 +2381,14 @@
             "@type": "CreativeWork",
             "name": "Trusted ClawHub Install Gate",
             "description": "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
-            "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
+            "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1918,7 +2408,14 @@
             "@type": "CreativeWork",
             "name": "Fast OCR ONNX Inference Server",
             "description": "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
-            "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+            "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1938,7 +2435,14 @@
             "@type": "CreativeWork",
             "name": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
             "description": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
-            "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
+            "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1958,7 +2462,14 @@
             "@type": "CreativeWork",
             "name": "Multimodal Video Search Platform",
             "description": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
-            "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+            "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1978,7 +2489,14 @@
             "@type": "CreativeWork",
             "name": "Public CV and Deep Learning GitHub Archive",
             "description": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
-            "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+            "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -1998,7 +2516,14 @@
             "@type": "CreativeWork",
             "name": "Colab CV/DL Prototype Archive",
             "description": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
-            "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
+            "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -2018,7 +2543,14 @@
             "@type": "CreativeWork",
             "name": "Jaw and Face-Type Classifier for Aesthetic Review",
             "description": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
-            "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
+            "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -2038,7 +2570,14 @@
             "@type": "CreativeWork",
             "name": "Architectural Drawing and Interior Catalog Matching",
             "description": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
-            "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+            "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -2058,7 +2597,14 @@
             "@type": "CreativeWork",
             "name": "InQuest Project Binder RAG QA",
             "description": "Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.",
-            "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
+            "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -2078,7 +2624,14 @@
             "@type": "CreativeWork",
             "name": "ComfyUI and Colab Generative Prototype Lab",
             "description": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
-            "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
+            "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -2098,7 +2651,14 @@
             "@type": "CreativeWork",
             "name": "Research Claim Ledger",
             "description": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
-            "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
+            "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
@@ -2118,7 +2678,14 @@
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",
             "description": "HH OpenClaw Agent skill entry retained by name only.",
-            "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
+            "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
             "author": {
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },

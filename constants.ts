@@ -712,18 +712,19 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
 export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
   "publisherName": "kaisenaiko",
   "publisherUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "checkedAt": "2026-06-12",
-  "sourceName": "Chrome Web Store detail pages",
+  "checkedAt": "2026-06-15",
+  "sourceName": "Chrome Web Store detail pages and live developer dashboard",
   "sourceUrl": "https://chromewebstore.google.com/search/kaisenaiko?hl=en",
-  "totalPublished": 16,
+  "totalPublished": 18,
   "totalUsers": 253,
-  "averageUsersPerExtension": 19.5,
+  "averageUsersPerExtension": 16.9,
   "averageRating": 5,
   "ratingCount": 4,
   "notes": [
-    "Chrome Web Store publisher tracker keeps 16 current public listings for kaisenaiko; 13 known detail pages exposed visible user counts on 2026-06-12.",
-    "Chrome Web Store detail pages showed 253 explicitly reported users across 13 measured rows, 19.5 reported users per measured row, and 5.00 average rating from 4 reported ratings on 2026-06-12.",
-    "Listings without a known or visible Chrome Web Store detail-page count are omitted from row-level published data; Chrome-Stats links remain secondary metadata and are not used for current counts."
+    "Chrome Web Store publisher tracker kept 16 public listings for kaisenaiko on 2026-06-12; 13 known detail pages exposed visible user counts.",
+    "Live Chrome Web Store Developer Dashboard proof on 2026-06-15 added Reforest Radar and Autograph Radar as published-public listings, bringing the tracked published count to 18.",
+    "Chrome Web Store detail pages and dashboard proof showed 253 explicitly reported users across 15 displayed rows, 16.9 users per displayed row, and 5.00 average rating from 4 reported ratings on 2026-06-15.",
+    "New listings without a visible public user count are listed as 0 with a dashboard-proof source instead of invented estimates. Chrome-Stats links remain secondary metadata and are not used for current counts."
   ],
   "extensions": [
     {
@@ -769,6 +770,46 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "chromeStatsUrl": "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en",
       "dataIngestedAt": "2026-06-12"
+    },
+    {
+      "id": "djpopfjjomcablecmpeebmbccidcipkb",
+      "name": "Reforest Radar",
+      "description": "Fill one green square on a real forest map in your new tab.",
+      "users": 0,
+      "usersSource": "Chrome Web Store Developer Dashboard live proof; no visible public user count yet",
+      "version": "0.1.1",
+      "lastUpdated": "2026-06-15",
+      "createdAt": "2026-06-15",
+      "category": "Education",
+      "permissions": [
+        "storage"
+      ],
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/reforest-radar/djpopfjjomcablecmpeebmbccidcipkb?hl=en",
+      "productUrl": "https://getgeofix.xyz/",
+      "dataIngestedAt": "2026-06-15",
+      "rating": 0,
+      "ratingCount": 0
+    },
+    {
+      "id": "fcohhalbijjnondfpodngkdogmkijjfa",
+      "name": "Autograph Radar",
+      "description": "Check whether a verified autograph source exists for the star you are viewing.",
+      "users": 0,
+      "usersSource": "Chrome Web Store Developer Dashboard live proof; no visible public user count yet",
+      "version": "0.1.0",
+      "lastUpdated": "2026-06-15",
+      "createdAt": "2026-06-15",
+      "category": "Shopping",
+      "permissions": [
+        "activeTab",
+        "contextMenus",
+        "storage"
+      ],
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/autograph-radar/fcohhalbijjnondfpodngkdogmkijjfa?hl=en",
+      "productUrl": "https://getgeofix.xyz/",
+      "dataIngestedAt": "2026-06-15",
+      "rating": 0,
+      "ratingCount": 0
     },
     {
       "id": "dejokbjghdjlhhlddflgolheejdmbgea",

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multimodal Video Search Platform | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Multimodal Video Search Platform" />
+    <meta property="og:description" content="Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Multimodal Video Search Platform" />
+    <meta name="twitter:description" content="Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/#case-study",
+      "headline": "Multimodal Video Search Platform",
+      "name": "Multimodal Video Search Platform",
+      "description": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
+      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "computer-vision, ai, search, video, mlops, Python, FastAPI, Qdrant, Postgres, CLIP, OCR, ASR, Hybrid Search, Celery",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "computer-vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "search"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "video"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "mlops"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "FastAPI"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Qdrant"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Postgres"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "CLIP"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "OCR"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ASR"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Hybrid Search"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Celery"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>Multimodal Video Search Platform</h1>
+          <p class="lede">Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture notes.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Combines keyframe extraction, ASR/OCR, visual embeddings, transcript embeddings, object signals, and face signals</li>
+        <li>Uses dense vector retrieval and sparse search together instead of relying on a single modality</li>
+        <li>Adds quality-agent style regression checks for hybrid retrieval, ASR/OCR coverage, and recovery workflows</li>
+        <li>Uses sanitized architecture diagrams, metrics posture, and recovery notes for public review</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>Qdrant</li>
+        <li>Postgres</li>
+        <li>CLIP</li>
+        <li>OCR</li>
+        <li>ASR</li>
+        <li>Hybrid Search</li>
+        <li>Celery</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Signal lanes:</strong> 5 <span>keyframes, ASR, OCR, objects, faces</span></li>
+        <li><strong>Index types:</strong> 2 <span>dense vector and sparse retrieval</span></li>
+        <li><strong>Agent roles:</strong> 5 <span>ingestion, embedding, retrieval, quality, recovery</span></li>
+        <li><strong>Metric posture:</strong> sample benchmark <span>regression signal, not production accuracy claim</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Multimodal Video Search Platform.</p>
+      </article>
+    </main>
+  </body>
+</html>

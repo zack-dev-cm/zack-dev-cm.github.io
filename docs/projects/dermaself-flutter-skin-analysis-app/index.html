@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dermaself Flutter Skin Analysis App | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Dermaself Flutter Skin Analysis App" />
+    <meta property="og:description" content="Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dermaself Flutter Skin Analysis App" />
+    <meta name="twitter:description" content="Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens." />
+    
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/#case-study",
+      "headline": "Dermaself Flutter Skin Analysis App",
+      "name": "Dermaself Flutter Skin Analysis App",
+      "description": "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
+      "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "case-study",
+      "keywords": "mobile, computer-vision, health-ai, case-study, Flutter, Dart, Firebase, Riverpod, GoRouter, ONNX, TFLite, Mobile CV, iOS, Android",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "mobile"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "computer-vision"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "health-ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "case-study"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Flutter"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Dart"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Firebase"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Riverpod"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "GoRouter"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ONNX"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "TFLite"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Mobile CV"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "iOS"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Android"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">case-study</p>
+          <h1>Dermaself Flutter Skin Analysis App</h1>
+          <p class="lede">Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.</p>
+          
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>Dermaself is a mobile CV case study organized as a native Flutter experience for Android and iOS, with a guided path from account setup through onboarding, questionnaire intake, selfie/device photo capture, analysis results, and home navigation. The engineering signal is the mobile architecture, Firebase integration, offline model runtime, ROI gating, tile-bounded wrinkle and fine-line processing, pore detection, and promotion decisions for a camera-heavy cosmetic analysis workflow.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Structures the app into clean feature modules for auth, onboarding, questionnaire, photo capture, device capture, analysis, and home</li>
+        <li>Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points</li>
+        <li>Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim</li>
+        <li>Includes offline model runtime, ROI gating, and tile-bounded wrinkle/fine-line processing in the mobile delivery path</li>
+        <li>Keeps debug-only segmentation notes separate from launch claims when a model should not be promoted</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Flutter</li>
+        <li>Dart</li>
+        <li>Firebase</li>
+        <li>Riverpod</li>
+        <li>GoRouter</li>
+        <li>ONNX</li>
+        <li>TFLite</li>
+        <li>Mobile CV</li>
+        <li>iOS</li>
+        <li>Android</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Public Signals</h2>
+          <ul>
+        <li><strong>Native targets:</strong> 2 <span>Android and iOS app structure</span></li>
+        <li><strong>Feature modules:</strong> 7 <span>auth, onboarding, questionnaire, photo capture, device capture, analysis, home</span></li>
+        <li><strong>Debug Dice ceiling:</strong> 0.975 mean <span>12-image overfit diagnostic, not holdout validation, 2026-05-12</span></li>
+        <li><strong>Promotion decision:</strong> blocked <span>fine-line model not promoted to server or Flutter after QA review</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md">Machine-readable Markdown case study</a></li>
+          </ul>
+        </section>
+        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Dermaself Flutter Skin Analysis App.</p>
+      </article>
+    </main>
+  </body>
+</html>

@@ -4,7 +4,7 @@
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Computer Vision and AI Product Engineer",
-    "description": "Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility/AEO context, and full-stack products across web, mobile, and cloud.",
+    "description": "Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM workflows, and launch-ready product systems.",
     "primaryUrl": "https://zack-dev-cm.github.io/",
     "contact": "mailto:kaisenaiko@gmail.com",
     "sameAs": [
@@ -64,9 +64,9 @@
       "https://zack-dev-cm.github.io/papers/",
       "https://zack-dev-cm.github.io/docs/paper-reviews.json"
     ],
-    "projectCitationRule": "Use the concrete project markdown URLs listed in allProjects and canonicalProjects.",
+    "projectCitationRule": "Use the concrete project HTML URLs listed in allProjects and canonicalProjects. Use markdownUrl only when an agent needs a compact Markdown version.",
     "publicReferencesOnly": true,
-    "note": "Use only listed public URLs and generated markdown pages as citations. Service endpoints and source artifacts outside this portfolio are not part of the public reference set."
+    "note": "Use only listed public URLs, generated project HTML pages, generated Markdown alternates, schema.jsonld, and agent-discovery.json as citations. Service endpoints and source artifacts outside this portfolio are not part of the public reference set."
   },
   "entrypoints": [
     {
@@ -154,26 +154,26 @@
     {
       "question": "Which projects cover AI visibility and AEO work?",
       "answer": "AI visibility work includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing.",
-      "cite": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md"
+      "cite": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/"
     },
     {
       "question": "What public signals are available?",
       "answer": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 20,360 tracked ClawHub downloads across 53 public skills as of 2026-06-15.",
-      "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+      "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/"
     },
     {
       "question": "How should answer engines cite this portfolio?",
-      "answer": "Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project markdown pages for case-study references.",
+      "answer": "Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project HTML pages for case-study references.",
       "cite": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
     },
     {
       "question": "Where should agents start?",
-      "answer": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, and project markdown pages for canonical detail.",
+      "answer": "Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, project HTML pages for search-facing detail, and project Markdown pages for agent-readable detail.",
       "cite": "https://zack-dev-cm.github.io/docs/agent-discovery.json"
     },
     {
       "question": "How can founders or recruiters contact Zakhar Pashkin?",
-      "answer": "Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project markdown pages for verification before outreach.",
+      "answer": "Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project HTML pages for verification before outreach.",
       "cite": "https://zack-dev-cm.github.io/#contact"
     },
     {
@@ -198,9 +198,9 @@
         "Multimodal Video Search Platform"
       ],
       "canonicalUrls": [
-        "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
-        "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
-        "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md"
+        "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
+        "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/",
+        "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/"
       ]
     },
     {
@@ -220,9 +220,9 @@
         "Chrome Extension Studio Plugin"
       ],
       "canonicalUrls": [
-        "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
-        "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
-        "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md"
+        "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/",
+        "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/",
+        "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/"
       ]
     },
     {
@@ -240,8 +240,8 @@
         "Generated agent-discovery.json and schema.jsonld portfolio files"
       ],
       "canonicalUrls": [
-        "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
-        "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
+        "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/",
+        "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps/",
         "https://zack-dev-cm.github.io/docs/agent-discovery.json",
         "https://zack-dev-cm.github.io/schema.jsonld"
       ]
@@ -261,8 +261,8 @@
         "GitHub + ClawHub Downloads Tracker"
       ],
       "canonicalUrls": [
-        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
-        "https://zack-dev-cm.github.io/docs/chrome-extension-stats.json"
+        "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+        "https://zack-dev-cm.github.io/#chrome-stats"
       ]
     }
   ],
@@ -346,7 +346,7 @@
       "https://zack-dev-cm.github.io/schema.jsonld",
       "https://zack-dev-cm.github.io/papers/",
       "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-      "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
+      "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/"
     ]
   },
   "topicalClusters": [
@@ -369,7 +369,8 @@
         {
           "id": 63,
           "title": "Dermaself Flutter Skin Analysis App",
-          "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
           "summary": "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
           "kind": "case-study",
           "tags": [
@@ -422,7 +423,8 @@
         {
           "id": 80,
           "title": "ClearML Experiment Tracking for Dermaself",
-          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
           "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
           "kind": "case-study",
           "tags": [
@@ -476,7 +478,8 @@
         {
           "id": 81,
           "title": "Agnitra AI Inference Optimizer",
-          "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+          "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
           "summary": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
           "kind": "open-source",
           "tags": [
@@ -552,7 +555,8 @@
         {
           "id": 67,
           "title": "Senior Conservator OpenClaw Agent",
-          "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
+          "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
           "summary": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
           "kind": "case-study",
           "tags": [
@@ -598,7 +602,8 @@
         {
           "id": 70,
           "title": "Fast OCR ONNX Inference Server",
-          "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+          "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
           "summary": "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
           "kind": "case-study",
           "tags": [
@@ -648,7 +653,8 @@
         {
           "id": 71,
           "title": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
-          "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
+          "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
           "summary": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
           "kind": "case-study",
           "tags": [
@@ -693,7 +699,8 @@
         {
           "id": 72,
           "title": "Multimodal Video Search Platform",
-          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
           "summary": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
           "kind": "case-study",
           "tags": [
@@ -746,7 +753,8 @@
         {
           "id": 73,
           "title": "Public CV and Deep Learning GitHub Archive",
-          "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+          "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
           "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
           "kind": "research",
           "tags": [
@@ -848,7 +856,8 @@
         {
           "id": 53,
           "title": "GitHub + ClawHub Downloads Tracker",
-          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
           "kind": "open-source",
           "tags": [
@@ -916,7 +925,8 @@
         {
           "id": 54,
           "title": "Toybox Mini - Telegram Mini App",
-          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
           "summary": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
           "kind": "open-source",
           "tags": [
@@ -950,7 +960,8 @@
         {
           "id": 55,
           "title": "LocalArchive",
-          "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+          "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
           "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
           "kind": "user-product",
           "tags": [
@@ -1016,7 +1027,8 @@
         {
           "id": 56,
           "title": "LocalLens Private AI Summaries",
-          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
           "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
           "kind": "user-product",
           "tags": [
@@ -1081,7 +1093,8 @@
         {
           "id": 57,
           "title": "OpenClaw Chinese Laoshi Ops",
-          "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+          "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
           "summary": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
           "kind": "open-source",
           "tags": [
@@ -1143,7 +1156,8 @@
         {
           "id": 58,
           "title": "Random Coffee Best Fit Outreach",
-          "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+          "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
           "summary": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
           "kind": "open-source",
           "tags": [
@@ -1201,7 +1215,8 @@
         {
           "id": 59,
           "title": "Session Rescue",
-          "url": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+          "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
           "summary": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
           "kind": "user-product",
           "tags": [
@@ -1257,7 +1272,8 @@
         {
           "id": 60,
           "title": "Telegram Mini App Security Auditor",
-          "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
+          "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
           "summary": "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
           "kind": "open-source",
           "tags": [
@@ -1324,7 +1340,8 @@
         {
           "id": 53,
           "title": "GitHub + ClawHub Downloads Tracker",
-          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
           "kind": "open-source",
           "tags": [
@@ -1392,7 +1409,8 @@
         {
           "id": 54,
           "title": "Toybox Mini - Telegram Mini App",
-          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
           "summary": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
           "kind": "open-source",
           "tags": [
@@ -1426,7 +1444,8 @@
         {
           "id": 55,
           "title": "LocalArchive",
-          "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+          "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
           "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
           "kind": "user-product",
           "tags": [
@@ -1492,7 +1511,8 @@
         {
           "id": 56,
           "title": "LocalLens Private AI Summaries",
-          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
           "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
           "kind": "user-product",
           "tags": [
@@ -1557,7 +1577,8 @@
         {
           "id": 57,
           "title": "OpenClaw Chinese Laoshi Ops",
-          "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+          "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
           "summary": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
           "kind": "open-source",
           "tags": [
@@ -1619,7 +1640,8 @@
         {
           "id": 58,
           "title": "Random Coffee Best Fit Outreach",
-          "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+          "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
           "summary": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
           "kind": "open-source",
           "tags": [
@@ -1677,7 +1699,8 @@
         {
           "id": 59,
           "title": "Session Rescue",
-          "url": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+          "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
           "summary": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
           "kind": "user-product",
           "tags": [
@@ -1733,7 +1756,8 @@
         {
           "id": 60,
           "title": "Telegram Mini App Security Auditor",
-          "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
+          "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
           "summary": "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
           "kind": "open-source",
           "tags": [
@@ -1800,7 +1824,8 @@
         {
           "id": 15,
           "title": "GitHub Repo Summarizer (Chrome Extension)",
-          "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+          "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
           "summary": "Privacy-first Chrome extension that summarizes repo structure locally.",
           "kind": "user-product",
           "tags": [
@@ -1838,7 +1863,8 @@
         {
           "id": 16,
           "title": "ChatGPT/Deepseek/AIStudio Navigator",
-          "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
+          "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
           "summary": "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
           "kind": "user-product",
           "tags": [
@@ -1872,7 +1898,8 @@
         {
           "id": 53,
           "title": "GitHub + ClawHub Downloads Tracker",
-          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+          "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
           "kind": "open-source",
           "tags": [
@@ -1940,7 +1967,8 @@
         {
           "id": 54,
           "title": "Toybox Mini - Telegram Mini App",
-          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
           "summary": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
           "kind": "open-source",
           "tags": [
@@ -1974,7 +2002,8 @@
         {
           "id": 55,
           "title": "LocalArchive",
-          "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+          "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
           "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
           "kind": "user-product",
           "tags": [
@@ -2040,7 +2069,8 @@
         {
           "id": 56,
           "title": "LocalLens Private AI Summaries",
-          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
           "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
           "kind": "user-product",
           "tags": [
@@ -2105,7 +2135,8 @@
         {
           "id": 57,
           "title": "OpenClaw Chinese Laoshi Ops",
-          "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+          "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
           "summary": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
           "kind": "open-source",
           "tags": [
@@ -2167,7 +2198,8 @@
         {
           "id": 58,
           "title": "Random Coffee Best Fit Outreach",
-          "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+          "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
           "summary": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
           "kind": "open-source",
           "tags": [
@@ -2242,7 +2274,8 @@
         {
           "id": 11,
           "title": "Dishes Recognition & Nutrition Goals Telegram Bot",
-          "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
+          "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
           "summary": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
           "kind": "user-product",
           "tags": [
@@ -2337,7 +2370,8 @@
         {
           "id": 15,
           "title": "GitHub Repo Summarizer (Chrome Extension)",
-          "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+          "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
           "summary": "Privacy-first Chrome extension that summarizes repo structure locally.",
           "kind": "user-product",
           "tags": [
@@ -2375,7 +2409,8 @@
         {
           "id": 16,
           "title": "ChatGPT/Deepseek/AIStudio Navigator",
-          "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
+          "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
           "summary": "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
           "kind": "user-product",
           "tags": [
@@ -2409,7 +2444,8 @@
         {
           "id": 36,
           "title": "Probes - AI Magazine Mini App",
-          "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
           "summary": "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
           "kind": "user-product",
           "tags": [
@@ -2441,7 +2477,8 @@
         {
           "id": 54,
           "title": "Toybox Mini - Telegram Mini App",
-          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+          "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
           "summary": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
           "kind": "open-source",
           "tags": [
@@ -2475,7 +2512,8 @@
         {
           "id": 55,
           "title": "LocalArchive",
-          "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+          "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
           "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
           "kind": "user-product",
           "tags": [
@@ -2541,7 +2579,8 @@
         {
           "id": 56,
           "title": "LocalLens Private AI Summaries",
-          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+          "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
           "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
           "kind": "user-product",
           "tags": [
@@ -2606,7 +2645,8 @@
         {
           "id": 59,
           "title": "Session Rescue",
-          "url": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+          "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
           "summary": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
           "kind": "user-product",
           "tags": [
@@ -2666,7 +2706,8 @@
     {
       "id": 53,
       "title": "GitHub + ClawHub Downloads Tracker",
-      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
       "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
       "kind": "open-source",
       "tags": [
@@ -2734,7 +2775,8 @@
     {
       "id": 44,
       "title": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
       "summary": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
       "kind": "case-study",
       "tags": [],
@@ -2768,7 +2810,8 @@
     {
       "id": 43,
       "title": "CV Repro Lab Skills",
-      "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
+      "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
       "summary": "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
       "kind": "case-study",
       "tags": [],
@@ -2829,7 +2872,8 @@
     {
       "id": 40,
       "title": "GeoFix - AI Visibility Memorizer Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
       "summary": "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
       "kind": "case-study",
       "tags": [],
@@ -2879,7 +2923,8 @@
     {
       "id": 41,
       "title": "Pores & Wrinkles Detection Service",
-      "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
+      "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
       "summary": "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
       "kind": "case-study",
       "tags": [],
@@ -2923,7 +2968,8 @@
     {
       "id": 1,
       "title": "Android Remote Control with VLM AI Agents",
-      "url": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
+      "url": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md",
       "summary": "Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.",
       "kind": "case-study",
       "tags": [],
@@ -2955,7 +3001,8 @@
     {
       "id": 2,
       "title": "Control VLM-LLM Agent Silently With Your Breath",
-      "url": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md",
+      "url": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md",
       "summary": "Start/stop a neural agent with breathing patterns - no voice commands needed.",
       "kind": "case-study",
       "tags": [],
@@ -2970,7 +3017,8 @@
     {
       "id": 3,
       "title": "meshmcp - Offline P2P Chat for Local LLMs",
-      "url": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md",
+      "url": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md",
       "summary": "Bluetooth mesh messaging + LLM reasoning on constrained devices.",
       "kind": "case-study",
       "tags": [],
@@ -3013,7 +3061,8 @@
     {
       "id": 4,
       "title": "Promo & Reflinks Generator",
-      "url": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md",
+      "url": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/promo-reflinks-generator.md",
       "summary": "Generates personalized promo/referral links with analytics and sharing.",
       "kind": "case-study",
       "tags": [],
@@ -3029,7 +3078,8 @@
     {
       "id": 5,
       "title": "Create, Chat & AR Experience with AI-Character (Text2Room)",
-      "url": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md",
+      "url": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md",
       "summary": "Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.",
       "kind": "case-study",
       "tags": [],
@@ -3046,7 +3096,8 @@
     {
       "id": 6,
       "title": "Label and Inpaint Anything in a Room Interior",
-      "url": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md",
+      "url": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior.md",
       "summary": "Label objects in an interior photo, then remove/replace them with lighting-aware inpainting.",
       "kind": "case-study",
       "tags": [],
@@ -3061,7 +3112,8 @@
     {
       "id": 7,
       "title": "Smart Drive for Smart City: Predict Optimal Speed",
-      "url": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md",
+      "url": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md",
       "summary": "Predict the optimal speed before traffic lights or jams to smooth city driving.",
       "kind": "case-study",
       "tags": [],
@@ -3076,7 +3128,8 @@
     {
       "id": 8,
       "title": "Estimate Golf Ball Trajectory",
-      "url": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md",
+      "url": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory.md",
       "summary": "Analyze golf swings and estimate ball trajectory for coaching and analytics.",
       "kind": "case-study",
       "tags": [],
@@ -3091,7 +3144,8 @@
     {
       "id": 9,
       "title": "Pixel-Wise Segmentation of Spare Parts",
-      "url": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md",
+      "url": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts.md",
       "summary": "High-precision segmentation for additive manufacturing and rework flows.",
       "kind": "case-study",
       "tags": [],
@@ -3106,7 +3160,8 @@
     {
       "id": 10,
       "title": "Food Recognition App",
-      "url": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/food-recognition-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/food-recognition-app.md",
       "summary": "iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.",
       "kind": "case-study",
       "tags": [],
@@ -3129,7 +3184,8 @@
     {
       "id": 11,
       "title": "Dishes Recognition & Nutrition Goals Telegram Bot",
-      "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
+      "url": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md",
       "summary": "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
       "kind": "user-product",
       "tags": [
@@ -3224,7 +3280,8 @@
     {
       "id": 12,
       "title": "Python Library: AutoToloka",
-      "url": "https://zack-dev-cm.github.io/projects/python-library-autotoloka.md",
+      "url": "https://zack-dev-cm.github.io/projects/python-library-autotoloka/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/python-library-autotoloka.md",
       "summary": "Interactive segmentation toolkit that cuts labeling cost for CV datasets.",
       "kind": "case-study",
       "tags": [],
@@ -3245,7 +3302,8 @@
     {
       "id": 13,
       "title": "Python Library: shiftlab-ocr",
-      "url": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md",
+      "url": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr.md",
       "summary": "Handwriting-focused OCR with line/character segmentation.",
       "kind": "case-study",
       "tags": [],
@@ -3266,7 +3324,8 @@
     {
       "id": 14,
       "title": "Face Antispoofing & Multi-Modal Vision-Language Models",
-      "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
+      "url": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md",
       "summary": "CLIP-driven anti-spoofing experiments for secure face auth.",
       "kind": "case-study",
       "tags": [],
@@ -3287,7 +3346,8 @@
     {
       "id": 15,
       "title": "GitHub Repo Summarizer (Chrome Extension)",
-      "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+      "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
       "summary": "Privacy-first Chrome extension that summarizes repo structure locally.",
       "kind": "user-product",
       "tags": [
@@ -3325,7 +3385,8 @@
     {
       "id": 16,
       "title": "ChatGPT/Deepseek/AIStudio Navigator",
-      "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
+      "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md",
       "summary": "Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.",
       "kind": "user-product",
       "tags": [
@@ -3359,7 +3420,8 @@
     {
       "id": 17,
       "title": "Task Zavod - Micro-Task Marketplace",
-      "url": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md",
+      "url": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace.md",
       "summary": "VLM-powered micro-task builder with Telegram + web worker flows.",
       "kind": "case-study",
       "tags": [],
@@ -3377,7 +3439,8 @@
     {
       "id": 18,
       "title": "Trending Prompts Feed",
-      "url": "https://zack-dev-cm.github.io/projects/trending-prompts-feed.md",
+      "url": "https://zack-dev-cm.github.io/projects/trending-prompts-feed/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/trending-prompts-feed.md",
       "summary": "Reddit-style board with trending scores and extension integration.",
       "kind": "case-study",
       "tags": [],
@@ -3393,7 +3456,8 @@
     {
       "id": 19,
       "title": "YouTube Trendwatch",
-      "url": "https://zack-dev-cm.github.io/projects/youtube-trendwatch.md",
+      "url": "https://zack-dev-cm.github.io/projects/youtube-trendwatch/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/youtube-trendwatch.md",
       "summary": "Colab notebook that mines AI trends from YouTube to spark new content ideas.",
       "kind": "case-study",
       "tags": [],
@@ -3418,7 +3482,8 @@
     {
       "id": 20,
       "title": "Video + Music Generation Pipeline",
-      "url": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md",
+      "url": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md",
       "summary": "Short-form video pipeline stitching script -> clips -> music/TTS.",
       "kind": "case-study",
       "tags": [],
@@ -3439,7 +3504,8 @@
     {
       "id": 21,
       "title": "LastAdjust - Universal Media Tuner",
-      "url": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md",
+      "url": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md",
       "summary": "Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.",
       "kind": "case-study",
       "tags": [],
@@ -3455,7 +3521,8 @@
     {
       "id": 22,
       "title": "LocaBoost AI - Local SEO Auditor",
-      "url": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md",
+      "url": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md",
       "summary": "Paste an address and get instant AI insights on local search strength and competition.",
       "kind": "case-study",
       "tags": [],
@@ -3471,7 +3538,8 @@
     {
       "id": 23,
       "title": "Aetheria - Ideas-to-Media Engine (alpha)",
-      "url": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md",
+      "url": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md",
       "summary": "Generates short movie scenes with CGI, music direction, and narrated stories.",
       "kind": "case-study",
       "tags": [],
@@ -3488,7 +3556,8 @@
     {
       "id": 24,
       "title": "Insight Glitch - A Novella",
-      "url": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md",
+      "url": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md",
       "summary": "Sci-fi novella about gentle singularity where humanity is archived by a benevolent AI.",
       "kind": "case-study",
       "tags": [],
@@ -3505,7 +3574,8 @@
     {
       "id": 25,
       "title": "ChronoScribe (beta)",
-      "url": "https://zack-dev-cm.github.io/projects/chronoscribe-beta.md",
+      "url": "https://zack-dev-cm.github.io/projects/chronoscribe-beta/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/chronoscribe-beta.md",
       "summary": "Upload ancient steles/texts to translate and get scenic voice narration.",
       "kind": "case-study",
       "tags": [],
@@ -3522,7 +3592,8 @@
     {
       "id": 26,
       "title": "MCP-Server - Base Multitool",
-      "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
+      "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
       "summary": "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
       "kind": "case-study",
       "tags": [],
@@ -3539,7 +3610,8 @@
     {
       "id": 27,
       "title": "Tool-Calls Demo - Material Chat Playground",
-      "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
+      "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
       "summary": "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
       "kind": "case-study",
       "tags": [],
@@ -3556,7 +3628,8 @@
     {
       "id": 28,
       "title": "ZackAutoStack Automation Stack",
-      "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
+      "url": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md",
       "summary": "Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.",
       "kind": "case-study",
       "tags": [],
@@ -3573,7 +3646,8 @@
     {
       "id": 29,
       "title": "URL -> Markdown Worker (RapidAPI + Cloudflare)",
-      "url": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md",
+      "url": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md",
       "summary": "Edge worker that streams HTML to Markdown with a RapidAPI gateway and MCP SSE endpoint.",
       "kind": "case-study",
       "tags": [],
@@ -3589,7 +3663,8 @@
     {
       "id": 30,
       "title": "Olfactory Ultrasound Coach (Web + Telegram Mini App)",
-      "url": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md",
       "summary": "Mini app + Web Audio coach that mirrors the olfactory tFUS presets with placement guide and safety rails.",
       "kind": "case-study",
       "tags": [],
@@ -3616,7 +3691,8 @@
     {
       "id": 31,
       "title": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
-      "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
+      "url": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md",
       "summary": "SSR hub + per-app bridge pages that make Telegram mini apps crawlable, track startapp opens, and power channel discovery.",
       "kind": "case-study",
       "tags": [],
@@ -3658,7 +3734,8 @@
     {
       "id": 32,
       "title": "Blacksock - Telegram Liquidity & Index Vaults",
-      "url": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md",
+      "url": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md",
       "summary": "Telegram mini app for star-factoring, index vaults, and governance in the Telegram economy.",
       "kind": "case-study",
       "tags": [],
@@ -3683,7 +3760,8 @@
     {
       "id": 33,
       "title": "Beauty Visual Inbox - Telegram Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app.md",
       "summary": "Telegram mini app + bots for salons: publish photo batches, likes, notifications, and analytics.",
       "kind": "case-study",
       "tags": [],
@@ -3712,7 +3790,8 @@
     {
       "id": 34,
       "title": "Dalshe - Circular Clothing Pickup Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md",
       "summary": "Telegram mini app for scheduling clothing donations with courier pickup and status updates.",
       "kind": "case-study",
       "tags": [],
@@ -3742,7 +3821,8 @@
     {
       "id": 35,
       "title": "DoctorAI - Dermatology Triage Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md",
       "summary": "Telegram mini app for dermatology-first AI triage with verification guardrails and an optional therapist mode.",
       "kind": "case-study",
       "tags": [],
@@ -3790,7 +3870,8 @@
     {
       "id": 36,
       "title": "Probes - AI Magazine Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md",
       "summary": "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
       "kind": "user-product",
       "tags": [
@@ -3822,7 +3903,8 @@
     {
       "id": 37,
       "title": "Turbo Tots Garage (motion + touch PWA)",
-      "url": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md",
+      "url": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md",
       "summary": "Gentle, goofy dashboard with a turbo gauge, big arrow pads, and a glowing clock for toddlers.",
       "kind": "case-study",
       "tags": [],
@@ -3850,7 +3932,8 @@
     {
       "id": 38,
       "title": "Project Steer - Bio-Print Creator Studio",
-      "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
+      "url": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md",
       "summary": "Game-like, Cyberpunk 2077-inspired Telegram mini app + MCP connector for bio-print memory activation and creator studio generation, inspired by the Eiffel Tower LLaMA space and General Agentic Memory Via Deep Research.",
       "kind": "case-study",
       "tags": [],
@@ -3878,7 +3961,8 @@
     {
       "id": 39,
       "title": "Noel - Noetic Mirror",
-      "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
+      "url": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/noel-noetic-mirror.md",
       "summary": "Live Telegram mini app streaming a researcher/subject AI loop with Stars-powered interventions, consent gates, and real-time telemetry.",
       "kind": "case-study",
       "tags": [],
@@ -3937,7 +4021,8 @@
     {
       "id": 40,
       "title": "GeoFix - AI Visibility Memorizer Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md",
       "summary": "Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.",
       "kind": "case-study",
       "tags": [],
@@ -3987,7 +4072,8 @@
     {
       "id": 41,
       "title": "Pores & Wrinkles Detection Service",
-      "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
+      "url": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md",
       "summary": "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
       "kind": "case-study",
       "tags": [],
@@ -4029,7 +4115,8 @@
     {
       "id": 42,
       "title": "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation.md",
       "summary": "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI QA loops.",
       "kind": "case-study",
       "tags": [],
@@ -4075,7 +4162,8 @@
     {
       "id": 43,
       "title": "CV Repro Lab Skills",
-      "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
+      "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
       "summary": "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
       "kind": "case-study",
       "tags": [],
@@ -4136,7 +4224,8 @@
     {
       "id": 44,
       "title": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain.md",
       "summary": "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
       "kind": "case-study",
       "tags": [],
@@ -4170,7 +4259,8 @@
     {
       "id": 45,
       "title": "AntiRot - Research Artifact Linter",
-      "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
+      "url": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md",
       "summary": "Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.",
       "kind": "case-study",
       "tags": [],
@@ -4219,7 +4309,8 @@
     {
       "id": 46,
       "title": "GitHub + ClawHub Launcher",
-      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
+      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
       "summary": "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
       "kind": "case-study",
       "tags": [],
@@ -4281,7 +4372,8 @@
     {
       "id": 47,
       "title": "Browser QA Report Pack",
-      "url": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md",
+      "url": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md",
       "summary": "Public browser QA skill that turns a live browser session into a reusable validation pack with steps, artifacts, checks, and a report.",
       "kind": "case-study",
       "tags": [],
@@ -4343,7 +4435,8 @@
     {
       "id": 48,
       "title": "Publish Guard",
-      "url": "https://zack-dev-cm.github.io/projects/publish-guard.md",
+      "url": "https://zack-dev-cm.github.io/projects/publish-guard/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/publish-guard.md",
       "summary": "Public release-audit skill that reviews a repo, README, SKILL.md, and launch copy before GitHub or ClawHub publish.",
       "kind": "case-study",
       "tags": [],
@@ -4405,7 +4498,8 @@
     {
       "id": 49,
       "title": "OpenClaw YouTube Publisher",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher.md",
       "summary": "Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.",
       "kind": "case-study",
       "tags": [],
@@ -4469,7 +4563,8 @@
     {
       "id": 51,
       "title": "Artifact Redactor",
-      "url": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
+      "url": "https://zack-dev-cm.github.io/projects/artifact-redactor/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/artifact-redactor.md",
       "summary": "Public skill for redacting sensitive paths, secret-like strings, restricted URLs, and common PII from text artifacts before sharing them.",
       "kind": "case-study",
       "tags": [],
@@ -4532,7 +4627,8 @@
     {
       "id": 52,
       "title": "Artifact Deck",
-      "url": "https://zack-dev-cm.github.io/projects/artifact-deck.md",
+      "url": "https://zack-dev-cm.github.io/projects/artifact-deck/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/artifact-deck.md",
       "summary": "Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.",
       "kind": "case-study",
       "tags": [],
@@ -4595,7 +4691,8 @@
     {
       "id": 53,
       "title": "GitHub + ClawHub Downloads Tracker",
-      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
+      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
       "summary": "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
       "kind": "open-source",
       "tags": [
@@ -4663,7 +4760,8 @@
     {
       "id": 54,
       "title": "Toybox Mini - Telegram Mini App",
-      "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app.md",
       "summary": "Open-source toddler-first Telegram mini app with calm tap games, a parent area, anonymous score storage, and optional browser auth.",
       "kind": "open-source",
       "tags": [
@@ -4697,7 +4795,8 @@
     {
       "id": 55,
       "title": "LocalArchive",
-      "url": "https://zack-dev-cm.github.io/projects/localarchive.md",
+      "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
       "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
       "kind": "user-product",
       "tags": [
@@ -4763,7 +4862,8 @@
     {
       "id": 56,
       "title": "LocalLens Private AI Summaries",
-      "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+      "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
       "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
       "kind": "user-product",
       "tags": [
@@ -4828,7 +4928,8 @@
     {
       "id": 57,
       "title": "OpenClaw Chinese Laoshi Ops",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
       "summary": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
       "kind": "open-source",
       "tags": [
@@ -4890,7 +4991,8 @@
     {
       "id": 58,
       "title": "Random Coffee Best Fit Outreach",
-      "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+      "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
       "summary": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
       "kind": "open-source",
       "tags": [
@@ -4948,7 +5050,8 @@
     {
       "id": 59,
       "title": "Session Rescue",
-      "url": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+      "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
       "summary": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
       "kind": "user-product",
       "tags": [
@@ -5004,7 +5107,8 @@
     {
       "id": 60,
       "title": "Telegram Mini App Security Auditor",
-      "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
+      "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
       "summary": "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
       "kind": "open-source",
       "tags": [
@@ -5053,7 +5157,8 @@
     {
       "id": 61,
       "title": "Agentic Codex Dev Skill",
-      "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
+      "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
       "summary": "Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.",
       "kind": "open-source",
       "tags": [
@@ -5102,7 +5207,8 @@
     {
       "id": 62,
       "title": "OpenClaw CWS Publisher",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
       "summary": "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
       "kind": "open-source",
       "tags": [
@@ -5155,7 +5261,8 @@
     {
       "id": 63,
       "title": "Dermaself Flutter Skin Analysis App",
-      "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
       "summary": "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
       "kind": "case-study",
       "tags": [
@@ -5208,7 +5315,8 @@
     {
       "id": 80,
       "title": "ClearML Experiment Tracking for Dermaself",
-      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
       "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
       "kind": "case-study",
       "tags": [
@@ -5262,7 +5370,8 @@
     {
       "id": 81,
       "title": "Agnitra AI Inference Optimizer",
-      "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
+      "url": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md",
       "summary": "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
       "kind": "open-source",
       "tags": [
@@ -5338,7 +5447,8 @@
     {
       "id": 64,
       "title": "Chrome Extension Studio Plugin",
-      "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
+      "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
       "summary": "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
       "kind": "case-study",
       "tags": [
@@ -5382,7 +5492,8 @@
     {
       "id": 65,
       "title": "Google Drive File Provider Repair Toolkit",
-      "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
+      "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
       "summary": "macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.",
       "kind": "case-study",
       "tags": [
@@ -5426,7 +5537,8 @@
     {
       "id": 66,
       "title": "CollectionsAI ChatGPT App",
-      "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
+      "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
       "summary": "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
       "kind": "case-study",
       "tags": [
@@ -5471,7 +5583,8 @@
     {
       "id": 67,
       "title": "Senior Conservator OpenClaw Agent",
-      "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
+      "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
       "summary": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
       "kind": "case-study",
       "tags": [
@@ -5517,7 +5630,8 @@
     {
       "id": 68,
       "title": "SourcePack Chrome Extension Wave",
-      "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
+      "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
       "summary": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
       "kind": "user-product",
       "tags": [
@@ -5596,7 +5710,8 @@
     {
       "id": 69,
       "title": "Trusted ClawHub Install Gate",
-      "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
+      "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
       "summary": "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
       "kind": "case-study",
       "tags": [
@@ -5639,7 +5754,8 @@
     {
       "id": 70,
       "title": "Fast OCR ONNX Inference Server",
-      "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+      "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
       "summary": "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
       "kind": "case-study",
       "tags": [
@@ -5689,7 +5805,8 @@
     {
       "id": 71,
       "title": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
-      "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
+      "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
       "summary": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
       "kind": "case-study",
       "tags": [
@@ -5734,7 +5851,8 @@
     {
       "id": 72,
       "title": "Multimodal Video Search Platform",
-      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
       "summary": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
       "kind": "case-study",
       "tags": [
@@ -5787,7 +5905,8 @@
     {
       "id": 73,
       "title": "Public CV and Deep Learning GitHub Archive",
-      "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+      "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
       "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
       "kind": "research",
       "tags": [
@@ -5871,7 +5990,8 @@
     {
       "id": 74,
       "title": "Colab CV/DL Prototype Archive",
-      "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
+      "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
       "summary": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
       "kind": "research",
       "tags": [
@@ -5958,7 +6078,8 @@
     {
       "id": 76,
       "title": "Jaw and Face-Type Classifier for Aesthetic Review",
-      "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
+      "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
       "summary": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
       "kind": "case-study",
       "tags": [
@@ -6012,7 +6133,8 @@
     {
       "id": 77,
       "title": "Architectural Drawing and Interior Catalog Matching",
-      "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+      "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
       "summary": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
       "kind": "case-study",
       "tags": [
@@ -6074,7 +6196,8 @@
     {
       "id": 78,
       "title": "InQuest Project Binder RAG QA",
-      "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
+      "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
       "summary": "Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.",
       "kind": "case-study",
       "tags": [
@@ -6130,7 +6253,8 @@
     {
       "id": 79,
       "title": "ComfyUI and Colab Generative Prototype Lab",
-      "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
+      "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
       "summary": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
       "kind": "research",
       "tags": [
@@ -6203,7 +6327,8 @@
     {
       "id": 75,
       "title": "Research Claim Ledger",
-      "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
+      "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
       "summary": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
       "kind": "case-study",
       "tags": [
@@ -6265,7 +6390,8 @@
     {
       "id": 50,
       "title": "HH OpenClaw Agent",
-      "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
+      "url": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md",
       "summary": "HH OpenClaw Agent skill entry retained by name only.",
       "kind": "case-study",
       "tags": [],
