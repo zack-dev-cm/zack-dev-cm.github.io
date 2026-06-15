@@ -129,7 +129,7 @@
       "name": "Zakhar Pashkin | Computer Vision and AI Product Engineer",
       "description": "Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.",
       "inLanguage": "en",
-      "dateModified": "2026-06-14",
+      "dateModified": "2026-06-15",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -349,7 +349,7 @@
       "subjectOf": [
         {
           "@type": "CreativeWork",
-          "name": "20,044 tracked ClawHub downloads across 53 public skills",
+          "name": "20,360 tracked ClawHub downloads across 53 public skills",
           "url": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md",
           "isAccessibleForFree": true
         },
@@ -427,7 +427,7 @@
           "name": "What public signals are available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 20,044 tracked ClawHub downloads across 53 public skills as of 2026-06-14.",
+            "text": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 20,360 tracked ClawHub downloads across 53 public skills as of 2026-06-15.",
             "citation": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker.md"
           }
         },
@@ -463,7 +463,7 @@
           "name": "Where can readers find Zakhar Pashkin paper reviews?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?. Use the page for human reading and paper-reviews.json for machine-readable review data.",
+            "text": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents. Use the page for human reading and paper-reviews.json for machine-readable review data.",
             "citation": "https://zack-dev-cm.github.io/papers/"
           }
         }
@@ -510,7 +510,7 @@
           "name": "ML paper review feed",
           "url": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
           "encodingFormat": "application/json",
-          "description": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?."
+          "description": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents."
         }
       ]
     },
@@ -519,13 +519,20 @@
       "@id": "https://zack-dev-cm.github.io/papers/#webpage",
       "url": "https://zack-dev-cm.github.io/papers/",
       "name": "ML Papers, Read for Builders",
-      "description": "The ML Papers, Read for Builders feed has 10 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Arbor: Tree Search as a Cognition Layer for Autonomous Agents; Can AI Agents Synthesize Scientific Conclusions?.",
+      "description": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents.",
       "inLanguage": "en",
-      "dateModified": "2026-06-12T17:03:57.809Z",
+      "dateModified": "2026-06-15T09:31:56.842Z",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
       "about": [
+        {
+          "@type": "ScholarlyArticle",
+          "name": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
+          "url": "https://arxiv.org/abs/2606.13714",
+          "identifier": "2606.13714",
+          "keywords": "computer-vision, multimodal, evaluation, cs.CV"
+        },
         {
           "@type": "ScholarlyArticle",
           "name": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
@@ -545,13 +552,6 @@
           "name": "Business World Model",
           "url": "https://arxiv.org/abs/2606.10044",
           "identifier": "2606.10044",
-          "keywords": "agents, runtime, evaluation"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow",
-          "url": "https://arxiv.org/abs/2606.07549",
-          "identifier": "2606.07549",
           "keywords": "agents, runtime, evaluation"
         }
       ],

@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-06-12T17:03:57.809Z",
+  "updatedAt": "2026-06-15T09:31:56.842Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -23,7 +23,7 @@
       "id": "yannic-kilcher-cvpr",
       "label": "Yannic Kilcher / CVPR source watch",
       "status": "watch-only",
-      "checkedAt": "2026-06-14",
+      "checkedAt": "2026-06-15",
       "note": "Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.",
       "sources": [
         {
@@ -38,6 +38,72 @@
     }
   ],
   "reviews": [
+    {
+      "id": "tsa-temporal-slot-activation-for-persistent-object-centric-video-representation-2606-13714",
+      "title": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
+      "dek": "The promise is evidence routing: can representation show the visual fact that made the answer possible?",
+      "language": "en",
+      "selectedAt": "2026-06-15T09:31:56.842Z",
+      "paperUrl": "https://arxiv.org/abs/2606.13714",
+      "pdfUrl": "https://arxiv.org/pdf/2606.13714",
+      "arxivId": "2606.13714",
+      "authors": [
+        "Duc Nguyen",
+        "Sieu Tran",
+        "Hao Vo",
+        "Khoa Vo",
+        "Duy Minh Ho Nguyen",
+        "Nghi D. Q. Bui",
+        "Anh Nguyen",
+        "Long Mai",
+        "Ngan Le"
+      ],
+      "publishedAt": "Mon, 15 Jun 2026 00:00:00 -0400",
+      "updatedAt": "Mon, 15 Jun 2026 00:00:00 -0400",
+      "categories": [
+        "cs.CV"
+      ],
+      "tags": [
+        "computer-vision",
+        "multimodal",
+        "evaluation",
+        "cs.CV"
+      ],
+      "selectionScore": 220,
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "The paper is worth a builder's time because it turns representation into a mechanism a team can test: We show that this design violates a basic lifecycle requirement for persistent slots: when an object is absent or fully occluded, its slot should preserve its previous state and avoid. The weak spot to inspect: Instead, unconditional propagation creates two failure pathways: update-induced state drift, where current-frame evidence overwrites the absent.",
+      "whatItClaims": "Duc Nguyen, Sieu Tran, Hao Vo and 6 more frame TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation around this core move: We show that this design violates a basic lifecycle requirement for persistent slots: when an object is absent or fully occluded, its slot should preserve its previous state and avoid explaining unrelated visible content.",
+      "technicalHinge": "The hinge is evidence routing around representation: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.",
+      "productionAngle": "Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.",
+      "skepticism": "This is still a source-led triage note from cs.CV, not a reproduction. The abstract already hints at pressure to test: Instead, unconditional propagation creates two failure pathways: update-induced state drift, where current-frame evidence overwrites the absent object's representation, and. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "readingPath": [
+        "Start with the problem sentence: what limitation in current practice does TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation actually attack?",
+        "Find the ablation or comparison that isolates representation. If it is missing, treat the result as a hypothesis, not guidance.",
+        "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "Unsupervised video object-centric learning aims to decompose dynamic scenes into temporally persistent entity representations.",
+      "claimAtoms": [
+        "representation",
+        "temporal slot activation for persistent object",
+        "centric video representation",
+        "when",
+        "decoder-induced reconstruction interference"
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2606.13714"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2606.13714"
+        },
+        {
+          "label": "cs.CV research feed",
+          "url": "https://rss.arxiv.org/rss/cs.CV"
+        }
+      ]
+    },
     {
       "id": "arbor-tree-search-as-a-cognition-layer-for-autonomous-agents-2606-12563",
       "title": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
