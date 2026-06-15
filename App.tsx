@@ -411,6 +411,8 @@ const SMART_SEARCH_SYNONYM_GROUPS = [
   ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
   ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
   ['telegram', 'tg', 'tma', 'miniapp', 'mini-app', 'bot', 'bots', 'webapp', 'web-app'],
+  ['calorio', 'kalorio', 'nutrition', 'calorie', 'calories', 'meal', 'food', 'diet', 'macro', 'macros'],
+  ['seo', 'search engine optimization', 'geo', 'generative engine optimization', 'aeo', 'answer engine optimization', 'ai visibility', 'llms.txt', 'schema jsonld', 'json-ld', 'structured data', 'crawlable', 'agent discovery'],
   ['cv', 'computer vision', 'vision', 'opencv', 'pytorch', 'deep learning', 'model', 'models', 'inference'],
   ['moltbook', 'content', 'factory', 'generative', 'suno', 'midjourney', 'video', 'shorts', 'liveportrait'],
 ] as const;
@@ -466,6 +468,11 @@ const SEARCH_INTENT_BOOSTS: Array<{ projectIds: readonly number[]; phrases: read
     weight: 260,
   },
   {
+    projectIds: [11],
+    phrases: ['calorio', 'kalorio', 'nutrition bot', 'telegram calorie tracker', 'calorie tracker', 'meal logging', 'food diary', 'nutrition goals'],
+    weight: 420,
+  },
+  {
     projectIds: [40, 39, 38, 32, 31, 36, 35, 34, 33],
     phrases: ['telegram', 'tg', 'tma', 'mini app', 'miniapp', 'bot', 'telegram app'],
   },
@@ -510,7 +517,11 @@ const buildSemanticQueryTerms = (query: string) => {
       const normalizedEntry = normalizeSearchValue(entry);
       const entryTerms = extractSearchTerms(entry);
       if (!normalizedEntry || entryTerms.length === 0) return false;
-      return normalized.includes(normalizedEntry) || entryTerms.some((term) => baseTerms.has(term));
+      const termMatch =
+        entryTerms.length === 1
+          ? baseTerms.has(entryTerms[0])
+          : entryTerms.every((term) => baseTerms.has(term));
+      return normalized.includes(normalizedEntry) || termMatch;
     });
     if (!isGroupMatch) continue;
     group.forEach((entry) => {
@@ -579,7 +590,7 @@ const scoreTokenAgainstField = (term: string, fieldTerms: Set<string>) => {
 const scoreProjectSearch = (project: Project, query: string, boostedProjectIds: readonly number[] = []) => {
   const { normalized, terms } = buildSemanticQueryTerms(query);
   const topicBoostIndex = boostedProjectIds.indexOf(project.id);
-  const topicBoost = topicBoostIndex === -1 ? 0 : 180 - topicBoostIndex * 24;
+  const topicBoost = topicBoostIndex === -1 ? 0 : 2400 - topicBoostIndex * 120;
   const intentBoost = getSearchIntentBoost(project, normalized, terms);
   if (!normalized && topicBoost === 0 && intentBoost === 0) return 0;
 
@@ -866,19 +877,64 @@ const COMMAND_NAV_ITEMS = [
   { label: 'Explore', href: '#projects' }
 ];
 
-const QUICK_TOPIC_SEARCHES: Array<{ label: string; query: string; filter?: ProjectFilter; projectIds: readonly number[] }> = [
-  { label: 'Architecture', query: 'architectural drawing elevation catalog casework reception plan', filter: 'computer-vision', projectIds: [77, 74, 73] },
-  { label: 'Segment Anything', query: 'segmentation masks skin texture computer vision', filter: 'computer-vision', projectIds: [71, 67, 77, 74] },
-  { label: 'Agentic OCR', query: 'agentic OCR ONNX line segmentation word recognition', filter: 'computer-vision', projectIds: [70, 73, 74, 72] },
-  { label: 'Jaw / face type', query: 'jaw face type classifier aesthetic review landmarks', filter: 'computer-vision', projectIds: [76, 71, 63, 67] },
-  { label: 'Multimodal retrieval', query: 'multimodal video search retrieval embeddings OCR transcript', filter: 'computer-vision', projectIds: [72, 77, 40] },
-  { label: 'InQuest RAG', query: 'InQuest binder RAG QA project binder retrieval', filter: 'ai-systems', projectIds: [78, 66, 40] },
-  { label: 'ComfyUI', query: 'ComfyUI Colab generative prototype custom models', filter: 'ai-systems', projectIds: [79, 74] },
-  { label: 'MCP / ChatGPT apps', query: 'MCP ChatGPT app tool calling senior conservator', filter: 'ai-systems', projectIds: [66, 78, 40] },
-  { label: 'ClearML / MLOps', query: 'ClearML Dermaself experiment tracking MLOps metrics promotion gates', filter: 'computer-vision', projectIds: [80, 63] },
-  { label: 'LLM inference', query: 'Agnitra AI LLM inference optimizer quantization HuggingFace signed manifest', filter: 'ai-systems', projectIds: [81] },
-  { label: 'VLM / LLM agents', query: 'VLM LLM agents multimodal automation human review', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
+const QUICK_TOPIC_LIMIT = 8;
+
+const QUICK_TOPIC_SEARCHES: Array<{
+  label: string;
+  query: string;
+  keywords: string;
+  filter?: ProjectFilter;
+  projectIds: readonly number[];
+  defaultVisible?: boolean;
+}> = [
+  { label: 'Architecture', query: 'architectural drawing catalog matching', keywords: 'elevation casework reception plan interior room matching', filter: 'computer-vision', projectIds: [77, 74, 73], defaultVisible: true },
+  { label: 'Segment Anything', query: 'segment anything skin texture', keywords: 'segmentation masks wrinkle pores computer vision', filter: 'computer-vision', projectIds: [71, 67, 77, 74], defaultVisible: true },
+  { label: 'Agentic OCR', query: 'agentic ocr onnx inference', keywords: 'line segmentation word recognition fast OCR document API', filter: 'computer-vision', projectIds: [70, 73, 74, 72], defaultVisible: true },
+  { label: 'Jaw / face type', query: 'jaw face type classifier', keywords: 'aesthetic review landmarks plastic surgery face morphology', filter: 'computer-vision', projectIds: [76, 71, 63, 67], defaultVisible: true },
+  { label: 'Multimodal retrieval', query: 'multimodal video search', keywords: 'retrieval embeddings OCR transcript keyframes ASR hybrid search', filter: 'computer-vision', projectIds: [72, 77, 40], defaultVisible: true },
+  { label: 'InQuest RAG', query: 'inquest rag project binder', keywords: 'binder QA vector storage project reference retrieval', filter: 'ai-systems', projectIds: [78, 66, 40], defaultVisible: true },
+  { label: 'ComfyUI', query: 'comfyui colab custom model', keywords: 'generative prototype custom models workflows notebooks', filter: 'ai-systems', projectIds: [79, 74], defaultVisible: true },
+  { label: 'Calorio', query: 'calorio nutrition telegram bot', keywords: 'food calorie tracker meal diary active users mini app', filter: 'telegram', projectIds: [11], defaultVisible: true },
+  { label: 'MCP / ChatGPT apps', query: 'mcp chatgpt conservation app', keywords: 'tool calling senior conservator widgets agents', filter: 'ai-systems', projectIds: [66, 78, 40] },
+  { label: 'ClearML / MLOps', query: 'clearml dermaself mlops', keywords: 'experiment tracking metrics promotion gates', filter: 'computer-vision', projectIds: [80, 63] },
+  { label: 'LLM inference', query: 'agnitra llm inference optimizer', keywords: 'decoder-only quantization HuggingFace signed manifest torchao', filter: 'ai-systems', projectIds: [81] },
+  { label: 'VLM / LLM agents', query: 'llm vlm agents human review', keywords: 'multimodal automation workflows gates', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
 ];
+
+const getQuickTopicSearchText = (topic: (typeof QUICK_TOPIC_SEARCHES)[number]) =>
+  normalizeSearchValue(`${topic.label} ${topic.query} ${topic.keywords}`);
+
+const getVisibleQuickTopics = (query: string) => {
+  const normalized = normalizeSearchValue(query);
+  const terms = extractSearchTerms(query);
+  if (!normalized || terms.length === 0) {
+    return QUICK_TOPIC_SEARCHES.filter((topic) => topic.defaultVisible).slice(0, QUICK_TOPIC_LIMIT);
+  }
+
+  return QUICK_TOPIC_SEARCHES.map((topic, index) => {
+    const topicText = getQuickTopicSearchText(topic);
+    const topicTerms = new Set(extractSearchTerms(topicText));
+    let score = topicText.includes(normalized) ? 80 : 0;
+    terms.forEach((term) => {
+      if (topicTerms.has(term)) {
+        score += 14;
+        return;
+      }
+      for (const topicTerm of topicTerms) {
+        if (topicTerm.length >= 4 && (topicTerm.startsWith(term) || term.startsWith(topicTerm))) {
+          score += 6;
+          return;
+        }
+      }
+    });
+    if (score > 0 && topic.defaultVisible) score += 1;
+    return { topic, index, score };
+  })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .slice(0, QUICK_TOPIC_LIMIT)
+    .map((item) => item.topic);
+};
 
 const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -887,6 +943,7 @@ const App: React.FC = () => {
   const [expandedLatestSlugs, setExpandedLatestSlugs] = useState<string[]>([]);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [projectQuery, setProjectQuery] = useState('');
+  const [isSmartSearchFocused, setIsSmartSearchFocused] = useState(false);
   const [smartSearchBoostIds, setSmartSearchBoostIds] = useState<readonly number[]>([]);
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
@@ -1425,6 +1482,8 @@ const App: React.FC = () => {
   const activeProjectFilterLabel = useMemo(() => {
     return projectFilterOptions.find((filter) => filter.value === projectFilter)?.label || 'All projects';
   }, [projectFilter, projectFilterOptions]);
+  const visibleQuickTopics = useMemo(() => getVisibleQuickTopics(projectQuery), [projectQuery]);
+  const showQuickTopics = visibleQuickTopics.length > 0 && (!projectQuery.trim() || isSmartSearchFocused);
 
   const scrollToProjectExplorer = useCallback(() => {
     window.requestAnimationFrame(() => {
@@ -1435,16 +1494,19 @@ const App: React.FC = () => {
   const handleProjectQueryChange = useCallback((query: string) => {
     setProjectQuery(query);
     setSmartSearchBoostIds([]);
+    setIsSmartSearchFocused(true);
   }, []);
 
   const runSmartSearch = useCallback(
     (query: string, filter: ProjectFilter = 'all', projectIds: readonly number[] = []) => {
-      setProjectQuery(query);
+      const cleanedQuery = query.trim();
+      setProjectQuery(cleanedQuery);
       setSmartSearchBoostIds(projectIds);
       setProjectFilter(filter);
       setBenchmarkedOnly(false);
       setProjectSort('impact');
       setShowAllProjects(true);
+      setIsSmartSearchFocused(false);
       scrollToProjectExplorer();
     },
     [scrollToProjectExplorer]
@@ -1612,6 +1674,7 @@ const App: React.FC = () => {
                   type="search"
                   value={projectQuery}
                   onChange={(event) => handleProjectQueryChange(event.target.value)}
+                  onFocus={() => setIsSmartSearchFocused(true)}
                   placeholder="Try architectural drawings, Segment Anything, agentic OCR, jaw classifier, InQuest RAG..."
                   className="smart-search-field__input"
                   aria-controls="projects"
@@ -1620,17 +1683,26 @@ const App: React.FC = () => {
                   Search
                 </button>
               </div>
-              <div className="quick-topic-row" aria-label="Quick topic searches">
-                {QUICK_TOPIC_SEARCHES.map((topic) => (
-                  <button
-                    key={topic.label}
-                    type="button"
-                    className="quick-topic"
-                    onClick={() => runSmartSearch(topic.query, topic.filter, topic.projectIds)}
-                  >
-                    {topic.label}
-                  </button>
-                ))}
+              <div
+                className={`quick-topic-panel${showQuickTopics ? ' is-visible' : ''}`}
+                aria-hidden={!showQuickTopics}
+              >
+                <div className="quick-topic-row" aria-label="Quick topic searches">
+                  {visibleQuickTopics.map((topic) => {
+                    const isActiveTopic = normalizeSearchValue(projectQuery) === normalizeSearchValue(topic.query);
+                    return (
+                      <button
+                        key={topic.label}
+                        type="button"
+                        className={`quick-topic${isActiveTopic ? ' is-active' : ''}`}
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => runSmartSearch(topic.query, topic.filter, topic.projectIds)}
+                      >
+                        {topic.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </form>
           </Section>

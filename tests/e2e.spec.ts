@@ -278,9 +278,19 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
   const explorer = page.locator('#projects');
   const explorerSearch = page.getByLabel('Search projects');
   const firstProjectCard = page.getByTestId('project-card').first();
+  const searchInput = smartSearch.locator('#portfolio-smart-search');
+  const topicPanel = smartSearch.locator('.quick-topic-panel');
 
   await expect(page.locator('input[type="search"]')).toHaveCount(1);
   await expect(explorer.locator('input[type="search"]')).toHaveCount(0);
+  await expect(topicPanel).toHaveClass(/is-visible/);
+  await expect(topicPanel.getByRole('button')).toHaveCount(8);
+
+  await searchInput.fill('zzzzq qqqqx');
+  await expect(topicPanel).not.toHaveClass(/is-visible/);
+  await searchInput.fill('');
+  await searchInput.focus();
+  await expect(topicPanel).toHaveClass(/is-visible/);
 
   const expectFirstProject = async (title: string | RegExp) => {
     await expect(explorer.locator('.empty-state')).toHaveCount(0);
@@ -291,65 +301,79 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
   const quickTopics = [
     {
       label: 'Architecture',
-      query: 'architectural drawing elevation catalog casework reception plan',
+      query: 'architectural drawing catalog matching',
       expected: 'Architectural Drawing and Interior Catalog Matching',
     },
     {
       label: 'Segment Anything',
-      query: 'segmentation masks skin texture computer vision',
+      query: 'segment anything skin texture',
       expected: 'Full-Face Wrinkle and Skin Texture Segmentation Lab',
     },
     {
       label: 'Agentic OCR',
-      query: 'agentic OCR ONNX line segmentation word recognition',
+      query: 'agentic ocr onnx inference',
       expected: 'Fast OCR ONNX Inference Server',
     },
     {
       label: 'Jaw / face type',
-      query: 'jaw face type classifier aesthetic review landmarks',
+      query: 'jaw face type classifier',
       expected: 'Jaw and Face-Type Classifier for Aesthetic Review',
     },
     {
       label: 'Multimodal retrieval',
-      query: 'multimodal video search retrieval embeddings OCR transcript',
+      query: 'multimodal video search',
       expected: 'Multimodal Video Search Platform',
     },
     {
       label: 'InQuest RAG',
-      query: 'InQuest binder RAG QA project binder retrieval',
+      query: 'inquest rag project binder',
       expected: 'InQuest Project Binder RAG QA',
     },
     {
       label: 'ComfyUI',
-      query: 'ComfyUI Colab generative prototype custom models',
+      query: 'comfyui colab custom model',
       expected: 'ComfyUI and Colab Generative Prototype Lab',
     },
     {
-      label: 'MCP / ChatGPT apps',
-      query: 'MCP ChatGPT app tool calling senior conservator',
-      expected: 'CollectionsAI ChatGPT App',
-    },
-    {
-      label: 'ClearML / MLOps',
-      query: 'ClearML Dermaself experiment tracking MLOps metrics promotion gates',
-      expected: 'ClearML Experiment Tracking for Dermaself',
-    },
-    {
-      label: 'LLM inference',
-      query: 'Agnitra AI LLM inference optimizer quantization HuggingFace signed manifest',
-      expected: 'Agnitra AI Inference Optimizer',
-    },
-    {
-      label: 'VLM / LLM agents',
-      query: 'VLM LLM agents multimodal automation human review',
-      expected: 'CollectionsAI ChatGPT App',
+      label: 'Calorio',
+      query: 'calorio nutrition telegram bot',
+      expected: 'Dishes Recognition & Nutrition Goals Telegram Bot',
     },
   ];
 
   for (const topic of quickTopics) {
     await smartSearch.scrollIntoViewIfNeeded();
+    await searchInput.fill('');
+    await searchInput.focus();
+    await expect(topicPanel).toHaveClass(/is-visible/);
     await smartSearch.getByRole('button', { name: topic.label, exact: true }).click();
     await expect(explorerSearch).toHaveValue(topic.query);
+    await expect(topicPanel).not.toHaveClass(/is-visible/);
+    await expectFirstProject(topic.expected);
+  }
+
+  const filteredTopics = [
+    {
+      trigger: 'clearml',
+      label: 'ClearML / MLOps',
+      query: 'clearml dermaself mlops',
+      expected: 'ClearML Experiment Tracking for Dermaself',
+    },
+    {
+      trigger: 'agnitra',
+      label: 'LLM inference',
+      query: 'agnitra llm inference optimizer',
+      expected: 'Agnitra AI Inference Optimizer',
+    },
+  ];
+
+  for (const topic of filteredTopics) {
+    await smartSearch.scrollIntoViewIfNeeded();
+    await searchInput.fill(topic.trigger);
+    await expect(topicPanel).toHaveClass(/is-visible/);
+    await smartSearch.getByRole('button', { name: topic.label, exact: true }).click();
+    await expect(explorerSearch).toHaveValue(topic.query);
+    await expect(topicPanel).not.toHaveClass(/is-visible/);
     await expectFirstProject(topic.expected);
   }
 
@@ -377,6 +401,10 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     {
       query: 'chrome built in ai summaries',
       expected: 'LocalLens Private AI Summaries',
+    },
+    {
+      query: 'calorio tg users nutrition telegram bot',
+      expected: 'Dishes Recognition & Nutrition Goals Telegram Bot',
     },
   ];
 
