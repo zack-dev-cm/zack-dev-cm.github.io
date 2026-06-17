@@ -6,7 +6,7 @@ Entity: Zakhar Pashkin
 Role: Computer Vision and AI Product Engineer
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
-Last updated: 2026-06-15
+Last updated: 2026-06-17
 Entity keywords: Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Model Serving, Custom AI Models, VLM/LLM Workflows, AI Agents, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Evaluation Gates, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD
 
 Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, segmentation, detection, FastAPI services, review gates, product launch workflows, and MLOps delivery on GCP/AWS.

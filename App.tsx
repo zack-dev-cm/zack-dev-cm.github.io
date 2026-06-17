@@ -11,7 +11,6 @@ import {
   COMPANIES,
   OPEN_SOURCE_CONTRIBUTIONS,
   LATEST_UPDATES,
-  KEY_HIGHLIGHTS,
   SOCIAL_LINKS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
   LATEST_UPDATE_EXCLUDE_PATTERNS,
@@ -887,18 +886,19 @@ const QUICK_TOPIC_SEARCHES: Array<{
   projectIds: readonly number[];
   defaultVisible?: boolean;
 }> = [
-  { label: 'Architecture', query: 'architectural drawing catalog matching', keywords: 'elevation casework reception plan interior room matching', filter: 'computer-vision', projectIds: [77, 74, 73], defaultVisible: true },
-  { label: 'Segment Anything', query: 'segment anything skin texture', keywords: 'segmentation masks wrinkle pores computer vision', filter: 'computer-vision', projectIds: [71, 67, 77, 74], defaultVisible: true },
-  { label: 'Agentic OCR', query: 'agentic ocr onnx inference', keywords: 'line segmentation word recognition fast OCR document API', filter: 'computer-vision', projectIds: [70, 73, 74, 72], defaultVisible: true },
-  { label: 'Jaw / face type', query: 'jaw face type classifier', keywords: 'aesthetic review landmarks plastic surgery face morphology', filter: 'computer-vision', projectIds: [76, 71, 63, 67], defaultVisible: true },
-  { label: 'Multimodal retrieval', query: 'multimodal video search', keywords: 'retrieval embeddings OCR transcript keyframes ASR hybrid search', filter: 'computer-vision', projectIds: [72, 77, 40], defaultVisible: true },
-  { label: 'InQuest RAG', query: 'inquest rag project binder', keywords: 'binder QA vector storage project reference retrieval', filter: 'ai-systems', projectIds: [78, 66, 40], defaultVisible: true },
-  { label: 'ComfyUI', query: 'comfyui colab custom model', keywords: 'generative prototype custom models workflows notebooks', filter: 'ai-systems', projectIds: [79, 74], defaultVisible: true },
-  { label: 'Calorio', query: 'calorio nutrition telegram bot', keywords: 'food calorie tracker meal diary active users mini app', filter: 'telegram', projectIds: [11], defaultVisible: true },
-  { label: 'MCP / ChatGPT apps', query: 'mcp chatgpt conservation app', keywords: 'tool calling senior conservator widgets agents', filter: 'ai-systems', projectIds: [66, 78, 40] },
-  { label: 'ClearML / MLOps', query: 'clearml dermaself mlops', keywords: 'experiment tracking metrics promotion gates', filter: 'computer-vision', projectIds: [80, 63] },
-  { label: 'LLM inference', query: 'agnitra llm inference optimizer', keywords: 'decoder-only quantization HuggingFace signed manifest torchao', filter: 'ai-systems', projectIds: [81] },
-  { label: 'VLM / LLM agents', query: 'llm vlm agents human review', keywords: 'multimodal automation workflows gates', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40] }
+  { label: 'OCR serving', query: 'ocr onnx inference api', keywords: 'line segmentation word recognition FastAPI CRNN document API production ML', filter: 'computer-vision', projectIds: [70, 73, 72], defaultVisible: true },
+  { label: 'Edge inference', query: 'edge ai mobile inference', keywords: 'ONNX TFLite CoreML CPU OCR on-device computer vision quantization', filter: 'computer-vision', projectIds: [70, 63, 80], defaultVisible: true },
+  { label: 'Segmentation systems', query: 'skin texture segmentation computer vision', keywords: 'Segment Anything YOLO masks wrinkles pores ROI production CV', filter: 'computer-vision', projectIds: [71, 67, 77, 74], defaultVisible: true },
+  { label: 'Video retrieval', query: 'multimodal video search', keywords: 'retrieval embeddings OCR transcript keyframes ASR hybrid search CLIP', filter: 'computer-vision', projectIds: [72, 77, 40], defaultVisible: true },
+  { label: 'ML/MLOps delivery', query: 'clearml dermaself mlops', keywords: 'experiment tracking metrics promotion gates model versioning monitoring', filter: 'computer-vision', projectIds: [80, 63], defaultVisible: true },
+  { label: 'LLM inference', query: 'agnitra llm inference optimizer', keywords: 'decoder-only quantization HuggingFace signed manifest torchao serving optimization', filter: 'ai-systems', projectIds: [81], defaultVisible: true },
+  { label: 'VLM/LLM workflows', query: 'llm vlm agents human review', keywords: 'multimodal automation workflows gates tool calling review loops', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40], defaultVisible: true },
+  { label: 'Architecture CV', query: 'architectural drawing catalog matching', keywords: 'elevation casework reception plan interior room matching computer vision', filter: 'computer-vision', projectIds: [77, 74, 73], defaultVisible: true },
+  { label: 'Jaw classifier', query: 'jaw face type classifier', keywords: 'aesthetic review landmarks plastic surgery face morphology', filter: 'computer-vision', projectIds: [76, 71, 63, 67] },
+  { label: 'InQuest RAG', query: 'inquest rag project binder', keywords: 'binder QA vector storage project reference retrieval', filter: 'ai-systems', projectIds: [78, 66, 40] },
+  { label: 'ComfyUI lab', query: 'comfyui colab custom model', keywords: 'generative prototype custom models workflows notebooks', filter: 'ai-systems', projectIds: [79, 74] },
+  { label: 'MCP apps', query: 'mcp chatgpt conservation app', keywords: 'tool calling senior conservator widgets agents', filter: 'ai-systems', projectIds: [66, 78, 40] },
+  { label: 'Calorio', query: 'calorio nutrition telegram bot', keywords: 'food calorie tracker meal diary active users mini app', filter: 'telegram', projectIds: [11] }
 ];
 
 const getQuickTopicSearchText = (topic: (typeof QUICK_TOPIC_SEARCHES)[number]) =>
@@ -1697,31 +1697,59 @@ const App: React.FC = () => {
             id="about"
             eyebrow="Positioning"
             title="About Me"
-            description="What clients get when they hire me and how I frame the work."
+            description="How I build ML systems that make it into production."
           >
             <div className="about-grid">
               <article className="panel">
-                <p className="panel__eyebrow">Built for delivery</p>
-                <h3>Built for delivery, not demos</h3>
+                <p className="panel__eyebrow">Production ML, not demos</p>
+                <h3>Models that become reliable services</h3>
                 <p>
-                  I work across AI automation, applied computer vision, mini apps, and full-stack AI
-                  delivery. The common thread is not a single framework. It is getting from prototype to
-                  production without hiding the hard parts.
+                  I design and ship custom deep learning systems across computer vision,
+                  multimodal AI, model serving, and production ML infrastructure.
                 </p>
                 <p>
-                  That means human review points where they matter, measurable outputs, and systems that can
-                  live beside legacy software instead of demanding a complete rewrite.
+                  My focus is the hard part after the prototype: turning models into reliable
+                  services, optimizing inference for server and edge environments, building
+                  deployment pipelines, and making systems observable, testable, and maintainable.
+                </p>
+              </article>
+
+              <article className="panel">
+                <p className="panel__eyebrow">Real constraints</p>
+                <h3>Deep learning systems for bounded environments</h3>
+                <p>
+                  7+ years building computer vision and ML products across OCR, segmentation,
+                  detection, classification, edge inference, VLM/LLM workflows, model APIs,
+                  and production data pipelines.
+                </p>
+                <p>
+                  I work on both cloud/server deployments and on-device optimization: latency,
+                  memory, batching, quantization, model packaging, hardware constraints,
+                  monitoring, rollback paths, and release safety.
                 </p>
               </article>
 
               <article className="panel panel--accent">
-                <p className="panel__eyebrow">Signal over noise</p>
-                <h3>What you can evaluate quickly</h3>
-                <ul className="bullet-list">
-                  {KEY_HIGHLIGHTS.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
+                <p className="panel__eyebrow">ML architecture and MLOps</p>
+                <h3>Services that fit real software systems</h3>
+                <p>
+                  I architect ML services with APIs, workers, queues, storage, evaluation loops,
+                  CI/CD, model versioning, data validation, and human review where needed.
+                </p>
+                <p>
+                  The delivery target is not a notebook handoff; it is a system a product team
+                  can deploy, inspect, roll back, and keep improving.
+                </p>
+              </article>
+
+              <article className="panel panel--accent">
+                <p className="panel__eyebrow">Computer vision that ships</p>
+                <h3>Measurable outputs over model theater</h3>
+                <p>
+                  From custom DL models to deployed inference systems, I focus on measurable
+                  outputs: better accuracy, faster inference, reliable deployments, and ML
+                  workflows that teams can actually operate.
+                </p>
               </article>
             </div>
 
@@ -1752,7 +1780,7 @@ const App: React.FC = () => {
                   value={projectQuery}
                   onChange={(event) => handleProjectQueryChange(event.target.value)}
                   onFocus={() => setIsSmartSearchFocused(true)}
-                  placeholder="Try architectural drawings, Segment Anything, agentic OCR, jaw classifier, InQuest RAG..."
+                  placeholder="Search OCR serving, edge inference, segmentation, video retrieval, MLOps..."
                   className="smart-search-field__input"
                   aria-controls="projects"
                 />

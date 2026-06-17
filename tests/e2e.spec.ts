@@ -405,44 +405,44 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
 
   const quickTopics = [
     {
-      label: 'Architecture',
-      query: 'architectural drawing catalog matching',
-      expected: 'Architectural Drawing and Interior Catalog Matching',
-    },
-    {
-      label: 'Segment Anything',
-      query: 'segment anything skin texture',
-      expected: 'Full-Face Wrinkle and Skin Texture Segmentation Lab',
-    },
-    {
-      label: 'Agentic OCR',
-      query: 'agentic ocr onnx inference',
+      label: 'OCR serving',
+      query: 'ocr onnx inference api',
       expected: 'Fast OCR ONNX Inference Server',
     },
     {
-      label: 'Jaw / face type',
-      query: 'jaw face type classifier',
-      expected: 'Jaw and Face-Type Classifier for Aesthetic Review',
+      label: 'Edge inference',
+      query: 'edge ai mobile inference',
+      expected: 'Fast OCR ONNX Inference Server',
     },
     {
-      label: 'Multimodal retrieval',
+      label: 'Segmentation systems',
+      query: 'skin texture segmentation computer vision',
+      expected: 'Full-Face Wrinkle and Skin Texture Segmentation Lab',
+    },
+    {
+      label: 'Video retrieval',
       query: 'multimodal video search',
       expected: 'Multimodal Video Search Platform',
     },
     {
-      label: 'InQuest RAG',
-      query: 'inquest rag project binder',
-      expected: 'InQuest Project Binder RAG QA',
+      label: 'ML/MLOps delivery',
+      query: 'clearml dermaself mlops',
+      expected: 'ClearML Experiment Tracking for Dermaself',
     },
     {
-      label: 'ComfyUI',
-      query: 'comfyui colab custom model',
-      expected: 'ComfyUI and Colab Generative Prototype Lab',
+      label: 'LLM inference',
+      query: 'agnitra llm inference optimizer',
+      expected: 'Agnitra AI Inference Optimizer',
     },
     {
-      label: 'Calorio',
-      query: 'calorio nutrition telegram bot',
-      expected: 'Dishes Recognition & Nutrition Goals Telegram Bot',
+      label: 'VLM/LLM workflows',
+      query: 'llm vlm agents human review',
+      expected: 'CollectionsAI ChatGPT App',
+    },
+    {
+      label: 'Architecture CV',
+      query: 'architectural drawing catalog matching',
+      expected: 'Architectural Drawing and Interior Catalog Matching',
     },
   ];
 
@@ -459,16 +459,34 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
 
   const filteredTopics = [
     {
-      trigger: 'clearml',
-      label: 'ClearML / MLOps',
-      query: 'clearml dermaself mlops',
-      expected: 'ClearML Experiment Tracking for Dermaself',
+      trigger: 'jaw',
+      label: 'Jaw classifier',
+      query: 'jaw face type classifier',
+      expected: 'Jaw and Face-Type Classifier for Aesthetic Review',
     },
     {
-      trigger: 'agnitra',
-      label: 'LLM inference',
-      query: 'agnitra llm inference optimizer',
-      expected: 'Agnitra AI Inference Optimizer',
+      trigger: 'inquest',
+      label: 'InQuest RAG',
+      query: 'inquest rag project binder',
+      expected: 'InQuest Project Binder RAG QA',
+    },
+    {
+      trigger: 'comfy',
+      label: 'ComfyUI lab',
+      query: 'comfyui colab custom model',
+      expected: 'ComfyUI and Colab Generative Prototype Lab',
+    },
+    {
+      trigger: 'mcp',
+      label: 'MCP apps',
+      query: 'mcp chatgpt conservation app',
+      expected: 'CollectionsAI ChatGPT App',
+    },
+    {
+      trigger: 'calorio',
+      label: 'Calorio',
+      query: 'calorio nutrition telegram bot',
+      expected: 'Dishes Recognition & Nutrition Goals Telegram Bot',
     },
   ];
 
