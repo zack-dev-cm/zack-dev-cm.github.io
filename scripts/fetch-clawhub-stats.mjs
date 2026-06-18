@@ -11,6 +11,7 @@ const CLAWHUB_CONVEX_URL =
   process.env.CLAWHUB_CONVEX_URL ?? 'https://wry-manatee-359.convex.cloud';
 const MIN_EXPECTED_SKILLS = Number(process.env.CLAWHUB_MIN_EXPECTED_SKILLS ?? 30);
 const MIN_EXPECTED_DOWNLOADS = Number(process.env.CLAWHUB_MIN_EXPECTED_DOWNLOADS ?? 6000);
+const DETAIL_REQUEST_DELAY_MS = Number(process.env.CLAWHUB_DETAIL_REQUEST_DELAY_MS ?? 1000);
 const PUBLIC_DISPLAY_NAME_OVERRIDES = new Map([
   ['browser-proof', 'Browser QA Report Pack'],
   ['proof-card-forge', 'Signal Card Forge']
@@ -22,16 +23,36 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 
 const formatInteger = (value) => Number(value || 0).toLocaleString('en-US');
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const fetchWithRetry = async (url, options, attempts = 4) => {
+const isRetryableHttpStatus = (status) => status === 429 || status >= 500;
+
+const getRetryDelayMs = (response, attempt) => {
+  const retryAfter = Number(response.headers.get('retry-after'));
+  if (Number.isFinite(retryAfter) && retryAfter > 0) {
+    return retryAfter * 1000;
+  }
+  const retryAfterDate = Date.parse(response.headers.get('retry-after') ?? '');
+  if (Number.isFinite(retryAfterDate)) {
+    return Math.max(0, retryAfterDate - Date.now());
+  }
+  return response.status === 429 ? attempt * 4000 : attempt * 2000;
+};
+
+const fetchWithRetry = async (url, options, attempts = 6) => {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      return await fetch(url, options);
+      const response = await fetch(url, options);
+      if (!isRetryableHttpStatus(response.status) || attempt === attempts) {
+        return response;
+      }
+      await response.text().catch(() => '');
+      await sleep(getRetryDelayMs(response, attempt));
     } catch (error) {
       lastError = error;
       if (attempt === attempts) break;
-      await new Promise((resolve) => setTimeout(resolve, attempt * 750));
+      await sleep(attempt * 750);
     }
   }
   throw lastError;
@@ -222,15 +243,17 @@ const validateLiveStats = ({ owner, profile, stats }) => {
 
 const fetchClawHubStats = async (owner) => {
   const { profile, rows } = await fetchPublishedSkillRows(owner);
-  const stats = await Promise.all(
-    rows.map((row) =>
-      fetchSkillDetail({
+  const stats = [];
+  for (const row of rows) {
+    stats.push(
+      await fetchSkillDetail({
         owner,
         slug: parseSlugFromHref(row.href, owner),
         fallback: row
       })
-    )
-  );
+    );
+    await sleep(DETAIL_REQUEST_DELAY_MS);
+  }
 
   stats.sort((a, b) => b.downloads - a.downloads || a.slug.localeCompare(b.slug));
   validateLiveStats({ owner, profile, stats });
