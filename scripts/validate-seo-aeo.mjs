@@ -173,7 +173,8 @@ const assertSitemap = (label, xml) => {
 const assertProjectHtmlPages = async (label, locs, rootPrefix = '') => {
   const projectUrls = locs.filter((url) => /\/projects\/[^/]+\/$/i.test(url));
   for (const url of projectUrls) {
-    const slug = new URL(url).pathname.split('/').filter(Boolean).at(-1);
+    const pathParts = new URL(url).pathname.split('/').filter(Boolean);
+    const slug = pathParts[pathParts.length - 1];
     const htmlPath = `${rootPrefix}projects/${slug}/index.html`;
     const html = await readText(htmlPath).catch(() => '');
     if (!html) {

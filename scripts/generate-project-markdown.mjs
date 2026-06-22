@@ -612,15 +612,15 @@ const extractClawHubSnapshot = (sourceFile) => {
 
   if (stats.length === 0) return DEFAULT_TRACTION_SNAPSHOT;
 
+  const checkedAtValues = stats
+    .map((stat) => stat.checkedAt)
+    .filter(Boolean)
+    .sort();
+
   return {
     totalDownloads: stats.reduce((sum, stat) => sum + stat.downloads, 0),
     packageCount: stats.length,
-    checkedAt:
-      stats
-        .map((stat) => stat.checkedAt)
-        .filter(Boolean)
-        .sort()
-        .at(-1) || DEFAULT_TRACTION_SNAPSHOT.checkedAt
+    checkedAt: checkedAtValues[checkedAtValues.length - 1] || DEFAULT_TRACTION_SNAPSHOT.checkedAt
   };
 };
 
