@@ -212,7 +212,7 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
 export const KEY_HIGHLIGHTS: string[] = [
   "7+ years shipping computer vision, ML, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
   "81 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "22,717 tracked ClawHub downloads across 53 public skills as of 2026-06-23, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
+  "22,717 tracked ClawHub downloads across 53 public skills as of 2026-06-24, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
 ];
 
 export const TECH_STACK: string[] = [
@@ -237,7 +237,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 12,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "agentic-codex-dev",
@@ -246,7 +246,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/agentic-codex-dev",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "openclaw-cws-publisher",
@@ -255,7 +255,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 14,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "github-clawhub-launcher",
@@ -264,7 +264,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 9,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "sota-agent",
@@ -273,7 +273,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "youtube-creator-ops",
@@ -282,7 +282,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 13,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "artifact-deck",
@@ -291,7 +291,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
@@ -300,7 +300,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "browser-proof",
@@ -309,7 +309,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "public-surface-review",
@@ -318,7 +318,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "hh-openclaw-agent",
@@ -327,7 +327,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 8,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "artifact-redactor",
@@ -336,7 +336,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "telegram-miniapp-security-auditor",
@@ -345,7 +345,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/telegram-miniapp-security-auditor",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "hh-openclaw-proposal-submitter",
@@ -354,7 +354,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 4,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-proposal-submitter",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "youtube-openclaw-creator",
@@ -363,7 +363,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/youtube-openclaw-creator",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "affiliate-video-campaign-operator",
@@ -372,7 +372,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 9,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-video-campaign-operator",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "random-coffee-best-fit-outreach",
@@ -381,7 +381,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "agentic-video-production-publisher",
@@ -390,7 +390,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentic-video-production-publisher",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "meshmcp-remotescreen",
@@ -399,7 +399,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-remotescreen",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "avito-outreach-manager",
@@ -408,7 +408,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/avito-outreach-manager",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skool-growth-teardown-poster",
@@ -417,7 +417,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-growth-teardown-poster",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skill-sprint-pack-builder",
@@ -426,7 +426,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-sprint-pack-builder",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "meshmcp-offline-chat",
@@ -435,7 +435,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-offline-chat",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "x-algo-claim-auditor",
@@ -444,7 +444,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/x-algo-claim-auditor",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "open-feed-recsys-lab",
@@ -453,7 +453,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skool-member-activation-concierge",
@@ -462,7 +462,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-member-activation-concierge",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "agentmemory-adapter",
@@ -471,7 +471,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentmemory-adapter",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "trusted-clawhub-install-gate",
@@ -480,7 +480,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "community-topic-scout",
@@ -489,7 +489,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/community-topic-scout",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "spec-plan-build-review",
@@ -498,7 +498,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/spec-plan-build-review",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skool-discovery-page-optimizer",
@@ -507,7 +507,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-discovery-page-optimizer",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skool-trust-ladder-builder",
@@ -516,7 +516,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-trust-ladder-builder",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "chrome-extension-studio",
@@ -525,7 +525,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/chrome-extension-studio",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "ai-video-scene-director",
@@ -534,7 +534,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/ai-video-scene-director",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "interactive-doc-mapper",
@@ -543,7 +543,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skool-challenge-launcher",
@@ -552,7 +552,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-challenge-launcher",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "gstack-review-stack",
@@ -561,7 +561,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/gstack-review-stack",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "tinytroupe-feed-research-lab",
@@ -570,7 +570,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/tinytroupe-feed-research-lab",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "product-share-trigger-reviewer",
@@ -579,7 +579,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/product-share-trigger-reviewer",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "doubt-driven-development",
@@ -588,7 +588,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "research-claim-ledger",
@@ -597,7 +597,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "affiliate-ugc-test-planner",
@@ -606,7 +606,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-ugc-test-planner",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "codex-claude-clawhub-skill-bridge",
@@ -615,7 +615,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/codex-claude-clawhub-skill-bridge",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "proof-card-forge",
@@ -624,7 +624,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/proof-card-forge",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skill-install-bridge",
@@ -633,7 +633,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "skill-package-doctor",
@@ -642,7 +642,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-package-doctor",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "stowecraft-artisan-concierge",
@@ -651,7 +651,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/stowecraft-artisan-concierge",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "using-agent-skills-router",
@@ -660,7 +660,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "agent-skills-portability-auditor",
@@ -669,7 +669,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agent-skills-portability-auditor",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "imagegen",
@@ -678,7 +678,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/imagegen",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "design-md-ui-designer",
@@ -687,7 +687,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/design-md-ui-designer",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "unitree-hermes-colab",
@@ -696,7 +696,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   },
   {
     slug: "chrome-extension-maintainer",
@@ -705,7 +705,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/chrome-extension-maintainer",
-    checkedAt: "2026-06-23"
+    checkedAt: "2026-06-24"
   }
 ];
 
@@ -1068,7 +1068,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 22,717 downloads across 53 public skills on 2026-06-23 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
+    description: "Updated the public ClawHub tracker to 22,717 downloads across 53 public skills on 2026-06-24 and refreshed the Chrome Web Store snapshot to 236 visible reported users across 16 current listings / 13 measured rows from 2026-06-05.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -2551,10 +2551,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "22,717", context: "public ClawHub owner profile, 2026-06-23 across 53 skills" },
-      { label: "Tracked public skills", value: "53", context: "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-23" },
-      { label: "CV Repro Lab downloads", value: "1,689 total", context: "929 data-science-cv-repro-lab + 760 sota-agent, 2026-06-23" },
-      { label: "Strongest skill", value: "929 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-23" },
+      { label: "Tracked ClawHub downloads", value: "22,717", context: "public ClawHub owner profile, 2026-06-24 across 53 skills" },
+      { label: "Tracked public skills", value: "53", context: "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-06-24" },
+      { label: "CV Repro Lab downloads", value: "1,689 total", context: "929 data-science-cv-repro-lab + 760 sota-agent, 2026-06-24" },
+      { label: "Strongest skill", value: "929 downloads", context: "data-science-cv-repro-lab public listing, 2026-06-24" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],
