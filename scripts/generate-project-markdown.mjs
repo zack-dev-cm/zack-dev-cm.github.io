@@ -510,6 +510,37 @@ const parseLinks = (node) => {
     .filter(Boolean);
 };
 
+const parseProjectImage = (node, imageConstants) => {
+  if (!node) return null;
+  if (ts.isIdentifier(node)) {
+    return imageConstants.get(node.text) || null;
+  }
+  if (!ts.isObjectLiteralExpression(node)) return null;
+  const url = parseString(getPropertyValue(node, 'url'));
+  const alt = parseString(getPropertyValue(node, 'alt'));
+  const caption = parseString(getPropertyValue(node, 'caption'));
+  if (!url || !alt) return null;
+  return { url, alt, ...(caption ? { caption } : {}) };
+};
+
+const parseImages = (node, imageConstants) => {
+  if (!node || !ts.isArrayLiteralExpression(node)) return [];
+  return node.elements
+    .map((element) => parseProjectImage(element, imageConstants))
+    .filter(Boolean);
+};
+
+const parseThumbnail = (node, imageConstants) => {
+  if (!node) return '';
+  if (ts.isPropertyAccessExpression(node) && ts.isIdentifier(node.expression) && node.name.text === 'url') {
+    return imageConstants.get(node.expression.text)?.url || '';
+  }
+  if (ts.isIdentifier(node)) {
+    return imageConstants.get(node.text)?.url || '';
+  }
+  return parseString(node);
+};
+
 const parseOptionalIdentifierString = (node) => {
   if (!node) return '';
   if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text;
@@ -531,7 +562,22 @@ const parseBenchmarks = (node) => {
     .filter(Boolean);
 };
 
-const extractProjects = (sourceFile) => {
+const extractImageConstants = (sourceFile) => {
+  const imageConstants = new Map();
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.initializer && ts.isObjectLiteralExpression(node.initializer)) {
+      const image = parseProjectImage(node.initializer, imageConstants);
+      if (image) {
+        imageConstants.set(node.name.text, image);
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+  return imageConstants;
+};
+
+const extractProjects = (sourceFile, imageConstants) => {
   let projectsNode = null;
   const visit = (node) => {
     if (ts.isVariableDeclaration(node) && node.name.getText() === 'PROJECTS') {
@@ -566,6 +612,8 @@ const extractProjects = (sourceFile) => {
       const topologySnapshot = parseString(getPropertyValue(element, 'topologySnapshot'));
       const mermaidDiagram = parseString(getPropertyValue(element, 'mermaidDiagram'));
       const benchmarks = parseBenchmarks(getPropertyValue(element, 'benchmarks'));
+      const images = parseImages(getPropertyValue(element, 'images'), imageConstants);
+      const thumbnail = parseThumbnail(getPropertyValue(element, 'thumbnail'), imageConstants);
 
       return {
         id,
@@ -582,7 +630,9 @@ const extractProjects = (sourceFile) => {
         links,
         topologySnapshot,
         mermaidDiagram,
-        benchmarks
+        benchmarks,
+        images,
+        thumbnail
       };
     });
 };
@@ -725,6 +775,16 @@ const buildMarkdown = (project, markdownUrl) => {
   return lines.join('\n');
 };
 
+const isSocialPreviewImage = (url) => /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i.test(url);
+
+const getProjectSocialImage = (project) => {
+  const candidates = [
+    project.thumbnail,
+    ...(project.images || []).map((image) => image.url)
+  ];
+  return candidates.map(toPublicAssetUrl).find(isSocialPreviewImage) || '';
+};
+
 const buildProjectHtml = (project) => {
   const title = toAscii(project.title);
   const description = toAscii(project.description || project.longDescription || `${title} case study by ${AUTHOR_NAME}.`);
@@ -747,8 +807,16 @@ const buildProjectHtml = (project) => {
     text: toAscii(link.text),
     url: link.url
   }));
-  const image = toPublicAssetUrl(project.thumbnail || project.images?.[0]?.url || '');
+  const image = getProjectSocialImage(project);
   const imageAlt = toAscii(project.images?.[0]?.alt || `${title} project visual`);
+  const socialImageMeta = image
+    ? [
+        `    <meta property="og:image" content="${image}" />`,
+        `    <meta property="og:image:alt" content="${escapeHtml(imageAlt)}" />`,
+        `    <meta name="twitter:image" content="${image}" />`,
+        `    <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}" />`
+      ].join('\n')
+    : '';
   const keywords = [...(project.surfaceTags || []), ...techStack].map(toAscii).filter(Boolean).slice(0, 16);
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -814,11 +882,10 @@ const buildProjectHtml = (project) => {
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${canonicalUrl}" />
-    ${image ? `<meta property="og:image" content="${image}" />` : ''}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
-    ${image ? `<meta name="twitter:image" content="${image}" />` : ''}
+${socialImageMeta}
     <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 6)}
     </script>
@@ -1930,7 +1997,8 @@ const buildSitemap = (projects) => {
 const main = async () => {
   const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
-  const projects = extractProjects(sourceFile);
+  const imageConstants = extractImageConstants(sourceFile);
+  const projects = extractProjects(sourceFile, imageConstants);
   tractionSnapshot = extractClawHubSnapshot(sourceFile);
   paperReviewSnapshot = await readPaperReviewSnapshot();
   const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);

@@ -114,6 +114,18 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   expect(projectHtml).toContain('<h1>Fast OCR ONNX Inference Server</h1>');
   expect(projectHtml).toContain('<link rel="canonical" href="https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/"');
   expect(projectHtml).toContain('<link rel="alternate" type="text/markdown"');
+  expect(projectHtml).toContain('<meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/fast-ocr-onnx-inference-card.webp" />');
+  expect(projectHtml).toContain('<meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/fast-ocr-onnx-inference-card.webp" />');
+
+  const poresResponse = await page.request.get('/docs/projects/pores-wrinkles-detection-service/');
+  expect(poresResponse.status()).toBe(200);
+  const poresHtml = await poresResponse.text();
+  expect(poresHtml).toContain('<meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/face-texture-analysis-service-card.webp" />');
+
+  const wrinkleLabResponse = await page.request.get('/docs/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/');
+  expect(wrinkleLabResponse.status()).toBe(200);
+  const wrinkleLabHtml = await wrinkleLabResponse.text();
+  expect(wrinkleLabHtml).toContain('<meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/full-face-wrinkle-segmentation-lab-card.webp" />');
 
   const discoveryResponse = await requestFirstOk(page, ['/docs/agent-discovery.json', '/agent-discovery.json']);
   const discovery = await discoveryResponse.json();
@@ -297,6 +309,16 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeHidden();
 
   await projectSearch.fill('fast ocr');
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async (text: string) => {
+          (window as Window & { __copiedText?: string }).__copiedText = text;
+        }
+      }
+    });
+  });
   const fastOcrCard = page.getByRole('button', { name: /Open project: Fast OCR ONNX Inference Server/i });
   await expect(fastOcrCard).toBeVisible();
   await fastOcrCard.click();
@@ -305,6 +327,11 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog').getByText('Rendered flowchart')).toBeVisible();
   await expect(page.getByRole('dialog').getByTestId('mermaid-visual')).toBeVisible();
   await expect(page.getByRole('dialog').getByText('Mermaid source')).toBeVisible();
+  await page.getByRole('dialog').getByRole('button', { name: 'Copy project link' }).click();
+  const copiedProjectUrl = await page.evaluate(() => (window as Window & { __copiedText?: string }).__copiedText || '');
+  const copiedProjectPath = new URL(copiedProjectUrl).pathname;
+  expect(copiedProjectPath).toBe('/projects/fast-ocr-onnx-inference-server/');
+  expect(copiedProjectUrl).not.toContain('?project=');
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 

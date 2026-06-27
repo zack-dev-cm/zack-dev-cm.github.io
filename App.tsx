@@ -281,6 +281,10 @@ const getProjectRouteSlugs = (project: Project) => {
   ]).map((slug) => slug.toLowerCase());
 };
 
+const buildProjectPublicUrl = (slug: string) => {
+  return new URL(`/projects/${slug}/`, window.location.origin).toString();
+};
+
 const applyShareParams = (
   url: URL,
   params: {
@@ -1394,11 +1398,11 @@ const App: React.FC = () => {
   const handleShareProject = useCallback(
     async (project: Project) => {
       const slug = getProjectCanonicalSlug(project);
-      const shareUrl = buildShareUrl({ project: slug, latest: null });
+      const shareUrl = buildProjectPublicUrl(slug);
       updateUrlParams({ project: slug, latest: null }, { replace: true });
       await copyToClipboard(shareUrl, `project:${slug}`);
     },
-    [buildShareUrl, copyToClipboard, updateUrlParams]
+    [copyToClipboard, updateUrlParams]
   );
 
   const handleShareLatest = useCallback(
