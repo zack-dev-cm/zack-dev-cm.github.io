@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-05-15",
-  "generatedAt": "2026-07-06",
+  "generatedAt": "2026-07-07",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Computer Vision and AI Product Engineer",
@@ -158,7 +158,7 @@
     },
     {
       "question": "What public signals are available?",
-      "answer": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 25,861 tracked ClawHub downloads across 53 public skills as of 2026-07-06.",
+      "answer": "The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 26,228 tracked ClawHub downloads across 53 public skills as of 2026-07-07.",
       "cite": "https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/"
     },
     {
@@ -256,7 +256,7 @@
         "Chrome Web Store extension launch metrics"
       ],
       "references": [
-        "25,861 tracked ClawHub downloads across 53 public skills",
+        "26,228 tracked ClawHub downloads across 53 public skills",
         "Chrome Web Store detail-page snapshot",
         "GitHub + ClawHub Downloads Tracker"
       ],
@@ -882,23 +882,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "25,861",
-              "context": "public ClawHub owner profile, 2026-07-06 across 53 skills"
+              "value": "26,228",
+              "context": "public ClawHub owner profile, 2026-07-07 across 53 skills"
             },
             {
               "label": "Tracked public skills",
               "value": "53",
-              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-06"
+              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-07"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,809 total",
-              "context": "991 data-science-cv-repro-lab + 818 sota-agent, 2026-07-06"
+              "value": "1,823 total",
+              "context": "997 data-science-cv-repro-lab + 826 sota-agent, 2026-07-07"
             },
             {
               "label": "Strongest skill",
-              "value": "991 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-07-06"
+              "value": "997 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-07-07"
             },
             {
               "label": "Report outputs",
@@ -1366,23 +1366,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "25,861",
-              "context": "public ClawHub owner profile, 2026-07-06 across 53 skills"
+              "value": "26,228",
+              "context": "public ClawHub owner profile, 2026-07-07 across 53 skills"
             },
             {
               "label": "Tracked public skills",
               "value": "53",
-              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-06"
+              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-07"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,809 total",
-              "context": "991 data-science-cv-repro-lab + 818 sota-agent, 2026-07-06"
+              "value": "1,823 total",
+              "context": "997 data-science-cv-repro-lab + 826 sota-agent, 2026-07-07"
             },
             {
               "label": "Strongest skill",
-              "value": "991 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-07-06"
+              "value": "997 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-07-07"
             },
             {
               "label": "Report outputs",
@@ -1924,23 +1924,23 @@
           "benchmarks": [
             {
               "label": "Tracked ClawHub downloads",
-              "value": "25,861",
-              "context": "public ClawHub owner profile, 2026-07-06 across 53 skills"
+              "value": "26,228",
+              "context": "public ClawHub owner profile, 2026-07-07 across 53 skills"
             },
             {
               "label": "Tracked public skills",
               "value": "53",
-              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-06"
+              "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-07"
             },
             {
               "label": "CV Repro Lab downloads",
-              "value": "1,809 total",
-              "context": "991 data-science-cv-repro-lab + 818 sota-agent, 2026-07-06"
+              "value": "1,823 total",
+              "context": "997 data-science-cv-repro-lab + 826 sota-agent, 2026-07-07"
             },
             {
               "label": "Strongest skill",
-              "value": "991 downloads",
-              "context": "data-science-cv-repro-lab public listing, 2026-07-06"
+              "value": "997 downloads",
+              "context": "data-science-cv-repro-lab public listing, 2026-07-07"
             },
             {
               "label": "Report outputs",
@@ -2732,23 +2732,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "25,861",
-          "context": "public ClawHub owner profile, 2026-07-06 across 53 skills"
+          "value": "26,228",
+          "context": "public ClawHub owner profile, 2026-07-07 across 53 skills"
         },
         {
           "label": "Tracked public skills",
           "value": "53",
-          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-06"
+          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-07"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,809 total",
-          "context": "991 data-science-cv-repro-lab + 818 sota-agent, 2026-07-06"
+          "value": "1,823 total",
+          "context": "997 data-science-cv-repro-lab + 826 sota-agent, 2026-07-07"
         },
         {
           "label": "Strongest skill",
-          "value": "991 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-07-06"
+          "value": "997 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-07-07"
         },
         {
           "label": "Report outputs",
@@ -4717,23 +4717,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "25,861",
-          "context": "public ClawHub owner profile, 2026-07-06 across 53 skills"
+          "value": "26,228",
+          "context": "public ClawHub owner profile, 2026-07-07 across 53 skills"
         },
         {
           "label": "Tracked public skills",
           "value": "53",
-          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-06"
+          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-07-07"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "1,809 total",
-          "context": "991 data-science-cv-repro-lab + 818 sota-agent, 2026-07-06"
+          "value": "1,823 total",
+          "context": "997 data-science-cv-repro-lab + 826 sota-agent, 2026-07-07"
         },
         {
           "label": "Strongest skill",
-          "value": "991 downloads",
-          "context": "data-science-cv-repro-lab public listing, 2026-07-06"
+          "value": "997 downloads",
+          "context": "data-science-cv-repro-lab public listing, 2026-07-07"
         },
         {
           "label": "Report outputs",
