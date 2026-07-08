@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createCanvas } from '@napi-rs/canvas';
 import ts from 'typescript';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -9,6 +10,7 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
+const PROJECT_SOCIAL_IMAGE_DIR = path.resolve(ROOT_DIR, 'public', 'images', 'project-social');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
 const GEO_PATH = path.resolve(ROOT_DIR, 'geo.txt');
 const LLMS_FULL_PATH = path.resolve(ROOT_DIR, 'llms-full.txt');
@@ -31,6 +33,9 @@ const SOCIAL_DESCRIPTION =
 const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card-ml-ai-products.png`;
 const SOCIAL_IMAGE_ALT =
   'Zakhar Pashkin computer vision and AI product engineer social preview with production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows.';
+const PROJECT_SOCIAL_IMAGE_URL_BASE = `${SITE_BASE}/docs/images/project-social`;
+const PROJECT_SOCIAL_IMAGE_WIDTH = 1200;
+const PROJECT_SOCIAL_IMAGE_HEIGHT = 630;
 const AUTHOR_DESCRIPTION =
   'Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM workflows, and launch-ready product systems.';
 const PORTFOLIO_TAGLINE =
@@ -775,14 +780,204 @@ const buildMarkdown = (project, markdownUrl) => {
   return lines.join('\n');
 };
 
-const isSocialPreviewImage = (url) => /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i.test(url);
+const isCrawlerSafeSocialImage = (url) => /\.(?:avif|jpe?g|png|webp)(?:[?#].*)?$/i.test(url);
+const isDisplayImage = (url) => /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i.test(url);
 
-const getProjectSocialImage = (project) => {
-  const candidates = [
-    project.thumbnail,
-    ...(project.images || []).map((image) => image.url)
+const getProjectImageCandidates = (project) => [
+  project.thumbnail,
+  ...(project.images || []).map((image) => image.url)
+];
+
+const getExplicitProjectSocialImage = (project) => {
+  return getProjectImageCandidates(project).map(toPublicAssetUrl).find(isCrawlerSafeSocialImage) || '';
+};
+
+const getProjectSocialImage = (project) => getExplicitProjectSocialImage(project) || project.generatedSocialImage || '';
+
+const getProjectVisualImage = (project) => {
+  return getProjectImageCandidates(project).map(toPublicAssetUrl).find(isDisplayImage) || project.generatedSocialImage || '';
+};
+
+const hashString = (value) => {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+};
+
+const projectSocialImageUrlFromSlug = (slug) => `${PROJECT_SOCIAL_IMAGE_URL_BASE}/${slug}.png`;
+
+const wrapCanvasLines = (ctx, text, maxWidth, maxLines) => {
+  const words = toAscii(text).replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
+  const lines = [];
+  let current = '';
+
+  for (const word of words) {
+    const next = current ? `${current} ${word}` : word;
+    if (ctx.measureText(next).width <= maxWidth) {
+      current = next;
+      continue;
+    }
+    if (current) lines.push(current);
+    current = word;
+    if (lines.length === maxLines) break;
+  }
+
+  if (current && lines.length < maxLines) lines.push(current);
+
+  if (words.length && lines.length === maxLines) {
+    const consumed = lines.join(' ').split(/\s+/).length;
+    if (consumed < words.length) {
+      let lastLine = lines[maxLines - 1];
+      while (lastLine.length > 0 && ctx.measureText(`${lastLine}...`).width > maxWidth) {
+        lastLine = lastLine.replace(/\s+\S*$/, '').trim() || lastLine.slice(0, -1).trim();
+      }
+      lines[maxLines - 1] = `${lastLine || words[consumed - 1].slice(0, 12)}...`;
+    }
+  }
+
+  return lines;
+};
+
+const drawWrappedText = (ctx, text, x, y, maxWidth, lineHeight, maxLines) => {
+  const lines = wrapCanvasLines(ctx, text, maxWidth, maxLines);
+  lines.forEach((line, index) => {
+    ctx.fillText(line, x, y + index * lineHeight);
+  });
+  return y + lines.length * lineHeight;
+};
+
+const drawRoundedRect = (ctx, x, y, width, height, radius) => {
+  const r = Math.min(radius, width / 2, height / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + width, y, x + width, y + height, r);
+  ctx.arcTo(x + width, y + height, x, y + height, r);
+  ctx.arcTo(x, y + height, x, y, r);
+  ctx.arcTo(x, y, x + width, y, r);
+  ctx.closePath();
+};
+
+const createProjectSocialCard = async (project, outputPath) => {
+  const hash = hashString(project.slug || project.title || 'project');
+  const palettes = [
+    { bg: '#071019', panel: '#0f2330', accent: '#39d0b5', accent2: '#f4b44d' },
+    { bg: '#10131b', panel: '#202938', accent: '#71c7ec', accent2: '#f47174' },
+    { bg: '#0b1614', panel: '#17302a', accent: '#7ddc91', accent2: '#e6c15a' },
+    { bg: '#17120f', panel: '#2b211b', accent: '#67d4f0', accent2: '#f08f62' },
+    { bg: '#0d1321', panel: '#1e2c45', accent: '#8bd17c', accent2: '#efbf5a' }
   ];
-  return candidates.map(toPublicAssetUrl).find(isSocialPreviewImage) || '';
+  const palette = palettes[hash % palettes.length];
+  const canvas = createCanvas(PROJECT_SOCIAL_IMAGE_WIDTH, PROJECT_SOCIAL_IMAGE_HEIGHT);
+  const ctx = canvas.getContext('2d');
+  const width = PROJECT_SOCIAL_IMAGE_WIDTH;
+  const height = PROJECT_SOCIAL_IMAGE_HEIGHT;
+  ctx.textBaseline = 'top';
+
+  const gradient = ctx.createLinearGradient(0, 0, width, height);
+  gradient.addColorStop(0, palette.bg);
+  gradient.addColorStop(1, '#06080c');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.globalAlpha = 0.2;
+  ctx.strokeStyle = palette.accent;
+  ctx.lineWidth = 2;
+  for (let x = 72; x < width; x += 96) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x - 180, height);
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+
+  drawRoundedRect(ctx, 72, 72, 1056, 486, 34);
+  ctx.fillStyle = palette.panel;
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.fillStyle = palette.accent;
+  drawRoundedRect(ctx, 106, 108, 148, 8, 4);
+  ctx.fill();
+
+  const tags = [...(project.surfaceTags || []), ...(project.techStack || [])]
+    .map(toAscii)
+    .filter(Boolean)
+    .slice(0, 4);
+  ctx.font = '700 30px Inter, Arial, sans-serif';
+  ctx.fillStyle = palette.accent;
+  ctx.fillText('Zakhar Pashkin Portfolio', 106, 142);
+
+  ctx.font = '800 66px Inter, Arial, sans-serif';
+  ctx.fillStyle = '#f8fafc';
+  const titleBottom = drawWrappedText(ctx, project.title, 106, 198, 760, 74, 3);
+
+  ctx.font = '400 31px Inter, Arial, sans-serif';
+  ctx.fillStyle = '#cbd5df';
+  const descriptionLineLimit = titleBottom > 390 ? 1 : titleBottom > 340 ? 2 : 3;
+  const descriptionBottom = drawWrappedText(
+    ctx,
+    project.description || project.longDescription || 'Public portfolio case study',
+    106,
+    titleBottom + 28,
+    750,
+    42,
+    descriptionLineLimit
+  );
+
+  const rightX = 896;
+  const rightY = 148;
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+  ctx.lineWidth = 2;
+  for (let row = 0; row < 4; row += 1) {
+    drawRoundedRect(ctx, rightX, rightY + row * 76, 178, 48, 14);
+    ctx.stroke();
+    ctx.fillStyle = row % 2 === 0 ? palette.accent : palette.accent2;
+    ctx.beginPath();
+    ctx.arc(rightX + 28, rightY + row * 76 + 24, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.42)';
+    drawRoundedRect(ctx, rightX + 48, rightY + row * 76 + 17, 84 + ((hash >> row) % 32), 8, 4);
+    ctx.fill();
+  }
+
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+  drawRoundedRect(ctx, rightX - 28, 438, 232, 74, 20);
+  ctx.fill();
+  ctx.strokeStyle = palette.accent2;
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.arc(rightX + 88, 475, 34, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fillStyle = '#f8fafc';
+  ctx.beginPath();
+  ctx.arc(rightX + 88, 475, 8, 0, Math.PI * 2);
+  ctx.fill();
+
+  let tagX = 106;
+  const tagY = Math.min(Math.max(496, descriptionBottom + 18), 518);
+  ctx.font = '700 22px Inter, Arial, sans-serif';
+  for (const tag of tags) {
+    const label = tag.length > 28 ? `${tag.slice(0, 25)}...` : tag;
+    const tagWidth = Math.min(ctx.measureText(label).width + 34, 260);
+    drawRoundedRect(ctx, tagX, tagY, tagWidth, 40, 20);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.09)';
+    ctx.fill();
+    ctx.fillStyle = '#e8edf3';
+    ctx.fillText(label, tagX + 17, tagY + 10);
+    tagX += tagWidth + 12;
+    if (tagX > 760) break;
+  }
+
+  ctx.font = '600 22px Inter, Arial, sans-serif';
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.62)';
+  ctx.fillText(`zack-dev-cm.github.io/projects/${project.slug}/`, 106, 574);
+
+  await fs.writeFile(outputPath, canvas.toBuffer('image/png'));
 };
 
 const buildProjectHtml = (project) => {
@@ -807,13 +1002,14 @@ const buildProjectHtml = (project) => {
     text: toAscii(link.text),
     url: link.url
   }));
-  const image = getProjectSocialImage(project);
+  const socialImage = getProjectSocialImage(project);
+  const visualImage = getProjectVisualImage(project);
   const imageAlt = toAscii(project.images?.[0]?.alt || `${title} project visual`);
-  const socialImageMeta = image
+  const socialImageMeta = socialImage
     ? [
-        `    <meta property="og:image" content="${image}" />`,
+        `    <meta property="og:image" content="${socialImage}" />`,
         `    <meta property="og:image:alt" content="${escapeHtml(imageAlt)}" />`,
-        `    <meta name="twitter:image" content="${image}" />`,
+        `    <meta name="twitter:image" content="${socialImage}" />`,
         `    <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}" />`
       ].join('\n')
     : '';
@@ -839,7 +1035,7 @@ const buildProjectHtml = (project) => {
     },
     genre: project.projectKind || 'case-study',
     keywords: keywords.join(', '),
-    image: image || undefined,
+    image: socialImage || undefined,
     isAccessibleForFree: true,
     about: keywords.map((keyword) => ({ '@type': 'Thing', name: keyword })),
     workExample: links.slice(0, 3).map((link) => ({
@@ -918,7 +1114,7 @@ ${JSON.stringify(jsonLd, null, 6)}
           <p class="eyebrow">${escapeHtml(project.projectKind || 'Portfolio case study')}</p>
           <h1>${escapeHtml(title)}</h1>
           <p class="lede">${escapeHtml(description)}</p>
-          ${image ? `<img class="visual" src="${image}" alt="${escapeHtml(imageAlt)}" loading="eager" />` : ''}
+          ${visualImage ? `<img class="visual" src="${visualImage}" alt="${escapeHtml(imageAlt)}" loading="eager" />` : ''}
         </header>
         <section>
           <h2>Overview</h2>
@@ -2003,7 +2199,10 @@ const main = async () => {
   paperReviewSnapshot = await readPaperReviewSnapshot();
   const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);
 
+  await fs.rm(OUTPUT_DIR, { recursive: true, force: true });
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
+  await fs.rm(PROJECT_SOCIAL_IMAGE_DIR, { recursive: true, force: true });
+  await fs.mkdir(PROJECT_SOCIAL_IMAGE_DIR, { recursive: true });
   await fs.writeFile(CHROME_EXTENSION_STATS_PATH, `${JSON.stringify(chromeExtensionStats, null, 2)}\n`, 'utf8');
 
   const slugCounts = new Map();
@@ -2024,6 +2223,11 @@ const main = async () => {
       markdownUrl,
       htmlUrl
     };
+    if (!getExplicitProjectSocialImage(projectEntry)) {
+      const socialImagePath = path.resolve(PROJECT_SOCIAL_IMAGE_DIR, `${slug}.png`);
+      await createProjectSocialCard(projectEntry, socialImagePath);
+      projectEntry.generatedSocialImage = projectSocialImageUrlFromSlug(slug);
+    }
     const markdown = buildMarkdown(projectEntry, markdownUrl);
     await fs.writeFile(outputPath, markdown, 'utf8');
     const htmlOutputDir = path.resolve(OUTPUT_DIR, slug);

@@ -997,10 +997,10 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "CV and AI Project Coverage Added",
     description: "Added public-safe portfolio coverage for jaw and face-type classification, raw architectural plan and catalog-item matching, InQuest binder-RAG QA, and ComfyUI/Colab prototype work. Private source files, raw patient/building data, manufacturer documents, and unpublished notebook links are intentionally excluded.",
     links: [
-      { text: "Open jaw and face-type classifier", url: "https://zack-dev-cm.github.io/?project=jaw-and-face-type-classifier-for-aesthetic-review" },
-      { text: "Open architectural plan matcher", url: "https://zack-dev-cm.github.io/?project=architectural-drawing-and-interior-catalog-matching" },
-      { text: "Open InQuest binder QA", url: "https://zack-dev-cm.github.io/?project=inquest-project-binder-rag-qa" },
-      { text: "Open ComfyUI prototype lab", url: "https://zack-dev-cm.github.io/?project=comfyui-and-colab-generative-prototype-lab" }
+      { text: "Open jaw and face-type classifier", url: "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/" },
+      { text: "Open architectural plan matcher", url: "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/" },
+      { text: "Open InQuest binder QA", url: "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/" },
+      { text: "Open ComfyUI prototype lab", url: "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/" }
     ],
     projectId: 76,
     createdAt: "2026-06-04"
@@ -1009,7 +1009,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Agnitra AI Inference Optimizer",
     description: "Added Agnitra AI public package case study: a decoder-only LLM inference optimizer with HuggingFace-style drop-in usage, quantization options, integrations, CLI/API surfaces, and signed inference-manifest support.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=agnitra-ai-inference-optimizer" },
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/" },
       { text: "Open PyPI package", url: "https://pypi.org/project/agnitra/" }
     ],
     projectId: 81,
@@ -1019,7 +1019,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "ClearML Experiment Tracking for Dermaself",
     description: "Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=clearml-experiment-tracking-for-dermaself" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/" }
     ],
     projectId: 80,
     createdAt: "2026-06-09"
@@ -1028,7 +1028,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Calorio June Admin Metrics Updated",
     description: "Updated aggregate Calorio metrics from the 2026-06-03 12:00 UTC admin report: 1,713 Telegram users, 28 daily / 109 weekly / 375 monthly active users, 77 rolling-24h logs, 8 Mini App users, and 555,392 OpenAI tokens / $1.14; user-level identifiers and support contents stay out of public files.",
     links: [
-      { text: "Open Calorio case study", url: "https://zack-dev-cm.github.io/?project=dishes-recognition-nutrition-goals-telegram-bot" },
+      { text: "Open Calorio case study", url: "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/" },
       { text: "Try Calorio on Telegram", url: "https://t.me/calorio_yf_bot" }
     ],
     projectId: 11,
@@ -1038,7 +1038,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Research Claim Ledger Skill Added",
     description: "New ClawHub skill-build case study: a narrow research claim ledger that turns drafts, literature matrices, source packets, or reviewer notes into support-status receipts without pretending to be a full academic research suite.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=research-claim-ledger" },
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/research-claim-ledger/" },
       { text: "Open on ClawHub", url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger" }
     ],
     projectId: 75,
@@ -1048,9 +1048,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Public CV/DL Archive Added",
     description: "Added GitHub API-backed CV/DL archive cards for YOLO/EfficientNet, Cyrillic OCR, ML Kit face contours, TFLite glasses, vision-transformer notebooks, and Colab-style prototypes, using only authored GitHub repos and generated case studies.",
     links: [
-      { text: "Open public CV/DL archive", url: "https://zack-dev-cm.github.io/?project=public-cv-and-deep-learning-github-archive" },
-      { text: "Open notebook prototype archive", url: "https://zack-dev-cm.github.io/?project=colab-cv-dl-prototype-archive" },
-      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=multimodal-video-search-platform" }
+      { text: "Open public CV/DL archive", url: "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/" },
+      { text: "Open notebook prototype archive", url: "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive/" },
+      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/" }
     ],
     projectId: 73,
     createdAt: "2026-05-14"
@@ -1059,9 +1059,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Computer Vision and AI Systems Refresh",
     description: "Added public-safe case studies for OCR serving, multimodal video search, and skin-texture segmentation, with Mermaid diagrams and architecture-first references.",
     links: [
-      { text: "Open OCR case study", url: "https://zack-dev-cm.github.io/?project=fast-ocr-onnx-inference-server" },
-      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/?project=multimodal-video-search-platform" },
-      { text: "Open segmentation case study", url: "https://zack-dev-cm.github.io/?project=full-face-wrinkle-and-skin-texture-segmentation-lab" }
+      { text: "Open OCR case study", url: "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/" },
+      { text: "Open video search case study", url: "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/" },
+      { text: "Open segmentation case study", url: "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/" }
     ],
     projectId: 72,
     createdAt: "2026-05-14"
@@ -1090,7 +1090,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Trusted ClawHub Install Gate",
     description: "New skill-build case study: a local-first ClawHub/OpenClaw skill install wrapper that classifies artifacts, blocks unsafe installs, and writes verification receipts.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=trusted-clawhub-install-gate" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/" }
     ],
     projectId: 69,
     createdAt: "2026-05-07"
@@ -1099,7 +1099,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Dermaself Flutter Skin Analysis App",
     description: "Updated mobile CV case study: Flutter/Firebase skin-analysis flow with guided capture, offline model runtime, ROI gates, and deployment-blocked fine-line QA notes.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=dermaself-flutter-skin-analysis-app" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/" }
     ],
     projectId: 63,
     createdAt: "2026-05-05"
@@ -1108,7 +1108,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Chrome Extension Studio Plugin",
     description: "New local developer-platform case study: a Codex plugin and script set for planning, designing, packaging, QA, and Chrome Web Store release cycles.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=chrome-extension-studio-plugin" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/" }
     ],
     projectId: 64,
     createdAt: "2026-04-18"
@@ -1117,7 +1117,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Google Drive File Provider Repair Toolkit",
     description: "New macOS operations case study: a conservative Drive File Provider diagnostic and repair toolkit with dry-run repair, sync inspection, and no data-deletion path.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=google-drive-file-provider-repair-toolkit" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit/" }
     ],
     projectId: 65,
     createdAt: "2026-04-17"
@@ -1126,7 +1126,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "CollectionsAI ChatGPT App",
     description: "New ChatGPT app case study: MCP tools and widgets for senior conservation workflows, portfolio planning, materials estimates, staffing, and voice-note structuring.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=collectionsai-chatgpt-app" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app/" }
     ],
     projectId: 66,
     createdAt: "2026-03-04"
@@ -1135,7 +1135,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     title: "Senior Conservator OpenClaw Agent",
     description: "New autonomous-workflow case study: OpenClaw-driven conservation review with staged review gates, segmentation overlays, reports, voice output, and reproducibility manifests.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/?project=senior-conservator-openclaw-agent" }
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/" }
     ],
     projectId: 67,
     createdAt: "2026-03-01"

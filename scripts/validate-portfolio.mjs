@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
+const GENERATED_PROJECTS_DIR = path.resolve(ROOT_DIR, 'projects');
 const PUBLIC_UPDATES_PATH = path.resolve(ROOT_DIR, 'public', 'portfolio-updates.json');
 const DOCS_UPDATES_PATH = path.resolve(ROOT_DIR, 'docs', 'portfolio-updates.json');
 
@@ -19,6 +20,10 @@ const TELEGRAM_APP_PATTERN = /^https:\/\/t\.me\/[A-Za-z0-9_]+\/(?:app|launch)(?:
 const CHROME_WEB_STORE_PATTERN = /^https:\/\/chromewebstore\.google\.com\//;
 const GITHUB_PATTERN = /^https:\/\/github\.com\/[^/]+\/[^/]+/;
 const CLAWHUB_URL_PATTERN = /^https:\/\/clawhub\.ai\/zack-dev-cm\/[a-z0-9-]+$/;
+const SITE_BASE = 'https://zack-dev-cm.github.io';
+const LEGACY_PROJECT_QUERY_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/\?project=/;
+const MALFORMED_PROJECT_PATH_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/projects\/\//;
+const CRAWLER_SAFE_SOCIAL_IMAGE_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/docs\/.+\.(?:avif|jpe?g|png|webp)(?:[?#].*)?$/i;
 const CLAWHUB_MIN_EXPECTED_SKILLS = 30;
 const CLAWHUB_MIN_EXPECTED_DOWNLOADS = 6000;
 const MIN_PORTFOLIO_UPDATES_VERSION = 2;
@@ -283,6 +288,12 @@ const validateUrl = (url, label) => {
     const parsed = new URL(url);
     if (parsed.protocol !== 'https:') {
       fail(`${label} must use https: ${url}`);
+    }
+    if (LEGACY_PROJECT_QUERY_PATTERN.test(url)) {
+      fail(`${label} must use /projects/<slug>/ instead of the legacy ?project= route: ${url}`);
+    }
+    if (MALFORMED_PROJECT_PATH_PATTERN.test(url)) {
+      fail(`${label} contains a malformed project path: ${url}`);
     }
   } catch {
     fail(`${label} is not a valid absolute URL: ${url}`);
@@ -561,6 +572,71 @@ const validatePositioningCopy = async () => {
   }
 };
 
+const assertGeneratedSocialImageAsset = async (url, label) => {
+  if (!CRAWLER_SAFE_SOCIAL_IMAGE_PATTERN.test(url)) {
+    fail(`${label} must use a crawler-safe PNG/JPEG/WebP/AVIF image under /docs/: ${url}`);
+    return;
+  }
+  const publicRelativePath = url.slice(`${SITE_BASE}/docs/`.length);
+  try {
+    await fs.access(path.resolve(ROOT_DIR, 'public', publicRelativePath));
+  } catch {
+    fail(`${label} points to a missing public asset: ${url}`);
+  }
+};
+
+const validateGeneratedProjectPages = async () => {
+  let entries = [];
+  try {
+    entries = await fs.readdir(GENERATED_PROJECTS_DIR, { withFileTypes: true });
+  } catch {
+    fail('projects/ generated directory is missing; run node scripts/generate-project-markdown.mjs');
+    return;
+  }
+
+  const pagePaths = entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.resolve(GENERATED_PROJECTS_DIR, entry.name, 'index.html'));
+
+  if (pagePaths.length === 0) {
+    fail('projects/ contains no generated project index.html pages');
+    return;
+  }
+
+  for (const pagePath of pagePaths) {
+    let html = '';
+    try {
+      html = await fs.readFile(pagePath, 'utf8');
+    } catch {
+      fail(`${path.relative(ROOT_DIR, pagePath)} is missing`);
+      continue;
+    }
+
+    const relativePage = path.relative(ROOT_DIR, pagePath);
+    if (LEGACY_PROJECT_QUERY_PATTERN.test(html) || html.includes(`${SITE_BASE}/?project=`)) {
+      fail(`${relativePage} contains a legacy ?project= URL`);
+    }
+    if (MALFORMED_PROJECT_PATH_PATTERN.test(html) || html.includes(`${SITE_BASE}/projects//`)) {
+      fail(`${relativePage} contains a malformed /projects// URL`);
+    }
+
+    const ogImage = html.match(/<meta property="og:image" content="([^"]+)" \/>/)?.[1] || '';
+    const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)" \/>/)?.[1] || '';
+
+    if (!ogImage) {
+      fail(`${relativePage} is missing og:image`);
+    } else {
+      await assertGeneratedSocialImageAsset(ogImage, `${relativePage} og:image`);
+    }
+
+    if (!twitterImage) {
+      fail(`${relativePage} is missing twitter:image`);
+    } else {
+      await assertGeneratedSocialImageAsset(twitterImage, `${relativePage} twitter:image`);
+    }
+  }
+};
+
 const main = async () => {
   await validatePositioningCopy();
 
@@ -656,6 +732,8 @@ const main = async () => {
       validateSyncedLatestUpdate(update, allProjectIds);
     }
   }
+
+  await validateGeneratedProjectPages();
 
   if (errors.length > 0) {
     console.error('Portfolio validation failed:\n');

@@ -520,7 +520,7 @@ const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
 
   for (const item of [...staticEntries].reverse()) {
     const caseStudyUrl = `https://zack-dev-cm.github.io/projects/${item.slug}.md`;
-    const appUrl = `https://zack-dev-cm.github.io/?project=${item.slug}`;
+    const appUrl = `https://zack-dev-cm.github.io/projects/${item.slug}/`;
     const links = item.links || [
       { text: 'Open case study', url: appUrl },
       { text: 'Read Markdown case study', url: caseStudyUrl },
