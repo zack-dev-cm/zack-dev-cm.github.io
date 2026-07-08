@@ -809,6 +809,24 @@ const hashString = (value) => {
 
 const projectSocialImageUrlFromSlug = (slug) => `${PROJECT_SOCIAL_IMAGE_URL_BASE}/${slug}.png`;
 
+const pathExists = async (filePath) => {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const getSocialImageType = (url) => {
+  const extension = String(url || '').match(/\.([a-z0-9]+)(?:[?#].*)?$/i)?.[1]?.toLowerCase();
+  if (extension === 'jpg' || extension === 'jpeg') return 'image/jpeg';
+  if (extension === 'png') return 'image/png';
+  if (extension === 'webp') return 'image/webp';
+  if (extension === 'avif') return 'image/avif';
+  return '';
+};
+
 const wrapCanvasLines = (ctx, text, maxWidth, maxLines) => {
   const words = toAscii(text).replace(/\s+/g, ' ').trim().split(' ').filter(Boolean);
   const lines = [];
@@ -1004,10 +1022,19 @@ const buildProjectHtml = (project) => {
   }));
   const socialImage = getProjectSocialImage(project);
   const visualImage = getProjectVisualImage(project);
+  const socialImageType = getSocialImageType(socialImage);
+  const isGeneratedSocialImage = Boolean(project.generatedSocialImage && socialImage === project.generatedSocialImage);
   const imageAlt = toAscii(project.images?.[0]?.alt || `${title} project visual`);
   const socialImageMeta = socialImage
     ? [
         `    <meta property="og:image" content="${socialImage}" />`,
+        ...(isGeneratedSocialImage
+          ? [
+              `    <meta property="og:image:width" content="${PROJECT_SOCIAL_IMAGE_WIDTH}" />`,
+              `    <meta property="og:image:height" content="${PROJECT_SOCIAL_IMAGE_HEIGHT}" />`
+            ]
+          : []),
+        ...(socialImageType ? [`    <meta property="og:image:type" content="${socialImageType}" />`] : []),
         `    <meta property="og:image:alt" content="${escapeHtml(imageAlt)}" />`,
         `    <meta name="twitter:image" content="${socialImage}" />`,
         `    <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}" />`
@@ -2144,31 +2171,12 @@ const buildSchemaJsonld = (projects) => {
 
 const buildSitemap = (projects) => {
   const today = new Date().toISOString().split('T')[0];
-  const featuredProjectSlugs = new Set(
-    [
-      'fast-ocr-onnx-inference-server',
-      'full-face-wrinkle-and-skin-texture-segmentation-lab',
-      'multimodal-video-search-platform',
-      'github-clawhub-downloads-tracker',
-      'cv-repro-lab-skills',
-      'openclaw-sales-manager-automation-for-a-multi-clinic-chain',
-      'geofix-ai-visibility-memorizer-mini-app',
-      'chrome-extension-studio-plugin',
-      'sourcepack-chrome-extension-wave',
-      'collectionsai-chatgpt-app'
-    ]
-  );
-  const featuredProjectHtmlUrls = new Set(
-    projects
-      .filter((project) => featuredProjectSlugs.has(project.slug))
-      .map((project) => projectSearchUrl(project))
-  );
   const urls = [
     { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
     { loc: PAPER_REVIEWS_URL, lastmod: today, changefreq: 'daily', priority: '0.6' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     { loc: SENIOR_CV_RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
-    ...projects.filter((project) => featuredProjectHtmlUrls.has(projectSearchUrl(project))).map((project) => ({
+    ...projects.map((project) => ({
       loc: projectSearchUrl(project),
       lastmod: today,
       changefreq: 'monthly',
@@ -2201,12 +2209,12 @@ const main = async () => {
 
   await fs.rm(OUTPUT_DIR, { recursive: true, force: true });
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
-  await fs.rm(PROJECT_SOCIAL_IMAGE_DIR, { recursive: true, force: true });
   await fs.mkdir(PROJECT_SOCIAL_IMAGE_DIR, { recursive: true });
   await fs.writeFile(CHROME_EXTENSION_STATS_PATH, `${JSON.stringify(chromeExtensionStats, null, 2)}\n`, 'utf8');
 
   const slugCounts = new Map();
   const projectEntries = [];
+  const expectedProjectSocialImageFiles = new Set();
 
   for (const project of projects) {
     const baseSlug = slugify(project.title || 'project');
@@ -2224,8 +2232,12 @@ const main = async () => {
       htmlUrl
     };
     if (!getExplicitProjectSocialImage(projectEntry)) {
-      const socialImagePath = path.resolve(PROJECT_SOCIAL_IMAGE_DIR, `${slug}.png`);
-      await createProjectSocialCard(projectEntry, socialImagePath);
+      const socialImageFileName = `${slug}.png`;
+      const socialImagePath = path.resolve(PROJECT_SOCIAL_IMAGE_DIR, socialImageFileName);
+      expectedProjectSocialImageFiles.add(socialImageFileName);
+      if (!(await pathExists(socialImagePath))) {
+        await createProjectSocialCard(projectEntry, socialImagePath);
+      }
       projectEntry.generatedSocialImage = projectSocialImageUrlFromSlug(slug);
     }
     const markdown = buildMarkdown(projectEntry, markdownUrl);
@@ -2239,6 +2251,12 @@ const main = async () => {
       await fs.writeFile(aliasOutputPath, aliasMarkdown, 'utf8');
     }
     projectEntries.push(projectEntry);
+  }
+
+  for (const entry of await fs.readdir(PROJECT_SOCIAL_IMAGE_DIR, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith('.png') && !expectedProjectSocialImageFiles.has(entry.name)) {
+      await fs.rm(path.resolve(PROJECT_SOCIAL_IMAGE_DIR, entry.name));
+    }
   }
 
   const topProjectTitles = [

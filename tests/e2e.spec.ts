@@ -104,10 +104,13 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   const sitemapResponse = await requestFirstOk(page, ['/docs/sitemap.xml', '/sitemap.xml']);
   const sitemap = await sitemapResponse.text();
   const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  expect(locs.length).toBeLessThanOrEqual(25);
+  const projectLocs = locs.filter((url) => /\/projects\/[^/]+\/$/i.test(url));
+  expect(locs.length).toBeGreaterThanOrEqual(80);
+  expect(locs.length).toBeLessThanOrEqual(120);
   expect(locs.filter((url) => /\.(?:json|jsonld|txt)$/i.test(url))).toHaveLength(0);
   expect(locs.filter((url) => /\.md$/i.test(url))).toHaveLength(0);
-  expect(locs.filter((url) => /\/projects\/[^/]+\/$/i.test(url)).length).toBeGreaterThanOrEqual(10);
+  expect(projectLocs.length).toBeGreaterThanOrEqual(80);
+  expect(projectLocs).toContain('https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/');
   const projectResponse = await page.request.get('/docs/projects/fast-ocr-onnx-inference-server/');
   expect(projectResponse.status()).toBe(200);
   const projectHtml = await projectResponse.text();

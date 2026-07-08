@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const GENERATED_PROJECTS_DIR = path.resolve(ROOT_DIR, 'projects');
+const SITEMAP_PATH = path.resolve(ROOT_DIR, 'sitemap.xml');
 const PUBLIC_UPDATES_PATH = path.resolve(ROOT_DIR, 'public', 'portfolio-updates.json');
 const DOCS_UPDATES_PATH = path.resolve(ROOT_DIR, 'docs', 'portfolio-updates.json');
 
@@ -24,6 +25,7 @@ const SITE_BASE = 'https://zack-dev-cm.github.io';
 const LEGACY_PROJECT_QUERY_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/\?project=/;
 const MALFORMED_PROJECT_PATH_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/projects\/\//;
 const CRAWLER_SAFE_SOCIAL_IMAGE_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/docs\/.+\.(?:avif|jpe?g|png|webp)(?:[?#].*)?$/i;
+const PROJECT_SOCIAL_IMAGE_PATTERN = /^https:\/\/zack-dev-cm\.github\.io\/docs\/images\/project-social\/[a-z0-9-]+\.png$/;
 const CLAWHUB_MIN_EXPECTED_SKILLS = 30;
 const CLAWHUB_MIN_EXPECTED_DOWNLOADS = 6000;
 const MIN_PORTFOLIO_UPDATES_VERSION = 2;
@@ -585,6 +587,30 @@ const assertGeneratedSocialImageAsset = async (url, label) => {
   }
 };
 
+const validateSitemapProjectCoverage = async (projectSlugs) => {
+  let sitemap = '';
+  try {
+    sitemap = await fs.readFile(SITEMAP_PATH, 'utf8');
+  } catch {
+    fail('sitemap.xml is missing; run node scripts/generate-project-markdown.mjs');
+    return;
+  }
+
+  if (sitemap.includes(`${SITE_BASE}/?project=`)) {
+    fail('sitemap.xml contains a legacy ?project= URL');
+  }
+  if (sitemap.includes(`${SITE_BASE}/projects//`)) {
+    fail('sitemap.xml contains a malformed /projects// URL');
+  }
+
+  for (const slug of projectSlugs) {
+    const loc = `<loc>${SITE_BASE}/projects/${slug}/</loc>`;
+    if (!sitemap.includes(loc)) {
+      fail(`sitemap.xml is missing generated project page ${SITE_BASE}/projects/${slug}/`);
+    }
+  }
+};
+
 const validateGeneratedProjectPages = async () => {
   let entries = [];
   try {
@@ -594,9 +620,8 @@ const validateGeneratedProjectPages = async () => {
     return;
   }
 
-  const pagePaths = entries
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => path.resolve(GENERATED_PROJECTS_DIR, entry.name, 'index.html'));
+  const projectSlugs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+  const pagePaths = projectSlugs.map((slug) => path.resolve(GENERATED_PROJECTS_DIR, slug, 'index.html'));
 
   if (pagePaths.length === 0) {
     fail('projects/ contains no generated project index.html pages');
@@ -621,12 +646,26 @@ const validateGeneratedProjectPages = async () => {
     }
 
     const ogImage = html.match(/<meta property="og:image" content="([^"]+)" \/>/)?.[1] || '';
+    const ogImageType = html.match(/<meta property="og:image:type" content="([^"]+)" \/>/)?.[1] || '';
+    const ogImageWidth = html.match(/<meta property="og:image:width" content="([^"]+)" \/>/)?.[1] || '';
+    const ogImageHeight = html.match(/<meta property="og:image:height" content="([^"]+)" \/>/)?.[1] || '';
     const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)" \/>/)?.[1] || '';
 
     if (!ogImage) {
       fail(`${relativePage} is missing og:image`);
     } else {
       await assertGeneratedSocialImageAsset(ogImage, `${relativePage} og:image`);
+    }
+    if (!ogImageType) {
+      fail(`${relativePage} is missing og:image:type`);
+    }
+    if (PROJECT_SOCIAL_IMAGE_PATTERN.test(ogImage)) {
+      if (ogImageType !== 'image/png') {
+        fail(`${relativePage} generated project social card must declare image/png`);
+      }
+      if (ogImageWidth !== '1200' || ogImageHeight !== '630') {
+        fail(`${relativePage} generated project social card must declare 1200x630 dimensions`);
+      }
     }
 
     if (!twitterImage) {
@@ -635,6 +674,8 @@ const validateGeneratedProjectPages = async () => {
       await assertGeneratedSocialImageAsset(twitterImage, `${relativePage} twitter:image`);
     }
   }
+
+  await validateSitemapProjectCoverage(projectSlugs);
 };
 
 const main = async () => {
