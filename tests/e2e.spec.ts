@@ -127,6 +127,11 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   const wrinkleLabHtml = await wrinkleLabResponse.text();
   expect(wrinkleLabHtml).toContain('<meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/full-face-wrinkle-segmentation-lab-card.webp" />');
 
+  const smartDriveResponse = await page.request.get('/docs/projects/smart-drive-for-smart-city-predict-optimal-speed/');
+  expect(smartDriveResponse.status()).toBe(200);
+  const smartDriveHtml = await smartDriveResponse.text();
+  expect(smartDriveHtml).toContain('<meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/smart-drive.png" />');
+
   const discoveryResponse = await requestFirstOk(page, ['/docs/agent-discovery.json', '/agent-discovery.json']);
   const discovery = await discoveryResponse.json();
   expect(discovery.answerTargets.length).toBeGreaterThanOrEqual(8);
@@ -287,7 +292,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await sessionRescueCard.focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page).toHaveURL(/\?project=session-rescue/);
+  await expect(page).toHaveURL(/\/projects\/session-rescue\/$/);
+  await expect(page).not.toHaveURL(/\?project=/);
   await expect(page.getByRole('dialog').getByRole('link', { name: 'View on Chrome Web Store' })).toHaveAttribute(
     'href',
     'https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf'
@@ -303,7 +309,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(sourcePackCard).toBeVisible();
   await sourcePackCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page).toHaveURL(/\?project=sourcepack-chrome-extension-wave/);
+  await expect(page).toHaveURL(/\/projects\/sourcepack-chrome-extension-wave\/$/);
+  await expect(page).not.toHaveURL(/\?project=/);
   await expect(page.getByRole('dialog').getByText('Current publisher users')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
@@ -323,7 +330,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(fastOcrCard).toBeVisible();
   await fastOcrCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page).toHaveURL(/\?project=fast-ocr-onnx-inference-server/);
+  await expect(page).toHaveURL(/\/projects\/fast-ocr-onnx-inference-server\/$/);
+  await expect(page).not.toHaveURL(/\?project=/);
   await expect(page.getByRole('dialog').getByText('Rendered flowchart')).toBeVisible();
   await expect(page.getByRole('dialog').getByTestId('mermaid-visual')).toBeVisible();
   await expect(page.getByRole('dialog').getByText('Mermaid source')).toBeVisible();
@@ -340,7 +348,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(architectureCard).toBeVisible();
   await architectureCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page).toHaveURL(/\?project=architectural-drawing-and-interior-catalog-matching/);
+  await expect(page).toHaveURL(/\/projects\/architectural-drawing-and-interior-catalog-matching\/$/);
+  await expect(page).not.toHaveURL(/\?project=/);
   await page.getByRole('button', { name: 'Next image' }).click();
   await expect(page.getByRole('dialog').locator('img.modal-media__asset')).toHaveAttribute(
     'src',
@@ -355,7 +364,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(driveRepairCard).toBeVisible();
   await driveRepairCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page).toHaveURL(/\?project=google-drive-file-provider-repair-toolkit/);
+  await expect(page).toHaveURL(/\/projects\/google-drive-file-provider-repair-toolkit\/$/);
+  await expect(page).not.toHaveURL(/\?project=/);
   await expect(page.getByRole('dialog').getByText('Destructive data actions')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
@@ -702,6 +712,7 @@ test('project deep links open and close cleanly', async ({ page }) => {
   const modal = page.getByRole('dialog');
   await expect(modal).toBeVisible({ timeout: 15000 });
   await expect(modal.getByRole('heading', { name: 'Session Rescue' })).toBeVisible();
+  await expect(page).toHaveURL(/\/projects\/session-rescue\/$/);
 
   await page.keyboard.press('Escape');
   await expect(modal).toBeHidden();

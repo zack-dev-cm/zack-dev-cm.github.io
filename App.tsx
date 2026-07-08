@@ -285,6 +285,13 @@ const buildProjectPublicUrl = (slug: string) => {
   return new URL(`/projects/${slug}/`, window.location.origin).toString();
 };
 
+const getProjectSlugFromPath = (pathname: string) => {
+  const match = pathname.match(/^\/(?:docs\/)?projects\/([^/]+)\/?$/);
+  return match ? decodeURIComponent(match[1]).toLowerCase() : null;
+};
+
+const isProjectPath = (pathname: string) => Boolean(getProjectSlugFromPath(pathname));
+
 const applyShareParams = (
   url: URL,
   params: {
@@ -1275,12 +1282,16 @@ const App: React.FC = () => {
 
   const syncFromUrl = useCallback(() => {
     const params = new URLSearchParams(window.location.search);
-    const projectSlug = params.get('project');
+    const pathProjectSlug = getProjectSlugFromPath(window.location.pathname);
+    const projectSlug = pathProjectSlug || params.get('project');
     const latestSlug = params.get('latest');
 
     if (projectSlug) {
       const project = projectBySlug.get(projectSlug);
       setSelectedProject(project ?? null);
+      if (project && !pathProjectSlug) {
+        window.history.replaceState(null, '', buildProjectPublicUrl(getProjectCanonicalSlug(project)));
+      }
     } else {
       setSelectedProject(null);
     }
@@ -1363,6 +1374,9 @@ const App: React.FC = () => {
 
   const buildShareUrl = useCallback((params: { project?: string | null; latest?: string | null }) => {
     const url = new URL(window.location.href);
+    if (isProjectPath(url.pathname)) {
+      url.pathname = '/';
+    }
     applyShareParams(url, params);
     return url.toString();
   }, []);
@@ -1370,6 +1384,9 @@ const App: React.FC = () => {
   const updateUrlParams = useCallback(
     (params: { project?: string | null; latest?: string | null }, options: { replace?: boolean } = {}) => {
       const url = new URL(window.location.href);
+      if (isProjectPath(url.pathname)) {
+        url.pathname = '/';
+      }
       applyShareParams(url, params);
       if (options.replace) {
         window.history.replaceState(null, '', url.toString());
@@ -1380,14 +1397,23 @@ const App: React.FC = () => {
     []
   );
 
+  const updateProjectPath = useCallback((slug: string, options: { replace?: boolean } = {}) => {
+    const url = new URL(buildProjectPublicUrl(slug));
+    if (options.replace) {
+      window.history.replaceState(null, '', url.toString());
+    } else {
+      window.history.pushState(null, '', url.toString());
+    }
+  }, []);
+
   const handleSelectProject = useCallback(
     (project: Project) => {
       const slug = getProjectCanonicalSlug(project);
       setSelectedProject(project);
       setActiveLatestSlug(null);
-      updateUrlParams({ project: slug, latest: null });
+      updateProjectPath(slug);
     },
-    [updateUrlParams]
+    [updateProjectPath]
   );
 
   const handleCloseProject = useCallback(() => {
@@ -1399,10 +1425,10 @@ const App: React.FC = () => {
     async (project: Project) => {
       const slug = getProjectCanonicalSlug(project);
       const shareUrl = buildProjectPublicUrl(slug);
-      updateUrlParams({ project: slug, latest: null }, { replace: true });
+      updateProjectPath(slug, { replace: true });
       await copyToClipboard(shareUrl, `project:${slug}`);
     },
-    [copyToClipboard, updateUrlParams]
+    [copyToClipboard, updateProjectPath]
   );
 
   const handleShareLatest = useCallback(
