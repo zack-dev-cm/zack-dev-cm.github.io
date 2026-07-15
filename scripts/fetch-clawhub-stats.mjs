@@ -9,9 +9,15 @@ const CLAWHUB_HTTP_API_URL =
   process.env.CLAWHUB_HTTP_API_URL ?? 'https://wry-manatee-359.convex.site/api/v1';
 const CLAWHUB_CONVEX_URL =
   process.env.CLAWHUB_CONVEX_URL ?? 'https://wry-manatee-359.convex.cloud';
+const positiveInteger = (value, fallback) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
+};
 const MIN_EXPECTED_SKILLS = Number(process.env.CLAWHUB_MIN_EXPECTED_SKILLS ?? 30);
 const MIN_EXPECTED_DOWNLOADS = Number(process.env.CLAWHUB_MIN_EXPECTED_DOWNLOADS ?? 6000);
 const DETAIL_REQUEST_DELAY_MS = Number(process.env.CLAWHUB_DETAIL_REQUEST_DELAY_MS ?? 1000);
+const REQUEST_TIMEOUT_MS = positiveInteger(process.env.CLAWHUB_REQUEST_TIMEOUT_MS, 15000);
+const REQUEST_ATTEMPTS = positiveInteger(process.env.CLAWHUB_REQUEST_ATTEMPTS, 6);
 const PUBLIC_DISPLAY_NAME_OVERRIDES = new Map([
   ['browser-proof', 'Browser QA Report Pack'],
   ['proof-card-forge', 'Signal Card Forge']
@@ -39,18 +45,31 @@ const getRetryDelayMs = (response, attempt) => {
   return response.status === 429 ? attempt * 4000 : attempt * 2000;
 };
 
-const fetchWithRetry = async (url, options, attempts = 6) => {
+const fetchWithTimeout = async (url, options = {}) => {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+};
+
+const fetchWithRetry = async (url, options, attempts = REQUEST_ATTEMPTS) => {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, options);
+      const response = await fetchWithTimeout(url, options);
       if (!isRetryableHttpStatus(response.status) || attempt === attempts) {
         return response;
       }
       await response.text().catch(() => '');
       await sleep(getRetryDelayMs(response, attempt));
     } catch (error) {
-      lastError = error;
+      lastError =
+        error?.name === 'AbortError'
+          ? new Error(`ClawHub request timed out after ${REQUEST_TIMEOUT_MS}ms: ${url}`, { cause: error })
+          : error;
       if (attempt === attempts) break;
       await sleep(attempt * 750);
     }
