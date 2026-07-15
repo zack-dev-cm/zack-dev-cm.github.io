@@ -102,7 +102,7 @@ const urls = [...new Set(urlMatches)].sort();
 
 const warningStatuses = new Set([401, 403, 429, 999]);
 const botGatedWarningStatuses = new Set([401, 403, 429, 503, 999]);
-const botGatedHosts = ['chrome-stats.com', 'linkedin.com', 'twitter.com', 'x.com'];
+const botGatedHosts = ['chrome-stats.com', 'linkedin.com', 't.me', 'twitter.com', 'x.com'];
 const siteHost = 'zack-dev-cm.github.io';
 const ignoredUrls = new Set([
   'https://fonts.googleapis.com',
@@ -217,6 +217,7 @@ const isBotGatedHost = (url) => {
 };
 
 const requiresManualReview = (result) => {
+  if (result.status === 'error' && isBotGatedHost(result.url)) return true;
   if (typeof result.status !== 'number') return false;
   if (warningStatuses.has(result.status)) return true;
   return botGatedWarningStatuses.has(result.status) && isBotGatedHost(result.url);
