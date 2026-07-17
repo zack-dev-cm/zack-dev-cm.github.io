@@ -2,511 +2,511 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zack-dev-cm.github.io/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/papers/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/promo-reflinks-generator/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/label-and-inpaint-anything-in-a-room-interior/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/estimate-golf-ball-trajectory/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/pixel-wise-segmentation-of-spare-parts/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/food-recognition-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/python-library-autotoloka/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/python-library-shiftlab-ocr/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/task-zavod-micro-task-marketplace/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/trending-prompts-feed/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/youtube-trendwatch/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/video-music-generation-pipeline/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/insight-glitch-a-novella/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/chronoscribe-beta/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/zackautostack-automation-stack/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/beauty-visual-inbox-telegram-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/noel-noetic-mirror/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/openclaw-workstream-telegram-mini-app-qa-launch-validation/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/github-clawhub-launcher/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/browser-qa-report-pack/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/publish-guard/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/openclaw-youtube-publisher/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/artifact-redactor/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/artifact-deck/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/localarchive/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/session-rescue/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/research-claim-ledger/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://zack-dev-cm.github.io/projects/hh-openclaw-agent/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
