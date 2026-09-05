@@ -104,6 +104,12 @@
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -111,7 +117,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -132,12 +138,14 @@
           <p class="eyebrow">Portfolio case study</p>
           <h1>CV Repro Lab Skills</h1>
           <p class="lede">Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/agentic-cv-repro-lab-skill.png" alt="CV Repro Lab ClawHub release preview" loading="eager" /></figure>
+          <figure><a class="figure-link" href="/docs/images/agentic-cv-repro-lab-skill.png" aria-label="Open full-size figure 1: CV Repro Lab ClawHub release preview"><img class="visual" src="/docs/images/agentic-cv-repro-lab-skill.png" alt="CV Repro Lab ClawHub release preview" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.</p>
         </section>
+
+
         <section>
           <h2>What It Covers</h2>
           <ul>

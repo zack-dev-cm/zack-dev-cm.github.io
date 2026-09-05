@@ -116,6 +116,12 @@
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -123,7 +129,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -144,12 +150,14 @@
           <p class="eyebrow">case-study</p>
           <h1>Architectural Drawing and Interior Catalog Matching</h1>
           <p class="lede">CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/architectural-plan-interior-matcher-card.png" alt="Architectural floorplan recognition and interior catalog matching visualization" loading="eager" /></figure>
+          <figure><a class="figure-link" href="/docs/images/architectural-plan-interior-matcher-card.png" aria-label="Open full-size figure 1: Architectural floorplan recognition and interior catalog matching visualization"><img class="visual" src="/docs/images/architectural-plan-interior-matcher-card.png" alt="Architectural floorplan recognition and interior catalog matching visualization" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.</p>
         </section>
+
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/architectural-catalog-reception-preview.webp" aria-label="Open full-size figure 2: Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework"><img class="visual" src="/docs/images/architectural-catalog-reception-preview.webp" alt="Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Conceptual illustration.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>

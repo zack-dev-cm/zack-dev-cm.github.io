@@ -5,6 +5,12 @@
 ## Summary
 Predictive model that anticipates lights/traffic, aiming to cut abrupt stops and improve fuel efficiency for urban driving.
 
+## Project Figures
+
+![Smart Drive Prediction](https://zack-dev-cm.github.io/docs/images/smart-drive.png)
+
+![Smart Drive telemetry view](https://zack-dev-cm.github.io/docs/images/smart-drive-alt.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/smart-drive-for-smart-city-predict-optimal-speed.md
 

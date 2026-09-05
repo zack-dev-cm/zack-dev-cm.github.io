@@ -5,6 +5,10 @@
 ## Summary
 Adds a keyboard-driven scrollbar with message dots, lightweight prompt autocomplete, and prompt sharing/ranking for ChatGPT/Deepseek/Google AI Studio.
 
+## Project Figures
+
+![Navigator Chrome](https://zack-dev-cm.github.io/docs/images/navigator-chrome.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator.md
 

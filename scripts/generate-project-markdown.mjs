@@ -419,6 +419,7 @@ const extractProjects = (sourceFile, imageConstants) => {
       const legacySlugs = parseStringArray(getPropertyValue(element, 'legacySlugs'));
       const description = parseString(getPropertyValue(element, 'description'));
       const longDescription = parseString(getPropertyValue(element, 'longDescription'));
+      const caseStudySections = parseJsonLiteral(getPropertyValue(element, 'caseStudySections')) || [];
       const keyFeatures = parseStringArray(getPropertyValue(element, 'keyFeatures'));
       const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
       const links = parseLinks(getPropertyValue(element, 'links'));
@@ -439,6 +440,7 @@ const extractProjects = (sourceFile, imageConstants) => {
         aliases,
         description,
         longDescription,
+        caseStudySections,
         projectKind,
         surfaceTags,
         createdAt,
@@ -555,6 +557,17 @@ const buildMarkdown = (project, markdownUrl) => {
   const summary = longDescription && longDescription !== description ? longDescription : '';
   if (summary) {
     lines.push('', '## Summary', summary);
+  }
+  for (const section of project.caseStudySections || []) {
+    lines.push('', `## ${toAscii(section.title)}`, toAscii(section.body));
+  }
+  if (project.images?.length) {
+    lines.push('', '## Project Figures');
+    for (const asset of project.images) {
+      if (!isDisplayImage(asset.url)) continue;
+      lines.push('', `![${toAscii(asset.alt)}](${toPublicAssetUrl(asset.url)})`);
+      if (asset.caption) lines.push('', toAscii(asset.caption));
+    }
   }
   lines.push('', '## Project Link', markdownUrl);
   if (keyFeatures.length) {
@@ -840,6 +853,18 @@ const buildProjectHtml = (project) => {
   const imageAlt = toAscii(visualAsset?.alt || `${title} project visual`);
   const isIllustration = visualImage === project.generatedSocialImage || /generated|conceptual|illustration|public-safe.*card/i.test(imageAlt);
   const visualCaption = toAscii(visualAsset?.caption || (isIllustration ? 'System illustration' : ''));
+  const galleryAssets = (project.images || []).filter((asset) =>
+    isDisplayImage(asset.url) && toPublicAssetUrl(asset.url) !== visualImage
+  );
+  const renderFigure = (asset, index) => {
+    const publicUrl = toPublicAssetUrl(asset.url);
+    const url = publicUrl.startsWith(`${SITE_BASE}/`) ? new URL(publicUrl).pathname : publicUrl;
+    const caption = toAscii(asset.caption || (/generated|conceptual|illustration/i.test(asset.alt) ? 'Conceptual illustration.' : ''));
+    return `<figure><a class="figure-link" href="${escapeHtml(url)}" aria-label="Open full-size figure ${index + 1}: ${escapeHtml(toAscii(asset.alt))}"><img class="visual" src="${escapeHtml(url)}" alt="${escapeHtml(toAscii(asset.alt))}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
+  };
+  const narrativeSections = (project.caseStudySections || []).map((section) =>
+    `<section><h2>${escapeHtml(toAscii(section.title))}</h2><p>${escapeHtml(toAscii(section.body))}</p></section>`
+  ).join('\n');
   const socialImageMeta = socialImage
     ? [
         `    <meta property="og:image" content="${socialImage}" />`,
@@ -930,6 +955,12 @@ ${JSON.stringify(jsonLd, null, 6)}
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -937,7 +968,7 @@ ${JSON.stringify(jsonLd, null, 6)}
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -958,12 +989,14 @@ ${JSON.stringify(jsonLd, null, 6)}
           <p class="eyebrow">${escapeHtml(project.projectKind || 'Portfolio case study')}</p>
           <h1>${escapeHtml(title)}</h1>
           <p class="lede">${escapeHtml(description)}</p>
-          ${visualImage ? `<figure><img class="visual" src="${visualImage}" alt="${escapeHtml(imageAlt)}" loading="eager" />${visualCaption ? `<figcaption>${escapeHtml(visualCaption)}</figcaption>` : ''}</figure>` : ''}
+          ${visualImage ? renderFigure({ url: visualImage, alt: imageAlt, caption: visualCaption }, 0) : ''}
         </header>
         <section>
           <h2>Overview</h2>
           <p>${escapeHtml(longDescription || description)}</p>
         </section>
+        ${narrativeSections}
+        ${galleryAssets.length ? `<section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery">${galleryAssets.map((asset, index) => renderFigure(asset, index + 1)).join('')}</div></section>` : ''}
         <section>
           <h2>What It Covers</h2>
           <ul>

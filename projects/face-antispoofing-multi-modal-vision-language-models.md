@@ -5,6 +5,10 @@
 ## Summary
 Explores face anti-spoofing with multi-modal encoders (text + image cues) to flag replays/deepfakes in authentication flows.
 
+## Project Figures
+
+![Antispoofing concept](https://zack-dev-cm.github.io/docs/images/antispoof.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/face-antispoofing-multi-modal-vision-language-models.md
 

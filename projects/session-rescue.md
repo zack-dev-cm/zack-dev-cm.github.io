@@ -5,6 +5,14 @@
 ## Summary
 Session Rescue is a published Chrome Web Store extension for people who want a simple local backup of browser sessions. It captures normal windows and restorable tabs, supports manual and user-enabled automatic snapshots, restores sessions into a new window or the current context, and exports/imports JSON backups without a backend, account, analytics, ads, or remote code.
 
+## Project Figures
+
+![Session Rescue public product page with session library preview](https://zack-dev-cm.github.io/docs/images/session-rescue-hero.png)
+
+![Session Rescue extension popup](https://zack-dev-cm.github.io/docs/images/session-rescue-popup.png)
+
+![Session Rescue session library](https://zack-dev-cm.github.io/docs/images/session-rescue-library.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/session-rescue.md
 

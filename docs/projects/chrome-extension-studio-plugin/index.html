@@ -94,6 +94,12 @@
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -101,7 +107,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -122,12 +128,14 @@
           <p class="eyebrow">case-study</p>
           <h1>Chrome Extension Studio Plugin</h1>
           <p class="lede">Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/project-social/chrome-extension-studio-plugin.png" alt="Chrome Extension Studio Plugin project visual" loading="eager" /><figcaption>System illustration</figcaption></figure>
+          <figure><a class="figure-link" href="/docs/images/project-social/chrome-extension-studio-plugin.png" aria-label="Open full-size figure 1: Chrome Extension Studio Plugin project visual"><img class="visual" src="/docs/images/project-social/chrome-extension-studio-plugin.png" alt="Chrome Extension Studio Plugin project visual" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>System illustration</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>Chrome Extension Studio Plugin is a local developer-platform project for keeping extension plugin logic, reusable templates, and shipped product repositories separate. It defines release profiles for prototype, private beta, public Chrome Web Store, and source-release paths, then generates design briefs, store listing drafts, release plans, product repos, and release-cycle checklists from a single extension contract. The public case study focuses on the reusable release system rather than any one extension product.</p>
         </section>
+
+
         <section>
           <h2>What It Covers</h2>
           <ul>

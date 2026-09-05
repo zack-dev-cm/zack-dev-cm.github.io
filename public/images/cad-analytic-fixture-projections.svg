@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="figure-title figure-description"><title id="figure-title">Exact XY and XZ projections of an analytic CAD fixture</title><desc id="figure-description">Actual XY and XZ projection output for a synthetic through-bore block. Solid lines show visible edges; dashed lines show hidden edges. This is a projection test, not a scan reconstruction.</desc><rect width="1600" height="900" fill="#f5f7f8" /><g font-family="Helvetica, Arial, sans-serif" fill="#172830"><text x="76" y="70" font-size="17" letter-spacing="2" fill="#276773">GENERATED CAD PROJECTIONS</text><text x="76" y="123" font-size="35" font-weight="600">XY and XZ projections</text><text x="76" y="161" font-size="20" fill="#56676d">Exact HLR output from the same analytic through-bore fixture</text><text x="439" y="230" font-size="21" font-weight="600" text-anchor="middle">XY projection</text><text x="1163" y="230" font-size="21" font-weight="600" text-anchor="middle">XZ projection</text><line x1="80" y1="853" x2="125" y2="853" stroke="#111827" stroke-width="2" /><text x="138" y="860" font-size="19">Visible edge</text><line x1="315" y1="853" x2="360" y2="853" stroke="#6b7280" stroke-width="2" stroke-dasharray="7 4" /><text x="373" y="860" font-size="19">Hidden edge</text><text x="1524" y="860" text-anchor="end" font-size="18" fill="#56676d">Synthetic test fixture · dimensions in mm</text></g><line x1="76" y1="190" x2="1524" y2="190" stroke="#d4dfe2" /><svg x="75" y="244" width="1450" height="568.75" viewBox="0 0 92.800000 36.400000" preserveAspectRatio="xMidYMid meet"><g id="view-front" data-view="front">
+    <g id="layer-front_visible_sharp" data-layer="FRONT_VISIBLE_SHARP" fill="none" stroke="#111827" stroke-width="0.060000">
+      <polyline points="3.200000,33.200000 3.200000,3.200000" />
+      <polyline points="3.200000,33.200000 43.200000,33.200000" />
+      <polyline points="3.200000,3.200000 43.200000,3.200000" />
+      <polyline points="43.200000,33.200000 43.200000,3.200000" />
+      <polyline points="18.200000,18.200000 18.275961,19.068241 18.501537,19.910101 18.869873,20.700000 19.369778,21.413938 19.986062,22.030222 20.700000,22.530127 21.489899,22.898463 22.331759,23.124039 23.200000,23.200000 24.068241,23.124039 24.910101,22.898463 25.700000,22.530127 26.413938,22.030222 27.030222,21.413938 27.530127,20.700000 27.898463,19.910101 28.124039,19.068241 28.200000,18.200000 28.124039,17.331759 27.898463,16.489899 27.530127,15.700000 27.030222,14.986062 26.413938,14.369778 25.700000,13.869873 24.910101,13.501537 24.068241,13.275961 23.200000,13.200000 22.331759,13.275961 21.489899,13.501537 20.700000,13.869873 19.986062,14.369778 19.369778,14.986062 18.869873,15.700000 18.501537,16.489899 18.275961,17.331759 18.200000,18.200000" />
+    </g>
+    <g id="layer-front_visible_smooth" data-layer="FRONT_VISIBLE_SMOOTH" fill="none" stroke="#111827" stroke-width="0.060000">
+    </g>
+    <g id="layer-front_visible_sewn" data-layer="FRONT_VISIBLE_SEWN" fill="none" stroke="#111827" stroke-width="0.060000">
+    </g>
+    <g id="layer-front_visible_outline" data-layer="FRONT_VISIBLE_OUTLINE" fill="none" stroke="#111827" stroke-width="0.060000">
+    </g>
+    <g id="layer-front_hidden_sharp" data-layer="FRONT_HIDDEN_SHARP" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+      <polyline points="3.200000,33.200000 3.200000,3.200000" />
+      <polyline points="3.200000,33.200000 43.200000,33.200000" />
+      <polyline points="3.200000,3.200000 43.200000,3.200000" />
+      <polyline points="43.200000,33.200000 43.200000,3.200000" />
+      <polyline points="18.200000,18.200000 18.275961,19.068241 18.501537,19.910101 18.869873,20.700000 19.369778,21.413938 19.986062,22.030222 20.700000,22.530127 21.489899,22.898463 22.331759,23.124039 23.200000,23.200000 24.068241,23.124039 24.910101,22.898463 25.700000,22.530127 26.413938,22.030222 27.030222,21.413938 27.530127,20.700000 27.898463,19.910101 28.124039,19.068241 28.200000,18.200000 28.124039,17.331759 27.898463,16.489899 27.530127,15.700000 27.030222,14.986062 26.413938,14.369778 25.700000,13.869873 24.910101,13.501537 24.068241,13.275961 23.200000,13.200000 22.331759,13.275961 21.489899,13.501537 20.700000,13.869873 19.986062,14.369778 19.369778,14.986062 18.869873,15.700000 18.501537,16.489899 18.275961,17.331759 18.200000,18.200000" />
+    </g>
+    <g id="layer-front_hidden_smooth" data-layer="FRONT_HIDDEN_SMOOTH" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+    </g>
+    <g id="layer-front_hidden_sewn" data-layer="FRONT_HIDDEN_SEWN" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+    </g>
+    <g id="layer-front_hidden_outline" data-layer="FRONT_HIDDEN_OUTLINE" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+    </g>
+  </g>
+  <g id="view-top" data-view="top">
+    <g id="layer-top_visible_sharp" data-layer="TOP_VISIBLE_SHARP" fill="none" stroke="#111827" stroke-width="0.060000">
+      <polyline points="49.600000,28.200000 49.600000,8.200000" />
+      <polyline points="49.600000,28.200000 89.600000,28.200000" />
+      <polyline points="49.600000,8.200000 89.600000,8.200000" />
+      <polyline points="89.600000,28.200000 89.600000,8.200000" />
+    </g>
+    <g id="layer-top_visible_smooth" data-layer="TOP_VISIBLE_SMOOTH" fill="none" stroke="#111827" stroke-width="0.060000">
+    </g>
+    <g id="layer-top_visible_sewn" data-layer="TOP_VISIBLE_SEWN" fill="none" stroke="#111827" stroke-width="0.060000">
+    </g>
+    <g id="layer-top_visible_outline" data-layer="TOP_VISIBLE_OUTLINE" fill="none" stroke="#111827" stroke-width="0.060000">
+    </g>
+    <g id="layer-top_hidden_sharp" data-layer="TOP_HIDDEN_SHARP" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+      <polyline points="49.600000,28.200000 49.600000,8.200000" />
+      <polyline points="49.600000,28.200000 89.600000,28.200000" />
+      <polyline points="49.600000,8.200000 89.600000,8.200000" />
+      <polyline points="64.600000,28.200000 64.600000,8.200000" />
+      <polyline points="64.600000,28.200000 64.725360,28.200000 65.095156,28.200000 65.690843,28.200000 66.482551,28.200000 67.430581,28.200000 68.487395,28.200000 69.600000,28.200000 70.712605,28.200000 71.769419,28.200000 72.717449,28.200000 73.509157,28.200000 74.104844,28.200000 74.474640,28.200000 74.600000,28.200000" />
+      <polyline points="64.600000,28.200000 64.725360,28.200000 65.095156,28.200000 65.690843,28.200000 66.482551,28.200000 67.430581,28.200000 68.487395,28.200000 69.600000,28.200000 70.712605,28.200000 71.769419,28.200000 72.717449,28.200000 73.509157,28.200000 74.104844,28.200000 74.474640,28.200000 74.600000,28.200000" />
+      <polyline points="64.600000,8.200000 64.725360,8.200000 65.095156,8.200000 65.690843,8.200000 66.482551,8.200000 67.430581,8.200000 68.487395,8.200000 69.600000,8.200000 70.712605,8.200000 71.769419,8.200000 72.717449,8.200000 73.509157,8.200000 74.104844,8.200000 74.474640,8.200000 74.600000,8.200000" />
+      <polyline points="64.600000,8.200000 64.725360,8.200000 65.095156,8.200000 65.690843,8.200000 66.482551,8.200000 67.430581,8.200000 68.487395,8.200000 69.600000,8.200000 70.712605,8.200000 71.769419,8.200000 72.717449,8.200000 73.509157,8.200000 74.104844,8.200000 74.474640,8.200000 74.600000,8.200000" />
+      <polyline points="89.600000,28.200000 89.600000,8.200000" />
+    </g>
+    <g id="layer-top_hidden_smooth" data-layer="TOP_HIDDEN_SMOOTH" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+    </g>
+    <g id="layer-top_hidden_sewn" data-layer="TOP_HIDDEN_SEWN" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+    </g>
+    <g id="layer-top_hidden_outline" data-layer="TOP_HIDDEN_OUTLINE" fill="none" stroke="#6b7280" stroke-width="0.060000" stroke-dasharray="0.240000,0.120000">
+      <polyline points="74.600000,28.200000 74.600000,8.200000" />
+    </g>
+  </g>
+</svg></svg>

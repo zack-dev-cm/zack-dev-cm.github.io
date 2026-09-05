@@ -5,6 +5,10 @@
 ## Summary
 Python library that streams clicks/polygons to interactive models and pipelines the outputs to crowdsourcing or MLOps stacks.
 
+## Project Figures
+
+![AutoToloka interactive segmentation](https://zack-dev-cm.github.io/docs/images/autotoloka.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/python-library-autotoloka.md
 

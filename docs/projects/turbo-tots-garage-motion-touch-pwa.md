@@ -5,6 +5,12 @@
 ## Summary
 Touch-first toddler dashboard with a turbo gauge, glowing clock, motion-sensor boosts, and playful engine/tick sounds.
 
+## Project Figures
+
+![Turbo Tots dashboard](https://zack-dev-cm.github.io/docs/images/turbo-tots-1.jpg)
+
+![Turbo Tots control panel](https://zack-dev-cm.github.io/docs/images/turbo-tots-2.jpg)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/turbo-tots-garage-motion-touch-pwa.md
 

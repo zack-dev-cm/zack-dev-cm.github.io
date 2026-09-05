@@ -5,6 +5,10 @@
 ## Summary
 Cloudflare Worker monetized through RapidAPI and bundled with an MCP SSE endpoint for agent integrations. Streams Markdown with Google Cache fallback and solid error handling.
 
+## Project Figures
+
+![RapidAPI URL-to-Markdown worker](https://zack-dev-cm.github.io/docs/images/micro10-rapidapi.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/url-markdown-worker-rapidapi-cloudflare.md
 

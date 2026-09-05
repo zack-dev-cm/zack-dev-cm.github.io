@@ -54,7 +54,7 @@ def add_job(j):
 for j in d['experience'][:3]: add_job(j)
 story.extend([PageBreak(),p('EARLIER EXPERIENCE','section')])
 for j in d['experience'][3:]: add_job(j)
-story.append(p('SELECTED PRODUCTS & OPEN SOURCE','section'))
+story.append(p('SELECTED PROJECTS & RESEARCH','section'))
 for q in d['projects']:
  story.append(p('<b>'+link(q['name'],q['url'])+'</b> | '+e(q['status'])+'<br/>'+e(q['text']),'project'))
 story.append(p('TECHNICAL EXPERTISE','section'))

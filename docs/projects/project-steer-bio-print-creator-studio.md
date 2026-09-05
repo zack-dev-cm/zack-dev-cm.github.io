@@ -5,6 +5,8 @@
 ## Summary
 Telegram mini app and MCP connector for bio-print memory activation, QR-based print flows, and creator studio generation with a bot + API service. Inspired by the Eiffel Tower LLaMA space (https://huggingface.co/spaces/dlouapre/eiffel-tower-llama) and the paper "General Agentic Memory Via Deep Research" by B.Y. Yan, Chaofan Li, Hongjin Qian, Shuqi Lu, and Zheng Liu (https://arxiv.org/abs/2511.18423).
 
+## Project Figures
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/project-steer-bio-print-creator-studio.md
 

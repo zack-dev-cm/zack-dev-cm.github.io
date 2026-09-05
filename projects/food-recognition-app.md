@@ -5,6 +5,10 @@
 ## Summary
 Mobile CV prototype for food recognition and nutrition-label scanning. The public case study focuses on camera/image-picker flows, ML Kit text recognition, crop-assisted OCR toggles, nutrition-label detection calls, table extraction, and optional LLM structuring into user-readable JSON.
 
+## Project Figures
+
+![Food recognition app UI](https://zack-dev-cm.github.io/docs/images/food-recognition-ui.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/food-recognition-app.md
 

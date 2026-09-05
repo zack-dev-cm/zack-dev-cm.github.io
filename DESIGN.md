@@ -103,8 +103,16 @@ the hiring narrative. Do not invent reviews or imply employer endorsement.
 
 Preserve real screenshots at an inspectable size. Label generated conceptual
 diagrams as illustrations when displayed; do not turn them into product proof.
-For projects with no suitable screenshot, use a concise typography-based
-technical artifact instead of a fabricated dashboard.
+For projects with no suitable screenshot, use a bespoke conceptual illustration
+that explains the subject. Label it visibly and keep it distinct from evidence.
+Use the existing multimodal-search, OCR and face-analysis system figures as
+composition references: concrete input, explicit processing stages and a
+recognizable output. Reject atmospheric still lifes, floating-paper metaphors
+and abstract model blocks. Keep labels short, purposeful and source-verified.
+Do not fabricate product dashboards, CLI commands or benchmark plots. Real research figures
+retain their axes, full captions, and evaluation limitations. Case studies show
+all selected figures in a responsive, inspectable gallery rather than reusing
+a title card as the only visual.
 
 ## Responsive and accessibility
 

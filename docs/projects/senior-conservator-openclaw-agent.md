@@ -5,6 +5,10 @@
 ## Summary
 Senior Conservator OpenClaw Agent is an artifact-heavy conservation review case study. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The public case study summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.
 
+## Project Figures
+
+![Generated public-safe conservation visual-inspection card with object segmentation overlays, ROI crops, review gates, and report artifacts](https://zack-dev-cm.github.io/docs/images/senior-conservator-visual-inspection-agent-card.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md
 

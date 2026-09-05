@@ -5,6 +5,10 @@
 ## Summary
 ZackAutoStack bundles a Telegram bot, Mini App, and AI lead funnel in minutes. Unifies orchestration, reusable MCP tools, multi-tenant data, and telemetry guardrails.
 
+## Project Figures
+
+![ZackAutoStack automation stack](https://zack-dev-cm.github.io/docs/images/zackautostack.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md
 

@@ -237,7 +237,7 @@
           "title": "Engineering Drawing & CAD Analysis",
           "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-          "summary": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+          "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -248,14 +248,20 @@
           "aliases": [],
           "techStack": [
             "Python",
-            "Computer Vision",
-            "CAD",
-            "Geometry Processing",
-            "GPU",
-            "Web APIs"
+            "Open Cascade",
+            "CadQuery",
+            "build123d",
+            "NumPy",
+            "SciPy",
+            "Geometry Processing"
           ],
           "benchmarks": [],
-          "links": []
+          "links": [
+            {
+              "label": "Inspect projection SVG",
+              "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+            }
+          ]
         },
         {
           "id": 103,
@@ -569,7 +575,7 @@
           "title": "Engineering Drawing & CAD Analysis",
           "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-          "summary": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+          "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -580,14 +586,20 @@
           "aliases": [],
           "techStack": [
             "Python",
-            "Computer Vision",
-            "CAD",
-            "Geometry Processing",
-            "GPU",
-            "Web APIs"
+            "Open Cascade",
+            "CadQuery",
+            "build123d",
+            "NumPy",
+            "SciPy",
+            "Geometry Processing"
           ],
           "benchmarks": [],
-          "links": []
+          "links": [
+            {
+              "label": "Inspect projection SVG",
+              "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+            }
+          ]
         },
         {
           "id": 103,
@@ -1004,7 +1016,7 @@
       "title": "Engineering Drawing & CAD Analysis",
       "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-      "summary": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+      "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
       "kind": "research",
       "tags": [
         "computer-vision",
@@ -1015,14 +1027,20 @@
       "aliases": [],
       "techStack": [
         "Python",
-        "Computer Vision",
-        "CAD",
-        "Geometry Processing",
-        "GPU",
-        "Web APIs"
+        "Open Cascade",
+        "CadQuery",
+        "build123d",
+        "NumPy",
+        "SciPy",
+        "Geometry Processing"
       ],
       "benchmarks": [],
-      "links": []
+      "links": [
+        {
+          "label": "Inspect projection SVG",
+          "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+        }
+      ]
     },
     {
       "id": 72,
@@ -1060,6 +1078,35 @@
   ],
   "allProjects": [
     {
+      "id": 104,
+      "title": "LigninQC - Reproducible Scientific Research Workflows",
+      "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows.md",
+      "summary": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
+      "kind": "research",
+      "tags": [
+        "research",
+        "scientific-data",
+        "data-engineering",
+        "reproducibility"
+      ],
+      "aliases": [
+        "ligninqc",
+        "lignin research",
+        "scientific evidence workflows"
+      ],
+      "techStack": [
+        "JavaScript",
+        "Node.js",
+        "OpenAlex API",
+        "JSONL",
+        "CSV",
+        "Data validation"
+      ],
+      "benchmarks": [],
+      "links": []
+    },
+    {
       "id": 101,
       "title": "Riverstart Document AI",
       "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
@@ -1091,7 +1138,7 @@
       "title": "Engineering Drawing & CAD Analysis",
       "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-      "summary": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+      "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
       "kind": "research",
       "tags": [
         "computer-vision",
@@ -1102,14 +1149,20 @@
       "aliases": [],
       "techStack": [
         "Python",
-        "Computer Vision",
-        "CAD",
-        "Geometry Processing",
-        "GPU",
-        "Web APIs"
+        "Open Cascade",
+        "CadQuery",
+        "build123d",
+        "NumPy",
+        "SciPy",
+        "Geometry Processing"
       ],
       "benchmarks": [],
-      "links": []
+      "links": [
+        {
+          "label": "Inspect projection SVG",
+          "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+        }
+      ]
     },
     {
       "id": 103,

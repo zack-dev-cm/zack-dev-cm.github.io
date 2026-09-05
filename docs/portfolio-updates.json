@@ -559,12 +559,12 @@
       ],
       "images": [
         {
-          "url": "images/agnitra-ai-inference-optimizer-card.png",
-          "alt": "Conceptual diagram of Agnitra model optimization and package workflow",
+          "url": "images/agnitra-profiling-workflow-v7.webp",
+          "alt": "Conceptual illustration of model runtime profiling, optimization and baseline comparison",
           "caption": "Conceptual workflow illustration."
         }
       ],
-      "thumbnail": "images/agnitra-ai-inference-optimizer-card.png",
+      "thumbnail": "images/agnitra-profiling-workflow-v7.webp",
       "canonicalLinks": {
         "website": "https://pypi.org/project/agnitra/"
       },

@@ -5,6 +5,12 @@
 ## Summary
 Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment claim.
 
+## Project Figures
+
+![Generated full-face wrinkle segmentation lab card with anonymized face mesh, region masks, skeletonized traces, and QA artifact panels](https://zack-dev-cm.github.io/docs/images/full-face-wrinkle-segmentation-lab-card.webp)
+
+![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md
 

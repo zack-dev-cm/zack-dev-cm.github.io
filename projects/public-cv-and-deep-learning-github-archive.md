@@ -5,6 +5,10 @@
 ## Summary
 Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio claim.
 
+## Project Figures
+
+![Computer vision systems map used for public CV and deep learning archive](https://zack-dev-cm.github.io/docs/images/cv-ai-systems-map.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md
 

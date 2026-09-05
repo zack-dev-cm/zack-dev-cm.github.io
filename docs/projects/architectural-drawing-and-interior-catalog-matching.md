@@ -5,6 +5,12 @@
 ## Summary
 Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.
 
+## Project Figures
+
+![Architectural floorplan recognition and interior catalog matching visualization](https://zack-dev-cm.github.io/docs/images/architectural-plan-interior-matcher-card.png)
+
+![Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework](https://zack-dev-cm.github.io/docs/images/architectural-catalog-reception-preview.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 

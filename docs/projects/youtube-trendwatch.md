@@ -5,6 +5,10 @@
 ## Summary
 Scrapes and scores AI-related YouTube trends, clustering titles/descriptions to suggest fresh video ideas and scripts.
 
+## Project Figures
+
+![YouTube trendwatch charts](https://zack-dev-cm.github.io/docs/images/trendwatch.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/youtube-trendwatch.md
 

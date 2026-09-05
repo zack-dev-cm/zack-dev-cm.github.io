@@ -5,6 +5,10 @@
 ## Summary
 Swiss-army-knife web app: annotate PDFs, batch resize/crop images, trim/convert videos, all running on serverless workers.
 
+## Project Figures
+
+![LastAdjust feature set](https://zack-dev-cm.github.io/docs/images/lastadjust.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/lastadjust-universal-media-tuner.md
 

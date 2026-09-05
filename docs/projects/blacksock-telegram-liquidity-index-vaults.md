@@ -5,6 +5,10 @@
 ## Summary
 Mini app + API stack that quotes star-factoring, handles index vault subscribe/redeem flows, and runs governance proposals and votes with optional TON wallet linking.
 
+## Project Figures
+
+![Blacksock mini app preview](https://zack-dev-cm.github.io/docs/images/blacksock.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/blacksock-telegram-liquidity-index-vaults.md
 

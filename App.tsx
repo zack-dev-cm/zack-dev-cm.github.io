@@ -29,7 +29,6 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Current R&D · Riverstart',
     title: 'Document AI for expert workflows',
     summary: 'On-premises document AI with hybrid retrieval and source-linked answers, built around the way experts review information.',
-    artifact: { heading: 'From documents to decisions', lines: ['Document understanding', 'Hybrid retrieval', 'Source-linked expert review'], footer: 'Document AI / Retrieval / Agentic workflows' }
   },
   63: {
     label: 'Mobile computer vision',
@@ -40,19 +39,16 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Python package · PyPI',
     title: 'Agnitra · Inference optimization',
     summary: 'A released Python package for profiling LLM inference and applying optimization strategies through a model-level API.',
-    artifact: { heading: 'pip install agnitra', lines: ['Profile inference', 'Evaluate optimizations', 'Integrate with model workflows'], footer: 'Python / PyTorch / LLM inference' }
   },
   11: {
     label: 'Maintained AI service',
     title: 'Calorio · AI nutrition assistant',
     summary: 'An actively maintained Telegram service that helps people record meals and work toward nutrition goals using photos, voice, and text.',
-    artifact: { heading: 'Everyday nutrition, less friction', lines: ['Photo, voice, or text', 'Meal understanding', 'Personal food diary'], footer: 'Telegram / Multimodal AI / Product maintenance' }
   },
   102: {
     label: 'Engineering R&D',
     title: 'Drawing & CAD analysis',
-    summary: 'Engineering drawing interpretation and reconstruction workflows with traceable review artifacts for domain specialists.',
-    artifact: { heading: 'Interpret. Reconstruct. Review.', lines: ['Engineering drawings', 'Geometry reconstruction', 'Traceable review artifacts'], footer: 'Computer vision / Document AI / CAD' }
+    summary: 'Scan alignment, reference-CAD comparison, and CAD-to-2D projection, evaluated with geometric checks and analytic test fixtures.',
   },
   72: {
     label: 'Retrieval R&D',
@@ -64,7 +60,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
 
 const CAREER = [
   { company: 'Riverstart', role: 'Senior ML Engineer · R&D ML', period: 'Jul 2026 — Present', description: 'Document AI, hybrid retrieval, and source-linked expert workflows in on-premises environments.', current: true },
-  { company: 'Independent engagements', role: 'Senior Computer Vision Engineer', period: 'Jun 2024 — Present', description: 'Selected concurrent projects across mobile computer vision, inference optimization, and a maintained AI nutrition service.', current: true },
+  { company: 'Independent ML & CV Engineering', role: 'Client projects · Dermaself & Calorio', period: 'Jun 2024 — Present', description: 'Developed skin-analysis pipelines for Dermaself and built Calorio’s AI meal-logging service. Ongoing work focuses on Calorio maintenance.' },
   { company: 'Wombat Apps / Carb Manager', role: 'Senior Computer Vision Engineer', period: 'Jun 2022 — Jun 2024', description: 'Computer vision engineering for nutrition and food-recognition product workflows.' },
   { company: 'Center of Financial Technologies', role: 'Computer Vision Engineer', period: 'Jun 2019 — Jun 2022', description: 'Computer vision and document recognition systems, from model development to engineering integration.' },
 ];
@@ -1341,7 +1337,7 @@ const App: React.FC = () => {
                           ) : (
                             <img src={asset.url} alt={asset.alt} className="featured-card__asset" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
                           )}
-                          {isIllustration && <span className="featured-card__caption">System illustration</span>}
+                          {project.id === 102 ? <span className="featured-card__caption">Engineering test fixture</span> : isIllustration && <span className="featured-card__caption">System illustration</span>}
                         </>
                       ) : null}
                     </a>

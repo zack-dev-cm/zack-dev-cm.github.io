@@ -5,6 +5,10 @@
 ## Summary
 GeoFix runs AI visibility scans, surfaces a scorecard with GEO diagnostics, and generates Server-Side Memorizer assets (llms.txt, llms-full.txt, schema.jsonld). The unified Cloud Run service ships a React web app, FastAPI API, and Celery worker with Redis-backed jobs, plus Telegram bot delivery and hosted previews.
 
+## Project Figures
+
+![GeoFix architecture diagram](https://zack-dev-cm.github.io/docs/images/geofix-architecture.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app.md
 

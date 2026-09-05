@@ -7,7 +7,7 @@
   "website": "https://zack-dev-cm.github.io/",
   "github": "https://github.com/zack-dev-cm",
   "linkedin": "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
-  "summary": "Senior ML Engineer with 8+ years taking computer vision and applied ML from research to shipped products. Shipped food-recognition and OCR workflows at Carb Manager and built financial-document recognition at CFT. Now a Senior ML Engineer in Riverstart's R&D ML team, developing document AI and engineering-analysis systems. Also build and maintain an AI nutrition service and publish tools for model profiling and optimization.",
+  "summary": "Senior ML Engineer with 8+ years developing computer vision and applied ML from research through deployment. Shipped food-recognition and OCR workflows at Carb Manager and built financial-document recognition at CFT. Currently in Riverstart's R&D ML team, developing document AI and evaluating engineering-analysis methods. Also maintain an AI nutrition service and publish model-profiling and optimization tools.",
   "experience": [
     {
       "company": "Riverstart",
@@ -15,19 +15,19 @@
       "context": "R&D ML | Remote",
       "dates": "Jul 2026 - Present",
       "bullets": [
-        "Own R&D delivery for an on-premises document assistant that extracts case facts and reconciles records for specialist review. Separate deterministic checks from model-generated explanations and preserve links to the underlying documents.",
-        "Build engineering-analysis prototypes that turn scans and CAD files into reconstructed geometry and drawing packs, and interpret construction-document sets into quantities linked to source pages. Own evaluation and the path from prototype to specialist review.",
-        "Develop repeatable evaluation and releases for LLM services: versioned artifacts, regression checks, observability and rollback. Keep model-generated outputs traceable to the source documents and deployed revision."
+        "Own R&D implementation and evaluation of an on-premises document assistant that extracts case facts and reconciles records for specialist review. Separate deterministic checks from model explanations and link outputs to source documents.",
+        "Build evaluation workflows for scan registration against CAD references, CAD projection and drawing comparison, using controlled geometry to check projected and hidden edges. Develop construction-document analysis that links extracted quantities to source pages.",
+        "Build repeatable evaluation and release workflows for LLM services with versioned artifacts, regression checks, observability and rollback."
       ]
     },
     {
-      "company": "Dermaself & selected engagements",
-      "role": "Senior Computer Vision Engineer - Independent",
-      "context": "Concurrent engagements | Remote",
-      "dates": "Jun 2024 - Present",
+      "company": "Dermaself & Calorio (client projects)",
+      "role": "ML / Computer Vision Engineer - Independent Projects",
+      "context": "Ongoing Calorio maintenance | Remote",
+      "dates": "Jun 2024 - Present (project activity)",
       "bullets": [
-        "Lead skin-analysis CV development for Dermaself, from guided capture and facial regions to pore and wrinkle segmentation, model evaluation and mobile/API integration using PyTorch, OpenMMLab, ONNX and Flutter.",
-        "Resolved model-asset and runtime differences between Cloud Run and GPU deployments, restoring matching wrinkle-segmentation outputs in regression comparisons and profiling bottlenecks to guide further optimization."
+        "Developed skin-analysis CV pipelines for Dermaself, covering guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration with PyTorch, OpenMMLab, ONNX and Flutter.",
+        "Resolved model-asset and runtime differences between Cloud Run and GPU deployments, restoring matching wrinkle-segmentation outputs in regression comparisons and profiling remaining bottlenecks."
       ]
     },
     {
@@ -65,25 +65,31 @@
       "name": "Agnitra",
       "status": "Published on PyPI",
       "url": "https://pypi.org/project/agnitra/",
-      "text": "Published a Python SDK and CLI for model profiling and inference optimization. Connects runtime telemetry and baseline comparisons with optimization passes; the released decoder-LLM path includes hardware-aware quantization and integration with existing model workflows."
+      "text": "Published a Python SDK and CLI for model profiling and inference optimization, combining runtime telemetry, baseline comparisons and optimization passes, including hardware-aware quantization for decoder LLMs."
     },
     {
       "name": "Calorio / YourFit",
       "status": "Maintained AI nutrition service",
       "url": "https://t.me/calorio_yf_bot",
-      "text": "Built and maintain a Telegram nutrition assistant that helps people keep a food diary using meal photos, voice messages and text. Develop the multimodal logging flow, nutrition-goal tracking and ongoing service improvements."
+      "text": "Built and maintain a Telegram AI nutrition service for meal logging from photos, voice and text, with a food diary, nutrition-goal tracking, deployment and technical support."
     },
     {
       "name": "InQuest",
       "status": "Document-agent engineering",
       "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
-      "text": "Built document agents with OpenAI Agents SDK and MCP, combining retrieval, tool calls, handoffs and persistent project context to work across document collections."
+      "text": "Built document agents using OpenAI Agents SDK and MCP, with retrieval, tool calls, handoffs and persistent context across document collections."
     },
     {
       "name": "Multimodal Video Search",
       "status": "Retrieval R&D",
       "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
-      "text": "Designed video retrieval across visual embeddings, speech transcripts, on-screen text and scene descriptions, combining dense and sparse search so relevant clips can be found through complementary signals."
+      "text": "Designed video retrieval combining visual embeddings, speech transcripts, on-screen text and scene descriptions with dense and sparse search to find relevant clips."
+    },
+    {
+      "name": "LigninQC",
+      "status": "Research tooling | In progress",
+      "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
+      "text": "Built a reproducible literature-discovery and audit pipeline for computational lignin research, with publication-version grouping and field-level source provenance."
     }
   ],
   "skills": [

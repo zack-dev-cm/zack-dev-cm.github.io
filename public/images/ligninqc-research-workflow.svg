@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="680" viewBox="0 0 800 680" role="img" aria-labelledby="title description">
+  <title id="title">LigninQC research workflow illustration</title>
+  <desc id="description">Metadata discovery flows into normalization and publication-version grouping, then integrity review and traceable extraction schemas. Missing evidence branches to human review. The illustration explains the research tooling; it does not show completed scientific results.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 8 5 1 9" fill="none" stroke="#29333D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="review-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M1 1 8 5 1 9" fill="none" stroke="#256172" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="800" height="680" fill="#F0F3F5"/>
+  <g font-family="Space Grotesk, Segoe UI, Arial, sans-serif" fill="#11161C">
+    <text x="40" y="64" font-size="40" font-weight="600">LigninQC</text>
+    <text x="40" y="101" font-size="24" fill="#465663">Scientific research workflows</text>
+    <path d="M40 128H760" fill="none" stroke="#BAC7CF" stroke-width="1.5"/>
+
+    <g fill="#FFFFFF" stroke="#BAC7CF" stroke-width="1.5">
+      <rect x="40" y="164" width="300" height="144" rx="8"/>
+      <rect x="460" y="164" width="300" height="144" rx="8"/>
+      <rect x="460" y="404" width="300" height="144" rx="8"/>
+      <rect x="40" y="404" width="300" height="144" rx="8"/>
+    </g>
+    <g fill="#97D8EA">
+      <rect x="40" y="188" width="5" height="96" rx="2"/>
+      <rect x="460" y="188" width="5" height="96" rx="2"/>
+      <rect x="460" y="428" width="5" height="96" rx="2"/>
+      <rect x="40" y="428" width="5" height="96" rx="2"/>
+    </g>
+    <g font-size="32" font-weight="600">
+      <text x="68" y="227">Metadata<tspan x="68" dy="42">discovery</tspan></text>
+      <text x="488" y="227">Normalize &amp;<tspan x="488" dy="42">group versions</tspan></text>
+      <text x="488" y="467">Integrity<tspan x="488" dy="42">review</tspan></text>
+      <text x="68" y="467">Traceable<tspan x="68" dy="42">extraction</tspan></text>
+    </g>
+
+    <g fill="none" stroke="#29333D" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M354 236H444"/>
+      <path d="M610 322V388"/>
+      <path d="M446 476H356"/>
+    </g>
+    <circle cx="610" cy="354" r="4" fill="#256172"/>
+    <path d="M600 354H354" fill="none" stroke="#256172" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#review-arrow)"/>
+    <text x="40" y="349" font-size="29" font-weight="600" fill="#256172">Human review</text>
+    <text x="40" y="382" font-size="25" fill="#465663">Missing evidence</text>
+
+    <path d="M40 592H760" fill="none" stroke="#BAC7CF" stroke-width="1.5"/>
+    <text x="40" y="630" font-size="24" fill="#465663">Workflow illustration · Research in progress</text>
+  </g>
+</svg>

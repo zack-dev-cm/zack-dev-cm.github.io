@@ -5,6 +5,10 @@
 ## Summary
 Fetches GitHub repo trees with the user's token and summarizes structure locally - no external servers involved.
 
+## Project Figures
+
+![GitHub repo summarizer UI](https://zack-dev-cm.github.io/docs/images/github_repo_summarizer_ext.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md
 

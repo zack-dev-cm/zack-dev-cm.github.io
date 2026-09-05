@@ -5,6 +5,12 @@
 ## Summary
 Jaw and Face-Type Classifier for Aesthetic Review is a public-safe case study for facial morphology classification work. A 2026-06-04 private-source review covered jaw-class workspaces, jaw database materials, k-fold experiment folders, label text files, and a Jaw / Face-type analyser v0.12.7 deck. The public entry focuses on the engineering pattern: dataset and label QA, front/profile landmark handling, jawline and face-type classification, review overlays, experiment tracking, and release-ready privacy boundaries. It is framed as aesthetic-review decision support, not diagnosis, treatment planning, or a surgical recommendation system; raw face images, patient data, and private model weights are not published.
 
+## Project Figures
+
+![Anonymized jaw and face-type classification interface with facial landmarks and review charts](https://zack-dev-cm.github.io/docs/images/jaw-face-type-classifier-card.png)
+
+![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md
 

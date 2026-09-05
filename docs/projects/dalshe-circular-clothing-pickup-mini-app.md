@@ -5,6 +5,12 @@
 ## Summary
 Users submit a short form, couriers collect items, and the bot delivers status updates while admins track pickup requests.
 
+## Project Figures
+
+![Dalshe donation mini app](https://zack-dev-cm.github.io/docs/images/dalshe-1.png)
+
+![Dalshe circular donation visual](https://zack-dev-cm.github.io/docs/images/dalshe-2.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/dalshe-circular-clothing-pickup-mini-app.md
 

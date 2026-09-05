@@ -5,6 +5,10 @@
 ## Summary
 Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.
 
+## Project Figures
+
+![Tool calling playground](https://zack-dev-cm.github.io/docs/images/tool_calls.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md
 

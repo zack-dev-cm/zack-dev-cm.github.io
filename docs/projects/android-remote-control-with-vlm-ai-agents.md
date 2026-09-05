@@ -5,6 +5,12 @@
 ## Summary
 Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.
 
+## Project Figures
+
+![Android Remote Control Demo](https://zack-dev-cm.github.io/docs/images/android-remote.gif)
+
+![Android Remote Control alternate view](https://zack-dev-cm.github.io/docs/images/android-remote-alt.gif)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/android-remote-control-with-vlm-ai-agents.md
 

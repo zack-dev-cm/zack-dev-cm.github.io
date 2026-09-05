@@ -5,6 +5,18 @@
 ## Summary
 As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.
 
+## Engineering decisions
+Document extraction produces structured facts that can be checked independently of a generated explanation. Retrieval supplies relevant passages; deterministic reconciliation handles comparisons that should be repeatable. An expert can follow the answer back to its supporting document.
+
+## Evaluation and current stage
+The work is in staged R&D validation. My scope includes extraction contracts, retrieval experiments and versioned evaluations, with observability and rollback around deployment candidates. Source traceability and specialist review are part of acceptance.
+
+## Project Figures
+
+![Conceptual illustration of source documents, retrieval connections and a source-linked review answer](https://zack-dev-cm.github.io/docs/images/document-ai-workflow-v3.webp)
+
+Conceptual illustration: documents, retrieved evidence and specialist review. No client records shown.
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/riverstart-document-ai.md
 

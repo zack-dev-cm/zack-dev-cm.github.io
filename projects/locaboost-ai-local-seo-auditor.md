@@ -5,6 +5,10 @@
 ## Summary
 Maps nearby competitors around a business, scores visibility, and surfaces actionable SEO recommendations.
 
+## Project Figures
+
+![LocaBoost map overview](https://zack-dev-cm.github.io/docs/images/locaboost.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/locaboost-ai-local-seo-auditor.md
 

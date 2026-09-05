@@ -41,6 +41,7 @@ export interface Project {
   aliases?: string[];
   description: string;
   longDescription?: string;
+  caseStudySections?: { title: string; body: string }[];
   hideImages?: boolean;
   projectKind?: 'user-product' | 'open-source' | 'case-study' | 'research';
   surfaceTags?: string[];

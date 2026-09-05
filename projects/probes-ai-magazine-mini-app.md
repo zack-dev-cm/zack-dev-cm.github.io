@@ -5,6 +5,10 @@
 ## Summary
 Telegram mini app with a daily AI magazine feed: articles + cover images, likes/bookmarks/comments, and a bot + API pipeline that powers content generation.
 
+## Project Figures
+
+![Probes mini app preview](https://zack-dev-cm.github.io/docs/images/probes.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app.md
 

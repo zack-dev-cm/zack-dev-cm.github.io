@@ -5,6 +5,12 @@
 ## Summary
 ComfyUI and Colab Generative Prototype Lab adds the source-reviewed notebook and advanced prototype work that was missing from the public portfolio. The 2026-06-04 review covered Colab notebook folders, OCR and PDF-analysis demos, MMOCR notes, Falcon/LLM fine-tuning proposal notes, mobile PyTorch custom-library build notes, ComfyUI API automation, LivePortrait batch animation, MoviePy/FFmpeg assembly, and generative media pipeline planning. The public entry links only public repositories and describes the system patterns; private notebook URLs, restricted datasets, unpublished weights, and private proposal artifacts are not published.
 
+## Project Figures
+
+![Generative AI notebook and ComfyUI prototype lab with node graphs and media pipeline frames](https://zack-dev-cm.github.io/docs/images/comfy-colab-prototype-lab-card.png)
+
+![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md
 

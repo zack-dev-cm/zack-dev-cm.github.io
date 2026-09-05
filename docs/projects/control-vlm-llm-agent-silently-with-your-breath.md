@@ -5,6 +5,12 @@
 ## Summary
 Breath-based control after a short calibration: detect sharp exhales to start, smooth exhale to stop. Works on mic audio or sniffles for silent agent control.
 
+## Project Figures
+
+![Breathing Control Demo](https://zack-dev-cm.github.io/docs/images/breath-control.gif)
+
+![Breathing control waveform preview](https://zack-dev-cm.github.io/docs/images/breath-control-alt.gif)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/control-vlm-llm-agent-silently-with-your-breath.md
 

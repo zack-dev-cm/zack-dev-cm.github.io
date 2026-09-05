@@ -5,6 +5,10 @@
 ## Summary
 ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on setting up ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions around the same public-safe Dermaself CV pipeline. It deliberately avoids publishing raw skin images, private datasets, model weights, ClearML server URLs, or user-level records.
 
+## Project Figures
+
+![Public-safe MLOps card showing Dermaself ClearML experiment tracking with datasets, parameters, metrics, artifacts, QA gates, and promotion boundaries](https://zack-dev-cm.github.io/docs/images/clearml-dermaself-experiment-tracking-card.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md
 

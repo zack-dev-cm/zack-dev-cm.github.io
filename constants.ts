@@ -29,8 +29,8 @@ const CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE = {
   alt: "Public-safe MLOps card showing Dermaself ClearML experiment tracking with datasets, parameters, metrics, artifacts, QA gates, and promotion boundaries"
 };
 const AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE = {
-  url: `${LOCAL_IMG_BASE}/agnitra-ai-inference-optimizer-card.png`,
-  alt: "Public-safe Agnitra AI inference optimizer card showing decoder-only LLM runtime, quantization, integrations, trust manifest, and package release surfaces"
+  url: `${LOCAL_IMG_BASE}/agnitra-profiling-workflow-v7.webp`,
+  alt: "Conceptual illustration of model runtime profiling, optimization and baseline comparison"
 };
 const FACE_TEXTURE_ANALYSIS_SERVICE_IMAGE = {
   url: `${LOCAL_IMG_BASE}/face-texture-analysis-service-card.webp`,
@@ -1454,6 +1454,58 @@ export const LATEST_UPDATES: LatestUpdate[] = [
 
 export const PROJECTS: Project[] = [
   {
+    "id": 104,
+    "title": "LigninQC - Reproducible Scientific Research Workflows",
+    "aliases": [
+      "ligninqc",
+      "lignin research",
+      "scientific evidence workflows"
+    ],
+    "description": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
+    "longDescription": "I’m developing LigninQC, a research-data workflow for studying how molecular-model assumptions affect conclusions in lignin chemistry. The current implementation retrieves and normalizes literature metadata, preserves provenance, groups publication versions and prepares screening records and extraction schemas with field-level provenance. Missing evidence and integrity concerns remain visible for human review. The scientific review and quantum-chemistry benchmark are at protocol stage.",
+    "projectKind": "research",
+    "surfaceTags": [
+      "research",
+      "scientific-data",
+      "data-engineering",
+      "reproducibility"
+    ],
+    "keyFeatures": [
+      "Retrieve literature metadata through a resumable OpenAlex discovery workflow",
+      "Normalize records and group publication versions while preserving source provenance",
+      "Flag missing evidence and retraction signals for human review",
+      "Prepare extraction schemas with field-level provenance and explicit missing-data states"
+    ],
+    "techStack": [
+      "JavaScript",
+      "Node.js",
+      "OpenAlex API",
+      "JSONL",
+      "CSV",
+      "Data validation"
+    ],
+    "links": [],
+    "images": [
+      {
+        "url": "/docs/images/ligninqc-research-workflow.svg",
+        "alt": "LigninQC workflow from metadata discovery through normalization, version grouping and integrity review to traceable extraction, with missing evidence routed to human review",
+        "caption": "Workflow illustration. Research in progress; extraction schemas are prepared."
+      }
+    ],
+    "thumbnail": "/docs/images/ligninqc-research-workflow.svg",
+    "createdAt": "2026-08-26",
+    "caseStudySections": [
+      {
+        "title": "Research engineering contribution",
+        "body": "The implemented pipeline retrieves literature metadata, normalizes incomplete records and groups publication versions while retaining retrieval lineage. Missing abstracts and integrity concerns remain visible for review instead of being treated as clean negative evidence."
+      },
+      {
+        "title": "Scope of the current work",
+        "body": "The delivered work is data acquisition, validation and audit tooling, including traceable extraction schemas. The scientific review and quantum-chemistry benchmark remain at protocol stage."
+      }
+    ]
+  },
+  {
     "id": 101,
     "title": "Riverstart Document AI",
     "description": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
@@ -1483,28 +1535,44 @@ export const PROJECTS: Project[] = [
     "createdAt": "2026-09-05",
     "projectKind": "research",
     "links": [],
-    "images": [],
-    "thumbnail": "",
-    "hideImages": true
+    "images": [
+      {
+        "url": "/docs/images/document-ai-workflow-v3.webp",
+        "alt": "Conceptual illustration of source documents, retrieval connections and a source-linked review answer",
+        "caption": "Conceptual illustration: documents, retrieved evidence and specialist review. No client records shown."
+      }
+    ],
+    "thumbnail": "/docs/images/document-ai-workflow-v3.webp",
+    "caseStudySections": [
+      {
+        "title": "Engineering decisions",
+        "body": "Document extraction produces structured facts that can be checked independently of a generated explanation. Retrieval supplies relevant passages; deterministic reconciliation handles comparisons that should be repeatable. An expert can follow the answer back to its supporting document."
+      },
+      {
+        "title": "Evaluation and current stage",
+        "body": "The work is in staged R&D validation. My scope includes extraction contracts, retrieval experiments and versioned evaluations, with observability and rollback around deployment candidates. Source traceability and specialist review are part of acceptance."
+      }
+    ]
   },
   {
     "id": 102,
     "title": "Engineering Drawing & CAD Analysis",
-    "description": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
-    "longDescription": "I lead engineering-analysis R&D spanning browser input, GPU processing, geometry reconstruction and downloadable drawing packs. The work connects scans and CAD representations to an engineer-facing review process. Geometry validation and source traceability guide the design, while specialist approval remains part of the workflow. The workflow is evaluated as engineering decision support.",
+    "description": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
+    "longDescription": "I develop engineering-analysis research at Riverstart, connecting scans, CAD geometry and engineering drawings through reproducible evaluation. My work covers reference registration, CAD-to-2D projection, geometry checks and review artifacts. Each stage has its own acceptance criteria so engineers can inspect the geometry and decide what is ready for further development.",
     "keyFeatures": [
-      "Browser-to-GPU processing for scans and CAD inputs",
-      "Geometry reconstruction and drawing-pack export",
-      "Traceable outputs for engineering review",
-      "Geometry evaluation before release decisions"
+      "Evaluate scan registration against supplied CAD references",
+      "Compare CAD-to-2D projection and hidden-line handling across geometry backends",
+      "Check outputs against independently defined analytic fixtures",
+      "Preserve geometry, evaluation results and review artifacts for repeatable inspection"
     ],
     "techStack": [
       "Python",
-      "Computer Vision",
-      "CAD",
-      "Geometry Processing",
-      "GPU",
-      "Web APIs"
+      "Open Cascade",
+      "CadQuery",
+      "build123d",
+      "NumPy",
+      "SciPy",
+      "Geometry Processing"
     ],
     "surfaceTags": [
       "computer-vision",
@@ -1514,10 +1582,40 @@ export const PROJECTS: Project[] = [
     ],
     "createdAt": "2026-09-05",
     "projectKind": "research",
-    "links": [],
-    "images": [],
-    "thumbnail": "",
-    "hideImages": true
+    "links": [
+      {
+        "text": "Inspect projection SVG",
+        "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+      }
+    ],
+    "images": [
+      {
+        "url": "/docs/images/cad-analytic-fixture-source.webp",
+        "alt": "Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes",
+        "caption": "Analytic CAD test fixture: a through-bore block used to evaluate projection and hidden-line handling. Rendered from the source STEP."
+      },
+      {
+        "url": "/docs/images/cad-analytic-fixture-projections.webp",
+        "alt": "XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges",
+        "caption": "Generated XY and XZ projections of the same test fixture, separating visible and hidden edges. Actual HLR output."
+      }
+    ],
+    "thumbnail": "/docs/images/cad-analytic-fixture-source.webp",
+    "hideImages": false,
+    "caseStudySections": [
+      {
+        "title": "Engineering decisions",
+        "body": "I separate scan registration, CAD projection and drawing comparison into measurable stages. The projection research compares direct Open Cascade routes with CadQuery and build123d, checks visible and hidden geometry separately, and preserves intermediate artifacts for review. Analytic fixtures provide expected geometry that is defined independently of the candidate projection backend."
+      },
+      {
+        "title": "Evaluation and current stage",
+        "body": "The demonstrated milestone is a research baseline for registration and projection evaluation. Checks cover coordinate consistency, surface alignment, projected geometry and selected drawing views. Scan-to-parametric reconstruction requires separate evidence and acceptance; the supplied reference CAD in a registration test is not a reconstructed output."
+      },
+      {
+        "title": "What the images show",
+        "body": "The first image renders an existing analytic STEP fixture built for the evaluation workflow. The second shows the actual generated XY and XZ projections of that same solid, including hidden edges. These are reproducible test artifacts using synthetic geometry; they do not contain a customer part, a generated product interface or a claim of manufacturing accuracy."
+      }
+    ]
   },
   {
     "id": 103,
@@ -1526,7 +1624,7 @@ export const PROJECTS: Project[] = [
     "longDescription": "I develop construction-document analysis as part of Riverstart R&D. The workflow interprets complete plan sets, extracts structured quantities and connects each result to the corresponding source page. Persistent review state lets specialists inspect and correct results across a document set. My contribution spans document processing, model orchestration, output contracts and evaluation for expert review.",
     "keyFeatures": [
       "Analyze related drawings as a complete document set",
-      "Extract structured takeoff and quantity views",
+      "Validate observations and units before calculating quantities",
       "Link quantities to source pages for checking",
       "Preserve specialist review decisions across revisions"
     ],
@@ -1547,9 +1645,24 @@ export const PROJECTS: Project[] = [
     "createdAt": "2026-09-05",
     "projectKind": "research",
     "links": [],
-    "images": [],
-    "thumbnail": "",
-    "hideImages": true
+    "images": [
+      {
+        "url": "/docs/images/construction-documents-workflow-v3.webp",
+        "alt": "Conceptual illustration of architectural plan sheets, a selected building region and quantity extraction",
+        "caption": "Conceptual illustration of plan interpretation and source-linked quantities; the drawings are invented."
+      }
+    ],
+    "thumbnail": "/docs/images/construction-documents-workflow-v3.webp",
+    "caseStudySections": [
+      {
+        "title": "Engineering decisions",
+        "body": "I separate document observations, quantity calculations and specialist acceptance. Extracted facts retain their source page and location, while schema and unit checks run before deterministic calculation. Missing or unconfirmed dimensions block a quantity from being accepted."
+      },
+      {
+        "title": "Review across a document set",
+        "body": "The R&D workflow keeps related drawings and review decisions together so a specialist can inspect a result in context and correct it across revisions. This is an evaluation-stage workflow; generated quantities still require source checks and expert acceptance."
+      }
+    ]
   },
   {
     id: 1,
@@ -1745,8 +1858,14 @@ export const PROJECTS: Project[] = [
         "url": "https://t.me/calorio_yf_bot"
       }
     ],
-    "images": [],
-    "thumbnail": "",
+    "images": [
+      {
+        "url": "/docs/images/calorio-workflow-v3.webp",
+        "alt": "Conceptual illustration of meal photos, voice and text feeding a personal food diary",
+        "caption": "Conceptual illustration of multimodal meal logging; this is not a Calorio interface screenshot."
+      }
+    ],
+    "thumbnail": "/docs/images/calorio-workflow-v3.webp",
     "canonicalLinks": {
       "telegramBot": "https://t.me/calorio_yf_bot"
     }
@@ -3099,16 +3218,26 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     "images": [
       {
-        "url": "/docs/images/agnitra-ai-inference-optimizer-card.png",
-        "alt": "Conceptual diagram of Agnitra model optimization and package workflow",
-        "caption": "Conceptual workflow illustration."
+        "url": "/docs/images/agnitra-profiling-workflow-v7.webp",
+        "alt": "Conceptual illustration of model runtime profiling, optimization and baseline comparison",
+        "caption": "Conceptual illustration of the profiling and evaluation workflow; the traces are illustrative."
       }
     ],
-    "thumbnail": "/docs/images/agnitra-ai-inference-optimizer-card.png",
+    "thumbnail": "/docs/images/agnitra-profiling-workflow-v7.webp",
     "createdAt": "2026-05-06",
     "canonicalLinks": {
       "website": "https://pypi.org/project/agnitra/"
-    }
+    },
+    "caseStudySections": [
+      {
+        "title": "Why this tool",
+        "body": "Inference optimization needs a measured baseline and a way to inspect quality changes. I built a Python SDK and CLI that connect runtime profiling with optimization passes and evaluation, so developers can assess changes within an existing model workflow."
+      },
+      {
+        "title": "Released scope",
+        "body": "The beta package is available on PyPI. Its decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Supported paths, fallback behavior and workload-specific evaluation matter more than a universal speedup claim."
+      }
+    ]
   },
 
   {

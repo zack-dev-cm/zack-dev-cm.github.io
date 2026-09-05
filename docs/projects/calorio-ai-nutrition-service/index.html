@@ -15,13 +15,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Calorio - AI Nutrition Service" />
     <meta name="twitter:description" content="A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/project-social/calorio-ai-nutrition-service.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Calorio - AI Nutrition Service project visual" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/project-social/calorio-ai-nutrition-service.png" />
-    <meta name="twitter:image:alt" content="Calorio - AI Nutrition Service project visual" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/calorio-workflow-v3.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Conceptual illustration of meal photos, voice and text feeding a personal food diary" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/calorio-workflow-v3.webp" />
+    <meta name="twitter:image:alt" content="Conceptual illustration of meal photos, voice and text feeding a personal food diary" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -44,7 +42,7 @@
       },
       "genre": "user-product",
       "keywords": "telegram, mobile, multimodal, maintained-service, Python, FastAPI, Telegram Bot API, Vision-language models, Speech-to-text, SQLite, Telegram Mini Apps",
-      "image": "https://zack-dev-cm.github.io/docs/images/project-social/calorio-ai-nutrition-service.png",
+      "image": "https://zack-dev-cm.github.io/docs/images/calorio-workflow-v3.webp",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -104,6 +102,12 @@
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -111,7 +115,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -132,12 +136,14 @@
           <p class="eyebrow">user-product</p>
           <h1>Calorio - AI Nutrition Service</h1>
           <p class="lede">A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/project-social/calorio-ai-nutrition-service.png" alt="Calorio - AI Nutrition Service project visual" loading="eager" /><figcaption>System illustration</figcaption></figure>
+          <figure><a class="figure-link" href="/docs/images/calorio-workflow-v3.webp" aria-label="Open full-size figure 1: Conceptual illustration of meal photos, voice and text feeding a personal food diary"><img class="visual" src="/docs/images/calorio-workflow-v3.webp" alt="Conceptual illustration of meal photos, voice and text feeding a personal food diary" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Conceptual illustration of multimodal meal logging; this is not a Calorio interface screenshot.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>Calorio is an AI nutrition assistant associated with YourFit. I built and maintain its multimodal meal-logging workflows, nutrition summaries, diary and goal tracking. The engineering work spans image and speech interpretation, structured food records, Telegram delivery, deployment and ongoing technical support. A beta Mini App provides a companion diary and profile interface.</p>
         </section>
+
+
         <section>
           <h2>What It Covers</h2>
           <ul>

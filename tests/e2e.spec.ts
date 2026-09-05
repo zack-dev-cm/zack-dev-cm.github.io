@@ -53,6 +53,53 @@ const requestFirstOk = async (page: Page, paths: string[]) => {
   throw new Error(`No request candidate returned OK: ${paths.join(', ')}`);
 };
 
+test('new case studies expose loaded, inspectable figures on mobile and desktop', async ({ page }, testInfo) => {
+  const slugs = [
+    'engineering-drawing-cad-analysis', 'riverstart-document-ai',
+    'construction-document-intelligence', 'agnitra-ml-profiling-optimization',
+    'calorio-ai-nutrition-service', 'ligninqc-reproducible-scientific-research-workflows'
+  ];
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const slug of slugs) {
+      await gotoStandalone(page, `projects/${slug}`);
+      await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+      const figures = page.locator('figure');
+      expect(await figures.count()).toBeGreaterThan(0);
+      if (slug === 'engineering-drawing-cad-analysis') await expect(figures).toHaveCount(2);
+      for (const figure of await figures.all()) {
+        await figure.scrollIntoViewIfNeeded();
+        const img = figure.locator('img');
+        await expect.poll(() => img.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+        await expect(figure.locator('figcaption')).not.toBeEmpty();
+        await expect(figure.getByRole('link', { name: /Open full-size figure/ })).toBeVisible();
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
+      await page.screenshot({ path: testInfo.outputPath(`${slug}-${width}.png`), fullPage: true });
+    }
+  }
+});
+
+test('featured visuals and the current role remain clear at responsive widths', async ({ page }, testInfo) => {
+  for (const width of [360, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await gotoPortfolio(page);
+    await expect(page.locator('.career-row__current')).toHaveCount(1);
+    await expect(page.locator('.career-row').filter({ hasText: 'Riverstart' }).locator('.career-row__current')).toBeVisible();
+    const featured = page.locator('#featured');
+    for (const img of await featured.locator('img').all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect.poll(() => img.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+    }
+    await featured.getByRole('heading', { name: 'Systems, tools, and products' }).click();
+    await featured.screenshot({ path: testInfo.outputPath(`selected-work-${width}.png`) });
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+    await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
+    await page.screenshot({ path: testInfo.outputPath(`portfolio-hero-${width}.png`) });
+  }
+});
+
 test('SEO and answer-engine signals stay focused above the fold', async ({ page }) => {
   const consoleErrors: string[] = [];
   const pageErrors: string[] = [];

@@ -5,6 +5,10 @@
 ## Summary
 Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.
 
+## Project Figures
+
+![MCP server architecture](https://zack-dev-cm.github.io/docs/images/mcp_server.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md
 

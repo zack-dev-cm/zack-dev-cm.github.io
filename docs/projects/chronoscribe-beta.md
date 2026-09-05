@@ -5,6 +5,10 @@
 ## Summary
 OCR + translation pipeline for historical inscriptions with optional character-voice narration in English or Russian.
 
+## Project Figures
+
+![ChronoScribe UI](https://zack-dev-cm.github.io/docs/images/chronoscribe.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/chronoscribe-beta.md
 

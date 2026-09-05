@@ -4,24 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Engineering Drawing &amp; CAD Analysis | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="An R&amp;D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs. Zakhar Pashkin case study." />
+    <meta name="description" content="Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts. Zakhar Pashkin case study." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Engineering Drawing &amp; CAD Analysis" />
-    <meta property="og:description" content="An R&amp;D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs." />
+    <meta property="og:description" content="Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Engineering Drawing &amp; CAD Analysis" />
-    <meta name="twitter:description" content="An R&amp;D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/project-social/engineering-drawing-cad-analysis.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Engineering Drawing &amp; CAD Analysis project visual" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/project-social/engineering-drawing-cad-analysis.png" />
-    <meta name="twitter:image:alt" content="Engineering Drawing &amp; CAD Analysis project visual" />
+    <meta name="twitter:description" content="Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp" />
+    <meta name="twitter:image:alt" content="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -29,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/#case-study",
       "headline": "Engineering Drawing & CAD Analysis",
       "name": "Engineering Drawing & CAD Analysis",
-      "description": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+      "description": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
       "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "author": {
@@ -43,8 +41,8 @@
             "url": "https://zack-dev-cm.github.io"
       },
       "genre": "research",
-      "keywords": "computer-vision, ai-systems, engineering, research, Python, Computer Vision, CAD, Geometry Processing, GPU, Web APIs",
-      "image": "https://zack-dev-cm.github.io/docs/images/project-social/engineering-drawing-cad-analysis.png",
+      "keywords": "computer-vision, ai-systems, engineering, research, Python, Open Cascade, CadQuery, build123d, NumPy, SciPy, Geometry Processing",
+      "image": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -69,31 +67,47 @@
             },
             {
                   "@type": "Thing",
-                  "name": "Computer Vision"
+                  "name": "Open Cascade"
             },
             {
                   "@type": "Thing",
-                  "name": "CAD"
+                  "name": "CadQuery"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "build123d"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "NumPy"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "SciPy"
             },
             {
                   "@type": "Thing",
                   "name": "Geometry Processing"
-            },
-            {
-                  "@type": "Thing",
-                  "name": "GPU"
-            },
-            {
-                  "@type": "Thing",
-                  "name": "Web APIs"
             }
       ],
-      "workExample": []
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Inspect projection SVG",
+                  "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+            }
+      ]
 }
     </script>
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -101,7 +115,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -121,38 +135,43 @@
         <header class="hero">
           <p class="eyebrow">research</p>
           <h1>Engineering Drawing &amp; CAD Analysis</h1>
-          <p class="lede">An R&amp;D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/project-social/engineering-drawing-cad-analysis.png" alt="Engineering Drawing &amp; CAD Analysis project visual" loading="eager" /><figcaption>System illustration</figcaption></figure>
+          <p class="lede">Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.</p>
+          <figure><a class="figure-link" href="/docs/images/cad-analytic-fixture-source.webp" aria-label="Open full-size figure 1: Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes"><img class="visual" src="/docs/images/cad-analytic-fixture-source.webp" alt="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Analytic CAD test fixture: a through-bore block used to evaluate projection and hidden-line handling. Rendered from the source STEP.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>I lead engineering-analysis R&amp;D spanning browser input, GPU processing, geometry reconstruction and downloadable drawing packs. The work connects scans and CAD representations to an engineer-facing review process. Geometry validation and source traceability guide the design, while specialist approval remains part of the workflow. The workflow is evaluated as engineering decision support.</p>
+          <p>I develop engineering-analysis research at Riverstart, connecting scans, CAD geometry and engineering drawings through reproducible evaluation. My work covers reference registration, CAD-to-2D projection, geometry checks and review artifacts. Each stage has its own acceptance criteria so engineers can inspect the geometry and decide what is ready for further development.</p>
         </section>
+        <section><h2>Engineering decisions</h2><p>I separate scan registration, CAD projection and drawing comparison into measurable stages. The projection research compares direct Open Cascade routes with CadQuery and build123d, checks visible and hidden geometry separately, and preserves intermediate artifacts for review. Analytic fixtures provide expected geometry that is defined independently of the candidate projection backend.</p></section>
+<section><h2>Evaluation and current stage</h2><p>The demonstrated milestone is a research baseline for registration and projection evaluation. Checks cover coordinate consistency, surface alignment, projected geometry and selected drawing views. Scan-to-parametric reconstruction requires separate evidence and acceptance; the supplied reference CAD in a registration test is not a reconstructed output.</p></section>
+<section><h2>What the images show</h2><p>The first image renders an existing analytic STEP fixture built for the evaluation workflow. The second shows the actual generated XY and XZ projections of that same solid, including hidden edges. These are reproducible test artifacts using synthetic geometry; they do not contain a customer part, a generated product interface or a claim of manufacturing accuracy.</p></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/cad-analytic-fixture-projections.webp" aria-label="Open full-size figure 2: XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges"><img class="visual" src="/docs/images/cad-analytic-fixture-projections.webp" alt="XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Generated XY and XZ projections of the same test fixture, separating visible and hidden edges. Actual HLR output.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Browser-to-GPU processing for scans and CAD inputs</li>
-        <li>Geometry reconstruction and drawing-pack export</li>
-        <li>Traceable outputs for engineering review</li>
-        <li>Geometry evaluation before release decisions</li>
+        <li>Evaluate scan registration against supplied CAD references</li>
+        <li>Compare CAD-to-2D projection and hidden-line handling across geometry backends</li>
+        <li>Check outputs against independently defined analytic fixtures</li>
+        <li>Preserve geometry, evaluation results and review artifacts for repeatable inspection</li>
           </ul>
         </section>
         <section>
           <h2>Stack And Topics</h2>
           <ul class="stack">
         <li>Python</li>
-        <li>Computer Vision</li>
-        <li>CAD</li>
+        <li>Open Cascade</li>
+        <li>CadQuery</li>
+        <li>build123d</li>
+        <li>NumPy</li>
+        <li>SciPy</li>
         <li>Geometry Processing</li>
-        <li>GPU</li>
-        <li>Web APIs</li>
           </ul>
         </section>
 
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg">Inspect projection SVG</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md">Plain-text case study</a></li>
           </ul>
         </section>

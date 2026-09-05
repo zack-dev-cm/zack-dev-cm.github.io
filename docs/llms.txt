@@ -11,7 +11,7 @@ Updated: 2026-09-05
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
 - [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/): A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
 - [Calorio - AI Nutrition Service](https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/): A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.
-- [Engineering Drawing & CAD Analysis](https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/): An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.
+- [Engineering Drawing & CAD Analysis](https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/): Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.
 - [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Focus

@@ -5,6 +5,12 @@
 ## Summary
 I built a containerized OCR inference service that turns line segmentation, word segmentation and CRNN recognition into a FastAPI image-upload workflow. It returns recognized text with line and word boxes as structured JSON. ONNX Runtime provides a portable CPU-serving path, with Docker packaging and explicit response contracts connecting the model pipeline to downstream applications.
 
+## Project Figures
+
+![Generated OCR serving card showing anonymized document blocks, line and word segmentation, ONNX stages, and blank API response panels](https://zack-dev-cm.github.io/docs/images/fast-ocr-onnx-inference-card.webp)
+
+![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md
 

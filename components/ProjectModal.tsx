@@ -160,7 +160,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </>
             )}
           </div>
-          {mediaCaption && <p className="modal-media-caption">{mediaCaption}</p>}
+          <div className="modal-media-caption">
+            {mediaCaption && <p>{mediaCaption}</p>}
+            {currentImage && !isVideoUrl(currentImage.url) && (
+              <a href={currentImage.url} target="_blank" rel="noopener noreferrer" className="text-link">Open full-size image <span aria-hidden="true">↗</span></a>
+            )}
+          </div>
           </div>
         )}
 
@@ -187,6 +192,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <p id={descriptionId} className="modal-body__lead">
             {project.longDescription || project.description}
           </p>
+
+          {project.caseStudySections?.map((section) => (
+            <section key={section.title} className="case-study-section">
+              <h3>{section.title}</h3>
+              <p>{section.body}</p>
+            </section>
+          ))}
 
           {badges.length > 0 && (
             <div className="chip-row modal-body__badges" aria-label="Project badges">

@@ -5,6 +5,12 @@
 ## Summary
 FastAPI service with image-aware triage, a verification pass for safety, and a lightweight Telegram Web App UI built for fast patient intake.
 
+## Project Figures
+
+![DoctorAI triage cover](https://zack-dev-cm.github.io/docs/images/doctorai-cover.png)
+
+![DoctorAI hero UI](https://zack-dev-cm.github.io/docs/images/doctorai-hero.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/doctorai-dermatology-triage-mini-app.md
 

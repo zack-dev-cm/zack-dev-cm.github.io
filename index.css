@@ -104,6 +104,9 @@ h1, h2, h3 { font-weight: 600; }
 .featured-card__visual { position: relative; display: block; width: 100%; height: 250px; overflow: hidden; padding: 0; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); transition: border-color 180ms ease; }
 .featured-card__visual:hover { border-color: var(--accent); }
 .featured-card__asset { width: 100%; height: 100%; object-fit: contain; }
+.case-study-section { margin-top: 24px; }
+.case-study-section h3 { margin-bottom: 8px; font-size: 18px; }
+.case-study-section p { color: var(--muted); font-size: 15px; line-height: 1.7; }
 .featured-card__caption, .project-card__caption { position: absolute; right: 8px; bottom: 8px; padding: 3px 6px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); background: #090c10ee; font-size: 9px; line-height: 1.4; }
 .featured-card__content { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: 20px 0 0; }
 .featured-card__label { margin-bottom: 9px; color: var(--accent); font-size: 11px; font-weight: 500; line-height: 1.5; }
@@ -270,6 +273,7 @@ h1, h2, h3 { font-weight: 600; }
 .modal-close:hover { border-color: var(--accent); }
 .modal-media { position: relative; height: 390px; background: #05080c; border-bottom: 1px solid var(--line); }
 .modal-media-caption { padding: 12px 24px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.5; }
+.modal-media-caption .text-link { margin-top: 8px; min-height: 36px; font-size: 12px; }
 .modal-media__asset { width: 100%; height: 100%; object-fit: contain; }
 .modal-media__nav { position: absolute; top: 50%; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line-strong); border-radius: 6px; background: #090c10e8; transform: translateY(-50%); }
 .modal-media__nav--prev { left: 16px; }

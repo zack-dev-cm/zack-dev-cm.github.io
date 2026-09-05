@@ -5,6 +5,10 @@
 ## Summary
 Given a rough idea, Aetheria drafts stories, builds CGI scenes, suggests music, and voices narration to deliver short cinematic clips.
 
+## Project Figures
+
+![Aetheria flow](https://zack-dev-cm.github.io/docs/images/aetheria.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/aetheria-ideas-to-media-engine-alpha.md
 

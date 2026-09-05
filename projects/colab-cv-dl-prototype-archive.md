@@ -5,6 +5,12 @@
 ## Summary
 Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research context: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.
 
+## Project Figures
+
+![Generated CV and deep-learning prototype archive card with notebook lanes for transformers, OCR, mobile capture, video retrieval, and CLIP media work](https://zack-dev-cm.github.io/docs/images/colab-cvdl-prototype-archive-card.webp)
+
+![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md
 

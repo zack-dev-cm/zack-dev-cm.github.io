@@ -5,6 +5,10 @@
 ## Summary
 I built project-aware document-agent workflows for InQuest. Context routing distinguishes the active project, reference collections and manually attached documents, with retrieval grounded in the selected sources. OpenAI Agents SDK and MCP connect tool calls, handoffs and persistent context. Generated files and answers stay associated with the relevant project, while evaluation scenarios check retrieval selection and save behavior.
 
+## Project Figures
+
+![InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel](https://zack-dev-cm.github.io/docs/images/inqi-quest-binder-agent-card.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md
 

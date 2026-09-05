@@ -5,6 +5,12 @@
 ## Summary
 Telegram mini app plus web placement coach for the olfactory tFUS pilot. Ships the doc's 1200 Hz pulse trains on an 18 - 20 kHz carrier, placement walk-through (50 - 55 deg tilt, +/-2 - 4 mm steer), gain/duty/session caps, logging, and the reference illustration for quick setup.
 
+## Project Figures
+
+![Olfactory placement guide](https://zack-dev-cm.github.io/docs/images/olfactory-guide.jpg)
+
+![Olfactory ultrasound web app](https://zack-dev-cm.github.io/docs/images/olfactory.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/olfactory-ultrasound-coach-web-telegram-mini-app.md
 

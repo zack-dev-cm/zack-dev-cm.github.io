@@ -7,6 +7,10 @@
 ## Summary
 I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
 
+## Project Figures
+
+![CV Repro Lab ClawHub release preview](https://zack-dev-cm.github.io/docs/images/agentic-cv-repro-lab-skill.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
 

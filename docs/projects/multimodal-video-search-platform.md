@@ -5,6 +5,14 @@
 ## Summary
 I designed retrieval across video and rich media using complementary visual and language signals. The R&D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.
 
+## Project Figures
+
+![Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels](https://zack-dev-cm.github.io/docs/images/multimodal-video-search-platform-card.webp)
+
+![Conceptual computer vision systems map for OCR, face analysis, and video neural search](https://zack-dev-cm.github.io/docs/images/cv-ai-systems-map.png)
+
+![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 

@@ -5,6 +5,10 @@
 ## Summary
 Demo pipeline that assembles shorts/reels: scripts to clips, adds generated music/voice, and exports ready-to-post content.
 
+## Project Figures
+
+![Video + music pipeline](https://zack-dev-cm.github.io/docs/images/video_music_pipeline.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/video-music-generation-pipeline.md
 

@@ -128,6 +128,12 @@
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -135,7 +141,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -156,12 +162,14 @@
           <p class="eyebrow">research</p>
           <h1>Colab CV/DL Prototype Archive</h1>
           <p class="lede">Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/colab-cvdl-prototype-archive-card.webp" alt="Generated CV and deep-learning prototype archive card with notebook lanes for transformers, OCR, mobile capture, video retrieval, and CLIP media work" loading="eager" /><figcaption>System illustration</figcaption></figure>
+          <figure><a class="figure-link" href="/docs/images/colab-cvdl-prototype-archive-card.webp" aria-label="Open full-size figure 1: Generated CV and deep-learning prototype archive card with notebook lanes for transformers, OCR, mobile capture, video retrieval, and CLIP media work"><img class="visual" src="/docs/images/colab-cvdl-prototype-archive-card.webp" alt="Generated CV and deep-learning prototype archive card with notebook lanes for transformers, OCR, mobile capture, video retrieval, and CLIP media work" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>System illustration</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research context: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.</p>
         </section>
+
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/selected-ai-cv-excalidraw-map.webp" aria-label="Open full-size figure 2: Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects"><img class="visual" src="/docs/images/selected-ai-cv-excalidraw-map.webp" alt="Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>

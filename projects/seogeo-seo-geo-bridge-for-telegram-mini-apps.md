@@ -5,6 +5,10 @@
 ## Summary
 Server-rendered hub and per-app bridge pages with OG/Twitter meta, SoftwareApplication + FAQ JSON-LD, startapp deep links, and attribution tracking. Includes LLM-friendly endpoints (/api/apps, /api/memory, /llms.txt), channel index/search + import API, and optional business verification via 2GIS/Yandex plus Telegram pulse checks. Firestore is optional with an in-memory fallback.
 
+## Project Figures
+
+![seogeo bridge preview](https://zack-dev-cm.github.io/docs/images/seogeo.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps.md
 

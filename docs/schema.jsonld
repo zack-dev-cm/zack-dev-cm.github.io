@@ -174,11 +174,38 @@
       "@id": "https://zack-dev-cm.github.io/#project-list",
       "name": "Projects",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 84,
+      "numberOfItems": 85,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "LigninQC - Reproducible Scientific Research Workflows",
+            "description": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
+            "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
+            "encoding": [
+              {
+                "@type": "MediaObject",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows.md",
+                "encodingFormat": "text/markdown"
+              }
+            ],
+            "author": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "creator": {
+              "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
+            },
+            "genre": "research",
+            "keywords": "research, scientific-data, data-engineering, reproducibility, JavaScript, Node.js, OpenAlex API, JSONL, CSV, Data validation",
+            "dateCreated": "2026-08-26",
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
           "item": {
             "@type": "CreativeWork",
             "name": "Riverstart Document AI",
@@ -205,11 +232,11 @@
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 3,
           "item": {
             "@type": "CreativeWork",
             "name": "Engineering Drawing & CAD Analysis",
-            "description": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+            "description": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
             "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
             "encoding": [
               {
@@ -225,14 +252,14 @@
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
             "genre": "research",
-            "keywords": "computer-vision, ai-systems, engineering, research, Python, Computer Vision, CAD, Geometry Processing, GPU, Web APIs",
+            "keywords": "computer-vision, ai-systems, engineering, research, Python, Open Cascade, CadQuery, build123d, NumPy, SciPy, Geometry Processing",
             "dateCreated": "2026-09-05",
             "isAccessibleForFree": true
           }
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 4,
           "item": {
             "@type": "CreativeWork",
             "name": "Construction Document Intelligence",
@@ -259,7 +286,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 5,
           "item": {
             "@type": "CreativeWork",
             "name": "Android Remote Control with VLM AI Agents",
@@ -285,7 +312,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 6,
           "item": {
             "@type": "CreativeWork",
             "name": "Control VLM-LLM Agent Silently With Your Breath",
@@ -311,7 +338,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 7,
           "item": {
             "@type": "CreativeWork",
             "name": "meshmcp - Offline P2P Chat for Local LLMs",
@@ -337,7 +364,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 7,
+          "position": 8,
           "item": {
             "@type": "CreativeWork",
             "name": "Promo & Reflinks Generator",
@@ -363,7 +390,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 8,
+          "position": 9,
           "item": {
             "@type": "CreativeWork",
             "name": "Create, Chat & AR Experience with AI-Character (Text2Room)",
@@ -389,7 +416,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 9,
+          "position": 10,
           "item": {
             "@type": "CreativeWork",
             "name": "Label and Inpaint Anything in a Room Interior",
@@ -415,7 +442,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 10,
+          "position": 11,
           "item": {
             "@type": "CreativeWork",
             "name": "Smart Drive for Smart City: Predict Optimal Speed",
@@ -441,7 +468,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 11,
+          "position": 12,
           "item": {
             "@type": "CreativeWork",
             "name": "Estimate Golf Ball Trajectory",
@@ -467,7 +494,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 12,
+          "position": 13,
           "item": {
             "@type": "CreativeWork",
             "name": "Pixel-Wise Segmentation of Spare Parts",
@@ -493,7 +520,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 13,
+          "position": 14,
           "item": {
             "@type": "CreativeWork",
             "name": "Food Recognition App",
@@ -519,7 +546,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 14,
+          "position": 15,
           "item": {
             "@type": "CreativeWork",
             "name": "Calorio - AI Nutrition Service",
@@ -545,7 +572,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 15,
+          "position": 16,
           "item": {
             "@type": "CreativeWork",
             "name": "Python Library: AutoToloka",
@@ -571,7 +598,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 16,
+          "position": 17,
           "item": {
             "@type": "CreativeWork",
             "name": "Python Library: shiftlab-ocr",
@@ -597,7 +624,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 17,
+          "position": 18,
           "item": {
             "@type": "CreativeWork",
             "name": "Face Antispoofing & Multi-Modal Vision-Language Models",
@@ -623,7 +650,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 18,
+          "position": 19,
           "item": {
             "@type": "CreativeWork",
             "name": "GitHub Repo Summarizer (Chrome Extension)",
@@ -649,7 +676,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 19,
+          "position": 20,
           "item": {
             "@type": "CreativeWork",
             "name": "ChatGPT/Deepseek/AIStudio Navigator",
@@ -675,7 +702,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 20,
+          "position": 21,
           "item": {
             "@type": "CreativeWork",
             "name": "Task Zavod - Micro-Task Marketplace",
@@ -701,7 +728,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 21,
+          "position": 22,
           "item": {
             "@type": "CreativeWork",
             "name": "Trending Prompts Feed",
@@ -727,7 +754,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 22,
+          "position": 23,
           "item": {
             "@type": "CreativeWork",
             "name": "YouTube Trendwatch",
@@ -753,7 +780,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 23,
+          "position": 24,
           "item": {
             "@type": "CreativeWork",
             "name": "Video + Music Generation Pipeline",
@@ -779,7 +806,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 24,
+          "position": 25,
           "item": {
             "@type": "CreativeWork",
             "name": "LastAdjust - Universal Media Tuner",
@@ -805,7 +832,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 25,
+          "position": 26,
           "item": {
             "@type": "CreativeWork",
             "name": "LocaBoost AI - Local SEO Auditor",
@@ -831,7 +858,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 26,
+          "position": 27,
           "item": {
             "@type": "CreativeWork",
             "name": "Aetheria - Ideas-to-Media Engine (alpha)",
@@ -857,7 +884,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 27,
+          "position": 28,
           "item": {
             "@type": "CreativeWork",
             "name": "Insight Glitch - A Novella",
@@ -883,7 +910,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 28,
+          "position": 29,
           "item": {
             "@type": "CreativeWork",
             "name": "ChronoScribe (beta)",
@@ -909,7 +936,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 29,
+          "position": 30,
           "item": {
             "@type": "CreativeWork",
             "name": "MCP-Server - Base Multitool",
@@ -935,7 +962,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 30,
+          "position": 31,
           "item": {
             "@type": "CreativeWork",
             "name": "Tool-Calls Demo - Material Chat Playground",
@@ -961,7 +988,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 31,
+          "position": 32,
           "item": {
             "@type": "CreativeWork",
             "name": "ZackAutoStack Automation Stack",
@@ -987,7 +1014,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 32,
+          "position": 33,
           "item": {
             "@type": "CreativeWork",
             "name": "URL -> Markdown Worker (RapidAPI + Cloudflare)",
@@ -1013,7 +1040,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 33,
+          "position": 34,
           "item": {
             "@type": "CreativeWork",
             "name": "Olfactory Ultrasound Coach (Web + Telegram Mini App)",
@@ -1039,7 +1066,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 34,
+          "position": 35,
           "item": {
             "@type": "CreativeWork",
             "name": "seogeo - SEO/GEO Bridge for Telegram Mini Apps",
@@ -1065,7 +1092,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 35,
+          "position": 36,
           "item": {
             "@type": "CreativeWork",
             "name": "Blacksock - Telegram Liquidity & Index Vaults",
@@ -1091,7 +1118,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 36,
+          "position": 37,
           "item": {
             "@type": "CreativeWork",
             "name": "Beauty Visual Inbox - Telegram Mini App",
@@ -1117,7 +1144,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 37,
+          "position": 38,
           "item": {
             "@type": "CreativeWork",
             "name": "Dalshe - Circular Clothing Pickup Mini App",
@@ -1143,7 +1170,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 38,
+          "position": 39,
           "item": {
             "@type": "CreativeWork",
             "name": "DoctorAI - Dermatology Triage Mini App",
@@ -1169,7 +1196,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 39,
+          "position": 40,
           "item": {
             "@type": "CreativeWork",
             "name": "Probes - AI Magazine Mini App",
@@ -1195,7 +1222,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 40,
+          "position": 41,
           "item": {
             "@type": "CreativeWork",
             "name": "Turbo Tots Garage (motion + touch PWA)",
@@ -1221,7 +1248,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 41,
+          "position": 42,
           "item": {
             "@type": "CreativeWork",
             "name": "Project Steer - Bio-Print Creator Studio",
@@ -1247,7 +1274,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 42,
+          "position": 43,
           "item": {
             "@type": "CreativeWork",
             "name": "Noel - Noetic Mirror",
@@ -1273,7 +1300,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 43,
+          "position": 44,
           "item": {
             "@type": "CreativeWork",
             "name": "GeoFix - AI Visibility Memorizer Mini App",
@@ -1299,7 +1326,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 44,
+          "position": 45,
           "item": {
             "@type": "CreativeWork",
             "name": "Pores & Wrinkles Detection Service",
@@ -1325,7 +1352,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 45,
+          "position": 46,
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
@@ -1351,7 +1378,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 46,
+          "position": 47,
           "item": {
             "@type": "CreativeWork",
             "name": "CV Repro Lab Skills",
@@ -1377,7 +1404,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 47,
+          "position": 48,
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
@@ -1403,7 +1430,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 48,
+          "position": 49,
           "item": {
             "@type": "CreativeWork",
             "name": "AntiRot - Research Artifact Linter",
@@ -1429,7 +1456,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 49,
+          "position": 50,
           "item": {
             "@type": "CreativeWork",
             "name": "GitHub + ClawHub Launcher",
@@ -1455,7 +1482,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 50,
+          "position": 51,
           "item": {
             "@type": "CreativeWork",
             "name": "Browser QA Report Pack",
@@ -1481,7 +1508,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 51,
+          "position": 52,
           "item": {
             "@type": "CreativeWork",
             "name": "Publish Guard",
@@ -1507,7 +1534,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 52,
+          "position": 53,
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw YouTube Publisher",
@@ -1533,7 +1560,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 53,
+          "position": 54,
           "item": {
             "@type": "CreativeWork",
             "name": "Artifact Redactor",
@@ -1559,7 +1586,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 54,
+          "position": 55,
           "item": {
             "@type": "CreativeWork",
             "name": "Artifact Deck",
@@ -1585,7 +1612,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 55,
+          "position": 56,
           "item": {
             "@type": "CreativeWork",
             "name": "GitHub + ClawHub Downloads Tracker",
@@ -1611,7 +1638,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 56,
+          "position": 57,
           "item": {
             "@type": "CreativeWork",
             "name": "Toybox Mini - Telegram Mini App",
@@ -1637,7 +1664,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 57,
+          "position": 58,
           "item": {
             "@type": "CreativeWork",
             "name": "LocalArchive",
@@ -1664,7 +1691,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 58,
+          "position": 59,
           "item": {
             "@type": "CreativeWork",
             "name": "LocalLens Private AI Summaries",
@@ -1691,7 +1718,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 59,
+          "position": 60,
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw Chinese Laoshi Ops",
@@ -1718,7 +1745,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 60,
+          "position": 61,
           "item": {
             "@type": "CreativeWork",
             "name": "Random Coffee Best Fit Outreach",
@@ -1745,7 +1772,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 61,
+          "position": 62,
           "item": {
             "@type": "CreativeWork",
             "name": "Session Rescue",
@@ -1772,7 +1799,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 62,
+          "position": 63,
           "item": {
             "@type": "CreativeWork",
             "name": "Telegram Mini App Security Auditor",
@@ -1799,7 +1826,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 63,
+          "position": 64,
           "item": {
             "@type": "CreativeWork",
             "name": "Agentic Codex Dev Skill",
@@ -1826,7 +1853,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 64,
+          "position": 65,
           "item": {
             "@type": "CreativeWork",
             "name": "OpenClaw CWS Publisher",
@@ -1853,7 +1880,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 65,
+          "position": 66,
           "item": {
             "@type": "CreativeWork",
             "name": "Dermaself Flutter Skin Analysis App",
@@ -1880,7 +1907,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 66,
+          "position": 67,
           "item": {
             "@type": "CreativeWork",
             "name": "ClearML Experiment Tracking for Dermaself",
@@ -1907,7 +1934,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 67,
+          "position": 68,
           "item": {
             "@type": "CreativeWork",
             "name": "Agnitra - ML Profiling & Optimization",
@@ -1934,7 +1961,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 68,
+          "position": 69,
           "item": {
             "@type": "CreativeWork",
             "name": "Chrome Extension Studio Plugin",
@@ -1961,7 +1988,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 69,
+          "position": 70,
           "item": {
             "@type": "CreativeWork",
             "name": "Google Drive File Provider Repair Toolkit",
@@ -1988,7 +2015,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 70,
+          "position": 71,
           "item": {
             "@type": "CreativeWork",
             "name": "CollectionsAI ChatGPT App",
@@ -2015,7 +2042,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 71,
+          "position": 72,
           "item": {
             "@type": "CreativeWork",
             "name": "Senior Conservator OpenClaw Agent",
@@ -2042,7 +2069,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 72,
+          "position": 73,
           "item": {
             "@type": "CreativeWork",
             "name": "SourcePack Chrome Extension Wave",
@@ -2069,7 +2096,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 73,
+          "position": 74,
           "item": {
             "@type": "CreativeWork",
             "name": "Trusted ClawHub Install Gate",
@@ -2096,7 +2123,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 74,
+          "position": 75,
           "item": {
             "@type": "CreativeWork",
             "name": "Fast OCR ONNX Inference Server",
@@ -2123,7 +2150,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 75,
+          "position": 76,
           "item": {
             "@type": "CreativeWork",
             "name": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
@@ -2150,7 +2177,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 76,
+          "position": 77,
           "item": {
             "@type": "CreativeWork",
             "name": "Multimodal Video Search Platform",
@@ -2177,7 +2204,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 77,
+          "position": 78,
           "item": {
             "@type": "CreativeWork",
             "name": "Public CV and Deep Learning GitHub Archive",
@@ -2204,7 +2231,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 78,
+          "position": 79,
           "item": {
             "@type": "CreativeWork",
             "name": "Colab CV/DL Prototype Archive",
@@ -2231,7 +2258,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 79,
+          "position": 80,
           "item": {
             "@type": "CreativeWork",
             "name": "Jaw and Face-Type Classifier for Aesthetic Review",
@@ -2258,7 +2285,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 80,
+          "position": 81,
           "item": {
             "@type": "CreativeWork",
             "name": "Architectural Drawing and Interior Catalog Matching",
@@ -2285,7 +2312,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 81,
+          "position": 82,
           "item": {
             "@type": "CreativeWork",
             "name": "InQuest Project Binder RAG QA",
@@ -2312,7 +2339,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 82,
+          "position": 83,
           "item": {
             "@type": "CreativeWork",
             "name": "ComfyUI and Colab Generative Prototype Lab",
@@ -2339,7 +2366,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 83,
+          "position": 84,
           "item": {
             "@type": "CreativeWork",
             "name": "Research Claim Ledger",
@@ -2366,7 +2393,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 84,
+          "position": 85,
           "item": {
             "@type": "CreativeWork",
             "name": "HH OpenClaw Agent",

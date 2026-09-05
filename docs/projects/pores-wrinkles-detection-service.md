@@ -5,6 +5,10 @@
 ## Summary
 Cosmetic face-texture pipeline using face landmarks, region masks, segmentation-based wrinkle and fine-line detection, skeletonized line traces, overlays, per-line CSV outputs, timing events, and visual quality gates. The public case study avoids diagnostic claims and focuses on the engineering path from image capture to reviewable overlays.
 
+## Project Figures
+
+![Generated public-safe face texture analysis card with anonymized mesh, ROI masks, pore heatmap, and wrinkle trace overlays](https://zack-dev-cm.github.io/docs/images/face-texture-analysis-service-card.webp)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service.md
 

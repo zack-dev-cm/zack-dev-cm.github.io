@@ -5,6 +5,10 @@
 ## Summary
 Marketing-ready pipeline: create AI characters, render images/video, do virtual try-on/inpainting, chat via Telegram, and place assets into AR.
 
+## Project Figures
+
+![Text2Room gallery preview](https://zack-dev-cm.github.io/docs/images/adfeed-hero.gif)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/create-chat-ar-experience-with-ai-character-text2room.md
 

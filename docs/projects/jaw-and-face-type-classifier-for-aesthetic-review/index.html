@@ -104,6 +104,12 @@
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
       body { margin: 0; }
+      * { box-sizing: border-box; }
+      p { line-height: 1.7; }
+      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
+      .figure-link { display: block; text-decoration: none; }
+      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
+      .figure-gallery { display: grid; gap: 28px; }
       main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
       a { color: #1b5f8f; }
       .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
@@ -111,7 +117,7 @@
       .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
       figure { margin: 0; }
       figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
@@ -132,12 +138,14 @@
           <p class="eyebrow">case-study</p>
           <h1>Jaw and Face-Type Classifier for Aesthetic Review</h1>
           <p class="lede">Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.</p>
-          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/jaw-face-type-classifier-card.png" alt="Anonymized jaw and face-type classification interface with facial landmarks and review charts" loading="eager" /></figure>
+          <figure><a class="figure-link" href="/docs/images/jaw-face-type-classifier-card.png" aria-label="Open full-size figure 1: Anonymized jaw and face-type classification interface with facial landmarks and review charts"><img class="visual" src="/docs/images/jaw-face-type-classifier-card.png" alt="Anonymized jaw and face-type classification interface with facial landmarks and review charts" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>Jaw and Face-Type Classifier for Aesthetic Review is a public-safe case study for facial morphology classification work. A 2026-06-04 private-source review covered jaw-class workspaces, jaw database materials, k-fold experiment folders, label text files, and a Jaw / Face-type analyser v0.12.7 deck. The public entry focuses on the engineering pattern: dataset and label QA, front/profile landmark handling, jawline and face-type classification, review overlays, experiment tracking, and release-ready privacy boundaries. It is framed as aesthetic-review decision support, not diagnosis, treatment planning, or a surgical recommendation system; raw face images, patient data, and private model weights are not published.</p>
         </section>
+
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/selected-ai-cv-excalidraw-map.webp" aria-label="Open full-size figure 2: Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects"><img class="visual" src="/docs/images/selected-ai-cv-excalidraw-map.webp" alt="Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>

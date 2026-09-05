@@ -5,6 +5,10 @@
 ## Summary
 AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing source anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.
 
+## Project Figures
+
+![AntiRot project preview](https://zack-dev-cm.github.io/docs/images/antirot-social-card.svg)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/antirot-research-artifact-linter.md
 

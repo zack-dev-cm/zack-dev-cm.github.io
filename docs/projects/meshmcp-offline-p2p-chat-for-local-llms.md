@@ -5,6 +5,10 @@
 ## Summary
 Android + iOS mesh chat that keeps conversations alive without internet. Messages hop over Bluetooth mesh and feed local/edge LLMs for summarization and commands.
 
+## Project Figures
+
+![meshmcp app icon](https://zack-dev-cm.github.io/docs/images/meshmcp_icon.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/meshmcp-offline-p2p-chat-for-local-llms.md
 

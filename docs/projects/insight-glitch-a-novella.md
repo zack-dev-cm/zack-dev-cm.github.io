@@ -5,6 +5,10 @@
 ## Summary
 A quiet take on singularity: Nomos, a god-like AI, archives humanity as a beautiful prelude to a new consciousness - no battles, just a graceful fade.
 
+## Project Figures
+
+![Insight Glitch cover](https://zack-dev-cm.github.io/docs/images/insight_glitch.png)
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/insight-glitch-a-novella.md
 
