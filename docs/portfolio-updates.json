@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-09-05T06:44:25.275Z",
+  "lastSyncedAt": "2026-09-05T11:56:18.441Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-09-05",
-    "syncedAt": "2026-09-05T06:44:25.275Z",
+    "syncedAt": "2026-09-05T11:56:18.441Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -1433,6 +1433,17 @@
     {
       "id": 81,
       "title": "Agnitra - ML Profiling & Optimization",
+      "searchProfile": {
+        "capabilities": [
+          "machine learning",
+          "model profiling",
+          "model inference",
+          "inference optimization",
+          "model evaluation",
+          "quantization"
+        ],
+        "evidence": "implementation"
+      },
       "legacySlugs": [
         "agnitra-ai-inference-optimizer"
       ],

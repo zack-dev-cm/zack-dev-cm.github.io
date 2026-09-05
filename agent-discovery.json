@@ -4544,7 +4544,7 @@
       "title": "CV Repro Lab Skills",
       "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md",
-      "summary": "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
+      "summary": "Research and evaluation harness for reproducible CV experiments, benchmark campaigns, and reviewable promotion decisions.",
       "kind": "case-study",
       "tags": [],
       "aliases": [],
@@ -4587,6 +4587,14 @@
         }
       ],
       "links": [
+        {
+          "label": "Inspect the improvement-harness initializer",
+          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/skill/data-science-cv-repro-lab/scripts/init_cv_improvement_harness.py"
+        },
+        {
+          "label": "Read the harness architecture",
+          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/docs/codex/architecture.md"
+        },
         {
           "label": "View on GitHub",
           "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"

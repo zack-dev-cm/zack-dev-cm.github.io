@@ -438,6 +438,20 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
   { value: 'open-source', label: 'Open source' },
 ];
 
+const matchesProjectFilter = (project: Project, filter: ProjectFilter) => {
+  if (filter === 'all') return true;
+  const signals = getProjectSignals(project);
+  switch (filter) {
+    case 'real-users': return signals.isRealUsers;
+    case 'telegram': return signals.hasTelegram;
+    case 'mobile': return signals.isMobile;
+    case 'automation': return signals.isAutomation;
+    case 'computer-vision': return isComputerVisionDomainProject(project);
+    case 'ai-systems': return isAiSystemDomainProject(project);
+    case 'open-source': return signals.isOpenSource;
+  }
+};
+
 const QUICK_TOPIC_LIMIT = 8;
 
 const QUICK_TOPIC_SEARCHES: Array<{
@@ -448,13 +462,13 @@ const QUICK_TOPIC_SEARCHES: Array<{
   projectIds: readonly number[];
   defaultVisible?: boolean;
 }> = [
-  { label: 'OCR serving', query: 'ocr onnx inference api', keywords: 'line segmentation word recognition FastAPI CRNN document API production ML', filter: 'computer-vision', projectIds: [70, 73, 72], defaultVisible: true },
-  { label: 'Mobile vision', query: 'food recognition mobile vision', keywords: 'CoreML iOS Android Flutter ONNX mobile computer vision', filter: 'computer-vision', projectIds: [10, 63], defaultVisible: true },
-  { label: 'Segmentation systems', query: 'skin texture segmentation computer vision', keywords: 'Segment Anything YOLO masks wrinkles pores ROI production CV', filter: 'computer-vision', projectIds: [71, 67, 77, 74], defaultVisible: true },
+  { label: 'OCR serving', query: 'OCR inference', keywords: 'line segmentation word recognition FastAPI CRNN document API production ML', filter: 'computer-vision', projectIds: [70, 73, 72], defaultVisible: true },
+  { label: 'Mobile vision', query: 'mobile computer vision', keywords: 'CoreML iOS Android Flutter ONNX mobile computer vision', filter: 'computer-vision', projectIds: [10, 63], defaultVisible: true },
+  { label: 'Segmentation systems', query: 'image segmentation', keywords: 'Segment Anything YOLO masks wrinkles pores ROI production CV', filter: 'computer-vision', projectIds: [71, 67, 77, 74], defaultVisible: true },
   { label: 'Video retrieval', query: 'multimodal video search', keywords: 'retrieval embeddings OCR transcript keyframes ASR hybrid search CLIP', filter: 'computer-vision', projectIds: [72, 77, 40], defaultVisible: true },
-  { label: 'ML/MLOps delivery', query: 'clearml dermaself mlops', keywords: 'experiment tracking metrics promotion gates model versioning monitoring', filter: 'computer-vision', projectIds: [80, 63], defaultVisible: true },
-  { label: 'LLM inference', query: 'agnitra llm inference optimizer', keywords: 'model profiling runtime telemetry baseline quantization serving optimization', filter: 'ai-systems', projectIds: [81], defaultVisible: true },
-  { label: 'VLM/LLM workflows', query: 'llm vlm agents human review', keywords: 'multimodal automation workflows gates tool calling review loops', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40], defaultVisible: true },
+  { label: 'ML/MLOps delivery', query: 'MLOps', keywords: 'experiment tracking metrics promotion gates model versioning monitoring', filter: 'computer-vision', projectIds: [80, 63], defaultVisible: true },
+  { label: 'LLM inference', query: 'LLM inference', keywords: 'model profiling runtime telemetry baseline quantization serving optimization', filter: 'ai-systems', projectIds: [81], defaultVisible: true },
+  { label: 'VLM/LLM workflows', query: 'agent workflows', keywords: 'multimodal automation workflows gates tool calling review loops', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40], defaultVisible: true },
   { label: 'Architecture CV', query: 'architectural drawing catalog matching', keywords: 'elevation casework reception plan interior room matching computer vision', filter: 'computer-vision', projectIds: [77, 74, 73], defaultVisible: true },
   { label: 'Jaw classifier', query: 'jaw face type classifier', keywords: 'aesthetic review landmarks plastic surgery face morphology', filter: 'computer-vision', projectIds: [76, 71, 63, 67] },
   { label: 'InQuest RAG', query: 'inquest rag project binder', keywords: 'binder QA vector storage project reference retrieval', filter: 'ai-systems', projectIds: [78, 66, 40] },
@@ -627,38 +641,6 @@ const App: React.FC = () => {
   const featuredProjects = useMemo(() => {
     return FEATURED_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project));
   }, [projectById]);
-
-  const projectFilterOptions = useMemo(
-    () =>
-      PROJECT_FILTERS.map((filter) => ({
-        ...filter,
-        count:
-          filter.value === 'all'
-            ? mergedProjects.length
-            : mergedProjects.filter((project) => {
-                const signals = getProjectSignals(project);
-                switch (filter.value) {
-                  case 'real-users':
-                    return signals.isRealUsers;
-                  case 'telegram':
-                    return signals.hasTelegram;
-                  case 'mobile':
-                    return signals.isMobile;
-                  case 'automation':
-                    return signals.isAutomation;
-                  case 'computer-vision':
-                    return isComputerVisionDomainProject(project);
-                  case 'ai-systems':
-                    return isAiSystemDomainProject(project);
-                  case 'open-source':
-                    return signals.isOpenSource;
-                  default:
-                    return true;
-                }
-              }).length
-      })),
-    [mergedProjects]
-  );
 
   const clawHubSummary = useMemo(() => {
     const totalDownloads = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
@@ -859,26 +841,32 @@ const App: React.FC = () => {
   const isProjectCopied = selectedProjectSlug ? copiedKey === `project:${selectedProjectSlug}` : false;
   const normalizedProjectQuery = deferredProjectQuery.trim().toLowerCase();
 
-  const filteredProjects = useMemo(() => {
-    const matchingCategory = mergedProjects.filter((project) => {
-      const signals = getProjectSignals(project);
-      if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
-      if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
-      if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
-      if (projectFilter === 'mobile' && !signals.isMobile) return false;
-      if (projectFilter === 'automation' && !signals.isAutomation) return false;
-      if (projectFilter === 'computer-vision' && !isComputerVisionDomainProject(project)) return false;
-      if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
-      if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
-      return true;
-    });
-    return searchProjects(matchingCategory, normalizedProjectQuery, {
+  const queryMatchedProjects = useMemo(() => {
+    return searchProjects(mergedProjects, normalizedProjectQuery, {
       catalogue: mergedProjects,
       boostedProjectIds: smartSearchBoostIds,
       sort: projectSort,
       getSignalScore: (project: Project) => getProjectSignals(project).signalScore,
     });
-  }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectFilter, projectSort, smartSearchBoostIds]);
+  }, [mergedProjects, normalizedProjectQuery, projectSort, smartSearchBoostIds]);
+
+  const metricMatchedProjects = useMemo(
+    () => queryMatchedProjects.filter((project) => !benchmarkedOnly || (project.benchmarks?.length ?? 0) > 0),
+    [benchmarkedOnly, queryMatchedProjects]
+  );
+
+  const projectFilterOptions = useMemo(
+    () => PROJECT_FILTERS.map((filter) => ({
+      ...filter,
+      count: metricMatchedProjects.filter((project) => matchesProjectFilter(project, filter.value)).length,
+    })),
+    [metricMatchedProjects]
+  );
+
+  const filteredProjects = useMemo(
+    () => metricMatchedProjects.filter((project) => matchesProjectFilter(project, projectFilter)),
+    [metricMatchedProjects, projectFilter]
+  );
 
   const selectedProjectBadges = useMemo(
     () => (selectedProject ? getProjectSignals(selectedProject).badges : []),
@@ -949,6 +937,19 @@ const App: React.FC = () => {
     document.getElementById('portfolio-smart-search')?.focus();
   }, []);
 
+  const showAllQueryMatches = useCallback(() => {
+    setProjectFilter('all');
+    setBenchmarkedOnly(false);
+    setShowAllProjects(true);
+    setIsSmartSearchFocused(false);
+    scrollToProjectExplorer();
+  }, [scrollToProjectExplorer]);
+
+  const activeProjectFiltersLabel = [
+    projectFilter !== 'all' ? activeProjectFilterLabel : '',
+    benchmarkedOnly ? 'Metrics only' : '',
+  ].filter(Boolean).join(' + ');
+
   const canToggleProjectArchive =
     !normalizedProjectQuery &&
     projectFilter === 'all' &&
@@ -989,7 +990,7 @@ const App: React.FC = () => {
                   type="search"
                   value={heroSearchQuery}
                   onChange={(event) => setHeroSearchQuery(event.target.value)}
-                  placeholder="Search work · OCR, inference…"
+                  placeholder="Research, CAD, MLOps…"
                   aria-controls="projects"
                   enterKeyHint="search"
                 />
@@ -1256,12 +1257,23 @@ const App: React.FC = () => {
 
             {filteredProjects.length === 0 && (
               <div className="empty-state">
-                <p>{normalizedProjectQuery ? `No projects found for “${projectQuery}”.` : 'No projects match the current filters.'} Try a project name, problem, or technology.</p>
-                <button type="button" className="text-link" onClick={() => {
-                  setProjectFilter('all');
-                  setBenchmarkedOnly(false);
-                  clearProjectQuery();
-                }}>Clear search and filters</button>
+                {queryMatchedProjects.length > 0 ? (
+                  <>
+                    <p>{normalizedProjectQuery ? `No matches for “${projectQuery}”` : 'No matching projects'} with {activeProjectFiltersLabel}.</p>
+                    <button type="button" className="text-link" onClick={showAllQueryMatches}>
+                      Show {queryMatchedProjects.length} {queryMatchedProjects.length === 1 ? 'result' : 'results'} in all projects
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <p>{normalizedProjectQuery ? `No projects found for “${projectQuery}”.` : 'No projects match the current filters.'} Try a project name, problem, or technology.</p>
+                    <button type="button" className="text-link" onClick={() => {
+                      setProjectFilter('all');
+                      setBenchmarkedOnly(false);
+                      clearProjectQuery();
+                    }}>Clear search and filters</button>
+                  </>
+                )}
               </div>
             )}
           </Section>

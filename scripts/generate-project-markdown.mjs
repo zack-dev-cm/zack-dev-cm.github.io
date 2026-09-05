@@ -421,6 +421,7 @@ const extractProjects = (sourceFile, imageConstants) => {
       const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
       const links = parseLinks(getPropertyValue(element, 'links'));
       const aliases = parseStringArray(getPropertyValue(element, 'aliases'));
+      const searchProfile = parseJsonLiteral(getPropertyValue(element, 'searchProfile')) || undefined;
       const projectKind = parseOptionalIdentifierString(getPropertyValue(element, 'projectKind'));
       const surfaceTags = parseStringArray(getPropertyValue(element, 'surfaceTags'));
       const createdAt = parseString(getPropertyValue(element, 'createdAt'));
@@ -435,6 +436,7 @@ const extractProjects = (sourceFile, imageConstants) => {
         title,
         legacySlugs,
         aliases,
+        searchProfile,
         description,
         longDescription,
         caseStudySections,

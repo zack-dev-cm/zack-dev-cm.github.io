@@ -40,6 +40,19 @@ or treat a missing dependency as a passing check. Existing Pages CI checks remai
 
 ## Experiment log
 
+Recruiter discovery must also be reviewed through ordinary interests and role
+phrasing: research, CAD, harness, machine learning, benchmarking, agents and
+model serving. Inspect the first visible results, supported work omitted from
+the set, and misleading capability matches. Keep an independently selected
+query set alongside name regressions; result counts alone are not acceptance.
+Reviewed `searchProfile` capabilities must have project-owned evidence. Its
+evidence classification describes how much work a visitor can inspect, not
+production maturity. Preserve limitations in public prose while excluding
+negated claims, audience notes and reference-only terms from capability matches.
+After query or Metrics changes, category totals must describe the results that
+clicking each category displays. Recovering from a filter-caused empty result
+must preserve the query and selected order.
+
 For search changes, retain a small expected-results set covering `point cloud`,
 `3D`, `IFC`, `document recognition`, `mobile inference`, `OpenCV`, `FastOCR`,
 `Auto Toloka`, `app` and `R&D`. Relevant results must have supporting public

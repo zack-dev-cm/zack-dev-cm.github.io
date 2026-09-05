@@ -2381,7 +2381,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "CV Repro Lab Skills",
-            "description": "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
+            "description": "Research and evaluation harness for reproducible CV experiments, benchmark campaigns, and reviewable promotion decisions.",
             "url": "https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/",
             "encoding": [
               {

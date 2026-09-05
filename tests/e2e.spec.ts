@@ -652,6 +652,85 @@ test('a spaced project name accepts a qualifier and works with filtering and cle
   await expect.poll(() => cards.count()).toBeGreaterThan(1);
 });
 
+test('category counts describe the current research query and metrics selection', async ({ page }) => {
+  await gotoPortfolio(page);
+  const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const archiveSearch = page.getByRole('searchbox', { name: 'Search projects', exact: true });
+  const projects = page.locator('#projects');
+  const cards = projects.getByTestId('project-card');
+  const allProjects = projects.getByRole('button', { name: /^All projects/ });
+  await heroSearch.fill('research');
+  await heroSearch.press('Enter');
+  await expect.poll(() => cards.count()).toBeGreaterThan(1);
+  const totalMatches = await cards.count();
+  await expect(allProjects.locator('.pill-button__count')).toHaveText(String(totalMatches));
+
+  for (const category of ['Computer vision', 'Open source', 'Telegram']) {
+    const filter = projects.getByRole('button', { name: new RegExp(`^${category}`) });
+    const categoryMatches = Number(await filter.locator('.pill-button__count').textContent());
+    expect(categoryMatches).toBeLessThanOrEqual(totalMatches);
+    await filter.click();
+    await expect(cards).toHaveCount(categoryMatches);
+    await expect(filter).toHaveAttribute('aria-pressed', 'true');
+    await expect(archiveSearch).toHaveValue('research');
+    await expect(allProjects.locator('.pill-button__count')).toHaveText(String(totalMatches));
+  }
+
+  await allProjects.click();
+  const metrics = projects.getByRole('button', { name: 'Metrics only', exact: true });
+  await metrics.click();
+  await expect(metrics).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(async () => Number(await allProjects.locator('.pill-button__count').textContent()))
+    .toBe(await cards.count());
+  await expect(archiveSearch).toHaveValue('research');
+  await metrics.click();
+  await expect(allProjects.locator('.pill-button__count')).toHaveText(String(totalMatches));
+  await expect(cards).toHaveCount(totalMatches);
+});
+
+test('filter-caused empty results recover the query and order without clearing the search', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await gotoPortfolio(page);
+  const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const archiveSearch = page.getByRole('searchbox', { name: 'Search projects', exact: true });
+  const projects = page.locator('#projects');
+  const cards = projects.getByTestId('project-card');
+  const alphabetical = projects.getByRole('button', { name: 'A-Z', exact: true });
+  const telegram = projects.getByRole('button', { name: /^Telegram/ });
+  const metrics = projects.getByRole('button', { name: 'Metrics only', exact: true });
+  await heroSearch.fill('CAD');
+  await heroSearch.press('Enter');
+  await expect.poll(() => cards.count()).toBeGreaterThan(0);
+  await alphabetical.click();
+  const matchingIds = await cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id')));
+  await expect(telegram.locator('.pill-button__count')).toHaveText('0');
+
+  await telegram.click();
+  await expect(cards).toHaveCount(0);
+  await expect(projects.locator('.empty-state')).toContainText('No matches for “CAD” with Telegram.');
+  await expect(projects.locator('.empty-state')).not.toContainText('No projects found');
+  await metrics.click();
+  await archiveSearch.press('Enter');
+  await expect(telegram).toHaveAttribute('aria-pressed', 'true');
+  await expect(metrics).toHaveAttribute('aria-pressed', 'true');
+  await expect(projects.locator('.empty-state')).toContainText('Telegram + Metrics only');
+
+  const recovery = projects.getByRole('button', {
+    name: `Show ${matchingIds.length} ${matchingIds.length === 1 ? 'result' : 'results'} in all projects`, exact: true,
+  });
+  await recovery.focus();
+  await recovery.press('Enter');
+  await expect.poll(() => cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id'))))
+    .toEqual(matchingIds);
+  await expect(archiveSearch).toHaveValue('CAD');
+  await expect(heroSearch).toHaveValue('CAD');
+  await expect(alphabetical).toHaveAttribute('aria-pressed', 'true');
+  await expect(projects.getByRole('button', { name: /^All projects/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(metrics).toHaveAttribute('aria-pressed', 'false');
+  await expect(projects.getByRole('status')).toBeFocused();
+  await expect(projects.locator('.empty-state')).toHaveCount(0);
+});
+
 test('active search sorting changes the displayed order while preserving the query', async ({ page }) => {
   await gotoPortfolio(page);
   const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
@@ -769,17 +848,17 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
   const quickTopics = [
     {
       label: 'OCR serving',
-      query: 'ocr onnx inference api',
+      query: 'OCR inference',
       expected: 'Fast OCR ONNX Inference Server',
     },
     {
       label: 'Mobile vision',
-      query: 'food recognition mobile vision',
-      expected: 'Food Recognition App',
+      query: 'mobile computer vision',
+      expected: 'Dermaself Flutter Skin Analysis App',
     },
     {
       label: 'Segmentation systems',
-      query: 'skin texture segmentation computer vision',
+      query: 'image segmentation',
       expected: 'Full-Face Wrinkle and Skin Texture Segmentation Lab',
     },
     {
@@ -789,17 +868,17 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     },
     {
       label: 'ML/MLOps delivery',
-      query: 'clearml dermaself mlops',
+      query: 'MLOps',
       expected: 'ClearML Experiment Tracking for Dermaself',
     },
     {
       label: 'LLM inference',
-      query: 'agnitra llm inference optimizer',
+      query: 'LLM inference',
       expected: /Agnitra/i,
     },
     {
       label: 'VLM/LLM workflows',
-      query: 'llm vlm agents human review',
+      query: 'agent workflows',
       expected: 'CollectionsAI ChatGPT App',
     },
     {
@@ -829,6 +908,14 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
         .toEqual(topicIds);
       await expect(explorer.getByRole('status')).toBeFocused();
     }
+    const suggestedIds = await explorer.getByTestId('project-card').evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute('data-project-id')).sort());
+    // Retype the suggestion with its category intact, which clears curated
+    // ordering. Suggestions may reorder evidence, but cannot add unrelated work.
+    await explorerSearch.fill('');
+    await explorerSearch.fill(topic.query);
+    await expect.poll(() => explorer.getByTestId('project-card').evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute('data-project-id')).sort())).toEqual(suggestedIds);
   }
 
   const filteredTopics = [

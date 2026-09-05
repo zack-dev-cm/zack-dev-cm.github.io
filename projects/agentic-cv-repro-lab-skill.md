@@ -2,10 +2,10 @@
 
 > Legacy project URL kept for compatibility. Use the canonical project link below.
 
-> Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
+> Research and evaluation harness for reproducible CV experiments, benchmark campaigns, and reviewable promotion decisions.
 
 ## Summary
-I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
+I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks. The improvement-harness initializer writes a JSON contract for benchmark data and metrics, resource budgets, rerun policy, agent roles, and required evidence. It prepares the experiment record; execution and result review use separate workflows.
 
 ## Project Figures
 
@@ -39,6 +39,8 @@ https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
 
 ## Links
+- [Inspect the improvement-harness initializer](https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/skill/data-science-cv-repro-lab/scripts/init_cv_improvement_harness.py)
+- [Read the harness architecture](https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/docs/codex/architecture.md)
 - [View on GitHub](https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill)
 - [Open CV Repro Lab on ClawHub](https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab)
 - [Open SOTA Agent on ClawHub](https://clawhub.ai/zack-dev-cm/sota-agent)

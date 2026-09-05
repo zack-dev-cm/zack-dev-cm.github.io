@@ -1458,6 +1458,10 @@ export const PROJECTS: Project[] = [
   {
     "id": 104,
     "title": "LigninQC - Reproducible Scientific Research Workflows",
+    searchProfile: {
+      capabilities: ["scientific research","reproducibility","data analysis","source verification","sensitivity analysis"],
+      evidence: "implementation"
+    },
     "aliases": [
       "ligninqc",
       "lignin research",
@@ -1576,6 +1580,10 @@ export const PROJECTS: Project[] = [
   {
     "id": 101,
     "title": "Riverstart Document AI",
+    searchProfile: {
+      capabilities: ["document ai","research","evaluation","information extraction","document recognition","retrieval augmented generation","agent workflows","deterministic validation"],
+      evidence: "implementation"
+    },
     "description": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
     "longDescription": "As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.",
     "keyFeatures": [
@@ -1631,6 +1639,10 @@ export const PROJECTS: Project[] = [
   {
     "id": 102,
     "title": "Engineering Drawing & CAD Analysis",
+    searchProfile: {
+      capabilities: ["research","CAD","geometric computing","point cloud processing","drawing analysis","evaluation","reproducibility"],
+      evidence: "implementation"
+    },
     "description": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
     "longDescription": "My engineering-geometry work at Riverstart covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.",
     "keyFeatures": [
@@ -1719,6 +1731,10 @@ export const PROJECTS: Project[] = [
   {
     "id": 103,
     "title": "Construction Document Intelligence",
+    searchProfile: {
+      capabilities: ["document ai","research","evaluation","document recognition","quantity calculation","deterministic validation"],
+      evidence: "implementation"
+    },
     "description": "Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.",
     "longDescription": "I develop construction-document analysis as part of Riverstart R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.",
     "keyFeatures": [
@@ -1766,6 +1782,10 @@ export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "Android Remote Control with VLM AI Agents",
+    searchProfile: {
+      capabilities: ["agent workflows","computer vision","mobile automation"],
+      evidence: "summary"
+    },
     description: "Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.",
     longDescription: "Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.",
     keyFeatures: ["Real-time instruction processing", "Automated testing & task automation", "Novel device interaction"],
@@ -1785,6 +1805,10 @@ export const PROJECTS: Project[] = [
   {
     id: 2,
     title: "Control VLM-LLM Agent Silently With Your Breath",
+    searchProfile: {
+      capabilities: ["agent interaction","audio processing"],
+      evidence: "summary"
+    },
     description: "Start/stop a neural agent with breathing patterns—no voice commands needed.",
     longDescription: "Breath-based control after a short calibration: detect sharp exhales to start, smooth exhale to stop. Works on mic audio or sniffles for silent agent control.",
     keyFeatures: ["Non-verbal AI control", "Pattern recognition of breathing acoustics"],
@@ -1827,6 +1851,10 @@ export const PROJECTS: Project[] = [
   {
     id: 5,
     title: "Create, Chat & AR Experience with AI-Character (Text2Room)",
+    searchProfile: {
+      capabilities: ["image generation", "generative ai", "virtual try on", "AR"],
+      evidence: "summary"
+    },
     description: "Generate AI characters, style them, chat via Telegram, and drop them into AR scenes.",
     longDescription: "Marketing-ready pipeline: create AI characters, render images/video, do virtual try-on/inpainting, chat via Telegram, and place assets into AR.",
     keyFeatures: ["AI character generation", "AR integration", "Virtual try-on and inpainting"],
@@ -1868,6 +1896,10 @@ export const PROJECTS: Project[] = [
   {
     id: 8,
     title: "Estimate Golf Ball Trajectory",
+    searchProfile: {
+      capabilities: ["computer vision","trajectory estimation"],
+      evidence: "summary"
+    },
     description: "Analyze golf swings and estimate ball trajectory for coaching and analytics.",
     longDescription: "Computer vision + physics model to estimate ball flight and swing quality for sports analytics.",
     keyFeatures: ["Trajectory estimation", "Sports motion analysis"],
@@ -1882,6 +1914,10 @@ export const PROJECTS: Project[] = [
   {
     id: 9,
     title: "Pixel-Wise Segmentation of Spare Parts",
+    searchProfile: {
+      capabilities: ["computer vision","image segmentation"],
+      evidence: "summary"
+    },
     description: "High-precision segmentation for additive manufacturing and rework flows.",
     longDescription: "Pixel-accurate masks for spare parts to speed 3D printing decisions and QA in industrial settings.",
     keyFeatures: ["High-precision segmentation", "Industrial application for additive manufacturing"],
@@ -1896,6 +1932,10 @@ export const PROJECTS: Project[] = [
   {
     id: 10,
     title: "Food Recognition App",
+    searchProfile: {
+      capabilities: ["computer vision","mobile inference","text recognition","nutrition label OCR"],
+      evidence: "summary"
+    },
     aliases: ["nutrition label OCR", "food recognition mobile lab", "ML Kit nutrition scanner"],
     description: "iOS SwiftUI prototype for food detection and nutrition-label OCR with crop-assisted text extraction and structured results.",
     longDescription: "Mobile CV prototype for food recognition and nutrition-label scanning. The public case study focuses on camera/image-picker flows, ML Kit text recognition, crop-assisted OCR toggles, nutrition-label detection calls, table extraction, and optional LLM structuring into user-readable JSON.",
@@ -1917,6 +1957,10 @@ export const PROJECTS: Project[] = [
   {
     "id": 11,
     "title": "Calorio - AI Nutrition Service",
+    searchProfile: {
+      capabilities: ["maintained service","multimodal applications","food recognition","speech recognition","service deployment","operations"],
+      evidence: "implementation"
+    },
     "legacySlugs": [
       "dishes-recognition-nutrition-goals-telegram-bot"
     ],
@@ -1973,6 +2017,10 @@ export const PROJECTS: Project[] = [
   {
     id: 12,
     title: "Python Library: AutoToloka",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","interactive segmentation","dataset annotation"],
+      evidence: "summary"
+    },
     description: "Interactive segmentation toolkit that cuts labeling cost for CV datasets.",
     longDescription: "Python library that streams clicks/polygons to interactive models and pipelines the outputs to crowdsourcing or MLOps stacks.",
     keyFeatures: ["Reduces labeling costs", "Pipeline-friendly", "Interactive masks"],
@@ -1984,6 +2032,10 @@ export const PROJECTS: Project[] = [
   {
     id: 13,
     title: "Python Library: shiftlab-ocr",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","text recognition","handwriting recognition","OCR"],
+      evidence: "summary"
+    },
     description: "Handwriting-focused OCR with line/character segmentation.",
     longDescription: "OCR library tuned for handwriting scans with stable line and character separation for noisy documents.",
     keyFeatures: ["Handwriting segmentation", "Character recognition"],
@@ -2109,6 +2161,10 @@ export const PROJECTS: Project[] = [
   {
     id: 21,
     title: "LastAdjust – Universal Media Tuner",
+    searchProfile: {
+      capabilities: ["image processing","media processing"],
+      evidence: "summary"
+    },
     description: "Serverless OpenCV/FFmpeg toolkit for PDFs, images, and videos.",
     longDescription: "Swiss-army-knife web app: annotate PDFs, batch resize/crop images, trim/convert videos, all running on serverless workers.",
     keyFeatures: ["Fast serverless media processing", "PDF text annotation", "Batch image manipulation", "Video editing tools"],
@@ -2373,6 +2429,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 36,
     title: "Probes – AI Magazine Mini App",
+    searchProfile: {
+      capabilities: ["image generation", "content generation", "web application"],
+      evidence: "summary"
+    },
     aliases: ["probes", "probes bot", "ai magazine"],
     description: "AI-generated Forbes-style daily magazine inside Telegram with articles, cover images, and engagement tools.",
     longDescription: "Telegram mini app with a daily AI magazine feed: articles + cover images, likes/bookmarks/comments, and a bot + API pipeline that powers content generation.",
@@ -2547,6 +2607,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 41,
     title: "Pores & Wrinkles Detection Service",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","image segmentation","model serving","model inference"],
+      evidence: "implementation"
+    },
     description: "Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.",
     longDescription: "Cosmetic face-texture pipeline using face landmarks, region masks, segmentation-based wrinkle and fine-line detection, skeletonized line traces, overlays, per-line CSV outputs, timing events, and visual quality gates. The public case study avoids diagnostic claims and focuses on the engineering path from image capture to reviewable overlays.",
     keyFeatures: [
@@ -2576,6 +2640,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 42,
     title: "OpenClaw Workstream - Telegram Mini App QA & Launch Validation",
+    searchProfile: {
+      capabilities: ["browser automation","software testing","release testing","quality assurance"],
+      evidence: "implementation"
+    },
     legacySlugs: ["openclaw-workstream-telegram-mini-app-e2e-launch-ops"],
     description: "OpenClaw automation for Telegram mini app QA, launch verification, and rapid UI QA loops.",
     longDescription: "This project documents the OpenClaw work I used for Telegram mini apps: reproducible browser E2E validation, gateway and runtime reliability fixes, and screenshot QA packs used to iterate UI quickly across mini game cycles. It stays focused on shipped QA and launch work, not a generic OpenClaw platform overview.",
@@ -2602,9 +2670,13 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 43,
     title: "CV Repro Lab Skills",
+    searchProfile: {
+      capabilities: ["machine learning","research","evaluation","evaluation harness","experiment tracking","benchmarking","agent workflows"],
+      evidence: "implementation"
+    },
     legacySlugs: ["agentic-cv-repro-lab-skill"],
-    description: "Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.",
-    longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.",
+    description: "Research and evaluation harness for reproducible CV experiments, benchmark campaigns, and reviewable promotion decisions.",
+    longDescription: "I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks. The improvement-harness initializer writes a JSON contract for benchmark data and metrics, resource budgets, rerun policy, agent roles, and required evidence. It prepares the experiment record; execution and result review use separate workflows.",
     keyFeatures: [
       "Packages benchmark-gated CV experimentation into two public ClawHub skills teams can install and reuse",
       "Captures reproducible experiment state with run cards, dataset manifests, review dashboards, and redacted public context snapshots",
@@ -2620,6 +2692,8 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
     ],
     links: [
+      { text: "Inspect the improvement-harness initializer", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/skill/data-science-cv-repro-lab/scripts/init_cv_improvement_harness.py" },
+      { text: "Read the harness architecture", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/docs/codex/architecture.md" },
       { text: "View on GitHub", url: "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill" },
       { text: "Open CV Repro Lab on ClawHub", url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab" },
       { text: "Open SOTA Agent on ClawHub", url: "https://clawhub.ai/zack-dev-cm/sota-agent" }
@@ -2632,6 +2706,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 44,
     title: "OpenClaw Sales Manager Automation for a Multi-Clinic Chain",
+    searchProfile: {
+      capabilities: ["automation","agent workflows","service integration","human review","business process automation"],
+      evidence: "implementation"
+    },
     description: "Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.",
     longDescription: "I built a sales-manager automation layer for a large clinic network that needed AI assistance without replacing its legacy back office. The system used OpenClaw-driven automation to qualify inbound leads, draft follow-ups, surface next actions to staff, and sync approved state changes back into the existing database layer. The public case study focuses on the delivery pattern, approval controls, and legacy-system fit.",
     keyFeatures: [
@@ -2662,6 +2740,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 45,
     title: "AntiRot - Research Artifact Linter",
+    searchProfile: {
+      capabilities: ["research review","review harness","claim verification","citation review"],
+      evidence: "implementation"
+    },
     description: "Open-source CLI that catches unsupported claims, broken citations, weak source anchors, and draft markers in AI-written research drafts.",
     longDescription: "AntiRot is a local-first review harness for Markdown research artifacts. It turns the final draft into a gateable surface by flagging unsupported claims, missing source anchors, citation mismatches, comparative hype, absolute overclaim language, and leftover draft markers before a paper, proposal, or lab note ships. The current public release adds paragraph-aware parsing, in-document references support, safer citation verification, and GitHub Actions coverage for text, JSON, Markdown, and SARIF outputs.",
     keyFeatures: [
@@ -2782,6 +2864,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 49,
     legacySlugs: ["youtube-creator-ops"],
     title: "OpenClaw YouTube Publisher",
+    searchProfile: {
+      capabilities: ["workflow automation","video publishing","release engineering"],
+      evidence: "implementation"
+    },
     description: "Open-source OpenClaw workflow for publishing a YouTube Short with reusable reporting and structured Midjourney/Suno provenance.",
     longDescription: "This project packages a reusable OpenClaw workflow for YouTube Studio. It initializes a run file, records upload, check, and publish steps, keeps structured provenance for Midjourney, Suno, and local edit stages, validates the bundle, and renders a public-safe report with sensitive paths and unpublished URLs removed. The workflow is designed for repeatable publishing and debugging through a logged-in browser profile, not for hidden background posting.",
     keyFeatures: [
@@ -2844,6 +2930,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 52,
     title: "Artifact Deck",
+    searchProfile: {
+      capabilities: ["presentation generation","document generation"],
+      evidence: "implementation"
+    },
     description: "Public OpenClaw skill for building reproducible PPTX decks from curated notes, status bullets, and screenshots.",
     longDescription: "Artifact Deck is a small public OpenClaw skill and local-first Python toolkit for turning project artifacts into a decision-ready PPTX. It builds a clean deck from a JSON manifest, validates slide and image inputs before generation, writes the deck locally, and renders a share-safe markdown summary that preserves the slide list and a rebuild command template without exposing absolute local paths. The public contract is intentionally narrow in v1.0.3: curated notes and screenshots in, one default stakeholder layout out.",
     keyFeatures: [
@@ -2875,6 +2965,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 53,
     title: "GitHub + ClawHub Downloads Tracker",
+    searchProfile: {
+      capabilities: ["repository analytics","marketplace reporting"],
+      evidence: "implementation"
+    },
     aliases: ["github-stars-optimizer", "clawhub downloads tracker", "clawhub listing tracker"],
     description: "CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.",
     longDescription: "GitHub + ClawHub Downloads Tracker packages the `github-stars-optimizer` workflow into a public metrics surface. It pulls GitHub repository metadata, ClawHub leaderboards, explicit skill slugs, and Chrome Web Store detail-page stats, then renders a blunt listing report with downloads, star conversion gaps, snapshot deltas, 30-day scenarios, and consolidation bets. It keeps ClawHub snapshots visible in the portfolio instead of burying them inside separate package pages.",
@@ -3116,6 +3210,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 60,
     title: "Telegram Mini App Security Auditor",
+    searchProfile: {
+      capabilities: ["security review","static analysis","release testing"],
+      evidence: "implementation"
+    },
     aliases: ["tma security auditor", "telegram launch gate", "telegram mini app audit"],
     description: "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
     longDescription: "Telegram Mini App Security Auditor packages a deterministic static audit for TMA projects before bot tokens, BotFather settings, or public channels are connected. It scans the project root for server-side initData validation signals, token-shaped literals, admin routes without obvious guards, wildcard CORS, unsafe HTML usage, frame-header risks, contact/PII/token request-form leaks, and live Bot API actions without dry-run or review gates. The public contract is intentionally conservative: it returns PASS, REVIEW, or BLOCK, and it does not claim complete runtime security.",
@@ -3148,6 +3246,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 61,
     title: "Agentic Codex Dev Skill",
+    searchProfile: {
+      capabilities: ["agent workflows","software development","verification","release engineering"],
+      evidence: "workflow"
+    },
     aliases: ["agentic codex skill", "codex development skill", "openclaw development loop"],
     description: "Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.",
     longDescription: "Agentic Codex Dev Skill is a public instruction-only skill for turning broad software tasks into a disciplined agentic development loop. It tells Codex to state the goal, inspect the repo, assign explicit roles when delegation is needed, make scoped edits, run verification, review for leaks and regressions, update durable memory, and publish only when the public surface is clean. The package avoids scripts, installers, credential readers, and background daemons so the reusable surface stays auditable.",
@@ -3180,6 +3282,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 62,
     title: "OpenClaw CWS Publisher",
+    searchProfile: {
+      capabilities: ["release engineering","browser automation","release testing"],
+      evidence: "implementation"
+    },
     aliases: ["chrome web store publisher", "cws publisher", "openclaw extension release kit"],
     description: "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
     longDescription: "OpenClaw CWS Publisher is a public release kit for Chrome extension projects. It packages the exact extension ZIP intended for upload, validates the manifest and CWS listing contract, scans tracked and untracked public-surface files for leak patterns, runs discovered local E2E/reviewer gates, enforces design score reports, checks Chrome Stable freshness, and renders reproducible GitHub and ClawHub publish commands. It is a release helper, not a bundled extension product.",
@@ -3214,6 +3320,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 63,
     title: "Dermaself Flutter Skin Analysis App",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","model evaluation","image segmentation","mobile inference","model deployment"],
+      evidence: "implementation"
+    },
     aliases: ["dermaself mobile app", "flutter skin analysis", "mobile skin analysis app"],
     description: "Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.",
     longDescription: "I developed Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joined PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guided candidate release decisions.",
@@ -3236,6 +3346,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 80,
     title: "ClearML Experiment Tracking for Dermaself",
+    searchProfile: {
+      capabilities: ["machine learning","MLOps","evaluation","experiment tracking","model validation"],
+      evidence: "implementation"
+    },
     aliases: ["clearml dermaself", "dermaself mlops", "skin analysis experiment tracking", "clear ml"],
     description: "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
     longDescription: "ClearML Experiment Tracking for Dermaself captures the MLOps layer behind the Dermaself skin-analysis work. The public entry focuses on setting up ClearML-backed experiment tracking for model runs, dataset and parameter hygiene, metric review, artifact boundaries, and promotion decisions around the same public-safe Dermaself CV pipeline. It deliberately avoids publishing raw skin images, private datasets, model weights, ClearML server URLs, or user-level records.",
@@ -3271,6 +3385,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     "id": 81,
     "title": "Agnitra - ML Profiling & Optimization",
+    searchProfile: {
+      capabilities: ["machine learning","model profiling","model inference","inference optimization","model evaluation","quantization"],
+      evidence: "implementation"
+    },
     "legacySlugs": [
       "agnitra-ai-inference-optimizer"
     ],
@@ -3353,6 +3471,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 64,
     title: "Chrome Extension Studio Plugin",
+    searchProfile: {
+      capabilities: ["developer tooling","workflow automation","release engineering","browser extensions"],
+      evidence: "implementation"
+    },
     aliases: ["extension studio plugin", "chrome extension release studio", "cws product repo generator"],
     description: "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
     longDescription: "Chrome Extension Studio Plugin is a local developer-platform project for keeping extension plugin logic, reusable templates, and shipped product repositories separate. It defines release profiles for prototype, private beta, public Chrome Web Store, and source-release paths, then generates design briefs, store listing drafts, release plans, product repos, and release-cycle checklists from a single extension contract. The public case study focuses on the reusable release system rather than any one extension product.",
@@ -3379,6 +3501,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 65,
     title: "Google Drive File Provider Repair Toolkit",
+    searchProfile: {
+      capabilities: ["operations","diagnostics","automation","system repair"],
+      evidence: "implementation"
+    },
     aliases: ["google drive repair", "mac file provider repair", "drive file provider diagnostics"],
     description: "macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.",
     longDescription: "Google Drive File Provider Repair Toolkit is a standalone macOS operations project built around a real Drive for desktop failure mode: a valid app and extension existed locally, but the File Provider extension and domain disappeared from macOS registration surfaces. The toolkit diagnoses the current state, offers dry-run repair, re-registers the app and extension, restarts the per-user file provider path, clears only matching stale IPC sockets after process cycling, and inspects sync state for explicit files or folders. The public case study is framed around conservative recovery: no Drive cache deletion, no CloudStorage deletion, no account disconnect, and no mirrored/streamed data removal.",
@@ -3405,6 +3531,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 66,
     title: "CollectionsAI ChatGPT App",
+    searchProfile: {
+      capabilities: ["agent workflows","MCP tools","web application","load testing","load test harness","release testing"],
+      evidence: "implementation"
+    },
     aliases: ["collectionsai chatgpt app", "conservation mcp app", "senior conservation widgets"],
     description: "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
     longDescription: "CollectionsAI ChatGPT App packages a senior-conservation workflow as an MCP server plus ChatGPT widget layer. It exposes tools for report dashboards, factual Q&A, safe artifact listing, urgency rollups, capacity planning, material estimates, staffing assignments, dictated voice-note structuring, condition-report drafting, and end-to-end conservation cycles. The public case study focuses on the app architecture, widget metadata, release gates, and production posture.",
@@ -3431,6 +3561,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 67,
     title: "Senior Conservator OpenClaw Agent",
+    searchProfile: {
+      capabilities: ["agent workflows","computer vision","image segmentation","report generation","workflow automation"],
+      evidence: "implementation"
+    },
     aliases: ["senior conservator agent", "conservation openclaw workflow", "autonomous conservation report"],
     description: "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
     longDescription: "Senior Conservator OpenClaw Agent is an artifact-heavy conservation review case study. It combines a FastAPI dashboard, OpenClaw browser control, deep-research MCP tools, first-party image segmentation, ROI inspection, model-assisted comparison, report generation, voice output, video artifacts, and reproducibility manifests. The public case study summarizes the architecture and review-gated artifact flow as a reusable pattern for expert inspection work.",
@@ -3456,6 +3590,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 68,
     title: "SourcePack Chrome Extension Wave",
+    searchProfile: {
+      capabilities: ["browser extensions","research tools","source capture","transcript export"],
+      evidence: "implementation"
+    },
     aliases: ["sourcepack suite", "web2csv", "video2source", "sourcepack hub", "chatarchive", "browser run receipt", "support packet"],
     description: "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
     longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus focused Chrome extensions for visible table/list/card extraction, YouTube transcript exports, local source-pack libraries, ChatGPT conversation exports, browser-run receipts, and support packets. The delivery work included CWS listing contracts, public product pages, privacy/support pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking. Current public links are limited to listings visible in the Chrome Web Store publisher search.",
@@ -3493,9 +3631,13 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 69,
     title: "Trusted ClawHub Install Gate",
+    searchProfile: {
+      capabilities: ["security review","static analysis","artifact verification","software installation"],
+      evidence: "implementation"
+    },
     aliases: ["trusted clawhub gate", "clawhub install gate", "openclaw skill installer review"],
     description: "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
-    longDescription: "Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and no silent workspace inference.",
+    longDescription: "Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and workspace paths supplied explicitly.",
     projectKind: "case-study",
     surfaceTags: ["security", "automation", "release-engineering"],
     keyFeatures: [
@@ -3519,6 +3661,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 70,
     title: "Fast OCR ONNX Inference Server",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","text recognition","document recognition","model inference","model serving","OCR"],
+      evidence: "implementation"
+    },
     aliases: ["fast ocr", "onnx ocr api", "three-stage ocr"],
     description: "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
     longDescription: "I built a containerized OCR inference service that turns line segmentation, word segmentation and CRNN recognition into a FastAPI image-upload workflow. It returns recognized text with line and word boxes as structured JSON. ONNX Runtime provides a portable CPU-serving path, with Docker packaging and explicit response contracts connecting the model pipeline to downstream applications.",
@@ -3540,6 +3686,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 71,
     title: "Full-Face Wrinkle and Skin Texture Segmentation Lab",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","image segmentation","model inference","model evaluation"],
+      evidence: "implementation"
+    },
     aliases: ["wrinkle segmentation lab", "skin texture segmentation", "cosmetic face analysis"],
     description: "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
     longDescription: "Full-Face Wrinkle and Skin Texture Segmentation Lab is a deep learning case study for cosmetic face analysis. It segments face and neck regions, runs YOLO segmentation for wrinkle and fine-line masks, remaps detections from face ROI crops back to full-resolution coordinates, skeletonizes individual line traces, and writes overlays, region masks, CSV records, timing events, and QA panels. The public entry avoids medical claims and treats quality gates as review signals rather than deployment claim.",
@@ -3573,6 +3723,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 72,
     title: "Multimodal Video Search Platform",
+    searchProfile: {
+      capabilities: ["research","machine learning","information retrieval","semantic search","video search","model evaluation","multimodal retrieval","speech recognition","text recognition"],
+      evidence: "implementation"
+    },
     aliases: ["SVS4 search", "video neural search", "hybrid media search"],
     description: "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
     longDescription: "I designed retrieval across video and rich media using complementary visual and language signals. The R&D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.",
@@ -3599,6 +3753,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 73,
     title: "Public CV and Deep Learning GitHub Archive",
+    searchProfile: {
+      capabilities: ["research","machine learning","computer vision","model inference"],
+      evidence: "summary"
+    },
     aliases: ["public cv dl archive", "github computer vision archive", "older cv research repos"],
     description: "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
     longDescription: "Public CV and Deep Learning GitHub Archive consolidates earlier public authored computer-vision repositories into one discovery surface. A 2026-05-14 GitHub API review across zack-dev-cm and ZackPashkin surfaced relevant repositories for YOLO/EfficientNet object detection, Cyrillic handwriting OCR, OCR datasets, ML Kit face contours, TFLite glasses classification, DeIT/Swin/CvT transformer prototypes, document capture, energy-meter recognition, video search, and CLIP-assisted media tools. Forked upstream reference repos are treated as research context, not as authored portfolio claim.",
@@ -3646,6 +3804,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 74,
     title: "Colab CV/DL Prototype Archive",
+    searchProfile: {
+      capabilities: ["research","machine learning","computer vision","notebook experiments"],
+      evidence: "summary"
+    },
     aliases: ["colab notebooks archive", "cv dl prototype archive", "vision notebook prototypes"],
     description: "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
     longDescription: "Colab CV/DL Prototype Archive groups public notebook-style repositories and Colab-ready code that show research range across image classification, OCR finetuning, mobile document capture, video retrieval, lip-sync media generation, and CLIP-based creative tooling. The archive is intentionally scoped as prototype and research context: it links only public GitHub repositories and avoids unpublished notebooks, service endpoints, or restricted datasets.",
@@ -3693,6 +3855,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 76,
     title: "Jaw and Face-Type Classifier for Aesthetic Review",
+    searchProfile: {
+      capabilities: ["machine learning","computer vision","classification","model evaluation","facial morphology"],
+      evidence: "implementation"
+    },
     aliases: [
       "jaw classifier",
       "face type classifier",
@@ -3737,6 +3903,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 77,
     title: "Architectural Drawing and Interior Catalog Matching",
+    searchProfile: {
+      capabilities: ["computer vision","document recognition","information extraction","catalog matching","agent workflows"],
+      evidence: "implementation"
+    },
     aliases: [
       "architectural drawings recognition",
       "floor plan recognition",
@@ -3789,6 +3959,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 78,
     title: "InQuest Project Binder RAG QA",
+    searchProfile: {
+      capabilities: ["agent workflows","retrieval augmented generation","document ai","information retrieval","semantic search","evaluation"],
+      evidence: "implementation"
+    },
     aliases: [
       "INQI Quest",
       "InQuest operation logic",
@@ -3822,6 +3996,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 79,
     title: "ComfyUI and Colab Generative Prototype Lab",
+    searchProfile: {
+      capabilities: ["research","machine learning","generative ai","image generation","model experimentation","fine tuning","workflow automation"],
+      evidence: "summary"
+    },
     aliases: [
       "ComfyUI prototype lab",
       "colab prototype archive",
@@ -3873,6 +4051,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 75,
     title: "Research Claim Ledger",
+    searchProfile: {
+      capabilities: ["research review","claim verification","citation review"],
+      evidence: "workflow"
+    },
     aliases: ["research claim audit", "claim ledger skill", "academic source receipt"],
     description: "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
     longDescription: "Research Claim Ledger is a narrow public ClawHub skill for academic and technical writing review. It avoids the over-broad promise of a full research suite and focuses on one trust-building artifact: a claim-by-claim ledger that marks each sentence as supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, or needing human review. The public case study compares this narrower wedge against broad academic-agent workflows and frames the deliverable as a receipt a writer can share with a supervisor, coauthor, or reviewer.",
@@ -3907,6 +4089,10 @@ Operations Layer (Console, Alerts, Runbooks)`
   {
     id: 50,
     title: "HH OpenClaw Agent",
+    searchProfile: {
+      capabilities: [],
+      evidence: "name-only"
+    },
     description: "HH OpenClaw Agent skill entry retained by name only.",
     longDescription: "HH OpenClaw Agent skill entry retained by name only.",
     keyFeatures: [

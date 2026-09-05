@@ -698,7 +698,7 @@ Links:
 
 ### Trusted ClawHub Install Gate
 Summary: Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.
-Details: Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and no silent workspace inference.
+Details: Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and workspace paths supplied explicitly.
 Project URL: https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/
 Markdown URL: https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md
 Key Features:
@@ -1821,8 +1821,8 @@ Links:
 - OpenClaw Upstream: https://github.com/openclaw/openclaw
 
 ### CV Repro Lab Skills
-Summary: Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
-Details: I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks.
+Summary: Research and evaluation harness for reproducible CV experiments, benchmark campaigns, and reviewable promotion decisions.
+Details: I turned a reproducible CV experimentation workflow into two public, installable ClawHub skills for teams running browser-heavy and GPU-heavy vision work. The releases package experiment records, browser notebook run records, heartbeat-aware VM execution, review dashboards, and promotion bundles that separate semantic, runtime, and product-surface checks. The improvement-harness initializer writes a JSON contract for benchmark data and metrics, resource budgets, rerun policy, agent roles, and required evidence. It prepares the experiment record; execution and result review use separate workflows.
 Project URL: https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/
 Markdown URL: https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
 Key Features:
@@ -1847,6 +1847,8 @@ Benchmarks & Analytics:
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
 Links:
+- Inspect the improvement-harness initializer: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/skill/data-science-cv-repro-lab/scripts/init_cv_improvement_harness.py
+- Read the harness architecture: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill/blob/d9345fa95479e90d39f6fa1d2ea0a47bf40d0d66/docs/codex/architecture.md
 - View on GitHub: https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill
 - Open CV Repro Lab on ClawHub: https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab
 - Open SOTA Agent on ClawHub: https://clawhub.ai/zack-dev-cm/sota-agent

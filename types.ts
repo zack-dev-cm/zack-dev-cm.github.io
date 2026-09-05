@@ -39,6 +39,10 @@ export interface Project {
   title: string;
   legacySlugs?: string[];
   aliases?: string[];
+  searchProfile?: {
+    capabilities?: string[];
+    evidence?: 'implementation' | 'workflow' | 'summary' | 'name-only';
+  };
   description: string;
   longDescription?: string;
   caseStudySections?: { title: string; body: string }[];
