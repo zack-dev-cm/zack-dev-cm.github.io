@@ -17,12 +17,20 @@ Use this file to define the checks that keep portfolio changes honest.
 - Build and generation: `npm run build`
 - Public-surface gate: `npm run security:gate`
 - E2E smoke: `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e`
+- Search relevance: `npm run test:search` against the actual reviewed catalogue. Check complete query meaning, visible case-study text, exact names, short acronyms and explicit sorting. A passing exact-name query does not establish general recruiter search quality.
 - Link audit for link/resume/page changes: `npm run check:links`
 - Open-source gate: `npm run audit:codex`
 - GitHub feed freshness gate: `npm run sync:github:verify`
 - ClawPatch AI review/debug pass for public-surface or sync changes: `npm run review:clawpatch -- ci --since HEAD --limit 20 --jobs 3 --reasoning-effort high`
 
 ## Experiment log
+
+For search changes, retain a small expected-results set covering `point cloud`,
+`3D`, `IFC`, `document recognition`, `mobile inference`, `OpenCV`, `FastOCR`,
+`Auto Toloka`, `app` and `R&D`. Relevant results must have supporting public
+content. Verify that generic word fragments do not admit unrelated work, and
+that A–Z and Recent change active search order. Recheck keyboard handoff,
+clear/reset and responsive layout when the search flow changes.
 
 | Date | Change | Metric | Result | Kept |
 | --- | --- | --- | --- | --- |

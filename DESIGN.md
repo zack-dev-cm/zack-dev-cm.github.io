@@ -80,6 +80,10 @@ one positioning sentence, visible resume and work actions, and selected work.
    with 44px touch targets, capped at 440px; retain the navigation and primary
    action hierarchy. Exact names and aliases take precedence in results;
    related vocabulary ranks projects supported by the original query terms.
+   Search covers the visible case-study text and captions. Prefer concrete,
+   relevant engineering cases over general archives at the same match quality;
+   generic word fragments must not count as technical matches. Preserve literal
+   acronyms and honor the selected result order while a query is active.
 2. A small curated selection of maintained products, ML infrastructure, and
    document/CV systems. Public links sit beside each story.
 3. Current and previous engineering experience, then approach and expertise.

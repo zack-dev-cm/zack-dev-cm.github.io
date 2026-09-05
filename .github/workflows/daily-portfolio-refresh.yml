@@ -50,7 +50,7 @@ jobs:
         run: npm run validate
 
       - name: Check catalogue and deployment regressions
-        run: node --test tests/project-catalog.test.mjs tests/stage-pages.test.mjs
+        run: node --test tests/project-catalog.test.mjs tests/project-search.test.mjs tests/stage-pages.test.mjs
 
       - name: Build site
         run: npm run build

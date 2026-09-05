@@ -17,6 +17,9 @@ const useSystemChrome = process.env.PLAYWRIGHT_USE_SYSTEM_CHROME === 'true';
 
 const config: PlaywrightTestConfig = {
   testDir: './tests',
+  // Node *.test.mjs suites run in pretest:e2e, where failures stop the command.
+  // Importing them during Playwright collection does not register their failures.
+  testMatch: '**/*.spec.ts',
   timeout: 180_000,
   retries: process.env.CI ? 1 : 0,
   use: {

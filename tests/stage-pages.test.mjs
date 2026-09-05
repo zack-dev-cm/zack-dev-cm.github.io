@@ -2,11 +2,15 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import test from 'node:test';
 import { stagePages, verifyStagedPages } from '../scripts/stage-pages.mjs';
 
 const repo = new URL('../', import.meta.url);
 const resumeName = 'zakhar-pashkin-senior-ml-engineer';
+const requiredSuites = [
+  'tests/project-catalog.test.mjs', 'tests/project-search.test.mjs', 'tests/stage-pages.test.mjs',
+];
 
 const fixture = async (t) => {
   const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'portfolio-pages-stage-'));
@@ -40,8 +44,45 @@ test('both workflows stage and verify the artifact with the same shared command'
     const source = await fs.readFile(new URL(`.github/workflows/${file}`, repo), 'utf8');
     const command = source.match(/- name: Stage Pages artifact\s+run:([^\n]+)/)?.[1].trim();
     assert.equal(command, 'node scripts/stage-pages.mjs', file);
-    assert.match(source, /node --test tests\/project-catalog\.test\.mjs tests\/stage-pages\.test\.mjs/);
+    const regressionCommand = source.match(/run:\s*(node\s+--test[^\n]+)/)?.[1];
+    assert.ok(regressionCommand, `${file}: missing the Node regression gate`);
+    const argumentsSet = new Set(regressionCommand.split(/\s+/));
+    for (const suite of requiredSuites) assert.ok(argumentsSet.has(suite), `${file}: missing ${suite}`);
   }
+});
+
+test('a failing Node preflight prevents the npm E2E command from starting', async (t) => {
+  const packageJson = JSON.parse(await fs.readFile(new URL('package.json', repo), 'utf8'));
+  const preflight = packageJson.scripts['pretest:e2e'];
+  assert.equal(typeof preflight, 'string', 'E2E must run the Node gate before Playwright');
+  const argumentsSet = new Set(preflight.split(/\s+/));
+  for (const suite of requiredSuites) assert.ok(argumentsSet.has(suite), `E2E preflight: missing ${suite}`);
+
+  const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'portfolio-e2e-gate-'));
+  t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(rootDir, 'tests'));
+  for (const suite of requiredSuites) {
+    await fs.writeFile(path.join(rootDir, suite), suite.includes('project-search')
+      ? "throw new Error('Controlled regression failure');\n" : '// Passing fixture.\n');
+  }
+  await fs.writeFile(path.join(rootDir, 'browser-sentinel.mjs'),
+    "import fs from 'node:fs'; fs.writeFileSync('browser-started', 'unexpected');\n");
+  await fs.writeFile(path.join(rootDir, 'package.json'), JSON.stringify({
+    private: true,
+    scripts: { 'pretest:e2e': preflight, 'test:e2e': 'node browser-sentinel.mjs' },
+  }));
+  const environment = { ...process.env, npm_config_ignore_scripts: 'false' };
+  // This fixture is a fresh npm invocation, not a recursive node:test worker.
+  // Inheriting this internal marker makes Node skip its nested test files.
+  delete environment.NODE_TEST_CONTEXT;
+  const result = spawnSync('npm', ['run', 'test:e2e', '--silent'], {
+    cwd: rootDir, encoding: 'utf8', timeout: 15_000,
+    env: environment,
+  });
+  assert.ifError(result.error);
+  assert.notEqual(result.status, 0, 'The controlled Node failure must fail the npm command');
+  assert.match(result.stdout + result.stderr, /Controlled regression failure/);
+  await assert.rejects(fs.access(path.join(rootDir, 'browser-started')), { code: 'ENOENT' });
 });
 
 test('staging contains actual canonical PDF/HTML, matching aliases and canonical project pages', async (t) => {

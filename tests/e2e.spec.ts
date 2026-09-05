@@ -575,6 +575,79 @@ test('specific project names and technologies exclude unrelated archive work', a
   await expect(cards.first()).toContainText('Calorio - AI Nutrition Service');
 });
 
+test('active search sorting changes the displayed order while preserving the query', async ({ page }) => {
+  await gotoPortfolio(page);
+  const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const archiveSearch = page.getByRole('searchbox', { name: 'Search projects', exact: true });
+  const projects = page.locator('#projects');
+  const cards = projects.getByTestId('project-card');
+  await heroSearch.fill('ONNX');
+  await heroSearch.press('Enter');
+  await expect(cards.locator('h3').first()).toContainText('Fast OCR');
+  const originalTitles = await cards.locator('h3').allTextContents();
+  expect(originalTitles.length).toBeGreaterThan(1);
+
+  await projects.getByRole('button', { name: 'A-Z', exact: true }).click();
+  await expect(projects.getByRole('button', { name: 'A-Z', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(() => cards.locator('h3').allTextContents())
+    .toEqual([...originalTitles].sort((a, b) => a.localeCompare(b)));
+  await expect(archiveSearch).toHaveValue('ONNX');
+  await expect(heroSearch).toHaveValue('ONNX');
+
+  await projects.getByRole('button', { name: 'Recent', exact: true }).click();
+  await expect(projects.getByRole('button', { name: 'Recent', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  // These actual records have distinct dates: ClearML (June), Fast OCR (May 14),
+  // Dermaself (May 5). Extra future results may appear without breaking this check.
+  await expect.poll(async () => {
+    const projectIds = await cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id')));
+    const positions = ['80', '70', '63'].map((id) => projectIds.indexOf(id));
+    return positions.every((index) => index >= 0) && positions[0] < positions[1] && positions[1] < positions[2];
+  }).toBe(true);
+  expect([...(await cards.locator('h3').allTextContents())].sort()).toEqual([...originalTitles].sort());
+  await expect(archiveSearch).toHaveValue('ONNX');
+
+  await projects.getByRole('button', { name: 'Relevant', exact: true }).click();
+  await expect.poll(() => cards.locator('h3').allTextContents()).toEqual(originalTitles);
+
+  await projects.getByRole('button', { name: /^Mobile ready/ }).click();
+  await expect(projects.locator('[data-project-id="63"]')).toBeVisible();
+  await expect(projects.locator('[data-project-id="70"]')).toHaveCount(0);
+  await expect(archiveSearch).toHaveValue('ONNX');
+  await projects.getByRole('button', { name: /^All projects/ }).click();
+  await expect(projects.locator('[data-project-id="70"]')).toBeVisible();
+});
+
+test('CAD search supports keyboard handoff, evidence context and clearing', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await gotoPortfolio(page);
+  const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const archiveSearch = page.getByRole('searchbox', { name: 'Search projects', exact: true });
+  const projects = page.locator('#projects');
+  const cad = projects.locator('[data-project-id="102"]');
+  await heroSearch.fill('3D');
+  await heroSearch.press('Enter');
+  await expect(cad).toBeVisible();
+  await expect(projects.getByRole('status')).toBeFocused();
+
+  await heroSearch.fill('IFC');
+  await heroSearch.press('Enter');
+  await expect(cad).toBeVisible();
+  await expect(projects.getByRole('status')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(cad).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog')).toContainText(/IFC export is experimental/i);
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toBeHidden();
+  await expect(cad).toBeFocused();
+
+  await projects.getByRole('button', { name: 'Clear', exact: true }).click();
+  await expect(archiveSearch).toHaveValue('');
+  await expect(heroSearch).toHaveValue('');
+  await expect(archiveSearch).toBeFocused();
+  await expect(projects.locator('.empty-state')).toHaveCount(0);
+});
+
 test('smart search bubbles and semantic queries surface relevant projects', async ({ page }) => {
   test.setTimeout(180_000);
   await gotoPortfolio(page);

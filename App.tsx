@@ -17,6 +17,7 @@ import {
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import { slugify, getProjectCanonicalSlug, getProjectRouteSlugs, selectReviewedFeedProjects, mergeProjects } from './utils/project-catalog.mjs';
+import { searchProjects, getProjectSearchText, normalizeSearchValue, extractSearchTerms } from './utils/project-search.mjs';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
 const FEATURED_PROJECT_IDS = [101, 63, 81, 11, 102, 72] as const;
@@ -292,272 +293,6 @@ const hasRealUserMetrics = (project: Project) => {
 
 const hasCanonicalPublicSurface = (project: Project) => {
   return Object.values(project.canonicalLinks ?? {}).some((url) => Boolean(url?.trim()));
-};
-
-const getProjectSearchText = (project: Project) => {
-  return [
-    project.title,
-    project.description,
-    project.longDescription || '',
-    project.techStack.join(' '),
-    project.keyFeatures.join(' '),
-    (project.aliases ?? []).join(' '),
-    (project.surfaceTags ?? []).join(' '),
-    project.projectKind || '',
-    ...(project.benchmarks ?? []).map((benchmark) =>
-      `${benchmark.label} ${benchmark.value} ${benchmark.context ?? ''}`
-    ),
-    ...project.links.map((link) => `${link.text} ${link.url}`),
-  ]
-    .join(' ')
-    .toLowerCase();
-};
-
-const SEARCH_STOP_WORDS = new Set([
-  'a',
-  'an',
-  'and',
-  'app',
-  'apps',
-  'by',
-  'for',
-  'from',
-  'in',
-  'into',
-  'of',
-  'on',
-  'or',
-  'the',
-  'to',
-  'with',
-]);
-
-const SMART_SEARCH_SYNONYM_GROUPS = [
-  ['architecture', 'architectural', 'blueprint', 'floorplan', 'floorplans', 'floor', 'plan', 'plans', 'room', 'rooms', 'interior', 'catalog', 'furniture', 'building', 'casework', 'reception', 'elevation'],
-  ['segment', 'segmentation', 'segmented', 'mask', 'masks', 'sam', 'segment anything', 'yolo', 'wrinkle', 'texture', 'skin', 'roi', 'pore', 'pores'],
-  ['ocr', 'text', 'recognition', 'line', 'word', 'crnn', 'onnx', 'document', 'meter', 'digits', 'handwriting', 'api', 'serving'],
-  ['jaw', 'jawline', 'face', 'facial', 'face-type', 'morphology', 'beauty', 'aesthetic', 'plastic', 'surgery', 'classifier', 'classification', 'landmarks'],
-  ['multimodal', 'multi-modal', 'retrieval', 'search', 'video', 'embedding', 'embeddings', 'clip', 'keyframe', 'transcript', 'asr', 'hybrid'],
-  ['inquest', 'inqi', 'binder', 'rag', 'vector', 'storage', 'project', 'reference', 'site', 'plan', 'elevation', 'qa'],
-  ['comfy', 'comfyui', 'colab', 'notebook', 'notebooks', 'prototype', 'custom', 'model', 'models', 'workflow', 'workflows', 'liveportrait', 'moviepy', 'ffmpeg'],
-  ['mcp', 'chatgpt', 'tool', 'tools', 'widget', 'widgets', 'app', 'apps', 'agent', 'agents', 'tool-calling', 'conservation'],
-  ['clearml', 'clear ml', 'mlops', 'experiment', 'experiments', 'tracking', 'metrics', 'promotion', 'dermaself'],
-  ['agnitra', 'inference', 'optimizer', 'decoder', 'decoder-only', 'llm', 'quantization', 'huggingface', 'torchao', 'manifest'],
-  ['vlm', 'vlms', 'llm', 'llms', 'agent', 'agents', 'automation', 'review', 'gate', 'gates', 'human', 'workflow', 'workflows'],
-  ['chrome', 'extension', 'extensions', 'browser', 'built-in', 'built in', 'summaries', 'summarizer', 'local', 'sourcepack', 'cws'],
-  ['telegram', 'tg', 'tma', 'miniapp', 'mini-app', 'bot', 'bots', 'webapp', 'web-app'],
-  ['calorio', 'kalorio', 'nutrition', 'calorie', 'calories', 'meal', 'food', 'diet', 'macro', 'macros'],
-  ['seo', 'search engine optimization', 'geo', 'generative engine optimization', 'aeo', 'answer engine optimization', 'ai visibility', 'llms.txt', 'schema jsonld', 'json-ld', 'structured data', 'crawlable', 'agent discovery'],
-  ['cv', 'computer vision', 'vision', 'opencv', 'pytorch', 'deep learning', 'model', 'models', 'inference'],
-  ['moltbook', 'content', 'factory', 'generative', 'suno', 'midjourney', 'video', 'shorts', 'liveportrait'],
-] as const;
-
-const SEARCH_INTENT_BOOSTS: Array<{ projectIds: readonly number[]; phrases: readonly string[]; weight?: number }> = [
-  {
-    projectIds: [77, 74, 73],
-    phrases: ['architecture', 'architectural', 'floor plan', 'floorplan', 'blueprint', 'room plan', 'catalog matching', 'casework', 'reception', 'whole building', 'elevation'],
-  },
-  {
-    projectIds: [71, 41, 63],
-    phrases: ['segment anything', 'segmentation', 'skin texture', 'wrinkle', 'wrinkles', 'pores', 'face texture', 'cosmetic analysis'],
-  },
-  {
-    projectIds: [70, 73, 74],
-    phrases: ['agentic ocr', 'ocr api', 'onnx ocr', 'fast ocr', 'line segmentation', 'word recognition', 'document recognition'],
-  },
-  {
-    projectIds: [76, 71, 63],
-    phrases: ['jaw', 'jawline', 'face type', 'face-type', 'plastic surgery', 'beauty examination', 'aesthetic review', 'facial landmarks'],
-  },
-  {
-    projectIds: [72, 74, 73],
-    phrases: ['multimodal retrieval', 'video search', 'video transcript', 'transcript embeddings', 'keyframe', 'asr', 'hybrid search'],
-  },
-  {
-    projectIds: [78, 66, 40],
-    phrases: ['inquest', 'inqi', 'binder', 'project binder', 'rag qa', 'vector storage', 'site plan', 'reference binder'],
-  },
-  {
-    projectIds: [79, 74],
-    phrases: ['comfyui', 'comfy', 'colab', 'custom model', 'custom models', 'notebook prototype', 'liveportrait', 'moviepy'],
-  },
-  {
-    projectIds: [66, 67, 78],
-    phrases: ['mcp', 'chatgpt app', 'tool calling', 'senior conservator', 'conservation agent', 'widget'],
-  },
-  {
-    projectIds: [80, 63],
-    phrases: ['clearml', 'clear ml', 'mlops', 'experiment tracking', 'model metrics', 'promotion gate', 'dermaself tracking'],
-  },
-  {
-    projectIds: [81],
-    phrases: ['agnitra', 'agnitra ai', 'llm inference optimizer', 'decoder only llm', 'decoder-only llm', 'huggingface optimizer', 'quantization sdk', 'signed inference manifest'],
-  },
-  {
-    projectIds: [56, 68, 15, 16, 59, 55],
-    phrases: ['chrome ai', 'built in ai', 'built-in ai', 'chrome extension', 'browser extension', 'sourcepack', 'local summaries'],
-  },
-  {
-    projectIds: [40, 31],
-    phrases: ['ai visibility', 'geo', 'seo geo', 'seo/geo', 'aeo', 'answer engine', 'llms.txt', 'schema jsonld', 'memorizer', 'crawlable'],
-    weight: 260,
-  },
-  {
-    projectIds: [11],
-    phrases: ['calorio', 'kalorio', 'nutrition bot', 'telegram calorie tracker', 'calorie tracker', 'meal logging', 'food diary', 'nutrition goals'],
-    weight: 420,
-  },
-  {
-    projectIds: [40, 39, 38, 32, 31, 36, 35, 34, 33],
-    phrases: ['telegram', 'tg', 'tma', 'mini app', 'miniapp', 'bot', 'telegram app'],
-  },
-];
-
-const normalizeSearchValue = (value: string) => {
-  return value
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/[/_]+/g, ' ')
-    .replace(/[^a-z0-9+#.-]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-};
-
-const normalizeSearchTerm = (value: string) => {
-  let term = normalizeSearchValue(value).replace(/^[^a-z0-9]+|[^a-z0-9]+$/g, '');
-  if (term.length > 5 && term.endsWith('ies')) term = `${term.slice(0, -3)}y`;
-  else if (term.length > 5 && term.endsWith('ing')) term = term.slice(0, -3);
-  else if (term.length > 4 && term.endsWith('es')) term = term.slice(0, -2);
-  else if (term.length > 3 && term.endsWith('s')) term = term.slice(0, -1);
-  return term;
-};
-
-const extractSearchTerms = (value: string) => {
-  const normalized = normalizeSearchValue(value);
-  const rawTerms = normalized.match(/[a-z0-9+#.-]+/g) ?? [];
-  return dedupeStrings(
-    rawTerms
-      .map(normalizeSearchTerm)
-      .filter((term) => term.length > 1 && !SEARCH_STOP_WORDS.has(term))
-  );
-};
-
-const buildSemanticQueryTerms = (query: string) => {
-  const normalized = normalizeSearchValue(query);
-  const baseTerms = new Set(extractSearchTerms(query));
-  const terms = new Set(baseTerms);
-
-  for (const group of SMART_SEARCH_SYNONYM_GROUPS) {
-    const isGroupMatch = group.some((entry) => {
-      const normalizedEntry = normalizeSearchValue(entry);
-      const entryTerms = extractSearchTerms(entry);
-      if (!normalizedEntry || entryTerms.length === 0) return false;
-      const termMatch =
-        entryTerms.length === 1
-          ? baseTerms.has(entryTerms[0])
-          : entryTerms.every((term) => baseTerms.has(term));
-      return normalized.includes(normalizedEntry) || termMatch;
-    });
-    if (!isGroupMatch) continue;
-    group.forEach((entry) => {
-      extractSearchTerms(entry).forEach((term) => terms.add(term));
-    });
-  }
-
-  return {
-    normalized,
-    terms: [...terms],
-  };
-};
-
-const getSearchIntentBoost = (project: Project, normalizedQuery: string, queryTerms: readonly string[]) => {
-  if (!normalizedQuery) return 0;
-  const queryTermSet = new Set(queryTerms);
-  let boost = 0;
-
-  SEARCH_INTENT_BOOSTS.forEach((intent) => {
-    const projectIndex = intent.projectIds.indexOf(project.id);
-    if (projectIndex === -1) return;
-
-    const phraseMatch = intent.phrases.some((phrase) => {
-      const normalizedPhrase = normalizeSearchValue(phrase);
-      if (!normalizedPhrase) return false;
-      if (normalizedQuery.includes(normalizedPhrase)) return true;
-      const phraseTerms = extractSearchTerms(phrase);
-      return phraseTerms.length > 0 && phraseTerms.every((term) => queryTermSet.has(term));
-    });
-
-    if (!phraseMatch) return;
-    boost = Math.max(boost, (intent.weight ?? 130) - projectIndex * 18);
-  });
-
-  return boost;
-};
-
-const getWeightedProjectSearchFields = (project: Project) => [
-  { text: project.title, weight: 12 },
-  { text: (project.aliases ?? []).join(' '), weight: 10 },
-  { text: (project.surfaceTags ?? []).join(' '), weight: 8 },
-  { text: project.techStack.join(' '), weight: 7 },
-  { text: project.description, weight: 6 },
-  { text: project.keyFeatures.join(' '), weight: 5 },
-  { text: project.longDescription || '', weight: 4 },
-  {
-    text: (project.benchmarks ?? [])
-      .map((benchmark) => `${benchmark.label} ${benchmark.value} ${benchmark.context ?? ''}`)
-      .join(' '),
-    weight: 3,
-  },
-  { text: project.links.map((link) => `${link.text} ${link.url}`).join(' '), weight: 2 },
-  { text: project.projectKind || '', weight: 2 },
-];
-
-const scoreTokenAgainstField = (term: string, fieldTerms: Set<string>) => {
-  if (fieldTerms.has(term)) return 1;
-  if (term.length < 4) return 0;
-  for (const fieldTerm of fieldTerms) {
-    if (fieldTerm.length < 4) continue;
-    if (fieldTerm.startsWith(term) || term.startsWith(fieldTerm)) return 0.42;
-  }
-  return 0;
-};
-
-const scoreProjectSearch = (project: Project, query: string, boostedProjectIds: readonly number[] = []) => {
-  const { normalized, terms } = buildSemanticQueryTerms(query);
-  const topicBoostIndex = boostedProjectIds.indexOf(project.id);
-  const topicBoost = topicBoostIndex === -1 ? 0 : 2400 - topicBoostIndex * 120;
-  const intentBoost = getSearchIntentBoost(project, normalized, extractSearchTerms(query));
-  if (!normalized && topicBoost === 0 && intentBoost === 0) return 0;
-
-  const matchedTerms = new Set<string>();
-  let score = topicBoost + intentBoost;
-  const projectSearchText = normalizeSearchValue(getProjectSearchText(project));
-
-  if (normalized && projectSearchText.includes(normalized)) {
-    score += 80;
-  }
-
-  getWeightedProjectSearchFields(project).forEach((field) => {
-    const fieldText = normalizeSearchValue(field.text);
-    const fieldTerms = new Set(extractSearchTerms(fieldText));
-    if (normalized && fieldText.includes(normalized)) {
-      score += field.weight * 6;
-    }
-
-    terms.forEach((term) => {
-      const matchStrength = scoreTokenAgainstField(term, fieldTerms);
-      if (matchStrength <= 0) return;
-      matchedTerms.add(term);
-      score += field.weight * 2.8 * matchStrength;
-    });
-  });
-
-  if (matchedTerms.size === 0 && topicBoost === 0 && intentBoost === 0) return 0;
-  if (terms.length > 0) {
-    score += (matchedTerms.size / terms.length) * 70;
-  }
-  score += getProjectSignals(project).signalScore * 0.18;
-  return score;
 };
 
 const getProjectSignals = (project: Project) => {
@@ -1125,72 +860,24 @@ const App: React.FC = () => {
   const normalizedProjectQuery = deferredProjectQuery.trim().toLowerCase();
 
   const filteredProjects = useMemo(() => {
-    const queryTerms = extractSearchTerms(normalizedProjectQuery);
-    const normalizedQuery = normalizeSearchValue(normalizedProjectQuery);
-    const searchEntries = mergedProjects.map((project) => {
-      const projectTerms = new Set(extractSearchTerms(getProjectSearchText(project)));
-      return {
-        project,
-        exactNameMatch: [project.title, ...(project.aliases ?? [])]
-          .some((name) => normalizeSearchValue(name) === normalizedQuery),
-        directMatch: queryTerms.some((term) => scoreTokenAgainstField(term, projectTerms) > 0),
-        searchScore: normalizedProjectQuery
-          ? scoreProjectSearch(project, normalizedProjectQuery, smartSearchBoostIds)
-          : 0,
-      };
+    const matchingCategory = mergedProjects.filter((project) => {
+      const signals = getProjectSignals(project);
+      if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
+      if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
+      if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
+      if (projectFilter === 'mobile' && !signals.isMobile) return false;
+      if (projectFilter === 'automation' && !signals.isAutomation) return false;
+      if (projectFilter === 'computer-vision' && !isComputerVisionDomainProject(project)) return false;
+      if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
+      if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
+      return true;
     });
-    const hasExactNameMatch = searchEntries.some(({ exactNameMatch }) => exactNameMatch);
-    const hasDirectMatch = searchEntries.some(({ directMatch }) => directMatch);
-    const withFilters = searchEntries
-      .filter(({ project, searchScore, exactNameMatch, directMatch }) => {
-        const signals = getProjectSignals(project);
-        if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
-        if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
-        if (projectFilter === 'telegram' && !signals.hasTelegram) return false;
-        if (projectFilter === 'mobile' && !signals.isMobile) return false;
-        if (projectFilter === 'automation' && !signals.isAutomation) return false;
-        if (projectFilter === 'computer-vision' && !isComputerVisionDomainProject(project)) return false;
-        if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
-        if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
-        if (!normalizedProjectQuery) return true;
-        // Related vocabulary can improve ranking, but cannot admit unrelated work.
-        // Explicit topic selections retain their curated set; otherwise exact names
-        // take precedence, then original terms, then a recognized problem intent.
-        if (smartSearchBoostIds.includes(project.id)) return true;
-        if (hasExactNameMatch) return exactNameMatch;
-        if (hasDirectMatch) return directMatch;
-        return searchScore > 0 && getSearchIntentBoost(project, normalizedQuery, queryTerms) > 0;
-      });
-
-    if (normalizedProjectQuery) {
-      return [...withFilters]
-        .sort((a, b) => {
-          const scoreDelta = b.searchScore - a.searchScore;
-          if (scoreDelta !== 0) return scoreDelta;
-          const signalDelta = getProjectSignals(b.project).signalScore - getProjectSignals(a.project).signalScore;
-          if (signalDelta !== 0) return signalDelta;
-          return b.project.id - a.project.id;
-        })
-        .map(({ project }) => project);
-    }
-
-    if (projectSort === 'alpha') {
-      return [...withFilters]
-        .sort((a, b) => a.project.title.localeCompare(b.project.title))
-        .map(({ project }) => project);
-    }
-
-    if (projectSort === 'recent') {
-      return [...withFilters].sort((a, b) => b.project.id - a.project.id).map(({ project }) => project);
-    }
-
-    return [...withFilters]
-      .sort((a, b) => {
-        const scoreDelta = getProjectSignals(b.project).signalScore - getProjectSignals(a.project).signalScore;
-        if (scoreDelta !== 0) return scoreDelta;
-        return b.project.id - a.project.id;
-      })
-      .map(({ project }) => project);
+    return searchProjects(matchingCategory, normalizedProjectQuery, {
+      catalogue: mergedProjects,
+      boostedProjectIds: smartSearchBoostIds,
+      sort: projectSort,
+      getSignalScore: (project: Project) => getProjectSignals(project).signalScore,
+    });
   }, [benchmarkedOnly, mergedProjects, normalizedProjectQuery, projectFilter, projectSort, smartSearchBoostIds]);
 
   const selectedProjectBadges = useMemo(
