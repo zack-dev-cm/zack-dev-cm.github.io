@@ -621,6 +621,7 @@ const validateGeneratedProjectPages = async () => {
   }
 
   const projectSlugs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+  const canonicalSlugs = [];
   const pagePaths = projectSlugs.map((slug) => path.resolve(GENERATED_PROJECTS_DIR, slug, 'index.html'));
 
   if (pagePaths.length === 0) {
@@ -638,6 +639,16 @@ const validateGeneratedProjectPages = async () => {
     }
 
     const relativePage = path.relative(ROOT_DIR, pagePath);
+    const redirect = html.match(/<meta http-equiv="refresh" content="0;url=([^"]+)"/i)?.[1];
+    if (redirect) {
+      const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+      const targetSlug = redirect.match(/^https:\/\/zack-dev-cm\.github\.io\/projects\/([a-z0-9-]+)\/$/)?.[1];
+      if (!targetSlug || canonical !== redirect || !projectSlugs.includes(targetSlug) || path.basename(path.dirname(pagePath)) === targetSlug) {
+        fail(`${relativePage} has an invalid canonical redirect`);
+      }
+      continue;
+    }
+    canonicalSlugs.push(path.basename(path.dirname(pagePath)));
     if (LEGACY_PROJECT_QUERY_PATTERN.test(html) || html.includes(`${SITE_BASE}/?project=`)) {
       fail(`${relativePage} contains a legacy ?project= URL`);
     }
@@ -675,7 +686,7 @@ const validateGeneratedProjectPages = async () => {
     }
   }
 
-  await validateSitemapProjectCoverage(projectSlugs);
+  await validateSitemapProjectCoverage(canonicalSlugs);
 };
 
 const main = async () => {

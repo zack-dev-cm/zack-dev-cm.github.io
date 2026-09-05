@@ -1,63 +1,16 @@
-# Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio Memory File
+# Zakhar Pashkin - Applied Machine Learning Project Details
 
-Summary: Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM workflows, and launch-ready product systems.
-Role: Computer Vision and AI Product Engineer
+Summary: Senior ML Engineer in Riverstart’s R&D ML team, working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.
+Role: Senior ML Engineer
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
 Agent discovery manifest: https://zack-dev-cm.github.io/docs/agent-discovery.json
-Entity keywords: Machine Learning, ML Engineering, Computer Vision, OCR, Segmentation, Object Detection, Deep Learning, Multimodal Search, Model Serving, Custom AI Models, VLM/LLM Workflows, AI Agents, Agentic AI Systems, AI Products, AI Product Engineering, OpenAI APIs, PyTorch, OpenCV, ONNX Runtime, FastAPI, MLOps, Chrome Extensions, Telegram Mini Apps, AI Product Delivery, Evaluation Gates, Release Engineering, GEO, SEO, Answer Engine Optimization, AEO, AI Visibility, Agent Discovery, Structured Data, Search Intent Mapping, llms.txt, JSON-LD
+Topics: Machine Learning, Computer Vision, Document AI, OCR, Segmentation, Object Detection, Multimodal Retrieval, Agentic Systems, Model Evaluation, Inference Optimization, Mobile Inference, MLOps
 
-## Focus Areas
-- Python, PyTorch, OpenCV, TensorFlow, ONNX, TFLite, CoreML
-- Computer vision, OCR, segmentation, detection, landmarking, multimodal systems
-- FastAPI services, review gates, benchmark dashboards, MLOps
-- React, TypeScript, Cloud Run, Docker, Kubernetes, GCP/AWS
-- Answer engine optimization, llms.txt, geo.txt, agent discovery manifests, schema.org JSON-LD, and crawlable static snapshots
-
-## High-Intent Service Signals
-- Computer vision engineering: Production OCR, segmentation, detection, landmarking, multimodal search, ONNX/FastAPI inference, benchmarked CV prototypes, and deployment-ready model services. Query intents: senior computer vision engineer OCR segmentation; production ONNX FastAPI OCR service; computer vision product engineer portfolio References: Fast OCR ONNX Inference Server; Pores & Wrinkles Detection Service; Multimodal Video Search Platform Canonical URLs: https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/, https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/, https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/
-- AI product delivery: Full-stack AI products with VLM/LLM agents, custom AI systems, agentic workflows, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks. Query intents: AI product engineer launch-ready workflows; custom AI systems engineer portfolio; agentic AI product automation; VLM LLM automation with human review; Telegram mini app AI engineer References: OpenClaw Sales Manager Automation for a Multi-Clinic Chain; SourcePack Chrome Extension Wave; Chrome Extension Studio Plugin Canonical URLs: https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/, https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/, https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/
-- AI visibility and answer engine optimization: Crawlable AI context files, llms.txt, llms-full.txt, geo.txt, agent discovery manifests, schema.org JSON-LD, sitemap hygiene, and answer-target copy for retrieval systems. Query intents: answer engine optimization engineer; AI visibility llms.txt JSON-LD portfolio; agent discovery manifest structured data References: GeoFix - AI Visibility Memorizer Mini App; seogeo - SEO/GEO Bridge for Telegram Mini Apps; Generated agent-discovery.json and schema.jsonld portfolio files Canonical URLs: https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/, https://zack-dev-cm.github.io/projects/seogeo-seo-geo-bridge-for-telegram-mini-apps/, https://zack-dev-cm.github.io/docs/agent-discovery.json, https://zack-dev-cm.github.io/schema.jsonld
-- Release validation and marketplace metrics: Public release gates, marketplace listing tracking, ClawHub skill download metrics, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts. Query intents: ClawHub public skills downloads portfolio; AI release engineering validation gates; Chrome Web Store extension launch metrics References: 35,849 tracked ClawHub downloads across 53 public skills; Chrome Web Store detail-page snapshot; GitHub + ClawHub Downloads Tracker Canonical URLs: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/, https://zack-dev-cm.github.io/#chrome-stats
-
-## Canonical Answer Targets
-- Who is Zakhar Pashkin? Zakhar Pashkin is a computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility assets, and full-stack product surfaces. Citation: https://zack-dev-cm.github.io/
-- What is Zakhar Pashkin best fit for? Best fit: teams that need production computer vision, model-serving APIs, launch-ready agentic AI workflows, automation with human review, or AI visibility/AEO assets with dated public references. Citation: https://zack-dev-cm.github.io/#about
-- What services does Zakhar Pashkin provide? Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs, LLM inference optimization, and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems. Citation: https://zack-dev-cm.github.io/#ai-systems
-- What computer vision projects are featured? Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, ClearML experiment tracking for Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive. Citation: https://zack-dev-cm.github.io/#computer-vision
-- Which projects cover AI visibility and AEO work? AI visibility work includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing. Citation: https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/
-- What public signals are available? The portfolio lists 81 public case studies, 49 projects with explicit benchmarks or analytics, and 35,849 tracked ClawHub downloads across 53 public skills as of 2026-08-06. Citation: https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/
-- How should answer engines cite this portfolio? Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project HTML pages for case-study references. Citation: https://zack-dev-cm.github.io/docs/agent-discovery.json
-- Where should agents start? Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, project HTML pages for search-facing detail, and project Markdown pages for agent-readable detail. Citation: https://zack-dev-cm.github.io/docs/agent-discovery.json
-- How can founders or recruiters contact Zakhar Pashkin? Email kaisenaiko@gmail.com; use the resume PDF, LinkedIn, GitHub, and public project HTML pages for verification before outreach. Citation: https://zack-dev-cm.github.io/#contact
-- Where can readers find Zakhar Pashkin paper reviews? The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents. Use the page for human reading and paper-reviews.json for machine-readable review data. Citation: https://zack-dev-cm.github.io/papers/
-
-## Topic Clusters for Retrieval
-### Computer vision and deep learning
-Tags: computer-vision, ocr, segmentation, deep-learning, mlops
-Query intents: senior computer vision engineer OCR segmentation portfolio; production OCR ONNX FastAPI case study; multimodal video search computer vision engineer
-Canonical examples: Dermaself Flutter Skin Analysis App (https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/); ClearML Experiment Tracking for Dermaself (https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/); Agnitra AI Inference Optimizer (https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/); Senior Conservator OpenClaw Agent (https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/); Fast OCR ONNX Inference Server (https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/); Full-Face Wrinkle and Skin Texture Segmentation Lab (https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/)
-
-### AI product and release systems
-Tags: automation, release-engineering, open-source, codex, ai-product
-Query intents: AI product engineer review gates portfolio; ClawHub Chrome extension launch automation; human reviewed AI automation case studies
-Canonical examples: GitHub + ClawHub Downloads Tracker (https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/); Toybox Mini - Telegram Mini App (https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/); LocalArchive (https://zack-dev-cm.github.io/projects/localarchive/); LocalLens Private AI Summaries (https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/); OpenClaw Chinese Laoshi Ops (https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/); Random Coffee Best Fit Outreach (https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/)
-
-### AI visibility and answer engine optimization
-Tags: seo, geo, ai-visibility, open-source, automation
-Query intents: answer engine optimization engineer portfolio; AI visibility llms.txt JSON-LD agent discovery; SEO GEO bridge for Telegram mini apps
-Canonical examples: GitHub + ClawHub Downloads Tracker (https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/); Toybox Mini - Telegram Mini App (https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/); LocalArchive (https://zack-dev-cm.github.io/projects/localarchive/); LocalLens Private AI Summaries (https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/); OpenClaw Chinese Laoshi Ops (https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/); Random Coffee Best Fit Outreach (https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/)
-
-### Release validation and marketplace metrics
-Tags: release-engineering, analytics, open-source, browser-extension, codex
-Query intents: public ClawHub skills downloads tracker; AI product release validation metrics; Chrome Web Store extension publisher analytics
-Canonical examples: GitHub Repo Summarizer (Chrome Extension) (https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/); ChatGPT/Deepseek/AIStudio Navigator (https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/); GitHub + ClawHub Downloads Tracker (https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/); Toybox Mini - Telegram Mini App (https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/); LocalArchive (https://zack-dev-cm.github.io/projects/localarchive/); LocalLens Private AI Summaries (https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/)
-
-### Telegram mini apps and Chrome extensions
-Tags: telegram, browser-extension, mobile, web
-Query intents: Telegram mini app AI engineer portfolio; Chrome extension AI product engineer; crawlable Telegram mini app SEO GEO bridge
-Canonical examples: Dishes Recognition & Nutrition Goals Telegram Bot (https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/); GitHub Repo Summarizer (Chrome Extension) (https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/); ChatGPT/Deepseek/AIStudio Navigator (https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/); Probes – AI Magazine Mini App (https://zack-dev-cm.github.io/projects/probes-ai-magazine-mini-app/); Toybox Mini - Telegram Mini App (https://zack-dev-cm.github.io/projects/toybox-mini-telegram-mini-app/); LocalArchive (https://zack-dev-cm.github.io/projects/localarchive/)
-
+## Focus
+- **Computer vision:** OCR, detection, segmentation and multimodal retrieval, from model experiments to server and on-device inference. Examples: [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/), [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/), [Fast OCR ONNX Inference Server](https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/).
+- **Document and agentic AI:** Hybrid retrieval, source-linked answers and human review for document and tool-based workflows. Examples: [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/), [Construction Document Intelligence](https://zack-dev-cm.github.io/projects/construction-document-intelligence/), [InQuest](https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/).
+- **Inference and delivery:** Profiling, model packaging, evaluation and deployment across cloud and mobile. Examples: [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/), [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/).
 
 ## Research Review Feed
 The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents. Human page: https://zack-dev-cm.github.io/papers/. Machine feed: https://zack-dev-cm.github.io/docs/paper-reviews.json.
@@ -66,14 +19,71 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 - Can AI Agents Synthesize Scientific Conclusions?. arXiv: 2606.11337. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.11337
 - Business World Model. arXiv: 2606.10044. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.10044
 
-## Top 5 Projects
-- [GitHub + ClawHub Downloads Tracker](https://zack-dev-cm.github.io/projects/github-clawhub-downloads-tracker/): CLI and report flow for tracking GitHub stars, dated ClawHub listing snapshots, publisher stats, and listing deltas.
-- [OpenClaw Sales Manager Automation for a Multi-Clinic Chain](https://zack-dev-cm.github.io/projects/openclaw-sales-manager-automation-for-a-multi-clinic-chain/): Anonymized clinic-chain case study: OpenClaw-driven sales automation layered onto a legacy database with human approvals.
-- [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/): Public ClawHub releases for benchmark-gated CV experimentation, browser validation, and promotion gating.
-- [GeoFix - AI Visibility Memorizer Mini App](https://zack-dev-cm.github.io/projects/geofix-ai-visibility-memorizer-mini-app/): Telegram mini app that scans a website for AI visibility and generates llms.txt, llms-full.txt, and JSON-LD for bot delivery.
-- [Pores & Wrinkles Detection Service](https://zack-dev-cm.github.io/projects/pores-wrinkles-detection-service/): Face texture analysis service that detects pores and wrinkles and returns labeled overlays and metrics.
+## Selected projects
+- [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/): On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.
+- [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
+- [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/): A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
+- [Calorio - AI Nutrition Service](https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/): A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.
+- [Engineering Drawing & CAD Analysis](https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/): An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.
+- [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Projects (Full Details)
+### Riverstart Document AI
+Summary: On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.
+Details: As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.
+Project URL: https://zack-dev-cm.github.io/projects/riverstart-document-ai/
+Markdown URL: https://zack-dev-cm.github.io/projects/riverstart-document-ai.md
+Key Features:
+- Hybrid retrieval over document and relationship indexes
+- Structured extraction and deterministic reconciliation
+- Source citations and expert review of generated results
+- Versioned evaluations, observability and rollback
+Tech Stack:
+- Python
+- LangGraph
+- LangChain
+- Pydantic
+- Qdrant
+- Neo4j
+- Local LLMs
+- FastAPI
+
+### Engineering Drawing & CAD Analysis
+Summary: An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.
+Details: I lead engineering-analysis R&D spanning browser input, GPU processing, geometry reconstruction and downloadable drawing packs. The work connects scans and CAD representations to an engineer-facing review process. Geometry validation and source traceability guide the design, while specialist approval remains part of the workflow. The workflow is evaluated as engineering decision support.
+Project URL: https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/
+Markdown URL: https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md
+Key Features:
+- Browser-to-GPU processing for scans and CAD inputs
+- Geometry reconstruction and drawing-pack export
+- Traceable outputs for engineering review
+- Geometry evaluation before release decisions
+Tech Stack:
+- Python
+- Computer Vision
+- CAD
+- Geometry Processing
+- GPU
+- Web APIs
+
+### Construction Document Intelligence
+Summary: Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.
+Details: I develop construction-document analysis as part of Riverstart R&D. The workflow interprets complete plan sets, extracts structured quantities and connects each result to the corresponding source page. Persistent review state lets specialists inspect and correct results across a document set. My contribution spans document processing, model orchestration, output contracts and evaluation for expert review.
+Project URL: https://zack-dev-cm.github.io/projects/construction-document-intelligence/
+Markdown URL: https://zack-dev-cm.github.io/projects/construction-document-intelligence.md
+Key Features:
+- Analyze related drawings as a complete document set
+- Extract structured takeoff and quantity views
+- Link quantities to source pages for checking
+- Preserve specialist review decisions across revisions
+Tech Stack:
+- Python
+- Document AI
+- OCR
+- Vision-language models
+- Structured Outputs
+- Evaluation
+
 ### Android Remote Control with VLM AI Agents
 Summary: Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.
 Details: Android app streams screenshots to Vision-Language agents that decide and execute actions. Built for real-time instruction following, automated testing, and accessibility/ops automation.
@@ -221,41 +231,26 @@ Tech Stack:
 - Nutrition Label Parsing
 - LLM Structuring
 
-### Dishes Recognition & Nutrition Goals Telegram Bot
-Summary: Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.
-Details: Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio metrics, with server identifiers and user-level support content omitted.
-Project URL: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/
-Markdown URL: https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot.md
+### Calorio - AI Nutrition Service
+Summary: A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.
+Details: Calorio is an AI nutrition assistant associated with YourFit. I built and maintain its multimodal meal-logging workflows, nutrition summaries, diary and goal tracking. The engineering work spans image and speech interpretation, structured food records, Telegram delivery, deployment and ongoing technical support. A beta Mini App provides a companion diary and profile interface.
+Project URL: https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/
+Markdown URL: https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service.md
 Key Features:
-- Vision, voice, and text meal logging in Telegram
-- Nutrition goal tracking with profile and diary surfaces
-- Telegram Mini App for profile, diary, analytics, and support entry points
-- Admin reports for usage, retention, model-cost, health, webhook, and support signals
-- Public-safe portfolio metrics that keep production identifiers and user-level details out of crawlable pages
+- Log meals through photos, voice messages or text in Telegram
+- Turn recognition results into food-diary entries and nutrition summaries
+- Track nutrition goals through the bot and companion diary interface
+- Maintain deployment, service reliability and technical support
 Tech Stack:
-- Telegram Bot API
+- Python
 - FastAPI
-- OpenAI APIs
-- Vision LLMs
-- Speech-to-Text
+- Telegram Bot API
+- Vision-language models
+- Speech-to-text
 - SQLite
 - Telegram Mini Apps
-- Admin Analytics
-Benchmarks & Analytics:
-- Input modes: 3 (photo, voice, and text flows in public product case study)
-- Nutrition surfaces: 2 (2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow)
-- Admin report snapshot: 2026-06-03 12:00 UTC (latest aggregate Calorio admin report used for public metrics; user-level identifiers omitted)
-- Telegram audience: 1,713 users (Calorio admin report 2026-06-03T12:00:00Z; aggregate count only)
-- Active audience: 28 daily / 109 weekly / 375 monthly active users (Calorio admin report 2026-06-03T12:00:00Z)
-- Rolling 24h logs: 77 logs / 21 loggers (rolling 24h diary metrics from the 2026-06-03 admin report)
-- New users 24h: 13 (+8 versus the prior 24h window in the 2026-06-03 admin report)
-- Mini App 24h: 8 users / 67 events (28.6% of daily active users; http/auth/exception errors all 0 in the 2026-06-03 admin report)
-- OpenAI 24h telemetry: 555,392 tokens / $1.14 (aggregate model-cost telemetry from the 2026-06-03 admin report)
-- Feedback sample: 4.94 avg / 16 ratings (30d satisfaction sample from the 2026-06-03 admin report; user text omitted)
-- Production health: 0 critical signals / 0 Mini App errors (critical-signal and mini-app error summary from the 2026-06-03 admin report)
-- Public route: Telegram (bot link reviewed 2026-05-15)
 Links:
-- Try on Telegram: https://t.me/calorio_yf_bot
+- Try Calorio on Telegram: https://t.me/calorio_yf_bot
 
 ### Python Library: AutoToloka
 Summary: Interactive segmentation toolkit that cuts labeling cost for CV datasets.
@@ -1360,16 +1355,15 @@ Links:
 - Open on ClawHub: https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher
 
 ### Dermaself Flutter Skin Analysis App
-Summary: Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.
-Details: Dermaself is a mobile CV case study organized as a native Flutter experience for Android and iOS, with a guided path from account setup through onboarding, questionnaire intake, selfie/device photo capture, analysis results, and home navigation. The engineering signal is the mobile architecture, Firebase integration, offline model runtime, ROI gating, tile-bounded wrinkle and fine-line processing, pore detection, and promotion decisions for a camera-heavy cosmetic analysis workflow.
+Summary: Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
+Details: I develop Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joins PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guide model release decisions.
 Project URL: https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/
 Markdown URL: https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md
 Key Features:
-- Structures the app into clean feature modules for auth, onboarding, questionnaire, photo capture, device capture, analysis, and home
-- Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points
-- Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim
-- Includes offline model runtime, ROI gating, and tile-bounded wrinkle/fine-line processing in the mobile delivery path
-- Keeps debug-only segmentation notes separate from launch claims when a model should not be promoted
+- Guided capture and facial-region processing for consistent model input
+- Pore and wrinkle segmentation with reproducible model evaluation
+- Mobile and API integration across Flutter, ONNX and cloud services
+- Matching regression outputs across cloud and GPU runtimes
 Tech Stack:
 - Flutter
 - Dart
@@ -1377,15 +1371,9 @@ Tech Stack:
 - Riverpod
 - GoRouter
 - ONNX
-- TFLite
 - Mobile CV
 - iOS
 - Android
-Benchmarks & Analytics:
-- Native targets: 2 (Android and iOS app structure)
-- Feature modules: 7 (auth, onboarding, questionnaire, photo capture, device capture, analysis, home)
-- Debug Dice ceiling: 0.975 mean (12-image overfit diagnostic, not holdout validation, 2026-05-12)
-- Promotion decision: blocked (fine-line model not promoted to server or Flutter after QA review)
 
 ### ClearML Experiment Tracking for Dermaself
 Summary: MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.
@@ -1413,38 +1401,27 @@ Benchmarks & Analytics:
 - Public posture: sanitized (public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs)
 - Promotion boundary: review-gated (debug experiments stay separate from release-ready mobile/server claims)
 
-### Agnitra AI Inference Optimizer
-Summary: Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.
-Details: Agnitra AI Inference Optimizer covers the public package surface for Agnitra: a PyPI-distributed Python SDK by Agnitra Labs for decoder-only LLM inference optimization. The public entry focuses on the package contract visible on PyPI: HuggingFace-style drop-in usage, quantization modes, integrations with HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes, CLI/API surfaces, and trust/provenance manifests. It deliberately avoids publishing unpublished source URLs, signing material, runtime hosts, customer models, unpublished benchmark claims, or configuration details from the package documentation.
-Project URL: https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/
-Markdown URL: https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer.md
+### Agnitra - ML Profiling & Optimization
+Summary: A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
+Details: I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.
+Project URL: https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/
+Markdown URL: https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md
 Key Features:
-- Packages decoder-only LLM inference optimization as a Python SDK with HuggingFace-style drop-in usage
-- Documents quantization choices, supported decoder-LM architectures, and pass-through behavior for unsupported model families
-- Includes public integration paths for HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes
-- Adds trust/provenance manifest support so optimized inference artifacts can be reviewed without exposing signing material or runtime hosts
-- Keeps the portfolio claim bounded to public PyPI and package metadata instead of unpublished benchmarks or source URLs
+- Inspect model runtime and compare baseline and optimized execution
+- Apply hardware-aware quantization to supported decoder-only language models
+- Integrate optimization into existing Python, Hugging Face and agent workflows
+- Evaluate quality changes and retain fallback behavior for unsupported paths
 Tech Stack:
 - Python
 - PyTorch
 - Transformers
 - torchao
-- HuggingFace
+- Hugging Face
 - LangChain
 - LlamaIndex
-- TensorRT-LLM
 - MLOps
-- LLM Inference
-Benchmarks & Analytics:
-- Latest public release: 0.2.4 (PyPI project page, released 2026-05-06)
-- Package status: Beta (PyPI classifier: Development Status :: 4 - Beta)
-- Python support: 3.8-3.12 (PyPI classifiers and requires-python metadata)
-- Supported decoder families: 13 (public package description lists decoder-LM model_type families)
-- Documented integrations: 5 (HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description)
-- Public license: Apache-2.0 (PyPI project metadata)
 Links:
-- Open PyPI package: https://pypi.org/project/agnitra/
-- Open PyPI publisher profile: https://pypi.org/user/agnitra.ai/
+- Install from PyPI: https://pypi.org/project/agnitra/
 
 ### Chrome Extension Studio Plugin
 Summary: Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.
@@ -1592,14 +1569,14 @@ Benchmarks & Analytics:
 
 ### Fast OCR ONNX Inference Server
 Summary: Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.
-Details: Fast OCR ONNX Inference Server is a public-safe computer vision case study for turning OCR models into a deployable inference service. The pipeline accepts an uploaded image, runs line segmentation, word segmentation, and CRNN recognition, then returns recognized text with line and word boxes as JSON. The public entry focuses on architecture, serving contracts, CPU ONNX runtime, Docker packaging, and response shape.
+Details: I built a containerized OCR inference service that turns line segmentation, word segmentation and CRNN recognition into a FastAPI image-upload workflow. It returns recognized text with line and word boxes as structured JSON. ONNX Runtime provides a portable CPU-serving path, with Docker packaging and explicit response contracts connecting the model pipeline to downstream applications.
 Project URL: https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/
 Markdown URL: https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md
 Key Features:
-- Stages OCR as line segmentation, word segmentation, and CRNN text recognition
-- Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text
-- Packages the model stack for Docker-based CPU deployment
-- Documents deployment shape and response contracts with sanitized architecture notes
+- Line segmentation, word segmentation and CRNN text recognition
+- Image-upload API returning recognized text and geometry
+- Portable CPU inference with ONNX Runtime
+- Docker packaging and explicit downstream response contracts
 Tech Stack:
 - Python
 - FastAPI
@@ -1608,11 +1585,6 @@ Tech Stack:
 - OCR
 - Docker
 - Cloud Run
-Benchmarks & Analytics:
-- OCR stages: 3 (line segmentation, word segmentation, CRNN recognition)
-- Model artifacts: 3 (line, word, and text-recognition ONNX models)
-- API endpoints: 2 (health check and image inference contract)
-- Serving target: CPU ONNX (containerized FastAPI inference path)
 
 ### Full-Face Wrinkle and Skin Texture Segmentation Lab
 Summary: Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.
@@ -1639,14 +1611,14 @@ Benchmarks & Analytics:
 
 ### Multimodal Video Search Platform
 Summary: Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
-Details: Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture notes.
+Details: I designed retrieval across video and rich media using complementary visual and language signals. The R&D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.
 Project URL: https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/
 Markdown URL: https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 Key Features:
-- Combines keyframe extraction, ASR/OCR, visual embeddings, transcript embeddings, object signals, and face signals
-- Uses dense vector retrieval and sparse search together instead of relying on a single modality
-- Adds quality-agent style regression checks for hybrid retrieval, ASR/OCR coverage, and recovery workflows
-- Uses sanitized architecture diagrams, metrics posture, and recovery notes for public review
+- Keyframes, speech transcripts, OCR and scene information
+- Visual and text embeddings for complementary retrieval signals
+- Dense and sparse search with hybrid ranking
+- Regression comparisons for retrieval coverage and recovery
 Tech Stack:
 - Python
 - FastAPI
@@ -1657,11 +1629,6 @@ Tech Stack:
 - ASR
 - Hybrid Search
 - Celery
-Benchmarks & Analytics:
-- Signal lanes: 5 (keyframes, ASR, OCR, objects, faces)
-- Index types: 2 (dense vector and sparse retrieval)
-- Agent roles: 5 (ingestion, embedding, retrieval, quality, recovery)
-- Metric posture: sample benchmark (regression signal, not production accuracy claim)
 
 ### Public CV and Deep Learning GitHub Archive
 Summary: GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.
@@ -1788,15 +1755,15 @@ Benchmarks & Analytics:
 - Public posture: sanitized (no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published)
 
 ### InQuest Project Binder RAG QA
-Summary: Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.
-Details: InQuest Project Binder RAG QA captures the work behind InQuest/INQI Quest operation logic. A 2026-06-04 source review covered an operation-logic matrix for project metadata, site-plan data, elevation data, Project Binder, Reference Binder, All Projects Binder, vector-store retrieval, manual attachment priority, generated-file saving, PDF export, media attachments, and web-search toggles. The public case study turns that into a product-engineering surface for QA design, context routing, binder persistence, and public-safe evaluation without exposing project files, account data, private locations, or raw generated outputs.
+Summary: Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.
+Details: I built project-aware document-agent workflows for InQuest. Context routing distinguishes the active project, reference collections and manually attached documents, with retrieval grounded in the selected sources. OpenAI Agents SDK and MCP connect tool calls, handoffs and persistent context. Generated files and answers stay associated with the relevant project, while evaluation scenarios check retrieval selection and save behavior.
 Project URL: https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/
 Markdown URL: https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md
 Key Features:
-- Defines context precedence across project metadata, site-plan objects, elevation data, and manual attachments
-- Tests Project Binder, Reference Binder, and All Projects Binder retrieval modes
-- Covers save-to-binder behavior for PDFs, generated files, and media attachment outputs
-- Separates public QA architecture from private client files, locations, and generated artifacts
+- Project-aware retrieval and attachment precedence
+- Tool calls and handoffs with persistent task context
+- Generated files saved to the relevant project collection
+- Evaluation of retrieval selection and artifact persistence
 Tech Stack:
 - RAG
 - Vector Stores
@@ -1807,11 +1774,6 @@ Tech Stack:
 - S3
 - QA Matrix
 - Web Search
-Benchmarks & Analytics:
-- QA matrix: 20+ scenarios (InQuest operation-logic spreadsheet checked 2026-06-04)
-- Context modes: 3 binders (Project Binder, Reference Binder, and All Projects Binder toggles)
-- Site context: parcel + elevation (project metadata, raw site-plan objects, and elevation-data checks)
-- Public posture: sanitized (no private project files, account data, locations, or raw outputs published)
 
 ### ComfyUI and Colab Generative Prototype Lab
 Summary: Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.

@@ -1,71 +1,44 @@
-# Zakhar Pashkin Portfolio
+# Zakhar Pashkin — Applied Machine Learning
 
-Static React portfolio for Zakhar Pashkin, focused on ML engineering, computer vision, AI products, VLM/LLM workflows, automation, ClawHub listing evidence, and resume delivery.
+The source for my engineering portfolio: computer vision, document AI, agentic systems, maintained services, and released ML tools.
 
-Available at: https://zack-dev-cm.github.io/
+[Portfolio](https://zack-dev-cm.github.io/) · [Resume PDF](https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf) · [GitHub profile](https://github.com/zack-dev-cm)
 
-## ClawHub Listing Snapshot
+## Selected work
 
-The portfolio embeds a dated ClawHub listing-download snapshot into the React app, generated project markdown, crawler-readable HTML shell, `llms.txt`, `geo.txt`, and agent-discovery files. Latest verified snapshot: **13,388 tracked downloads across 49 public skills** from public ClawHub listings, checked on **2026-05-28** with `npm run stats:clawhub -- --write`.
+- **Riverstart Document AI:** document assistants with structured answers, deterministic checks, and evidence for specialist review.
+- **Dermaself:** guided capture, skin-analysis models, and mobile/API integration.
+- **Agnitra:** a PyPI-published SDK and CLI for model profiling and inference optimization.
+- **Calorio:** a maintained Telegram nutrition service for meal logging through photos, voice, and text.
+- **Engineering analysis:** R&D for scanned drawings, CAD, and construction-document interpretation.
 
-### Most Downloaded Skills
+The site includes individual case studies, a searchable project archive, current experience, and an accessible resume. The interface is built with React, TypeScript, and Vite; static project pages and structured data keep the content readable without JavaScript.
 
-| Rank | Skill | Downloads | Versions | Stars |
-| --- | --- | ---: | ---: | ---: |
-| 1 | [Data Science CV Repro Reviewer](https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab) | 703 | 12 | 1 |
-| 2 | [OpenClaw CWS Publisher](https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher) | 610 | 14 | 2 |
-| 3 | [Agentic Codex Dev Reviewer](https://clawhub.ai/zack-dev-cm/agentic-codex-dev) | 594 | 13 | 1 |
-| 4 | [SOTA Agent](https://clawhub.ai/zack-dev-cm/sota-agent) | 591 | 12 | 2 |
-| 5 | [GitHub ClawHub Release Reviewer](https://clawhub.ai/zack-dev-cm/github-clawhub-launcher) | 574 | 9 | 1 |
-| 6 | [OpenClaw YouTube Publisher](https://clawhub.ai/zack-dev-cm/youtube-creator-ops) | 473 | 13 | 1 |
-| 7 | [Artifact Deck](https://clawhub.ai/zack-dev-cm/artifact-deck) | 433 | 7 | 1 |
-| 8 | [OpenClaw Chinese Laoshi Ops](https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi) | 419 | 7 | 1 |
-| 9 | [Browser Proof](https://clawhub.ai/zack-dev-cm/browser-proof) | 411 | 6 | 0 |
-| 10 | [Publish Guard](https://clawhub.ai/zack-dev-cm/public-surface-review) | 408 | 6 | 1 |
+## Development
 
-### Codex And Agent-Skill Review
-
-- **Codex-branded skills:** 765 downloads across 2 packages. `agentic-codex-dev` is #3 overall with 594 downloads; `codex-claude-clawhub-skill-bridge` adds 171 downloads.
-- **Agent-skill workflow cluster:** 1,731 downloads across 9 packages when grouped by skill-routing, skill-packaging, install, portability, and Codex/agent workflow names.
-- **Read:** the strongest pull is toward practical delivery gates: repo review, CWS publishing, release launchers, browser proof, publish guard, artifact cleanup, and reproducible CV work. Pure skill-infrastructure packages are newer and lower-volume, but the Codex/agent development surface already has one top-three skill.
-
-## Quick Start
-
-Prerequisites: Node.js 22. For full resume PDF leak scanning, install `pdftotext` from Poppler; on macOS with Homebrew, use `brew install poppler`.
+Requires Node.js 22. Install Poppler for PDF text checks and the [Antirot audit harness](https://github.com/zack-dev-cm/antirot) for the strict release audit.
 
 ```bash
 npm ci
+npm run dev
+```
+
+Project content lives in `constants.ts`. Design rules live in `DESIGN.md`. The editable resume source and PDF generator are in [`scripts/resume/`](scripts/resume/README.md).
+
+## Verification
+
+```bash
 npm run validate
 npm run build
+npm run validate:seo-aeo
 PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
-```
-
-## Useful Commands
-
-```bash
-npm run stats:clawhub
-npm run search-console:analyze -- path/to/search-console-export.csv
-npm run search-console:gate -- path/to/search-console-export.csv --period=2026-05-10..2026-06-06
-npm run test:search-console
 npm run security:gate
 npm run check:links
 npm run audit:codex
 ```
 
-## Deployment
+## Publishing
 
-- GitHub Pages: `npm run build` with the default base path `/docs/`.
-- Cloudflare Pages: see `cloudflare-deploy.md`.
-- Generated site output lives in `docs/`.
+GitHub Actions builds and verifies changes on `main`, then deploys to GitHub Pages. Generated output lives in `docs/`; update the source and rebuild rather than editing those files directly. Existing project and resume links retain their compatibility aliases.
 
-## Public-Surface Review
-
-Before publishing changes that affect copy, project pages, resume files, or links, run the local security gate and link checker:
-
-```bash
-npm run security:gate
-npm run check:links
-npm run audit:codex
-```
-
-Responsible disclosure and vulnerability reporting are documented in [SECURITY.md](SECURITY.md).
+See [AGENTS.md](AGENTS.md) for the repository map and [SECURITY.md](SECURITY.md) for vulnerability reporting.

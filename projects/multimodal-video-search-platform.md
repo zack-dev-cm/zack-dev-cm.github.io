@@ -3,16 +3,16 @@
 > Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Summary
-Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture notes.
+I designed retrieval across video and rich media using complementary visual and language signals. The R&D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 
 ## Key Features
-- Combines keyframe extraction, ASR/OCR, visual embeddings, transcript embeddings, object signals, and face signals
-- Uses dense vector retrieval and sparse search together instead of relying on a single modality
-- Adds quality-agent style regression checks for hybrid retrieval, ASR/OCR coverage, and recovery workflows
-- Uses sanitized architecture diagrams, metrics posture, and recovery notes for public review
+- Keyframes, speech transcripts, OCR and scene information
+- Visual and text embeddings for complementary retrieval signals
+- Dense and sparse search with hybrid ranking
+- Regression comparisons for retrieval coverage and recovery
 
 ## Tech Stack
 - Python
@@ -24,12 +24,6 @@ https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 - ASR
 - Hybrid Search
 - Celery
-
-## Benchmarks & Analytics
-- Signal lanes: 5 (keyframes, ASR, OCR, objects, faces)
-- Index types: 2 (dense vector and sparse retrieval)
-- Agent roles: 5 (ingestion, embedding, retrieval, quality, recovery)
-- Metric posture: sample benchmark (regression signal, not production accuracy claim)
 
 ## Architecture Diagram
 ```mermaid

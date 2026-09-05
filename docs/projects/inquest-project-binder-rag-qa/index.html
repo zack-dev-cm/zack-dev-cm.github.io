@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InQuest Project Binder RAG QA | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments. Zakhar Pashkin case study." />
+    <meta name="description" content="Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="InQuest Project Binder RAG QA" />
-    <meta property="og:description" content="Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments." />
+    <meta property="og:description" content="Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="InQuest Project Binder RAG QA" />
-    <meta name="twitter:description" content="Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments." />
+    <meta name="twitter:description" content="Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project." />
     <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/inqi-quest-binder-agent-card.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" />
@@ -27,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/#case-study",
       "headline": "InQuest Project Binder RAG QA",
       "name": "InQuest Project Binder RAG QA",
-      "description": "Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.",
+      "description": "Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.",
       "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
       "author": {
@@ -120,6 +120,8 @@
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
       .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      figure { margin: 0; }
+      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
       h2 { margin: 0 0 14px; font-size: 1.35rem; }
       ul { margin: 0; padding-left: 1.2rem; }
@@ -137,20 +139,20 @@
         <header class="hero">
           <p class="eyebrow">case-study</p>
           <h1>InQuest Project Binder RAG QA</h1>
-          <p class="lede">Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.</p>
-          <img class="visual" src="https://zack-dev-cm.github.io/docs/images/inqi-quest-binder-agent-card.png" alt="InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" loading="eager" />
+          <p class="lede">Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.</p>
+          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/inqi-quest-binder-agent-card.png" alt="InQuest binder RAG workflow with site map, binders, vector nodes, and answer panel" loading="eager" /></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>InQuest Project Binder RAG QA captures the work behind InQuest/INQI Quest operation logic. A 2026-06-04 source review covered an operation-logic matrix for project metadata, site-plan data, elevation data, Project Binder, Reference Binder, All Projects Binder, vector-store retrieval, manual attachment priority, generated-file saving, PDF export, media attachments, and web-search toggles. The public case study turns that into a product-engineering surface for QA design, context routing, binder persistence, and public-safe evaluation without exposing project files, account data, private locations, or raw generated outputs.</p>
+          <p>I built project-aware document-agent workflows for InQuest. Context routing distinguishes the active project, reference collections and manually attached documents, with retrieval grounded in the selected sources. OpenAI Agents SDK and MCP connect tool calls, handoffs and persistent context. Generated files and answers stay associated with the relevant project, while evaluation scenarios check retrieval selection and save behavior.</p>
         </section>
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Defines context precedence across project metadata, site-plan objects, elevation data, and manual attachments</li>
-        <li>Tests Project Binder, Reference Binder, and All Projects Binder retrieval modes</li>
-        <li>Covers save-to-binder behavior for PDFs, generated files, and media attachment outputs</li>
-        <li>Separates public QA architecture from private client files, locations, and generated artifacts</li>
+        <li>Project-aware retrieval and attachment precedence</li>
+        <li>Tool calls and handoffs with persistent task context</li>
+        <li>Generated files saved to the relevant project collection</li>
+        <li>Evaluation of retrieval selection and artifact persistence</li>
           </ul>
         </section>
         <section>
@@ -167,23 +169,15 @@
         <li>Web Search</li>
           </ul>
         </section>
-        <section>
-          <h2>Public Signals</h2>
-          <ul>
-        <li><strong>QA matrix:</strong> 20+ scenarios <span>InQuest operation-logic spreadsheet checked 2026-06-04</span></li>
-        <li><strong>Context modes:</strong> 3 binders <span>Project Binder, Reference Binder, and All Projects Binder toggles</span></li>
-        <li><strong>Site context:</strong> parcel + elevation <span>project metadata, raw site-plan objects, and elevation-data checks</span></li>
-        <li><strong>Public posture:</strong> sanitized <span>no private project files, account data, locations, or raw outputs published</span></li>
-          </ul>
-        </section>
+
         <section>
           <h2>References</h2>
           <ul>
         <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
-            <li><a href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md">Machine-readable Markdown case study</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for InQuest Project Binder RAG QA.</p>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
       </article>
     </main>
   </body>

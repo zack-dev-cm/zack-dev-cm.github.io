@@ -59,8 +59,8 @@ const COLAB_CVDL_PROTOTYPE_ARCHIVE_IMAGE = {
 
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
-  title: "Computer Vision and AI Product Engineer",
-  bio: "I build computer vision and agentic AI products from custom models to tested APIs, apps, retrieval workflows, and launch gates."
+  title: "Senior ML Engineer",
+  bio: "Computer vision, document AI and agentic systems — from R&D to maintained products."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {
@@ -70,7 +70,7 @@ export const SOCIAL_LINKS: SocialLinks = {
   githubPrimary: "https://github.com/zack-dev-cm",
   githubSecondary: "https://github.com/ZackPashkin",
   telegram: "https://t.me/rheuiii",
-  resume: resolveAssetUrl('resume/zakhar-pashkin-ai-product-engineer-resume.pdf')
+  resume: resolveAssetUrl('resume/zakhar-pashkin-senior-ml-engineer.pdf')
 };
 
 export const COMPANIES: Company[] = [
@@ -210,9 +210,9 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "7+ years shipping computer vision, ML, and AI product systems across OCR, segmentation, detection, edge inference, VLM/LLM agents, model serving, and production APIs.",
-  "81 public case studies and launches spanning public-safe CV systems, automation, research tooling, Telegram mini apps, browser extensions, mobile, cloud delivery, and open-source release systems.",
-  "35,849 tracked ClawHub downloads across 53 public skills as of 2026-08-06, with review-gated delivery, benchmark metrics, approvals, rollback paths, and measurable outcomes."
+  "Senior ML Engineer in Riverstart's R&D ML team, developing document AI and engineering-analysis systems.",
+  "Shipped mobile and cloud computer vision at Carb Manager and built core document-recognition models at CFT.",
+  "Build and maintain an AI nutrition service and publish model profiling and optimization tooling."
 ];
 
 export const TECH_STACK: string[] = [
@@ -994,8 +994,19 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Document AI and engineering R&D",
+    description: "Current work in Riverstart's R&D ML team: document assistants, engineering-drawing analysis and construction-document interpretation with source-linked specialist review.",
+    links: [
+      { text: "Document AI", url: "https://zack-dev-cm.github.io/projects/riverstart-document-ai/" },
+      { text: "Engineering analysis", url: "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/" },
+      { text: "Construction documents", url: "https://zack-dev-cm.github.io/projects/construction-document-intelligence/" }
+    ],
+    projectId: 101,
+    createdAt: "2026-09-05"
+  },
+  {
     title: "CV and AI Project Coverage Added",
-    description: "Added public-safe portfolio coverage for jaw and face-type classification, raw architectural plan and catalog-item matching, InQuest binder-RAG QA, and ComfyUI/Colab prototype work. Private source files, raw patient/building data, manufacturer documents, and unpublished notebook links are intentionally excluded.",
+    description: "Case studies in visual classification, architectural plan and catalog matching, InQuest document agents, and generative prototype work.",
     links: [
       { text: "Open jaw and face-type classifier", url: "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/" },
       { text: "Open architectural plan matcher", url: "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/" },
@@ -1006,10 +1017,10 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     createdAt: "2026-06-04"
   },
   {
-    title: "Agnitra AI Inference Optimizer",
-    description: "Added Agnitra AI public package case study: a decoder-only LLM inference optimizer with HuggingFace-style drop-in usage, quantization options, integrations, CLI/API surfaces, and signed inference-manifest support.",
+    title: "Agnitra - ML Profiling & Optimization",
+    description: "A Python SDK and CLI published on PyPI for profiling model runtime, comparing baselines and evaluating inference optimizations.",
     links: [
-      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/agnitra-ai-inference-optimizer/" },
+      { text: "Open case study", url: "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/" },
       { text: "Open PyPI package", url: "https://pypi.org/project/agnitra/" }
     ],
     projectId: 81,
@@ -1025,8 +1036,8 @@ export const LATEST_UPDATES: LatestUpdate[] = [
     createdAt: "2026-06-09"
   },
   {
-    title: "Calorio June Admin Metrics Updated",
-    description: "Updated aggregate Calorio metrics from the 2026-06-03 12:00 UTC admin report: 1,713 Telegram users, 28 daily / 109 weekly / 375 monthly active users, 77 rolling-24h logs, 8 Mini App users, and 555,392 OpenAI tokens / $1.14; user-level identifiers and support contents stay out of public files.",
+    title: "Calorio - Maintained AI Nutrition Service",
+    description: "Build and maintain Calorio for photo, voice and text meal logging, nutrition summaries and ongoing technical support.",
     links: [
       { text: "Open Calorio case study", url: "https://zack-dev-cm.github.io/projects/dishes-recognition-nutrition-goals-telegram-bot/" },
       { text: "Try Calorio on Telegram", url: "https://t.me/calorio_yf_bot" }
@@ -1443,6 +1454,104 @@ export const LATEST_UPDATES: LatestUpdate[] = [
 
 export const PROJECTS: Project[] = [
   {
+    "id": 101,
+    "title": "Riverstart Document AI",
+    "description": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
+    "longDescription": "As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.",
+    "keyFeatures": [
+      "Hybrid retrieval over document and relationship indexes",
+      "Structured extraction and deterministic reconciliation",
+      "Source citations and expert review of generated results",
+      "Versioned evaluations, observability and rollback"
+    ],
+    "techStack": [
+      "Python",
+      "LangGraph",
+      "LangChain",
+      "Pydantic",
+      "Qdrant",
+      "Neo4j",
+      "Local LLMs",
+      "FastAPI"
+    ],
+    "surfaceTags": [
+      "ai-systems",
+      "document-ai",
+      "rag",
+      "research"
+    ],
+    "createdAt": "2026-09-05",
+    "projectKind": "research",
+    "links": [],
+    "images": [],
+    "thumbnail": "",
+    "hideImages": true
+  },
+  {
+    "id": 102,
+    "title": "Engineering Drawing & CAD Analysis",
+    "description": "An R&D workflow that turns scans and CAD files into reconstructed geometry and traceable engineering-review packs.",
+    "longDescription": "I lead engineering-analysis R&D spanning browser input, GPU processing, geometry reconstruction and downloadable drawing packs. The work connects scans and CAD representations to an engineer-facing review process. Geometry validation and source traceability guide the design, while specialist approval remains part of the workflow. The workflow is evaluated as engineering decision support.",
+    "keyFeatures": [
+      "Browser-to-GPU processing for scans and CAD inputs",
+      "Geometry reconstruction and drawing-pack export",
+      "Traceable outputs for engineering review",
+      "Geometry evaluation before release decisions"
+    ],
+    "techStack": [
+      "Python",
+      "Computer Vision",
+      "CAD",
+      "Geometry Processing",
+      "GPU",
+      "Web APIs"
+    ],
+    "surfaceTags": [
+      "computer-vision",
+      "ai-systems",
+      "engineering",
+      "research"
+    ],
+    "createdAt": "2026-09-05",
+    "projectKind": "research",
+    "links": [],
+    "images": [],
+    "thumbnail": "",
+    "hideImages": true
+  },
+  {
+    "id": 103,
+    "title": "Construction Document Intelligence",
+    "description": "Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.",
+    "longDescription": "I develop construction-document analysis as part of Riverstart R&D. The workflow interprets complete plan sets, extracts structured quantities and connects each result to the corresponding source page. Persistent review state lets specialists inspect and correct results across a document set. My contribution spans document processing, model orchestration, output contracts and evaluation for expert review.",
+    "keyFeatures": [
+      "Analyze related drawings as a complete document set",
+      "Extract structured takeoff and quantity views",
+      "Link quantities to source pages for checking",
+      "Preserve specialist review decisions across revisions"
+    ],
+    "techStack": [
+      "Python",
+      "Document AI",
+      "OCR",
+      "Vision-language models",
+      "Structured Outputs",
+      "Evaluation"
+    ],
+    "surfaceTags": [
+      "computer-vision",
+      "ai-systems",
+      "document-ai",
+      "research"
+    ],
+    "createdAt": "2026-09-05",
+    "projectKind": "research",
+    "links": [],
+    "images": [],
+    "thumbnail": "",
+    "hideImages": true
+  },
+  {
     id: 1,
     title: "Android Remote Control with VLM AI Agents",
     description: "Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.",
@@ -1594,45 +1703,55 @@ export const PROJECTS: Project[] = [
     thumbnail: `${LOCAL_IMG_BASE}/food-recognition-ui.png`
   },
   {
-    id: 11,
-    title: "Dishes Recognition & Nutrition Goals Telegram Bot",
-    aliases: ["calorio", "kalorio", "nutrition bot", "yourfit"],
-    description: "Calorio Telegram bot that recognizes dishes from photos/audio, tracks nutrition goals, and exposes admin usage/cost reports.",
-    longDescription: "Calorio is a multimodal Telegram bot that understands dish photos, voice notes, and text meal descriptions, logs calories/macros, and nudges users toward daily nutrition targets. It also ships a beta Telegram Mini App for profile and diary management plus a production admin-report flow for usage, retention, support, model-cost, health, and webhook telemetry. A sanitized 2026-05-21 production report is used here only for aggregate portfolio metrics, with server identifiers and user-level support content omitted.",
-    projectKind: "user-product",
-    surfaceTags: ["telegram", "mobile"],
-    mobileReady: true,
-    keyFeatures: [
-      "Vision, voice, and text meal logging in Telegram",
-      "Nutrition goal tracking with profile and diary surfaces",
-      "Telegram Mini App for profile, diary, analytics, and support entry points",
-      "Admin reports for usage, retention, model-cost, health, webhook, and support signals",
-      "Public-safe portfolio metrics that keep production identifiers and user-level details out of crawlable pages"
+    "id": 11,
+    "title": "Calorio - AI Nutrition Service",
+    "legacySlugs": [
+      "dishes-recognition-nutrition-goals-telegram-bot"
     ],
-    techStack: ["Telegram Bot API", "FastAPI", "OpenAI APIs", "Vision LLMs", "Speech-to-Text", "SQLite", "Telegram Mini Apps", "Admin Analytics"],
-    benchmarks: [
-      { label: "Input modes", value: "3", context: "photo, voice, and text flows in public product case study" },
-      { label: "Nutrition surfaces", value: "2", context: "2 public product surfaces: Telegram bot plus beta Mini App diary/profile flow" },
-      { label: "Admin report snapshot", value: "2026-06-03 12:00 UTC", context: "latest aggregate Calorio admin report used for public metrics; user-level identifiers omitted" },
-      { label: "Telegram audience", value: "1,713 users", context: "Calorio admin report 2026-06-03T12:00:00Z; aggregate count only" },
-      { label: "Active audience", value: "28 daily / 109 weekly / 375 monthly active users", context: "Calorio admin report 2026-06-03T12:00:00Z" },
-      { label: "Rolling 24h logs", value: "77 logs / 21 loggers", context: "rolling 24h diary metrics from the 2026-06-03 admin report" },
-      { label: "New users 24h", value: "13", context: "+8 versus the prior 24h window in the 2026-06-03 admin report" },
-      { label: "Mini App 24h", value: "8 users / 67 events", context: "28.6% of daily active users; http/auth/exception errors all 0 in the 2026-06-03 admin report" },
-      { label: "OpenAI 24h telemetry", value: "555,392 tokens / $1.14", context: "aggregate model-cost telemetry from the 2026-06-03 admin report" },
-      { label: "Feedback sample", value: "4.94 avg / 16 ratings", context: "30d satisfaction sample from the 2026-06-03 admin report; user text omitted" },
-      { label: "Production health", value: "0 critical signals / 0 Mini App errors", context: "critical-signal and mini-app error summary from the 2026-06-03 admin report" },
-      { label: "Public route", value: "Telegram", context: "bot link reviewed 2026-05-15" }
+    "aliases": [
+      "calorio",
+      "kalorio",
+      "nutrition bot",
+      "yourfit"
     ],
-    links: [
-      { text: "Try on Telegram", url: "https://t.me/calorio_yf_bot" },
+    "description": "A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.",
+    "longDescription": "Calorio is an AI nutrition assistant associated with YourFit. I built and maintain its multimodal meal-logging workflows, nutrition summaries, diary and goal tracking. The engineering work spans image and speech interpretation, structured food records, Telegram delivery, deployment and ongoing technical support. A beta Mini App provides a companion diary and profile interface.",
+    "projectKind": "user-product",
+    "surfaceTags": [
+      "telegram",
+      "mobile",
+      "multimodal",
+      "maintained-service"
     ],
-    images: [],
-    thumbnail: "",
-    canonicalLinks: {
-      telegramBot: "https://t.me/calorio_yf_bot"
+    "mobileReady": true,
+    "keyFeatures": [
+      "Log meals through photos, voice messages or text in Telegram",
+      "Turn recognition results into food-diary entries and nutrition summaries",
+      "Track nutrition goals through the bot and companion diary interface",
+      "Maintain deployment, service reliability and technical support"
+    ],
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "Telegram Bot API",
+      "Vision-language models",
+      "Speech-to-text",
+      "SQLite",
+      "Telegram Mini Apps"
+    ],
+    "links": [
+      {
+        "text": "Try Calorio on Telegram",
+        "url": "https://t.me/calorio_yf_bot"
+      }
+    ],
+    "images": [],
+    "thumbnail": "",
+    "canonicalLinks": {
+      "telegramBot": "https://t.me/calorio_yf_bot"
     }
   },
+
   {
     id: 12,
     title: "Python Library: AutoToloka",
@@ -2878,30 +2997,18 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 63,
     title: "Dermaself Flutter Skin Analysis App",
     aliases: ["dermaself mobile app", "flutter skin analysis", "mobile skin analysis app"],
-    description: "Flutter mobile app case study for a guided cosmetic skin-analysis flow with Firebase-backed account, intake, photo capture, and results screens.",
-    longDescription: "Dermaself is a mobile CV case study organized as a native Flutter experience for Android and iOS, with a guided path from account setup through onboarding, questionnaire intake, selfie/device photo capture, analysis results, and home navigation. The engineering signal is the mobile architecture, Firebase integration, offline model runtime, ROI gating, tile-bounded wrinkle and fine-line processing, pore detection, and promotion decisions for a camera-heavy cosmetic analysis workflow.",
+    description: "Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.",
+    longDescription: "I develop Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joins PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guide model release decisions.",
     projectKind: "case-study",
     surfaceTags: ["mobile", "computer-vision", "health-ai", "case-study"],
     mobileReady: true,
-    keyFeatures: [
-      "Structures the app into clean feature modules for auth, onboarding, questionnaire, photo capture, device capture, analysis, and home",
-      "Uses Firebase services for account state, database records, image storage, analytics, messaging, and serverless extension points",
-      "Builds a guided capture-to-results UX for camera-heavy cosmetic analysis without presenting the portfolio entry as a medical diagnostic claim",
-      "Includes offline model runtime, ROI gating, and tile-bounded wrinkle/fine-line processing in the mobile delivery path",
-      "Keeps debug-only segmentation notes separate from launch claims when a model should not be promoted"
-    ],
-    techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "ONNX", "TFLite", "Mobile CV", "iOS", "Android"],
-    benchmarks: [
-      { label: "Native targets", value: "2", context: "Android and iOS app structure" },
-      { label: "Feature modules", value: "7", context: "auth, onboarding, questionnaire, photo capture, device capture, analysis, home" },
-      { label: "Debug Dice ceiling", value: "0.975 mean", context: "12-image overfit diagnostic, not holdout validation, 2026-05-12" },
-      { label: "Promotion decision", value: "blocked", context: "fine-line model not promoted to server or Flutter after QA review" }
-    ],
+    keyFeatures: ["Guided capture and facial-region processing for consistent model input", "Pore and wrinkle segmentation with reproducible model evaluation", "Mobile and API integration across Flutter, ONNX and cloud services", "Matching regression outputs across cloud and GPU runtimes"],
+    techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "ONNX", "Mobile CV", "iOS", "Android"],
     links: [],
     mermaidDiagram: `flowchart LR
   Onboarding["Onboarding + Questionnaire"] --> Capture["Selfie / Device Capture"]
   Capture --> ROI["Face ROI + Capture Gates"]
-  ROI --> Runtime["ONNX / TFLite Runtime"]
+  ROI --> Runtime["ONNX / Model Runtime"]
   Runtime --> Texture["Wrinkle, Pore, Acne Signals"]
   Texture --> QA["QA Review + Promotion Decision"]
   QA --> Results["Results + Recommendations"]`,
@@ -2945,48 +3052,65 @@ Operations Layer (Console, Alerts, Runbooks)`
     createdAt: "2026-06-09"
   },
   {
-    id: 81,
-    title: "Agnitra AI Inference Optimizer",
-    aliases: ["agnitra", "agnitra ai", "agnitra labs", "llm inference optimizer", "decoder-only llm optimizer", "huggingface optimizer"],
-    description: "Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.",
-    longDescription: "Agnitra AI Inference Optimizer covers the public package surface for Agnitra: a PyPI-distributed Python SDK by Agnitra Labs for decoder-only LLM inference optimization. The public entry focuses on the package contract visible on PyPI: HuggingFace-style drop-in usage, quantization modes, integrations with HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes, CLI/API surfaces, and trust/provenance manifests. It deliberately avoids publishing unpublished source URLs, signing material, runtime hosts, customer models, unpublished benchmark claims, or configuration details from the package documentation.",
-    projectKind: "open-source",
-    surfaceTags: ["open-source", "ai-systems", "llm-inference", "mlops", "optimization"],
-    keyFeatures: [
-      "Packages decoder-only LLM inference optimization as a Python SDK with HuggingFace-style drop-in usage",
-      "Documents quantization choices, supported decoder-LM architectures, and pass-through behavior for unsupported model families",
-      "Includes public integration paths for HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes",
-      "Adds trust/provenance manifest support so optimized inference artifacts can be reviewed without exposing signing material or runtime hosts",
-      "Keeps the portfolio claim bounded to public PyPI and package metadata instead of unpublished benchmarks or source URLs"
+    "id": 81,
+    "title": "Agnitra - ML Profiling & Optimization",
+    "legacySlugs": [
+      "agnitra-ai-inference-optimizer"
     ],
-    techStack: ["Python", "PyTorch", "Transformers", "torchao", "HuggingFace", "LangChain", "LlamaIndex", "TensorRT-LLM", "MLOps", "LLM Inference"],
-    benchmarks: [
-      { label: "Latest public release", value: "0.2.4", context: "PyPI project page, released 2026-05-06" },
-      { label: "Package status", value: "Beta", context: "PyPI classifier: Development Status :: 4 - Beta" },
-      { label: "Python support", value: "3.8-3.12", context: "PyPI classifiers and requires-python metadata" },
-      { label: "Supported decoder families", value: "13", context: "public package description lists decoder-LM model_type families" },
-      { label: "Documented integrations", value: "5", context: "HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description" },
-      { label: "Public license", value: "Apache-2.0", context: "PyPI project metadata" }
+    "aliases": [
+      "agnitra",
+      "agnitra ai",
+      "agnitra labs",
+      "model profiling",
+      "inference optimization",
+      "decoder-only llm optimizer"
     ],
-    links: [
-      { text: "Open PyPI package", url: "https://pypi.org/project/agnitra/" },
-      { text: "Open PyPI publisher profile", url: "https://pypi.org/user/agnitra.ai/" }
+    "description": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
+    "longDescription": "I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.",
+    "projectKind": "open-source",
+    "surfaceTags": [
+      "open-source",
+      "ai-systems",
+      "llm-inference",
+      "mlops",
+      "optimization"
     ],
-    mermaidDiagram: `flowchart LR
-  Package["PyPI Package"] --> SDK["Python SDK"]
-  SDK --> Model["Decoder-only LLM"]
-  Model --> Quant["Quantization Choice"]
-  Quant --> Runtime["Optimized Runtime"]
-  SDK --> Integrations["HF / LangChain / LlamaIndex / Accelerate"]
-  Runtime --> Trust["Signed Manifest"]
-  Trust --> Review["Public-safe Review Boundary"]`,
-    images: [AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE],
-    thumbnail: AGNITRA_AI_INFERENCE_OPTIMIZER_IMAGE.url,
-    createdAt: "2026-06-09",
-    canonicalLinks: {
-      website: "https://pypi.org/project/agnitra/"
+    "keyFeatures": [
+      "Inspect model runtime and compare baseline and optimized execution",
+      "Apply hardware-aware quantization to supported decoder-only language models",
+      "Integrate optimization into existing Python, Hugging Face and agent workflows",
+      "Evaluate quality changes and retain fallback behavior for unsupported paths"
+    ],
+    "techStack": [
+      "Python",
+      "PyTorch",
+      "Transformers",
+      "torchao",
+      "Hugging Face",
+      "LangChain",
+      "LlamaIndex",
+      "MLOps"
+    ],
+    "links": [
+      {
+        "text": "Install from PyPI",
+        "url": "https://pypi.org/project/agnitra/"
+      }
+    ],
+    "images": [
+      {
+        "url": "/docs/images/agnitra-ai-inference-optimizer-card.png",
+        "alt": "Conceptual diagram of Agnitra model optimization and package workflow",
+        "caption": "Conceptual workflow illustration."
+      }
+    ],
+    "thumbnail": "/docs/images/agnitra-ai-inference-optimizer-card.png",
+    "createdAt": "2026-05-06",
+    "canonicalLinks": {
+      "website": "https://pypi.org/project/agnitra/"
     }
   },
+
   {
     id: 64,
     title: "Chrome Extension Studio Plugin",
@@ -3158,22 +3282,11 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Fast OCR ONNX Inference Server",
     aliases: ["fast ocr", "onnx ocr api", "three-stage ocr"],
     description: "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
-    longDescription: "Fast OCR ONNX Inference Server is a public-safe computer vision case study for turning OCR models into a deployable inference service. The pipeline accepts an uploaded image, runs line segmentation, word segmentation, and CRNN recognition, then returns recognized text with line and word boxes as JSON. The public entry focuses on architecture, serving contracts, CPU ONNX runtime, Docker packaging, and response shape.",
+    longDescription: "I built a containerized OCR inference service that turns line segmentation, word segmentation and CRNN recognition into a FastAPI image-upload workflow. It returns recognized text with line and word boxes as structured JSON. ONNX Runtime provides a portable CPU-serving path, with Docker packaging and explicit response contracts connecting the model pipeline to downstream applications.",
     projectKind: "case-study",
     surfaceTags: ["computer-vision", "ocr", "api", "mlops"],
-    keyFeatures: [
-      "Stages OCR as line segmentation, word segmentation, and CRNN text recognition",
-      "Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text",
-      "Packages the model stack for Docker-based CPU deployment",
-      "Documents deployment shape and response contracts with sanitized architecture notes"
-    ],
+    keyFeatures: ["Line segmentation, word segmentation and CRNN text recognition", "Image-upload API returning recognized text and geometry", "Portable CPU inference with ONNX Runtime", "Docker packaging and explicit downstream response contracts"],
     techStack: ["Python", "FastAPI", "ONNX Runtime", "CRNN", "OCR", "Docker", "Cloud Run"],
-    benchmarks: [
-      { label: "OCR stages", value: "3", context: "line segmentation, word segmentation, CRNN recognition" },
-      { label: "Model artifacts", value: "3", context: "line, word, and text-recognition ONNX models" },
-      { label: "API endpoints", value: "2", context: "health check and image inference contract" },
-      { label: "Serving target", value: "CPU ONNX", context: "containerized FastAPI inference path" }
-    ],
     links: [],
     mermaidDiagram: `flowchart LR
   Upload["Upload Image"] --> Line["Line Segmentation ONNX"]
@@ -3223,22 +3336,11 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Multimodal Video Search Platform",
     aliases: ["SVS4 search", "video neural search", "hybrid media search"],
     description: "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
-    longDescription: "Multimodal Video Search Platform is a case study for search across video and rich media. The system normalizes uploads, extracts keyframes, runs transcript and OCR processing, maintains visual and text embeddings, writes dense and sparse indexes, and serves ranked results through calibrated hybrid retrieval. The public entry focuses on architecture, agent responsibilities, benchmark posture, and recovery paths using sanitized architecture notes.",
-    projectKind: "case-study",
+    longDescription: "I designed retrieval across video and rich media using complementary visual and language signals. The R&D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.",
+    projectKind: "research",
     surfaceTags: ["computer-vision", "ai", "search", "video", "mlops"],
-    keyFeatures: [
-      "Combines keyframe extraction, ASR/OCR, visual embeddings, transcript embeddings, object signals, and face signals",
-      "Uses dense vector retrieval and sparse search together instead of relying on a single modality",
-      "Adds quality-agent style regression checks for hybrid retrieval, ASR/OCR coverage, and recovery workflows",
-      "Uses sanitized architecture diagrams, metrics posture, and recovery notes for public review"
-    ],
+    keyFeatures: ["Keyframes, speech transcripts, OCR and scene information", "Visual and text embeddings for complementary retrieval signals", "Dense and sparse search with hybrid ranking", "Regression comparisons for retrieval coverage and recovery"],
     techStack: ["Python", "FastAPI", "Qdrant", "Postgres", "CLIP", "OCR", "ASR", "Hybrid Search", "Celery"],
-    benchmarks: [
-      { label: "Signal lanes", value: "5", context: "keyframes, ASR, OCR, objects, faces" },
-      { label: "Index types", value: "2", context: "dense vector and sparse retrieval" },
-      { label: "Agent roles", value: "5", context: "ingestion, embedding, retrieval, quality, recovery" },
-      { label: "Metric posture", value: "sample benchmark", context: "regression signal, not production accuracy claim" }
-    ],
     links: [],
     mermaidDiagram: `flowchart LR
   Upload["Video Upload"] --> Frames["Scenes + Keyframes"]
@@ -3458,23 +3560,12 @@ Operations Layer (Console, Alerts, Runbooks)`
       "site plan RAG",
       "binder vector storage"
     ],
-    description: "Project-aware RAG QA matrix for parcel context, site-plan data, binders, generated files, and media attachments.",
-    longDescription: "InQuest Project Binder RAG QA captures the work behind InQuest/INQI Quest operation logic. A 2026-06-04 source review covered an operation-logic matrix for project metadata, site-plan data, elevation data, Project Binder, Reference Binder, All Projects Binder, vector-store retrieval, manual attachment priority, generated-file saving, PDF export, media attachments, and web-search toggles. The public case study turns that into a product-engineering surface for QA design, context routing, binder persistence, and public-safe evaluation without exposing project files, account data, private locations, or raw generated outputs.",
+    description: "Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.",
+    longDescription: "I built project-aware document-agent workflows for InQuest. Context routing distinguishes the active project, reference collections and manually attached documents, with retrieval grounded in the selected sources. OpenAI Agents SDK and MCP connect tool calls, handoffs and persistent context. Generated files and answers stay associated with the relevant project, while evaluation scenarios check retrieval selection and save behavior.",
     projectKind: "case-study",
     surfaceTags: ["ai", "rag", "project-context", "qa", "vector-storage", "site-planning"],
-    keyFeatures: [
-      "Defines context precedence across project metadata, site-plan objects, elevation data, and manual attachments",
-      "Tests Project Binder, Reference Binder, and All Projects Binder retrieval modes",
-      "Covers save-to-binder behavior for PDFs, generated files, and media attachment outputs",
-      "Separates public QA architecture from private client files, locations, and generated artifacts"
-    ],
+    keyFeatures: ["Project-aware retrieval and attachment precedence", "Tool calls and handoffs with persistent task context", "Generated files saved to the relevant project collection", "Evaluation of retrieval selection and artifact persistence"],
     techStack: ["RAG", "Vector Stores", "OpenAI APIs", "Project Context", "Binder Workflows", "PDF Generation", "S3", "QA Matrix", "Web Search"],
-    benchmarks: [
-      { label: "QA matrix", value: "20+ scenarios", context: "InQuest operation-logic spreadsheet checked 2026-06-04" },
-      { label: "Context modes", value: "3 binders", context: "Project Binder, Reference Binder, and All Projects Binder toggles" },
-      { label: "Site context", value: "parcel + elevation", context: "project metadata, raw site-plan objects, and elevation-data checks" },
-      { label: "Public posture", value: "sanitized", context: "no private project files, account data, locations, or raw outputs published" }
-    ],
     links: [],
     mermaidDiagram: `flowchart LR
   User["User Prompt"] --> Router["Context Router"]

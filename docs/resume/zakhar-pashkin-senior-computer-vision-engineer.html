@@ -1,319 +1,38 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zakhar Pashkin - Senior Computer Vision Engineer Resume</title>
-    <style>
-      :root {
-        --ink: #111827;
-        --muted: #4b5563;
-        --line: #d7dee8;
-        --accent: #0f766e;
-        --soft: #eef8f7;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background: #f3f6fa;
-        color: var(--ink);
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.34;
-      }
-
-      .page {
-        width: 8.5in;
-        min-height: 11in;
-        margin: 0 auto;
-        padding: 0.46in 0.52in;
-        background: #ffffff;
-      }
-
-      header {
-        display: grid;
-        gap: 8px;
-        padding-bottom: 14px;
-        border-bottom: 2px solid var(--ink);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 30px;
-        letter-spacing: 0;
-        line-height: 1;
-      }
-
-      .role {
-        margin: 0;
-        color: var(--accent);
-        font-size: 15.5px;
-        font-weight: 700;
-      }
-
-      .contact {
-        color: var(--muted);
-        font-size: 11.2px;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      section {
-        margin-top: 12px;
-      }
-
-      h2 {
-        margin: 0 0 7px;
-        padding-bottom: 3px;
-        border-bottom: 1px solid var(--line);
-        color: var(--ink);
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      p {
-        margin: 0;
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 17px;
-      }
-
-      li {
-        margin: 3px 0;
-      }
-
-      .summary {
-        font-size: 12.3px;
-      }
-
-      .skills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 7px 15px;
-        font-size: 11.2px;
-      }
-
-      .skills strong {
-        color: var(--ink);
-      }
-
-      .job {
-        margin-top: 10px;
-      }
-
-      .job:first-of-type {
-        margin-top: 0;
-      }
-
-      .job-head {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 12px;
-        align-items: baseline;
-      }
-
-      h3 {
-        margin: 0;
-        font-size: 13px;
-      }
-
-      .meta {
-        color: var(--muted);
-        font-size: 11px;
-        text-align: right;
-        white-space: nowrap;
-      }
-
-      .company {
-        color: var(--muted);
-        font-size: 11.4px;
-        margin: 1px 0 4px;
-      }
-
-      .skill-line {
-        color: var(--muted);
-        font-size: 10.8px;
-        margin: 3px 0 0;
-      }
-
-      .project-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px 15px;
-        font-size: 11.1px;
-      }
-
-      .project {
-        padding: 7px 8px;
-        border: 1px solid var(--line);
-        background: var(--soft);
-      }
-
-      .project strong {
-        display: block;
-        margin-bottom: 2px;
-      }
-
-      .compact {
-        font-size: 11.25px;
-      }
-
-      .tight-list {
-        font-size: 11.25px;
-      }
-
-      @media print {
-        body {
-          background: #ffffff;
-        }
-
-        .page {
-          width: auto;
-          min-height: auto;
-          margin: 0;
-          padding: 0.42in 0.5in;
-        }
-
-        .job-head,
-        li,
-        .project {
-          break-inside: avoid;
-        }
-
-        .job-head,
-        .company {
-          break-after: avoid;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="page">
-      <header>
-        <h1>Zakhar Pashkin</h1>
-        <p class="role">Senior Computer Vision Engineer | OCR, Mobile/Cloud ML, Skin Analysis, Applied AI Delivery</p>
-        <div class="contact" aria-label="Contact information">
-          Yerevan, Armenia |
-          <a href="mailto:kaisenaiko@gmail.com">kaisenaiko@gmail.com</a> |
-          <a href="https://zack-dev-cm.github.io/">zack-dev-cm.github.io</a> |
-          <a href="https://www.linkedin.com/in/zakhar-pashkin-a524a6163">linkedin.com/in/zakhar-pashkin-a524a6163</a> |
-          <a href="https://github.com/zack-dev-cm">github.com/zack-dev-cm</a>
-        </div>
-      </header>
-
-      <section aria-labelledby="summary">
-        <h2 id="summary">Summary</h2>
-        <p class="summary">
-          Senior computer-vision engineer with 7+ years building OCR, segmentation,
-          detection, mobile/cloud inference, and skin-analysis systems. Owns the path from
-          data quality and model evaluation to APIs, mobile/backend integration, QA evidence,
-          and client-ready releases.
-        </p>
-      </section>
-
-      <section aria-labelledby="skills">
-        <h2 id="skills">Core Stack</h2>
-        <div class="skills">
-          <p><strong>Computer vision:</strong> OCR, segmentation, detection, landmarks, face texture analysis, multimodal retrieval, visual QA</p>
-          <p><strong>Modeling:</strong> Python, PyTorch, TensorFlow/Keras, OpenCV, YOLO, MediaPipe, CLIP/VLMs, ONNX Runtime, TFLite, CoreML</p>
-          <p><strong>Product engineering:</strong> FastAPI, REST APIs, TypeScript, React, Flutter/Dart, Firebase, Qdrant, Postgres, SQL</p>
-          <p><strong>Delivery:</strong> Docker, Cloud Run, GCP, AWS, GitHub Actions, ClearML, MLflow, CI/CD, evals, release gates</p>
-        </div>
-      </section>
-
-      <section aria-labelledby="experience">
-        <h2 id="experience">Experience</h2>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Senior Computer Vision &amp; AI Product Engineer, Contract</h3>
-            <p class="meta">Jun 2024 - Present</p>
-          </div>
-          <p class="company">Dermaself &amp; Gorilla GmbH - Contract, Remote</p>
-          <ul class="compact">
-            <li><strong>Dermaself:</strong> led CV product engineering for a skincare-analysis workflow across guided image capture, face-region processing, pore/wrinkle texture signals, result review, and mobile/backend integration.</li>
-            <li>Defined API contracts, model-evaluation criteria, experiment tracking, QA checks, and mobile release boundaries for camera-heavy skincare analysis.</li>
-            <li><strong>Gorilla GmbH:</strong> delivered CV/deep-learning work across dataset-quality review, model evaluation, inference behavior analysis, and implementation-ready technical recommendations.</li>
-            <li>Managed contract delivery across requirements, milestones, acceptance criteria, client demos, QA evidence, and release notes.</li>
-          </ul>
-          <p class="skill-line">Stack: Python, PyTorch, OpenCV, ONNX/TFLite, FastAPI, Flutter/Firebase, cloud deployment, Docker, GitHub Actions, MLOps, model evaluation, release QA</p>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Senior Computer Vision Engineer</h3>
-            <p class="meta">Jun 2022 - Jun 2024</p>
-          </div>
-          <p class="company">Wombat Apps LLC / Carb Manager - Contract - Remote</p>
-          <ul class="compact">
-            <li>Built cloud and mobile ML workflows for food recognition, nutrition-label OCR, and structured nutrition extraction in Carb Manager product flows.</li>
-            <li>Owned model-to-product integration across dataset preparation, model training/evaluation, backend APIs, mobile runtime constraints, and rollout support.</li>
-            <li>Improved recognition reliability and mobile inference behavior through model export, input-pipeline cleanup, runtime profiling, and backend integration.</li>
-            <li>Partnered with data, mobile, backend, and product teams on OCR/nutrition extraction quality, privacy constraints, and production reliability.</li>
-          </ul>
-          <p class="skill-line">Stack: Python, Computer Vision, OCR, food recognition, mobile ML, cloud ML, API integration, model evaluation</p>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Computer Vision Engineer</h3>
-            <p class="meta">Jun 2019 - Jun 2022</p>
-          </div>
-          <p class="company">CFT - Akademgorodok, Novosibirsk</p>
-          <ul class="compact">
-            <li>Built OCR, segmentation, detection, classification, and document-recognition models for fintech and mobile applications.</li>
-            <li>Optimized energy-meter OCR and segmentation models for mobile inference through model architecture, quantization, and deployment-focused tuning.</li>
-            <li>Delivered masked-face anti-spoofing and offline signature-verification prototypes with error analysis tied to deployment constraints.</li>
-            <li>Created CLIP pre-validation and Toloka-assisted labeling workflows to reduce manual review load and improve dataset iteration quality.</li>
-            <li>Mentored apprenticeship engineers inside the CFT program on CV project structure, dataset quality, error analysis, and deployment constraints.</li>
-          </ul>
-          <p class="skill-line">Stack: Python, OpenCV, PyTorch/TensorFlow, OCR, segmentation, detection, mobile inference, data labeling</p>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Machine Learning Specialist &amp; Project Mentor</h3>
-            <p class="meta">Oct 2018 - Oct 2019</p>
-          </div>
-          <p class="company">School of AI - Part-time community ML program; ML Specialist (Oct 2018-Apr 2019), Project Mentor (Apr-Oct 2019)</p>
-          <ul class="compact">
-            <li>Built and maintained ML/DL learning software, including Flutter analytics/course surfaces and GCP-backed infrastructure for online education.</li>
-            <li>Coordinated remote volunteers and contributors on platform work, course operations, and community program delivery.</li>
-            <li>Turned TensorFlow and OpenCV topics into project-oriented learning paths and mentored participants on dataset setup, model iteration, and demo readiness.</li>
-          </ul>
-          <p class="skill-line">Stack: Python, TensorFlow, OpenCV, Flutter, GCP, ML curriculum, mentoring</p>
-        </article>
-      </section>
-
-      <section aria-labelledby="projects">
-        <h2 id="projects">Selected Work</h2>
-        <div class="project-grid">
-          <p class="project"><strong>Dermaself Skincare Analysis</strong> Mobile skincare-analysis work covering guided capture, face-region processing, pore/wrinkle texture signals, model evaluation, and release QA boundaries.</p>
-          <p class="project"><strong>Gorilla GmbH CV Delivery</strong> Client CV/deep-learning work covering dataset quality, inference behavior, model evaluation, and implementation-ready recommendations.</p>
-          <p class="project"><strong>Multimodal Video Search Platform</strong> Keyframes, ASR/OCR, object and face signals, CLIP-style embeddings, Qdrant/Postgres retrieval, and hybrid ranking checks.</p>
-          <p class="project"><strong>Full-Face Wrinkle &amp; Texture Lab</strong> Cosmetic face-region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, CSV outputs, timing events, and QA panels.</p>
-          <p class="project"><strong>Fast OCR ONNX Inference Server</strong> Containerized FastAPI OCR service with line segmentation, word segmentation, CRNN recognition, CPU ONNX runtime, and JSON text/box responses.</p>
-          <p class="project"><strong>CV Repro Lab Tooling</strong> Public reproducibility tooling for benchmark-gated CV experiments, browser validation, run cards, dataset manifests, and claim-review workflows.</p>
-        </div>
-      </section>
-
-      <section aria-labelledby="additional">
-        <h2 id="additional">Education &amp; Credentials</h2>
-        <ul class="tight-list">
-          <li><strong>Siberian Federal University</strong> - Computer Science and Microelectronic Engineering, 2007-2012.</li>
-          <li><strong>School of AI Dean's Credential</strong> and Spring 2019 Fellowship Program training.</li>
-          <li><strong>Professional coursework:</strong> TensorFlow, deep learning and computer vision, SQL, JavaScript, Kubernetes on Google Cloud, and PyTorch scholarship work.</li>
-        </ul>
-      </section>
-    </main>
-  </body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zakhar Pashkin - Senior ML Engineer Resume</title><meta name="description" content="Senior ML Engineer resume: computer vision, document AI, agentic systems, Riverstart R&amp;D, Carb Manager, CFT, Dermaself and Agnitra.">
+<link rel="canonical" href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.html"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "url": "https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.html", "dateModified": "2026-09-05", "mainEntity": {"@type": "Person", "name": "Zakhar Pashkin", "jobTitle": "Senior ML Engineer", "url": "https://zack-dev-cm.github.io/", "sameAs": ["https://github.com/zack-dev-cm", "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/"], "worksFor": {"@type": "Organization", "name": "Riverstart"}}}</script>
+<style>body{margin:0;background:#edf1f4;color:#243444;font:16px/1.55 Arial,sans-serif}main{max-width:850px;margin:36px auto;padding:48px;background:white}h1{font-size:32px;margin:0;color:#142436}h2{font-size:17px;color:#186078;margin-top:28px}h3{font-size:17px;margin:18px 0 2px}p{margin:7px 0}a{color:#186078;text-underline-offset:3px}li{margin-bottom:8px}.meta{color:#526273;font-size:14px}.actions{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0;padding-bottom:20px;border-bottom:1px solid #cbd4dd}a:focus-visible{outline:3px solid #186078;outline-offset:4px}@media(max-width:640px){main{margin:0;padding:26px 22px}h1{font-size:28px}}@media print{body{background:white}main{margin:0;padding:0}.actions{display:none}h2,h3{break-after:avoid}li{break-inside:avoid}}</style></head><body><main>
+<h1>Zakhar Pashkin</h1><p><strong>Senior ML Engineer | Computer Vision, Document AI &amp; Agentic Systems</strong></p>
+<p class="meta">Yerevan, Armenia | <a href="mailto:kaisenaiko@gmail.com">kaisenaiko@gmail.com</a></p>
+<nav class="actions" aria-label="Resume links"><a href="/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download PDF</a><a href="/">Portfolio</a><a href="https://github.com/zack-dev-cm">GitHub</a><a href="https://www.linkedin.com/in/zakhar-pashkin-a524a6163/">LinkedIn</a></nav>
+<p>Senior ML Engineer with 8+ years taking computer vision and applied ML from research to shipped products. Shipped food-recognition and OCR workflows at Carb Manager and built financial-document recognition at CFT. Now a Senior ML Engineer in Riverstart&#x27;s R&amp;D ML team, developing document AI and engineering-analysis systems. Also build and maintain an AI nutrition service and publish tools for model profiling and optimization.</p><h2>Experience</h2>
+<section><h3>Senior ML Engineer</h3><p class="meta">Riverstart | Jul 2026 - Present | R&amp;D ML | Remote</p><ul>
+<li>Own R&amp;D delivery for an on-premises document assistant that extracts case facts and reconciles records for specialist review. Separate deterministic checks from model-generated explanations and preserve links to the underlying documents.</li>
+<li>Build engineering-analysis prototypes that turn scans and CAD files into reconstructed geometry and drawing packs, and interpret construction-document sets into quantities linked to source pages. Own evaluation and the path from prototype to specialist review.</li>
+<li>Develop repeatable evaluation and releases for LLM services: versioned artifacts, regression checks, observability and rollback. Keep model-generated outputs traceable to the source documents and deployed revision.</li>
+</ul></section>
+<section><h3>Senior Computer Vision Engineer - Independent</h3><p class="meta">Dermaself &amp; selected engagements | Jun 2024 - Present | Concurrent engagements | Remote</p><ul>
+<li>Lead skin-analysis CV development for Dermaself, from guided capture and facial regions to pore and wrinkle segmentation, model evaluation and mobile/API integration using PyTorch, OpenMMLab, ONNX and Flutter.</li>
+<li>Resolved model-asset and runtime differences between Cloud Run and GPU deployments, restoring matching wrinkle-segmentation outputs in regression comparisons and profiling bottlenecks to guide further optimization.</li>
+</ul></section>
+<section><h3>Senior Computer Vision Engineer</h3><p class="meta">Wombat Apps LLC / Carb Manager | Jun 2022 - Jun 2024 | Contract | Remote</p><ul>
+<li>Built and shipped food-recognition and nutrition-label workflows across cloud, iOS and Android for Carb Manager, a nutrition product serving millions of customers.</li>
+<li>Owned data preparation, model development and evaluation through APIs, mobile export and runtime profiling. Combined detection, OCR and table parsing into structured nutrition data, working with mobile, backend and product teams on quality and failure handling.</li>
+</ul></section>
+<section><h3>Computer Vision Engineer</h3><p class="meta">CFT | Jun 2019 - Jun 2022 | Financial technology</p><ul>
+<li>Built core detection, segmentation and OCR models for CFT&#x27;s financial-document recognition platform using PyTorch and OpenMMLab.</li>
+<li>Optimized meter-recognition models for mobile use through architecture changes, quantization and runtime profiling. Built active-learning and assisted-annotation workflows to reduce manual labeling, and mentored engineers on data quality and evaluation.</li>
+</ul></section>
+<section><h3>Machine Learning Specialist &amp; Project Mentor</h3><p class="meta">School of AI | Oct 2018 - Oct 2019 | Part-time community program</p><ul>
+<li>Built ML learning software, coordinated remote contributors and mentored applied CV projects from dataset definition through evaluation and working demos.</li>
+</ul></section>
+<h2>Selected products &amp; open source</h2>
+<section><h3><a href="https://pypi.org/project/agnitra/">Agnitra</a></h3><p class="meta">Published on PyPI</p><p>Published a Python SDK and CLI for model profiling and inference optimization. Connects runtime telemetry and baseline comparisons with optimization passes; the released decoder-LLM path includes hardware-aware quantization and integration with existing model workflows.</p></section>
+<section><h3><a href="https://t.me/calorio_yf_bot">Calorio / YourFit</a></h3><p class="meta">Maintained AI nutrition service</p><p>Built and maintain a Telegram nutrition assistant that helps people keep a food diary using meal photos, voice messages and text. Develop the multimodal logging flow, nutrition-goal tracking and ongoing service improvements.</p></section>
+<section><h3><a href="https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/">InQuest</a></h3><p class="meta">Document-agent engineering</p><p>Built document agents with OpenAI Agents SDK and MCP, combining retrieval, tool calls, handoffs and persistent project context to work across document collections.</p></section>
+<section><h3><a href="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/">Multimodal Video Search</a></h3><p class="meta">Retrieval R&amp;D</p><p>Designed video retrieval across visual embeddings, speech transcripts, on-screen text and scene descriptions, combining dense and sparse search so relevant clips can be found through complementary signals.</p></section>
+<h2>Technical expertise</h2>
+<p><strong>Computer vision:</strong> Python, PyTorch, OpenMMLab (MMEngine, MMCV, MMDetection, MMSegmentation, MMOCR), OpenCV, YOLO, OCR, segmentation, CLIP/VLMs, ONNX Runtime, Core ML</p>
+<p><strong>LLMs &amp; agents:</strong> LangGraph, LangChain, OpenAI Agents SDK, MCP, Pydantic, LlamaIndex, RAG, Qwen/vLLM, Qdrant, Neo4j, pgvector, tool calling, evaluation and human review</p>
+<p><strong>ML systems:</strong> FastAPI, PostgreSQL, Redis, Docker, Kubernetes, AWS/GCP, Cloud Run, GitLab CI/CD, GitHub Actions, MLflow/ClearML, Prometheus/Grafana</p>
+<h2>Education</h2><p>Siberian Federal University | Computer Science &amp; Microelectronic Engineering | 2007-2012</p></main></body></html>

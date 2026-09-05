@@ -3,16 +3,16 @@
 > Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.
 
 ## Summary
-Fast OCR ONNX Inference Server is a public-safe computer vision case study for turning OCR models into a deployable inference service. The pipeline accepts an uploaded image, runs line segmentation, word segmentation, and CRNN recognition, then returns recognized text with line and word boxes as JSON. The public entry focuses on architecture, serving contracts, CPU ONNX runtime, Docker packaging, and response shape.
+I built a containerized OCR inference service that turns line segmentation, word segmentation and CRNN recognition into a FastAPI image-upload workflow. It returns recognized text with line and word boxes as structured JSON. ONNX Runtime provides a portable CPU-serving path, with Docker packaging and explicit response contracts connecting the model pipeline to downstream applications.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md
 
 ## Key Features
-- Stages OCR as line segmentation, word segmentation, and CRNN text recognition
-- Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text
-- Packages the model stack for Docker-based CPU deployment
-- Documents deployment shape and response contracts with sanitized architecture notes
+- Line segmentation, word segmentation and CRNN text recognition
+- Image-upload API returning recognized text and geometry
+- Portable CPU inference with ONNX Runtime
+- Docker packaging and explicit downstream response contracts
 
 ## Tech Stack
 - Python
@@ -22,12 +22,6 @@ https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md
 - OCR
 - Docker
 - Cloud Run
-
-## Benchmarks & Analytics
-- OCR stages: 3 (line segmentation, word segmentation, CRNN recognition)
-- Model artifacts: 3 (line, word, and text-recognition ONNX models)
-- API endpoints: 2 (health check and image inference contract)
-- Serving target: CPU ONNX (containerized FastAPI inference path)
 
 ## Architecture Diagram
 ```mermaid

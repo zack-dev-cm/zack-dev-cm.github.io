@@ -1,14 +1,12 @@
 import React, { useMemo, useState, useEffect, useRef, useCallback, useDeferredValue } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Sidebar } from './components/Sidebar';
-import { ProjectCard } from './components/ProjectCard';
+import { ArchiveProjectCard as ProjectCard } from './components/ArchiveProjectCard';
 import { ProjectModal } from './components/ProjectModal';
-import { FloatingButtons } from './components/FloatingButtons';
 import { Section } from './components/Section';
 import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, XSocialIcon } from './components/Icons';
 import {
   PROJECTS,
-  COMPANIES,
   OPEN_SOURCE_CONTRIBUTIONS,
   LATEST_UPDATES,
   SOCIAL_LINKS,
@@ -20,119 +18,60 @@ import {
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [70, 53, 43, 44] as const;
+const FEATURED_PROJECT_IDS = [101, 63, 81, 11, 102, 72] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
-const CLAWHUB_TOTAL_DOWNLOADS = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
-const CV_REPRO_DOWNLOADS = CLAWHUB_DOWNLOAD_STATS
-  .filter((stat) => stat.slug === 'data-science-cv-repro-lab' || stat.slug === 'sota-agent')
-  .reduce((sum, stat) => sum + stat.downloads, 0);
 
-const FEATURED_PROJECT_CONTEXT: Record<number, { label: string; summary: string; referenceLines: string[] }> = {
-  70: {
-    label: 'Production OCR serving',
-    summary:
-      'A containerized OCR serving pattern that turns line segmentation, word segmentation, and CRNN recognition into a reviewable FastAPI contract.',
-    referenceLines: ['3-stage OCR pipeline', 'FastAPI + ONNX Runtime', 'JSON text + box outputs']
+const FEATURED_PROJECT_CONTEXT: Record<number, {
+  label: string; title: string; summary: string; artifact?: { heading: string; lines: string[]; footer: string };
+}> = {
+  101: {
+    label: 'Current R&D · Riverstart',
+    title: 'Document AI for expert workflows',
+    summary: 'On-premises document AI with hybrid retrieval and source-linked answers, built around the way experts review information.',
+    artifact: { heading: 'From documents to decisions', lines: ['Document understanding', 'Hybrid retrieval', 'Source-linked expert review'], footer: 'Document AI / Retrieval / Agentic workflows' }
   },
-  53: {
-    label: 'Marketplace metrics system',
-    summary:
-      'A public CLI/reporting flow that keeps GitHub metadata, dated ClawHub listing snapshots, dashboard stats, and conversion gaps visible instead of scattered across package pages.',
-    referenceLines: [`${CLAWHUB_TOTAL_DOWNLOADS.toLocaleString('en-US')} tracked ClawHub downloads`, `${CLAWHUB_DOWNLOAD_STATS.length} public skills`, 'Live owner-profile validation']
+  63: {
+    label: 'Mobile computer vision',
+    title: 'Dermaself · Skin analysis',
+    summary: 'A guided capture-to-analysis mobile workflow, connecting vision models, API integration, and model evaluation.',
   },
-  45: {
-    label: 'Open-source review harness',
-    summary:
-      'A public CLI that treats AI-written research as an artifact to lint, gate, and push through CI before it reaches a paper, proposal, or lab note.',
-    referenceLines: ['4 output formats', '6 issue families', 'No network dependency']
+  81: {
+    label: 'Python package · PyPI',
+    title: 'Agnitra · Inference optimization',
+    summary: 'A released Python package for profiling LLM inference and applying optimization strategies through a model-level API.',
+    artifact: { heading: 'pip install agnitra', lines: ['Profile inference', 'Evaluate optimizations', 'Integrate with model workflows'], footer: 'Python / PyTorch / LLM inference' }
   },
-  44: {
-    label: 'Legacy-safe revenue automation',
-    summary:
-      'An anonymized clinic-network deployment: AI qualification and follow-up automation layered onto a legacy stack without forcing a rewrite.',
-    referenceLines: ['Legacy DB preserved', 'Human approvals built in', 'Lead routing stayed human-safe']
+  11: {
+    label: 'Maintained AI service',
+    title: 'Calorio · AI nutrition assistant',
+    summary: 'An actively maintained Telegram service that helps people record meals and work toward nutrition goals using photos, voice, and text.',
+    artifact: { heading: 'Everyday nutrition, less friction', lines: ['Photo, voice, or text', 'Meal understanding', 'Personal food diary'], footer: 'Telegram / Multimodal AI / Product maintenance' }
   },
-  40: {
-    label: 'AI visibility product',
-    summary:
-      'An end-to-end product for AI discoverability: scan a site, score it, generate memorizer assets, and deliver them through web and Telegram surfaces.',
-    referenceLines: ['Asset generation engine', 'Three-service Cloud Run topology', 'Web plus Telegram delivery']
+  102: {
+    label: 'Engineering R&D',
+    title: 'Drawing & CAD analysis',
+    summary: 'Engineering drawing interpretation and reconstruction workflows with traceable review artifacts for domain specialists.',
+    artifact: { heading: 'Interpret. Reconstruct. Review.', lines: ['Engineering drawings', 'Geometry reconstruction', 'Traceable review artifacts'], footer: 'Computer vision / Document AI / CAD' }
   },
-  43: {
-    label: 'CV / MLOps productization',
-    summary:
-      'Two public ClawHub releases for benchmark-gated CV experimentation, review dashboards, and promotion decisions.',
-    referenceLines: [`${CV_REPRO_DOWNLOADS.toLocaleString('en-US')} ClawHub downloads`, 'Review dashboards + promotion gates', '29 structured helpers']
+  72: {
+    label: 'Retrieval R&D',
+    title: 'Multimodal video search',
+    summary: 'Video retrieval combining speech, on-screen text, and visual embeddings to find relevant clips across complementary signals.',
+    artifact: { heading: 'Search beyond a transcript', lines: ['Video and keyframes', 'Speech, text, and visual embeddings', 'Ranked clips'], footer: 'ASR / OCR / Embeddings / Hybrid search' }
   },
 };
 
+const CAREER = [
+  { company: 'Riverstart', role: 'Senior ML Engineer · R&D ML', period: 'Jul 2026 — Present', description: 'Document AI, hybrid retrieval, and source-linked expert workflows in on-premises environments.', current: true },
+  { company: 'Independent engagements', role: 'Senior Computer Vision Engineer', period: 'Jun 2024 — Present', description: 'Selected concurrent projects across mobile computer vision, inference optimization, and a maintained AI nutrition service.', current: true },
+  { company: 'Wombat Apps / Carb Manager', role: 'Senior Computer Vision Engineer', period: 'Jun 2022 — Jun 2024', description: 'Computer vision engineering for nutrition and food-recognition product workflows.' },
+  { company: 'Center of Financial Technologies', role: 'Computer Vision Engineer', period: 'Jun 2019 — Jun 2022', description: 'Computer vision and document recognition systems, from model development to engineering integration.' },
+];
+
 const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
 const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
-const LOW_PRIORITY_AI_SURFACE_IDS = new Set<number>([68, 64, 62, 60, 61, 46, 47, 48, 49, 50, 51, 52, 57, 58, 31, 30, 39, 38, 36, 23, 24, 27, 3, 11, 43, 69, 75]);
-const PROJECT_ARCHIVE_INITIAL_LIMIT = 24;
-
-const COMPUTER_VISION_LANES = [
-  {
-    label: 'OCR serving',
-    value: '3-stage ONNX',
-    detail: 'line segmentation, word detection, CRNN recognition, FastAPI response contracts'
-  },
-  {
-    label: 'Face texture',
-    value: 'ROI + classifiers',
-    detail: 'landmarks, jaw and face-type labels, cosmetic regions, wrinkle/fine-line traces, quality gates'
-  },
-  {
-    label: 'Video search',
-    value: 'Hybrid retrieval',
-    detail: 'keyframes, ASR/OCR, visual embeddings, transcript embeddings, ranked results'
-  },
-  {
-    label: 'Plans + interiors',
-    value: 'Catalog matching',
-    detail: 'raw plans, elevations, room graphs, casework/catalog callouts, and commercial reception previews'
-  }
-];
-
-const DELIVERY_PILLARS = [
-  {
-    title: 'Automation with human review',
-    description:
-      'I design agentic workflows that fit real operating constraints: approvals, fallbacks, legacy systems, and clear next steps for people.'
-  },
-  {
-    title: 'Computer vision that ships as a product',
-    description:
-      'From OCR and segmentation to multimodal CV services, I focus on getting models into APIs, apps, and measurable user flows.'
-  },
-  {
-    title: 'Launch-ready interfaces, not lab demos',
-    description:
-      'Telegram mini apps, React fronts, mobile clients, Cloud Run services, and QA loops built to survive releases and real usage.'
-  }
-];
-
-const HERO_WORK_ROUTES = [
-  {
-    label: 'Computer vision',
-    value: 'OCR, detection, segmentation',
-    detail: 'Models shipped as APIs, apps, retrieval systems, and reviewable outputs.',
-    href: '#computer-vision'
-  },
-  {
-    label: 'AI products',
-    value: 'VLM/LLM agents, eval gates',
-    detail: 'Custom systems that connect models to backend delivery, product surfaces, and release checks.',
-    href: '#ai-systems'
-  },
-  {
-    label: 'Public references',
-    value: 'Case studies, users, release checks',
-    detail: 'Dated signals across GitHub, ClawHub, Chrome Web Store, and Telegram.',
-    href: '#featured'
-  }
-];
+const PROJECT_ARCHIVE_INITIAL_LIMIT = 9;
 
 const parseGithubRepo = (url?: string) => {
   if (!url) return null;
@@ -703,11 +642,6 @@ const getProjectSignals = (project: Project) => {
   };
 };
 
-const getPriorityIndex = (priorityIds: readonly number[], id: number) => {
-  const index = priorityIds.indexOf(id);
-  return index === -1 ? Number.MAX_SAFE_INTEGER : index;
-};
-
 const isPrioritizedProject = (priorityIds: readonly number[], project: Project) => {
   return priorityIds.includes(project.id);
 };
@@ -718,43 +652,6 @@ const isComputerVisionDomainProject = (project: Project) => {
 
 const isAiSystemDomainProject = (project: Project) => {
   return getProjectSignals(project).isAiSystem || isPrioritizedProject(AI_SYSTEM_PRIORITY_IDS, project);
-};
-
-const sortProjectsByDomainPriority = (projects: Project[], priorityIds: readonly number[]) => {
-  return [...projects].sort((a, b) => {
-    const priorityDelta = getPriorityIndex(priorityIds, a.id) - getPriorityIndex(priorityIds, b.id);
-    if (priorityDelta !== 0) return priorityDelta;
-    const signalDelta = getProjectSignals(b).signalScore - getProjectSignals(a).signalScore;
-    if (signalDelta !== 0) return signalDelta;
-    return b.id - a.id;
-  });
-};
-
-const scoreAiProjectRank = (project: Project) => {
-  const signals = getProjectSignals(project);
-  const priorityIndex = getPriorityIndex(AI_SYSTEM_PRIORITY_IDS, project.id);
-  const priorityScore = priorityIndex === Number.MAX_SAFE_INTEGER ? 0 : 900 - priorityIndex * 12;
-  const coreSystemBonus =
-    /\b(chatgpt|mcp|rag|retrieval|ocr|onnx|multimodal|comfyui|colab|vlm|llm|classifier|architectural|interior|automation)\b/i.test(
-      signals.searchText
-    )
-      ? 70
-      : 0;
-  const lowerSurfacePenalty =
-    (LOW_PRIORITY_AI_SURFACE_IDS.has(project.id) ? 160 : 0) +
-    (signals.hasTelegram ? 70 : 0) +
-    (signals.hasChromeWebStore ? 70 : 0) +
-    (/\b(skill|clawhub)\b/i.test(signals.searchText) ? 55 : 0);
-
-  return signals.signalScore + priorityScore + coreSystemBonus - lowerSurfacePenalty;
-};
-
-const sortAiSystemProjects = (projects: Project[]) => {
-  return [...projects].sort((a, b) => {
-    const scoreDelta = scoreAiProjectRank(b) - scoreAiProjectRank(a);
-    if (scoreDelta !== 0) return scoreDelta;
-    return b.id - a.id;
-  });
 };
 
 const isHighSignalSyncedProject = (project: Project) => {
@@ -775,27 +672,15 @@ const isHighSignalLatestUpdate = (update: LatestUpdate) => {
 };
 
 const mergeProjectEntries = (primary: Project, fallback: Project): Project => {
+  // Curated content is authoritative, including deliberately absent metrics/media.
   return normalizeProject({
-    ...fallback,
     ...primary,
-    legacySlugs: dedupeStrings([...(fallback.legacySlugs ?? []), ...(primary.legacySlugs ?? [])]),
+    legacySlugs: dedupeStrings([...(fallback.legacySlugs ?? []), ...(primary.legacySlugs ?? []), getProjectSlug(fallback)])
+      .filter((slug) => slug !== getProjectCanonicalSlug(primary)),
     aliases: dedupeStrings([...(fallback.aliases ?? []), ...(primary.aliases ?? [])]),
-    surfaceTags: dedupeStrings([...(fallback.surfaceTags ?? []), ...(primary.surfaceTags ?? [])]),
-    description: primary.description || fallback.description,
-    longDescription: primary.longDescription || fallback.longDescription,
-    projectKind: primary.projectKind || fallback.projectKind,
-    mobileReady: primary.mobileReady ?? fallback.mobileReady,
-    keyFeatures: primary.keyFeatures.length ? primary.keyFeatures : fallback.keyFeatures,
-    techStack: primary.techStack.length ? primary.techStack : fallback.techStack,
-    links: primary.links.length ? primary.links : fallback.links,
-    images: primary.images.length ? primary.images : fallback.images,
-    thumbnail: primary.thumbnail || fallback.thumbnail,
-    hideImages: primary.hideImages ?? fallback.hideImages,
-    benchmarks: primary.benchmarks?.length ? primary.benchmarks : fallback.benchmarks,
     repoFullName: primary.repoFullName || fallback.repoFullName,
     repoId: primary.repoId ?? fallback.repoId,
     createdAt: primary.createdAt || fallback.createdAt,
-    canonicalLinks: { ...(fallback.canonicalLinks ?? {}), ...(primary.canonicalLinks ?? {}) },
   });
 };
 
@@ -813,22 +698,18 @@ const mergeLatestEntries = (primary: LatestUpdate, fallback: LatestUpdate): Late
 };
 
 const mergeProjects = (curatedProjects: Project[], syncedProjects: Project[]) => {
-  const syncedBySlug = new Map<string, Project>();
-  syncedProjects.forEach((project) => {
-    [getProjectSlug(project), getProjectCanonicalSlug(project)].forEach((key) => {
-      if (!syncedBySlug.has(key)) syncedBySlug.set(key, project);
-    });
-  });
+  const identityKeys = (project: Project) => [
+    `id:${project.id}`,
+    ...dedupeStrings([getProjectSlug(project), getProjectCanonicalSlug(project), ...(project.legacySlugs ?? [])])
+      .map((slug) => `slug:${slug}`),
+  ];
   const usedSynced = new Set<Project>();
   const mergedCurated = curatedProjects.map((project) => {
-    const synced = [getProjectSlug(project), getProjectCanonicalSlug(project)]
-      .map((key) => syncedBySlug.get(key))
-      .find(Boolean);
-    if (!synced) return project;
-    usedSynced.add(synced);
-    return mergeProjectEntries(project, synced);
+    const keys = new Set(identityKeys(project));
+    const matches = syncedProjects.filter((synced) => identityKeys(synced).some((key) => keys.has(key)));
+    matches.forEach((synced) => usedSynced.add(synced));
+    return matches.length ? mergeProjectEntries(project, matches[0]) : project;
   });
-
   return sortByCreatedAtDesc([...mergedCurated, ...syncedProjects.filter((project) => !usedSynced.has(project))]);
 };
 
@@ -875,18 +756,6 @@ const PROJECT_FILTERS: Array<{ value: ProjectFilter; label: string }> = [
   { value: 'open-source', label: 'Open source' },
 ];
 
-const COMMAND_NAV_ITEMS = [
-  { label: 'Overview', href: '#intro' },
-  { label: 'Work', href: '#featured' },
-  { label: 'CV', href: '#computer-vision' },
-  { label: 'AI', href: '#ai-systems' },
-  { label: 'Search', href: '#smart-search' },
-  { label: 'References', href: '#experience' },
-  { label: 'About', href: '#about' },
-  { label: 'Papers', href: '/papers/' },
-  { label: 'Explore', href: '#projects' }
-];
-
 const QUICK_TOPIC_LIMIT = 8;
 
 const QUICK_TOPIC_SEARCHES: Array<{
@@ -898,18 +767,18 @@ const QUICK_TOPIC_SEARCHES: Array<{
   defaultVisible?: boolean;
 }> = [
   { label: 'OCR serving', query: 'ocr onnx inference api', keywords: 'line segmentation word recognition FastAPI CRNN document API production ML', filter: 'computer-vision', projectIds: [70, 73, 72], defaultVisible: true },
-  { label: 'Edge inference', query: 'edge ai mobile inference', keywords: 'ONNX TFLite CoreML CPU OCR on-device computer vision quantization', filter: 'computer-vision', projectIds: [70, 63, 80], defaultVisible: true },
+  { label: 'Mobile vision', query: 'food recognition mobile vision', keywords: 'CoreML iOS Android Flutter ONNX mobile computer vision', filter: 'computer-vision', projectIds: [10, 63], defaultVisible: true },
   { label: 'Segmentation systems', query: 'skin texture segmentation computer vision', keywords: 'Segment Anything YOLO masks wrinkles pores ROI production CV', filter: 'computer-vision', projectIds: [71, 67, 77, 74], defaultVisible: true },
   { label: 'Video retrieval', query: 'multimodal video search', keywords: 'retrieval embeddings OCR transcript keyframes ASR hybrid search CLIP', filter: 'computer-vision', projectIds: [72, 77, 40], defaultVisible: true },
   { label: 'ML/MLOps delivery', query: 'clearml dermaself mlops', keywords: 'experiment tracking metrics promotion gates model versioning monitoring', filter: 'computer-vision', projectIds: [80, 63], defaultVisible: true },
-  { label: 'LLM inference', query: 'agnitra llm inference optimizer', keywords: 'decoder-only quantization HuggingFace signed manifest torchao serving optimization', filter: 'ai-systems', projectIds: [81], defaultVisible: true },
+  { label: 'LLM inference', query: 'agnitra llm inference optimizer', keywords: 'model profiling runtime telemetry baseline quantization serving optimization', filter: 'ai-systems', projectIds: [81], defaultVisible: true },
   { label: 'VLM/LLM workflows', query: 'llm vlm agents human review', keywords: 'multimodal automation workflows gates tool calling review loops', filter: 'ai-systems', projectIds: [66, 78, 79, 67, 40], defaultVisible: true },
   { label: 'Architecture CV', query: 'architectural drawing catalog matching', keywords: 'elevation casework reception plan interior room matching computer vision', filter: 'computer-vision', projectIds: [77, 74, 73], defaultVisible: true },
   { label: 'Jaw classifier', query: 'jaw face type classifier', keywords: 'aesthetic review landmarks plastic surgery face morphology', filter: 'computer-vision', projectIds: [76, 71, 63, 67] },
   { label: 'InQuest RAG', query: 'inquest rag project binder', keywords: 'binder QA vector storage project reference retrieval', filter: 'ai-systems', projectIds: [78, 66, 40] },
   { label: 'ComfyUI lab', query: 'comfyui colab custom model', keywords: 'generative prototype custom models workflows notebooks', filter: 'ai-systems', projectIds: [79, 74] },
   { label: 'MCP apps', query: 'mcp chatgpt conservation app', keywords: 'tool calling senior conservator widgets agents', filter: 'ai-systems', projectIds: [66, 78, 40] },
-  { label: 'Calorio', query: 'calorio nutrition telegram bot', keywords: 'food calorie tracker meal diary active users mini app', filter: 'telegram', projectIds: [11] }
+  { label: 'Calorio', query: 'calorio nutrition telegram bot', keywords: 'food calorie tracker meal diary voice photos mini app', filter: 'telegram', projectIds: [11] }
 ];
 
 const getQuickTopicSearchText = (topic: (typeof QUICK_TOPIC_SEARCHES)[number]) =>
@@ -960,8 +829,23 @@ const App: React.FC = () => {
   const [projectFilter, setProjectFilter] = useState<ProjectFilter>('all');
   const [benchmarkedOnly, setBenchmarkedOnly] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showAllUpdates, setShowAllUpdates] = useState(false);
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const revealAnchor = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      const disclosure = target?.closest('details');
+      if (disclosure) disclosure.open = true;
+    };
+    revealAnchor();
+    window.addEventListener('hashchange', revealAnchor);
+    return () => window.removeEventListener('hashchange', revealAnchor);
+  }, []);
+
 
   useEffect(() => {
     return () => {
@@ -1047,36 +931,9 @@ const App: React.FC = () => {
     return new Map(mergedLatestUpdates.map((update) => [getLatestSlug(update), update]));
   }, [mergedLatestUpdates]);
 
-  const benchmarkedProjectCount = useMemo(() => {
-    return mergedProjects.filter((project) => project.benchmarks && project.benchmarks.length > 0).length;
-  }, [mergedProjects]);
-
-  const realUserProjectCount = useMemo(() => {
-    return mergedProjects.filter((project) => getProjectSignals(project).isRealUsers).length;
-  }, [mergedProjects]);
-
-  const telegramProjectCount = useMemo(() => {
-    return mergedProjects.filter((project) => getProjectSignals(project).hasTelegram).length;
-  }, [mergedProjects]);
-
   const featuredProjects = useMemo(() => {
     return FEATURED_PROJECT_IDS.map((id) => projectById.get(id)).filter((project): project is Project => Boolean(project));
   }, [projectById]);
-
-  const computerVisionProjects = useMemo(
-    () =>
-      sortProjectsByDomainPriority(
-        mergedProjects.filter(isComputerVisionDomainProject),
-        COMPUTER_VISION_PRIORITY_IDS
-      ),
-    [mergedProjects]
-  );
-
-  const aiSystemProjects = useMemo(
-    () =>
-      sortAiSystemProjects(mergedProjects.filter(isAiSystemDomainProject)),
-    [mergedProjects]
-  );
 
   const projectFilterOptions = useMemo(
     () =>
@@ -1136,149 +993,6 @@ const App: React.FC = () => {
     const visibleIds = new Set(featuredChromeExtensionRows.map((extension) => extension.id));
     return chromeExtensionRows.filter((extension) => !visibleIds.has(extension.id));
   }, [chromeExtensionRows, featuredChromeExtensionRows]);
-
-  const telegramReachSnapshot = useMemo(() => {
-    const audience = projectById
-      .get(11)
-      ?.benchmarks?.find((benchmark) => benchmark.label === 'Telegram audience');
-    const activeReach = projectById
-      .get(11)
-      ?.benchmarks?.find((benchmark) => benchmark.label === 'Active audience');
-    const audienceValue = audience?.value || '1,713 users';
-    const activeValue = activeReach?.value || '28 daily / 109 weekly / 375 monthly active users';
-    const activeAudienceMatch = activeValue.match(
-      /(\d[\d,]*)\s+daily\s*\/\s*(\d[\d,]*)\s+weekly\s*\/\s*(\d[\d,]*)\s+monthly active users/i
-    );
-    const activeSummary = activeAudienceMatch
-      ? `${activeAudienceMatch[1]} daily / ${activeAudienceMatch[3]} monthly active`
-      : activeValue;
-    const telegramUsersMatch = audienceValue.match(/(\d[\d,]*)(\+)?\s+(?:Telegram\s+)?users/i);
-    const telegramUsers = telegramUsersMatch ? `${telegramUsersMatch[1]}${telegramUsersMatch[2] || ''}` : '1,713';
-    return {
-      activeSummary,
-      telegramUsers,
-      context: audience?.context || 'Telegram audience count plus aggregate Calorio production activity'
-    };
-  }, [projectById]);
-
-  const heroSignalRows = useMemo(
-    () => [
-      {
-        label: 'Case-study map',
-        value: `${mergedProjects.length}`,
-        detail: 'CV systems, AI products, extensions, Telegram products, and launch gates'
-      },
-      {
-        label: 'ClawHub downloads',
-        value: clawHubSummary.totalDownloads.toLocaleString(),
-        detail: `${CLAWHUB_DOWNLOAD_STATS.length} public skills checked ${clawHubSummary.checkedAt}`
-      },
-      {
-        label: 'Product signals',
-        value: `${CHROME_EXTENSION_STATS.totalUsers.toLocaleString()} CWS / ${telegramProjectCount} TG surfaces`,
-        detail: `${chromeStatsSummary.reportedRows} visible CWS rows; Telegram count is linked project surfaces, not a live audience claim`
-      },
-      {
-        label: 'Measured releases',
-        value: `${benchmarkedProjectCount} measured`,
-        detail: 'projects with benchmarks, review notes, or dated metrics'
-      },
-      {
-        label: 'Teaching CV/DL',
-        value: '>3 years',
-        detail: 'teaching deep learning and computer vision through practical model and product work'
-      }
-    ],
-    [benchmarkedProjectCount, chromeStatsSummary.reportedRows, clawHubSummary, mergedProjects.length, telegramProjectCount]
-  );
-
-  const artifactPlotRows = useMemo(() => {
-    const denominator = Math.max(mergedProjects.length, 1);
-    return [
-      {
-        label: 'AI systems',
-        value: aiSystemProjects.length.toLocaleString(),
-        detail: 'agentic, automation, release, and AI product cases',
-        percent: Math.round((aiSystemProjects.length / denominator) * 100),
-        tone: 'review'
-      },
-      {
-        label: 'CV systems',
-        value: computerVisionProjects.length.toLocaleString(),
-        detail: 'OCR, detection, segmentation, retrieval, and model-serving cases',
-        percent: Math.round((computerVisionProjects.length / denominator) * 100),
-        tone: 'accent'
-      },
-      {
-        label: 'Telegram',
-        value: telegramProjectCount.toLocaleString(),
-        detail: `linked Telegram surfaces; Calorio aggregate remains scoped to its project card`,
-        percent: Math.round((telegramProjectCount / denominator) * 100),
-        tone: 'metric'
-      },
-      {
-        label: 'Measured',
-        value: benchmarkedProjectCount.toLocaleString(),
-        detail: 'projects with explicit benchmarks, analytics, or dated metrics',
-        percent: Math.round((benchmarkedProjectCount / denominator) * 100),
-        tone: 'muted'
-      }
-    ];
-  }, [
-    aiSystemProjects.length,
-    benchmarkedProjectCount,
-    computerVisionProjects.length,
-    mergedProjects.length,
-    telegramProjectCount,
-    telegramReachSnapshot
-  ]);
-
-  const artifactSignalRows = useMemo(
-    () => [
-      {
-        label: 'ClawHub downloads',
-        value: clawHubSummary.totalDownloads.toLocaleString(),
-        detail: `${CLAWHUB_DOWNLOAD_STATS.length} public skills`
-      },
-      {
-        label: 'CWS reported users',
-        value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `${chromeStatsSummary.reportedRows} measured public rows`
-      },
-      {
-        label: 'Telegram surfaces',
-        value: telegramProjectCount.toLocaleString(),
-        detail: 'linked bots, mini apps, channels, and Telegram delivery projects'
-      }
-    ],
-    [chromeStatsSummary.reportedRows, clawHubSummary.totalDownloads, telegramProjectCount]
-  );
-
-  const aiSystemLanes = useMemo(
-    () => [
-      {
-        label: 'Mapped AI cases',
-        value: aiSystemProjects.length.toLocaleString(),
-        detail: 'agentic workflows, MCP apps, launch tooling, visibility systems, and human-reviewed automations'
-      },
-      {
-        label: 'Listing downloads',
-        value: clawHubSummary.totalDownloads.toLocaleString(),
-        detail: `ClawHub downloads across ${CLAWHUB_DOWNLOAD_STATS.length} tracked public skills as of ${clawHubSummary.checkedAt}`
-      },
-      {
-        label: 'Reported CWS users',
-        value: CHROME_EXTENSION_STATS.totalUsers.toLocaleString(),
-        detail: `Chrome Web Store reported users across ${chromeStatsSummary.reportedRows} measured rows as of ${CHROME_EXTENSION_STATS.checkedAt}`
-      },
-      {
-        label: 'Release posture',
-        value: 'Gate-first',
-        detail: 'benchmarks, public-surface review, browser traces, rollback criteria'
-      }
-    ],
-    [aiSystemProjects.length, chromeStatsSummary.reportedRows, clawHubSummary]
-  );
 
   const syncFromUrl = useCallback(() => {
     const params = new URLSearchParams(window.location.search);
@@ -1415,6 +1129,12 @@ const App: React.FC = () => {
     },
     [updateProjectPath]
   );
+
+  const handleProjectLinkClick = useCallback((event: React.MouseEvent<HTMLAnchorElement>, project: Project) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    handleSelectProject(project);
+  }, [handleSelectProject]);
 
   const handleCloseProject = useCallback(() => {
     setSelectedProject(null);
@@ -1567,237 +1287,120 @@ const App: React.FC = () => {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="site-layout">
-        <Sidebar
-          projectCount={mergedProjects.length}
-          userFacingCount={realUserProjectCount}
-          benchmarkedCount={benchmarkedProjectCount}
-        />
-
-        <main className="content-column">
-          <nav className="portfolio-command" aria-label="Primary portfolio navigation">
-            <a href="#intro" className="portfolio-command__brand">
-              ZP
-            </a>
-            <div className="portfolio-command__links">
-              {COMMAND_NAV_ITEMS.map((item) => (
-                <a key={item.href} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <a href={`mailto:${SOCIAL_LINKS.email}`} className="portfolio-command__cta">
-              Contact
-            </a>
-          </nav>
-
+        <Sidebar />
+        <main id="main-content" className="content-column">
           <section id="intro" className="hero">
-            <div className="hero__layout">
-              <div className="hero__copy">
-                <p className="hero__eyebrow">Computer Vision · AI Product Engineering</p>
-                <h1 className="hero__title">Zakhar Pashkin is a computer vision and AI product engineer.</h1>
-                <p className="hero__lead">
-                  I ship OCR, segmentation, detection, multimodal retrieval, model-serving APIs, VLM/LLM workflows,
-                  and launch-ready product systems with review gates and public references.
-                </p>
-                <div className="hero-route-grid" aria-label="Portfolio exploration routes">
-                  {HERO_WORK_ROUTES.map((route) => (
-                    <a key={route.href} href={route.href} className="hero-route-card">
-                      <strong>{route.label}</strong>
-                      <span>{route.value}</span>
-                      <em>{route.detail}</em>
-                    </a>
-                  ))}
-                </div>
-                <div className="hero__actions">
-                  <a href="#featured" className="button button--primary">
-                    Explore work
-                  </a>
-                  <a href={`mailto:${SOCIAL_LINKS.email}`} className="button button--ghost">
-                    Start a project
-                  </a>
-                  <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="button button--ghost">
-                    <DownloadIcon className="h-4 w-4" />
-                    Download resume
-                  </a>
-                </div>
+            <div className="hero__copy">
+              <p className="hero__eyebrow">Computer vision · Document AI · Agentic systems</p>
+              <h1 className="hero__title">Zakhar Pashkin<span aria-hidden="true">.</span></h1>
+              <p className="hero__role">Senior ML Engineer</p>
+              <p className="hero__lead">From R&D to maintained products.<br />Previously shipped computer vision at Carb Manager and built document recognition at CFT.</p>
+              <div className="hero__actions">
+                <a href="#featured" className="button button--primary">Selected work <span aria-hidden="true">↓</span></a>
+                <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-senior-ml-engineer.pdf" className="button button--ghost">
+                  <DownloadIcon className="h-4 w-4" /> Download resume
+                </a>
               </div>
-
-              <aside className="artifact-console" aria-label="Portfolio reference summary">
-                <div className="artifact-console__header">
-                  <span>Public references</span>
-                  <strong>Dated delivery signals</strong>
-                </div>
-                <div className="artifact-console__rows">
-                  {heroSignalRows.map((row) => (
-                    <div key={row.label} className="artifact-console__row">
-                      <span>{row.label}</span>
-                      <strong>{row.value}</strong>
-                      <em>{row.detail}</em>
-                    </div>
-                  ))}
-                </div>
-                <div className="artifact-console__plots" aria-label="Portfolio signal plots">
-                  {artifactPlotRows.map((row) => (
-                    <div
-                      key={row.label}
-                      className={`artifact-plot artifact-plot--${row.tone}`}
-                      style={{ '--plot-value': `${row.percent}%` } as React.CSSProperties}
-                    >
-                      <div className="artifact-plot__label">
-                        <span>{row.label}</span>
-                        <strong>{row.value}</strong>
-                      </div>
-                      <div className="artifact-plot__track" aria-hidden="true">
-                        <span />
-                      </div>
-                      <em>{row.detail}</em>
-                    </div>
-                  ))}
-                </div>
-                <div className="artifact-console__signals" aria-label="Marketplace and Telegram signal summary">
-                  {artifactSignalRows.map((row) => (
-                    <div key={row.label} className="artifact-signal">
-                      <strong>{row.value}</strong>
-                      <span>{row.label}</span>
-                      <em>{row.detail}</em>
-                    </div>
-                  ))}
-                </div>
-              </aside>
+              <div className="hero__links">
+                <a href={SOCIAL_LINKS.githubPrimary} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a href={`mailto:${SOCIAL_LINKS.email}`}>Email <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
+            <aside className="hero__current" aria-label="Current work">
+              <p className="current-label"><span aria-hidden="true" /> Currently</p>
+              <h2>R&D ML at{' '}<br />Riverstart</h2>
+              <p>Document intelligence and source-linked workflows for expert teams.</p>
+              <a href="#experience" className="text-link">View experience <span aria-hidden="true">↗</span></a>
+              <div className="hero__practice"><span>Also building</span><p>Mobile vision. Inference tools.<br />A maintained AI nutrition service.</p></div>
+            </aside>
           </section>
 
-          <Section
-            id="experience"
-            eyebrow="Selected Teams"
-            title="Companies I Work With"
-            description="Some of the teams and brands I have built with."
-          >
-            <div className="logo-grid">
-              {COMPANIES.map((company, index) => (
-                <div
-                  key={company.name}
-                  tabIndex={0}
-                  title={company.name}
-                  aria-label={company.name}
-                  className="logo-card"
-                >
-                  <img
-                    src={company.logoUrl}
-                    alt={`${company.name} logo`}
-                    className="logo-card__image"
-                    loading={index < 4 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
-                </div>
-              ))}
+          <Section id="featured" eyebrow="01 / Selected work" title="Systems, tools, and products" description="A closer look at the work: what it does, how it is built, and where to explore it.">
+            <div className="featured-grid">
+              {featuredProjects.map((project, index) => {
+                const context = FEATURED_PROJECT_CONTEXT[project.id];
+                const asset = project.images[0];
+                const isIllustration = Boolean(asset && /generated|conceptual|illustration|public-safe.*card/i.test(asset.alt));
+                return (
+                  <article key={project.id} className="featured-card">
+                    <a className="featured-card__visual" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} onClick={(event) => handleProjectLinkClick(event, project)} aria-label={`Explore ${context.title}`}>
+                      {context.artifact ? (
+                        <div className={`work-artifact work-artifact--${project.id}`}>
+                          <span className="work-artifact__caption">{project.id === 81 ? 'Released Python package' : 'System outline'}</span>
+                          <strong className={project.id === 81 ? 'work-artifact__command' : ''}>{context.artifact.heading}</strong>
+                          <ol>{context.artifact.lines.map((line) => <li key={line}><span aria-hidden="true" />{line}</li>)}</ol>
+                          <span className="work-artifact__footer">{context.artifact.footer}</span>
+                        </div>
+                      ) : asset && !project.hideImages ? (
+                        <>
+                          {isVideoUrl(asset.url) ? (
+                            <video src={asset.url} className="featured-card__asset" controls playsInline preload="metadata" />
+                          ) : (
+                            <img src={asset.url} alt={asset.alt} className="featured-card__asset" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+                          )}
+                          {isIllustration && <span className="featured-card__caption">System illustration</span>}
+                        </>
+                      ) : null}
+                    </a>
+                    <div className="featured-card__content">
+                      <p className="featured-card__label">{context.label}</p>
+                      <h3><a href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} onClick={(event) => handleProjectLinkClick(event, project)}>{context.title}</a></h3>
+                      <p className="featured-card__summary">{context.summary}</p>
+                      <div className="featured-card__links">
+                        <a className="text-link" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} onClick={(event) => handleProjectLinkClick(event, project)}>Case study <span aria-hidden="true">↗</span></a>
+                        {project.links.slice(0, 1).map((link) => <a className="text-link" key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.text} <span aria-hidden="true">↗</span></a>)}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </Section>
 
-          <Section
-            id="contributed-to"
-            eyebrow="Open Source"
-            title="Contributed To"
-          >
-            <div className="contribution-grid">
-              {OPEN_SOURCE_CONTRIBUTIONS.map((item, index) => (
-                <a
-                  key={item.login}
-                  className="contribution-card"
-                  href={item.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={item.name}
-                >
-                  <img
-                    src={item.avatarUrl}
-                    alt=""
-                    className="contribution-card__avatar"
-                    loading={index < 6 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
-                  <span className="contribution-card__name">{item.name}</span>
-                </a>
-              ))}
-            </div>
-          </Section>
-
-          <Section
-            id="about"
-            eyebrow="Positioning"
-            title="About Me"
-            description="How I build ML systems that make it into production."
-          >
-            <div className="about-grid">
-              <article className="panel">
-                <p className="panel__eyebrow">Production ML, not demos</p>
-                <h3>Models that become reliable services</h3>
-                <p>
-                  I design and ship custom deep learning systems across computer vision,
-                  multimodal AI, model serving, and production ML infrastructure.
-                </p>
-                <p>
-                  My focus is the hard part after the prototype: turning models into reliable
-                  services, optimizing inference for server and edge environments, building
-                  deployment pipelines, and making systems observable, testable, and maintainable.
-                </p>
-              </article>
-
-              <article className="panel">
-                <p className="panel__eyebrow">Real constraints</p>
-                <h3>Deep learning systems for bounded environments</h3>
-                <p>
-                  7+ years building computer vision and ML products across OCR, segmentation,
-                  detection, classification, edge inference, VLM/LLM workflows, model APIs,
-                  and production data pipelines.
-                </p>
-                <p>
-                  I work on both cloud/server deployments and on-device optimization: latency,
-                  memory, batching, quantization, model packaging, hardware constraints,
-                  monitoring, rollback paths, and release safety.
-                </p>
-              </article>
-
-              <article className="panel panel--accent">
-                <p className="panel__eyebrow">ML architecture and MLOps</p>
-                <h3>Services that fit real software systems</h3>
-                <p>
-                  I architect ML services with APIs, workers, queues, storage, evaluation loops,
-                  CI/CD, model versioning, data validation, and human review where needed.
-                </p>
-                <p>
-                  The delivery target is not a notebook handoff; it is a system a product team
-                  can deploy, inspect, roll back, and keep improving.
-                </p>
-              </article>
-
-              <article className="panel panel--accent">
-                <p className="panel__eyebrow">Computer vision that ships</p>
-                <h3>Measurable outputs over model theater</h3>
-                <p>
-                  From custom DL models to deployed inference systems, I focus on measurable
-                  outputs: better accuracy, faster inference, reliable deployments, and ML
-                  workflows that teams can actually operate.
-                </p>
-              </article>
-            </div>
-
-            <div className="pillar-grid">
-              {DELIVERY_PILLARS.map((pillar) => (
-                <article key={pillar.title} className="pillar-card">
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
+          <Section id="experience" eyebrow="02 / Experience" title="A career in applied ML" description="From document recognition and nutrition products to independent CV work and current document AI research.">
+            <div className="career-list">
+              {CAREER.map((item) => (
+                <article key={item.company} className="career-row">
+                  <p className="career-row__period">{item.period}</p>
+                  <div><h3>{item.company}</h3><p className="career-row__role">{item.role}</p><p className="career-row__description">{item.description}</p></div>
+                  {item.current && <span className="career-row__current">Current</span>}
                 </article>
               ))}
+            </div>
+            <a href={SOCIAL_LINKS.resume} className="text-link career-resume" download="zakhar-pashkin-senior-ml-engineer.pdf">Full experience in the resume <span aria-hidden="true">↗</span></a>
+          </Section>
+
+          <Section id="about" eyebrow="03 / Approach" title="Research depth. Engineering follow-through." description="I work across the model and the surrounding software, with an emphasis on systems a team can evaluate and maintain.">
+            <div className="expertise-grid">
+              <article id="computer-vision" className="expertise-block">
+                <span className="expertise-number">01</span><h3>Computer vision</h3>
+                <p>OCR, detection, segmentation, and multimodal retrieval. From dataset and model experiments to server and on-device inference.</p>
+                <p className="expertise-stack">PyTorch · ONNX · OpenCV · TFLite</p>
+                <button type="button" className="text-link" onClick={() => runSmartSearch('', 'computer-vision')}>Explore CV work <span aria-hidden="true">↗</span></button>
+              </article>
+              <article id="ai-systems" className="expertise-block">
+                <span className="expertise-number">02</span><h3>Document & agentic AI</h3>
+                <p>Hybrid retrieval, source-linked answers, and human review. Models connected to the documents, tools, and workflows people use.</p>
+                <p className="expertise-stack">Python · FastAPI · Retrieval · LLM/VLM</p>
+                <button type="button" className="text-link" onClick={() => runSmartSearch('', 'ai-systems')}>Explore AI systems <span aria-hidden="true">↗</span></button>
+              </article>
+              <article className="expertise-block">
+                <span className="expertise-number">03</span><h3>Inference & delivery</h3>
+                <p>Profiling, model packaging, evaluation, and deployment. Clear runtime tradeoffs and repeatable releases across cloud and mobile.</p>
+                <p className="expertise-stack">Docker · ClearML · CI/CD · Model serving</p>
+                <button type="button" className="text-link" onClick={() => runSmartSearch('inference optimization')}>Explore inference work <span aria-hidden="true">↗</span></button>
+              </article>
             </div>
           </Section>
 
           <Section
             id="smart-search"
-            eyebrow="Discovery"
-            title="Find the Relevant Work"
-            description="Search by domain, model family, workflow, stack, client field, or hiring keyword."
+            eyebrow="Explore the archive"
+            title="Find the relevant work"
+            description="Search projects by problem, model, or technology."
           >
             <form className="smart-search-panel" role="search" onSubmit={handleSmartSearchSubmit}>
               <label className="sr-only" htmlFor="portfolio-smart-search">
@@ -1810,7 +1413,7 @@ const App: React.FC = () => {
                   value={projectQuery}
                   onChange={(event) => handleProjectQueryChange(event.target.value)}
                   onFocus={() => setIsSmartSearchFocused(true)}
-                  placeholder="Search OCR serving, edge inference, segmentation, video retrieval, MLOps..."
+                  placeholder="Try OCR, inference optimization, or document AI…"
                   className="smart-search-field__input"
                   aria-controls="projects"
                 />
@@ -1843,424 +1446,157 @@ const App: React.FC = () => {
           </Section>
 
           <Section
-            id="featured"
-            eyebrow="Best Work"
-            title="Featured Solutions"
-            description="The strongest four case studies to start with if you want range, results, and product sense."
+            id="projects"
+            eyebrow="Project archive"
+            title="Projects"
+            description="Selected entries first. Use search and filters to explore the full body of work."
           >
-            <div className="featured-grid">
-              {featuredProjects.map((project, index) => {
-                const context = FEATURED_PROJECT_CONTEXT[project.id];
-                const metrics = project.benchmarks?.slice(0, 3) ?? [];
-                const leadAsset = project.images[0];
-                const referenceItems =
-                  metrics.length > 0
-                    ? metrics.map((metric) =>
-                        metric.context ? `${metric.label}: ${metric.value} (${metric.context})` : `${metric.label}: ${metric.value}`
-                      )
-                    : context?.referenceLines ?? [];
-
-                return (
-                  <article
-                    key={project.id}
-                    className={`featured-card${index === 0 ? ' featured-card--spotlight' : ''}`}
-                  >
-                    <div className="featured-card__content">
-                      <div className="featured-card__meta">
-                        <span className="pill pill--accent">{context?.label || 'Featured project'}</span>
-                        <span className="featured-card__id">Case study #{project.id}</span>
-                      </div>
-                      <h3>{project.title}</h3>
-                      <p className="featured-card__summary">{context?.summary || project.longDescription || project.description}</p>
-                      <ul className="bullet-list bullet-list--compact">
-                        {project.keyFeatures.slice(0, 3).map((feature) => (
-                          <li key={feature}>{feature}</li>
-                        ))}
-                      </ul>
-                      <div className="metric-grid">
-                        {referenceItems.slice(0, 3).map((item) => (
-                          <div key={item} className="metric-chip">
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                      <div className="button-row">
-                        <button type="button" className="button button--primary" onClick={() => handleSelectProject(project)}>
-                          Open case study
-                        </button>
-                        {project.links.slice(0, 2).map((link) => (
-                          <a
-                            key={link.url}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="button button--ghost"
-                          >
-                            {link.text}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="featured-card__visual">
-                      {leadAsset && !project.hideImages ? (
-                        isVideoUrl(leadAsset.url) ? (
-                          <video
-                            src={leadAsset.url}
-                            className="featured-card__asset"
-                            muted
-                            loop
-                            autoPlay
-                            playsInline
-                            preload={index === 0 ? 'auto' : 'metadata'}
-                            poster={DEFAULT_PROJECT_IMAGE}
-                          />
-                        ) : (
-                          <img
-                            src={leadAsset.url}
-                            alt={leadAsset.alt}
-                            className="featured-card__asset"
-                            loading={index === 0 ? 'eager' : 'lazy'}
-                            decoding="async"
-                            onError={(event) => {
-                              if (event.currentTarget.src !== DEFAULT_PROJECT_IMAGE) {
-                                event.currentTarget.src = DEFAULT_PROJECT_IMAGE;
-                              }
-                            }}
-                          />
-                        )
-                      ) : (
-                        <div className="featured-card__fallback">
-                          <span>{context?.label || 'Featured'}</span>
-                          <strong>{project.techStack.slice(0, 3).join(' · ')}</strong>
-                        </div>
-                      )}
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </Section>
-
-          <Section
-            id="computer-vision"
-            eyebrow="Computer Vision"
-            title="Computer Vision Systems"
-            description={`${computerVisionProjects.length} public-safe CV and deep learning case studies across OCR, SAM-style segmentation, jaw and face-type classification, skin texture analysis, architectural plan/elevation parsing, catalog callout matching, commercial reception previews, multimodal video search, and GitHub-backed research archives.`}
-          >
-            <div className="domain-spotlight">
-              <div className="domain-spotlight__media">
-                <img
-                  src={resolveAssetUrl('images/cv-ai-systems-map.png')}
-                  alt="Conceptual computer vision systems map for OCR, face analysis, and video neural search"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="domain-lanes" aria-label="Computer vision delivery lanes">
-                {COMPUTER_VISION_LANES.map((lane) => (
-                  <article key={lane.label} className="domain-lane">
-                    <span>{lane.label}</span>
-                    <strong>{lane.value}</strong>
-                    <p>{lane.detail}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-
-            <div className="domain-project-panel" aria-label="Computer vision case study catalog" tabIndex={0}>
-              <div className="domain-project-grid domain-project-grid--compact">
-              {computerVisionProjects.map((project) => {
-                const firstBenchmark = project.benchmarks?.[0];
-                return (
+            <div className="explorer-panel">
+              <div className="explorer-panel__controls">
+                <div className="chip-row explorer-panel__sorts" role="group" aria-label="Project sorting">
                   <button
-                    key={project.id}
                     type="button"
-                    className="domain-project-card"
-                    onClick={() => handleSelectProject(project)}
-                    aria-label={`Open computer vision case study: ${project.title}`}
+                    onClick={() => setProjectSort('impact')}
+                    className={`pill-button${projectSort === 'impact' ? ' is-active' : ''}`}
+                    aria-pressed={projectSort === 'impact'}
                   >
-                    <span className="domain-project-card__meta">Case study #{project.id}</span>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    {firstBenchmark && (
-                      <span className="domain-project-card__metric">
-                        <strong>{firstBenchmark.label}</strong>
-                        <em>{firstBenchmark.value}</em>
-                      </span>
-                    )}
-                    <span className="project-card__open" aria-hidden="true">
-                      Open case study
-                      <span>-&gt;</span>
-                    </span>
+                    Relevant
                   </button>
-                );
-              })}
-              </div>
-            </div>
-            <div className="button-row">
-              <button
-                type="button"
-                className="button button--ghost button--small"
-                onClick={() => {
-                  setProjectFilter('computer-vision');
-                  setBenchmarkedOnly(false);
-                  setProjectQuery('');
-                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
-              >
-                Open CV archive filter
-              </button>
-            </div>
-          </Section>
-
-          <Section
-            id="ai-systems"
-            eyebrow="AI Systems"
-            title="AI Product and Release Systems"
-            description={`${aiSystemProjects.length} AI systems led by product-weight work: ChatGPT/MCP apps, agentic OCR, InQuest-style RAG QA, ComfyUI and Colab prototypes, multimodal retrieval, VLM/LLM workflows, automation, and launch gates, with Telegram, extension, and skill surfaces kept as supporting delivery channels.`}
-          >
-            <div className="domain-lanes domain-lanes--summary" aria-label="AI systems summary">
-              {aiSystemLanes.map((lane) => (
-                <article key={lane.label} className="domain-lane">
-                  <span>{lane.label}</span>
-                  <strong>{lane.value}</strong>
-                  <p>{lane.detail}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="domain-project-panel" aria-label="AI product and release system catalog" tabIndex={0}>
-              <div className="domain-project-grid domain-project-grid--compact">
-              {aiSystemProjects.map((project) => {
-                const firstBenchmark = project.benchmarks?.[0];
-                return (
                   <button
-                    key={project.id}
                     type="button"
-                    className="domain-project-card"
-                    onClick={() => handleSelectProject(project)}
-                    aria-label={`Open AI system case study: ${project.title}`}
+                    onClick={() => setProjectSort('recent')}
+                    className={`pill-button${projectSort === 'recent' ? ' is-active' : ''}`}
+                    aria-pressed={projectSort === 'recent'}
                   >
-                    <span className="domain-project-card__meta">Case study #{project.id}</span>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    {firstBenchmark && (
-                      <span className="domain-project-card__metric">
-                        <strong>{firstBenchmark.label}</strong>
-                        <em>{firstBenchmark.value}</em>
-                      </span>
-                    )}
-                    <span className="project-card__open" aria-hidden="true">
-                      Open case study
-                      <span>-&gt;</span>
-                    </span>
+                    Recent
                   </button>
-                );
-              })}
-              </div>
-            </div>
-            <div className="button-row">
-              <button
-                type="button"
-                className="button button--ghost button--small"
-                onClick={() => {
-                  setProjectFilter('ai-systems');
-                  setBenchmarkedOnly(false);
-                  setProjectQuery('');
-                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }}
-              >
-                Open AI archive filter
-              </button>
-            </div>
-          </Section>
-
-          <Section
-            id="clawhub"
-            eyebrow="ClawHub"
-            title="Downloads Tracker"
-            description="Dated public ClawHub skill listing counters shown as marketplace metrics, not user-count claims."
-          >
-            <div className="metric-board metric-board--clawhub" data-testid="clawhub-board">
-              <div className="metric-board__header">
-                <div>
-                  <p className="panel__eyebrow">Public listing snapshot</p>
-                  <h3>Top skill listings by downloads</h3>
-                  <p>
-                    Exact package counters checked {clawHubSummary.checkedAt}. The long tail stays available without
-                    forcing every reader through 49 full cards.
-                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setProjectSort('alpha')}
+                    className={`pill-button${projectSort === 'alpha' ? ' is-active' : ''}`}
+                    aria-pressed={projectSort === 'alpha'}
+                  >
+                    A-Z
+                  </button>
                 </div>
-                <a
-                  href="https://clawhub.ai/zack-dev-cm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button button--ghost button--small"
+              </div>
+
+              {normalizedProjectQuery && (
+                <div className="explorer-panel__active-query" aria-live="polite">
+                  <span>Query</span>
+                  <strong>{projectQuery}</strong>
+                  <button
+                    type="button"
+                    className="text-link"
+                    onClick={() => {
+                      setProjectQuery('');
+                      setSmartSearchBoostIds([]);
+                    }}
+                  >
+                    Clear
+                  </button>
+                </div>
+              )}
+
+              <div className="explorer-panel__filters" role="toolbar" aria-label="Project filters">
+                {projectFilterOptions.map((filter) => (
+                  <button
+                    type="button"
+                    key={filter.value}
+                    onClick={() => setProjectFilter(filter.value)}
+                    className={`pill-button${projectFilter === filter.value ? ' is-active' : ''}`}
+                    aria-pressed={projectFilter === filter.value}
+                  >
+                    <span>{filter.label}</span>
+                    <span className="pill-button__count">{filter.count}</span>
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => setBenchmarkedOnly((value) => !value)}
+                  className={`pill-button${benchmarkedOnly ? ' is-active' : ''}`}
+                  aria-pressed={benchmarkedOnly}
                 >
-                  Open ClawHub profile
-                </a>
+                  <span>Metrics only</span>
+                </button>
               </div>
 
-              <div className="metric-grid metric-grid--compact" aria-label="ClawHub summary counters">
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
-                  <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public skills</em>
-                </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{clawHubSummary.totalVersions}</strong>
-                  <em>published versions in tracked listings</em>
-                </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{clawHubSummary.totalStars}</strong>
-                  <em>stars shown separately from downloads</em>
-                </div>
-              </div>
-
-              <ol className="compact-rank-list" aria-label="Top ClawHub skill downloads">
-                {featuredClawHubStats.map((stat, index) => (
-                  <li key={stat.slug} className="compact-rank-row">
-                    <span className="compact-rank-row__rank">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="compact-rank-row__main">
-                      <strong>{stat.displayName}</strong>
-                      <em>
-                        {stat.versions} versions / {stat.stars} stars / checked {stat.checkedAt}
-                      </em>
-                    </span>
-                    <span className="compact-rank-row__metric">{stat.downloads.toLocaleString()}</span>
-                    <a href={stat.url} target="_blank" rel="noopener noreferrer" className="compact-rank-row__link">
-                      Open
-                    </a>
-                  </li>
-                ))}
-              </ol>
-
-              {remainingClawHubStats.length > 0 && (
-                <details className="compact-disclosure">
-                  <summary>
-                    <span>Remaining tracked skills</span>
-                    <em>{remainingClawHubStats.length} more public listings</em>
-                  </summary>
-                  <ol className="compact-rank-list compact-rank-list--secondary" aria-label="Remaining ClawHub skill downloads">
-                    {remainingClawHubStats.map((stat, index) => (
-                      <li key={stat.slug} className="compact-rank-row">
-                        <span className="compact-rank-row__rank">
-                          {String(featuredClawHubStats.length + index + 1).padStart(2, '0')}
-                        </span>
-                        <span className="compact-rank-row__main">
-                          <strong>{stat.displayName}</strong>
-                          <em>
-                            {stat.versions} versions / {stat.stars} stars / checked {stat.checkedAt}
-                          </em>
-                        </span>
-                        <span className="compact-rank-row__metric">{stat.downloads.toLocaleString()}</span>
-                        <a href={stat.url} target="_blank" rel="noopener noreferrer" className="compact-rank-row__link">
-                          Open
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </details>
-              )}
+              <p className="explorer-panel__summary">
+                Showing <strong>{visibleProjects.length}</strong> of <strong>{filteredProjects.length}</strong>{' '}
+                projects · <strong>{activeProjectFilterLabel}</strong>
+                {benchmarkedOnly ? ' + Metrics only' : ''}.
+              </p>
             </div>
+
+            <div className="project-grid">
+              {visibleProjects.map((project) => {
+                const signals = getProjectSignals(project);
+                return (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    href={buildProjectPublicUrl(getProjectCanonicalSlug(project))}
+                    badges={signals.badges.filter((badge) => !/metrics|benchmark/i.test(badge)).slice(0, 2)}
+                    fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
+                    onSelectProject={() => handleSelectProject(project)}
+                  />
+                );
+              })}
+            </div>
+
+            {canToggleProjectArchive && (
+              <div className="project-archive-actions">
+                <button
+                  type="button"
+                  className="button button--ghost"
+                  onClick={() => setShowAllProjects((value) => !value)}
+                >
+                  {showAllProjects ? 'Show priority archive' : `Show all ${filteredProjects.length} projects`}
+                </button>
+              </div>
+            )}
+
+            {filteredProjects.length === 0 && (
+              <p className="empty-state">No projects match the current filters.</p>
+            )}
           </Section>
 
           <Section
-            id="chrome-stats"
-            eyebrow="Chrome Web Store"
-            title="Extension Stats Tracker"
-            description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Row-level data is published only when the public count is visible."
+            id="contributed-to"
+            eyebrow="Open Source"
+            title="Open-source contributions"
           >
-            <div className="metric-board metric-board--cws" data-testid="cws-board">
-              <div className="metric-board__header">
-                <div>
-                  <p className="panel__eyebrow">Dated public snapshot</p>
-                  <h3>Chrome Web Store publisher detail</h3>
-                  <p>
-                    Source: {CHROME_EXTENSION_STATS.sourceName}, checked {CHROME_EXTENSION_STATS.checkedAt}.
-                    Extensions without a visible Chrome Web Store user count are omitted from the row-level dataset.
-                  </p>
-                </div>
-                <div className="button-row">
-                  <a
-                    href={CHROME_EXTENSION_STATS.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button button--ghost button--small"
-                  >
-                    Open CWS publisher
-                  </a>
-                  <a
-                    href={resolveAssetUrl('chrome-extension-stats.json')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button button--ghost button--small"
-                  >
-                    JSON snapshot
-                  </a>
-                </div>
-              </div>
-
-              <div className="metric-grid metric-grid--compact chrome-stats__summary" aria-label="Chrome extension publisher summary">
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
-                  <em>published extensions</em>
-                </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
-                  <em>reported users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
-                </div>
-                {chromeStatsSummary.averageRating && (
-                  <div className="metric-chip metric-chip--compact">
-                    <strong>{chromeStatsSummary.averageRating}</strong>
-                    <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
-                  </div>
-                )}
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{chromeStatsSummary.rowsAddedIn2026}</strong>
-                  <em>2026 listing rows</em>
-                </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{chromeStatsSummary.reportedRows}</strong>
-                  <em>measured public rows</em>
-                </div>
-                <div className="metric-chip metric-chip--compact">
-                  <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
-                  <em>average reported users per extension</em>
-                </div>
-              </div>
-
-              <div className="extension-stat-list" aria-label="Chrome extension stats rows">
-                {featuredChromeExtensionRows.map(renderChromeExtensionStatCard)}
-              </div>
-
-              {remainingChromeExtensionRows.length > 0 && (
-                <details className="compact-disclosure compact-disclosure--extensions">
-                  <summary>
-                    <span>Remaining extension rows</span>
-                    <em>{remainingChromeExtensionRows.length} more CWS detail rows</em>
-                  </summary>
-                  <div className="extension-stat-list extension-stat-list--secondary" aria-label="Remaining Chrome extension stats rows">
-                    {remainingChromeExtensionRows.map(renderChromeExtensionStatCard)}
-                  </div>
-                </details>
-              )}
-
-              <ul className="tracker-notes">
-                {CHROME_EXTENSION_STATS.notes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
+            <div className="contribution-grid">
+              {OPEN_SOURCE_CONTRIBUTIONS.map((item, index) => (
+                <a
+                  key={item.login}
+                  className="contribution-card"
+                  href={item.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={item.name}
+                >
+                  <img
+                    src={item.avatarUrl}
+                    alt=""
+                    className="contribution-card__avatar"
+                    loading={index < 6 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                  <span className="contribution-card__name">{item.name}</span>
+                </a>
+              ))}
             </div>
           </Section>
 
           <Section
             id="latest"
             eyebrow="Recent"
-            title="Latest Updates"
-            description="Recent launches and additions, with deep links you can share."
+            title="Recent work & releases"
+            description="Engineering notes, project additions, and releases."
           >
             <ul className="latest-list">
-              {mergedLatestUpdates.map((update) => {
+              {mergedLatestUpdates.filter((update, index) => showAllUpdates || index < 3 || getLatestSlug(update) === activeLatestSlug).map((update) => {
                 const updateSlug = getLatestSlug(update);
                 const isLatestCopied = copiedKey === `latest:${updateSlug}`;
                 const isLatestActive = activeLatestSlug === updateSlug;
@@ -2406,129 +1742,199 @@ const App: React.FC = () => {
                 );
               })}
             </ul>
+            {mergedLatestUpdates.length > 3 && (
+              <button className="text-link archive-toggle" type="button" onClick={() => setShowAllUpdates((value) => !value)}>
+                {showAllUpdates ? 'Show fewer updates' : 'Browse all updates'} <span aria-hidden="true">↓</span>
+              </button>
+            )}
           </Section>
 
+          <details className="supporting-details" id="release-data">
+            <summary><span>Release data & marketplace snapshots</span><span className="supporting-details__hint">Optional detail <span aria-hidden="true">+</span></span></summary>
+            <div className="supporting-details__body">
           <Section
-            id="projects"
-            eyebrow="Explorer"
-            title="Projects"
-            description="Ranked project archive with domain filters, delivery-surface filters, references, validation notes, metrics, and public signals."
+            id="clawhub"
+            eyebrow="ClawHub"
+            title="Downloads Tracker"
+            description="Dated public ClawHub skill listing counters shown as marketplace metrics, not user-count claims."
           >
-            <div className="explorer-panel">
-              <div className="explorer-panel__controls">
-                <div className="chip-row explorer-panel__sorts" role="group" aria-label="Project sorting">
-                  <button
-                    type="button"
-                    onClick={() => setProjectSort('impact')}
-                    className={`pill-button${projectSort === 'impact' ? ' is-active' : ''}`}
-                    aria-pressed={projectSort === 'impact'}
-                  >
-                    Impact
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setProjectSort('recent')}
-                    className={`pill-button${projectSort === 'recent' ? ' is-active' : ''}`}
-                    aria-pressed={projectSort === 'recent'}
-                  >
-                    Recent
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setProjectSort('alpha')}
-                    className={`pill-button${projectSort === 'alpha' ? ' is-active' : ''}`}
-                    aria-pressed={projectSort === 'alpha'}
-                  >
-                    A-Z
-                  </button>
+            <div className="metric-board metric-board--clawhub" data-testid="clawhub-board">
+              <div className="metric-board__header">
+                <div>
+                  <p className="panel__eyebrow">Public listing snapshot</p>
+                  <h3>Top skill listings by downloads</h3>
+                  <p>
+                    Package counters checked {clawHubSummary.checkedAt}.
+                  </p>
+                </div>
+                <a
+                  href="https://clawhub.ai/zack-dev-cm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button button--ghost button--small"
+                >
+                  Open ClawHub profile
+                </a>
+              </div>
+
+              <div className="metric-grid metric-grid--compact" aria-label="ClawHub summary counters">
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{clawHubSummary.totalDownloads.toLocaleString()}</strong>
+                  <em>downloads across {CLAWHUB_DOWNLOAD_STATS.length} public skills</em>
+                </div>
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{clawHubSummary.totalVersions}</strong>
+                  <em>published versions in tracked listings</em>
+                </div>
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{clawHubSummary.totalStars}</strong>
+                  <em>stars shown separately from downloads</em>
                 </div>
               </div>
 
-              {normalizedProjectQuery && (
-                <div className="explorer-panel__active-query" aria-live="polite">
-                  <span>Query</span>
-                  <strong>{projectQuery}</strong>
-                  <button
-                    type="button"
-                    className="text-link"
-                    onClick={() => {
-                      setProjectQuery('');
-                      setSmartSearchBoostIds([]);
-                    }}
-                  >
-                    Clear
-                  </button>
+              <ol className="compact-rank-list" aria-label="Top ClawHub skill downloads">
+                {featuredClawHubStats.map((stat, index) => (
+                  <li key={stat.slug} className="compact-rank-row">
+                    <span className="compact-rank-row__rank">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="compact-rank-row__main">
+                      <strong>{stat.displayName}</strong>
+                      <em>
+                        {stat.versions} versions / {stat.stars} stars / checked {stat.checkedAt}
+                      </em>
+                    </span>
+                    <span className="compact-rank-row__metric">{stat.downloads.toLocaleString()}</span>
+                    <a href={stat.url} target="_blank" rel="noopener noreferrer" className="compact-rank-row__link">
+                      Open
+                    </a>
+                  </li>
+                ))}
+              </ol>
+
+              {remainingClawHubStats.length > 0 && (
+                <details className="compact-disclosure">
+                  <summary>
+                    <span>Remaining tracked skills</span>
+                    <em>{remainingClawHubStats.length} more public listings</em>
+                  </summary>
+                  <ol className="compact-rank-list compact-rank-list--secondary" aria-label="Remaining ClawHub skill downloads">
+                    {remainingClawHubStats.map((stat, index) => (
+                      <li key={stat.slug} className="compact-rank-row">
+                        <span className="compact-rank-row__rank">
+                          {String(featuredClawHubStats.length + index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="compact-rank-row__main">
+                          <strong>{stat.displayName}</strong>
+                          <em>
+                            {stat.versions} versions / {stat.stars} stars / checked {stat.checkedAt}
+                          </em>
+                        </span>
+                        <span className="compact-rank-row__metric">{stat.downloads.toLocaleString()}</span>
+                        <a href={stat.url} target="_blank" rel="noopener noreferrer" className="compact-rank-row__link">
+                          Open
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              )}
+            </div>
+          </Section>
+          <Section
+            id="chrome-stats"
+            eyebrow="Chrome Web Store"
+            title="Extension Stats Tracker"
+            description="Dated Chrome Web Store detail-page snapshot for the kaisenaiko publisher surface. Row-level data is published only when the public count is visible."
+          >
+            <div className="metric-board metric-board--cws" data-testid="cws-board">
+              <div className="metric-board__header">
+                <div>
+                  <p className="panel__eyebrow">Dated public snapshot</p>
+                  <h3>Chrome Web Store publisher detail</h3>
+                  <p>
+                    Source: {CHROME_EXTENSION_STATS.sourceName}, checked {CHROME_EXTENSION_STATS.checkedAt}.
+                    Extensions without a visible Chrome Web Store user count are omitted from the row-level dataset.
+                  </p>
                 </div>
+                <div className="button-row">
+                  <a
+                    href={CHROME_EXTENSION_STATS.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--ghost button--small"
+                  >
+                    Open CWS publisher
+                  </a>
+                  <a
+                    href={resolveAssetUrl('chrome-extension-stats.json')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button button--ghost button--small"
+                  >
+                    JSON snapshot
+                  </a>
+                </div>
+              </div>
+
+              <div className="metric-grid metric-grid--compact chrome-stats__summary" aria-label="Chrome extension publisher summary">
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
+                  <em>published extensions</em>
+                </div>
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
+                  <em>reported users as of {CHROME_EXTENSION_STATS.checkedAt}</em>
+                </div>
+                {chromeStatsSummary.averageRating && (
+                  <div className="metric-chip metric-chip--compact">
+                    <strong>{chromeStatsSummary.averageRating}</strong>
+                    <em>average rating / {CHROME_EXTENSION_STATS.ratingCount} ratings</em>
+                  </div>
+                )}
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{chromeStatsSummary.rowsAddedIn2026}</strong>
+                  <em>2026 listing rows</em>
+                </div>
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{chromeStatsSummary.reportedRows}</strong>
+                  <em>measured public rows</em>
+                </div>
+                <div className="metric-chip metric-chip--compact">
+                  <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
+                  <em>average reported users per extension</em>
+                </div>
+              </div>
+
+              <div className="extension-stat-list" aria-label="Chrome extension stats rows">
+                {featuredChromeExtensionRows.map(renderChromeExtensionStatCard)}
+              </div>
+
+              {remainingChromeExtensionRows.length > 0 && (
+                <details className="compact-disclosure compact-disclosure--extensions">
+                  <summary>
+                    <span>Remaining extension rows</span>
+                    <em>{remainingChromeExtensionRows.length} more CWS detail rows</em>
+                  </summary>
+                  <div className="extension-stat-list extension-stat-list--secondary" aria-label="Remaining Chrome extension stats rows">
+                    {remainingChromeExtensionRows.map(renderChromeExtensionStatCard)}
+                  </div>
+                </details>
               )}
 
-              <div className="explorer-panel__filters" role="toolbar" aria-label="Project filters">
-                {projectFilterOptions.map((filter) => (
-                  <button
-                    type="button"
-                    key={filter.value}
-                    onClick={() => setProjectFilter(filter.value)}
-                    className={`pill-button${projectFilter === filter.value ? ' is-active' : ''}`}
-                    aria-pressed={projectFilter === filter.value}
-                  >
-                    <span>{filter.label}</span>
-                    <span className="pill-button__count">{filter.count}</span>
-                  </button>
+              <ul className="tracker-notes">
+                {CHROME_EXTENSION_STATS.notes.map((note) => (
+                  <li key={note}>{note}</li>
                 ))}
-                <button
-                  type="button"
-                  onClick={() => setBenchmarkedOnly((value) => !value)}
-                  className={`pill-button${benchmarkedOnly ? ' is-active' : ''}`}
-                  aria-pressed={benchmarkedOnly}
-                >
-                  <span>Metrics only</span>
-                </button>
-              </div>
-
-              <p className="explorer-panel__summary">
-                Showing <strong>{visibleProjects.length}</strong> of <strong>{filteredProjects.length}</strong>{' '}
-                matching projects. Archive total: <strong>{mergedProjects.length}</strong>. Filter:{' '}
-                <strong>{activeProjectFilterLabel}</strong>
-                {benchmarkedOnly ? ' + Metrics only' : ''}.
-              </p>
+              </ul>
             </div>
-
-            <div className="project-grid">
-              {visibleProjects.map((project) => {
-                const signals = getProjectSignals(project);
-                return (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    badges={signals.badges}
-                    fallbackImageUrl={DEFAULT_PROJECT_IMAGE}
-                    onSelectProject={() => handleSelectProject(project)}
-                  />
-                );
-              })}
-            </div>
-
-            {canToggleProjectArchive && (
-              <div className="project-archive-actions">
-                <button
-                  type="button"
-                  className="button button--ghost"
-                  onClick={() => setShowAllProjects((value) => !value)}
-                >
-                  {showAllProjects ? 'Show priority archive' : `Show all ${filteredProjects.length} projects`}
-                </button>
-              </div>
-            )}
-
-            {filteredProjects.length === 0 && (
-              <p className="empty-state">No projects match the current filters.</p>
-            )}
           </Section>
+            </div>
+          </details>
 
           <Section
             id="contact"
-            eyebrow="Next step"
-            title="Contact"
-            description="Best fit: AI product engineering, production CV/VLM systems, and launch automation with review gates."
+            eyebrow="Get in touch"
+            title="Let’s build something useful."
+            description="For senior ML roles and focused collaborations in computer vision, document AI, and inference systems."
           >
             <div className="contact-grid">
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="contact-card">
@@ -2551,7 +1957,7 @@ const App: React.FC = () => {
                 </span>
                 <div className="contact-card__body">
                   <strong>Telegram</strong>
-                  <span>Fast contact channel</span>
+                  <span>Direct message</span>
                 </div>
               </a>
               <a
@@ -2572,6 +1978,7 @@ const App: React.FC = () => {
                 href={SOCIAL_LINKS.x}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="X"
                 className="contact-card"
               >
                 <span className="contact-card__icon-wrap" aria-hidden="true">
@@ -2579,7 +1986,7 @@ const App: React.FC = () => {
                 </span>
                 <div className="contact-card__body">
                   <strong>X</strong>
-                  <span>Public updates and short notes</span>
+                  <span>Notes and updates</span>
                 </div>
               </a>
               <a
@@ -2596,20 +2003,21 @@ const App: React.FC = () => {
                   <span>Public repos and case studies</span>
                 </div>
               </a>
-              <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-ai-product-engineer-resume.pdf" className="contact-card">
+              <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-senior-ml-engineer.pdf" className="contact-card">
                 <span className="contact-card__icon-wrap" aria-hidden="true">
                   <DownloadIcon className="contact-card__icon" />
                 </span>
                 <div className="contact-card__body">
                   <strong>Resume</strong>
-                  <span>ML / CV / AI Products PDF</span>
+                  <span>Senior ML Engineer · PDF</span>
                 </div>
               </a>
             </div>
           </Section>
-
           <footer className="site-footer">
-            <p>&copy; {new Date().getFullYear()} Zakhar Pashkin. Built to be scanned fast and explored deeper.</p>
+            <p>© {new Date().getFullYear()} Zakhar Pashkin</p>
+            <a href="/papers/">Research notes <span aria-hidden="true">↗</span></a>
+            <a href="#intro">Back to top ↑</a>
           </footer>
         </main>
       </div>
@@ -2625,7 +2033,6 @@ const App: React.FC = () => {
         />
       )}
 
-      <FloatingButtons telegramUrl={SOCIAL_LINKS.telegram} resumeUrl={SOCIAL_LINKS.resume} />
       {ENABLE_VERCEL_ANALYTICS && <Analytics />}
     </div>
   );

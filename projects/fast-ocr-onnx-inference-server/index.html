@@ -104,6 +104,8 @@
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
       .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      figure { margin: 0; }
+      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
       h2 { margin: 0 0 14px; font-size: 1.35rem; }
       ul { margin: 0; padding-left: 1.2rem; }
@@ -122,19 +124,19 @@
           <p class="eyebrow">case-study</p>
           <h1>Fast OCR ONNX Inference Server</h1>
           <p class="lede">Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.</p>
-          <img class="visual" src="https://zack-dev-cm.github.io/docs/images/fast-ocr-onnx-inference-card.webp" alt="Generated OCR serving card showing anonymized document blocks, line and word segmentation, ONNX stages, and blank API response panels" loading="eager" />
+          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/fast-ocr-onnx-inference-card.webp" alt="Generated OCR serving card showing anonymized document blocks, line and word segmentation, ONNX stages, and blank API response panels" loading="eager" /><figcaption>System illustration</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>Fast OCR ONNX Inference Server is a public-safe computer vision case study for turning OCR models into a deployable inference service. The pipeline accepts an uploaded image, runs line segmentation, word segmentation, and CRNN recognition, then returns recognized text with line and word boxes as JSON. The public entry focuses on architecture, serving contracts, CPU ONNX runtime, Docker packaging, and response shape.</p>
+          <p>I built a containerized OCR inference service that turns line segmentation, word segmentation and CRNN recognition into a FastAPI image-upload workflow. It returns recognized text with line and word boxes as structured JSON. ONNX Runtime provides a portable CPU-serving path, with Docker packaging and explicit response contracts connecting the model pipeline to downstream applications.</p>
         </section>
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Stages OCR as line segmentation, word segmentation, and CRNN text recognition</li>
-        <li>Serves inference through a FastAPI upload endpoint with JSON boxes and recognized text</li>
-        <li>Packages the model stack for Docker-based CPU deployment</li>
-        <li>Documents deployment shape and response contracts with sanitized architecture notes</li>
+        <li>Line segmentation, word segmentation and CRNN text recognition</li>
+        <li>Image-upload API returning recognized text and geometry</li>
+        <li>Portable CPU inference with ONNX Runtime</li>
+        <li>Docker packaging and explicit downstream response contracts</li>
           </ul>
         </section>
         <section>
@@ -149,23 +151,15 @@
         <li>Cloud Run</li>
           </ul>
         </section>
-        <section>
-          <h2>Public Signals</h2>
-          <ul>
-        <li><strong>OCR stages:</strong> 3 <span>line segmentation, word segmentation, CRNN recognition</span></li>
-        <li><strong>Model artifacts:</strong> 3 <span>line, word, and text-recognition ONNX models</span></li>
-        <li><strong>API endpoints:</strong> 2 <span>health check and image inference contract</span></li>
-        <li><strong>Serving target:</strong> CPU ONNX <span>containerized FastAPI inference path</span></li>
-          </ul>
-        </section>
+
         <section>
           <h2>References</h2>
           <ul>
         <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
-            <li><a href="https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md">Machine-readable Markdown case study</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for Fast OCR ONNX Inference Server.</p>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
       </article>
     </main>
   </body>

@@ -30,7 +30,7 @@ const CLEARML_DERMASELF_TITLE = 'ClearML Experiment Tracking for Dermaself';
 const CLEARML_DERMASELF_IMAGE = 'images/clearml-dermaself-experiment-tracking-card.png';
 const AGNITRA_AI_PROJECT_ID = 81;
 const AGNITRA_AI_SLUG = 'agnitra-ai-inference-optimizer';
-const AGNITRA_AI_TITLE = 'Agnitra AI Inference Optimizer';
+const AGNITRA_AI_TITLE = 'Agnitra - ML Profiling & Optimization';
 const AGNITRA_AI_IMAGE = 'images/agnitra-ai-inference-optimizer-card.png';
 
 const BLOCKED_TEXT_PATTERNS = [
@@ -450,37 +450,29 @@ const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
       slug: AGNITRA_AI_SLUG,
       title: AGNITRA_AI_TITLE,
       latestDescription:
-        'Added Agnitra AI public package case study: decoder-only LLM inference optimization, quantization choices, framework integrations, CLI/API surfaces, and signed inference-manifest support.',
+        'Agnitra is available on PyPI: a Python SDK and CLI for model profiling, runtime telemetry and inference optimization.',
       description:
-        'Public package case study for Agnitra, a Python SDK that optimizes decoder-only LLM inference through drop-in model wrapping, quantization choices, integrations, and signed inference manifests.',
+        'A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.',
       longDescription:
-        'Agnitra AI Inference Optimizer covers the public package surface for Agnitra: a PyPI-distributed Python SDK by Agnitra Labs for decoder-only LLM inference optimization. The public feed focuses on PyPI metadata, HuggingFace-style usage, quantization choices, framework integrations, CLI/API surfaces, and trust/provenance manifests. Unpublished source links, keys, runtime hosts, customer models, unpublished benchmark claims, and configuration details are outside the public feed.',
+        'I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.',
       projectKind: 'open-source',
       surfaceTags: ['open-source', 'ai-systems', 'llm-inference', 'mlops', 'optimization'],
       mobileReady: false,
       keyFeatures: [
-        'Packages decoder-only LLM inference optimization as a Python SDK with HuggingFace-style usage',
-        'Documents quantization choices, supported decoder-LM architectures, and pass-through behavior for unsupported model families',
-        'Includes public integration paths for HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM-shaped runtimes',
-        'Keeps portfolio claims bounded to public PyPI and package metadata',
+        'Inspect model runtime and compare baseline and optimized execution',
+        'Apply hardware-aware quantization to supported decoder-only language models',
+        'Integrate optimization into existing Python, Hugging Face and agent workflows',
+        'Evaluate quality changes and retain fallback behavior for unsupported paths',
       ],
-      techStack: ['Python', 'PyTorch', 'Transformers', 'torchao', 'HuggingFace', 'LangChain', 'LlamaIndex', 'MLOps'],
+      techStack: ['Python', 'PyTorch', 'Transformers', 'torchao', 'Hugging Face', 'LangChain', 'LlamaIndex', 'MLOps'],
       links: [
-        { text: 'Open PyPI package', url: 'https://pypi.org/project/agnitra/' },
-        { text: 'Open PyPI publisher profile', url: 'https://pypi.org/user/agnitra.ai/' },
+        { text: 'Install from PyPI', url: 'https://pypi.org/project/agnitra/' },
       ],
       image: {
         url: AGNITRA_AI_IMAGE,
-        alt: 'Public-safe Agnitra AI inference optimizer card showing decoder-only LLM runtime, quantization, integrations, and review gates',
+        alt: 'Conceptual diagram of Agnitra model optimization and package workflow',
+        caption: 'Conceptual workflow illustration.',
       },
-      benchmarks: [
-        { label: 'Latest public release', value: '0.2.4', context: 'PyPI project page, released 2026-05-06' },
-        { label: 'Package status', value: 'Beta', context: 'PyPI classifier: Development Status :: 4 - Beta' },
-        { label: 'Python support', value: '3.8-3.12', context: 'PyPI classifiers and requires-python metadata' },
-        { label: 'Supported decoder families', value: '13', context: 'public package description lists decoder-LM model_type families' },
-        { label: 'Documented integrations', value: '5', context: 'HuggingFace, LangChain, LlamaIndex, accelerate, and TensorRT-LLM paths in public package description' },
-        { label: 'Public license', value: 'Apache-2.0', context: 'PyPI project metadata' },
-      ],
       canonicalWebsite: 'https://pypi.org/project/agnitra/',
       createdAt: '2026-06-09',
     },

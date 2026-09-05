@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agnitra - ML Profiling &amp; Optimization | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Agnitra - ML Profiling &amp; Optimization" />
+    <meta property="og:description" content="A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agnitra - ML Profiling &amp; Optimization" />
+    <meta name="twitter:description" content="A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/agnitra-ai-inference-optimizer-card.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Conceptual diagram of Agnitra model optimization and package workflow" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/agnitra-ai-inference-optimizer-card.png" />
+    <meta name="twitter:image:alt" content="Conceptual diagram of Agnitra model optimization and package workflow" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/#case-study",
+      "headline": "Agnitra - ML Profiling & Optimization",
+      "name": "Agnitra - ML Profiling & Optimization",
+      "description": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
+      "url": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "open-source",
+      "keywords": "open-source, ai-systems, llm-inference, mlops, optimization, Python, PyTorch, Transformers, torchao, Hugging Face, LangChain, LlamaIndex, MLOps",
+      "image": "https://zack-dev-cm.github.io/docs/images/agnitra-ai-inference-optimizer-card.png",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "open-source"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ai-systems"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "llm-inference"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "mlops"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "optimization"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PyTorch"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Transformers"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "torchao"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Hugging Face"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "LangChain"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "LlamaIndex"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "MLOps"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Install from PyPI",
+                  "url": "https://pypi.org/project/agnitra/"
+            }
+      ]
+}
+    </script>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
+      body { margin: 0; }
+      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
+      a { color: #1b5f8f; }
+      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
+      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
+      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
+      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
+      .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      figure { margin: 0; }
+      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
+      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
+      h2 { margin: 0 0 14px; font-size: 1.35rem; }
+      ul { margin: 0; padding-left: 1.2rem; }
+      li { margin: 0.45rem 0; line-height: 1.55; }
+      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
+      .footer { color: #52616f; font-size: 0.94rem; }
+      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">open-source</p>
+          <h1>Agnitra - ML Profiling &amp; Optimization</h1>
+          <p class="lede">A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.</p>
+          <figure><img class="visual" src="https://zack-dev-cm.github.io/docs/images/agnitra-ai-inference-optimizer-card.png" alt="Conceptual diagram of Agnitra model optimization and package workflow" loading="eager" /><figcaption>Conceptual workflow illustration.</figcaption></figure>
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.</p>
+        </section>
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Inspect model runtime and compare baseline and optimized execution</li>
+        <li>Apply hardware-aware quantization to supported decoder-only language models</li>
+        <li>Integrate optimization into existing Python, Hugging Face and agent workflows</li>
+        <li>Evaluate quality changes and retain fallback behavior for unsupported paths</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>Transformers</li>
+        <li>torchao</li>
+        <li>Hugging Face</li>
+        <li>LangChain</li>
+        <li>LlamaIndex</li>
+        <li>MLOps</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://pypi.org/project/agnitra/">Install from PyPI</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md">Plain-text case study</a></li>
+          </ul>
+        </section>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
+      </article>
+    </main>
+  </body>
+</html>

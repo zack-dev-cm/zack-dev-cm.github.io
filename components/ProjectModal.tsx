@@ -35,13 +35,43 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   }, [project]);
 
   useEffect(() => {
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const background = document.querySelector<HTMLElement>('.site-layout');
+    const wasInert = background?.inert ?? false;
+    if (background) background.inert = true;
+
+    const getFocusableElements = () =>
+      Array.from<HTMLElement>(modalRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, video[controls], audio[controls], [tabindex]:not([tabindex="-1"])'
+      ) ?? []).filter((element) => element.getClientRects().length > 0);
+
+    getFocusableElements()[0]?.focus({ preventScroll: true });
+
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        event.preventDefault();
         onClose();
+        return;
+      }
+      if (event.key === 'Tab') {
+        const focusableElements = getFocusableElements();
+        const first = focusableElements[0];
+        const last = focusableElements[focusableElements.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
       }
     };
     document.addEventListener('keydown', handleKeydown);
-    return () => document.removeEventListener('keydown', handleKeydown);
+    return () => {
+      document.removeEventListener('keydown', handleKeydown);
+      if (background) background.inert = wasInert;
+      if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+    };
   }, [onClose]);
 
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -59,6 +89,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   };
 
   const currentImage = project.images[currentImageIndex];
+  const mediaCaption = currentImage?.caption || (
+    /generated|conceptual|illustration|public-safe.*card/i.test(currentImage?.alt ?? '')
+      ? 'Conceptual workflow illustration.'
+      : undefined
+  );
 
   return (
     <div
@@ -75,6 +110,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         </button>
 
         {currentImage && (
+          <div className="modal-visual">
           <div className="modal-media">
             {isVideoUrl(currentImage.url) ? (
               <video
@@ -124,12 +160,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </>
             )}
           </div>
+          {mediaCaption && <p className="modal-media-caption">{mediaCaption}</p>}
+          </div>
         )}
 
         <div className="modal-body">
           <div className="modal-body__header">
             <div>
-              <p className="modal-body__eyebrow">Case study #{project.id}</p>
+              <p className="modal-body__eyebrow">Case study</p>
               <h2 id={titleId}>{project.title}</h2>
             </div>
 
@@ -202,16 +240,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
           {project.topologySnapshot && (
             <section className="panel">
-              <p className="panel__eyebrow">System shape</p>
-              <h3>ASCII topology snapshot</h3>
+              <h3>System overview</h3>
               <pre className="code-block">{project.topologySnapshot}</pre>
             </section>
           )}
 
           {project.mermaidDiagram && (
             <section className="panel">
-              <p className="panel__eyebrow">Architecture</p>
-              <h3>Rendered flowchart</h3>
+              <h3>Workflow</h3>
               <MermaidDiagram chart={project.mermaidDiagram} />
               <details className="diagram-source">
                 <summary>Mermaid source</summary>

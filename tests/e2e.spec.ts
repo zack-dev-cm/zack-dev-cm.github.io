@@ -14,6 +14,8 @@ const gotoPortfolio = async (page: Page) => {
   if (isCloudflare && response && response.status() >= 400) {
     await page.goto('/docs/', { waitUntil: 'domcontentloaded' });
   }
+  // The static fallback is replaced when React mounts; interact with the live app.
+  await expect(page.locator('.site-layout')).toBeVisible({ timeout: 15000 });
 };
 
 const gotoStandalone = async (page: Page, slug: string) => {
@@ -38,8 +40,8 @@ const gotoStandalone = async (page: Page, slug: string) => {
 const resumePath = () => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
   return baseUrl.includes('pages.dev')
-    ? '/resume/zakhar-pashkin-ai-product-engineer-resume.pdf'
-    : '/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf';
+    ? '/resume/zakhar-pashkin-senior-ml-engineer.pdf'
+    : '/docs/resume/zakhar-pashkin-senior-ml-engineer.pdf';
 };
 
 const requestFirstOk = async (page: Page, paths: string[]) => {
@@ -62,10 +64,11 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   await page.setViewportSize({ width: 1440, height: 900 });
   await gotoPortfolio(page);
 
-  await expect(page).toHaveTitle('Zakhar Pashkin | Computer Vision and AI Product Engineer');
+  await expect(page).toHaveTitle('Zakhar Pashkin | Senior ML Engineer - Computer Vision & Agentic AI');
   const h1 = page.getByRole('heading', { level: 1 });
   await expect(h1).toHaveCount(1);
-  await expect(h1).toHaveText('Zakhar Pashkin is a computer vision and AI product engineer.');
+  await expect(h1).toHaveText('Zakhar Pashkin.');
+  await expect(page.locator('.hero__role')).toHaveText('Senior ML Engineer');
   await expect(h1).toBeInViewport();
 
   const layout = await page.evaluate(() => {
@@ -88,16 +91,19 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   expect(layout.overflow).toBeLessThanOrEqual(4);
 
   const heroCopy = await page.locator('#intro').innerText();
-  expect(heroCopy).toMatch(/OCR/i);
-  expect(heroCopy).toMatch(/segmentation/i);
-  expect(heroCopy).toMatch(/multimodal retrieval/i);
-  expect(heroCopy).toMatch(/model-serving APIs/i);
+  expect(heroCopy).toMatch(/Computer vision/i);
+  expect(heroCopy).toMatch(/Document AI/i);
+  expect(heroCopy).toMatch(/Agentic systems/i);
+  expect(heroCopy).toMatch(/Riverstart/i);
+  expect(heroCopy).not.toMatch(/daily active|case.stud(?:y|ies).*\d|ClawHub|downloads across/i);
+  await expect(page.locator('#intro').getByRole('link', { name: 'Selected work' })).toBeInViewport();
+  await expect(page.locator('#intro').getByRole('link', { name: 'Download resume' })).toBeInViewport();
 
   const metaDescription = (await page.locator('meta[name="description"]').getAttribute('content')) || '';
   expect(metaDescription.length).toBeGreaterThan(80);
   expect(metaDescription.length).toBeLessThanOrEqual(170);
   expect(metaDescription).toMatch(/computer vision/i);
-  expect(metaDescription).toMatch(/OCR|segmentation|multimodal/i);
+  expect(metaDescription).toMatch(/document AI|OCR|segmentation|multimodal/i);
   await expect(page.locator('meta[name="keywords"]')).toHaveCount(0);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://zack-dev-cm.github.io/');
 
@@ -137,8 +143,16 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
 
   const discoveryResponse = await requestFirstOk(page, ['/docs/agent-discovery.json', '/agent-discovery.json']);
   const discovery = await discoveryResponse.json();
-  expect(discovery.answerTargets.length).toBeGreaterThanOrEqual(8);
-  expect(discovery.serviceSignals.length).toBeGreaterThanOrEqual(4);
+  expect(discovery.entity.name).toBe('Zakhar Pashkin');
+  expect(discovery.entity.role).toBe('Senior ML Engineer');
+  expect(discovery.featuredProjects.map((project: { id: number }) => project.id)).toEqual([101, 63, 81, 11, 102, 72]);
+  for (const project of discovery.featuredProjects) {
+    expect(project.url).toMatch(/^https:\/\/zack-dev-cm\.github\.io\/projects\/[^/]+\/$/);
+    expect(projectLocs).toContain(project.url);
+  }
+  expect(discovery.allProjects.length).toBeGreaterThanOrEqual(discovery.featuredProjects.length);
+  expect(discovery).not.toHaveProperty('answerTargets');
+  expect(discovery).not.toHaveProperty('serviceSignals');
 
   const schemaResponse = await requestFirstOk(page, ['/docs/schema.jsonld', '/schema.jsonld']);
   const schema = await schemaResponse.json();
@@ -150,13 +164,24 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
       return typeof type === 'string' ? [type] : [];
     })
   );
-  for (const requiredType of ['Person', 'WebSite', 'WebPage', 'ProfilePage', 'FAQPage', 'Service', 'ItemList']) {
+  for (const requiredType of ['Person', 'WebSite', 'WebPage', 'ProfilePage', 'ItemList']) {
     expect(schemaTypes.has(requiredType), `schema.jsonld should include ${requiredType}`).toBe(true);
   }
+  const person = graph.find((node) => node['@type'] === 'Person');
+  expect(person?.name).toBe('Zakhar Pashkin');
+  expect(person?.jobTitle).toBe('Senior ML Engineer');
+  expect(person?.worksFor).toEqual({ '@type': 'Organization', name: 'Riverstart' });
+  expect(schemaTypes.has('FAQPage')).toBe(false);
+  expect(schemaTypes.has('Service')).toBe(false);
 
-  await page.setViewportSize({ width: 390, height: 844 });
-  await gotoPortfolio(page);
-  await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
+  for (const width of [360, 390, 768]) {
+    await page.setViewportSize({ width, height: 844 });
+    await gotoPortfolio(page);
+    await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
+    await expect(page.locator('#intro').getByRole('link', { name: 'Selected work' })).toBeInViewport();
+    await expect(page.locator('#intro').getByRole('link', { name: 'Download resume' })).toBeInViewport();
+    await expect(page.getByRole('navigation', { name: 'Primary portfolio navigation' })).toHaveCount(1);
+  }
   await expect
     .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
       message: 'Expected SEO hero to avoid mobile horizontal overflow'
@@ -171,12 +196,14 @@ test('homepage renders core sections and project discovery controls', async ({ p
   test.setTimeout(180_000);
   await gotoPortfolio(page);
 
-  // Wait for main title and a couple of sections to ensure hydration
-  await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
-  await expect(page.getByRole('heading', { name: 'Computer Vision Systems' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'AI Product and Release Systems' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Latest Updates' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Systems, tools, and products' })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'A career in applied ML' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Research depth. Engineering follow-through.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Recent work & releases' })).toBeVisible();
+  await expect(page.locator('#featured .featured-card')).toHaveCount(6);
+  await expect(page.locator('#experience')).toContainText('Riverstart');
+  await expect(page.locator('#experience')).toContainText('Wombat Apps / Carb Manager');
+  await expect(page.getByTestId('project-card')).toHaveCount(9);
 
   const resumeLink = page.getByRole('link', { name: /Download resume/i }).first();
   await expect(resumeLink).toBeVisible();
@@ -189,7 +216,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   expect(agentDiscoveryResponse.headers()['content-type']).toMatch(/application\/json|text\/plain|octet-stream/);
   const agentDiscovery = await agentDiscoveryResponse.json();
   expect(agentDiscovery.entity.name).toBe('Zakhar Pashkin');
-  expect(agentDiscovery.answerTargets.length).toBeGreaterThanOrEqual(4);
+  expect(agentDiscovery.entity.role).toBe('Senior ML Engineer');
+  expect(agentDiscovery.featuredProjects).toHaveLength(6);
 
   await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute(
     'href',
@@ -197,11 +225,14 @@ test('homepage renders core sections and project discovery controls', async ({ p
   );
   const removedFreelanceMarketplaceHost = ['up', 'work', 'com'].join('.');
   await expect(page.locator(`a[href*="${removedFreelanceMarketplaceHost}"]`)).toHaveCount(0);
-  await expect(page.getByRole('link', { name: 'X' }).first()).toHaveAttribute(
+  await expect(page.getByRole('link', { name: 'X', exact: true }).first()).toHaveAttribute(
     'href',
     'https://x.com/Zackdevcv'
   );
 
+  const releaseDisclosure = page.locator('#release-data');
+  await expect(releaseDisclosure).not.toHaveAttribute('open', '');
+  await releaseDisclosure.locator(':scope > summary').click();
   const clawHubSection = page.locator('#clawhub');
   await expect(clawHubSection.getByRole('heading', { name: 'Downloads Tracker' })).toBeVisible();
   await expect(clawHubSection.getByText(clawHubDownloadText)).toBeVisible();
@@ -241,15 +272,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
     ).toBeGreaterThan(0);
   };
 
-  const logoImages = page.locator('#experience img');
-  const logoCount = await logoImages.count();
-  expect(logoCount).toBeGreaterThan(0);
-  for (let i = 0; i < Math.min(3, logoCount); i += 1) {
-    await expectImageLoaded(logoImages.nth(i), `logo ${i + 1}`);
-  }
-
   const contributedSection = page.locator('#contributed-to');
-  await expect(contributedSection.getByRole('heading', { name: 'Contributed To' })).toBeVisible();
+  await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeVisible();
   await expect(contributedSection.getByRole('link')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
   await expect(contributedSection.getByText(/Merged PR|Open PR|Issue comment|Issue/)).toHaveCount(0);
   await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
@@ -265,32 +289,24 @@ test('homepage renders core sections and project discovery controls', async ({ p
   }
 
   const latestSection = page.locator('#latest');
-  await expect(page.locator('#featured').getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Computer Vision and AI Systems Refresh', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Marketplace Stats Refresh', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Dermaself Flutter Skin Analysis App', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('SourcePack Chrome Extension Wave', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Trusted ClawHub Install Gate', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Google Drive File Provider Repair Toolkit', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('GitHub + ClawHub Downloads Tracker', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Telegram Mini App Security Auditor', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Agentic Codex Dev Skill', { exact: false })).toBeVisible();
+  await expect(page.locator('#featured')).toContainText('Calorio · AI nutrition assistant');
+  await expect(page.locator('#featured')).toContainText('Agnitra · Inference optimization');
+  await expect(page.locator('#featured')).not.toContainText('ClawHub Downloads Tracker');
+  await expect(latestSection.locator('.latest-card')).toHaveCount(3);
+  await latestSection.getByRole('button', { name: 'Browse all updates' }).click();
   await expect(latestSection.getByText('Session Rescue', { exact: false })).toBeVisible();
   await expect(latestSection.getByText('LocalArchive', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('LocalLens Private AI Summaries', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('OpenClaw Chinese Laoshi Ops', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Random Coffee Best Fit Outreach', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('AntiRot', { exact: false })).toBeVisible();
-  await expect(latestSection.getByText('Probes', { exact: false })).toBeVisible();
+  await latestSection.getByRole('button', { name: 'Show fewer updates' }).click();
+  await expect(latestSection.locator('.latest-card')).toHaveCount(3);
 
   const projectSearch = page.getByLabel('Search projects');
   await expect(projectSearch).toBeVisible();
   await expect(page.locator('input[type="search"]')).toHaveCount(1);
   await expect(page.locator('#projects input[type="search"]')).toHaveCount(0);
-  await expect(page.getByTestId('project-card').first().getByText('Open case study')).toBeVisible();
+  await expect(page.getByTestId('project-card').first().getByText('Explore project')).toBeVisible();
 
   await projectSearch.fill('session rescue');
-  const sessionRescueCard = page.getByRole('button', { name: /Open project: Session Rescue/i });
+  const sessionRescueCard = page.getByRole('link', { name: /Open project: Session Rescue/i });
   await expect(sessionRescueCard).toBeVisible();
   await sessionRescueCard.focus();
   await page.keyboard.press('Enter');
@@ -305,10 +321,10 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeHidden();
 
   await projectSearch.fill('localarchive');
-  await expect(page.getByRole('button', { name: /Open project: LocalArchive/i })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Open project: LocalArchive/i })).toBeVisible();
 
   await projectSearch.fill('sourcepack chrome extension wave');
-  const sourcePackCard = page.getByRole('button', { name: /Open project: SourcePack Chrome Extension Wave/i });
+  const sourcePackCard = page.getByRole('link', { name: /Open project: SourcePack Chrome Extension Wave/i });
   await expect(sourcePackCard).toBeVisible();
   await sourcePackCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
@@ -329,13 +345,13 @@ test('homepage renders core sections and project discovery controls', async ({ p
       }
     });
   });
-  const fastOcrCard = page.getByRole('button', { name: /Open project: Fast OCR ONNX Inference Server/i });
+  const fastOcrCard = page.getByRole('link', { name: /Open project: Fast OCR ONNX Inference Server/i });
   await expect(fastOcrCard).toBeVisible();
   await fastOcrCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page).toHaveURL(/\/projects\/fast-ocr-onnx-inference-server\/$/);
   await expect(page).not.toHaveURL(/\?project=/);
-  await expect(page.getByRole('dialog').getByText('Rendered flowchart')).toBeVisible();
+  await expect(page.getByRole('dialog').getByRole('heading', { name: 'Workflow', exact: true })).toBeVisible();
   await expect(page.getByRole('dialog').getByTestId('mermaid-visual')).toBeVisible();
   await expect(page.getByRole('dialog').getByText('Mermaid source')).toBeVisible();
   await page.getByRole('dialog').getByRole('button', { name: 'Copy project link' }).click();
@@ -347,7 +363,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeHidden();
 
   await projectSearch.fill('architectural drawing catalog reception');
-  const architectureCard = page.getByRole('button', { name: /Open project: Architectural Drawing and Interior Catalog Matching/i });
+  const architectureCard = page.getByRole('link', { name: /Open project: Architectural Drawing and Interior Catalog Matching/i });
   await expect(architectureCard).toBeVisible();
   await architectureCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
@@ -363,7 +379,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeHidden();
 
   await projectSearch.fill('file provider repair');
-  const driveRepairCard = page.getByRole('button', { name: /Open project: Google Drive File Provider Repair Toolkit/i });
+  const driveRepairCard = page.getByRole('link', { name: /Open project: Google Drive File Provider Repair Toolkit/i });
   await expect(driveRepairCard).toBeVisible();
   await driveRepairCard.click();
   await expect(page.getByRole('dialog')).toBeVisible();
@@ -379,11 +395,11 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await userFacingFilter.click();
   await expect(userFacingFilter).toHaveAttribute('aria-pressed', 'true');
   await expect(
-    page.getByRole('button', { name: /Open project: Dalshe – Circular Clothing Pickup Mini App/i })
+    page.getByRole('link', { name: /Open project: Dalshe – Circular Clothing Pickup Mini App/i })
   ).toHaveCount(0);
 
   await projectSearch.fill('probes');
-  const probesCard = page.getByRole('button', { name: /Open project: Probes/i });
+  const probesCard = page.getByRole('link', { name: /Open project: Probes/i });
   await expect(probesCard).toBeVisible();
   await probesCard.click();
 
@@ -411,7 +427,7 @@ test('docs route bootstraps without duplicate manifest probe', async ({ page }) 
   });
 
   await page.goto('/docs/', { waitUntil: 'domcontentloaded' });
-  await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'Systems, tools, and products' })).toBeVisible({ timeout: 15000 });
   expect(duplicateManifestFailures).toEqual([]);
 });
 
@@ -450,9 +466,9 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
       expected: 'Fast OCR ONNX Inference Server',
     },
     {
-      label: 'Edge inference',
-      query: 'edge ai mobile inference',
-      expected: 'Fast OCR ONNX Inference Server',
+      label: 'Mobile vision',
+      query: 'food recognition mobile vision',
+      expected: 'Food Recognition App',
     },
     {
       label: 'Segmentation systems',
@@ -472,7 +488,7 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     {
       label: 'LLM inference',
       query: 'agnitra llm inference optimizer',
-      expected: 'Agnitra AI Inference Optimizer',
+      expected: /Agnitra/i,
     },
     {
       label: 'VLM/LLM workflows',
@@ -526,7 +542,7 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
       trigger: 'calorio',
       label: 'Calorio',
       query: 'calorio nutrition telegram bot',
-      expected: 'Dishes Recognition & Nutrition Goals Telegram Bot',
+      expected: /Calorio/i,
     },
   ];
 
@@ -567,7 +583,7 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     },
     {
       query: 'calorio tg users nutrition telegram bot',
-      expected: 'Dishes Recognition & Nutrition Goals Telegram Bot',
+      expected: /Calorio/i,
     },
   ];
 
@@ -584,6 +600,7 @@ test('metric tracker sections stay compact and disclose full source rows', async
   await page.setViewportSize({ width: 1440, height: 1200 });
   await gotoPortfolio(page);
 
+  await page.locator('#release-data > summary').click();
   const clawHubBoard = page.getByTestId('clawhub-board');
   await clawHubBoard.scrollIntoViewIfNeeded();
   await expect(clawHubBoard.getByRole('heading', { name: 'Top skill listings by downloads' })).toBeVisible();
@@ -627,6 +644,7 @@ test('metric tracker sections stay compact and disclose full source rows', async
 
   await page.setViewportSize({ width: 390, height: 1000 });
   await gotoPortfolio(page);
+  await page.locator('#release-data > summary').click();
   await page.locator('#chrome-stats').scrollIntoViewIfNeeded();
   await expect
     .poll(async () => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), {
@@ -648,6 +666,7 @@ test('featured cards stay inside their own bounds on desktop breakpoints', async
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await gotoPortfolio(page);
+    await expect(page.locator('.featured-card')).toHaveCount(6);
     await page.locator('#featured').scrollIntoViewIfNeeded();
 
     await expect
@@ -706,6 +725,44 @@ test('featured cards stay inside their own bounds on desktop breakpoints', async
     );
     expect(objectFits.every((value) => value === 'contain')).toBe(true);
   }
+});
+
+test('project cards expose canonical links and support opening a new tab', async ({ page, context }) => {
+  await gotoPortfolio(page);
+  const caseLinks = page.locator('#featured').getByRole('link', { name: 'Case study', exact: true });
+  await expect(caseLinks).toHaveCount(6);
+  for (const link of await caseLinks.all()) {
+    await expect(link).toHaveAttribute('href', /\/projects\/[^/]+\/$/);
+  }
+  await expect(page.getByTestId('project-card').first()).toHaveAttribute('href', /\/projects\/[^/]+\/$/);
+  const targetUrl = await caseLinks.first().getAttribute('href');
+  const [newTab] = await Promise.all([
+    context.waitForEvent('page'),
+    caseLinks.first().click({ modifiers: ['ControlOrMeta'] }),
+  ]);
+  await expect(newTab).toHaveURL(targetUrl!);
+  await expect(page.getByRole('dialog')).toBeHidden();
+  await newTab.close();
+});
+
+test('project dialog contains keyboard focus and restores its opener', async ({ page }) => {
+  await gotoPortfolio(page);
+  await page.getByLabel('Search projects').fill('localarchive');
+  const opener = page.getByRole('link', { name: /Open project: LocalArchive/i });
+  await opener.focus();
+  await page.keyboard.press('Enter');
+  const modal = page.getByRole('dialog');
+  const close = modal.getByRole('button', { name: 'Close project details' });
+  await expect(close).toBeFocused();
+  await expect(page.locator('.site-layout')).toHaveAttribute('inert', '');
+  await page.keyboard.press('Shift+Tab');
+  await expect(modal.getByRole('link').last()).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(close).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(modal).toBeHidden();
+  await expect(page.locator('.site-layout')).not.toHaveAttribute('inert', '');
+  await expect(opener).toBeFocused();
 });
 
 test('project deep links open and close cleanly', async ({ page }) => {
@@ -772,7 +829,7 @@ test.describe('mobile', () => {
     const projectSearch = page.getByLabel('Search projects');
     await projectSearch.fill('localarchive');
 
-    const localArchiveCard = page.getByRole('button', {
+    const localArchiveCard = page.getByRole('link', {
       name: /Open project: LocalArchive/i
     });
     await expect(localArchiveCard).toBeVisible();
@@ -784,7 +841,7 @@ test.describe('mobile', () => {
   });
 });
 
-test('clicking the sidebar name four times opens the hidden wind page', async ({ page }) => {
+test('clicking the header name four times opens the hidden wind page', async ({ page }) => {
   test.setTimeout(60_000);
   await gotoPortfolio(page);
 
@@ -890,4 +947,31 @@ test('skill wind cover capture mode fills a social banner viewport', async ({ pa
     .toBeGreaterThan(0);
 
   await page.screenshot({ path: 'test-results/skill-wind-cover.png', fullPage: true });
+});
+
+
+test('renamed curated projects supersede stale feed copy and removed metrics', async ({ page }) => {
+  await page.route('**/portfolio-updates.json', async (route) => {
+    const response = await route.fetch();
+    const feed = await response.json();
+    const agnitra = feed.projects.find((project: { id: number }) => project.id === 81);
+    expect(agnitra).toBeTruthy();
+    agnitra.title = 'Agnitra AI Inference Optimizer';
+    agnitra.longDescription = 'Stale operational snapshot that must not replace curated project copy.';
+    agnitra.benchmarks = [{ label: 'Old operational metric', value: '13', context: 'Stale feed' }];
+    await route.fulfill({ response, json: feed });
+  });
+  const feedLoaded = page.waitForResponse('**/portfolio-updates.json');
+  await gotoPortfolio(page);
+  await feedLoaded;
+  await page.getByLabel('Search projects').fill('agnitra');
+  const cards = page.getByTestId('project-card').filter({ hasText: /Agnitra/i });
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toContainText('Agnitra - ML Profiling & Optimization');
+  await cards.first().click();
+  const modal = page.getByRole('dialog');
+  await expect(modal).toContainText('model profiling');
+  await expect(modal).not.toContainText('Old operational metric');
+  await expect(modal).not.toContainText('Stale operational snapshot');
+  await expect(modal.getByRole('heading', { name: 'Benchmarks and analytics' })).toHaveCount(0);
 });

@@ -1,0 +1,105 @@
+{
+  "name": "Zakhar Pashkin",
+  "title": "Senior ML Engineer",
+  "specialisms": "Computer Vision, Document AI & Agentic Systems",
+  "location": "Yerevan, Armenia",
+  "email": "kaisenaiko@gmail.com",
+  "website": "https://zack-dev-cm.github.io/",
+  "github": "https://github.com/zack-dev-cm",
+  "linkedin": "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
+  "summary": "Senior ML Engineer with 8+ years taking computer vision and applied ML from research to shipped products. Shipped food-recognition and OCR workflows at Carb Manager and built financial-document recognition at CFT. Now a Senior ML Engineer in Riverstart's R&D ML team, developing document AI and engineering-analysis systems. Also build and maintain an AI nutrition service and publish tools for model profiling and optimization.",
+  "experience": [
+    {
+      "company": "Riverstart",
+      "role": "Senior ML Engineer",
+      "context": "R&D ML | Remote",
+      "dates": "Jul 2026 - Present",
+      "bullets": [
+        "Own R&D delivery for an on-premises document assistant that extracts case facts and reconciles records for specialist review. Separate deterministic checks from model-generated explanations and preserve links to the underlying documents.",
+        "Build engineering-analysis prototypes that turn scans and CAD files into reconstructed geometry and drawing packs, and interpret construction-document sets into quantities linked to source pages. Own evaluation and the path from prototype to specialist review.",
+        "Develop repeatable evaluation and releases for LLM services: versioned artifacts, regression checks, observability and rollback. Keep model-generated outputs traceable to the source documents and deployed revision."
+      ]
+    },
+    {
+      "company": "Dermaself & selected engagements",
+      "role": "Senior Computer Vision Engineer - Independent",
+      "context": "Concurrent engagements | Remote",
+      "dates": "Jun 2024 - Present",
+      "bullets": [
+        "Lead skin-analysis CV development for Dermaself, from guided capture and facial regions to pore and wrinkle segmentation, model evaluation and mobile/API integration using PyTorch, OpenMMLab, ONNX and Flutter.",
+        "Resolved model-asset and runtime differences between Cloud Run and GPU deployments, restoring matching wrinkle-segmentation outputs in regression comparisons and profiling bottlenecks to guide further optimization."
+      ]
+    },
+    {
+      "company": "Wombat Apps LLC / Carb Manager",
+      "role": "Senior Computer Vision Engineer",
+      "context": "Contract | Remote",
+      "dates": "Jun 2022 - Jun 2024",
+      "bullets": [
+        "Built and shipped food-recognition and nutrition-label workflows across cloud, iOS and Android for Carb Manager, a nutrition product serving millions of customers.",
+        "Owned data preparation, model development and evaluation through APIs, mobile export and runtime profiling. Combined detection, OCR and table parsing into structured nutrition data, working with mobile, backend and product teams on quality and failure handling."
+      ]
+    },
+    {
+      "company": "CFT",
+      "role": "Computer Vision Engineer",
+      "context": "Financial technology",
+      "dates": "Jun 2019 - Jun 2022",
+      "bullets": [
+        "Built core detection, segmentation and OCR models for CFT's financial-document recognition platform using PyTorch and OpenMMLab.",
+        "Optimized meter-recognition models for mobile use through architecture changes, quantization and runtime profiling. Built active-learning and assisted-annotation workflows to reduce manual labeling, and mentored engineers on data quality and evaluation."
+      ]
+    },
+    {
+      "company": "School of AI",
+      "role": "Machine Learning Specialist & Project Mentor",
+      "context": "Part-time community program",
+      "dates": "Oct 2018 - Oct 2019",
+      "bullets": [
+        "Built ML learning software, coordinated remote contributors and mentored applied CV projects from dataset definition through evaluation and working demos."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Agnitra",
+      "status": "Published on PyPI",
+      "url": "https://pypi.org/project/agnitra/",
+      "text": "Published a Python SDK and CLI for model profiling and inference optimization. Connects runtime telemetry and baseline comparisons with optimization passes; the released decoder-LLM path includes hardware-aware quantization and integration with existing model workflows."
+    },
+    {
+      "name": "Calorio / YourFit",
+      "status": "Maintained AI nutrition service",
+      "url": "https://t.me/calorio_yf_bot",
+      "text": "Built and maintain a Telegram nutrition assistant that helps people keep a food diary using meal photos, voice messages and text. Develop the multimodal logging flow, nutrition-goal tracking and ongoing service improvements."
+    },
+    {
+      "name": "InQuest",
+      "status": "Document-agent engineering",
+      "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+      "text": "Built document agents with OpenAI Agents SDK and MCP, combining retrieval, tool calls, handoffs and persistent project context to work across document collections."
+    },
+    {
+      "name": "Multimodal Video Search",
+      "status": "Retrieval R&D",
+      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+      "text": "Designed video retrieval across visual embeddings, speech transcripts, on-screen text and scene descriptions, combining dense and sparse search so relevant clips can be found through complementary signals."
+    }
+  ],
+  "skills": [
+    {
+      "label": "Computer vision",
+      "text": "Python, PyTorch, OpenMMLab (MMEngine, MMCV, MMDetection, MMSegmentation, MMOCR), OpenCV, YOLO, OCR, segmentation, CLIP/VLMs, ONNX Runtime, Core ML"
+    },
+    {
+      "label": "LLMs & agents",
+      "text": "LangGraph, LangChain, OpenAI Agents SDK, MCP, Pydantic, LlamaIndex, RAG, Qwen/vLLM, Qdrant, Neo4j, pgvector, tool calling, evaluation and human review"
+    },
+    {
+      "label": "ML systems",
+      "text": "FastAPI, PostgreSQL, Redis, Docker, Kubernetes, AWS/GCP, Cloud Run, GitLab CI/CD, GitHub Actions, MLflow/ClearML, Prometheus/Grafana"
+    }
+  ],
+  "education": "Siberian Federal University | Computer Science & Microelectronic Engineering | 2007-2012",
+  "updated": "2026-09-05"
+}

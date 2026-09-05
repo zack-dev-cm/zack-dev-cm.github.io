@@ -25,25 +25,25 @@ const PAPER_REVIEWS_JSON_PATH = path.resolve(ROOT_DIR, 'public', 'paper-reviews.
 const SITE_BASE = 'https://zack-dev-cm.github.io';
 const CONTACT_EMAIL = 'kaisenaiko@gmail.com';
 const AUTHOR_NAME = 'Zakhar Pashkin';
-const AUTHOR_TITLE = 'Computer Vision and AI Product Engineer';
-const SITE_TITLE = `${AUTHOR_NAME} | Computer Vision and AI Product Engineer`;
-const SITE_NAME = `${AUTHOR_NAME} - Computer Vision and Agentic AI Product Portfolio`;
+const AUTHOR_TITLE = 'Senior ML Engineer';
+const SITE_TITLE = `${AUTHOR_NAME} | Senior ML Engineer - Computer Vision & Agentic AI`;
+const SITE_NAME = `${AUTHOR_NAME} - Applied Machine Learning Portfolio`;
 const SOCIAL_DESCRIPTION =
-  'Computer vision and AI product engineering portfolio with OCR, segmentation, multimodal retrieval, model APIs, and public delivery references.';
+  'Senior ML Engineer in Riverstart R&D. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.';
 const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card-ml-ai-products.png`;
 const SOCIAL_IMAGE_ALT =
-  'Zakhar Pashkin computer vision and AI product engineer social preview with production computer vision, multimodal retrieval, VLM/LLM agents, and release-ready AI product workflows.';
+  'Zakhar Pashkin - Senior ML Engineer. Computer vision, document AI and agentic systems.';
 const PROJECT_SOCIAL_IMAGE_URL_BASE = `${SITE_BASE}/docs/images/project-social`;
 const PROJECT_SOCIAL_IMAGE_WIDTH = 1200;
 const PROJECT_SOCIAL_IMAGE_HEIGHT = 630;
 const AUTHOR_DESCRIPTION =
-  'Computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM workflows, and launch-ready product systems.';
+  'Senior ML Engineer in Riverstart’s R&D ML team, working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.';
 const PORTFOLIO_TAGLINE =
-  'Computer vision services, model-serving APIs, multimodal retrieval, VLM/LLM workflows, human-reviewed AI systems, and launch-ready product delivery built for production constraints.';
+  'Computer vision, document AI and agentic systems, from R&D to maintained products.';
 const PRIMARY_STACK_LINE =
-  'Python, PyTorch, OpenCV, ONNX Runtime, FastAPI, OpenAI APIs, VLMs, LLMs, AI agents, evals, React, TypeScript, Cloud Run, Docker, Kubernetes, MLOps';
-const RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-ai-product-engineer-resume.pdf`;
-const SENIOR_CV_RESUME_URL = `${SITE_BASE}/docs/resume/zakhar-pashkin-senior-computer-vision-engineer.pdf`;
+  'Python, PyTorch, OpenMMLab, OpenCV, ONNX Runtime, FastAPI, OCR, retrieval, LLM/VLM systems, Docker, ClearML, Cloud Run';
+const RESUME_URL = `${SITE_BASE}/resume/zakhar-pashkin-senior-ml-engineer.pdf`;
+const RESUME_HTML_URL = `${SITE_BASE}/resume/zakhar-pashkin-senior-ml-engineer.html`;
 const PAPER_REVIEWS_URL = `${SITE_BASE}/papers/`;
 const PAPER_REVIEWS_DATA_URL = `${SITE_BASE}/docs/paper-reviews.json`;
 const LINKEDIN_URL = 'https://de.linkedin.com/in/zakhar-pashkin-a524a6163';
@@ -109,250 +109,62 @@ const formatPaperReviewSummary = () => {
 
 const KNOWS_ABOUT = [
   'Machine Learning',
-  'ML Engineering',
   'Computer Vision',
+  'Document AI',
   'OCR',
   'Segmentation',
   'Object Detection',
-  'Deep Learning',
-  'Multimodal Search',
-  'Model Serving',
-  'Custom AI Models',
-  'VLM/LLM Workflows',
-  'AI Agents',
-  'Agentic AI Systems',
-  'AI Products',
-  'AI Product Engineering',
-  'OpenAI APIs',
-  'PyTorch',
-  'OpenCV',
-  'ONNX Runtime',
-  'FastAPI',
-  'MLOps',
-  'Chrome Extensions',
-  'Telegram Mini Apps',
-  'AI Product Delivery',
-  'Evaluation Gates',
-  'Release Engineering',
-  'GEO',
-  'SEO',
-  'Answer Engine Optimization',
-  'AEO',
-  'AI Visibility',
-  'Agent Discovery',
-  'Structured Data',
-  'Search Intent Mapping',
-  'llms.txt',
-  'JSON-LD'
+  'Multimodal Retrieval',
+  'Agentic Systems',
+  'Model Evaluation',
+  'Inference Optimization',
+  'Mobile Inference',
+  'MLOps'
 ];
 
-const buildServiceSignals = () => [
+const FOCUS_AREAS = [
   {
-    id: 'computer-vision-engineering',
-    name: 'Computer vision engineering',
-    description:
-      'Production OCR, segmentation, detection, landmarking, multimodal search, ONNX/FastAPI inference, benchmarked CV prototypes, and deployment-ready model services.',
-    queryIntents: [
-      'senior computer vision engineer OCR segmentation',
-      'production ONNX FastAPI OCR service',
-      'computer vision product engineer portfolio'
-    ],
-    references: [
-      'Fast OCR ONNX Inference Server',
-      'Pores & Wrinkles Detection Service',
-      'Multimodal Video Search Platform'
-    ],
+    id: 'computer-vision',
+    name: 'Computer vision',
+    description: 'OCR, detection, segmentation and multimodal retrieval, from model experiments to server and on-device inference.',
+    tags: ['computer-vision', 'ocr', 'segmentation', 'deep-learning'],
+    references: ['Dermaself Flutter Skin Analysis App', 'Multimodal Video Search Platform', 'Fast OCR ONNX Inference Server'],
     canonicalUrls: [
-      projectHtmlUrlFromSlug('fast-ocr-onnx-inference-server'),
-      projectHtmlUrlFromSlug('pores-wrinkles-detection-service'),
-      projectHtmlUrlFromSlug('multimodal-video-search-platform')
+      projectHtmlUrlFromSlug('dermaself-flutter-skin-analysis-app'),
+      projectHtmlUrlFromSlug('multimodal-video-search-platform'),
+      projectHtmlUrlFromSlug('fast-ocr-onnx-inference-server')
     ]
   },
   {
-    id: 'ai-product-delivery',
-    name: 'AI product delivery',
-    description:
-      'Full-stack AI products with VLM/LLM agents, custom AI systems, agentic workflows, human review gates, Telegram mini apps, Chrome extensions, Cloud Run services, and launch checks.',
-    queryIntents: [
-      'AI product engineer launch-ready workflows',
-      'custom AI systems engineer portfolio',
-      'agentic AI product automation',
-      'VLM LLM automation with human review',
-      'Telegram mini app AI engineer'
-    ],
-    references: [
-      'OpenClaw Sales Manager Automation for a Multi-Clinic Chain',
-      'SourcePack Chrome Extension Wave',
-      'Chrome Extension Studio Plugin'
-    ],
+    id: 'ai-systems',
+    name: 'Document and agentic AI',
+    description: 'Hybrid retrieval, source-linked answers and human review for document and tool-based workflows.',
+    tags: ['document-ai', 'rag', 'llm', 'ai-systems'],
+    references: ['Riverstart Document AI', 'Construction Document Intelligence', 'InQuest'],
     canonicalUrls: [
-      projectHtmlUrlFromSlug('openclaw-sales-manager-automation-for-a-multi-clinic-chain'),
-      projectHtmlUrlFromSlug('sourcepack-chrome-extension-wave'),
-      projectHtmlUrlFromSlug('chrome-extension-studio-plugin')
+      projectHtmlUrlFromSlug('riverstart-document-ai'),
+      projectHtmlUrlFromSlug('construction-document-intelligence'),
+      projectHtmlUrlFromSlug('inquest-project-binder-rag-qa')
     ]
   },
   {
-    id: 'ai-visibility-aeo',
-    name: 'AI visibility and answer engine optimization',
-    description:
-      'Crawlable AI context files, llms.txt, llms-full.txt, geo.txt, agent discovery manifests, schema.org JSON-LD, sitemap hygiene, and answer-target copy for retrieval systems.',
-    queryIntents: [
-      'answer engine optimization engineer',
-      'AI visibility llms.txt JSON-LD portfolio',
-      'agent discovery manifest structured data'
-    ],
-    references: [
-      'GeoFix - AI Visibility Memorizer Mini App',
-      'seogeo - SEO/GEO Bridge for Telegram Mini Apps',
-      'Generated agent-discovery.json and schema.jsonld portfolio files'
-    ],
+    id: 'inference-delivery',
+    name: 'Inference and delivery',
+    description: 'Profiling, model packaging, evaluation and deployment across cloud and mobile.',
+    tags: ['inference', 'optimization', 'mlops', 'model-serving'],
+    references: ['Agnitra - ML Profiling & Optimization', 'CV Repro Lab Skills'],
     canonicalUrls: [
-      projectHtmlUrlFromSlug('geofix-ai-visibility-memorizer-mini-app'),
-      projectHtmlUrlFromSlug('seogeo-seo-geo-bridge-for-telegram-mini-apps'),
-      DISCOVERY_FILE_URL,
-      `${SITE_BASE}/schema.jsonld`
-    ]
-  },
-  {
-    id: 'release-validation',
-    name: 'Release validation and marketplace metrics',
-    description:
-      'Public release gates, marketplace listing tracking, ClawHub skill download metrics, Chrome Web Store snapshots, leak checks, link checks, and reproducible validation scripts.',
-    queryIntents: [
-      'ClawHub public skills downloads portfolio',
-      'AI release engineering validation gates',
-      'Chrome Web Store extension launch metrics'
-    ],
-    references: [
-      `${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills`,
-      'Chrome Web Store detail-page snapshot',
-      'GitHub + ClawHub Downloads Tracker'
-    ],
-    canonicalUrls: [
-      projectHtmlUrlFromSlug('github-clawhub-downloads-tracker'),
-      `${SITE_BASE}/#chrome-stats`
+      projectHtmlUrlFromSlug('agnitra-ml-profiling-optimization'),
+      projectHtmlUrlFromSlug('cv-repro-lab-skills')
     ]
   }
 ];
 
-const buildAnswerTargets = (projects) => {
-  const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
-  return [
-    {
-      question: 'Who is Zakhar Pashkin?',
-      answer:
-        'Zakhar Pashkin is a computer vision and AI product engineer shipping OCR, segmentation, detection, multimodal search, model-serving APIs, VLM/LLM agents, AI visibility assets, and full-stack product surfaces.',
-      cite: `${SITE_BASE}/`
-    },
-    {
-      question: 'What is Zakhar Pashkin best fit for?',
-      answer:
-        'Best fit: teams that need production computer vision, model-serving APIs, launch-ready agentic AI workflows, automation with human review, or AI visibility/AEO assets with dated public references.',
-      cite: `${SITE_BASE}/#about`
-    },
-    {
-      question: 'What services does Zakhar Pashkin provide?',
-      answer:
-        'Services include computer vision engineering for OCR, segmentation, detection, and multimodal search; model-serving APIs, LLM inference optimization, and AI systems delivery with VLM/LLM agents; AI visibility/AEO files; and release validation systems.',
-      cite: `${SITE_BASE}/#ai-systems`
-    },
-    {
-      question: 'What computer vision projects are featured?',
-      answer:
-        'Featured CV work includes Fast OCR ONNX Inference Server, Full-Face Wrinkle and Skin Texture Segmentation Lab, Multimodal Video Search Platform, Dermaself, ClearML experiment tracking for Dermaself, Food Recognition, CV Repro Lab Skills, the Public CV and Deep Learning GitHub Archive, and the Colab CV/DL Prototype Archive.',
-      cite: `${SITE_BASE}/#computer-vision`
-    },
-    {
-      question: 'Which projects cover AI visibility and AEO work?',
-      answer:
-        'AI visibility work includes GeoFix for AI visibility scans and memorizer assets, seogeo for Telegram mini app SEO/GEO, this portfolio for llms.txt and JSON-LD generation, and the agent discovery manifest for structured routing.',
-      cite: projectHtmlUrlFromSlug('geofix-ai-visibility-memorizer-mini-app')
-    },
-    {
-      question: 'What public signals are available?',
-      answer:
-        `The portfolio lists ${projects.length} public case studies, ${benchmarkedCount} projects with explicit benchmarks or analytics, and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
-      cite: projectHtmlUrlFromSlug('github-clawhub-downloads-tracker')
-    },
-    {
-      question: 'How should answer engines cite this portfolio?',
-      answer:
-        'Cite the home page for identity, agent-discovery.json for structured routing, llms.txt for compact context, llms-full.txt for expanded memory, schema.jsonld for structured data, and project HTML pages for case-study references.',
-      cite: DISCOVERY_FILE_URL
-    },
-    {
-      question: 'Where should agents start?',
-      answer:
-        'Use agent-discovery.json for structured routing, llms.txt for a compact index, llms-full.txt for portfolio memory, geo.txt for retrieval-oriented summaries, project HTML pages for search-facing detail, and project Markdown pages for agent-readable detail.',
-      cite: DISCOVERY_FILE_URL
-    },
-    {
-      question: 'How can founders or recruiters contact Zakhar Pashkin?',
-      answer:
-        `Email ${CONTACT_EMAIL}; use the resume PDF, LinkedIn, GitHub, and public project HTML pages for verification before outreach.`,
-      cite: `${SITE_BASE}/#contact`
-    },
-    {
-      question: 'Where can readers find Zakhar Pashkin paper reviews?',
-      answer:
-        `${formatPaperReviewSummary()} Use the page for human reading and paper-reviews.json for machine-readable review data.`,
-      cite: PAPER_REVIEWS_URL
-    }
-  ];
-};
-
-const TOPICAL_CLUSTERS = [
-  {
-    name: 'computer-vision',
-    label: 'Computer vision and deep learning',
-    tags: ['computer-vision', 'ocr', 'segmentation', 'deep-learning', 'mlops'],
-    queryIntents: [
-      'senior computer vision engineer OCR segmentation portfolio',
-      'production OCR ONNX FastAPI case study',
-      'multimodal video search computer vision engineer'
-    ]
-  },
-  {
-    name: 'ai-product-delivery',
-    label: 'AI product and release systems',
-    tags: ['automation', 'release-engineering', 'open-source', 'codex', 'ai-product'],
-    queryIntents: [
-      'AI product engineer review gates portfolio',
-      'ClawHub Chrome extension launch automation',
-      'human reviewed AI automation case studies'
-    ]
-  },
-  {
-    name: 'ai-visibility-aeo',
-    label: 'AI visibility and answer engine optimization',
-    tags: ['seo', 'geo', 'ai-visibility', 'open-source', 'automation'],
-    queryIntents: [
-      'answer engine optimization engineer portfolio',
-      'AI visibility llms.txt JSON-LD agent discovery',
-      'SEO GEO bridge for Telegram mini apps'
-    ]
-  },
-  {
-    name: 'release-validation',
-    label: 'Release validation and marketplace metrics',
-    tags: ['release-engineering', 'analytics', 'open-source', 'browser-extension', 'codex'],
-    queryIntents: [
-      'public ClawHub skills downloads tracker',
-      'AI product release validation metrics',
-      'Chrome Web Store extension publisher analytics'
-    ]
-  },
-  {
-    name: 'telegram-and-extensions',
-    label: 'Telegram mini apps and Chrome extensions',
-    tags: ['telegram', 'browser-extension', 'mobile', 'web'],
-    queryIntents: [
-      'Telegram mini app AI engineer portfolio',
-      'Chrome extension AI product engineer',
-      'crawlable Telegram mini app SEO GEO bridge'
-    ]
-  }
-];
+const TOPICAL_CLUSTERS = FOCUS_AREAS.map((area) => ({
+  name: area.id,
+  label: area.name,
+  tags: area.tags
+}));
 
 const ASCII_REPLACEMENTS = new Map([
   ['–', ' - '],
@@ -421,7 +233,7 @@ const slugify = (value) => {
   return slug || 'project';
 };
 
-const projectHtmlUrlFromSlug = (slug) => `${SITE_BASE}/projects/${slug}/`;
+function projectHtmlUrlFromSlug(slug) { return `${SITE_BASE}/projects/${slug}/`; }
 const projectMarkdownUrlFromSlug = (slug) => `${SITE_BASE}/projects/${slug}.md`;
 const projectSearchUrl = (project) => project.htmlUrl || project.markdownUrl;
 const projectReferenceUrl = (project) => project.markdownUrl || project.htmlUrl;
@@ -1024,7 +836,10 @@ const buildProjectHtml = (project) => {
   const visualImage = getProjectVisualImage(project);
   const socialImageType = getSocialImageType(socialImage);
   const isGeneratedSocialImage = Boolean(project.generatedSocialImage && socialImage === project.generatedSocialImage);
-  const imageAlt = toAscii(project.images?.[0]?.alt || `${title} project visual`);
+  const visualAsset = (project.images || []).find((image) => toPublicAssetUrl(image.url) === visualImage);
+  const imageAlt = toAscii(visualAsset?.alt || `${title} project visual`);
+  const isIllustration = visualImage === project.generatedSocialImage || /generated|conceptual|illustration|public-safe.*card/i.test(imageAlt);
+  const visualCaption = toAscii(visualAsset?.caption || (isIllustration ? 'System illustration' : ''));
   const socialImageMeta = socialImage
     ? [
         `    <meta property="og:image" content="${socialImage}" />`,
@@ -1084,7 +899,7 @@ const buildProjectHtml = (project) => {
           return `        <li><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}${context}</li>`;
         })
         .join('\n')
-    : '        <li>Public references and qualitative delivery signals are used where numeric benchmarks are not public.</li>';
+    : '';
   const linkList = links.length
     ? links
         .map((link) => `        <li><a href="${escapeHtml(link.url)}">${escapeHtml(link.text)}</a></li>`)
@@ -1123,6 +938,8 @@ ${JSON.stringify(jsonLd, null, 6)}
       h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
       .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
       .visual { width: 100%; max-height: 460px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
+      figure { margin: 0; }
+      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
       section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
       h2 { margin: 0 0 14px; font-size: 1.35rem; }
       ul { margin: 0; padding-left: 1.2rem; }
@@ -1141,7 +958,7 @@ ${JSON.stringify(jsonLd, null, 6)}
           <p class="eyebrow">${escapeHtml(project.projectKind || 'Portfolio case study')}</p>
           <h1>${escapeHtml(title)}</h1>
           <p class="lede">${escapeHtml(description)}</p>
-          ${visualImage ? `<img class="visual" src="${visualImage}" alt="${escapeHtml(imageAlt)}" loading="eager" />` : ''}
+          ${visualImage ? `<figure><img class="visual" src="${visualImage}" alt="${escapeHtml(imageAlt)}" loading="eager" />${visualCaption ? `<figcaption>${escapeHtml(visualCaption)}</figcaption>` : ''}</figure>` : ''}
         </header>
         <section>
           <h2>Overview</h2>
@@ -1159,20 +976,20 @@ ${featureList}
 ${techList}
           </ul>
         </section>
-        <section>
+        ${benchmarks.length ? `<section>
           <h2>Public Signals</h2>
           <ul>
 ${benchmarkList}
           </ul>
-        </section>
+        </section>` : ''}
         <section>
           <h2>References</h2>
           <ul>
 ${linkList}
-            <li><a href="${markdownUrl}">Machine-readable Markdown case study</a></li>
+            <li><a href="${markdownUrl}">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer">This case-study page is generated from the public portfolio dataset and exists as the search-facing canonical URL for ${escapeHtml(title)}.</p>
+        <p class="footer"><a href="${SITE_BASE}/">More selected work</a> · <a href="${RESUME_URL}">Download resume</a></p>
       </article>
     </main>
   </body>
@@ -1180,9 +997,9 @@ ${linkList}
 `;
 };
 
-const formatServiceSignalLine = (signal) => {
-  const canonicalLinks = signal.canonicalUrls.map((url) => url).join(', ');
-  return `- ${signal.name}: ${signal.description} Query intents: ${signal.queryIntents.join('; ')} References: ${signal.references.join('; ')} Canonical URLs: ${canonicalLinks}`;
+const formatFocusAreaLine = (area) => {
+  const examples = area.canonicalUrls.map((url, index) => `[${area.references[index]}](${url})`).join(', ');
+  return `- **${area.name}:** ${area.description} Examples: ${examples}.`;
 };
 
 const formatBenchmarkLine = (benchmark) => {
@@ -1223,235 +1040,68 @@ const pickClusterProjects = (projects, cluster, limit = 6) => {
 };
 
 const buildStaticHomeSnapshot = (projects, topProjects) => {
-  const answerTargets = buildAnswerTargets(projects);
-  const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
-  const machineFiles = [
-    {
-      title: 'llms.txt',
-      url: `${SITE_BASE}/llms.txt`,
-      description: 'Compact crawler summary with direct portfolio discovery links.'
-    },
-    {
-      title: 'llms-full.txt',
-      url: `${SITE_BASE}/llms-full.txt`,
-      description: 'Expanded memory file with project-by-project details.'
-    },
-    {
-      title: 'agent-context.md',
-      url: `${SITE_BASE}/agent-context.md`,
-      description: 'Fast facts, contact routes, and top project pointers.'
-    },
-    {
-      title: 'agent-discovery.json',
-      url: DISCOVERY_FILE_URL,
-      description: 'Structured manifest for agents, answer engines, and programmatic portfolio routing.'
-    },
-    {
-      title: 'schema.jsonld',
-      url: `${SITE_BASE}/schema.jsonld`,
-      description: 'Structured data graph for the author, site, and project list.'
-    },
-    {
-      title: 'chrome-extension-stats.json',
-      url: `${SITE_BASE}/docs/chrome-extension-stats.json`,
-      description: 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'
-    },
-    {
-      title: 'ML Papers, Read for Builders',
-      url: PAPER_REVIEWS_URL,
-      description: `${formatPaperReviewSummary()} Human-readable research digest page.`
-    },
-    {
-      title: 'paper-reviews.json',
-      url: PAPER_REVIEWS_DATA_URL,
-      description: 'Machine-readable ML paper review feed with latest review titles, arXiv IDs, tags, and source ledgers.'
-    },
-    {
-      title: 'geo.txt',
-      url: `${SITE_BASE}/geo.txt`,
-      description: 'Project index tuned for GEO-style retrieval.'
-    },
-    {
-      title: 'sitemap.xml',
-      url: `${SITE_BASE}/sitemap.xml`,
-      description: 'XML sitemap for human-facing portfolio pages. Machine-readable files stay linked from the home page, llms.txt, and agent-discovery.json.'
-    },
-    {
-      title: 'Resume PDF',
-      url: RESUME_URL,
-      description: 'ATS-readable ML, computer vision, and AI products resume.'
-    }
-  ];
-
   const featuredMarkup = topProjects.map((project) => {
     const title = escapeHtml(toAscii(project.title));
     const description = escapeHtml(toAscii(project.description || project.longDescription || 'Project summary.'));
-    const referenceLine = escapeHtml(buildProjectReferenceLine(project));
-    const links = (project.links || [])
-      .slice(0, 2)
-      .map((link) => `<a href="${link.url}">${escapeHtml(toAscii(link.text))}</a>`)
-      .join(' | ');
-
+    const links = (project.links || []).slice(0, 2)
+      .map((link) => `<a href="${link.url}">${escapeHtml(toAscii(link.text))}</a>`).join(' · ');
     return [
       '      <article class="crawlable-shell__card">',
       `        <h3><a href="${projectSearchUrl(project)}">${title}</a></h3>`,
       `        <p>${description}</p>`,
-      referenceLine ? `        <p><strong>References:</strong> ${referenceLine}</p>` : '',
-      links ? `        <p><strong>External links:</strong> ${links}</p>` : '',
+      links ? `        <p>${links}</p>` : '',
       '      </article>'
-    ]
-      .filter(Boolean)
-      .join('\n');
+    ].filter(Boolean).join('\n');
   });
-
-  const archiveMarkup = projects.map((project) => {
-    const title = escapeHtml(toAscii(project.title));
-    const description = escapeHtml(toAscii(project.description || project.longDescription || 'Project summary.'));
-    return `          <li><a href="${projectSearchUrl(project)}">${title}</a>: ${description}</li>`;
-  });
-
-  const fileMarkup = machineFiles.map((file) => {
-    return `          <li><a href="${file.url}">${escapeHtml(file.title)}</a>: ${escapeHtml(file.description)}</li>`;
-  });
-
-  const answerTargetMarkup = answerTargets.map((target) => {
-    return [
-      '      <div>',
-      `        <dt>${escapeHtml(target.question)}</dt>`,
-      `        <dd>${escapeHtml(target.answer)} <a href="${target.cite}">Canonical citation</a>.</dd>`,
-      '      </div>'
-    ].join('\n');
-  });
-
-  const serviceSignalMarkup = buildServiceSignals().map((signal) => {
-    const intents = signal.queryIntents.map((intent) => escapeHtml(intent)).join('; ');
-    const references = signal.references.map((item) => escapeHtml(item)).join('; ');
-    const canonicalLinks = signal.canonicalUrls
-      .map((url) => `<a href="${url}">${escapeHtml(url.replace(`${SITE_BASE}/`, ''))}</a>`)
-      .join(', ');
-    return [
-      '      <article class="crawlable-shell__card">',
-      `        <h3>${escapeHtml(signal.name)}</h3>`,
-      `        <p>${escapeHtml(signal.description)}</p>`,
-      `        <p><strong>Best queries:</strong> ${intents}</p>`,
-      `        <p><strong>References:</strong> ${references}</p>`,
-      canonicalLinks ? `        <p><strong>Canonical examples:</strong> ${canonicalLinks}</p>` : '',
-      '      </article>'
-    ]
-      .filter(Boolean)
-      .join('\n');
-  });
-
-  const clusterMarkup = TOPICAL_CLUSTERS.map((cluster) => {
-    const clusterProjects = pickClusterProjects(projects, cluster, 5);
-    const projectLinks = clusterProjects
-      .map((project) => `<a href="${projectSearchUrl(project)}">${escapeHtml(toAscii(project.title))}</a>`)
-      .join(', ');
-    const intents = cluster.queryIntents.map((intent) => escapeHtml(intent)).join('; ');
-    return [
-      '      <article class="crawlable-shell__card">',
-      `        <h3>${escapeHtml(cluster.label)}</h3>`,
-      `        <p><strong>Query intents:</strong> ${intents}</p>`,
-      projectLinks ? `        <p><strong>Canonical examples:</strong> ${projectLinks}</p>` : '',
-      '      </article>'
-    ]
-      .filter(Boolean)
-      .join('\n');
-  });
-
+  const focusMarkup = FOCUS_AREAS.map((area) => [
+    `      <article id="${area.id}" class="crawlable-shell__card">`,
+    `        <h3>${escapeHtml(area.name)}</h3>`,
+    `        <p>${escapeHtml(area.description)}</p>`,
+    '      </article>'
+  ].join('\n'));
+  const archiveMarkup = projects.map((project) =>
+    `      <li><a href="${projectSearchUrl(project)}">${escapeHtml(toAscii(project.title))}</a>: ${escapeHtml(toAscii(project.description || 'Project summary.'))}</li>`
+  );
   return [
-    '<main class="crawlable-shell" aria-label="Static portfolio summary for crawlers and clients without JavaScript">',
+    '<main class="crawlable-shell" aria-label="Portfolio">',
     `  <p class="crawlable-shell__eyebrow">${escapeHtml(AUTHOR_TITLE)}</p>`,
-    '  <h1>Zakhar Pashkin is a computer vision and AI product engineer.</h1>',
-    `  <p class="crawlable-shell__lede">${escapeHtml(
-      `${PORTFOLIO_TAGLINE} This summary is embedded directly in the HTML so Gemini, ChatGPT, and other crawlers can read the portfolio without waiting for the React app to render.`
-    )}</p>`,
+    '  <h1>Zakhar Pashkin</h1>',
+    `  <p class="crawlable-shell__lede">${escapeHtml(PORTFOLIO_TAGLINE)}</p>`,
+    `  <p>${escapeHtml(AUTHOR_DESCRIPTION)}</p>`,
     '  <div class="crawlable-shell__actions">',
-    `    <a href="${SITE_BASE}/llms.txt">Read llms.txt</a>`,
-    `    <a href="${SITE_BASE}/llms-full.txt">Read llms-full.txt</a>`,
-    `    <a href="${SITE_BASE}/agent-context.md">Read agent context</a>`,
     `    <a href="${RESUME_URL}">Download resume PDF</a>`,
+    `    <a href="${RESUME_HTML_URL}">Read resume</a>`,
     `    <a href="mailto:${CONTACT_EMAIL}">Email Zakhar</a>`,
+    '    <a href="https://github.com/zack-dev-cm">GitHub</a>',
+    `    <a href="${LINKEDIN_URL}">LinkedIn</a>`,
     '  </div>',
-    '  <ul class="crawlable-shell__stats" aria-label="Portfolio quick stats">',
-    `    <li><strong>${projects.length}</strong><span>public case studies</span></li>`,
-    '    <li><strong>7+</strong><span>years shipping AI / CV systems</span></li>',
-    `    <li><strong>${benchmarkedCount}</strong><span>projects with explicit benchmarks</span></li>`,
-    `    <li><strong>${formatInteger(tractionSnapshot.totalDownloads)}</strong><span>tracked ClawHub downloads</span></li>`,
-    `    <li><strong>${tractionSnapshot.packageCount}</strong><span>public ClawHub skills tracked</span></li>`,
-    `    <li><strong>${topProjects.length}</strong><span>featured case studies linked below</span></li>`,
-    '  </ul>',
-    '  <section id="crawlable-summary" class="crawlable-shell__section">',
-    '    <h2>Quick summary for AI scanners</h2>',
-    '    <dl class="crawlable-shell__fact-grid">',
-    '      <div>',
-    '        <dt>What Zakhar does</dt>',
-    `        <dd>${escapeHtml(AUTHOR_DESCRIPTION)}</dd>`,
-    '      </div>',
-    '      <div>',
-    '        <dt>Best fit</dt>',
-    `        <dd>${escapeHtml(
-          'Teams that need automation with human review, production computer vision, or launch-ready AI product delivery across web, mobile, and cloud.'
-        )}</dd>`,
-    '      </div>',
-    '      <div>',
-    '        <dt>Primary stack</dt>',
-    `        <dd>${escapeHtml(PRIMARY_STACK_LINE)}</dd>`,
-    '      </div>',
-    '      <div>',
-    '        <dt>Read first</dt>',
-    `        <dd><a href="${SITE_BASE}/llms.txt">llms.txt</a> is the compact index; <a href="${SITE_BASE}/llms-full.txt">llms-full.txt</a> is the expanded memory file.</dd>`,
-    '      </div>',
-    '    </dl>',
-    '  </section>',
-    '  <section id="crawlable-service-signals" class="crawlable-shell__section">',
-    '    <h2>High-intent service signals</h2>',
-    '    <div class="crawlable-shell__cards">',
-    ...serviceSignalMarkup,
-    '    </div>',
-    '  </section>',
-    '  <section id="crawlable-answer-targets" class="crawlable-shell__section">',
-    '    <h2>Answer targets for search and AI agents</h2>',
-    '    <dl class="crawlable-shell__fact-grid">',
-    ...answerTargetMarkup,
-    '    </dl>',
-    '  </section>',
-    '  <section id="crawlable-topic-clusters" class="crawlable-shell__section">',
-    '    <h2>Topical clusters</h2>',
-    '    <div class="crawlable-shell__cards">',
-    ...clusterMarkup,
-    '    </div>',
-    '  </section>',
-    '  <section id="crawlable-featured" class="crawlable-shell__section">',
-    '    <h2>Featured case studies</h2>',
+    '  <section id="featured" class="crawlable-shell__section">',
+    '    <h2>Selected work</h2>',
     '    <div class="crawlable-shell__cards">',
     ...featuredMarkup,
     '    </div>',
     '  </section>',
-    '  <section id="crawlable-files" class="crawlable-shell__section">',
-    '    <h2>Machine-readable portfolio files</h2>',
-    '    <ul class="crawlable-shell__files">',
-    ...fileMarkup,
+    '  <section id="about" class="crawlable-shell__section">',
+    '    <h2>Research depth. Engineering follow-through.</h2>',
+    '    <div class="crawlable-shell__cards">',
+    ...focusMarkup,
+    '    </div>',
+    `    <p>${escapeHtml(PRIMARY_STACK_LINE)}</p>`,
+    '  </section>',
+    '  <section id="projects" class="crawlable-shell__section">',
+    '    <h2>Project archive</h2>',
+    '    <ul class="crawlable-shell__link-list">',
+    ...archiveMarkup,
     '    </ul>',
     '  </section>',
-    '  <section id="crawlable-archive" class="crawlable-shell__section">',
-    '    <h2>Project archive</h2>',
-    '    <div class="crawlable-shell__archive">',
-    '      <ul class="crawlable-shell__link-list">',
-    ...archiveMarkup,
-    '      </ul>',
-    '    </div>',
-    '  </section>',
-    '  <section id="crawlable-contact" class="crawlable-shell__section">',
-    '    <h2>Contact and profiles</h2>',
+    '  <section id="contact" class="crawlable-shell__section">',
+    '    <h2>Contact and further reading</h2>',
     '    <ul class="crawlable-shell__contact">',
     `      <li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>`,
     `      <li><a href="${RESUME_URL}">Resume PDF</a></li>`,
-    '      <li><a href="https://github.com/zack-dev-cm">GitHub primary profile</a></li>',
-    '      <li><a href="https://github.com/ZackPashkin">GitHub secondary profile</a></li>',
     `      <li><a href="${LINKEDIN_URL}">LinkedIn</a></li>`,
-    `      <li><a href="${X_URL}">X</a></li>`,
-    '      <li><a href="https://t.me/rheuiii">Telegram</a></li>',
+    `      <li><a href="${PAPER_REVIEWS_URL}">Research notes</a></li>`,
+    `      <li><a href="${SITE_BASE}/llms.txt">Text portfolio summary</a></li>`,
     '    </ul>',
     '  </section>',
     '</main>'
@@ -1480,14 +1130,13 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent, proje
     .join('\n');
   const schemaBlock = `    <script type="application/ld+json">\n${inlineSchema}\n    </script>`;
   const tractionLabel = `${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads`;
-  const metaDescription =
-    'Zakhar Pashkin builds production computer vision and AI systems: OCR, segmentation, multimodal retrieval, model APIs, VLM/LLM workflows, and case studies.';
-  const aiSummary =
-    `Zakhar Pashkin is a senior computer vision and AI product engineer with ${projectCount} public case studies, production OCR/segmentation/detection, custom models, VLM/LLM workflows, release gates, ${tractionLabel}, and machine-readable AEO context files.`;
+  const metaDescription = SOCIAL_DESCRIPTION;
+  const aiSummary = AUTHOR_DESCRIPTION;
   const updated = template
     .replace(snapshotPattern, snapshotBlock)
     .replace(schemaPattern, schemaBlock)
     .replace(/<title>[^<]*<\/title>/, `<title>${SITE_TITLE}</title>`)
+    .replace(/<meta name="theme-color" content="[^"]*" \/>/, '<meta name="theme-color" content="#090c10" />')
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${metaDescription}" />`)
     .replace(/\n\s*<meta name="keywords" content="[^"]*" \/>/, '')
     .replace(/<meta name="ai-summary" content="[^"]*" \/>/, `<meta name="ai-summary" content="${aiSummary}" />`)
@@ -1509,103 +1158,49 @@ const updateIndexHtml = async (staticSnapshot, today, schemaJsonldContent, proje
 const updateMetadataJson = async (projectCount) => {
   const existing = JSON.parse(await fs.readFile(METADATA_PATH, 'utf8'));
   const description =
-    `Production computer vision and AI portfolio: OCR, segmentation, detection, multimodal retrieval, model APIs, VLM/LLM workflows, AEO context files, ${projectCount} public case studies, and ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads.`;
+    SOCIAL_DESCRIPTION;
   const updated = {
     ...existing,
-    name: `${AUTHOR_NAME} | Computer Vision and AI Product Engineer`,
+    name: SITE_TITLE,
     description
   };
   await fs.writeFile(METADATA_PATH, `${JSON.stringify(updated, null, 2)}\n`, 'utf8');
 };
 
-const buildLlms = (projects, topProjects) => {
-  const answerTargets = buildAnswerTargets(projects);
-  const benchmarkedCount = projects.filter((project) => (project.benchmarks || []).length > 0).length;
-  const lines = [
-    `# ${SITE_NAME}`,
-    '',
-    `> ${AUTHOR_DESCRIPTION}`,
-    '',
-    `Entity: ${AUTHOR_NAME}`,
-    `Role: ${AUTHOR_TITLE}`,
-    `Primary URL: ${SITE_BASE}/`,
-    `Contact: mailto:${CONTACT_EMAIL}`,
-    `Last updated: ${new Date().toISOString().split('T')[0]}`,
-    `Entity keywords: ${KNOWS_ABOUT.join(', ')}`,
-    '',
-    'Focus areas include Python, PyTorch, OpenAI APIs, VLM/LLM systems, OpenCV, OCR, segmentation, detection, FastAPI services, review gates, product launch workflows, and MLOps delivery on GCP/AWS.',
-    '',
-    '## Quick Answers',
-    `- Who is Zakhar Pashkin? ${AUTHOR_DESCRIPTION}`,
-    '- What does he ship? Production computer vision, custom models, AI systems with human review, VLM/LLM workflows, agentic product automation, and AI visibility/AEO context files.',
-    '- Best fit: teams that need CV or AI product delivery tied to public references, release gates, crawler-readable context, and measurable marketplace listing metrics.',
-    `- How many public references are here? ${projects.length} public case studies, with ${benchmarkedCount} projects carrying explicit benchmarks or analytics.`,
-    `- Public listing metrics: ${formatInteger(tractionSnapshot.totalDownloads)} tracked ClawHub downloads across ${tractionSnapshot.packageCount} public skills as of ${tractionSnapshot.checkedAt}.`,
-    `- Research review feed: ${formatPaperReviewSummary()} Machine feed: ${PAPER_REVIEWS_DATA_URL}.`,
-    '- Recommended reading order for agents: agent-discovery.json, llms.txt, llms-full.txt, geo.txt, project HTML pages for search-facing summaries, then project Markdown pages for agent-readable detail.',
-    '- Public reference policy: cite only URLs listed in this file, project HTML pages, project Markdown alternates, schema.jsonld, and agent-discovery.json.',
-    '',
-    '## High-Intent Service Signals',
-    ...buildServiceSignals().map(formatServiceSignalLine),
-    '',
-    '## Answer Targets',
-    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
-    '',
-    '## Topical Query Clusters',
-    ...TOPICAL_CLUSTERS.flatMap((cluster) => [
-      `### ${cluster.label}`,
-      `- Tags: ${cluster.tags.join(', ')}`,
-      `- Query intents: ${cluster.queryIntents.join('; ')}`
-    ]),
-    '',
-    '## AI Memory Files',
-    formatLinkLine('agent-discovery.json', DISCOVERY_FILE_URL, 'Structured manifest for agents, answer engines, and programmatic portfolio routing.'),
-    formatLinkLine('llms-full.txt', `${SITE_BASE}/llms-full.txt`, 'Full portfolio memory file with all project details.'),
-    formatLinkLine('agent-context.md', `${SITE_BASE}/agent-context.md`, 'Quick facts, contact info, and key project highlights.'),
-    formatLinkLine('schema.jsonld', `${SITE_BASE}/schema.jsonld`, 'JSON-LD graph for author, site, and project list.'),
-    formatLinkLine('chrome-extension-stats.json', `${SITE_BASE}/docs/chrome-extension-stats.json`, 'Dated Chrome Web Store detail-page snapshot for the public extension tracker.'),
-    formatLinkLine('ML Papers, Read for Builders', PAPER_REVIEWS_URL, formatPaperReviewSummary()),
-    formatLinkLine('paper-reviews.json', PAPER_REVIEWS_DATA_URL, 'Machine-readable ML paper review feed with arXiv IDs, tags, production tests, skepticism, and source ledgers.'),
-    formatLinkLine('geo.txt', `${SITE_BASE}/geo.txt`, 'GEO index of projects with short descriptions.'),
-    formatLinkLine('sitemap.xml', `${SITE_BASE}/sitemap.xml`, 'XML sitemap for human-facing portfolio pages. Project and machine files remain available through llms.txt, geo.txt, and agent-discovery.json.'),
-    formatLinkLine('Resume PDF', RESUME_URL, 'ATS-readable ML, computer vision, and AI products resume.'),
-    '',
-    '## Top 5 Projects',
-    ...topProjects.map(formatTopProjectLine),
-    '',
-    '## Projects (Markdown)',
-    ...projects.map((project) =>
-      formatLinkLine(project.title, projectSearchUrl(project), project.description || project.longDescription || 'Project detail page.')
-    ),
-    '',
-    '## Core Pages',
-    formatLinkLine('Home', `${SITE_BASE}/`, 'Overview of the portfolio, highlights, and navigation.'),
-    formatLinkLine('About', `${SITE_BASE}/#about`, 'Bio and positioning.'),
-    formatLinkLine('Tech Stack', `${SITE_BASE}/#stack`, 'Tools and frameworks used across projects.'),
-    formatLinkLine('Projects', `${SITE_BASE}/#projects`, 'Project cards with descriptions and tech stacks.'),
-    '',
-    '## Latest Updates',
-    formatLinkLine('Latest', `${SITE_BASE}/#latest`, 'Recently shipped work and updates.'),
-    '',
-    '## Contact',
-    formatLinkLine('Contact', `${SITE_BASE}/#contact`, 'Email and social links.'),
-    '',
-    '## Profiles',
-    formatLinkLine('GitHub', 'https://github.com/zack-dev-cm', 'Primary repositories and open-source work.'),
-    formatLinkLine('GitHub (Alt)', 'https://github.com/ZackPashkin', 'Secondary repositories.'),
-    formatLinkLine('LinkedIn', LINKEDIN_URL, 'Professional profile and experience.'),
-    formatLinkLine('X', X_URL, 'Public updates and short notes.'),
-    '',
-    '## Optional',
-    formatLinkLine('Telegram', 'https://t.me/rheuiii', 'Fast contact channel.'),
-    ''
-  ];
-
-  return lines.join('\n');
-};
+const buildLlms = (projects, topProjects) => [
+  `# ${SITE_NAME}`,
+  '',
+  `> ${AUTHOR_DESCRIPTION}`,
+  '',
+  `Role: ${AUTHOR_TITLE}`,
+  `Portfolio: ${SITE_BASE}/`,
+  `Updated: ${new Date().toISOString().split('T')[0]}`,
+  '',
+  '## Selected projects',
+  ...topProjects.map(formatTopProjectLine),
+  '',
+  '## Focus',
+  ...FOCUS_AREAS.map(formatFocusAreaLine),
+  '',
+  '## Resume and contact',
+  formatLinkLine('Resume PDF', RESUME_URL, 'Current Senior ML Engineer resume.'),
+  formatLinkLine('Resume HTML', RESUME_HTML_URL, 'Readable experience and project summary.'),
+  formatLinkLine('Email', `mailto:${CONTACT_EMAIL}`, 'Professional inquiries.'),
+  formatLinkLine('GitHub', 'https://github.com/zack-dev-cm', 'Public repositories and released tools.'),
+  formatLinkLine('LinkedIn', LINKEDIN_URL, 'Professional profile.'),
+  '',
+  '## More project context',
+  formatLinkLine('Project archive', `${SITE_BASE}/#projects`, 'Browse the broader body of work.'),
+  formatLinkLine('Full project text', `${SITE_BASE}/llms-full.txt`, 'Descriptions, implementation context and proof links for the project archive.'),
+  formatLinkLine('Project index', `${SITE_BASE}/geo.txt`, 'A text index of canonical case-study pages.'),
+  formatLinkLine('Research notes', PAPER_REVIEWS_URL, 'Applied ML paper reviews with source links.'),
+  formatLinkLine('Project data', DISCOVERY_FILE_URL, 'Structured project descriptions and public links.'),
+  '',
+  'Use the linked case studies for project scope and status. Product and package links show released work; prototype and R&D work should retain those descriptions.',
+  ''
+].join('\n');
 
 const buildGeo = (projects) => {
-  const answerTargets = buildAnswerTargets(projects);
   const formatBenchmarksInline = (benchmarks) => {
     return (benchmarks || [])
       .map((item) => {
@@ -1624,27 +1219,16 @@ const buildGeo = (projects) => {
     return `${normalizedBase}. Benchmarks: ${benchmarkLine}.`;
   };
   const lines = [
-    '# GEO - Zakhar Pashkin AI and Computer Vision Project Index',
+    '# Zakhar Pashkin - Project Index',
     '',
     `Entity: ${AUTHOR_NAME}`,
     `Role: ${AUTHOR_TITLE}`,
     `Primary URL: ${SITE_BASE}/`,
     `Contact: mailto:${CONTACT_EMAIL}`,
-    `Entity keywords: ${KNOWS_ABOUT.join(', ')}`,
+    `Topics: ${KNOWS_ABOUT.join(', ')}`,
     '',
-    '## Canonical Answer Targets',
-    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Cite: ${target.cite}`),
+    `Summary: ${AUTHOR_DESCRIPTION}`,
     '',
-    '## High-Intent Service Signals',
-    ...buildServiceSignals().map(formatServiceSignalLine),
-    '',
-    '## Topic Clusters',
-    ...TOPICAL_CLUSTERS.flatMap((cluster) => [
-      `### ${cluster.label}`,
-      `Query intents: ${cluster.queryIntents.join('; ')}`,
-      `Canonical project pages: ${pickClusterProjects(projects, cluster, 6).map(projectSearchUrl).join(', ')}`,
-      ''
-    ]),
     '## Projects',
     ...projects.map((project) =>
       formatLinkLine(
@@ -1660,38 +1244,18 @@ const buildGeo = (projects) => {
 };
 
 const buildLlmsFull = (projects, topProjects) => {
-  const answerTargets = buildAnswerTargets(projects);
   const lines = [
-    '# Zakhar Pashkin - ML, Computer Vision, and AI Products Portfolio Memory File',
+    '# Zakhar Pashkin - Applied Machine Learning Project Details',
     '',
     `Summary: ${AUTHOR_DESCRIPTION}`,
     `Role: ${AUTHOR_TITLE}`,
     `Primary URL: ${SITE_BASE}/`,
     `Contact: mailto:${CONTACT_EMAIL}`,
     `Agent discovery manifest: ${DISCOVERY_FILE_URL}`,
-    `Entity keywords: ${KNOWS_ABOUT.join(', ')}`,
+    `Topics: ${KNOWS_ABOUT.join(', ')}`,
     '',
-    '## Focus Areas',
-    '- Python, PyTorch, OpenCV, TensorFlow, ONNX, TFLite, CoreML',
-    '- Computer vision, OCR, segmentation, detection, landmarking, multimodal systems',
-    '- FastAPI services, review gates, benchmark dashboards, MLOps',
-    '- React, TypeScript, Cloud Run, Docker, Kubernetes, GCP/AWS',
-    '- Answer engine optimization, llms.txt, geo.txt, agent discovery manifests, schema.org JSON-LD, and crawlable static snapshots',
-    '',
-    '## High-Intent Service Signals',
-    ...buildServiceSignals().map(formatServiceSignalLine),
-    '',
-    '## Canonical Answer Targets',
-    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
-    '',
-    '## Topic Clusters for Retrieval',
-    ...TOPICAL_CLUSTERS.flatMap((cluster) => [
-      `### ${cluster.label}`,
-      `Tags: ${cluster.tags.join(', ')}`,
-      `Query intents: ${cluster.queryIntents.join('; ')}`,
-      `Canonical examples: ${pickClusterProjects(projects, cluster, 6).map((project) => `${project.title} (${projectSearchUrl(project)})`).join('; ')}`,
-      ''
-    ]),
+    '## Focus',
+    ...FOCUS_AREAS.map(formatFocusAreaLine),
     '',
     '## Research Review Feed',
     `${formatPaperReviewSummary()} Human page: ${PAPER_REVIEWS_URL}. Machine feed: ${PAPER_REVIEWS_DATA_URL}.`,
@@ -1702,7 +1266,7 @@ const buildLlmsFull = (projects, topProjects) => {
       return `- ${review.title}.${arxiv}${tags} Source: ${url}`;
     }),
     '',
-    '## Top 5 Projects',
+    '## Selected projects',
     ...topProjects.map(formatTopProjectLine),
     '',
     '## Projects (Full Details)',
@@ -1754,66 +1318,33 @@ const buildLlmsFull = (projects, topProjects) => {
   return lines.join('\n');
 };
 
-const buildAgentContext = (projects, topProjects) => {
-  const answerTargets = buildAnswerTargets(projects);
-  const lines = [
-    '# Agent Context - Zakhar Pashkin Portfolio',
-    '',
-    `Summary: ${AUTHOR_DESCRIPTION}`,
-    `Primary URL: ${SITE_BASE}/`,
-    `Contact: mailto:${CONTACT_EMAIL}`,
-    '',
-    '## Identity',
-    `Name: ${AUTHOR_NAME}`,
-    `Role: ${AUTHOR_TITLE}`,
-    `Entity keywords: ${KNOWS_ABOUT.join(', ')}`,
-    '',
-    '## Key Files',
-    `- ${DISCOVERY_FILE_URL}`,
-    `- ${SITE_BASE}/llms.txt`,
-    `- ${SITE_BASE}/llms-full.txt`,
-    `- ${SITE_BASE}/sitemap.xml`,
-    `- ${SITE_BASE}/geo.txt`,
-    `- ${SITE_BASE}/schema.jsonld`,
-    `- ${PAPER_REVIEWS_URL}`,
-    `- ${PAPER_REVIEWS_DATA_URL}`,
-    `- ${SITE_BASE}/docs/chrome-extension-stats.json`,
-    `- ${RESUME_URL}`,
-    '',
-    '## Suggested Public Reading Order',
-    '- agent-discovery.json is the structured routing manifest.',
-    '- llms.txt is the compact orientation pass.',
-    '- llms-full.txt is the expanded memory pass.',
-    '- geo.txt is optimized for retrieval-style project summaries.',
-    '- The ML Papers, Read for Builders page is the human-readable research review feed.',
-    '- paper-reviews.json is the machine-readable paper review feed with arXiv IDs, tags, and source ledgers.',
-    '- Project HTML pages are the canonical detail pages for searchers; Markdown alternates remain available for agents.',
-    '- The home page is the human-readable overview and contact route.',
-    '',
-    '## High-Intent Service Signals',
-    ...buildServiceSignals().map(formatServiceSignalLine),
-    '',
-    '## Answer Contract',
-    ...answerTargets.map((target) => `- ${target.question} ${target.answer} Citation: ${target.cite}`),
-    '',
-    '## Query Clusters',
-    ...TOPICAL_CLUSTERS.flatMap((cluster) => [
-      `### ${cluster.label}`,
-      `- Tags: ${cluster.tags.join(', ')}`,
-      `- Query intents: ${cluster.queryIntents.join('; ')}`
-    ]),
-    '',
-    '## Top Projects',
-    ...topProjects.map(formatTopProjectLine),
-    ''
-  ];
-
-  return lines.join('\n');
-};
+const buildAgentContext = (projects, topProjects) => [
+  '# Zakhar Pashkin - Portfolio Context',
+  '',
+  AUTHOR_DESCRIPTION,
+  '',
+  `Role: ${AUTHOR_TITLE}`,
+  `Portfolio: ${SITE_BASE}/`,
+  `Contact: mailto:${CONTACT_EMAIL}`,
+  '',
+  '## Focus',
+  ...FOCUS_AREAS.map(formatFocusAreaLine),
+  '',
+  '## Selected projects',
+  ...topProjects.map(formatTopProjectLine),
+  '',
+  '## Further reading',
+  formatLinkLine('Resume PDF', RESUME_URL, 'Current resume.'),
+  formatLinkLine('Resume HTML', RESUME_HTML_URL, 'Experience and project summary.'),
+  formatLinkLine('Project data', DISCOVERY_FILE_URL, 'Structured public project information.'),
+  formatLinkLine('Full project text', `${SITE_BASE}/llms-full.txt`, 'Project scope, implementation context and proof links.'),
+  formatLinkLine('Research notes', PAPER_REVIEWS_URL, 'Applied ML paper reviews.'),
+  '',
+  'For each project, use its canonical HTML page for the case study and its public links for product, package or repository evidence. Preserve the stated scope of R&D and prototype work.',
+  ''
+].join('\n');
 
 const buildAgentDiscovery = (projects, topProjects) => {
-  const answerTargets = buildAnswerTargets(projects);
-  const serviceSignals = buildServiceSignals();
   const today = new Date().toISOString().split('T')[0];
   const projectSummary = (project) => ({
     id: project.id,
@@ -1838,7 +1369,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
 
   return JSON.stringify(
     {
-      schemaVersion: '2026-05-15',
+      schemaVersion: '2026-09-05',
       generatedAt: today,
       entity: {
         name: AUTHOR_NAME,
@@ -1850,16 +1381,7 @@ const buildAgentDiscovery = (projects, topProjects) => {
         knowsAbout: KNOWS_ABOUT
       },
       discoveryPolicy: {
-        preferredCitationOrder: [
-          `${SITE_BASE}/`,
-          DISCOVERY_FILE_URL,
-          `${SITE_BASE}/llms.txt`,
-          `${SITE_BASE}/llms-full.txt`,
-          `${SITE_BASE}/geo.txt`,
-          `${SITE_BASE}/schema.jsonld`,
-          PAPER_REVIEWS_URL,
-          PAPER_REVIEWS_DATA_URL
-        ],
+        preferredCitationOrder: [`${SITE_BASE}/`, ...topProjects.map(projectSearchUrl), RESUME_HTML_URL, PAPER_REVIEWS_URL],
         projectCitationRule: 'Use the concrete project HTML URLs listed in allProjects and canonicalProjects. Use markdownUrl only when an agent needs a compact Markdown version.',
         publicReferencesOnly: true,
         note:
@@ -1869,18 +1391,17 @@ const buildAgentDiscovery = (projects, topProjects) => {
         { label: 'Agent discovery manifest', url: DISCOVERY_FILE_URL, mediaType: 'application/json' },
         { label: 'Portfolio home', url: `${SITE_BASE}/`, mediaType: 'text/html' },
         { label: 'LLM compact index', url: `${SITE_BASE}/llms.txt`, mediaType: 'text/plain' },
-        { label: 'LLM full memory', url: `${SITE_BASE}/llms-full.txt`, mediaType: 'text/plain' },
-        { label: 'GEO project index', url: `${SITE_BASE}/geo.txt`, mediaType: 'text/plain' },
+        { label: 'Full project text', url: `${SITE_BASE}/llms-full.txt`, mediaType: 'text/plain' },
+        { label: 'Project index', url: `${SITE_BASE}/geo.txt`, mediaType: 'text/plain' },
         { label: 'Agent context', url: `${SITE_BASE}/agent-context.md`, mediaType: 'text/markdown' },
         { label: 'Structured data graph', url: `${SITE_BASE}/schema.jsonld`, mediaType: 'application/ld+json' },
         { label: 'Sitemap', url: `${SITE_BASE}/sitemap.xml`, mediaType: 'application/xml' },
-        { label: 'Daily ML paper reviews', url: PAPER_REVIEWS_URL, mediaType: 'text/html' },
+        { label: 'ML paper reviews', url: PAPER_REVIEWS_URL, mediaType: 'text/html' },
         { label: 'Paper review data feed', url: PAPER_REVIEWS_DATA_URL, mediaType: 'application/json' },
         { label: 'Resume PDF', url: RESUME_URL, mediaType: 'application/pdf' },
-        { label: 'Senior CV resume PDF', url: SENIOR_CV_RESUME_URL, mediaType: 'application/pdf' }
+        { label: 'Resume HTML', url: RESUME_HTML_URL, mediaType: 'text/html' }
       ],
-      answerTargets,
-      serviceSignals,
+      focusAreas: FOCUS_AREAS,
       paperReviews: {
         title: paperReviewSnapshot.title,
         url: PAPER_REVIEWS_URL,
@@ -1889,34 +1410,6 @@ const buildAgentDiscovery = (projects, topProjects) => {
         updatedAt: paperReviewSnapshot.updatedAt,
         summary: formatPaperReviewSummary(),
         latest: paperReviewSnapshot.latest
-      },
-      answerEngineOptimization: {
-        targetQueries: [
-          'senior computer vision engineer for AI product delivery',
-          'answer engine optimization engineer with llms.txt JSON-LD references',
-          'AI product engineer with public release and marketplace validation',
-          'computer vision OCR segmentation detection portfolio',
-          'source-neutral English ML paper reviews for builders',
-          'JEPA physical AI paper reviews with source ledgers',
-          'computer vision VLM benchmark reviews for builders'
-        ],
-        entityDisambiguation: {
-          canonicalName: AUTHOR_NAME,
-          alternateNames: ['Zack Pashkin', 'zack-dev-cm', 'Zackdevcv'],
-          primaryRole: AUTHOR_TITLE,
-          primaryUrl: `${SITE_BASE}/`
-        },
-        citationTargets: [
-          `${SITE_BASE}/`,
-          DISCOVERY_FILE_URL,
-          `${SITE_BASE}/llms.txt`,
-          `${SITE_BASE}/llms-full.txt`,
-          `${SITE_BASE}/geo.txt`,
-          `${SITE_BASE}/schema.jsonld`,
-          PAPER_REVIEWS_URL,
-          PAPER_REVIEWS_DATA_URL,
-          projectHtmlUrlFromSlug('github-clawhub-downloads-tracker')
-        ]
       },
       topicalClusters: TOPICAL_CLUSTERS.map((cluster) => ({
         ...cluster,
@@ -1930,41 +1423,8 @@ const buildAgentDiscovery = (projects, topProjects) => {
   );
 };
 
-const buildSchemaJsonld = (projects) => {
-  const answerTargets = buildAnswerTargets(projects);
-  const serviceSignals = buildServiceSignals();
+const buildSchemaJsonld = (projects, topProjects) => {
   const today = new Date().toISOString().split('T')[0];
-  const serviceNodes = serviceSignals.map((signal) => ({
-    '@type': 'Service',
-    '@id': `${SITE_BASE}/#service-${signal.id}`,
-    name: signal.name,
-    serviceType: signal.name,
-    description: signal.description,
-    provider: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
-    areaServed: 'Worldwide',
-    audience: {
-      '@type': 'Audience',
-      audienceType: 'Founders, product teams, recruiters, and engineering teams evaluating AI delivery references'
-    },
-    keywords: signal.queryIntents.join(', '),
-    subjectOf: signal.canonicalUrls.map((url, index) => ({
-      '@type': 'CreativeWork',
-      name: signal.references[index] || signal.name,
-      url,
-      isAccessibleForFree: true
-    }))
-  }));
-  const serviceCatalog = {
-    '@type': 'OfferCatalog',
-    '@id': `${SITE_BASE}/#service-catalog`,
-    name: 'Zakhar Pashkin AI engineering service signals',
-    description: 'High-intent portfolio service signals for computer vision, AI product delivery, AI visibility/AEO, and release validation.',
-    itemListElement: serviceSignals.map((signal, index) => ({
-      '@type': 'Offer',
-      position: index + 1,
-      itemOffered: { '@id': `${SITE_BASE}/#service-${signal.id}` }
-    }))
-  };
   const graph = [
     {
       '@type': 'Person',
@@ -1972,6 +1432,7 @@ const buildSchemaJsonld = (projects) => {
       name: AUTHOR_NAME,
       alternateName: ['Zack Pashkin', 'zack-dev-cm', 'Zackdevcv'],
       jobTitle: AUTHOR_TITLE,
+      worksFor: { '@type': 'Organization', name: 'Riverstart' },
       url: `${SITE_BASE}/`,
       email: `mailto:${CONTACT_EMAIL}`,
       description: AUTHOR_DESCRIPTION,
@@ -1986,14 +1447,10 @@ const buildSchemaJsonld = (projects) => {
           availableLanguage: ['en', 'ru']
         }
       ],
-      makesOffer: serviceSignals.map((signal) => ({
-        '@type': 'Offer',
-        itemOffered: { '@id': `${SITE_BASE}/#service-${signal.id}` }
-      })),
       mainEntityOfPage: { '@id': `${SITE_BASE}/#webpage` },
       hasOccupation: {
         '@type': 'Occupation',
-        name: 'ML Engineer and Computer Vision Engineer',
+        name: 'Senior Machine Learning Engineer',
         skills: KNOWS_ABOUT.join(', ')
       }
     },
@@ -2003,7 +1460,7 @@ const buildSchemaJsonld = (projects) => {
       name: SITE_NAME,
       alternateName: `${AUTHOR_NAME} AI and Computer Vision Portfolio`,
       url: `${SITE_BASE}/`,
-      description: 'Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, public case studies, and release validation.',
+      description: SOCIAL_DESCRIPTION,
       inLanguage: 'en',
       keywords: KNOWS_ABOUT.join(', '),
       publisher: { '@id': `${SITE_BASE}/#zakhar-pashkin` }
@@ -2013,28 +1470,14 @@ const buildSchemaJsonld = (projects) => {
       '@id': `${SITE_BASE}/#webpage`,
       url: `${SITE_BASE}/`,
       name: SITE_TITLE,
-      description: 'Computer vision and AI product portfolio with OCR, segmentation, detection, multimodal search, VLM/LLM workflows, human-reviewed launches, and measurable delivery metrics.',
+      description: SOCIAL_DESCRIPTION,
       inLanguage: 'en',
       dateModified: today,
       isPartOf: { '@id': `${SITE_BASE}/#website` },
       about: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
       mainEntity: { '@id': `${SITE_BASE}/#zakhar-pashkin` },
-      mentions: serviceSignals.map((signal) => ({ '@id': `${SITE_BASE}/#service-${signal.id}` })),
       keywords: KNOWS_ABOUT.join(', '),
-      significantLink: [
-        DISCOVERY_FILE_URL,
-        `${SITE_BASE}/llms.txt`,
-        `${SITE_BASE}/llms-full.txt`,
-        `${SITE_BASE}/geo.txt`,
-        `${SITE_BASE}/schema.jsonld`,
-        PAPER_REVIEWS_URL,
-        PAPER_REVIEWS_DATA_URL,
-        projectHtmlUrlFromSlug('github-clawhub-downloads-tracker')
-      ],
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#crawlable-summary', '#crawlable-service-signals', '#crawlable-answer-targets']
-      },
+      significantLink: [RESUME_URL, RESUME_HTML_URL, ...topProjects.map(projectSearchUrl), PAPER_REVIEWS_URL],
       primaryImageOfPage: {
         '@type': 'ImageObject',
         url: SOCIAL_IMAGE_URL,
@@ -2042,8 +1485,6 @@ const buildSchemaJsonld = (projects) => {
       },
       breadcrumb: { '@id': `${SITE_BASE}/#breadcrumb` }
     },
-    serviceCatalog,
-    ...serviceNodes,
     {
       '@type': 'BreadcrumbList',
       '@id': `${SITE_BASE}/#breadcrumb`,
@@ -2053,64 +1494,6 @@ const buildSchemaJsonld = (projects) => {
           position: 1,
           name: 'Portfolio',
           item: `${SITE_BASE}/`
-        }
-      ]
-    },
-    {
-      '@type': 'FAQPage',
-      '@id': `${SITE_BASE}/#faq`,
-      mainEntity: answerTargets.map((target) => ({
-        '@type': 'Question',
-        name: target.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: target.answer,
-          citation: target.cite
-        }
-      }))
-    },
-    {
-      '@type': 'DataCatalog',
-      '@id': `${SITE_BASE}/#agent-discovery-catalog`,
-      name: 'Zakhar Pashkin agent discovery files',
-      description: 'Machine-readable portfolio entrypoints for search, GEO, answer engine optimization, AI visibility, and agent discovery.',
-      dataset: [
-        {
-          '@type': 'Dataset',
-          name: 'Agent discovery manifest',
-          url: DISCOVERY_FILE_URL,
-          encodingFormat: 'application/json'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'LLM compact index',
-          url: `${SITE_BASE}/llms.txt`,
-          encodingFormat: 'text/plain'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'LLM full memory file',
-          url: `${SITE_BASE}/llms-full.txt`,
-          encodingFormat: 'text/plain'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'GEO project index',
-          url: `${SITE_BASE}/geo.txt`,
-          encodingFormat: 'text/plain'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'Agent context',
-          url: `${SITE_BASE}/agent-context.md`,
-          encodingFormat: 'text/markdown'
-        },
-        {
-          '@type': 'Dataset',
-          name: 'ML paper review feed',
-          url: PAPER_REVIEWS_DATA_URL,
-          encodingFormat: 'application/json',
-          description: formatPaperReviewSummary()
         }
       ]
     },
@@ -2175,7 +1558,7 @@ const buildSitemap = (projects) => {
     { loc: `${SITE_BASE}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
     { loc: PAPER_REVIEWS_URL, lastmod: today, changefreq: 'daily', priority: '0.6' },
     { loc: RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
-    { loc: SENIOR_CV_RESUME_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
+    { loc: RESUME_HTML_URL, lastmod: today, changefreq: 'monthly', priority: '0.6' },
     ...projects.map((project) => ({
       loc: projectSearchUrl(project),
       lastmod: today,
@@ -2244,11 +1627,16 @@ const main = async () => {
     await fs.writeFile(outputPath, markdown, 'utf8');
     const htmlOutputDir = path.resolve(OUTPUT_DIR, slug);
     await fs.mkdir(htmlOutputDir, { recursive: true });
-    await fs.writeFile(path.resolve(htmlOutputDir, 'index.html'), buildProjectHtml(projectEntry), 'utf8');
+    await fs.writeFile(path.resolve(htmlOutputDir, 'index.html'), buildProjectHtml(projectEntry).replace(/[ \t]+$/gm, ''), 'utf8');
     for (const legacySlug of project.legacySlugs || []) {
       const aliasOutputPath = path.resolve(OUTPUT_DIR, `${legacySlug}.md`);
       const aliasMarkdown = buildAliasMarkdown(projectEntry, markdownUrl);
       await fs.writeFile(aliasOutputPath, aliasMarkdown, 'utf8');
+      const aliasHtmlDir = path.resolve(OUTPUT_DIR, legacySlug);
+      await fs.mkdir(aliasHtmlDir, { recursive: true });
+      const canonicalUrl = projectSearchUrl(projectEntry);
+      const aliasHtml = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(projectEntry.title)}</title><link rel="canonical" href="${canonicalUrl}"><meta http-equiv="refresh" content="0;url=${canonicalUrl}"></head><body><p><a href="${canonicalUrl}">Continue to ${escapeHtml(projectEntry.title)}</a></p></body></html>`;
+      await fs.writeFile(path.resolve(aliasHtmlDir, 'index.html'), aliasHtml, 'utf8');
     }
     projectEntries.push(projectEntry);
   }
@@ -2260,11 +1648,12 @@ const main = async () => {
   }
 
   const topProjectTitles = [
-    'GitHub + ClawHub Downloads Tracker',
-    'OpenClaw Sales Manager Automation for a Multi-Clinic Chain',
-    'CV Repro Lab Skills',
-    'GeoFix - AI Visibility Memorizer Mini App',
-    'Pores & Wrinkles Detection Service'
+    'Riverstart Document AI',
+    'Dermaself Flutter Skin Analysis App',
+    'Agnitra - ML Profiling & Optimization',
+    'Calorio - AI Nutrition Service',
+    'Engineering Drawing & CAD Analysis',
+    'Multimodal Video Search Platform'
   ].map(toAscii);
 
   const topProjects = topProjectTitles.map((title) =>
@@ -2287,7 +1676,7 @@ const main = async () => {
   await fs.writeFile(AGENT_CONTEXT_PATH, agentContextContent, 'utf8');
   const agentDiscoveryContent = buildAgentDiscovery(projectEntries, topProjects);
   await fs.writeFile(AGENT_DISCOVERY_PATH, agentDiscoveryContent, 'utf8');
-  const schemaJsonldContent = buildSchemaJsonld(projectEntries);
+  const schemaJsonldContent = buildSchemaJsonld(projectEntries, topProjects);
   await fs.writeFile(SCHEMA_JSONLD_PATH, schemaJsonldContent, 'utf8');
   const sitemapContent = buildSitemap(projectEntries);
   await fs.writeFile(SITEMAP_PATH, sitemapContent, 'utf8');

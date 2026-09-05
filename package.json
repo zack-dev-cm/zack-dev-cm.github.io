@@ -19,7 +19,7 @@
     "typecheck": "tsc --noEmit",
     "security:gate": "node scripts/security-gate.mjs",
     "audit:codex": "node scripts/run-codex-audit.mjs",
-    "prebuild": "npm run typecheck && node scripts/generate-project-markdown.mjs && node scripts/validate-portfolio.mjs && npm run validate:positioning",
+    "prebuild": "npm run typecheck && node scripts/generate-career-social.mjs && node scripts/generate-project-markdown.mjs && node scripts/validate-portfolio.mjs && npm run validate:positioning",
     "build": "vite build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/security-gate.mjs && npm run validate:positioning:docs",
     "preview": "vite preview",
