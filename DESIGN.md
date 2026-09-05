@@ -74,6 +74,12 @@ one positioning sentence, visible resume and work actions, and selected work.
 ## Hierarchy and layout
 
 1. Name, senior ML role, proposition, resume and selected work links.
+   A quiet search field below the hero links accepts project names, problems,
+   and technologies. Submission opens the existing archive and moves keyboard
+   focus to its result count. Keep this secondary action to one compact row
+   with 44px touch targets, capped at 440px; retain the navigation and primary
+   action hierarchy. Exact names and aliases take precedence in results;
+   related vocabulary ranks projects supported by the original query terms.
 2. A small curated selection of maintained products, ML infrastructure, and
    document/CV systems. Public links sit beside each story.
 3. Current and previous engineering experience, then approach and expertise.

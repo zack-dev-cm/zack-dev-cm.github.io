@@ -106,6 +106,7 @@ test('featured visuals and the current role remain clear at responsive widths', 
     await featured.screenshot({ path: testInfo.outputPath(`selected-work-${width}.png`) });
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
     await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
+    await expect(page.getByRole('searchbox', { name: 'Search portfolio work' })).toBeInViewport();
     expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
     await page.screenshot({ path: testInfo.outputPath(`portfolio-hero-${width}.png`) });
   }
@@ -368,7 +369,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const projectSearch = page.getByLabel('Search projects');
   await expect(projectSearch).toBeVisible();
-  await expect(page.locator('input[type="search"]')).toHaveCount(1);
+  await expect(page.locator('input[type="search"]')).toHaveCount(2);
   await expect(page.locator('#projects input[type="search"]')).toHaveCount(0);
   await expect(page.getByTestId('project-card').first().getByText('Explore project')).toBeVisible();
 
@@ -498,6 +499,82 @@ test('docs route bootstraps without duplicate manifest probe', async ({ page }) 
   expect(duplicateManifestFailures).toEqual([]);
 });
 
+test('hero search reveals relevant work and recovers from empty results', async ({ page }) => {
+  await gotoPortfolio(page);
+  const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const archive = page.locator('#project-archive');
+  const explorer = page.locator('#projects');
+  const archiveSearch = page.getByRole('searchbox', { name: 'Search projects', exact: true });
+
+  await expect(archive).not.toHaveAttribute('open', '');
+  await heroSearch.fill('  agnitra  ');
+  await expect(archive).not.toHaveAttribute('open', '');
+  await heroSearch.press('Enter');
+  await expect(archive).toHaveAttribute('open', '');
+  await expect(archiveSearch).toHaveValue('agnitra');
+  await expect(explorer.getByTestId('project-card').first()).toContainText('Agnitra');
+  await expect(explorer.getByTestId('project-card')).toHaveCount(1);
+  await expect(explorer.getByRole('status')).toBeFocused();
+  await expect(explorer.getByRole('status')).not.toContainText('Showing 0');
+
+  await explorer.getByRole('button', { name: 'Metrics only', exact: true }).click();
+  await heroSearch.fill('zzzzq qqqqx');
+  await page.getByRole('button', { name: 'Search work', exact: true }).click();
+  await expect(explorer.getByRole('button', { name: 'Metrics only', exact: true })).toHaveAttribute('aria-pressed', 'false');
+  await expect(explorer.locator('.empty-state')).toContainText('No projects found for “zzzzq qqqqx”.');
+  await expect(explorer.getByTestId('project-card')).toHaveCount(0);
+  await explorer.getByRole('button', { name: 'Clear search and filters' }).click();
+  await expect(archiveSearch).toHaveValue('');
+  await expect(heroSearch).toHaveValue('');
+  await expect(archiveSearch).toBeFocused();
+  await expect(explorer.locator('.empty-state')).toHaveCount(0);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await heroSearch.fill('ocr onnx inference api');
+  await heroSearch.press('Enter');
+  await expect(explorer.getByTestId('project-card').first()).toContainText('Fast OCR ONNX Inference Server');
+  await explorer.getByRole('button', { name: 'Clear', exact: true }).click();
+  await expect(heroSearch).toHaveValue('');
+  await expect(archiveSearch).toBeFocused();
+
+  await heroSearch.fill('   ');
+  await heroSearch.press('Enter');
+  await expect(archiveSearch).toHaveValue('');
+  await expect(explorer.locator('.empty-state')).toHaveCount(0);
+  await expect(explorer.getByRole('status')).toBeFocused();
+});
+
+test('specific project names and technologies exclude unrelated archive work', async ({ page }) => {
+  await gotoPortfolio(page);
+  const search = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const projects = page.locator('#projects');
+  const cards = projects.getByTestId('project-card');
+
+  for (const query of ['Agnitra', 'agnitra ai', 'agnitra labs']) {
+    await search.fill(query);
+    await search.press('Enter');
+    await expect(cards).toHaveCount(1);
+    await expect(cards.first()).toContainText('Agnitra - ML Profiling & Optimization');
+  }
+
+  await search.fill('ONNX');
+  await search.press('Enter');
+  await expect(projects.getByRole('link', { name: /Open project: Fast OCR ONNX Inference Server/ })).toBeVisible();
+  await expect(projects.getByRole('link', { name: /Open project: Dermaself/ })).toBeVisible();
+  await expect.poll(() => cards.count()).toBeGreaterThan(1);
+  for (const card of await cards.all()) {
+    await card.click();
+    await expect(page.getByRole('dialog')).toContainText(/ONNX/i);
+    await page.keyboard.press('Escape');
+  }
+  await expect(cards.filter({ hasText: /Calorio|LigninQC|clothing marketplace|link generator/i })).toHaveCount(0);
+
+  await search.fill('kalorio');
+  await search.press('Enter');
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toContainText('Calorio - AI Nutrition Service');
+});
+
 test('smart search bubbles and semantic queries surface relevant projects', async ({ page }) => {
   test.setTimeout(180_000);
   await gotoPortfolio(page);
@@ -510,7 +587,7 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
   const searchInput = smartSearch.locator('#portfolio-smart-search');
   const topicPanel = smartSearch.locator('.quick-topic-panel');
 
-  await expect(page.locator('input[type="search"]')).toHaveCount(1);
+  await expect(page.locator('input[type="search"]')).toHaveCount(2);
   await expect(explorer.locator('input[type="search"]')).toHaveCount(0);
   await expect(topicPanel).toHaveClass(/is-visible/);
   await expect(topicPanel.getByRole('button')).toHaveCount(8);

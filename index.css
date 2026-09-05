@@ -71,6 +71,13 @@ h1, h2, h3 { font-weight: 600; }
 .hero__links { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 23px; color: var(--muted); font-size: 13px; }
 .hero__links a { display: flex; align-items: center; gap: 8px; min-height: 32px; }
 .hero__links a span { color: var(--muted-strong); }
+.hero-search { display: flex; align-items: center; max-width: 440px; margin-top: 18px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: transparent; }
+.hero-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.hero-search input { flex: 1; min-width: 0; min-height: 44px; padding: 10px 0 10px 14px; border: 0; outline: 0; color: var(--text); background: transparent; font-size: 16px; }
+.hero-search input::placeholder { color: var(--muted); opacity: 1; }
+.hero-search button { display: grid; flex: 0 0 44px; place-items: center; min-height: 44px; padding: 0; color: var(--muted); border-radius: var(--radius-sm); }
+.hero-search button:hover { color: var(--accent); background: var(--surface); }
+.hero-search button svg { width: 18px; height: 18px; }
 .hero__current { align-self: center; padding-left: 32px; border-left: 1px solid var(--line); }
 .current-label { display: flex; align-items: center; gap: 8px; color: var(--muted); }
 .current-label > span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
@@ -199,6 +206,7 @@ h1, h2, h3 { font-weight: 600; }
 .project-card__open { display: flex; justify-content: space-between; gap: 14px; align-items: center; width: 100%; margin-top: auto; color: var(--accent); font-size: 12px; }
 .project-archive-actions { display: flex; justify-content: center; margin-top: 32px; }
 .empty-state { padding: 36px 0; color: var(--muted); }
+.empty-state .text-link { min-height: 44px; margin-top: 8px; }
 
 .contribution-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .contribution-list > li { border-bottom: 1px solid var(--line); }

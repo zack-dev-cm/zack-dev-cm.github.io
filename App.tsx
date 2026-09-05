@@ -526,7 +526,7 @@ const scoreProjectSearch = (project: Project, query: string, boostedProjectIds: 
   const { normalized, terms } = buildSemanticQueryTerms(query);
   const topicBoostIndex = boostedProjectIds.indexOf(project.id);
   const topicBoost = topicBoostIndex === -1 ? 0 : 2400 - topicBoostIndex * 120;
-  const intentBoost = getSearchIntentBoost(project, normalized, terms);
+  const intentBoost = getSearchIntentBoost(project, normalized, extractSearchTerms(query));
   if (!normalized && topicBoost === 0 && intentBoost === 0) return 0;
 
   const matchedTerms = new Set<string>();
@@ -770,6 +770,7 @@ const App: React.FC = () => {
   const [expandedLatestSlugs, setExpandedLatestSlugs] = useState<string[]>([]);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [projectQuery, setProjectQuery] = useState('');
+  const [heroSearchQuery, setHeroSearchQuery] = useState('');
   const [isSmartSearchFocused, setIsSmartSearchFocused] = useState(false);
   const [smartSearchBoostIds, setSmartSearchBoostIds] = useState<readonly number[]>([]);
   const [projectSort, setProjectSort] = useState<ProjectSortMode>('impact');
@@ -780,6 +781,7 @@ const App: React.FC = () => {
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
   const projectArchiveRef = useRef<HTMLDetailsElement | null>(null);
+  const projectResultsRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     const revealTarget = (id: string) => {
@@ -1123,14 +1125,24 @@ const App: React.FC = () => {
   const normalizedProjectQuery = deferredProjectQuery.trim().toLowerCase();
 
   const filteredProjects = useMemo(() => {
-    const withFilters = mergedProjects
-      .map((project) => ({
+    const queryTerms = extractSearchTerms(normalizedProjectQuery);
+    const normalizedQuery = normalizeSearchValue(normalizedProjectQuery);
+    const searchEntries = mergedProjects.map((project) => {
+      const projectTerms = new Set(extractSearchTerms(getProjectSearchText(project)));
+      return {
         project,
+        exactNameMatch: [project.title, ...(project.aliases ?? [])]
+          .some((name) => normalizeSearchValue(name) === normalizedQuery),
+        directMatch: queryTerms.some((term) => scoreTokenAgainstField(term, projectTerms) > 0),
         searchScore: normalizedProjectQuery
           ? scoreProjectSearch(project, normalizedProjectQuery, smartSearchBoostIds)
           : 0,
-      }))
-      .filter(({ project, searchScore }) => {
+      };
+    });
+    const hasExactNameMatch = searchEntries.some(({ exactNameMatch }) => exactNameMatch);
+    const hasDirectMatch = searchEntries.some(({ directMatch }) => directMatch);
+    const withFilters = searchEntries
+      .filter(({ project, searchScore, exactNameMatch, directMatch }) => {
         const signals = getProjectSignals(project);
         if (benchmarkedOnly && !(project.benchmarks && project.benchmarks.length > 0)) return false;
         if (projectFilter === 'real-users' && !signals.isRealUsers) return false;
@@ -1141,7 +1153,13 @@ const App: React.FC = () => {
         if (projectFilter === 'ai-systems' && !isAiSystemDomainProject(project)) return false;
         if (projectFilter === 'open-source' && !signals.isOpenSource) return false;
         if (!normalizedProjectQuery) return true;
-        return searchScore > 0;
+        // Related vocabulary can improve ranking, but cannot admit unrelated work.
+        // Explicit topic selections retain their curated set; otherwise exact names
+        // take precedence, then original terms, then a recognized problem intent.
+        if (smartSearchBoostIds.includes(project.id)) return true;
+        if (hasExactNameMatch) return exactNameMatch;
+        if (hasDirectMatch) return directMatch;
+        return searchScore > 0 && getSearchIntentBoost(project, normalizedQuery, queryTerms) > 0;
       });
 
     if (normalizedProjectQuery) {
@@ -1189,12 +1207,14 @@ const App: React.FC = () => {
   const scrollToProjectExplorer = useCallback(() => {
     if (projectArchiveRef.current) projectArchiveRef.current.open = true;
     window.requestAnimationFrame(() => {
+      projectResultsRef.current?.focus({ preventScroll: true });
       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }, []);
 
   const handleProjectQueryChange = useCallback((query: string) => {
     setProjectQuery(query);
+    setHeroSearchQuery(query);
     setSmartSearchBoostIds([]);
     setIsSmartSearchFocused(true);
   }, []);
@@ -1203,6 +1223,7 @@ const App: React.FC = () => {
     (query: string, filter: ProjectFilter = 'all', projectIds: readonly number[] = []) => {
       const cleanedQuery = query.trim();
       setProjectQuery(cleanedQuery);
+      setHeroSearchQuery(cleanedQuery);
       setSmartSearchBoostIds(projectIds);
       setProjectFilter(filter);
       setBenchmarkedOnly(false);
@@ -1217,15 +1238,25 @@ const App: React.FC = () => {
   const handleSmartSearchSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      setSmartSearchBoostIds([]);
-      setProjectFilter('all');
-      setBenchmarkedOnly(false);
-      setProjectSort('impact');
-      setShowAllProjects(true);
-      scrollToProjectExplorer();
+      runSmartSearch(projectQuery);
     },
-    [scrollToProjectExplorer]
+    [projectQuery, runSmartSearch]
   );
+
+  const handleHeroSearchSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      runSmartSearch(heroSearchQuery);
+    },
+    [heroSearchQuery, runSmartSearch]
+  );
+
+  const clearProjectQuery = useCallback(() => {
+    setProjectQuery('');
+    setHeroSearchQuery('');
+    setSmartSearchBoostIds([]);
+    document.getElementById('portfolio-smart-search')?.focus();
+  }, []);
 
   const canToggleProjectArchive =
     !normalizedProjectQuery &&
@@ -1260,6 +1291,24 @@ const App: React.FC = () => {
                 <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
                 <a href={`mailto:${SOCIAL_LINKS.email}`}>Email <span aria-hidden="true">↗</span></a>
               </div>
+              <form className="hero-search" role="search" aria-label="Find portfolio work" onSubmit={handleHeroSearchSubmit}>
+                <label className="sr-only" htmlFor="hero-project-search">Search portfolio work</label>
+                <input
+                  id="hero-project-search"
+                  type="search"
+                  value={heroSearchQuery}
+                  onChange={(event) => setHeroSearchQuery(event.target.value)}
+                  placeholder="Search work · OCR, inference…"
+                  aria-controls="projects"
+                  enterKeyHint="search"
+                />
+                <button type="submit" aria-label="Search work" title="Search work">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                    <circle cx="10.5" cy="10.5" r="6.5" />
+                    <path d="m16 16 4.5 4.5" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </form>
             </div>
             <aside className="hero__current" aria-label="Current work">
               <p className="current-label"><span aria-hidden="true" /> Currently</p>
@@ -1363,7 +1412,7 @@ const App: React.FC = () => {
             title="Find the relevant work"
             description="Search projects by problem, model, or technology."
           >
-            <form className="smart-search-panel" role="search" onSubmit={handleSmartSearchSubmit}>
+            <form className="smart-search-panel" role="search" aria-label="Search project archive" onSubmit={handleSmartSearchSubmit}>
               <label className="sr-only" htmlFor="portfolio-smart-search">
                 Search projects
               </label>
@@ -1449,10 +1498,7 @@ const App: React.FC = () => {
                   <button
                     type="button"
                     className="text-link"
-                    onClick={() => {
-                      setProjectQuery('');
-                      setSmartSearchBoostIds([]);
-                    }}
+                    onClick={clearProjectQuery}
                   >
                     Clear
                   </button>
@@ -1482,7 +1528,7 @@ const App: React.FC = () => {
                 </button>
               </div>
 
-              <p className="explorer-panel__summary">
+              <p className="explorer-panel__summary" ref={projectResultsRef} tabIndex={-1} role="status" aria-live="polite" aria-atomic="true">
                 Showing <strong>{visibleProjects.length}</strong> of <strong>{filteredProjects.length}</strong>{' '}
                 projects · <strong>{activeProjectFilterLabel}</strong>
                 {benchmarkedOnly ? ' + Metrics only' : ''}.
@@ -1518,7 +1564,14 @@ const App: React.FC = () => {
             )}
 
             {filteredProjects.length === 0 && (
-              <p className="empty-state">No projects match the current filters.</p>
+              <div className="empty-state">
+                <p>{normalizedProjectQuery ? `No projects found for “${projectQuery}”.` : 'No projects match the current filters.'} Try a project name, problem, or technology.</p>
+                <button type="button" className="text-link" onClick={() => {
+                  setProjectFilter('all');
+                  setBenchmarkedOnly(false);
+                  clearProjectQuery();
+                }}>Clear search and filters</button>
+              </div>
             )}
           </Section>
           </details>
