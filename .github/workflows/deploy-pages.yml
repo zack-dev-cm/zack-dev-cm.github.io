@@ -72,6 +72,7 @@ jobs:
           cp docs/404.html .site/404.html
           cp docs/paper-reviews.json .site/paper-reviews.json
           cp -R docs/papers .site/papers
+          cp -R docs/resume .site/resume
           cp -R docs .site/docs
           cp -R projects .site/projects
           : > .site/.nojekyll
