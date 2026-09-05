@@ -11,7 +11,7 @@
     "sync:github:verify": "node scripts/sync-github-portfolio-updates.mjs --verify",
     "papers:review": "node scripts/update-paper-reviews.mjs",
     "review:clawpatch": "node scripts/run-clawpatch-review.mjs",
-    "review:github": "npm run sync:github:verify && npm run validate && npm run security:gate && npm run audit:codex",
+    "review:github": "npm run sync:github:verify && npm run validate && npm run security:gate && npm run audit:public",
     "validate": "node scripts/validate-portfolio.mjs && npm run validate:positioning",
     "validate:positioning": "node scripts/validate-positioning-copy.mjs",
     "validate:positioning:docs": "POSITIONING_SCAN_DOCS=true node scripts/validate-positioning-copy.mjs",
@@ -26,7 +26,8 @@
     "pretest:e2e": "node --test tests/project-catalog.test.mjs tests/project-search.test.mjs tests/stage-pages.test.mjs",
     "test:e2e": "playwright test",
     "test:search": "node --test tests/project-search.test.mjs",
-    "check:links": "node scripts/check-links.mjs"
+    "check:links": "node scripts/check-links.mjs",
+    "audit:public": "node scripts/run-public-audit.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

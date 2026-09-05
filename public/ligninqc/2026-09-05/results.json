@@ -1,0 +1,4745 @@
+{
+  "schema_version": 1,
+  "software_version": "1.0.0",
+  "task": "published_lignin_reanalysis",
+  "source_verification": {
+    "status": "pass",
+    "lauberte_model_rows": 19,
+    "thermal_temperature_rows": 13,
+    "thermal_mass_loss_values": 26,
+    "explicit_prose_value_checks": [
+      "thermal_800_assignments",
+      "abts_compounds_5_6"
+    ],
+    "method": "Independent parser compares identities, BDE alternatives, assay means/intervals and thermal values with bundled publisher JATS. This is a transcription check, not independent human review."
+  },
+  "input_sha256": {
+    "data/kazachenko2022/claims.json": "a3a9d754046c39283641d965fe8b80b76733ade227b06c517b2c710042dd96b3",
+    "data/kazachenko2022/provenance.json": "d0ee491b4975e944ac760b77c2632f884b6ade7381d67f18d9182ff4236a8547",
+    "data/kazachenko2022/table1-gpc.csv": "b34323d3fdbbf890b6c7573b2891d85b4a2d2a53813b7d8537d37aee300f9e64",
+    "data/kazachenko2022/table2.csv": "cac6a0242e36370281ccc84fac1e71da9e99b107a63061e40b2299e556c2b8c5",
+    "data/lauberte2019/claims.json": "138771d5ea4fa013ed6956c7d9001bb5172aa486bb12a38622923acafcea8e03",
+    "data/lauberte2019/provenance.json": "25e5faf2668b1d5d19dda52ef1c3e544df0ea1524b2492be56b151c388c4f546",
+    "data/lauberte2019/table1.csv": "6ab9f097fc66bb30361fec601c9f443b8530f353479cec8c38cc6c0b09ffc23c",
+    "data/sources/PMC6539611.xml": "3c4d7c2c48d6d4ffc64ee8a8cbf79d9e46ef1efdfefc5c85aeff463d35d860be",
+    "data/sources/PMC9331396.xml": "2a5b3acc8519f73efdd472bf649baee4e0265e995d1566856c6980bf6fb4272d",
+    "data/sources/lauberte2019-figure1.png": "f2b1f73b8f61f8ef7a28085ae01227d97c85b3796e27e145193ff5803ce25b4f",
+    "data/sources/source-extracts.html": "8659d8b7bed994649d156869e51f82112481710708de33d23b687a6173670b97"
+  },
+  "lauberte2019": {
+    "doi": "10.3390/molecules24091794",
+    "source_table": "Table 1",
+    "analyses": {
+      "dpph_neutral_all": {
+        "descriptor": "bde_first_kcal_mol",
+        "response": "dpph_rdi",
+        "expected_direction": "negative",
+        "input_rows": 19,
+        "n": 18,
+        "included_ids": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "18",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "17",
+            "missing": [
+              "dpph_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.79785152936202,
+        "r_squared": 0.6365670629053142,
+        "spearman_rho": -0.818182254767473,
+        "slope": -0.23037230499393793,
+        "intercept": 19.922139213027084,
+        "ranking": {
+          "concordant": 128,
+          "discordant": 23,
+          "tied": 2,
+          "total_pairs": 153,
+          "discordant_fraction_of_untied": 0.152317880794702,
+          "discordant_pairs": [
+            [
+              "1",
+              "5"
+            ],
+            [
+              "1",
+              "15"
+            ],
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "3",
+              "5"
+            ],
+            [
+              "3",
+              "6"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "6"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "13"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "5",
+              "16"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "11",
+              "15"
+            ],
+            [
+              "12",
+              "18"
+            ],
+            [
+              "12",
+              "19"
+            ],
+            [
+              "18",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 18,
+          "total_folds": 18,
+          "linear": {
+            "mae": 0.32210696361483193,
+            "rmse": 0.5335111235195428
+          },
+          "training_mean_baseline": {
+            "mae": 0.6327843137254902,
+            "rmse": 0.7758761360853372
+          },
+          "folds": [
+            {
+              "held_out_id": "1",
+              "observed": 1.0,
+              "mean_prediction": 0.8884705882352941,
+              "linear_prediction": 0.9358780378860168,
+              "training_r2": 0.6365269048507596
+            },
+            {
+              "held_out_id": "2",
+              "observed": 1.38,
+              "mean_prediction": 0.8661176470588235,
+              "linear_prediction": 1.4280995714377127,
+              "training_r2": 0.6271613906897996
+            },
+            {
+              "held_out_id": "3",
+              "observed": 1.35,
+              "mean_prediction": 0.8678823529411764,
+              "linear_prediction": 1.3799674708220557,
+              "training_r2": 0.6282068039602239
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.53,
+              "mean_prediction": 0.8572941176470588,
+              "linear_prediction": 1.3862484024372108,
+              "training_r2": 0.6217723589986645
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.9,
+              "mean_prediction": 0.8943529411764706,
+              "linear_prediction": 2.421012990387112,
+              "training_r2": 0.8131691903934763
+            },
+            {
+              "held_out_id": "6",
+              "observed": 1.72,
+              "mean_prediction": 0.8461176470588235,
+              "linear_prediction": 1.2235122179279365,
+              "training_r2": 0.6326846773780185
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.02,
+              "mean_prediction": 0.9461176470588235,
+              "linear_prediction": 0.3052387767530895,
+              "training_r2": 0.6114186200475255
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.03,
+              "mean_prediction": 0.945529411764706,
+              "linear_prediction": 0.3284803094233446,
+              "training_r2": 0.6130387519762888
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.05,
+              "mean_prediction": 0.9443529411764705,
+              "linear_prediction": 0.374744492778472,
+              "training_r2": 0.6163406803180295
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.18,
+              "mean_prediction": 0.8778823529411764,
+              "linear_prediction": 1.0223726660015053,
+              "training_r2": 0.6357382512148325
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.98,
+              "mean_prediction": 0.8896470588235295,
+              "linear_prediction": 0.912678804855279,
+              "training_r2": 0.6367200944520205
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.08,
+              "mean_prediction": 0.9425882352941177,
+              "linear_prediction": -0.14588323397185476,
+              "training_r2": 0.6125376630742237
+            },
+            {
+              "held_out_id": "13",
+              "observed": 1.23,
+              "mean_prediction": 0.8749411764705882,
+              "linear_prediction": 1.067789888947864,
+              "training_r2": 0.6346223620368219
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.23,
+              "mean_prediction": 0.8749411764705882,
+              "linear_prediction": 1.2148093294761821,
+              "training_r2": 0.632056605597486
+            },
+            {
+              "held_out_id": "15",
+              "observed": 0.67,
+              "mean_prediction": 0.9078823529411765,
+              "linear_prediction": 1.0790755611277554,
+              "training_r2": 0.6509168552303506
+            },
+            {
+              "held_out_id": "16",
+              "observed": 2.72,
+              "mean_prediction": 0.7872941176470588,
+              "linear_prediction": 1.3159562513449536,
+              "training_r2": 0.7137798981957504
+            },
+            {
+              "held_out_id": "18",
+              "observed": 0.014,
+              "mean_prediction": 0.9464705882352941,
+              "linear_prediction": 0.1278331365916756,
+              "training_r2": 0.6040582187053853
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.02,
+              "mean_prediction": 0.9461176470588235,
+              "linear_prediction": -0.010835400650851312,
+              "training_r2": 0.6034084828168382
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "1",
+            "x": 82.4,
+            "y": 1.0
+          },
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 1.38
+          },
+          {
+            "id": "3",
+            "x": 80.5,
+            "y": 1.35
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.53
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.9
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 1.72
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.02
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.03
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.05
+          },
+          {
+            "id": "10",
+            "x": 82.0,
+            "y": 1.18
+          },
+          {
+            "id": "11",
+            "x": 82.5,
+            "y": 0.98
+          },
+          {
+            "id": "12",
+            "x": 86.9,
+            "y": 0.08
+          },
+          {
+            "id": "13",
+            "x": 81.8,
+            "y": 1.23
+          },
+          {
+            "id": "14",
+            "x": 81.2,
+            "y": 1.23
+          },
+          {
+            "id": "15",
+            "x": 81.9,
+            "y": 0.67
+          },
+          {
+            "id": "16",
+            "x": 80.1,
+            "y": 2.72
+          },
+          {
+            "id": "18",
+            "x": 86.0,
+            "y": 0.014
+          },
+          {
+            "id": "19",
+            "x": 86.5,
+            "y": 0.02
+          }
+        ],
+        "label": "DPPH: neutral forms, all available",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "dpph_author_exclusions": {
+        "descriptor": "bde_first_kcal_mol",
+        "response": "dpph_rdi",
+        "expected_direction": "negative",
+        "input_rows": 17,
+        "n": 16,
+        "included_ids": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "18",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "17",
+            "missing": [
+              "dpph_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.9477652862472401,
+        "r_squared": 0.898259037815313,
+        "spearman_rho": -0.9116357456671316,
+        "slope": -0.2584695961075731,
+        "intercept": 22.247765391709617,
+        "ranking": {
+          "concordant": 105,
+          "discordant": 13,
+          "tied": 2,
+          "total_pairs": 120,
+          "discordant_fraction_of_untied": 0.11016949152542373,
+          "discordant_pairs": [
+            [
+              "1",
+              "15"
+            ],
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "3",
+              "6"
+            ],
+            [
+              "4",
+              "6"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "11",
+              "15"
+            ],
+            [
+              "12",
+              "18"
+            ],
+            [
+              "12",
+              "19"
+            ],
+            [
+              "18",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 16,
+          "total_folds": 16,
+          "linear": {
+            "mae": 0.17997370770884333,
+            "rmse": 0.22673398534094064
+          },
+          "training_mean_baseline": {
+            "mae": 0.6103666666666667,
+            "rmse": 0.6599046395755476
+          },
+          "folds": [
+            {
+              "held_out_id": "1",
+              "observed": 1.0,
+              "mean_prediction": 0.7656,
+              "linear_prediction": 0.9462287249633583,
+              "training_r2": 0.8978399084992502
+            },
+            {
+              "held_out_id": "2",
+              "observed": 1.38,
+              "mean_prediction": 0.7402666666666666,
+              "linear_prediction": 1.5132843723620155,
+              "training_r2": 0.8940743944346842
+            },
+            {
+              "held_out_id": "3",
+              "observed": 1.35,
+              "mean_prediction": 0.7422666666666667,
+              "linear_prediction": 1.4560000176906627,
+              "training_r2": 0.8938304929932004
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.53,
+              "mean_prediction": 0.7302666666666667,
+              "linear_prediction": 1.4558166280520375,
+              "training_r2": 0.8880646801915285
+            },
+            {
+              "held_out_id": "6",
+              "observed": 1.72,
+              "mean_prediction": 0.7175999999999999,
+              "linear_prediction": 1.2592742753374964,
+              "training_r2": 0.9160636510530921
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.02,
+              "mean_prediction": 0.8309333333333334,
+              "linear_prediction": 0.22574798621096193,
+              "training_r2": 0.8936059138538814
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.03,
+              "mean_prediction": 0.8302666666666667,
+              "linear_prediction": 0.2524779951100271,
+              "training_r2": 0.8951007010801146
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.05,
+              "mean_prediction": 0.8289333333333333,
+              "linear_prediction": 0.30554728257168406,
+              "training_r2": 0.8983228507807861
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.18,
+              "mean_prediction": 0.7536,
+              "linear_prediction": 1.0428265255824662,
+              "training_r2": 0.8982663407815046
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.98,
+              "mean_prediction": 0.7669333333333334,
+              "linear_prediction": 0.9200516689157325,
+              "training_r2": 0.898098805965329
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.08,
+              "mean_prediction": 0.8269333333333333,
+              "linear_prediction": -0.3068293581656185,
+              "training_r2": 0.9090110824763232
+            },
+            {
+              "held_out_id": "13",
+              "observed": 1.23,
+              "mean_prediction": 0.7502666666666666,
+              "linear_prediction": 1.0938320604377445,
+              "training_r2": 0.8974255767927511
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.23,
+              "mean_prediction": 0.7502666666666666,
+              "linear_prediction": 1.2635332892640427,
+              "training_r2": 0.8947139878603654
+            },
+            {
+              "held_out_id": "15",
+              "observed": 0.67,
+              "mean_prediction": 0.7876,
+              "linear_prediction": 1.1140700502595386,
+              "training_r2": 0.9277723143397325
+            },
+            {
+              "held_out_id": "18",
+              "observed": 0.014,
+              "mean_prediction": 0.8313333333333334,
+              "linear_prediction": 0.020464503301592885,
+              "training_r2": 0.8866750687331891
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.02,
+              "mean_prediction": 0.8309333333333334,
+              "linear_prediction": -0.1436543516941846,
+              "training_r2": 0.890728500990431
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "1",
+            "x": 82.4,
+            "y": 1.0
+          },
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 1.38
+          },
+          {
+            "id": "3",
+            "x": 80.5,
+            "y": 1.35
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.53
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 1.72
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.02
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.03
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.05
+          },
+          {
+            "id": "10",
+            "x": 82.0,
+            "y": 1.18
+          },
+          {
+            "id": "11",
+            "x": 82.5,
+            "y": 0.98
+          },
+          {
+            "id": "12",
+            "x": 86.9,
+            "y": 0.08
+          },
+          {
+            "id": "13",
+            "x": 81.8,
+            "y": 1.23
+          },
+          {
+            "id": "14",
+            "x": 81.2,
+            "y": 1.23
+          },
+          {
+            "id": "15",
+            "x": 81.9,
+            "y": 0.67
+          },
+          {
+            "id": "18",
+            "x": 86.0,
+            "y": 0.014
+          },
+          {
+            "id": "19",
+            "x": 86.5,
+            "y": 0.02
+          }
+        ],
+        "label": "DPPH: neutral, omit author-named 5 and 16",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "dpph_neutral_monomers": {
+        "descriptor": "bde_first_kcal_mol",
+        "response": "dpph_rdi",
+        "expected_direction": "negative",
+        "input_rows": 14,
+        "n": 14,
+        "included_ids": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ],
+        "missing": [],
+        "pearson_r": -0.808010133875266,
+        "r_squared": 0.6528803764451253,
+        "spearman_rho": -0.7436748174501425,
+        "slope": -0.19528092656481025,
+        "intercept": 16.977334541998168,
+        "ranking": {
+          "concordant": 74,
+          "discordant": 16,
+          "tied": 1,
+          "total_pairs": 91,
+          "discordant_fraction_of_untied": 0.17777777777777778,
+          "discordant_pairs": [
+            [
+              "1",
+              "5"
+            ],
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "3",
+              "5"
+            ],
+            [
+              "3",
+              "6"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "6"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "13"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "9",
+              "12"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 14,
+          "total_folds": 14,
+          "linear": {
+            "mae": 0.32436535962846136,
+            "rmse": 0.456234450591528
+          },
+          "training_mean_baseline": {
+            "mae": 0.5305494505494506,
+            "rmse": 0.6266639388920446
+          },
+          "folds": [
+            {
+              "held_out_id": "1",
+              "observed": 1.0,
+              "mean_prediction": 0.8984615384615384,
+              "linear_prediction": 0.8774150188636298,
+              "training_r2": 0.6551269921544546
+            },
+            {
+              "held_out_id": "2",
+              "observed": 1.38,
+              "mean_prediction": 0.8692307692307693,
+              "linear_prediction": 1.2847819994394847,
+              "training_r2": 0.6359588658659703
+            },
+            {
+              "held_out_id": "3",
+              "observed": 1.35,
+              "mean_prediction": 0.8715384615384616,
+              "linear_prediction": 1.24559442221606,
+              "training_r2": 0.6387235393424147
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.53,
+              "mean_prediction": 0.8576923076923078,
+              "linear_prediction": 1.2435455034144969,
+              "training_r2": 0.6359518863177926
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.9,
+              "mean_prediction": 0.9061538461538461,
+              "linear_prediction": 2.2536033946549985,
+              "training_r2": 0.9110076077595766
+            },
+            {
+              "held_out_id": "6",
+              "observed": 1.72,
+              "mean_prediction": 0.8430769230769231,
+              "linear_prediction": 1.1026257004905862,
+              "training_r2": 0.6772497999602131
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.02,
+              "mean_prediction": 0.9738461538461538,
+              "linear_prediction": 0.38673483445989554,
+              "training_r2": 0.6058323041202996
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.03,
+              "mean_prediction": 0.9730769230769231,
+              "linear_prediction": 0.40505302238248575,
+              "training_r2": 0.6092923560579521
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.05,
+              "mean_prediction": 0.9715384615384615,
+              "linear_prediction": 0.4416020650143757,
+              "training_r2": 0.6161631328172577
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.18,
+              "mean_prediction": 0.8846153846153846,
+              "linear_prediction": 0.947428403332637,
+              "training_r2": 0.6576110047676456
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.98,
+              "mean_prediction": 0.8999999999999999,
+              "linear_prediction": 0.8578746728369282,
+              "training_r2": 0.6553682390386926
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.08,
+              "mean_prediction": 0.9692307692307692,
+              "linear_prediction": -0.02867376522059928,
+              "training_r2": 0.5912309925822911
+            },
+            {
+              "held_out_id": "13",
+              "observed": 1.23,
+              "mean_prediction": 0.8807692307692307,
+              "linear_prediction": 0.9851081230148946,
+              "training_r2": 0.6563796351386783
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.23,
+              "mean_prediction": 0.8807692307692307,
+              "linear_prediction": 1.1101782033251784,
+              "training_r2": 0.6472196591067213
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "1",
+            "x": 82.4,
+            "y": 1.0
+          },
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 1.38
+          },
+          {
+            "id": "3",
+            "x": 80.5,
+            "y": 1.35
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.53
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.9
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 1.72
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.02
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.03
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.05
+          },
+          {
+            "id": "10",
+            "x": 82.0,
+            "y": 1.18
+          },
+          {
+            "id": "11",
+            "x": 82.5,
+            "y": 0.98
+          },
+          {
+            "id": "12",
+            "x": 86.9,
+            "y": 0.08
+          },
+          {
+            "id": "13",
+            "x": 81.8,
+            "y": 1.23
+          },
+          {
+            "id": "14",
+            "x": 81.2,
+            "y": 1.23
+          }
+        ],
+        "label": "DPPH: neutral, monomers 1–14",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ]
+      },
+      "dpph_per_phenolic_oh": {
+        "descriptor": "bde_first_kcal_mol",
+        "response": "dpph_per_phenolic_oh",
+        "expected_direction": "negative",
+        "input_rows": 19,
+        "n": 18,
+        "included_ids": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "18",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "17",
+            "missing": [
+              "dpph_per_phenolic_oh"
+            ]
+          }
+        ],
+        "pearson_r": -0.8527978268509737,
+        "r_squared": 0.7272641334817433,
+        "spearman_rho": -0.8037194371326943,
+        "slope": -0.20110929540477204,
+        "intercept": 17.429621637681926,
+        "ranking": {
+          "concordant": 125,
+          "discordant": 26,
+          "tied": 2,
+          "total_pairs": 153,
+          "discordant_fraction_of_untied": 0.17218543046357615,
+          "discordant_pairs": [
+            [
+              "1",
+              "5"
+            ],
+            [
+              "1",
+              "15"
+            ],
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "2",
+              "16"
+            ],
+            [
+              "3",
+              "5"
+            ],
+            [
+              "3",
+              "6"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "6"
+            ],
+            [
+              "4",
+              "16"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "13"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "5",
+              "16"
+            ],
+            [
+              "6",
+              "16"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "10",
+              "15"
+            ],
+            [
+              "11",
+              "15"
+            ],
+            [
+              "12",
+              "18"
+            ],
+            [
+              "12",
+              "19"
+            ],
+            [
+              "18",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 18,
+          "total_folds": 18,
+          "linear": {
+            "mae": 0.27377593601721784,
+            "rmse": 0.38232134505354226
+          },
+          "training_mean_baseline": {
+            "mae": 0.570562091503268,
+            "rmse": 0.6336803905520844
+          },
+          "folds": [
+            {
+              "held_out_id": "1",
+              "observed": 1.0,
+              "mean_prediction": 0.808470588235294,
+              "linear_prediction": 0.8498235843501938,
+              "training_r2": 0.729111091822937
+            },
+            {
+              "held_out_id": "2",
+              "observed": 1.38,
+              "mean_prediction": 0.7861176470588236,
+              "linear_prediction": 1.2693758768469756,
+              "training_r2": 0.7142045145978174
+            },
+            {
+              "held_out_id": "3",
+              "observed": 1.35,
+              "mean_prediction": 0.7878823529411765,
+              "linear_prediction": 1.22902489639716,
+              "training_r2": 0.7161850036245834
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.53,
+              "mean_prediction": 0.7772941176470588,
+              "linear_prediction": 1.2314463728424947,
+              "training_r2": 0.7161920542995284
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.9,
+              "mean_prediction": 0.8143529411764705,
+              "linear_prediction": 2.12448246297739,
+              "training_r2": 0.8987409512225807
+            },
+            {
+              "held_out_id": "6",
+              "observed": 1.72,
+              "mean_prediction": 0.7661176470588236,
+              "linear_prediction": 1.0910333083987833,
+              "training_r2": 0.7506316912288529
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.02,
+              "mean_prediction": 0.8661176470588235,
+              "linear_prediction": 0.309343092048028,
+              "training_r2": 0.7080947621557445
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.03,
+              "mean_prediction": 0.8655294117647059,
+              "linear_prediction": 0.3292601428107709,
+              "training_r2": 0.7099026090607169
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.05,
+              "mean_prediction": 0.8643529411764707,
+              "linear_prediction": 0.36897412463035195,
+              "training_r2": 0.7135531675147412
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.18,
+              "mean_prediction": 0.7978823529411765,
+              "linear_prediction": 0.9236355195373704,
+              "training_r2": 0.7311093520180507
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.98,
+              "mean_prediction": 0.8096470588235294,
+              "linear_prediction": 0.8297457475743926,
+              "training_r2": 0.7294208099839341
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.08,
+              "mean_prediction": 0.8625882352941177,
+              "linear_prediction": -0.08159326133698386,
+              "training_r2": 0.7038740183122943
+            },
+            {
+              "held_out_id": "13",
+              "observed": 1.23,
+              "mean_prediction": 0.7949411764705882,
+              "linear_prediction": 0.9625679888131273,
+              "training_r2": 0.7301999399163359
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.23,
+              "mean_prediction": 0.7949411764705882,
+              "linear_prediction": 1.0893757103006472,
+              "training_r2": 0.7224128477130884
+            },
+            {
+              "held_out_id": "15",
+              "observed": 0.67,
+              "mean_prediction": 0.8278823529411765,
+              "linear_prediction": 0.977109524391981,
+              "training_r2": 0.7400706019451917
+            },
+            {
+              "held_out_id": "16",
+              "observed": 1.36,
+              "mean_prediction": 0.7872941176470588,
+              "linear_prediction": 1.3159562513449536,
+              "training_r2": 0.7137798981957504
+            },
+            {
+              "held_out_id": "18",
+              "observed": 0.014,
+              "mean_prediction": 0.8664705882352941,
+              "linear_prediction": 0.15637550793398702,
+              "training_r2": 0.6977419457162176
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.02,
+              "mean_prediction": 0.8661176470588235,
+              "linear_prediction": 0.03681398858652685,
+              "training_r2": 0.6953495576709049
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "1",
+            "x": 82.4,
+            "y": 1.0
+          },
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 1.38
+          },
+          {
+            "id": "3",
+            "x": 80.5,
+            "y": 1.35
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.53
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.9
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 1.72
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.02
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.03
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.05
+          },
+          {
+            "id": "10",
+            "x": 82.0,
+            "y": 1.18
+          },
+          {
+            "id": "11",
+            "x": 82.5,
+            "y": 0.98
+          },
+          {
+            "id": "12",
+            "x": 86.9,
+            "y": 0.08
+          },
+          {
+            "id": "13",
+            "x": 81.8,
+            "y": 1.23
+          },
+          {
+            "id": "14",
+            "x": 81.2,
+            "y": 1.23
+          },
+          {
+            "id": "15",
+            "x": 81.9,
+            "y": 0.67
+          },
+          {
+            "id": "16",
+            "x": 80.1,
+            "y": 1.36
+          },
+          {
+            "id": "18",
+            "x": 86.0,
+            "y": 0.014
+          },
+          {
+            "id": "19",
+            "x": 86.5,
+            "y": 0.02
+          }
+        ],
+        "label": "DPPH: neutral, RDI per phenolic OH (reanalysis)",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "dpph_carboxylate_diagnostic": {
+        "descriptor": "bde_last_kcal_mol",
+        "response": "dpph_rdi",
+        "expected_direction": "negative",
+        "input_rows": 19,
+        "n": 18,
+        "included_ids": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "18",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "17",
+            "missing": [
+              "dpph_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.7307646335234863,
+        "r_squared": 0.5340169496087153,
+        "spearman_rho": -0.6652896111998139,
+        "slope": -0.19453727050906564,
+        "intercept": 16.780796328959756,
+        "ranking": {
+          "concordant": 114,
+          "discordant": 37,
+          "tied": 2,
+          "total_pairs": 153,
+          "discordant_fraction_of_untied": 0.24503311258278146,
+          "discordant_pairs": [
+            [
+              "1",
+              "5"
+            ],
+            [
+              "1",
+              "11"
+            ],
+            [
+              "1",
+              "15"
+            ],
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "2",
+              "10"
+            ],
+            [
+              "2",
+              "11"
+            ],
+            [
+              "2",
+              "13"
+            ],
+            [
+              "2",
+              "14"
+            ],
+            [
+              "3",
+              "5"
+            ],
+            [
+              "3",
+              "6"
+            ],
+            [
+              "3",
+              "10"
+            ],
+            [
+              "3",
+              "11"
+            ],
+            [
+              "3",
+              "13"
+            ],
+            [
+              "3",
+              "14"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "6"
+            ],
+            [
+              "4",
+              "10"
+            ],
+            [
+              "4",
+              "11"
+            ],
+            [
+              "4",
+              "13"
+            ],
+            [
+              "4",
+              "14"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "5",
+              "16"
+            ],
+            [
+              "6",
+              "10"
+            ],
+            [
+              "6",
+              "11"
+            ],
+            [
+              "6",
+              "13"
+            ],
+            [
+              "6",
+              "14"
+            ],
+            [
+              "10",
+              "14"
+            ],
+            [
+              "10",
+              "16"
+            ],
+            [
+              "11",
+              "14"
+            ],
+            [
+              "11",
+              "16"
+            ],
+            [
+              "13",
+              "16"
+            ],
+            [
+              "14",
+              "16"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 18,
+          "total_folds": 18,
+          "linear": {
+            "mae": 0.4101404447466049,
+            "rmse": 0.553341504675406
+          },
+          "training_mean_baseline": {
+            "mae": 0.6327843137254902,
+            "rmse": 0.7758761360853372
+          },
+          "folds": [
+            {
+              "held_out_id": "1",
+              "observed": 1.0,
+              "mean_prediction": 0.8884705882352941,
+              "linear_prediction": 0.7351511946220342,
+              "training_r2": 0.540283411849713
+            },
+            {
+              "held_out_id": "2",
+              "observed": 1.38,
+              "mean_prediction": 0.8661176470588235,
+              "linear_prediction": 1.1430724413170186,
+              "training_r2": 0.5272236084518395
+            },
+            {
+              "held_out_id": "3",
+              "observed": 1.35,
+              "mean_prediction": 0.8678823529411764,
+              "linear_prediction": 1.1044789559941428,
+              "training_r2": 0.5291513498180819
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.53,
+              "mean_prediction": 0.8572941176470588,
+              "linear_prediction": 1.1118961517634105,
+              "training_r2": 0.5301094080429806
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.9,
+              "mean_prediction": 0.8943529411764706,
+              "linear_prediction": 1.8226580389768579,
+              "training_r2": 0.6070680791894795
+            },
+            {
+              "held_out_id": "6",
+              "observed": 1.72,
+              "mean_prediction": 0.8461176470588235,
+              "linear_prediction": 0.9797820084478772,
+              "training_r2": 0.5541019464229476
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.02,
+              "mean_prediction": 0.9461176470588235,
+              "linear_prediction": 0.21680938966233398,
+              "training_r2": 0.49509655411277453
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.03,
+              "mean_prediction": 0.945529411764706,
+              "linear_prediction": 0.23668243927609112,
+              "training_r2": 0.49655019444330956
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.05,
+              "mean_prediction": 0.9443529411764705,
+              "linear_prediction": 0.27618262002795646,
+              "training_r2": 0.49946122602351506
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.18,
+              "mean_prediction": 0.8778823529411764,
+              "linear_prediction": 1.5102982301867947,
+              "training_r2": 0.5398476669139732
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.98,
+              "mean_prediction": 0.8896470588235295,
+              "linear_prediction": 1.4644167609902183,
+              "training_r2": 0.5553316074405549
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.08,
+              "mean_prediction": 0.9425882352941177,
+              "linear_prediction": 0.5373779594238055,
+              "training_r2": 0.5188135104706949
+            },
+            {
+              "held_out_id": "13",
+              "observed": 1.23,
+              "mean_prediction": 0.8749411764705882,
+              "linear_prediction": 1.7821500563898631,
+              "training_r2": 0.5545052242705244
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.23,
+              "mean_prediction": 0.8749411764705882,
+              "linear_prediction": 1.3234776498809584,
+              "training_r2": 0.5290381756639307
+            },
+            {
+              "held_out_id": "15",
+              "observed": 0.67,
+              "mean_prediction": 0.9078823529411765,
+              "linear_prediction": 0.858759497385087,
+              "training_r2": 0.5349253885146116
+            },
+            {
+              "held_out_id": "16",
+              "observed": 2.72,
+              "mean_prediction": 0.7872941176470588,
+              "linear_prediction": 1.0777812489009264,
+              "training_r2": 0.6733203644346998
+            },
+            {
+              "held_out_id": "18",
+              "observed": 0.014,
+              "mean_prediction": 0.9464705882352941,
+              "linear_prediction": 0.059375441999556244,
+              "training_r2": 0.49093650201949474
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.02,
+              "mean_prediction": 0.9461176470588235,
+              "linear_prediction": 0.150501922284775,
+              "training_r2": 0.4929877049604726
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "1",
+            "x": 82.4,
+            "y": 1.0
+          },
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 1.38
+          },
+          {
+            "id": "3",
+            "x": 80.5,
+            "y": 1.35
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.53
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.9
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 1.72
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.02
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.03
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.05
+          },
+          {
+            "id": "10",
+            "x": 78.7,
+            "y": 1.18
+          },
+          {
+            "id": "11",
+            "x": 79.0,
+            "y": 0.98
+          },
+          {
+            "id": "12",
+            "x": 83.7,
+            "y": 0.08
+          },
+          {
+            "id": "13",
+            "x": 77.6,
+            "y": 1.23
+          },
+          {
+            "id": "14",
+            "x": 79.5,
+            "y": 1.23
+          },
+          {
+            "id": "15",
+            "x": 81.9,
+            "y": 0.67
+          },
+          {
+            "id": "16",
+            "x": 80.1,
+            "y": 2.72
+          },
+          {
+            "id": "18",
+            "x": 86.0,
+            "y": 0.014
+          },
+          {
+            "id": "19",
+            "x": 85.6,
+            "y": 0.02
+          }
+        ],
+        "label": "DPPH: last-listed BDE, chemical-mismatch sensitivity only",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "abts_neutral_diagnostic": {
+        "descriptor": "bde_first_kcal_mol",
+        "response": "abts_rdi",
+        "expected_direction": "negative",
+        "input_rows": 19,
+        "n": 14,
+        "included_ids": [
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "17",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "1",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "3",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "15",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "16",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "18",
+            "missing": [
+              "abts_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.5557045743029668,
+        "r_squared": 0.3088075739012416,
+        "spearman_rho": -0.6431733663911257,
+        "slope": -0.13102521703183134,
+        "intercept": 11.771990491938817,
+        "ranking": {
+          "concordant": 62,
+          "discordant": 27,
+          "tied": 2,
+          "total_pairs": 91,
+          "discordant_fraction_of_untied": 0.30337078651685395,
+          "discordant_pairs": [
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "2",
+              "10"
+            ],
+            [
+              "2",
+              "13"
+            ],
+            [
+              "2",
+              "14"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "10"
+            ],
+            [
+              "4",
+              "13"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "13"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "6",
+              "10"
+            ],
+            [
+              "6",
+              "13"
+            ],
+            [
+              "6",
+              "14"
+            ],
+            [
+              "7",
+              "8"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "7",
+              "17"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "8",
+              "17"
+            ],
+            [
+              "9",
+              "17"
+            ],
+            [
+              "10",
+              "14"
+            ],
+            [
+              "12",
+              "17"
+            ],
+            [
+              "13",
+              "14"
+            ],
+            [
+              "17",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 14,
+          "total_folds": 14,
+          "linear": {
+            "mae": 0.44148919023808386,
+            "rmse": 0.6274499453854012
+          },
+          "training_mean_baseline": {
+            "mae": 0.5323076923076923,
+            "rmse": 0.6675434077147583
+          },
+          "folds": [
+            {
+              "held_out_id": "2",
+              "observed": 0.92,
+              "mean_prediction": 0.9092307692307693,
+              "linear_prediction": 1.305073415632199,
+              "training_r2": 0.3324651121778956
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.58,
+              "mean_prediction": 0.8584615384615385,
+              "linear_prediction": 1.1836511218578583,
+              "training_r2": 0.26827886983562205
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.67,
+              "mean_prediction": 0.9284615384615384,
+              "linear_prediction": 2.089360414866036,
+              "training_r2": 0.5466833457824725
+            },
+            {
+              "held_out_id": "6",
+              "observed": 0.96,
+              "mean_prediction": 0.9061538461538461,
+              "linear_prediction": 1.183220302483143,
+              "training_r2": 0.31672131883100724
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.57,
+              "mean_prediction": 0.9361538461538461,
+              "linear_prediction": 0.5993880602086232,
+              "training_r2": 0.292574970790099
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.54,
+              "mean_prediction": 0.9384615384615385,
+              "linear_prediction": 0.6185467385244383,
+              "training_r2": 0.29036038681816445
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.45,
+              "mean_prediction": 0.9453846153846155,
+              "linear_prediction": 0.6593410470346264,
+              "training_r2": 0.28574345469181295
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.67,
+              "mean_prediction": 0.8515384615384616,
+              "linear_prediction": 0.9722417250950617,
+              "training_r2": 0.3126064288701827
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.92,
+              "mean_prediction": 0.9092307692307693,
+              "linear_prediction": 0.9657538785002071,
+              "training_r2": 0.3091544706907089
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.26,
+              "mean_prediction": 0.9600000000000001,
+              "linear_prediction": 0.4249591828838941,
+              "training_r2": 0.24915842562224638
+            },
+            {
+              "held_out_id": "13",
+              "observed": 2.39,
+              "mean_prediction": 0.7961538461538461,
+              "linear_prediction": 0.9317296565506794,
+              "training_r2": 0.4139671922370438
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.39,
+              "mean_prediction": 0.8730769230769231,
+              "linear_prediction": 1.1037464474051681,
+              "training_r2": 0.28973554959047987
+            },
+            {
+              "held_out_id": "17",
+              "observed": 0.16,
+              "mean_prediction": 0.9676923076923077,
+              "linear_prediction": 0.7221823181539602,
+              "training_r2": 0.28010275199211837
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.26,
+              "mean_prediction": 0.9600000000000001,
+              "linear_prediction": 0.4843922559548144,
+              "training_r2": 0.2530662664733189
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 0.92
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.58
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.67
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 0.96
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.57
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.54
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.45
+          },
+          {
+            "id": "10",
+            "x": 82.0,
+            "y": 1.67
+          },
+          {
+            "id": "11",
+            "x": 82.5,
+            "y": 0.92
+          },
+          {
+            "id": "12",
+            "x": 86.9,
+            "y": 0.26
+          },
+          {
+            "id": "13",
+            "x": 81.8,
+            "y": 2.39
+          },
+          {
+            "id": "14",
+            "x": 81.2,
+            "y": 1.39
+          },
+          {
+            "id": "17",
+            "x": 84.8,
+            "y": 0.16
+          },
+          {
+            "id": "19",
+            "x": 86.5,
+            "y": 0.26
+          }
+        ],
+        "label": "ABTS: neutral BDE, chemical-mismatch sensitivity only",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "abts_carboxylate_all": {
+        "descriptor": "bde_last_kcal_mol",
+        "response": "abts_rdi",
+        "expected_direction": "negative",
+        "input_rows": 19,
+        "n": 14,
+        "included_ids": [
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "17",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "1",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "3",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "15",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "16",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "18",
+            "missing": [
+              "abts_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.7615154058222361,
+        "r_squared": 0.5799057133046049,
+        "spearman_rho": -0.735684604022726,
+        "slope": -0.15925203252032524,
+        "intercept": 13.920891056910573,
+        "ranking": {
+          "concordant": 67,
+          "discordant": 22,
+          "tied": 2,
+          "total_pairs": 91,
+          "discordant_fraction_of_untied": 0.24719101123595505,
+          "discordant_pairs": [
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "11"
+            ],
+            [
+              "4",
+              "14"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "6",
+              "11"
+            ],
+            [
+              "7",
+              "8"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "7",
+              "17"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "8",
+              "17"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "9",
+              "17"
+            ],
+            [
+              "11",
+              "14"
+            ],
+            [
+              "17",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 14,
+          "total_folds": 14,
+          "linear": {
+            "mae": 0.3715892019891262,
+            "rmse": 0.48859278821689683
+          },
+          "training_mean_baseline": {
+            "mae": 0.5323076923076923,
+            "rmse": 0.6675434077147583
+          },
+          "folds": [
+            {
+              "held_out_id": "2",
+              "observed": 0.92,
+              "mean_prediction": 0.9092307692307693,
+              "linear_prediction": 1.1533380844511179,
+              "training_r2": 0.589134922489182
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.58,
+              "mean_prediction": 0.8584615384615385,
+              "linear_prediction": 1.0739261365800417,
+              "training_r2": 0.5862809536584705
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.67,
+              "mean_prediction": 0.9284615384615384,
+              "linear_prediction": 1.7683330909090866,
+              "training_r2": 0.7561627098072058
+            },
+            {
+              "held_out_id": "6",
+              "observed": 0.96,
+              "mean_prediction": 0.9061538461538461,
+              "linear_prediction": 1.0264906352456435,
+              "training_r2": 0.5804556210685032
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.57,
+              "mean_prediction": 0.9361538461538461,
+              "linear_prediction": 0.2865868111402694,
+              "training_r2": 0.5825364711557388
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.54,
+              "mean_prediction": 0.9384615384615385,
+              "linear_prediction": 0.3139600700525378,
+              "training_r2": 0.576163387698906
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.45,
+              "mean_prediction": 0.9453846153846155,
+              "linear_prediction": 0.3719892986021822,
+              "training_r2": 0.5623145784350625
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.67,
+              "mean_prediction": 0.8515384615384616,
+              "linear_prediction": 1.3400448065173123,
+              "training_r2": 0.5445519718870824
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.92,
+              "mean_prediction": 0.9092307692307693,
+              "linear_prediction": 1.4031231712693888,
+              "training_r2": 0.6176178499649635
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.26,
+              "mean_prediction": 0.9600000000000001,
+              "linear_prediction": 0.6299520414776403,
+              "training_r2": 0.565993747387978
+            },
+            {
+              "held_out_id": "13",
+              "observed": 2.39,
+              "mean_prediction": 0.7961538461538461,
+              "linear_prediction": 1.3455983162958525,
+              "training_r2": 0.5378016050003787
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.39,
+              "mean_prediction": 0.8730769230769231,
+              "linear_prediction": 1.2442033907160202,
+              "training_r2": 0.5632750508073674
+            },
+            {
+              "held_out_id": "17",
+              "observed": 0.16,
+              "mean_prediction": 0.9676923076923077,
+              "linear_prediction": 0.4613949168976976,
+              "training_r2": 0.542777901374531
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.26,
+              "mean_prediction": 0.9600000000000001,
+              "linear_prediction": 0.29592571750140806,
+              "training_r2": 0.5412996384407275
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 0.92
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.58
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.67
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 0.96
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.57
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.54
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.45
+          },
+          {
+            "id": "10",
+            "x": 78.7,
+            "y": 1.67
+          },
+          {
+            "id": "11",
+            "x": 79.0,
+            "y": 0.92
+          },
+          {
+            "id": "12",
+            "x": 83.7,
+            "y": 0.26
+          },
+          {
+            "id": "13",
+            "x": 77.6,
+            "y": 2.39
+          },
+          {
+            "id": "14",
+            "x": 79.5,
+            "y": 1.39
+          },
+          {
+            "id": "17",
+            "x": 84.8,
+            "y": 0.16
+          },
+          {
+            "id": "19",
+            "x": 85.6,
+            "y": 0.26
+          }
+        ],
+        "label": "ABTS: carboxylate-matched BDE, all available",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "abts_carboxylate_author_exclusions": {
+        "descriptor": "bde_last_kcal_mol",
+        "response": "abts_rdi",
+        "expected_direction": "negative",
+        "input_rows": 17,
+        "n": 13,
+        "included_ids": [
+          "2",
+          "4",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "17",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "1",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "3",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "15",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "18",
+            "missing": [
+              "abts_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.8695761667658595,
+        "r_squared": 0.7561627098072058,
+        "spearman_rho": -0.7851269461270698,
+        "slope": -0.19497018181818185,
+        "intercept": 16.917516218181817,
+        "ranking": {
+          "concordant": 60,
+          "discordant": 16,
+          "tied": 2,
+          "total_pairs": 78,
+          "discordant_fraction_of_untied": 0.21052631578947367,
+          "discordant_pairs": [
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "4",
+              "11"
+            ],
+            [
+              "4",
+              "14"
+            ],
+            [
+              "6",
+              "11"
+            ],
+            [
+              "7",
+              "8"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "7",
+              "17"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "8",
+              "17"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "9",
+              "17"
+            ],
+            [
+              "11",
+              "14"
+            ],
+            [
+              "17",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 13,
+          "total_folds": 13,
+          "linear": {
+            "mae": 0.31133077229067624,
+            "rmse": 0.3854141011290499
+          },
+          "training_mean_baseline": {
+            "mae": 0.557948717948718,
+            "rmse": 0.6928363603494134
+          },
+          "folds": [
+            {
+              "held_out_id": "2",
+              "observed": 0.92,
+              "mean_prediction": 0.9291666666666667,
+              "linear_prediction": 1.3012490660429457,
+              "training_r2": 0.7806391669490413
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.58,
+              "mean_prediction": 0.8741666666666666,
+              "linear_prediction": 1.2037799341226734,
+              "training_r2": 0.7592631183604628
+            },
+            {
+              "held_out_id": "6",
+              "observed": 0.96,
+              "mean_prediction": 0.9258333333333333,
+              "linear_prediction": 1.140553649196276,
+              "training_r2": 0.7617149527125184
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.57,
+              "mean_prediction": 0.9583333333333334,
+              "linear_prediction": 0.22459231423709625,
+              "training_r2": 0.7685149868753375
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.54,
+              "mean_prediction": 0.9608333333333333,
+              "linear_prediction": 0.2570248515504687,
+              "training_r2": 0.7612732611933188
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.45,
+              "mean_prediction": 0.9683333333333333,
+              "linear_prediction": 0.32482525610888047,
+              "training_r2": 0.7468248279578067
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.67,
+              "mean_prediction": 0.8666666666666667,
+              "linear_prediction": 1.552097604259096,
+              "training_r2": 0.7278111902675033
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.92,
+              "mean_prediction": 0.9291666666666667,
+              "linear_prediction": 1.6302531194915026,
+              "training_r2": 0.8356216892370044
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.26,
+              "mean_prediction": 0.9841666666666667,
+              "linear_prediction": 0.6378035714285701,
+              "training_r2": 0.7582017526760797
+            },
+            {
+              "held_out_id": "13",
+              "observed": 2.39,
+              "mean_prediction": 0.8066666666666666,
+              "linear_prediction": 1.5755925718276345,
+              "training_r2": 0.7315702266963217
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.39,
+              "mean_prediction": 0.89,
+              "linear_prediction": 1.4217115235625037,
+              "training_r2": 0.745270592024434
+            },
+            {
+              "held_out_id": "17",
+              "observed": 0.16,
+              "mean_prediction": 0.9925,
+              "linear_prediction": 0.42378072901949615,
+              "training_r2": 0.7354472950287297
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.26,
+              "mean_prediction": 0.9841666666666667,
+              "linear_prediction": 0.22013908685665484,
+              "training_r2": 0.7320035675977815
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 0.92
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.58
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 0.96
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.57
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.54
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.45
+          },
+          {
+            "id": "10",
+            "x": 78.7,
+            "y": 1.67
+          },
+          {
+            "id": "11",
+            "x": 79.0,
+            "y": 0.92
+          },
+          {
+            "id": "12",
+            "x": 83.7,
+            "y": 0.26
+          },
+          {
+            "id": "13",
+            "x": 77.6,
+            "y": 2.39
+          },
+          {
+            "id": "14",
+            "x": 79.5,
+            "y": 1.39
+          },
+          {
+            "id": "17",
+            "x": 84.8,
+            "y": 0.16
+          },
+          {
+            "id": "19",
+            "x": 85.6,
+            "y": 0.26
+          }
+        ],
+        "label": "ABTS: matched forms, omit author-named 5 and 16",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "17",
+          "18",
+          "19"
+        ]
+      },
+      "abts_carboxylate_monomers": {
+        "descriptor": "bde_last_kcal_mol",
+        "response": "abts_rdi",
+        "expected_direction": "negative",
+        "input_rows": 14,
+        "n": 12,
+        "included_ids": [
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ],
+        "missing": [
+          {
+            "id": "1",
+            "missing": [
+              "abts_rdi"
+            ]
+          },
+          {
+            "id": "3",
+            "missing": [
+              "abts_rdi"
+            ]
+          }
+        ],
+        "pearson_r": -0.6972153948669688,
+        "r_squared": 0.48610930683950326,
+        "spearman_rho": -0.6865159389715793,
+        "slope": -0.14784087286124203,
+        "intercept": 13.019025470261083,
+        "ranking": {
+          "concordant": 47,
+          "discordant": 18,
+          "tied": 1,
+          "total_pairs": 66,
+          "discordant_fraction_of_untied": 0.27692307692307694,
+          "discordant_pairs": [
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "11"
+            ],
+            [
+              "4",
+              "14"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "6",
+              "11"
+            ],
+            [
+              "7",
+              "8"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "11",
+              "14"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 12,
+          "total_folds": 12,
+          "linear": {
+            "mae": 0.39910888114993487,
+            "rmse": 0.5238941176761739
+          },
+          "training_mean_baseline": {
+            "mae": 0.5315151515151515,
+            "rmse": 0.6477577345309187
+          },
+          "folds": [
+            {
+              "held_out_id": "2",
+              "observed": 0.92,
+              "mean_prediction": 1.0363636363636364,
+              "linear_prediction": 1.1700095417989207,
+              "training_r2": 0.4980744804821247
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.58,
+              "mean_prediction": 0.9763636363636364,
+              "linear_prediction": 1.089024783749636,
+              "training_r2": 0.4984287605671726
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.67,
+              "mean_prediction": 1.059090909090909,
+              "linear_prediction": 1.7572850789961798,
+              "training_r2": 0.6976626363002262
+            },
+            {
+              "held_out_id": "6",
+              "observed": 0.96,
+              "mean_prediction": 1.0327272727272727,
+              "linear_prediction": 1.0515578316745575,
+              "training_r2": 0.4873377594363579
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.57,
+              "mean_prediction": 1.0681818181818181,
+              "linear_prediction": 0.3485625287857861,
+              "training_r2": 0.4658556160962179
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.54,
+              "mean_prediction": 1.0709090909090908,
+              "linear_prediction": 0.3817557306761845,
+              "training_r2": 0.45734658684210316
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.45,
+              "mean_prediction": 1.079090909090909,
+              "linear_prediction": 0.4533729071537298,
+              "training_r2": 0.4379153825799487
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.67,
+              "mean_prediction": 0.9681818181818183,
+              "linear_prediction": 1.3352805239486827,
+              "training_r2": 0.45005130805330656
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.92,
+              "mean_prediction": 1.0363636363636364,
+              "linear_prediction": 1.4028203403648227,
+              "training_r2": 0.5326218995735307
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.26,
+              "mean_prediction": 1.0963636363636364,
+              "linear_prediction": 0.7149184276110496,
+              "training_r2": 0.4430729598485783
+            },
+            {
+              "held_out_id": "13",
+              "observed": 2.39,
+              "mean_prediction": 0.9027272727272727,
+              "linear_prediction": 1.3158980894593189,
+              "training_r2": 0.42435240724120943
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.39,
+              "mean_prediction": 0.9936363636363637,
+              "linear_prediction": 1.2501358971804333,
+              "training_r2": 0.4722556121887849
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 0.92
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.58
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.67
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 0.96
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.57
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.54
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.45
+          },
+          {
+            "id": "10",
+            "x": 78.7,
+            "y": 1.67
+          },
+          {
+            "id": "11",
+            "x": 79.0,
+            "y": 0.92
+          },
+          {
+            "id": "12",
+            "x": 83.7,
+            "y": 0.26
+          },
+          {
+            "id": "13",
+            "x": 77.6,
+            "y": 2.39
+          },
+          {
+            "id": "14",
+            "x": 79.5,
+            "y": 1.39
+          }
+        ],
+        "label": "ABTS: matched forms, monomers 1–14",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ]
+      },
+      "abts_per_phenolic_oh": {
+        "descriptor": "bde_last_kcal_mol",
+        "response": "abts_per_phenolic_oh",
+        "expected_direction": "negative",
+        "input_rows": 19,
+        "n": 14,
+        "included_ids": [
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "17",
+          "19"
+        ],
+        "missing": [
+          {
+            "id": "1",
+            "missing": [
+              "abts_per_phenolic_oh"
+            ]
+          },
+          {
+            "id": "3",
+            "missing": [
+              "abts_per_phenolic_oh"
+            ]
+          },
+          {
+            "id": "15",
+            "missing": [
+              "abts_per_phenolic_oh"
+            ]
+          },
+          {
+            "id": "16",
+            "missing": [
+              "abts_per_phenolic_oh"
+            ]
+          },
+          {
+            "id": "18",
+            "missing": [
+              "abts_per_phenolic_oh"
+            ]
+          }
+        ],
+        "pearson_r": -0.7622847776249484,
+        "r_squared": 0.581078082198717,
+        "spearman_rho": -0.735684604022726,
+        "slope": -0.1612682926829269,
+        "intercept": 14.079905226480841,
+        "ranking": {
+          "concordant": 67,
+          "discordant": 22,
+          "tied": 2,
+          "total_pairs": 91,
+          "discordant_fraction_of_untied": 0.24719101123595505,
+          "discordant_pairs": [
+            [
+              "2",
+              "4"
+            ],
+            [
+              "2",
+              "5"
+            ],
+            [
+              "2",
+              "6"
+            ],
+            [
+              "4",
+              "5"
+            ],
+            [
+              "4",
+              "11"
+            ],
+            [
+              "4",
+              "14"
+            ],
+            [
+              "5",
+              "6"
+            ],
+            [
+              "5",
+              "10"
+            ],
+            [
+              "5",
+              "11"
+            ],
+            [
+              "5",
+              "14"
+            ],
+            [
+              "6",
+              "11"
+            ],
+            [
+              "7",
+              "8"
+            ],
+            [
+              "7",
+              "9"
+            ],
+            [
+              "7",
+              "12"
+            ],
+            [
+              "7",
+              "17"
+            ],
+            [
+              "8",
+              "9"
+            ],
+            [
+              "8",
+              "12"
+            ],
+            [
+              "8",
+              "17"
+            ],
+            [
+              "9",
+              "12"
+            ],
+            [
+              "9",
+              "17"
+            ],
+            [
+              "11",
+              "14"
+            ],
+            [
+              "17",
+              "19"
+            ]
+          ]
+        },
+        "leave_one_out": {
+          "evaluated_folds": 14,
+          "total_folds": 14,
+          "linear": {
+            "mae": 0.3783147383344999,
+            "rmse": 0.4933680047303612
+          },
+          "training_mean_baseline": {
+            "mae": 0.5384615384615384,
+            "rmse": 0.6753127699652263
+          },
+          "folds": [
+            {
+              "held_out_id": "2",
+              "observed": 0.92,
+              "mean_prediction": 0.9030769230769231,
+              "linear_prediction": 1.1501697676194365,
+              "training_r2": 0.5898409230770308
+            },
+            {
+              "held_out_id": "4",
+              "observed": 1.58,
+              "mean_prediction": 0.8523076923076923,
+              "linear_prediction": 1.0705450252009108,
+              "training_r2": 0.5873513151989017
+            },
+            {
+              "held_out_id": "5",
+              "observed": 0.67,
+              "mean_prediction": 0.9223076923076923,
+              "linear_prediction": 1.7712770909090896,
+              "training_r2": 0.7543518820558863
+            },
+            {
+              "held_out_id": "6",
+              "observed": 0.96,
+              "mean_prediction": 0.8999999999999999,
+              "linear_prediction": 1.02183677314809,
+              "training_r2": 0.5814661424352555
+            },
+            {
+              "held_out_id": "7",
+              "observed": 0.57,
+              "mean_prediction": 0.9299999999999999,
+              "linear_prediction": 0.27082790146448765,
+              "training_r2": 0.5853987413904816
+            },
+            {
+              "held_out_id": "8",
+              "observed": 0.54,
+              "mean_prediction": 0.9323076923076923,
+              "linear_prediction": 0.29855411558668976,
+              "training_r2": 0.5789254682092351
+            },
+            {
+              "held_out_id": "9",
+              "observed": 0.45,
+              "mean_prediction": 0.9392307692307693,
+              "linear_prediction": 0.3572661661620149,
+              "training_r2": 0.5648215151400583
+            },
+            {
+              "held_out_id": "10",
+              "observed": 1.67,
+              "mean_prediction": 0.8453846153846154,
+              "linear_prediction": 1.3404358452138485,
+              "training_r2": 0.5458671465556256
+            },
+            {
+              "held_out_id": "11",
+              "observed": 0.92,
+              "mean_prediction": 0.9030769230769231,
+              "linear_prediction": 1.402812136758989,
+              "training_r2": 0.6178690458493941
+            },
+            {
+              "held_out_id": "12",
+              "observed": 0.26,
+              "mean_prediction": 0.9538461538461539,
+              "linear_prediction": 0.619074530136098,
+              "training_r2": 0.5668947322874716
+            },
+            {
+              "held_out_id": "13",
+              "observed": 2.39,
+              "mean_prediction": 0.7899999999999999,
+              "linear_prediction": 1.3488214070956097,
+              "training_r2": 0.5371616433328793
+            },
+            {
+              "held_out_id": "14",
+              "observed": 1.39,
+              "mean_prediction": 0.8669230769230769,
+              "linear_prediction": 1.2427656017345434,
+              "training_r2": 0.5644801029443673
+            },
+            {
+              "held_out_id": "17",
+              "observed": 0.08,
+              "mean_prediction": 0.9676923076923077,
+              "linear_prediction": 0.4613949168976976,
+              "training_r2": 0.542777901374531
+            },
+            {
+              "held_out_id": "19",
+              "observed": 0.26,
+              "mean_prediction": 0.9538461538461539,
+              "linear_prediction": 0.2790571836717035,
+              "training_r2": 0.5441115890541695
+            }
+          ]
+        },
+        "points": [
+          {
+            "id": "2",
+            "x": 80.3,
+            "y": 0.92
+          },
+          {
+            "id": "4",
+            "x": 80.4,
+            "y": 1.58
+          },
+          {
+            "id": "5",
+            "x": 77.7,
+            "y": 0.67
+          },
+          {
+            "id": "6",
+            "x": 81.0,
+            "y": 0.96
+          },
+          {
+            "id": "7",
+            "x": 85.3,
+            "y": 0.57
+          },
+          {
+            "id": "8",
+            "x": 85.2,
+            "y": 0.54
+          },
+          {
+            "id": "9",
+            "x": 85.0,
+            "y": 0.45
+          },
+          {
+            "id": "10",
+            "x": 78.7,
+            "y": 1.67
+          },
+          {
+            "id": "11",
+            "x": 79.0,
+            "y": 0.92
+          },
+          {
+            "id": "12",
+            "x": 83.7,
+            "y": 0.26
+          },
+          {
+            "id": "13",
+            "x": 77.6,
+            "y": 2.39
+          },
+          {
+            "id": "14",
+            "x": 79.5,
+            "y": 1.39
+          },
+          {
+            "id": "17",
+            "x": 84.8,
+            "y": 0.08
+          },
+          {
+            "id": "19",
+            "x": 85.6,
+            "y": 0.26
+          }
+        ],
+        "label": "ABTS: matched forms, RDI per phenolic OH (reanalysis)",
+        "selected_ids_before_missingness": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ]
+      }
+    },
+    "posthoc_source_sensitivity": {
+      "descriptor": "bde_last_kcal_mol",
+      "response": "abts_rdi",
+      "expected_direction": "negative",
+      "input_rows": 19,
+      "n": 14,
+      "included_ids": [
+        "2",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "17",
+        "19"
+      ],
+      "missing": [
+        {
+          "id": "1",
+          "missing": [
+            "abts_rdi"
+          ]
+        },
+        {
+          "id": "3",
+          "missing": [
+            "abts_rdi"
+          ]
+        },
+        {
+          "id": "15",
+          "missing": [
+            "abts_rdi"
+          ]
+        },
+        {
+          "id": "16",
+          "missing": [
+            "abts_rdi"
+          ]
+        },
+        {
+          "id": "18",
+          "missing": [
+            "abts_rdi"
+          ]
+        }
+      ],
+      "pearson_r": -0.8643885906731475,
+      "r_squared": 0.7471676356859103,
+      "spearman_rho": -0.7885481683836404,
+      "slope": -0.18734959349593502,
+      "intercept": 16.30646178861789,
+      "ranking": {
+        "concordant": 70,
+        "discordant": 19,
+        "tied": 2,
+        "total_pairs": 91,
+        "discordant_fraction_of_untied": 0.21348314606741572,
+        "discordant_pairs": [
+          [
+            "2",
+            "4"
+          ],
+          [
+            "2",
+            "6"
+          ],
+          [
+            "4",
+            "5"
+          ],
+          [
+            "4",
+            "11"
+          ],
+          [
+            "4",
+            "14"
+          ],
+          [
+            "5",
+            "10"
+          ],
+          [
+            "6",
+            "11"
+          ],
+          [
+            "6",
+            "14"
+          ],
+          [
+            "7",
+            "8"
+          ],
+          [
+            "7",
+            "9"
+          ],
+          [
+            "7",
+            "12"
+          ],
+          [
+            "7",
+            "17"
+          ],
+          [
+            "8",
+            "9"
+          ],
+          [
+            "8",
+            "12"
+          ],
+          [
+            "8",
+            "17"
+          ],
+          [
+            "9",
+            "12"
+          ],
+          [
+            "9",
+            "17"
+          ],
+          [
+            "11",
+            "14"
+          ],
+          [
+            "17",
+            "19"
+          ]
+        ]
+      },
+      "leave_one_out": {
+        "evaluated_folds": 14,
+        "total_folds": 14,
+        "linear": {
+          "mae": 0.3143251302963536,
+          "rmse": 0.3803433642033731
+        },
+        "training_mean_baseline": {
+          "mae": 0.6030769230769231,
+          "rmse": 0.6918579735908966
+        },
+        "folds": [
+          {
+            "held_out_id": "2",
+            "observed": 0.92,
+            "mean_prediction": 1.0061538461538462,
+            "linear_prediction": 1.295055613530506,
+            "training_r2": 0.7691097986775719
+          },
+          {
+            "held_out_id": "4",
+            "observed": 1.58,
+            "mean_prediction": 0.9553846153846154,
+            "linear_prediction": 1.2122322800157423,
+            "training_r2": 0.7531017070241584
+          },
+          {
+            "held_out_id": "5",
+            "observed": 1.45,
+            "mean_prediction": 0.9653846153846154,
+            "linear_prediction": 1.8249556363636312,
+            "training_r2": 0.7574415456316307
+          },
+          {
+            "held_out_id": "6",
+            "observed": 1.44,
+            "mean_prediction": 0.9661538461538461,
+            "linear_prediction": 1.1059534965518125,
+            "training_r2": 0.7562270742720526
+          },
+          {
+            "held_out_id": "7",
+            "observed": 0.57,
+            "mean_prediction": 1.033076923076923,
+            "linear_prediction": 0.27304071785321327,
+            "training_r2": 0.7511556561985963
+          },
+          {
+            "held_out_id": "8",
+            "observed": 0.54,
+            "mean_prediction": 1.0353846153846153,
+            "linear_prediction": 0.30389772329246867,
+            "training_r2": 0.7451130023095458
+          },
+          {
+            "held_out_id": "9",
+            "observed": 0.45,
+            "mean_prediction": 1.0423076923076924,
+            "linear_prediction": 0.3687490148907031,
+            "training_r2": 0.7330786300489631
+          },
+          {
+            "held_out_id": "10",
+            "observed": 1.67,
+            "mean_prediction": 0.9484615384615385,
+            "linear_prediction": 1.5438004073319753,
+            "training_r2": 0.7266561573375778
+          },
+          {
+            "held_out_id": "11",
+            "observed": 0.92,
+            "mean_prediction": 1.0061538461538462,
+            "linear_prediction": 1.5939236041524687,
+            "training_r2": 0.8152754990522901
+          },
+          {
+            "held_out_id": "12",
+            "observed": 0.26,
+            "mean_prediction": 1.0569230769230769,
+            "linear_prediction": 0.6676785482825647,
+            "training_r2": 0.7471337577872414
+          },
+          {
+            "held_out_id": "13",
+            "observed": 2.39,
+            "mean_prediction": 0.893076923076923,
+            "linear_prediction": 1.6047203848466634,
+            "training_r2": 0.7369620497878213
+          },
+          {
+            "held_out_id": "14",
+            "observed": 1.39,
+            "mean_prediction": 0.97,
+            "linear_prediction": 1.4149309056712216,
+            "training_r2": 0.7398896994163446
+          },
+          {
+            "held_out_id": "17",
+            "observed": 0.16,
+            "mean_prediction": 1.0646153846153845,
+            "linear_prediction": 0.46480204307389883,
+            "training_r2": 0.724627868592423
+          },
+          {
+            "held_out_id": "19",
+            "observed": 0.26,
+            "mean_prediction": 1.0569230769230769,
+            "linear_prediction": 0.27159949785723825,
+            "training_r2": 0.7184515437891885
+          }
+        ]
+      },
+      "points": [
+        {
+          "id": "2",
+          "x": 80.3,
+          "y": 0.92
+        },
+        {
+          "id": "4",
+          "x": 80.4,
+          "y": 1.58
+        },
+        {
+          "id": "5",
+          "x": 77.7,
+          "y": 1.45
+        },
+        {
+          "id": "6",
+          "x": 81.0,
+          "y": 1.44
+        },
+        {
+          "id": "7",
+          "x": 85.3,
+          "y": 0.57
+        },
+        {
+          "id": "8",
+          "x": 85.2,
+          "y": 0.54
+        },
+        {
+          "id": "9",
+          "x": 85.0,
+          "y": 0.45
+        },
+        {
+          "id": "10",
+          "x": 78.7,
+          "y": 1.67
+        },
+        {
+          "id": "11",
+          "x": 79.0,
+          "y": 0.92
+        },
+        {
+          "id": "12",
+          "x": 83.7,
+          "y": 0.26
+        },
+        {
+          "id": "13",
+          "x": 77.6,
+          "y": 2.39
+        },
+        {
+          "id": "14",
+          "x": 79.5,
+          "y": 1.39
+        },
+        {
+          "id": "17",
+          "x": 84.8,
+          "y": 0.16
+        },
+        {
+          "id": "19",
+          "x": 85.6,
+          "y": 0.26
+        }
+      ],
+      "label": "Post-hoc source sensitivity: ABTS prose values for 5/6 only",
+      "selection_status": "Added after discovering the source conflict; not one of the ten predefined variants.",
+      "replacements": [
+        {
+          "id": "5",
+          "table_rdi": 0.67,
+          "prose_rdi": 1.45
+        },
+        {
+          "id": "6",
+          "table_rdi": 0.96,
+          "prose_rdi": 1.44
+        }
+      ],
+      "interpretation": "Both source representations are retained. This does not decide experimental truth or reconstruct the authors' undocumented regression."
+    },
+    "input_data": [
+      {
+        "compound_id": "1",
+        "compound": "guaiacol",
+        "bde_first_kcal_mol": "82.4",
+        "bde_last_kcal_mol": "82.4",
+        "dpph_rdi": "1.0",
+        "abts_rdi": "",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "109.0",
+        "ete_last_kcal_mol": "109.0",
+        "dpph_ci95_half_width": "0.03",
+        "abts_ci95_half_width": "",
+        "dpph_status": "reported",
+        "abts_status": "not_reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "9.93",
+        "pka_water_second": "",
+        "source_table_row": "1",
+        "bde_source_cell": "82.4",
+        "dpph_source_cell": "1.00 ± 0.03",
+        "ete_source_cell": "109.0",
+        "abts_source_cell": "-",
+        "pka_source_cell": "9.93",
+        "dpph_per_phenolic_oh": "1.0",
+        "abts_per_phenolic_oh": ""
+      },
+      {
+        "compound_id": "2",
+        "compound": "methylguaiacol",
+        "bde_first_kcal_mol": "80.3",
+        "bde_last_kcal_mol": "80.3",
+        "dpph_rdi": "1.38",
+        "abts_rdi": "0.92",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "105.7",
+        "ete_last_kcal_mol": "105.7",
+        "dpph_ci95_half_width": "0.03",
+        "abts_ci95_half_width": "0.03",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "10.27",
+        "pka_water_second": "",
+        "source_table_row": "2",
+        "bde_source_cell": "80.3",
+        "dpph_source_cell": "1.38 ± 0.03",
+        "ete_source_cell": "105.7",
+        "abts_source_cell": "0.92 ± 0.03",
+        "pka_source_cell": "10.27",
+        "dpph_per_phenolic_oh": "1.38",
+        "abts_per_phenolic_oh": "0.92"
+      },
+      {
+        "compound_id": "3",
+        "compound": "ethylguaiacol",
+        "bde_first_kcal_mol": "80.5",
+        "bde_last_kcal_mol": "80.5",
+        "dpph_rdi": "1.35",
+        "abts_rdi": "",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "106.0",
+        "ete_last_kcal_mol": "106.0",
+        "dpph_ci95_half_width": "0.04",
+        "abts_ci95_half_width": "",
+        "dpph_status": "reported",
+        "abts_status": "not_reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "",
+        "pka_water_second": "",
+        "source_table_row": "3",
+        "bde_source_cell": "80.5",
+        "dpph_source_cell": "1.35 ± 0.04",
+        "ete_source_cell": "106.0",
+        "abts_source_cell": "-",
+        "pka_source_cell": "-",
+        "dpph_per_phenolic_oh": "1.35",
+        "abts_per_phenolic_oh": ""
+      },
+      {
+        "compound_id": "4",
+        "compound": "propylguaiacol",
+        "bde_first_kcal_mol": "80.4",
+        "bde_last_kcal_mol": "80.4",
+        "dpph_rdi": "1.53",
+        "abts_rdi": "1.58",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "106.0",
+        "ete_last_kcal_mol": "106.0",
+        "dpph_ci95_half_width": "0.02",
+        "abts_ci95_half_width": "0.07",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "9.85",
+        "pka_water_second": "",
+        "source_table_row": "4",
+        "bde_source_cell": "80.4",
+        "dpph_source_cell": "1.53 ± 0.02",
+        "ete_source_cell": "106.0",
+        "abts_source_cell": "1.58 ± 0.07",
+        "pka_source_cell": "9.85",
+        "dpph_per_phenolic_oh": "1.53",
+        "abts_per_phenolic_oh": "1.58"
+      },
+      {
+        "compound_id": "5",
+        "compound": "isoeugenol",
+        "bde_first_kcal_mol": "77.7",
+        "bde_last_kcal_mol": "77.7",
+        "dpph_rdi": "0.9",
+        "abts_rdi": "0.67",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "105.7",
+        "ete_last_kcal_mol": "105.7",
+        "dpph_ci95_half_width": "0.09",
+        "abts_ci95_half_width": "0.05",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "9.89",
+        "pka_water_second": "",
+        "source_table_row": "5",
+        "bde_source_cell": "77.7",
+        "dpph_source_cell": "0.90 ± 0.09",
+        "ete_source_cell": "105.7",
+        "abts_source_cell": "0.67 ± 0.05",
+        "pka_source_cell": "9.89",
+        "dpph_per_phenolic_oh": "0.9",
+        "abts_per_phenolic_oh": "0.67"
+      },
+      {
+        "compound_id": "6",
+        "compound": "eugenol",
+        "bde_first_kcal_mol": "81.0",
+        "bde_last_kcal_mol": "81.0",
+        "dpph_rdi": "1.72",
+        "abts_rdi": "0.96",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "107.3",
+        "ete_last_kcal_mol": "107.3",
+        "dpph_ci95_half_width": "0.07",
+        "abts_ci95_half_width": "0.04",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "10.15",
+        "pka_water_second": "",
+        "source_table_row": "6",
+        "bde_source_cell": "81.0",
+        "dpph_source_cell": "1.72 ± 0.07",
+        "ete_source_cell": "107.3",
+        "abts_source_cell": "0.96 ± 0.04",
+        "pka_source_cell": "10.15",
+        "dpph_per_phenolic_oh": "1.72",
+        "abts_per_phenolic_oh": "0.96"
+      },
+      {
+        "compound_id": "7",
+        "compound": "vanillin",
+        "bde_first_kcal_mol": "85.3",
+        "bde_last_kcal_mol": "85.3",
+        "dpph_rdi": "0.02",
+        "abts_rdi": "0.57",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "121.4",
+        "ete_last_kcal_mol": "121.4",
+        "dpph_ci95_half_width": "0.01",
+        "abts_ci95_half_width": "0.03",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "7.4",
+        "pka_water_second": "",
+        "source_table_row": "7",
+        "bde_source_cell": "85.3",
+        "dpph_source_cell": "0.02 ± 0.01",
+        "ete_source_cell": "121.4",
+        "abts_source_cell": "0.57 ± 0.03",
+        "pka_source_cell": "7.40",
+        "dpph_per_phenolic_oh": "0.02",
+        "abts_per_phenolic_oh": "0.57"
+      },
+      {
+        "compound_id": "8",
+        "compound": "acetovanillone",
+        "bde_first_kcal_mol": "85.2",
+        "bde_last_kcal_mol": "85.2",
+        "dpph_rdi": "0.03",
+        "abts_rdi": "0.54",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "119.5",
+        "ete_last_kcal_mol": "119.5",
+        "dpph_ci95_half_width": "0.01",
+        "abts_ci95_half_width": "0.03",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "7.81",
+        "pka_water_second": "",
+        "source_table_row": "8",
+        "bde_source_cell": "85.2",
+        "dpph_source_cell": "0.03 ± 0.01",
+        "ete_source_cell": "119.5",
+        "abts_source_cell": "0.54 ± 0.03",
+        "pka_source_cell": "7.81",
+        "dpph_per_phenolic_oh": "0.03",
+        "abts_per_phenolic_oh": "0.54"
+      },
+      {
+        "compound_id": "9",
+        "compound": "propiovanillone",
+        "bde_first_kcal_mol": "85.0",
+        "bde_last_kcal_mol": "85.0",
+        "dpph_rdi": "0.05",
+        "abts_rdi": "0.45",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "118.9",
+        "ete_last_kcal_mol": "118.9",
+        "dpph_ci95_half_width": "0.01",
+        "abts_ci95_half_width": "0.04",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "7.98",
+        "pka_water_second": "",
+        "source_table_row": "9",
+        "bde_source_cell": "85.0",
+        "dpph_source_cell": "0.05 ± 0.01",
+        "ete_source_cell": "118.9",
+        "abts_source_cell": "0.45 ± 0.04",
+        "pka_source_cell": "7.98",
+        "dpph_per_phenolic_oh": "0.05",
+        "abts_per_phenolic_oh": "0.45"
+      },
+      {
+        "compound_id": "10",
+        "compound": "homovanillic acid",
+        "bde_first_kcal_mol": "82.0",
+        "bde_last_kcal_mol": "78.7",
+        "dpph_rdi": "1.18",
+        "abts_rdi": "1.67",
+        "bde_second_reported": "true",
+        "ete_first_kcal_mol": "109.1",
+        "ete_last_kcal_mol": "102.0",
+        "dpph_ci95_half_width": "0.03",
+        "abts_ci95_half_width": "0.02",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "4.41",
+        "pka_water_second": "10.52",
+        "source_table_row": "10",
+        "bde_source_cell": "82.0/78.7",
+        "dpph_source_cell": "1.18 ± 0.03",
+        "ete_source_cell": "109.1/102.0",
+        "abts_source_cell": "1.67 ± 0.02",
+        "pka_source_cell": "4.41/10.52",
+        "dpph_per_phenolic_oh": "1.18",
+        "abts_per_phenolic_oh": "1.67"
+      },
+      {
+        "compound_id": "11",
+        "compound": "vanillylmandelic acid",
+        "bde_first_kcal_mol": "82.5",
+        "bde_last_kcal_mol": "79.0",
+        "dpph_rdi": "0.98",
+        "abts_rdi": "0.92",
+        "bde_second_reported": "true",
+        "ete_first_kcal_mol": "111.3",
+        "ete_last_kcal_mol": "103.3",
+        "dpph_ci95_half_width": "0.02",
+        "abts_ci95_half_width": "0.02",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "3.43",
+        "pka_water_second": "9.93",
+        "source_table_row": "11",
+        "bde_source_cell": "82.5/79.0",
+        "dpph_source_cell": "0.98 ± 0.02",
+        "ete_source_cell": "111.3/103.3",
+        "abts_source_cell": "0.92 ± 0.02",
+        "pka_source_cell": "3.43/9.93",
+        "dpph_per_phenolic_oh": "0.98",
+        "abts_per_phenolic_oh": "0.92"
+      },
+      {
+        "compound_id": "12",
+        "compound": "vanilglycolic acid",
+        "bde_first_kcal_mol": "86.9",
+        "bde_last_kcal_mol": "83.7",
+        "dpph_rdi": "0.08",
+        "abts_rdi": "0.26",
+        "bde_second_reported": "true",
+        "ete_first_kcal_mol": "125.7",
+        "ete_last_kcal_mol": "116.7",
+        "dpph_ci95_half_width": "0.01",
+        "abts_ci95_half_width": "0.01",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "1.6",
+        "pka_water_second": "7.54",
+        "source_table_row": "12",
+        "bde_source_cell": "86.9/83.7",
+        "dpph_source_cell": "0.08 ± 0.01",
+        "ete_source_cell": "125.7/116.7",
+        "abts_source_cell": "0.26 ± 0.01",
+        "pka_source_cell": "1.60/7.54",
+        "dpph_per_phenolic_oh": "0.08",
+        "abts_per_phenolic_oh": "0.26"
+      },
+      {
+        "compound_id": "13",
+        "compound": "ferulic acid",
+        "bde_first_kcal_mol": "81.8",
+        "bde_last_kcal_mol": "77.6",
+        "dpph_rdi": "1.23",
+        "abts_rdi": "2.39",
+        "bde_second_reported": "true",
+        "ete_first_kcal_mol": "116.8",
+        "ete_last_kcal_mol": "106.0",
+        "dpph_ci95_half_width": "0.03",
+        "abts_ci95_half_width": "0.07",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "4.56",
+        "pka_water_second": "9.39",
+        "source_table_row": "13",
+        "bde_source_cell": "81.8/77.6",
+        "dpph_source_cell": "1.23 ± 0.03",
+        "ete_source_cell": "116.8/106.0",
+        "abts_source_cell": "2.39 ± 0.07",
+        "pka_source_cell": "4.56/9.39",
+        "dpph_per_phenolic_oh": "1.23",
+        "abts_per_phenolic_oh": "2.39"
+      },
+      {
+        "compound_id": "14",
+        "compound": "dihydroferulic acid",
+        "bde_first_kcal_mol": "81.2",
+        "bde_last_kcal_mol": "79.5",
+        "dpph_rdi": "1.23",
+        "abts_rdi": "1.39",
+        "bde_second_reported": "true",
+        "ete_first_kcal_mol": "107.4",
+        "ete_last_kcal_mol": "103.5",
+        "dpph_ci95_half_width": "0.06",
+        "abts_ci95_half_width": "0.04",
+        "dpph_status": "reported",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "",
+        "pka_water_second": "",
+        "source_table_row": "14",
+        "bde_source_cell": "81.2/79.5",
+        "dpph_source_cell": "1.23 ± 0.06",
+        "ete_source_cell": "107.4/103.5",
+        "abts_source_cell": "1.39 ± 0.04",
+        "pka_source_cell": "-",
+        "dpph_per_phenolic_oh": "1.23",
+        "abts_per_phenolic_oh": "1.39"
+      },
+      {
+        "compound_id": "15",
+        "compound": "dehydrodiisoeugenol",
+        "bde_first_kcal_mol": "81.9",
+        "bde_last_kcal_mol": "81.9",
+        "dpph_rdi": "0.67",
+        "abts_rdi": "",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "109.5",
+        "ete_last_kcal_mol": "109.5",
+        "dpph_ci95_half_width": "0.02",
+        "abts_ci95_half_width": "",
+        "dpph_status": "reported",
+        "abts_status": "not_reported",
+        "dpph_provenance": "imported_reference_47",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "",
+        "pka_water_second": "",
+        "source_table_row": "15",
+        "bde_source_cell": "81.9",
+        "dpph_source_cell": "0.67 ± 0.02 a",
+        "ete_source_cell": "109.5",
+        "abts_source_cell": "-",
+        "pka_source_cell": "-",
+        "dpph_per_phenolic_oh": "0.67",
+        "abts_per_phenolic_oh": ""
+      },
+      {
+        "compound_id": "16",
+        "compound": "dehydrodieugenol",
+        "bde_first_kcal_mol": "80.1",
+        "bde_last_kcal_mol": "80.1",
+        "dpph_rdi": "2.72",
+        "abts_rdi": "",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "106.3",
+        "ete_last_kcal_mol": "106.3",
+        "dpph_ci95_half_width": "0.03",
+        "abts_ci95_half_width": "",
+        "dpph_status": "reported",
+        "abts_status": "not_reported",
+        "dpph_provenance": "imported_reference_47",
+        "phenolic_oh_count": "2",
+        "pka_water_first": "",
+        "pka_water_second": "",
+        "source_table_row": "16",
+        "bde_source_cell": "80.1",
+        "dpph_source_cell": "2.72 ± 0.03 a",
+        "ete_source_cell": "106.3",
+        "abts_source_cell": "-",
+        "pka_source_cell": "-",
+        "dpph_per_phenolic_oh": "1.36",
+        "abts_per_phenolic_oh": ""
+      },
+      {
+        "compound_id": "17",
+        "compound": "divanillin",
+        "bde_first_kcal_mol": "84.8",
+        "bde_last_kcal_mol": "84.8",
+        "dpph_rdi": "",
+        "abts_rdi": "0.16",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "121.6",
+        "ete_last_kcal_mol": "121.6",
+        "dpph_ci95_half_width": "",
+        "abts_ci95_half_width": "0.03",
+        "dpph_status": "insoluble_not_determined",
+        "abts_status": "reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "2",
+        "pka_water_first": "6.16",
+        "pka_water_second": "10.07",
+        "source_table_row": "17",
+        "bde_source_cell": "84.8",
+        "dpph_source_cell": "n.d. c",
+        "ete_source_cell": "121.6",
+        "abts_source_cell": "0.16 ± 0.03",
+        "pka_source_cell": "6.16/10.07",
+        "dpph_per_phenolic_oh": "",
+        "abts_per_phenolic_oh": "0.08"
+      },
+      {
+        "compound_id": "18",
+        "compound": "dipropiovanillone",
+        "bde_first_kcal_mol": "86.0",
+        "bde_last_kcal_mol": "86.0",
+        "dpph_rdi": "0.014",
+        "abts_rdi": "",
+        "bde_second_reported": "false",
+        "ete_first_kcal_mol": "122.0",
+        "ete_last_kcal_mol": "122.0",
+        "dpph_ci95_half_width": "0.01",
+        "abts_ci95_half_width": "",
+        "dpph_status": "reported",
+        "abts_status": "not_reported",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "",
+        "pka_water_second": "",
+        "source_table_row": "18",
+        "bde_source_cell": "86.0",
+        "dpph_source_cell": "0.014 ± 0.01",
+        "ete_source_cell": "122.0",
+        "abts_source_cell": "-",
+        "pka_source_cell": "-",
+        "dpph_per_phenolic_oh": "0.014",
+        "abts_per_phenolic_oh": ""
+      },
+      {
+        "compound_id": "19",
+        "compound": "acetovanillonylvanillic acid",
+        "bde_first_kcal_mol": "86.5",
+        "bde_last_kcal_mol": "85.6",
+        "dpph_rdi": "0.02",
+        "abts_rdi": "0.26",
+        "bde_second_reported": "true",
+        "ete_first_kcal_mol": "121.5",
+        "ete_last_kcal_mol": "120.0",
+        "dpph_ci95_half_width": "0.01",
+        "abts_ci95_half_width": "",
+        "dpph_status": "reported",
+        "abts_status": "reported_without_ci",
+        "dpph_provenance": "this_article",
+        "phenolic_oh_count": "1",
+        "pka_water_first": "",
+        "pka_water_second": "",
+        "source_table_row": "19",
+        "bde_source_cell": "86.5/85.6",
+        "dpph_source_cell": "0.02 ± 0.01",
+        "ete_source_cell": "121.5/120.0",
+        "abts_source_cell": "0.26",
+        "pka_source_cell": "-",
+        "dpph_per_phenolic_oh": "0.02",
+        "abts_per_phenolic_oh": "0.26"
+      }
+    ]
+  },
+  "kazachenko2022": {
+    "doi": "10.3390/polym14153000",
+    "source_table": "Table 2",
+    "full_table": {
+      "index_column": "temperature_c",
+      "left_column": "initial_mass_loss_pct",
+      "right_column": "sulfated_mass_loss_pct",
+      "expected_right": "greater",
+      "minimum": null,
+      "maximum": null,
+      "n": 13,
+      "agreeing": 11,
+      "counterexamples": [
+        {
+          "index": 200.0,
+          "left": 3.7,
+          "right": 3.5,
+          "right_minus_left": -0.20000000000000018,
+          "agrees": false
+        },
+        {
+          "index": 250.0,
+          "left": 7.7,
+          "right": 6.2,
+          "right_minus_left": -1.5,
+          "agrees": false
+        }
+      ],
+      "rows": [
+        {
+          "index": 200.0,
+          "left": 3.7,
+          "right": 3.5,
+          "right_minus_left": -0.20000000000000018,
+          "agrees": false
+        },
+        {
+          "index": 250.0,
+          "left": 7.7,
+          "right": 6.2,
+          "right_minus_left": -1.5,
+          "agrees": false
+        },
+        {
+          "index": 300.0,
+          "left": 14.4,
+          "right": 14.7,
+          "right_minus_left": 0.29999999999999893,
+          "agrees": true
+        },
+        {
+          "index": 350.0,
+          "left": 26.4,
+          "right": 47.0,
+          "right_minus_left": 20.6,
+          "agrees": true
+        },
+        {
+          "index": 400.0,
+          "left": 41.1,
+          "right": 62.7,
+          "right_minus_left": 21.6,
+          "agrees": true
+        },
+        {
+          "index": 450.0,
+          "left": 47.7,
+          "right": 64.9,
+          "right_minus_left": 17.200000000000003,
+          "agrees": true
+        },
+        {
+          "index": 500.0,
+          "left": 51.7,
+          "right": 67.6,
+          "right_minus_left": 15.899999999999991,
+          "agrees": true
+        },
+        {
+          "index": 550.0,
+          "left": 54.6,
+          "right": 70.6,
+          "right_minus_left": 15.999999999999993,
+          "agrees": true
+        },
+        {
+          "index": 600.0,
+          "left": 56.8,
+          "right": 73.9,
+          "right_minus_left": 17.10000000000001,
+          "agrees": true
+        },
+        {
+          "index": 650.0,
+          "left": 58.3,
+          "right": 74.0,
+          "right_minus_left": 15.700000000000003,
+          "agrees": true
+        },
+        {
+          "index": 700.0,
+          "left": 59.5,
+          "right": 75.0,
+          "right_minus_left": 15.5,
+          "agrees": true
+        },
+        {
+          "index": 750.0,
+          "left": 60.8,
+          "right": 75.9,
+          "right_minus_left": 15.100000000000009,
+          "agrees": true
+        },
+        {
+          "index": 800.0,
+          "left": 61.9,
+          "right": 76.6,
+          "right_minus_left": 14.699999999999996,
+          "agrees": true
+        }
+      ],
+      "interpretation": "A numerical source-consistency check, not a verdict about experimental truth."
+    },
+    "prose_interval_from250": {
+      "index_column": "temperature_c",
+      "left_column": "initial_mass_loss_pct",
+      "right_column": "sulfated_mass_loss_pct",
+      "expected_right": "greater",
+      "minimum": 250,
+      "maximum": null,
+      "n": 12,
+      "agreeing": 11,
+      "counterexamples": [
+        {
+          "index": 250.0,
+          "left": 7.7,
+          "right": 6.2,
+          "right_minus_left": -1.5,
+          "agrees": false
+        }
+      ],
+      "rows": [
+        {
+          "index": 250.0,
+          "left": 7.7,
+          "right": 6.2,
+          "right_minus_left": -1.5,
+          "agrees": false
+        },
+        {
+          "index": 300.0,
+          "left": 14.4,
+          "right": 14.7,
+          "right_minus_left": 0.29999999999999893,
+          "agrees": true
+        },
+        {
+          "index": 350.0,
+          "left": 26.4,
+          "right": 47.0,
+          "right_minus_left": 20.6,
+          "agrees": true
+        },
+        {
+          "index": 400.0,
+          "left": 41.1,
+          "right": 62.7,
+          "right_minus_left": 21.6,
+          "agrees": true
+        },
+        {
+          "index": 450.0,
+          "left": 47.7,
+          "right": 64.9,
+          "right_minus_left": 17.200000000000003,
+          "agrees": true
+        },
+        {
+          "index": 500.0,
+          "left": 51.7,
+          "right": 67.6,
+          "right_minus_left": 15.899999999999991,
+          "agrees": true
+        },
+        {
+          "index": 550.0,
+          "left": 54.6,
+          "right": 70.6,
+          "right_minus_left": 15.999999999999993,
+          "agrees": true
+        },
+        {
+          "index": 600.0,
+          "left": 56.8,
+          "right": 73.9,
+          "right_minus_left": 17.10000000000001,
+          "agrees": true
+        },
+        {
+          "index": 650.0,
+          "left": 58.3,
+          "right": 74.0,
+          "right_minus_left": 15.700000000000003,
+          "agrees": true
+        },
+        {
+          "index": 700.0,
+          "left": 59.5,
+          "right": 75.0,
+          "right_minus_left": 15.5,
+          "agrees": true
+        },
+        {
+          "index": 750.0,
+          "left": 60.8,
+          "right": 75.9,
+          "right_minus_left": 15.100000000000009,
+          "agrees": true
+        },
+        {
+          "index": 800.0,
+          "left": 61.9,
+          "right": 76.6,
+          "right_minus_left": 14.699999999999996,
+          "agrees": true
+        }
+      ],
+      "interpretation": "A numerical source-consistency check, not a verdict about experimental truth."
+    },
+    "at800": {
+      "table_initial_pct": 61.9,
+      "table_sulfated_pct": 76.6,
+      "prose_initial_pct": 76.6,
+      "prose_sulfated_pct": 61.9,
+      "verdict": "The prose reverses the Table 2 sample assignments at 800 °C; raw experimental truth is not determined by this check."
+    }
+  },
+  "limits": [
+    "Retrospectively selected cases; no estimate of general error-detection accuracy.",
+    "Published rounded means, not raw experimental replicates or a reproduction of DFT calculations.",
+    "LOO is an internal diagnostic on small chemically related samples, not external validation.",
+    "Agent-assisted extraction and separate computational verification, not independent human peer review."
+  ]
+}

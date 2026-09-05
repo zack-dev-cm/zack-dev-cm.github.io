@@ -1,0 +1,20 @@
+compound_id,compound,bde_first_kcal_mol,bde_last_kcal_mol,dpph_rdi,abts_rdi,bde_second_reported,ete_first_kcal_mol,ete_last_kcal_mol,dpph_ci95_half_width,abts_ci95_half_width,dpph_status,abts_status,dpph_provenance,phenolic_oh_count,pka_water_first,pka_water_second,source_table_row,bde_source_cell,dpph_source_cell,ete_source_cell,abts_source_cell,pka_source_cell
+1,guaiacol,82.4,82.4,1.0,,false,109.0,109.0,0.03,,reported,not_reported,this_article,1,9.93,,1,82.4,1.00 ± 0.03,109.0,-,9.93
+2,methylguaiacol,80.3,80.3,1.38,0.92,false,105.7,105.7,0.03,0.03,reported,reported,this_article,1,10.27,,2,80.3,1.38 ± 0.03,105.7,0.92 ± 0.03,10.27
+3,ethylguaiacol,80.5,80.5,1.35,,false,106.0,106.0,0.04,,reported,not_reported,this_article,1,,,3,80.5,1.35 ± 0.04,106.0,-,-
+4,propylguaiacol,80.4,80.4,1.53,1.58,false,106.0,106.0,0.02,0.07,reported,reported,this_article,1,9.85,,4,80.4,1.53 ± 0.02,106.0,1.58 ± 0.07,9.85
+5,isoeugenol,77.7,77.7,0.9,0.67,false,105.7,105.7,0.09,0.05,reported,reported,this_article,1,9.89,,5,77.7,0.90 ± 0.09,105.7,0.67 ± 0.05,9.89
+6,eugenol,81.0,81.0,1.72,0.96,false,107.3,107.3,0.07,0.04,reported,reported,this_article,1,10.15,,6,81.0,1.72 ± 0.07,107.3,0.96 ± 0.04,10.15
+7,vanillin,85.3,85.3,0.02,0.57,false,121.4,121.4,0.01,0.03,reported,reported,this_article,1,7.4,,7,85.3,0.02 ± 0.01,121.4,0.57 ± 0.03,7.40
+8,acetovanillone,85.2,85.2,0.03,0.54,false,119.5,119.5,0.01,0.03,reported,reported,this_article,1,7.81,,8,85.2,0.03 ± 0.01,119.5,0.54 ± 0.03,7.81
+9,propiovanillone,85.0,85.0,0.05,0.45,false,118.9,118.9,0.01,0.04,reported,reported,this_article,1,7.98,,9,85.0,0.05 ± 0.01,118.9,0.45 ± 0.04,7.98
+10,homovanillic acid,82.0,78.7,1.18,1.67,true,109.1,102.0,0.03,0.02,reported,reported,this_article,1,4.41,10.52,10,82.0/78.7,1.18 ± 0.03,109.1/102.0,1.67 ± 0.02,4.41/10.52
+11,vanillylmandelic acid,82.5,79.0,0.98,0.92,true,111.3,103.3,0.02,0.02,reported,reported,this_article,1,3.43,9.93,11,82.5/79.0,0.98 ± 0.02,111.3/103.3,0.92 ± 0.02,3.43/9.93
+12,vanilglycolic acid,86.9,83.7,0.08,0.26,true,125.7,116.7,0.01,0.01,reported,reported,this_article,1,1.6,7.54,12,86.9/83.7,0.08 ± 0.01,125.7/116.7,0.26 ± 0.01,1.60/7.54
+13,ferulic acid,81.8,77.6,1.23,2.39,true,116.8,106.0,0.03,0.07,reported,reported,this_article,1,4.56,9.39,13,81.8/77.6,1.23 ± 0.03,116.8/106.0,2.39 ± 0.07,4.56/9.39
+14,dihydroferulic acid,81.2,79.5,1.23,1.39,true,107.4,103.5,0.06,0.04,reported,reported,this_article,1,,,14,81.2/79.5,1.23 ± 0.06,107.4/103.5,1.39 ± 0.04,-
+15,dehydrodiisoeugenol,81.9,81.9,0.67,,false,109.5,109.5,0.02,,reported,not_reported,imported_reference_47,1,,,15,81.9,0.67 ± 0.02 a,109.5,-,-
+16,dehydrodieugenol,80.1,80.1,2.72,,false,106.3,106.3,0.03,,reported,not_reported,imported_reference_47,2,,,16,80.1,2.72 ± 0.03 a,106.3,-,-
+17,divanillin,84.8,84.8,,0.16,false,121.6,121.6,,0.03,insoluble_not_determined,reported,this_article,2,6.16,10.07,17,84.8,n.d. c,121.6,0.16 ± 0.03,6.16/10.07
+18,dipropiovanillone,86.0,86.0,0.014,,false,122.0,122.0,0.01,,reported,not_reported,this_article,1,,,18,86.0,0.014 ± 0.01,122.0,-,-
+19,acetovanillonylvanillic acid,86.5,85.6,0.02,0.26,true,121.5,120.0,0.01,,reported,reported_without_ci,this_article,1,,,19,86.5/85.6,0.02 ± 0.01,121.5/120.0,0.26,-

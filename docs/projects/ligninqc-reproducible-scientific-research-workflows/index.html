@@ -4,24 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LigninQC - Reproducible Scientific Research Workflows | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction." />
+    <meta name="description" content="Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="LigninQC - Reproducible Scientific Research Workflows" />
-    <meta property="og:description" content="Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas." />
+    <meta property="og:description" content="Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="LigninQC - Reproducible Scientific Research Workflows" />
-    <meta name="twitter:description" content="Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas." />
+    <meta name="twitter:description" content="Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline." />
     <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/project-social/ligninqc-reproducible-scientific-research-workflows.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="LigninQC workflow from metadata discovery through normalization, version grouping and integrity review to traceable extraction, with missing evidence routed to human review" />
+    <meta property="og:image:alt" content="Included publication data flows through local Python calculations into a report that separates computed results from interpretation and limits" />
     <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/project-social/ligninqc-reproducible-scientific-research-workflows.png" />
-    <meta name="twitter:image:alt" content="LigninQC workflow from metadata discovery through normalization, version grouping and integrity review to traceable extraction, with missing evidence routed to human review" />
+    <meta name="twitter:image:alt" content="Included publication data flows through local Python calculations into a report that separates computed results from interpretation and limits" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -29,7 +29,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/#case-study",
       "headline": "LigninQC - Reproducible Scientific Research Workflows",
       "name": "LigninQC - Reproducible Scientific Research Workflows",
-      "description": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
+      "description": "Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline.",
       "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
       "author": {
@@ -43,7 +43,7 @@
             "url": "https://zack-dev-cm.github.io"
       },
       "genre": "research",
-      "keywords": "research, scientific-data, data-engineering, reproducibility, JavaScript, Node.js, OpenAlex API, JSONL, CSV, Data validation",
+      "keywords": "research, scientific-data, reproducibility, lignin-chemistry, Python 3.10+, Standard library, CSV, JSON, HTML",
       "image": "https://zack-dev-cm.github.io/docs/images/project-social/ligninqc-reproducible-scientific-research-workflows.png",
       "isAccessibleForFree": true,
       "about": [
@@ -57,27 +57,19 @@
             },
             {
                   "@type": "Thing",
-                  "name": "data-engineering"
-            },
-            {
-                  "@type": "Thing",
                   "name": "reproducibility"
             },
             {
                   "@type": "Thing",
-                  "name": "JavaScript"
+                  "name": "lignin-chemistry"
             },
             {
                   "@type": "Thing",
-                  "name": "Node.js"
+                  "name": "Python 3.10+"
             },
             {
                   "@type": "Thing",
-                  "name": "OpenAlex API"
-            },
-            {
-                  "@type": "Thing",
-                  "name": "JSONL"
+                  "name": "Standard library"
             },
             {
                   "@type": "Thing",
@@ -85,10 +77,30 @@
             },
             {
                   "@type": "Thing",
-                  "name": "Data validation"
+                  "name": "JSON"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "HTML"
             }
       ],
-      "workExample": []
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Read the scientific report",
+                  "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/report.html"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Download the offline package",
+                  "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/ligninqc-reanalysis-2026-09-05.zip"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Verify the download",
+                  "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/SHA256SUMS"
+            }
+      ]
 }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -110,41 +122,55 @@
         <header class="hero">
           <p class="eyebrow">Research &amp; development</p>
           <h1>LigninQC - Reproducible Scientific Research Workflows</h1>
-          <p class="lede">Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.</p>
-          <figure><a class="figure-link" href="/docs/images/ligninqc-research-workflow.svg" aria-label="Open full-size figure 1: LigninQC workflow from metadata discovery through normalization, version grouping and integrity review to traceable extraction, with missing evidence routed to human review"><img class="visual" src="/docs/images/ligninqc-research-workflow.svg" alt="LigninQC workflow from metadata discovery through normalization, version grouping and integrity review to traceable extraction, with missing evidence routed to human review" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow illustration. Research in progress; extraction schemas are prepared.</figcaption></figure>
+          <p class="lede">Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline.</p>
+          <nav class="research-actions" aria-label="Research workflow actions"><a class="research-action research-action--primary" href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/report.html">Read the scientific report</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/ligninqc-reanalysis-2026-09-05.zip">Download the offline package</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/SHA256SUMS">Verify the download</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/sources/source-extracts.html">Inspect the source tables</a><a class="research-action" href="#run-cases">Run the cases</a></nav>
+          <figure><a class="figure-link" href="/docs/images/ligninqc-reanalysis-workflow.svg" aria-label="Open full-size figure 1: Included publication data flows through local Python calculations into a report that separates computed results from interpretation and limits"><img class="visual" src="/docs/images/ligninqc-reanalysis-workflow.svg" alt="Included publication data flows through local Python calculations into a report that separates computed results from interpretation and limits" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow of the included reanalysis. The illustration shows the data path; numerical results are in the linked report.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>I&#39;m developing LigninQC, a research-data workflow for studying how molecular-model assumptions affect conclusions in lignin chemistry. The current implementation retrieves and normalizes literature metadata, preserves provenance, groups publication versions and prepares screening records and extraction schemas with field-level provenance. Missing evidence and integrity concerns remain visible for human review. The scientific review and quantum-chemistry benchmark are at protocol stage.</p>
+          <p>LigninQC connects two scientific questions to inspectable calculations: how state and normalization choices affect an antioxidant association, and whether selected thermal claims agree with a sulfated-lignin table. Version 1.0.0 includes two CC BY article cases, source locations, CSV inputs, Python code, tests and reports in one offline archive.</p>
         </section>
-        <section><h2>Research engineering contribution</h2><p>The implemented pipeline retrieves literature metadata, normalizes incomplete records and groups publication versions while retaining retrieval lineage. Missing abstracts and integrity concerns remain visible for review instead of being treated as clean negative evidence.</p></section>
-<section><h2>Scope of the current work</h2><p>The delivered work is data acquisition, validation and audit tooling, including traceable extraction schemas. The scientific review and quantum-chemistry benchmark remain at protocol stage.</p></section>
+        <section aria-labelledby="case-results-title"><h2 id="case-results-title">Recomputed case results</h2><table class="research-results"><caption>Selected results from the included article cases; see the report for methods and source locations.</caption><thead><tr><th scope="col">Question</th><th scope="col">Result and scope</th></tr></thead><tbody><tr><th scope="row">How closely does the reconstructed neutral-state BDE association fit DPPH values?</th><td><strong>R = 0.637 across 18 compounds</strong><p>Calculated from rounded Table 1 values in Lauberte et al. (2019). This is one declared reconstruction; state mapping, exclusions and OH normalization are sensitivity analyses. It is not external predictive validation.</p></td></tr><tr><th scope="row">Do the reported 800 degC thermal values agree with the prose?</th><td><strong>Table: 61.9% initial, 76.6% sulfated mass loss</strong><p>Kazachenko et al. (2022), Table 2. The prose reverses these two values. This is a source-internal inconsistency; the available table does not establish which statement reflects the raw experiment.</p></td></tr></tbody></table></section>
+        <section id="run-cases" class="research-quickstart" aria-labelledby="run-cases-title"><h2 id="run-cases-title">Run the included cases</h2><p>Python 3.10 or later; no pip installation or account required. After downloading, the included cases run offline using only the standard library. On Windows, use py -3 instead of python3.</p><ol><li>Download and extract the release archive.</li><li>Open a terminal in the directory containing the extracted folder.</li><li>Run the two commands below, then open results/report.html in your browser.</li></ol><pre tabindex="0" aria-label="Reproduction command"><code>cd ligninqc-reanalysis-2026-09-05
+python3 -m ligninqc reproduce --out results
+python3 -m ligninqc verify</code></pre><p>The run writes results/report.html and results/results.json. To replace a previous nonempty results directory, add --force to the reproduce command. The archive includes version 1.0.0, source locators and the reference output.</p></section>
+        <section><h2>Antioxidant association: what changes with the assumptions?</h2><p>The Lauberte et al. (2019) case reanalyses published O - H bond dissociation energies and radical-deactivation values. It varies the reported molecular-state mapping, the included compounds and normalization by phenolic OH count. Missing observations remain missing. The report shows how these declared choices change the association; a difference from a rounded published correlation is not by itself evidence of a calculation error.</p></section>
+<section><h2>Sulfated lignin: do the words and tables agree?</h2><p>The Kazachenko et al. (2022) case checks selected thermal statements against the reported cumulative mass-loss table and describes the molecular-weight ratios. It preserves the distinction between a table/prose mismatch and an experimentally established error. Changes in GPC eluent, calibration, sulfation and purification limit what an apparent molecular-weight decrease can establish about bond cleavage.</p></section>
+<section><h2>Scope of the results</h2><p>This release reanalyses a selected subset of published data. It does not perform new quantum-chemical calculations, independently validate the underlying experiments, estimate field-wide error rates, or measure researcher productivity. Numerical agreement and software checks are reported separately from scientific interpretation.</p></section>
+<section><h2>Access and reuse</h2><p>Code is licensed under MIT. Original documentation and analysis are CC BY 4.0. The bundled articles and selected data are CC BY 4.0 with their authors and source locations retained. LICENSE and DATA-LICENSE.md explain these boundaries. No private corpus or account access is needed to run the included cases.</p></section>
 
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Retrieve literature metadata through a resumable OpenAlex discovery workflow</li>
-        <li>Normalize records and group publication versions while preserving source provenance</li>
-        <li>Flag missing evidence and retraction signals for human review</li>
-        <li>Prepare extraction schemas with field-level provenance and explicit missing-data states</li>
+        <li>Recalculate two documented article cases with source locators, units and explicit assumptions</li>
+        <li>Run locally with Python 3.10 or later and its standard library, without accounts or API keys</li>
+        <li>Inspect the computed results, source comparisons and limitations in a static HTML report</li>
+        <li>Reuse the included code and permitted data under the licenses supplied with the package</li>
           </ul>
         </section>
         <section>
           <h2>Stack And Topics</h2>
           <ul class="stack">
-        <li>JavaScript</li>
-        <li>Node.js</li>
-        <li>OpenAlex API</li>
-        <li>JSONL</li>
+        <li>Python 3.10+</li>
+        <li>Standard library</li>
         <li>CSV</li>
-        <li>Data validation</li>
+        <li>JSON</li>
+        <li>HTML</li>
           </ul>
         </section>
 
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/report.html">Read the scientific report</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/ligninqc-reanalysis-2026-09-05.zip">Download the offline package</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/SHA256SUMS">Verify the download</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/sources/source-extracts.html">Inspect the source tables</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/lauberte2019/table1.csv">Data: antioxidant model compounds (CSV)</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table2.csv">Data: cumulative mass loss (CSV)</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table1-gpc.csv">Data: molecular weights (CSV)</a></li>
+        <li><a href="https://doi.org/10.3390/molecules24091794">Lauberte et al. (2019): original article</a></li>
+        <li><a href="https://doi.org/10.3390/polym14153000">Kazachenko et al. (2022): original article</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows.md">Plain-text case study</a></li>
           </ul>
         </section>

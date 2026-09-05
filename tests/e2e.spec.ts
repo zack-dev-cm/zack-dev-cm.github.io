@@ -1,4 +1,5 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
+import { createHash } from 'node:crypto';
 import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, OPEN_SOURCE_CONTRIBUTIONS } from '../constants';
 
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
@@ -60,6 +61,54 @@ const requestFirstOk = async (page: Page, paths: string[]) => {
 
   throw new Error(`No request candidate returned OK: ${paths.join(', ')}`);
 };
+
+test('LigninQC exposes its report, runnable release and matching download checksum', async ({ page }) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await gotoStandalone(page, 'projects/ligninqc-reproducible-scientific-research-workflows');
+    const actions = page.getByRole('navigation', { name: 'Research workflow actions' });
+    const report = actions.getByRole('link', { name: 'Read the scientific report', exact: true });
+    await expect(report).toBeVisible();
+    const bounds = await report.boundingBox();
+    expect(bounds && bounds.y + bounds.height).toBeLessThan(900);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+    await actions.getByRole('link', { name: 'Run the cases', exact: true }).click();
+    await expect(page.locator('#run-cases')).toContainText('python3 -m ligninqc reproduce --out results');
+    await expect(page.locator('#run-cases')).toContainText('python3 -m ligninqc verify');
+  }
+
+  const actions = page.getByRole('navigation', { name: 'Research workflow actions' });
+  const fetchAction = async (label: string) => {
+    const href = await actions.getByRole('link', { name: label, exact: true }).getAttribute('href');
+    expect(href).toMatch(/^https:\/\/zack-dev-cm\.github\.io\/docs\/ligninqc\/2026-09-05\//);
+    const url = new URL(href!);
+    const response = await page.request.get(url.pathname);
+    expect(response.status()).toBe(200);
+    return { url, response };
+  };
+  const { response: report } = await fetchAction('Read the scientific report');
+  const reportHtml = await report.text();
+  expect(reportHtml).toMatch(/<html\b/i);
+  expect(reportHtml).toMatch(/<table\b/i);
+  const { url: archiveUrl, response: archive } = await fetchAction('Download the offline package');
+  const archiveBytes = await archive.body();
+  expect(archiveBytes.subarray(0, 4).toString('hex')).toBe('504b0304');
+  const { response: checksum } = await fetchAction('Verify the download');
+  const archiveName = archiveUrl.pathname.split('/').at(-1)!;
+  const entry = (await checksum.text()).split(/\r?\n/).find((line) => line.trim().endsWith(archiveName));
+  expect(entry).toBeTruthy();
+  expect(entry!.trim().split(/\s+/)[0]).toBe(createHash('sha256').update(archiveBytes).digest('hex'));
+  const { url: sourceUrl } = await fetchAction('Inspect the source tables');
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(sourceUrl.pathname);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+    await expect(page.locator('table')).toHaveCount(3);
+    await page.getByRole('link', { name: 'Chemical states', exact: true }).click();
+    await expect(page.locator('#lauberte-states')).toBeVisible();
+    expect(await page.locator('img').evaluateAll((images) => images.every((image) => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0))).toBe(true);
+  }
+});
 
 test('new case studies expose loaded, inspectable figures on mobile and desktop', async ({ page }, testInfo) => {
   const slugs = [

@@ -36,7 +36,7 @@ This repository publishes Zakhar Pashkin's portfolio, project case studies, craw
 3. Run `npm run security:gate`.
 4. Run `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e` for UI or public-surface changes.
 5. Run `npm run check:links` when links, resume, or generated public pages change.
-6. Run `npm run audit:codex` before publishing.
+6. Run `npm run audit:public` before publishing.
 
 ## Project-scoped custom agents
 

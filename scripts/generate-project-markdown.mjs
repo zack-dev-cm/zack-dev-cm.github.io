@@ -416,6 +416,7 @@ const extractProjects = (sourceFile, imageConstants) => {
       const description = parseString(getPropertyValue(element, 'description'));
       const longDescription = parseString(getPropertyValue(element, 'longDescription'));
       const caseStudySections = parseJsonLiteral(getPropertyValue(element, 'caseStudySections')) || [];
+      const reproducibleWorkflow = parseJsonLiteral(getPropertyValue(element, 'reproducibleWorkflow')) || undefined;
       const keyFeatures = parseStringArray(getPropertyValue(element, 'keyFeatures'));
       const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
       const links = parseLinks(getPropertyValue(element, 'links'));
@@ -437,6 +438,7 @@ const extractProjects = (sourceFile, imageConstants) => {
         description,
         longDescription,
         caseStudySections,
+        reproducibleWorkflow,
         projectKind,
         surfaceTags,
         createdAt,
@@ -556,6 +558,15 @@ const buildMarkdown = (project, markdownUrl) => {
   const summary = longDescription && longDescription !== description ? longDescription : '';
   if (summary) {
     lines.push('', '## Summary', summary);
+  }
+  if (project.reproducibleWorkflow) {
+    const workflow = project.reproducibleWorkflow;
+    lines.push('', '## Run the included cases', toAscii(workflow.requirements));
+    links.slice(0, 4).forEach((link) => lines.push(`- [${link.text}](${link.url})`));
+    lines.push('');
+    workflow.steps.forEach((step, index) => lines.push(`${index + 1}. ${toAscii(step)}`));
+    if (workflow.command) lines.push('', '```sh', workflow.command, '```');
+    if (workflow.expectedOutput) lines.push('', toAscii(workflow.expectedOutput));
   }
   for (const section of project.caseStudySections || []) {
     lines.push('', `## ${toAscii(section.title)}`, toAscii(section.body));
@@ -864,6 +875,16 @@ const buildProjectHtml = (project) => {
   const narrativeSections = (project.caseStudySections || []).map((section) =>
     `<section><h2>${escapeHtml(toAscii(section.title))}</h2><p>${escapeHtml(toAscii(section.body))}</p></section>`
   ).join('\n');
+  const workflow = project.reproducibleWorkflow;
+  const workflowActions = workflow
+    ? `<nav class="research-actions" aria-label="Research workflow actions">${links.slice(0, 4).map((link, index) => `<a class="research-action${index === 0 ? ' research-action--primary' : ''}" href="${escapeHtml(link.url)}">${escapeHtml(link.text)}</a>`).join('')}<a class="research-action" href="#run-cases">Run the cases</a></nav>`
+    : '';
+  const workflowSection = workflow
+    ? `<section id="run-cases" class="research-quickstart" aria-labelledby="run-cases-title"><h2 id="run-cases-title">Run the included cases</h2><p>${escapeHtml(toAscii(workflow.requirements))}</p><ol>${workflow.steps.map((step) => `<li>${escapeHtml(toAscii(step))}</li>`).join('')}</ol>${workflow.command ? `<pre tabindex="0" aria-label="Reproduction command"><code>${escapeHtml(workflow.command)}</code></pre>` : ''}${workflow.expectedOutput ? `<p>${escapeHtml(toAscii(workflow.expectedOutput))}</p>` : ''}</section>`
+    : '';
+  const workflowResults = workflow && benchmarks.length
+    ? `<section aria-labelledby="case-results-title"><h2 id="case-results-title">Recomputed case results</h2><table class="research-results"><caption>Selected results from the included article cases; see the report for methods and source locations.</caption><thead><tr><th scope="col">Question</th><th scope="col">Result and scope</th></tr></thead><tbody>${benchmarks.map((item) => `<tr><th scope="row">${escapeHtml(item.label)}</th><td><strong>${escapeHtml(item.value)}</strong>${item.context ? `<p>${escapeHtml(item.context)}</p>` : ''}</td></tr>`).join('')}</tbody></table></section>`
+    : '';
   const socialImageMeta = socialImage
     ? [
         `    <meta property="og:image" content="${socialImage}" />`,
@@ -970,13 +991,13 @@ ${JSON.stringify(jsonLd, null, 6)}
         <header class="hero">
           <p class="eyebrow">${escapeHtml(({ research: 'Research & development', 'user-product': project.id === 11 ? 'Maintained service' : 'Product', 'open-source': 'Open source', 'case-study': 'Case study' })[project.projectKind] || 'Portfolio project')}</p>
           <h1>${escapeHtml(title)}</h1>
-          <p class="lede">${escapeHtml(description)}</p>
+          <p class="lede">${escapeHtml(description)}</p>${workflowActions ? `\n          ${workflowActions}` : ''}
           ${visualImage ? renderFigure({ url: visualImage, alt: imageAlt, caption: visualCaption }, 0) : ''}
         </header>
         <section>
           <h2>Overview</h2>
           <p>${escapeHtml(longDescription || description)}</p>
-        </section>
+        </section>${workflowResults ? `\n        ${workflowResults}` : ''}${workflowSection ? `\n        ${workflowSection}` : ''}
         ${narrativeSections}
         ${galleryAssets.length ? `<section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery">${galleryAssets.map((asset, index) => renderFigure(asset, index + 1)).join('')}</div></section>` : ''}
         <section>
@@ -991,7 +1012,7 @@ ${featureList}
 ${techList}
           </ul>
         </section>
-        ${benchmarks.length ? `<section>
+        ${benchmarks.length && !workflow ? `<section>
           <h2>Public Signals</h2>
           <ul>
 ${benchmarkList}

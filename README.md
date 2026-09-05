@@ -11,13 +11,13 @@ The source for my engineering portfolio: computer vision, document AI, agentic s
 - **Agnitra:** a PyPI-published SDK and CLI for model profiling and inference optimization.
 - **Calorio:** a maintained Telegram nutrition service for meal logging through photos, voice, and text.
 - **Engineering analysis:** scan registration, CAD projection tests, and source-linked construction-document interpretation.
-- **LigninQC:** literature discovery and evidence-audit tooling for ongoing computational-lignin research.
+- **LigninQC:** offline reanalysis of two published lignin-chemistry cases, with source-linked tables, runnable code and explicit limits.
 
 The site includes individual case studies, a searchable project archive, current experience, and an accessible resume. The interface is built with React, TypeScript, and Vite; static project pages and structured data keep the content readable without JavaScript.
 
 ## Development
 
-Requires Node.js 22. Install Poppler for PDF text checks and the [Antirot audit harness](https://github.com/zack-dev-cm/antirot) for the strict release audit.
+Requires Node.js 22. Install Poppler for PDF text checks. The public source/artifact audit uses the repository's existing Node dependencies.
 
 ```bash
 npm ci
@@ -35,8 +35,14 @@ npm run validate:seo-aeo
 PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
 npm run security:gate
 npm run check:links
-npm run audit:codex
+npm run audit:public
 ```
+
+`audit:public` runs source, security, metadata and catalogue/deployment checks.
+Browser, link and ClawPatch/source review remain separate checks. The old
+`audit:codex` command is a compatibility alias; the unavailable `codex_harness`
+dependency and its score were retired. See [the audit migration](codex-docs/evals.md)
+for the scope and rationale.
 
 ## Publishing
 

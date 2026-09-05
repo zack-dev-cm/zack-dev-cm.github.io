@@ -11,7 +11,7 @@ npm ci
 npm run validate
 npm run build
 PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
-npm run audit:codex
+npm run audit:public
 ```
 
 ## Change Rules
@@ -31,7 +31,7 @@ npm run validate
 npm run build
 npm run security:gate
 PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e
-npm run audit:codex
+npm run audit:public
 ```
 
 Run `npm run check:links` when links or public pages change.

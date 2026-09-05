@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="350" viewBox="0 0 800 350" role="img" aria-labelledby="title desc">
+  <title id="title">LigninQC offline reanalysis workflow</title>
+  <desc id="desc">Selected published data and its source locations enter local Python calculations. The resulting report separates numerical comparisons from scientific interpretation and limits.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 8 5 1 9" fill="none" stroke="#29333d" stroke-width="1.5"/></marker></defs>
+  <rect width="800" height="350" fill="#f0f3f5"/>
+  <g font-family="Arial, sans-serif" fill="#11161c">
+    <text x="32" y="51" font-size="30" font-weight="700">From published values to a checkable result</text>
+    <text x="32" y="86" font-size="22" fill="#465663">Offline cases · explicit assumptions · source locators</text>
+    <g fill="#fff" stroke="#a7b8c3" stroke-width="1.5"><rect x="32" y="122" width="220" height="135" rx="6"/><rect x="290" y="122" width="220" height="135" rx="6"/><rect x="548" y="122" width="220" height="135" rx="6"/></g>
+    <g font-size="27" font-weight="700"><text x="50" y="163">Published data</text><text x="309" y="163">Recalculate</text><text x="567" y="163">Inspect results</text></g>
+    <g font-size="22" fill="#465663"><text x="50" y="202">Values, units,</text><text x="50" y="232">article locations</text><text x="309" y="202">Local Python,</text><text x="309" y="232">standard library</text><text x="567" y="202">Comparisons</text><text x="567" y="232">and limitations</text></g>
+    <g fill="none" stroke="#29333d" stroke-width="2" marker-end="url(#arrow)"><path d="M260 191H281"/><path d="M518 191H539"/></g>
+    <text x="32" y="309" font-size="22" fill="#465663">Workflow illustration. The scientific report contains the actual outputs.</text>
+  </g>
+</svg>

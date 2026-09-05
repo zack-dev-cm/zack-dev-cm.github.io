@@ -263,7 +263,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "LigninQC - Reproducible Scientific Research Workflows",
-            "description": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
+            "description": "Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline.",
             "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
             "encoding": [
               {
@@ -279,7 +279,7 @@
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
             "genre": "research",
-            "keywords": "research, scientific-data, data-engineering, reproducibility, JavaScript, Node.js, OpenAlex API, JSONL, CSV, Data validation",
+            "keywords": "research, scientific-data, reproducibility, lignin-chemistry, Python 3.10+, Standard library, CSV, JSON, HTML",
             "dateCreated": "2026-08-26",
             "isAccessibleForFree": true
           }

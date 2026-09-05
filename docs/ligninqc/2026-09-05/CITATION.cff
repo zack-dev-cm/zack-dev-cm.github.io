@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite the original articles for their measurements and calculations, and this release for its reanalysis software."
+title: "LigninQC: reproducible reanalysis of published lignin evidence"
+type: software
+version: 1.0.0
+date-released: 2026-09-05
+authors:
+  - name: "LigninQC contributors"
+url: "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/"
+license: MIT
+abstract: "An offline, dependency-free Python tool and two source-linked published-data case studies. No new quantum-chemical calculations or independent human validation are claimed."

@@ -1325,13 +1325,13 @@
       "title": "LigninQC - Reproducible Scientific Research Workflows",
       "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows.md",
-      "summary": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
+      "summary": "Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline.",
       "kind": "research",
       "tags": [
         "research",
         "scientific-data",
-        "data-engineering",
-        "reproducibility"
+        "reproducibility",
+        "lignin-chemistry"
       ],
       "aliases": [
         "ligninqc",
@@ -1339,15 +1339,62 @@
         "scientific evidence workflows"
       ],
       "techStack": [
-        "JavaScript",
-        "Node.js",
-        "OpenAlex API",
-        "JSONL",
+        "Python 3.10+",
+        "Standard library",
         "CSV",
-        "Data validation"
+        "JSON",
+        "HTML"
       ],
-      "benchmarks": [],
-      "links": []
+      "benchmarks": [
+        {
+          "label": "How closely does the reconstructed neutral-state BDE association fit DPPH values?",
+          "value": "R = 0.637 across 18 compounds",
+          "context": "Calculated from rounded Table 1 values in Lauberte et al. (2019). This is one declared reconstruction; state mapping, exclusions and OH normalization are sensitivity analyses. It is not external predictive validation."
+        },
+        {
+          "label": "Do the reported 800 degC thermal values agree with the prose?",
+          "value": "Table: 61.9% initial, 76.6% sulfated mass loss",
+          "context": "Kazachenko et al. (2022), Table 2. The prose reverses these two values. This is a source-internal inconsistency; the available table does not establish which statement reflects the raw experiment."
+        }
+      ],
+      "links": [
+        {
+          "label": "Read the scientific report",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/report.html"
+        },
+        {
+          "label": "Download the offline package",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/ligninqc-reanalysis-2026-09-05.zip"
+        },
+        {
+          "label": "Verify the download",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/SHA256SUMS"
+        },
+        {
+          "label": "Inspect the source tables",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/sources/source-extracts.html"
+        },
+        {
+          "label": "Data: antioxidant model compounds (CSV)",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/lauberte2019/table1.csv"
+        },
+        {
+          "label": "Data: cumulative mass loss (CSV)",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table2.csv"
+        },
+        {
+          "label": "Data: molecular weights (CSV)",
+          "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table1-gpc.csv"
+        },
+        {
+          "label": "Lauberte et al. (2019): original article",
+          "url": "https://doi.org/10.3390/molecules24091794"
+        },
+        {
+          "label": "Kazachenko et al. (2022): original article",
+          "url": "https://doi.org/10.3390/polym14153000"
+        }
+      ]
     },
     {
       "id": 80,

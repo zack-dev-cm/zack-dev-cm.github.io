@@ -42,6 +42,12 @@ export interface Project {
   description: string;
   longDescription?: string;
   caseStudySections?: { title: string; body: string }[];
+  reproducibleWorkflow?: {
+    requirements: string;
+    steps: string[];
+    command: string;
+    expectedOutput: string;
+  };
   hideImages?: boolean;
   projectKind?: 'user-product' | 'open-source' | 'case-study' | 'research';
   surfaceTags?: string[];

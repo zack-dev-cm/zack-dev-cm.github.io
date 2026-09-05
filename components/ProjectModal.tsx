@@ -193,6 +193,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {project.longDescription || project.description}
           </p>
 
+          {project.reproducibleWorkflow && (
+            <section className="panel">
+              <h3>Run the included cases</h3>
+              <p>{project.reproducibleWorkflow.requirements}</p>
+              <div className="modal-links">
+                {project.links.slice(0, 4).map((link) => (
+                  <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">{link.text}</a>
+                ))}
+              </div>
+              <ol className="bullet-list">
+                {project.reproducibleWorkflow.steps.map((step) => <li key={step}>{step}</li>)}
+              </ol>
+              {project.reproducibleWorkflow.command && <pre className="code-block" tabIndex={0} aria-label="Reproduction command">{project.reproducibleWorkflow.command}</pre>}
+              <p>{project.reproducibleWorkflow.expectedOutput}</p>
+            </section>
+          )}
+
           {project.caseStudySections?.map((section) => (
             <section key={section.title} className="case-study-section">
               <h3>{section.title}</h3>

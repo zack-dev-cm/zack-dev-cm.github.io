@@ -1463,47 +1463,113 @@ export const PROJECTS: Project[] = [
       "lignin research",
       "scientific evidence workflows"
     ],
-    "description": "Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.",
-    "longDescription": "I’m developing LigninQC, a research-data workflow for studying how molecular-model assumptions affect conclusions in lignin chemistry. The current implementation retrieves and normalizes literature metadata, preserves provenance, groups publication versions and prepares screening records and extraction schemas with field-level provenance. Missing evidence and integrity concerns remain visible for human review. The scientific review and quantum-chemistry benchmark are at protocol stage.",
+    "description": "Check a BDE–antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline.",
+    "longDescription": "LigninQC connects two scientific questions to inspectable calculations: how state and normalization choices affect an antioxidant association, and whether selected thermal claims agree with a sulfated-lignin table. Version 1.0.0 includes two CC BY article cases, source locations, CSV inputs, Python code, tests and reports in one offline archive.",
     "projectKind": "research",
     "surfaceTags": [
       "research",
       "scientific-data",
-      "data-engineering",
-      "reproducibility"
+      "reproducibility",
+      "lignin-chemistry"
     ],
     "keyFeatures": [
-      "Retrieve literature metadata through a resumable OpenAlex discovery workflow",
-      "Normalize records and group publication versions while preserving source provenance",
-      "Flag missing evidence and retraction signals for human review",
-      "Prepare extraction schemas with field-level provenance and explicit missing-data states"
+      "Recalculate two documented article cases with source locators, units and explicit assumptions",
+      "Run locally with Python 3.10 or later and its standard library, without accounts or API keys",
+      "Inspect the computed results, source comparisons and limitations in a static HTML report",
+      "Reuse the included code and permitted data under the licenses supplied with the package"
     ],
-    "techStack": [
-      "JavaScript",
-      "Node.js",
-      "OpenAlex API",
-      "JSONL",
-      "CSV",
-      "Data validation"
-    ],
-    "links": [],
-    "images": [
-      {
-        "url": "/docs/images/ligninqc-research-workflow.svg",
-        "alt": "LigninQC workflow from metadata discovery through normalization, version grouping and integrity review to traceable extraction, with missing evidence routed to human review",
-        "caption": "Workflow illustration. Research in progress; extraction schemas are prepared."
-      }
-    ],
-    "thumbnail": "/docs/images/ligninqc-research-workflow.svg",
-    "createdAt": "2026-08-26",
+    "reproducibleWorkflow": {
+      "requirements": "Python 3.10 or later; no pip installation or account required. After downloading, the included cases run offline using only the standard library. On Windows, use py -3 instead of python3.",
+      "steps": [
+        "Download and extract the release archive.",
+        "Open a terminal in the directory containing the extracted folder.",
+        "Run the two commands below, then open results/report.html in your browser."
+      ],
+      "command": "cd ligninqc-reanalysis-2026-09-05\npython3 -m ligninqc reproduce --out results\npython3 -m ligninqc verify",
+      "expectedOutput": "The run writes results/report.html and results/results.json. To replace a previous nonempty results directory, add --force to the reproduce command. The archive includes version 1.0.0, source locators and the reference output."
+    },
     "caseStudySections": [
       {
-        "title": "Research engineering contribution",
-        "body": "The implemented pipeline retrieves literature metadata, normalizes incomplete records and groups publication versions while retaining retrieval lineage. Missing abstracts and integrity concerns remain visible for review instead of being treated as clean negative evidence."
+        "title": "Antioxidant association: what changes with the assumptions?",
+        "body": "The Lauberte et al. (2019) case reanalyses published O–H bond dissociation energies and radical-deactivation values. It varies the reported molecular-state mapping, the included compounds and normalization by phenolic OH count. Missing observations remain missing. The report shows how these declared choices change the association; a difference from a rounded published correlation is not by itself evidence of a calculation error."
       },
       {
-        "title": "Scope of the current work",
-        "body": "The delivered work is data acquisition, validation and audit tooling, including traceable extraction schemas. The scientific review and quantum-chemistry benchmark remain at protocol stage."
+        "title": "Sulfated lignin: do the words and tables agree?",
+        "body": "The Kazachenko et al. (2022) case checks selected thermal statements against the reported cumulative mass-loss table and describes the molecular-weight ratios. It preserves the distinction between a table/prose mismatch and an experimentally established error. Changes in GPC eluent, calibration, sulfation and purification limit what an apparent molecular-weight decrease can establish about bond cleavage."
+      },
+      {
+        "title": "Scope of the results",
+        "body": "This release reanalyses a selected subset of published data. It does not perform new quantum-chemical calculations, independently validate the underlying experiments, estimate field-wide error rates, or measure researcher productivity. Numerical agreement and software checks are reported separately from scientific interpretation."
+      },
+      {
+        "title": "Access and reuse",
+        "body": "Code is licensed under MIT. Original documentation and analysis are CC BY 4.0. The bundled articles and selected data are CC BY 4.0 with their authors and source locations retained. LICENSE and DATA-LICENSE.md explain these boundaries. No private corpus or account access is needed to run the included cases."
+      }
+    ],
+    "links": [
+      {
+        "text": "Read the scientific report",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/report.html"
+      },
+      {
+        "text": "Download the offline package",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/ligninqc-reanalysis-2026-09-05.zip"
+      },
+      {
+        "text": "Verify the download",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/SHA256SUMS"
+      },
+      {
+        "text": "Inspect the source tables",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/sources/source-extracts.html"
+      },
+      {
+        "text": "Data: antioxidant model compounds (CSV)",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/lauberte2019/table1.csv"
+      },
+      {
+        "text": "Data: cumulative mass loss (CSV)",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table2.csv"
+      },
+      {
+        "text": "Data: molecular weights (CSV)",
+        "url": "https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table1-gpc.csv"
+      },
+      {
+        "text": "Lauberte et al. (2019): original article",
+        "url": "https://doi.org/10.3390/molecules24091794"
+      },
+      {
+        "text": "Kazachenko et al. (2022): original article",
+        "url": "https://doi.org/10.3390/polym14153000"
+      }
+    ],
+    "images": [
+      {
+        "url": "/docs/images/ligninqc-reanalysis-workflow.svg",
+        "alt": "Included publication data flows through local Python calculations into a report that separates computed results from interpretation and limits",
+        "caption": "Workflow of the included reanalysis. The illustration shows the data path; numerical results are in the linked report."
+      }
+    ],
+    "createdAt": "2026-08-26",
+    "techStack": [
+      "Python 3.10+",
+      "Standard library",
+      "CSV",
+      "JSON",
+      "HTML"
+    ],
+    "thumbnail": "/docs/images/ligninqc-reanalysis-workflow.svg",
+    "benchmarks": [
+      {
+        "label": "How closely does the reconstructed neutral-state BDE association fit DPPH values?",
+        "value": "R² = 0.637 across 18 compounds",
+        "context": "Calculated from rounded Table 1 values in Lauberte et al. (2019). This is one declared reconstruction; state mapping, exclusions and OH normalization are sensitivity analyses. It is not external predictive validation."
+      },
+      {
+        "label": "Do the reported 800 °C thermal values agree with the prose?",
+        "value": "Table: 61.9% initial, 76.6% sulfated mass loss",
+        "context": "Kazachenko et al. (2022), Table 2. The prose reverses these two values. This is a source-internal inconsistency; the available table does not establish which statement reflects the raw experiment."
       }
     ]
   },

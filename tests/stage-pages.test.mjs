@@ -124,3 +124,41 @@ test('missing built resume inputs cannot silently produce an incomplete release'
   await assert.rejects(stagePages(options), /ENOENT/);
   await assert.rejects(fs.access(options.outputDir), /ENOENT/);
 });
+
+test('staging refuses source directories and preserves their existing files', async (t) => {
+  const options = await fixture(t);
+  for (const relative of ['components', 'codex-docs', 'components/nested', 'codex-docs/nested', 'other-source']) {
+    const outputDir = path.join(options.rootDir, relative);
+    await fs.mkdir(outputDir, { recursive: true });
+    const sentinel = path.join(outputDir, 'source.txt');
+    await fs.writeFile(sentinel, `preserve ${relative}`);
+    await assert.rejects(stagePages({ ...options, outputDir }), /Refusing to replace a source directory/);
+    assert.equal(await fs.readFile(sentinel, 'utf8'), `preserve ${relative}`);
+  }
+  await assert.rejects(stagePages({ ...options, outputDir: path.dirname(options.rootDir) }), /Refusing to replace a source directory/);
+  await assert.rejects(stagePages({ ...options, outputDir: path.parse(options.rootDir).root }), /Refusing to replace a source directory/);
+});
+
+test('a .site symlink cannot redirect staging into repository source', async (t) => {
+  const options = await fixture(t);
+  const source = path.join(options.rootDir, 'codex-docs');
+  await fs.mkdir(source);
+  await fs.writeFile(path.join(source, 'sentinel.md'), 'Keep durable source');
+  await fs.symlink(source, options.outputDir, 'dir');
+  await assert.rejects(stagePages(options), /Refusing to replace a source directory/);
+  await assert.rejects(stagePages({ ...options, outputDir: path.join(options.outputDir, 'nested') }), /Refusing to replace a source directory/);
+  assert.equal(await fs.readFile(path.join(source, 'sentinel.md'), 'utf8'), 'Keep durable source');
+});
+
+test('staging allows .site descendants and fresh external directories but preserves unrelated external data', async (t) => {
+  const options = await fixture(t);
+  await stagePages({ ...options, outputDir: path.join(options.outputDir, 'preview') });
+  const externalParent = await fs.mkdtemp(path.join(os.tmpdir(), 'portfolio-pages-output-'));
+  t.after(() => fs.rm(externalParent, { recursive: true, force: true }));
+  const outputDir = path.join(externalParent, 'new-site');
+  assert.equal((await stagePages({ ...options, outputDir })).projectCount, 2);
+  const sentinel = path.join(externalParent, 'sentinel.txt');
+  await fs.writeFile(sentinel, 'Unrelated external data');
+  await assert.rejects(stagePages({ ...options, outputDir: externalParent }), /must be new or empty/);
+  assert.equal(await fs.readFile(sentinel, 'utf8'), 'Unrelated external data');
+});

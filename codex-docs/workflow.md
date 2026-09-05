@@ -27,7 +27,7 @@ For share-card, SEO, AEO, resume, generated project, or public metadata fixes:
 3. Run the default verification stack before publishing: `npm run validate`,
    `npm run build`, `npm run security:gate`,
    `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e`, `npm run check:links`, and
-   `npm run audit:codex`. Add `npm run validate:seo-aeo` for metadata/AEO work.
+   `npm run audit:public`. Add `npm run validate:seo-aeo` for metadata/AEO work.
 4. Commit and push the source and generated `docs/` changes to `main`.
 5. Watch the `Deploy Pages` workflow for the pushed commit until it completes.
 6. Verify the live URL with cache-busting requests. For metadata fixes, fetch
@@ -35,6 +35,11 @@ For share-card, SEO, AEO, resume, generated project, or public metadata fixes:
    expected `<title>`, `og:title`, `og:description`, `og:image`,
    `twitter:image`, structured-data image, and dated stats. Also fetch any new
    image URL with `curl -I` and require HTTP 200.
+
+The Pages staging command replaces only `.site` or its descendants inside the
+repository. An optional external `--out` directory must be new or empty. Source
+directories, repository ancestors and symlink redirects into source are rejected
+before any output deletion. Use a fresh temporary directory for external previews.
 
 If the local `docs/index.html` is correct but the live site is stale, do not
 keep editing copy. Check whether the commit was pushed, whether the Pages

@@ -30,10 +30,10 @@ Before release, run:
 
 ```bash
 npm run security:gate
-npm run audit:codex
+npm run audit:public
 ```
 
-The first command is the repo-local leak gate. The second command is the stricter open-source surface audit used during Codex review.
+The first command is the repository leak gate. The second runs the source/artifact audit described in `codex-docs/evals.md`; browser behavior, link access and independent source/diff review are separate checks.
 
 `npm run security:gate` uses `pdftotext` from Poppler when available so public resume PDFs are scanned through extracted text, not only through their HTML source. Set `REQUIRE_PDF_TEXT=true` to fail closed when the tool is missing.
-If `npm run audit:codex` cannot find `codex_harness`, install it with `python3 -m pip install "git+https://github.com/zack-dev-cm/antirot.git"`.
+The public audit runs repository-owned Node checks. The former external `codex_harness` dependency is retired; see `codex-docs/evals.md` for the migration and the separate source/browser review requirements.

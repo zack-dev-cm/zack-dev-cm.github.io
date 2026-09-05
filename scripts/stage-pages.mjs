@@ -47,13 +47,35 @@ export const verifyStagedPages = async (outputDir) => {
 };
 
 export const stagePages = async ({ rootDir = ROOT_DIR, outputDir = path.join(rootDir, '.site') } = {}) => {
-  rootDir = path.resolve(rootDir);
+  rootDir = await fs.realpath(path.resolve(rootDir));
   outputDir = path.resolve(outputDir);
-  const relativeOutput = path.relative(rootDir, outputDir);
-  const protectedPaths = ['docs', 'public', 'projects', 'scripts', 'utils', '.git'];
-  if (!relativeOutput || rootDir.startsWith(`${outputDir}${path.sep}`)
-    || protectedPaths.some((name) => relativeOutput === name || relativeOutput.startsWith(`${name}${path.sep}`))) {
+  // Resolve existing ancestors so a .site symlink cannot redirect deletion into source.
+  let existingParent = outputDir;
+  const missingParts = [];
+  while (true) {
+    try { existingParent = await fs.realpath(existingParent); break; }
+    catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+      missingParts.unshift(path.basename(existingParent));
+      existingParent = path.dirname(existingParent);
+    }
+  }
+  const physicalOutput = path.join(existingParent, ...missingParts);
+  const isInside = (parent, child) => {
+    const relative = path.relative(parent, child);
+    return !relative || (!relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative));
+  };
+  const relativeOutput = path.relative(rootDir, physicalOutput);
+  const allowedInternal = relativeOutput === '.site' || relativeOutput.startsWith(`.site${path.sep}`);
+  if (isInside(physicalOutput, rootDir) || (isInside(rootDir, physicalOutput) && !allowedInternal)) {
     throw new Error(`Refusing to replace a source directory: ${outputDir}`);
+  }
+  if (!isInside(rootDir, physicalOutput)) {
+    const entries = await fs.readdir(physicalOutput).catch((error) => {
+      if (error.code === 'ENOENT') return [];
+      throw error;
+    });
+    if (entries.length) throw new Error(`External staging directory must be new or empty: ${outputDir}`);
   }
   // Check the built inputs before clearing any previous artifact.
   await readResume(path.join(rootDir, 'docs', 'resume'));

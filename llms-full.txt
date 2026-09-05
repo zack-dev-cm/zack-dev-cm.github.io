@@ -94,22 +94,34 @@ Tech Stack:
 - Evaluation
 
 ### LigninQC - Reproducible Scientific Research Workflows
-Summary: Research tooling for literature discovery and evidence audits in computational lignin chemistry, with traceable records and extraction schemas.
-Details: I'm developing LigninQC, a research-data workflow for studying how molecular-model assumptions affect conclusions in lignin chemistry. The current implementation retrieves and normalizes literature metadata, preserves provenance, groups publication versions and prepares screening records and extraction schemas with field-level provenance. Missing evidence and integrity concerns remain visible for human review. The scientific review and quantum-chemistry benchmark are at protocol stage.
+Summary: Check a BDE - antioxidant association and reconcile sulfated-lignin thermal claims with the published tables. Rerun both cases offline.
+Details: LigninQC connects two scientific questions to inspectable calculations: how state and normalization choices affect an antioxidant association, and whether selected thermal claims agree with a sulfated-lignin table. Version 1.0.0 includes two CC BY article cases, source locations, CSV inputs, Python code, tests and reports in one offline archive.
 Project URL: https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/
 Markdown URL: https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows.md
 Key Features:
-- Retrieve literature metadata through a resumable OpenAlex discovery workflow
-- Normalize records and group publication versions while preserving source provenance
-- Flag missing evidence and retraction signals for human review
-- Prepare extraction schemas with field-level provenance and explicit missing-data states
+- Recalculate two documented article cases with source locators, units and explicit assumptions
+- Run locally with Python 3.10 or later and its standard library, without accounts or API keys
+- Inspect the computed results, source comparisons and limitations in a static HTML report
+- Reuse the included code and permitted data under the licenses supplied with the package
 Tech Stack:
-- JavaScript
-- Node.js
-- OpenAlex API
-- JSONL
+- Python 3.10+
+- Standard library
 - CSV
-- Data validation
+- JSON
+- HTML
+Benchmarks & Analytics:
+- How closely does the reconstructed neutral-state BDE association fit DPPH values?: R = 0.637 across 18 compounds (Calculated from rounded Table 1 values in Lauberte et al. (2019). This is one declared reconstruction; state mapping, exclusions and OH normalization are sensitivity analyses. It is not external predictive validation.)
+- Do the reported 800 degC thermal values agree with the prose?: Table: 61.9% initial, 76.6% sulfated mass loss (Kazachenko et al. (2022), Table 2. The prose reverses these two values. This is a source-internal inconsistency; the available table does not establish which statement reflects the raw experiment.)
+Links:
+- Read the scientific report: https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/report.html
+- Download the offline package: https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/ligninqc-reanalysis-2026-09-05.zip
+- Verify the download: https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/SHA256SUMS
+- Inspect the source tables: https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/sources/source-extracts.html
+- Data: antioxidant model compounds (CSV): https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/lauberte2019/table1.csv
+- Data: cumulative mass loss (CSV): https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table2.csv
+- Data: molecular weights (CSV): https://zack-dev-cm.github.io/docs/ligninqc/2026-09-05/data/kazachenko2022/table1-gpc.csv
+- Lauberte et al. (2019): original article: https://doi.org/10.3390/molecules24091794
+- Kazachenko et al. (2022): original article: https://doi.org/10.3390/polym14153000
 
 ### ClearML Experiment Tracking for Dermaself
 Summary: MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.

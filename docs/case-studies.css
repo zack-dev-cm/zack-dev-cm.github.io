@@ -44,6 +44,20 @@ figcaption { max-width: 820px; color: #a3aeb8; font-size: 14px; line-height: 1.6
 .stack li { margin: 0; padding: 6px 12px; border: 1px solid #29333d; border-radius: 5px; color: #a3aeb8; background: #11161c; font-size: 14px; }
 .footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-top: 28px; color: #a3aeb8; font-size: 14px; }
 .footer a { display: inline-flex; align-items: center; min-height: 44px; }
+.research-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.research-action { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 16px; border: 1px solid #53636f; border-radius: 5px; color: #e1edf2; font-size: 15px; line-height: 1.4; text-decoration: none; }
+.research-action--primary { background: #97d8ea; border-color: #97d8ea; color: #10222a; font-weight: 600; }
+.research-action--primary:hover { background: #b3e8f6; color: #10222a; }
+.research-quickstart ol { max-width: 820px; padding-left: 1.4rem; }
+.research-quickstart pre { max-width: 100%; overflow-x: auto; margin: 20px 0; padding: 18px; background: #11161c; border: 1px solid #53636f; border-radius: 5px; font-size: 15px; line-height: 1.6; }
+.research-quickstart pre:focus-visible { outline: 2px solid #97d8ea; outline-offset: 3px; }
+.research-quickstart code { font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace; }
+.research-results { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.65; table-layout: fixed; }
+.research-results caption { text-align: left; padding: 0 0 14px; color: #c4ccd3; }
+.research-results th, .research-results td { padding: 16px; border: 1px solid #53636f; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.research-results thead { background: #11161c; }
+.research-results th:first-child { width: 35%; }
+.research-results td p { margin-top: 8px; font-size: inherit; line-height: inherit; }
 @media (max-width: 900px) {
   .case-header-wrap { padding: 0 36px; }
   main { padding: 28px 36px 52px; }
@@ -61,6 +75,7 @@ figcaption { max-width: 820px; color: #a3aeb8; font-size: 14px; line-height: 1.6
   .lede { font-size: 17px; }
   h2 { font-size: 22px; }
   section { padding: 28px 0; }
+  .research-results th, .research-results td { padding: 10px; }
 }
 @media print {
   :root { color-scheme: light; background: #fff; color: #17202a; }

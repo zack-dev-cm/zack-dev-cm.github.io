@@ -1,0 +1,7 @@
+row_id,catalyst,ph_pzc,sulfur_wt_pct,mn_g_mol,mw_g_mol,pdi
+1,WSSL (initial),,,1067,2779,2.6
+2,Sibunit-ox-500 g,3.34,10.7,1066,1680,1.58
+3,Sulfated Sibunit,4.26,12.2,961,1290,1.34
+4,Sibunit-ox-400,6.88,16.5,1024,1536,1.5
+5,TiO2,3.75,8.1,1175,2424,2.06
+6,γ-Al2O3,6.71,5.5,1328,1946,1.47
