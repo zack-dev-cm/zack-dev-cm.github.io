@@ -5,28 +5,31 @@
 > A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
 
 ## Summary
-I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.
+I develop Agnitra, a Python SDK and CLI available on PyPI. Its profiling path records model-layer shapes and runtime operator events. A separate decoder-LLM optimization path selects hardware-aware quantization strategies and provides integration helpers for Hugging Face, LangChain and LlamaIndex. The beta release gives developers tools to investigate inference behavior; optimization results require workload-specific performance and output-quality evaluation.
 
 ## Why this tool
-Inference optimization needs a measured baseline and a way to inspect quality changes. I built a Python SDK and CLI that connect runtime profiling with optimization passes and evaluation, so developers can assess changes within an existing model workflow.
+Understanding a model's execution is a useful starting point for optimization. Agnitra exposes profiling through Python and the CLI, alongside a separate optimization API for supported decoder language models. The published example makes the profiling output directly inspectable.
+
+## Inspect a real profiling run
+The example below runs the released 0.2.4 profiling code on a small, randomly initialized PyTorch network. Agnitra records each layer's type, input and output shapes, dtype and operator events. The downloadable script recreates the fixture and writes the report. The recorded example uses CPU, Python 3.10.2 and PyTorch 2.9.1; it demonstrates the profiling path independently of the decoder-LLM optimization path.
 
 ## Released scope
-The beta package is available on PyPI. Its decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Supported paths, fallback behavior and workload-specific evaluation matter more than a universal speedup claim.
+The beta package is available on PyPI. Profiling and decoder-LLM optimization are separate execution paths. Automatic quality checks do not cover every optimization path, so developers need to measure output quality and runtime on their own workloads. The example here demonstrates profiling only.
 
 ## Project Figures
 
-![Conceptual illustration of model runtime profiling, optimization and baseline comparison](https://zack-dev-cm.github.io/docs/images/agnitra-profiling-workflow-v7.webp)
+![Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture](https://zack-dev-cm.github.io/docs/images/agnitra-recorded-shapes.png)
 
-Conceptual illustration of the profiling and evaluation workflow; the traces are illustrative.
+Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md
 
 ## Key Features
-- Inspect model runtime and compare baseline and optimized execution
+- Inspect model layers, tensor shapes and runtime operator events
 - Apply hardware-aware quantization to supported decoder-only language models
 - Integrate optimization into existing Python, Hugging Face and agent workflows
-- Evaluate quality changes and retain fallback behavior for unsupported paths
+- Use a separate decoder-LLM optimization path with workload-specific validation
 
 ## Tech Stack
 - Python
@@ -40,3 +43,5 @@ https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md
 
 ## Links
 - [Install from PyPI](https://pypi.org/project/agnitra/)
+- [Reproduce the CPU profiling example](https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py)
+- [Inspect the recorded model shapes (JSON)](https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json)

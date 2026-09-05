@@ -15,11 +15,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Multimodal Video Search Platform" />
     <meta name="twitter:description" content="Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/multimodal-video-search-platform-card.webp" />
-    <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:alt" content="Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/multimodal-video-search-platform-card.webp" />
-    <meta name="twitter:image:alt" content="Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/video-search-verified-workflow.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/video-search-verified-workflow.png" />
+    <meta name="twitter:image:alt" content="Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -41,8 +41,8 @@
             "url": "https://zack-dev-cm.github.io"
       },
       "genre": "research",
-      "keywords": "computer-vision, ai, search, video, mlops, Python, FastAPI, Qdrant, Postgres, CLIP, OCR, ASR, Hybrid Search, Celery",
-      "image": "https://zack-dev-cm.github.io/docs/images/multimodal-video-search-platform-card.webp",
+      "keywords": "computer-vision, ai, search, video, mlops, Python, FastAPI, Qdrant, Postgres, Visual Embeddings, OCR, ASR, Hybrid Search, Celery",
+      "image": "https://zack-dev-cm.github.io/docs/images/video-search-verified-workflow.png",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -83,7 +83,7 @@
             },
             {
                   "@type": "Thing",
-                  "name": "CLIP"
+                  "name": "Visual Embeddings"
             },
             {
                   "@type": "Thing",
@@ -105,51 +105,34 @@
       "workExample": []
 }
     </script>
-    <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
-      body { margin: 0; }
-      * { box-sizing: border-box; }
-      p { line-height: 1.7; }
-      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
-      .figure-link { display: block; text-decoration: none; }
-      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
-      .figure-gallery { display: grid; gap: 28px; }
-      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
-      a { color: #1b5f8f; }
-      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
-      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
-      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
-      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
-      figure { margin: 0; }
-      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
-      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
-      h2 { margin: 0 0 14px; font-size: 1.35rem; }
-      ul { margin: 0; padding-left: 1.2rem; }
-      li { margin: 0.45rem 0; line-height: 1.55; }
-      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
-      .footer { color: #52616f; font-size: 0.94rem; }
-      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
   </head>
   <body>
-    <main>
-      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="https://zack-dev-cm.github.io/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="https://zack-dev-cm.github.io/#featured">Work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Resume</a><a href="mailto:kaisenaiko@gmail.com">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="https://zack-dev-cm.github.io/#featured">← Selected work</a>
       <article>
         <header class="hero">
-          <p class="eyebrow">research</p>
+          <p class="eyebrow">Research &amp; development</p>
           <h1>Multimodal Video Search Platform</h1>
           <p class="lede">Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.</p>
-          <figure><a class="figure-link" href="/docs/images/multimodal-video-search-platform-card.webp" aria-label="Open full-size figure 1: Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels"><img class="visual" src="/docs/images/multimodal-video-search-platform-card.webp" alt="Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>System illustration</figcaption></figure>
+          <figure><a class="figure-link" href="/docs/images/video-search-verified-workflow.png" aria-label="Open full-size figure 1: Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches"><img class="visual" src="/docs/images/video-search-verified-workflow.png" alt="Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow diagram of parallel extraction, indexing and hybrid retrieval.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>I designed retrieval across video and rich media using complementary visual and language signals. The R&amp;D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.</p>
         </section>
 
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/cv-ai-systems-map.png" aria-label="Open full-size figure 2: Conceptual computer vision systems map for OCR, face analysis, and video neural search"><img class="visual" src="/docs/images/cv-ai-systems-map.png" alt="Conceptual computer vision systems map for OCR, face analysis, and video neural search" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Conceptual illustration.</figcaption></figure><figure><a class="figure-link" href="/docs/images/selected-ai-cv-excalidraw-map.webp" aria-label="Open full-size figure 3: Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects"><img class="visual" src="/docs/images/selected-ai-cv-excalidraw-map.webp" alt="Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure></div></section>
+
         <section>
           <h2>What It Covers</h2>
           <ul>
@@ -166,7 +149,7 @@
         <li>FastAPI</li>
         <li>Qdrant</li>
         <li>Postgres</li>
-        <li>CLIP</li>
+        <li>Visual Embeddings</li>
         <li>OCR</li>
         <li>ASR</li>
         <li>Hybrid Search</li>
@@ -181,7 +164,7 @@
             <li><a href="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/#featured">More selected work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a><a href="mailto:kaisenaiko@gmail.com">Contact Zakhar ↗</a></p>
       </article>
     </main>
   </body>

@@ -31,7 +31,7 @@
       <text x="68" y="227">Metadata<tspan x="68" dy="42">discovery</tspan></text>
       <text x="488" y="227">Normalize &amp;<tspan x="488" dy="42">group versions</tspan></text>
       <text x="488" y="467">Integrity<tspan x="488" dy="42">review</tspan></text>
-      <text x="68" y="467">Traceable<tspan x="68" dy="42">extraction</tspan></text>
+      <text x="68" y="467">Extraction<tspan x="68" dy="42">schemas</tspan></text>
     </g>
 
     <g fill="none" stroke="#29333D" stroke-width="2" marker-end="url(#arrow)">

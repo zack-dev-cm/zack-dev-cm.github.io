@@ -49,6 +49,7 @@ story=[p(e(d['name']),'name'),p(e(d['title'])+' | '+e(d['specialisms']),'role'),
 def add_job(j):
  story.extend([p(e(j['role']),'job'),p(e(j['company'])+' | '+e(j['dates'])+'<br/>'+e(j['context']),'meta')])
  for b in j['bullets']: story.append(Paragraph(e(b),styles['bullet'],bulletText='\u2022'))
+ if j.get('links'): story.append(p(' | '.join(link(item['label'],item['url']) for item in j['links']),'contact'))
  story.append(Spacer(1,3))
 
 for j in d['experience'][:3]: add_job(j)
@@ -87,8 +88,10 @@ parts=['<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="v
 for j in d['experience']:
  parts += ['<section><h3>'+e(j['role'])+'</h3><p class="meta">'+e(j['company'])+' | '+e(j['dates'])+' | '+e(j['context'])+'</p><ul>']
  parts += ['<li>'+e(b)+'</li>' for b in j['bullets']]
- parts += ['</ul></section>']
-parts += ['<h2>Selected products &amp; open source</h2>']
+ parts += ['</ul>']
+ if j.get('links'): parts += ['<p class="meta">'+' · '.join('<a href="'+e(item['url'])+'">'+e(item['label'])+'</a>' for item in j['links'])+'</p>']
+ parts += ['</section>']
+parts += ['<h2>Selected projects &amp; research</h2>']
 for q in d['projects']:parts += ['<section><h3><a href="'+e(q['url'])+'">'+e(q['name'])+'</a></h3><p class="meta">'+e(q['status'])+'</p><p>'+e(q['text'])+'</p></section>']
 parts += ['<h2>Technical expertise</h2>']
 for s in d['skills']:parts+=['<p><strong>'+e(s['label'])+':</strong> '+e(s['text'])+'</p>']

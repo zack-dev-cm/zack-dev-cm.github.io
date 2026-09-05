@@ -18,6 +18,14 @@ const gotoPortfolio = async (page: Page) => {
   await expect(page.locator('.site-layout')).toBeVisible({ timeout: 15000 });
 };
 
+const openArchive = async (page: Page) => {
+  const archive = page.locator('#project-archive');
+  if (!(await archive.evaluate((node: HTMLDetailsElement) => node.open))) {
+    await archive.locator(':scope > summary').click();
+  }
+  await expect(page.getByLabel('Search projects')).toBeVisible();
+};
+
 const gotoStandalone = async (page: Page, slug: string) => {
   const baseUrl = process.env.PLAYWRIGHT_BASE_URL || '';
   const [rawPath, rawQuery = ''] = slug.split('?');
@@ -57,16 +65,19 @@ test('new case studies expose loaded, inspectable figures on mobile and desktop'
   const slugs = [
     'engineering-drawing-cad-analysis', 'riverstart-document-ai',
     'construction-document-intelligence', 'agnitra-ml-profiling-optimization',
-    'calorio-ai-nutrition-service', 'ligninqc-reproducible-scientific-research-workflows'
+    'calorio-ai-nutrition-service', 'ligninqc-reproducible-scientific-research-workflows',
+    'dermaself-flutter-skin-analysis-app', 'multimodal-video-search-platform'
   ];
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     for (const slug of slugs) {
       await gotoStandalone(page, `projects/${slug}`);
       await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+      await expect(page.getByRole('link', { name: 'Zakhar Pashkin portfolio' })).toBeVisible();
+      await expect(page.getByRole('navigation', { name: 'Portfolio navigation' })).toBeVisible();
       const figures = page.locator('figure');
       expect(await figures.count()).toBeGreaterThan(0);
-      if (slug === 'engineering-drawing-cad-analysis') await expect(figures).toHaveCount(2);
+      if (slug === 'engineering-drawing-cad-analysis') await expect(figures).toHaveCount(4);
       for (const figure of await figures.all()) {
         await figure.scrollIntoViewIfNeeded();
         const img = figure.locator('img');
@@ -250,6 +261,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.locator('#featured .featured-card')).toHaveCount(6);
   await expect(page.locator('#experience')).toContainText('Riverstart');
   await expect(page.locator('#experience')).toContainText('Wombat Apps / Carb Manager');
+  await expect(page.locator('#project-archive')).not.toHaveAttribute('open', '');
+  await expect(page.getByLabel('Search projects')).toBeHidden();
+  await openArchive(page);
   await expect(page.getByTestId('project-card')).toHaveCount(9);
 
   const resumeLink = page.getByRole('link', { name: /Download resume/i }).first();
@@ -321,11 +335,17 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const contributedSection = page.locator('#contributed-to');
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeVisible();
+  await expect(contributedSection.getByRole('link')).toHaveCount(3);
+  await expect(contributedSection.getByText('Merged PR', { exact: true })).toHaveCount(2);
+  await expect(contributedSection.locator('.contribution-participation')).not.toHaveAttribute('open', '');
+  await contributedSection.locator('.contribution-participation > summary').click();
   await expect(contributedSection.getByRole('link')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
-  await expect(contributedSection.getByText(/Merged PR|Open PR|Issue comment|Issue/)).toHaveCount(0);
   await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
   for (const contribution of OPEN_SOURCE_CONTRIBUTIONS) {
-    await expect(contributedSection.getByRole('link', { name: contribution.name })).toBeVisible();
+    const row = contributedSection.locator(`a[href="${contribution.sourceUrl}"]`);
+    await expect(row).toBeVisible();
+    await expect(row).toContainText(contribution.contribution);
+    await expect(row.locator('.contribution-card__status')).toHaveText(contribution.evidenceLabel);
   }
 
   const projectImages = page.locator('#projects img');
@@ -337,7 +357,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const latestSection = page.locator('#latest');
   await expect(page.locator('#featured')).toContainText('Calorio · AI nutrition assistant');
-  await expect(page.locator('#featured')).toContainText('Agnitra · Inference optimization');
+  await expect(page.locator('#featured')).toContainText('Agnitra · Model profiling & optimization');
   await expect(page.locator('#featured')).not.toContainText('ClawHub Downloads Tracker');
   await expect(latestSection.locator('.latest-card')).toHaveCount(3);
   await latestSection.getByRole('button', { name: 'Browse all updates' }).click();
@@ -481,6 +501,7 @@ test('docs route bootstraps without duplicate manifest probe', async ({ page }) 
 test('smart search bubbles and semantic queries surface relevant projects', async ({ page }) => {
   test.setTimeout(180_000);
   await gotoPortfolio(page);
+  await openArchive(page);
 
   const smartSearch = page.locator('#smart-search');
   const explorer = page.locator('#projects');
@@ -774,6 +795,24 @@ test('featured cards stay inside their own bounds on desktop breakpoints', async
   }
 });
 
+test('feed-only archive projects have real canonical pages and discovery entries', async ({ page }) => {
+  await gotoPortfolio(page);
+  await openArchive(page);
+  await page.getByRole('button', { name: /Show all \d+ projects/ }).click();
+  const slugs = ['unitree-g1-colab-ik', 'interactive-doc-mapper', 'open-feed-recsys-lab'];
+  const sitemap = await (await page.request.get('/docs/sitemap.xml')).text();
+  for (const slug of slugs) {
+    const canonical = `https://zack-dev-cm.github.io/projects/${slug}/`;
+    await expect(page.locator(`#projects a[href$="/projects/${slug}/"]`)).toHaveCount(1);
+    const response = await page.request.get(`/projects/${slug}/`);
+    expect(response.status(), slug).toBe(200);
+    const html = await response.text();
+    expect(html).toContain(`<link rel="canonical" href="${canonical}"`);
+    expect(html).toContain('class="case-header"');
+    expect(sitemap).toContain(canonical);
+  }
+});
+
 test('project cards expose canonical links and support opening a new tab', async ({ page, context }) => {
   await gotoPortfolio(page);
   const caseLinks = page.locator('#featured').getByRole('link', { name: 'Case study', exact: true });
@@ -794,6 +833,7 @@ test('project cards expose canonical links and support opening a new tab', async
 
 test('project dialog contains keyboard focus and restores its opener', async ({ page }) => {
   await gotoPortfolio(page);
+  await openArchive(page);
   await page.getByLabel('Search projects').fill('localarchive');
   const opener = page.getByRole('link', { name: /Open project: LocalArchive/i });
   await opener.focus();
@@ -864,6 +904,7 @@ test.describe('mobile', () => {
   test('project explorer stays usable on mobile without horizontal overflow', async ({ page }) => {
     test.setTimeout(90_000);
     await gotoPortfolio(page);
+  await openArchive(page);
 
     await page.locator('#projects').scrollIntoViewIfNeeded();
 
@@ -1010,6 +1051,7 @@ test('renamed curated projects supersede stale feed copy and removed metrics', a
   });
   const feedLoaded = page.waitForResponse('**/portfolio-updates.json');
   await gotoPortfolio(page);
+  await openArchive(page);
   await feedLoaded;
   await page.getByLabel('Search projects').fill('agnitra');
   const cards = page.getByTestId('project-card').filter({ hasText: /Agnitra/i });
@@ -1017,7 +1059,7 @@ test('renamed curated projects supersede stale feed copy and removed metrics', a
   await expect(cards.first()).toContainText('Agnitra - ML Profiling & Optimization');
   await cards.first().click();
   const modal = page.getByRole('dialog');
-  await expect(modal).toContainText('model profiling');
+  await expect(modal).toContainText('profiling path records model-layer shapes');
   await expect(modal).not.toContainText('Old operational metric');
   await expect(modal).not.toContainText('Stale operational snapshot');
   await expect(modal.getByRole('heading', { name: 'Benchmarks and analytics' })).toHaveCount(0);

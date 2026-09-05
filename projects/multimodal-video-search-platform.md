@@ -7,11 +7,9 @@ I designed retrieval across video and rich media using complementary visual and 
 
 ## Project Figures
 
-![Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels](https://zack-dev-cm.github.io/docs/images/multimodal-video-search-platform-card.webp)
+![Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches](https://zack-dev-cm.github.io/docs/images/video-search-verified-workflow.png)
 
-![Conceptual computer vision systems map for OCR, face analysis, and video neural search](https://zack-dev-cm.github.io/docs/images/cv-ai-systems-map.png)
-
-![Excalidraw-style systems map for selected OCR, face analysis, architectural recognition, video search, and RAG automation projects](https://zack-dev-cm.github.io/docs/images/selected-ai-cv-excalidraw-map.webp)
+Workflow diagram of parallel extraction, indexing and hybrid retrieval.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
@@ -27,7 +25,7 @@ https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 - FastAPI
 - Qdrant
 - Postgres
-- CLIP
+- Visual Embeddings
 - OCR
 - ASR
 - Hybrid Search
@@ -36,13 +34,14 @@ https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md
 ## Architecture Diagram
 ```mermaid
 flowchart LR
-  Upload["Video Upload"] --> Frames["Scenes + Keyframes"]
-  Upload --> ASR["ASR Transcript"]
-  Frames --> OCR["OCR + Captions"]
-  Frames --> Visual["Visual / Face / Object Signals"]
-  ASR --> Index["Dense + Sparse Indexes"]
-  OCR --> Index
-  Visual --> Index
-  Index --> Rank["Hybrid Scorer"]
-  Rank --> Results["Ranked Results + Review Metrics"]
+  Video["Video"] --> Frames["Keyframes + visual embeddings"]
+  Video --> ASR["Speech transcripts"]
+  Frames --> OCR["On-screen text"]
+  Frames --> VisualIndex["Visual index"]
+  ASR --> TextIndex["Dense + sparse text index"]
+  OCR --> TextIndex
+  Query["Query"] --> Retrieve["Retrieve + fuse matches"]
+  VisualIndex --> Retrieve
+  TextIndex --> Retrieve
+  Retrieve --> Results["Timestamped matches"]
 ```

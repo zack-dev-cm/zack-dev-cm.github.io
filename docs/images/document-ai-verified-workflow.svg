@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title description">
+  <title id="title">Document AI: case checking and reference retrieval</title>
+  <desc id="description">Two distinct R&amp;D paths. Case documents become structured facts, deterministic checks and a review packet. Reference material is retrieved separately to ground an answer. This is a workflow diagram, not a client result.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 8 5 1 9" fill="none" stroke="#256172" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="#F0F3F5"/>
+  <g font-family="Space Grotesk, Segoe UI, Arial, sans-serif" fill="#11161C">
+    <text x="48" y="73" font-size="44" font-weight="600">Document AI</text>
+    <text x="48" y="116" font-size="26" fill="#465663">Case checking and reference retrieval for specialist review</text>
+    <path d="M48 142H1232" stroke="#BAC7CF" stroke-width="1.5"/>
+    <text x="48" y="186" font-size="23" fill="#256172" font-weight="600">Case analysis</text>
+    <g fill="#FFFFFF" stroke="#BAC7CF" stroke-width="1.5">
+      <rect x="48" y="210" width="260" height="174" rx="8"/>
+      <rect x="356" y="210" width="260" height="174" rx="8"/>
+      <rect x="664" y="210" width="260" height="174" rx="8"/>
+      <rect x="972" y="210" width="260" height="174" rx="8"/>
+    </g>
+    <g fill="#97D8EA">
+      <rect x="48" y="234" width="5" height="126" rx="2"/>
+      <rect x="356" y="234" width="5" height="126" rx="2"/>
+      <rect x="664" y="234" width="5" height="126" rx="2"/>
+      <rect x="972" y="234" width="5" height="126" rx="2"/>
+    </g>
+    <g font-size="30" font-weight="600">
+      <text x="72" y="258">Case<tspan x="72" dy="35">documents</tspan></text>
+      <text x="380" y="258">Structured<tspan x="380" dy="35">facts</tspan></text>
+      <text x="688" y="258">Deterministic<tspan x="688" dy="35">checks</tspan></text>
+      <text x="996" y="258">Review<tspan x="996" dy="35">packet</tspan></text>
+    </g>
+    <g font-size="23" fill="#465663">
+      <text x="72" y="346">Files and tables</text>
+      <text x="380" y="334">Values and source<tspan x="380" dy="28">references</tspan></text>
+      <text x="688" y="334">Reconciliation and<tspan x="688" dy="28">missing evidence</tspan></text>
+      <text x="996" y="334">Findings for<tspan x="996" dy="28">specialist review</tspan></text>
+    </g>
+    <g fill="none" stroke="#256172" stroke-width="2.5" marker-end="url(#arrow)">
+      <path d="M314 297H346"/><path d="M622 297H654"/><path d="M930 297H962"/>
+    </g>
+    <text x="48" y="437" font-size="23" fill="#256172" font-weight="600">Reference retrieval</text>
+    <g fill="#E6F1F4" stroke="#A5C9D2" stroke-width="1.5">
+      <rect x="48" y="461" width="352" height="142" rx="8"/>
+      <rect x="464" y="461" width="352" height="142" rx="8"/>
+      <rect x="880" y="461" width="352" height="142" rx="8"/>
+    </g>
+    <g font-size="30" font-weight="600">
+      <text x="72" y="509">Reference material</text>
+      <text x="488" y="509">Hybrid retrieval</text>
+      <text x="904" y="509">Grounded answer</text>
+    </g>
+    <g font-size="23" fill="#465663">
+      <text x="72" y="557">Indexed passages and links</text>
+      <text x="488" y="557">Relevant source context</text>
+      <text x="904" y="557">Response with citations</text>
+    </g>
+    <g fill="none" stroke="#256172" stroke-width="2.5" marker-end="url(#arrow)">
+      <path d="M406 532H454"/><path d="M822 532H870"/>
+    </g>
+    <path d="M48 640H1232" stroke="#BAC7CF" stroke-width="1.5"/>
+    <text x="48" y="680" font-size="23" fill="#465663">Workflow diagram · Distinct R&amp;D paths, each evaluated separately</text>
+  </g>
+</svg>

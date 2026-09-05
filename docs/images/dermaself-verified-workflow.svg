@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title description">
+  <title id="title">Dermaself capture, region processing and inference</title>
+  <desc id="description">Guided capture feeds facial-region processing, a selected mobile or server inference path, and structured results. Model evaluation and release decisions form a separate engineering workflow. This diagram contains no patient image or product screenshot.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 8 5 1 9" fill="none" stroke="#256172" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="#F0F3F5"/>
+  <g font-family="Space Grotesk, Segoe UI, Arial, sans-serif" fill="#11161C">
+    <text x="48" y="73" font-size="44" font-weight="600">Dermaself</text>
+    <text x="48" y="116" font-size="26" fill="#465663">Capture, image regions and model integration</text>
+    <path d="M48 142H1232" stroke="#BAC7CF" stroke-width="1.5"/>
+    <text x="48" y="190" font-size="23" fill="#256172" font-weight="600">Image analysis</text>
+    <g fill="#FFFFFF" stroke="#BAC7CF" stroke-width="1.5">
+      <rect x="48" y="218" width="260" height="226" rx="8"/>
+      <rect x="356" y="218" width="260" height="226" rx="8"/>
+      <rect x="664" y="218" width="260" height="226" rx="8"/>
+      <rect x="972" y="218" width="260" height="226" rx="8"/>
+    </g>
+    <g fill="#97D8EA">
+      <rect x="48" y="242" width="5" height="178" rx="2"/>
+      <rect x="356" y="242" width="5" height="178" rx="2"/>
+      <rect x="664" y="242" width="5" height="178" rx="2"/>
+      <rect x="972" y="242" width="5" height="178" rx="2"/>
+    </g>
+    <g font-size="31" font-weight="600">
+      <text x="72" y="272">Guided<tspan x="72" dy="37">capture</tspan></text>
+      <text x="380" y="272">Facial<tspan x="380" dy="37">regions</tspan></text>
+      <text x="688" y="272">Model<tspan x="688" dy="37">inference</tspan></text>
+      <text x="996" y="272">Structured<tspan x="996" dy="37">results</tspan></text>
+    </g>
+    <g font-size="24" fill="#465663">
+      <text x="72" y="368">Image capture<tspan x="72" dy="30">and input checks</tspan></text>
+      <text x="380" y="368">Region selection<tspan x="380" dy="30">and preprocessing</tspan></text>
+      <text x="688" y="353">Selected runtime:</text>
+      <text x="688" y="383">mobile candidate<tspan x="688" dy="30">or server API</tspan></text>
+      <text x="996" y="368">Masks and region<tspan x="996" dy="30">measurements</tspan></text>
+    </g>
+    <g fill="none" stroke="#256172" stroke-width="2.5" marker-end="url(#arrow)">
+      <path d="M314 330H346"/><path d="M622 330H654"/><path d="M930 330H962"/>
+    </g>
+    <path d="M794 451V493" fill="none" stroke="#256172" stroke-width="2" stroke-dasharray="6 6"/>
+    <rect x="48" y="502" width="1184" height="118" rx="8" fill="#E6F1F4" stroke="#A5C9D2" stroke-width="1.5"/>
+    <text x="72" y="548" font-size="30" font-weight="600">Engineering evaluation</text>
+    <text x="72" y="587" font-size="25" fill="#465663">Model checks · Runtime comparisons · Candidate release decisions</text>
+    <path d="M48 651H1232" stroke="#BAC7CF" stroke-width="1.5"/>
+    <text x="48" y="688" font-size="23" fill="#465663">Workflow diagram · Release evaluation is separate from a user's analysis</text>
+  </g>
+</svg>

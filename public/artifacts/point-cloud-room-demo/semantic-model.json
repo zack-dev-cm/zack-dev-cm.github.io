@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "project_id": "SYNTHETIC-ROOM-01",
+  "units": "m",
+  "source_kind": "synthetic_fixture",
+  "room": {
+    "id": "ROOM-01",
+    "name": "Detected room",
+    "polygon_m": [
+      [
+        -0.0025,
+        -0.0026
+      ],
+      [
+        5.0026,
+        -0.0026
+      ],
+      [
+        5.0026,
+        4.0027
+      ],
+      [
+        -0.0025,
+        4.0027
+      ]
+    ],
+    "height_m": 2.8047
+  },
+  "walls": [
+    {
+      "id": "W-SOUTH",
+      "start_m": [
+        -0.0025,
+        -0.0026
+      ],
+      "end_m": [
+        5.0026,
+        -0.0026
+      ],
+      "thickness_m": 0.15,
+      "height_m": 2.8047,
+      "openings": [
+        {
+          "id": "W-SOUTH-O1",
+          "wall_id": "W-SOUTH",
+          "kind": "door",
+          "offset_m": 0.975,
+          "width_m": 0.9,
+          "sill_m": 0.0,
+          "height_m": 2.15,
+          "confidence": 0.945
+        }
+      ]
+    },
+    {
+      "id": "W-EAST",
+      "start_m": [
+        5.0026,
+        -0.0026
+      ],
+      "end_m": [
+        5.0026,
+        4.0027
+      ],
+      "thickness_m": 0.15,
+      "height_m": 2.8047,
+      "openings": [
+        {
+          "id": "W-EAST-O1",
+          "wall_id": "W-EAST",
+          "kind": "window",
+          "offset_m": 1.375,
+          "width_m": 1.25,
+          "sill_m": 0.925,
+          "height_m": 1.1,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "W-NORTH",
+      "start_m": [
+        5.0026,
+        4.0027
+      ],
+      "end_m": [
+        -0.0025,
+        4.0027
+      ],
+      "thickness_m": 0.15,
+      "height_m": 2.8047,
+      "openings": []
+    },
+    {
+      "id": "W-WEST",
+      "start_m": [
+        -0.0025,
+        4.0027
+      ],
+      "end_m": [
+        -0.0025,
+        -0.0026
+      ],
+      "thickness_m": 0.15,
+      "height_m": 2.8047,
+      "openings": []
+    }
+  ],
+  "bounds_m": {
+    "xmin": -0.0025,
+    "ymin": -0.0026,
+    "floor_z": -0.0024,
+    "xmax": 5.0026,
+    "ymax": 4.0027,
+    "ceiling_z": 2.8023,
+    "width": 5.0051,
+    "length": 4.0052,
+    "height": 2.8047
+  }
+}

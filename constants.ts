@@ -21,8 +21,9 @@ const ARCHITECTURAL_CATALOG_RECEPTION_IMAGE = {
   alt: "Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework"
 };
 const DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE = {
-  url: `${LOCAL_IMG_BASE}/dermaself-flutter-skin-analysis-card.webp`,
-  alt: "Generated public-safe mobile computer-vision card showing Dermaself capture, ROI gates, model runtime, and results flow without patient imagery"
+  url: `${LOCAL_IMG_BASE}/dermaself-verified-workflow.png`,
+  alt: "Workflow diagram of guided capture, facial regions, selected model runtime and structured results, with separate model-release evaluation",
+  caption: "Workflow diagram. Image analysis and model-release evaluation are separate."
 };
 const CLEARML_DERMASELF_EXPERIMENT_TRACKING_IMAGE = {
   url: `${LOCAL_IMG_BASE}/clearml-dermaself-experiment-tracking-card.png`,
@@ -49,8 +50,9 @@ const FULL_FACE_WRINKLE_SEGMENTATION_LAB_IMAGE = {
   alt: "Generated full-face wrinkle segmentation lab card with anonymized face mesh, region masks, skeletonized traces, and QA artifact panels"
 };
 const MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE = {
-  url: `${LOCAL_IMG_BASE}/multimodal-video-search-platform-card.webp`,
-  alt: "Generated multimodal video search card showing keyframe timelines, transcript and OCR lanes, embedding indexes, and ranked result panels"
+  url: `${LOCAL_IMG_BASE}/video-search-verified-workflow.png`,
+  alt: "Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches",
+  caption: "Workflow diagram of parallel extraction, indexing and hybrid retrieval."
 };
 const COLAB_CVDL_PROTOTYPE_ARCHIVE_IMAGE = {
   url: `${LOCAL_IMG_BASE}/colab-cvdl-prototype-archive-card.webp`,
@@ -1508,7 +1510,7 @@ export const PROJECTS: Project[] = [
   {
     "id": 101,
     "title": "Riverstart Document AI",
-    "description": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
+    "description": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
     "longDescription": "As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.",
     "keyFeatures": [
       "Hybrid retrieval over document and relationship indexes",
@@ -1535,18 +1537,24 @@ export const PROJECTS: Project[] = [
     "createdAt": "2026-09-05",
     "projectKind": "research",
     "links": [],
+    "mermaidDiagram": `flowchart LR
+  Case["Case documents"] --> Facts["Structured facts + source references"]
+  Facts --> Checks["Deterministic reconciliation"]
+  Checks --> Review["Specialist review packet"]
+  References["Reference material"] --> Retrieve["Hybrid retrieval"]
+  Retrieve --> Answer["Grounded answer + citations"]`,
     "images": [
       {
-        "url": "/docs/images/document-ai-workflow-v3.webp",
-        "alt": "Conceptual illustration of source documents, retrieval connections and a source-linked review answer",
-        "caption": "Conceptual illustration: documents, retrieved evidence and specialist review. No client records shown."
+        "url": "/docs/images/document-ai-verified-workflow.png",
+        "alt": "Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers",
+        "caption": "Workflow diagram. Case checking and reference retrieval are distinct R&D paths."
       }
     ],
-    "thumbnail": "/docs/images/document-ai-workflow-v3.webp",
+    "thumbnail": "/docs/images/document-ai-verified-workflow.png",
     "caseStudySections": [
       {
         "title": "Engineering decisions",
-        "body": "Document extraction produces structured facts that can be checked independently of a generated explanation. Retrieval supplies relevant passages; deterministic reconciliation handles comparisons that should be repeatable. An expert can follow the answer back to its supporting document."
+        "body": "Document extraction produces structured facts and source references for deterministic reconciliation and a specialist review packet. A separate retrieval path supplies reference passages for grounded answers. These paths have different contracts and evaluations; the diagram keeps them separate."
       },
       {
         "title": "Evaluation and current stage",
@@ -1557,13 +1565,14 @@ export const PROJECTS: Project[] = [
   {
     "id": 102,
     "title": "Engineering Drawing & CAD Analysis",
-    "description": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
-    "longDescription": "I develop engineering-analysis research at Riverstart, connecting scans, CAD geometry and engineering drawings through reproducible evaluation. My work covers reference registration, CAD-to-2D projection, geometry checks and review artifacts. Each stage has its own acceptance criteria so engineers can inspect the geometry and decide what is ready for further development.",
+    "description": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
+    "longDescription": "My engineering-geometry work at Riverstart covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.",
     "keyFeatures": [
-      "Evaluate scan registration against supplied CAD references",
-      "Compare CAD-to-2D projection and hidden-line handling across geometry backends",
-      "Check outputs against independently defined analytic fixtures",
-      "Preserve geometry, evaluation results and review artifacts for repeatable inspection"
+      "Infer axis-aligned room boundaries, walls and rectangular openings from XYZ point clouds",
+      "Represent inferred geometry as a semantic room model and export 2D DXF/SVG floor plans",
+      "Evaluate mechanical scan registration against supplied CAD references",
+      "Generate visible and hidden 2D edges from STEP models using Open Cascade",
+      "Preserve source geometry and outputs for comparison and engineering review"
     ],
     "techStack": [
       "Python",
@@ -1572,6 +1581,8 @@ export const PROJECTS: Project[] = [
       "build123d",
       "NumPy",
       "SciPy",
+      "IfcOpenShell",
+      "ezdxf",
       "Geometry Processing"
     ],
     "surfaceTags": [
@@ -1584,49 +1595,71 @@ export const PROJECTS: Project[] = [
     "projectKind": "research",
     "links": [
       {
-        "text": "Inspect projection SVG",
+        "text": "Inspect the generated room floor plan (SVG)",
+        "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
+      },
+      {
+        "text": "Inspect the inferred room geometry (JSON)",
+        "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
+      },
+      {
+        "text": "Download the synthetic point-cloud input (XYZ)",
+        "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
+      },
+      {
+        "text": "Inspect the mechanical fixture projections (SVG)",
         "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
       }
     ],
     "images": [
       {
+        "url": "/docs/images/point-cloud-room-workflow-v1.webp",
+        "alt": "The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan",
+        "caption": "Building prototype: saved point-cloud input, a 3D rendering of the inferred semantic room model, and its actual SVG floor plan. This is one synthetic room test; the 3D view renders semantic JSON, not the experimental IFC export."
+      },
+      {
+        "url": "/docs/images/point-cloud-room-model-v1.webp",
+        "alt": "Detailed comparison of the synthetic room point cloud and inferred walls with a door and window at matching positions",
+        "caption": "Building prototype, enlarged: the input points and inferred room geometry share the same coordinates and viewpoint. Transparency reveals the interior and openings."
+      },
+      {
         "url": "/docs/images/cad-analytic-fixture-source.webp",
         "alt": "Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes",
-        "caption": "Analytic CAD test fixture: a through-bore block used to evaluate projection and hidden-line handling. Rendered from the source STEP."
+        "caption": "Separate mechanical CAD track: a synthetic through-bore STEP fixture for projection and hidden-line tests. This solid is a supplied test input."
       },
       {
         "url": "/docs/images/cad-analytic-fixture-projections.webp",
         "alt": "XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges",
-        "caption": "Generated XY and XZ projections of the same test fixture, separating visible and hidden edges. Actual HLR output."
+        "caption": "Mechanical CAD output: generated XY and XZ views of the same through-bore fixture, with visible edges in solid lines and hidden edges dashed."
       }
     ],
-    "thumbnail": "/docs/images/cad-analytic-fixture-source.webp",
+    "thumbnail": "/docs/images/point-cloud-room-workflow-v1.webp",
     "hideImages": false,
     "caseStudySections": [
       {
-        "title": "Engineering decisions",
-        "body": "I separate scan registration, CAD projection and drawing comparison into measurable stages. The projection research compares direct Open Cascade routes with CadQuery and build123d, checks visible and hidden geometry separately, and preserves intermediate artifacts for review. Analytic fixtures provide expected geometry that is defined independently of the candidate projection backend."
+        "title": "Building point cloud → room model → floor plan",
+        "body": "The building prototype reads XYZ or NumPy point clouds with declared units, estimates rectangular room bounds and detects door/window openings from gaps in the wall points. These are geometric methods; wall thickness is a declared input. A semantic model records the room, walls and openings, supplying both the 3D visualization and 2D floor-plan exports. The figures use a saved synthetic fixture, with its original point cloud, geometry JSON and SVG plan available below."
       },
       {
-        "title": "Evaluation and current stage",
-        "body": "The demonstrated milestone is a research baseline for registration and projection evaluation. Checks cover coordinate consistency, surface alignment, projected geometry and selected drawing views. Scan-to-parametric reconstruction requires separate evidence and acceptance; the supplied reference CAD in a registration test is not a reconstructed output."
+        "title": "Mechanical scans, reference CAD and engineering views",
+        "body": "The mechanical track evaluates scan-to-reference registration separately from STEP-to-drawing projection. It compares Open Cascade, CadQuery and build123d routes, checks visible and hidden edges, and compares generated views with supplied drawings. The through-bore example below isolates the projection stage with known analytic geometry. A reference STEP used for registration is an input, not a model reconstructed from the scan."
       },
       {
-        "title": "What the images show",
-        "body": "The first image renders an existing analytic STEP fixture built for the evaluation workflow. The second shows the actual generated XY and XZ projections of that same solid, including hidden edges. These are reproducible test artifacts using synthetic geometry; they do not contain a customer part, a generated product interface or a claim of manufacturing accuracy."
+        "title": "Current stage",
+        "body": "The room workflow has passed a synthetic software-path test; real-building reconstruction still needs reference data and engineering acceptance. It currently assumes a single axis-aligned room. IFC export is experimental, with cross-format opening placement under review. Mechanical results establish registration and projection baselines; arbitrary scan-to-parametric CAD and manufacturing-ready drawing generation remain separate research goals."
       }
     ]
   },
   {
     "id": 103,
     "title": "Construction Document Intelligence",
-    "description": "Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.",
-    "longDescription": "I develop construction-document analysis as part of Riverstart R&D. The workflow interprets complete plan sets, extracts structured quantities and connects each result to the corresponding source page. Persistent review state lets specialists inspect and correct results across a document set. My contribution spans document processing, model orchestration, output contracts and evaluation for expert review.",
+    "description": "Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.",
+    "longDescription": "I develop construction-document analysis as part of Riverstart R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.",
     "keyFeatures": [
       "Analyze related drawings as a complete document set",
       "Validate observations and units before calculating quantities",
       "Link quantities to source pages for checking",
-      "Preserve specialist review decisions across revisions"
+      "Preserve analysis results and source references for repeatable review"
     ],
     "techStack": [
       "Python",
@@ -1660,7 +1693,7 @@ export const PROJECTS: Project[] = [
       },
       {
         "title": "Review across a document set",
-        "body": "The R&D workflow keeps related drawings and review decisions together so a specialist can inspect a result in context and correct it across revisions. This is an evaluation-stage workflow; generated quantities still require source checks and expert acceptance."
+        "body": "The R&D workflow keeps related drawings, saved observations, source pages and open questions together for specialist review. Generated quantities still require source checks and expert acceptance."
       }
     ]
   },
@@ -3117,7 +3150,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     title: "Dermaself Flutter Skin Analysis App",
     aliases: ["dermaself mobile app", "flutter skin analysis", "mobile skin analysis app"],
     description: "Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.",
-    longDescription: "I develop Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joins PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guide model release decisions.",
+    longDescription: "I developed Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joined PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guided candidate release decisions.",
     projectKind: "case-study",
     surfaceTags: ["mobile", "computer-vision", "health-ai", "case-study"],
     mobileReady: true,
@@ -3125,12 +3158,11 @@ Operations Layer (Console, Alerts, Runbooks)`
     techStack: ["Flutter", "Dart", "Firebase", "Riverpod", "GoRouter", "ONNX", "Mobile CV", "iOS", "Android"],
     links: [],
     mermaidDiagram: `flowchart LR
-  Onboarding["Onboarding + Questionnaire"] --> Capture["Selfie / Device Capture"]
-  Capture --> ROI["Face ROI + Capture Gates"]
-  ROI --> Runtime["ONNX / Model Runtime"]
-  Runtime --> Texture["Wrinkle, Pore, Acne Signals"]
-  Texture --> QA["QA Review + Promotion Decision"]
-  QA --> Results["Results + Recommendations"]`,
+  Capture["Guided capture + input checks"] --> ROI["Facial regions + preprocessing"]
+  ROI --> Runtime["Selected mobile candidate or server runtime"]
+  Runtime --> Results["Masks + region measurements"]
+  Runtime -.-> Evaluation["Separate model and runtime evaluation"]
+  Evaluation --> Release["Candidate release decision"]`,
     images: [DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE],
     thumbnail: DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE.url,
     createdAt: "2026-05-05"
@@ -3185,7 +3217,7 @@ Operations Layer (Console, Alerts, Runbooks)`
       "decoder-only llm optimizer"
     ],
     "description": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
-    "longDescription": "I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.",
+    "longDescription": "I develop Agnitra, a Python SDK and CLI available on PyPI. Its profiling path records model-layer shapes and runtime operator events. A separate decoder-LLM optimization path selects hardware-aware quantization strategies and provides integration helpers for Hugging Face, LangChain and LlamaIndex. The beta release gives developers tools to investigate inference behavior; optimization results require workload-specific performance and output-quality evaluation.",
     "projectKind": "open-source",
     "surfaceTags": [
       "open-source",
@@ -3195,10 +3227,10 @@ Operations Layer (Console, Alerts, Runbooks)`
       "optimization"
     ],
     "keyFeatures": [
-      "Inspect model runtime and compare baseline and optimized execution",
+      "Inspect model layers, tensor shapes and runtime operator events",
       "Apply hardware-aware quantization to supported decoder-only language models",
       "Integrate optimization into existing Python, Hugging Face and agent workflows",
-      "Evaluate quality changes and retain fallback behavior for unsupported paths"
+      "Use a separate decoder-LLM optimization path with workload-specific validation"
     ],
     "techStack": [
       "Python",
@@ -3214,16 +3246,24 @@ Operations Layer (Console, Alerts, Runbooks)`
       {
         "text": "Install from PyPI",
         "url": "https://pypi.org/project/agnitra/"
+      },
+      {
+        "text": "Reproduce the CPU profiling example",
+        "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py"
+      },
+      {
+        "text": "Inspect the recorded model shapes (JSON)",
+        "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json"
       }
     ],
     "images": [
       {
-        "url": "/docs/images/agnitra-profiling-workflow-v7.webp",
-        "alt": "Conceptual illustration of model runtime profiling, optimization and baseline comparison",
-        "caption": "Conceptual illustration of the profiling and evaluation workflow; the traces are illustrative."
+        "url": "/docs/images/agnitra-recorded-shapes.png",
+        "alt": "Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture",
+        "caption": "Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown."
       }
     ],
-    "thumbnail": "/docs/images/agnitra-profiling-workflow-v7.webp",
+    "thumbnail": "/docs/images/agnitra-recorded-shapes.png",
     "createdAt": "2026-05-06",
     "canonicalLinks": {
       "website": "https://pypi.org/project/agnitra/"
@@ -3231,11 +3271,15 @@ Operations Layer (Console, Alerts, Runbooks)`
     "caseStudySections": [
       {
         "title": "Why this tool",
-        "body": "Inference optimization needs a measured baseline and a way to inspect quality changes. I built a Python SDK and CLI that connect runtime profiling with optimization passes and evaluation, so developers can assess changes within an existing model workflow."
+        "body": "Understanding a model's execution is a useful starting point for optimization. Agnitra exposes profiling through Python and the CLI, alongside a separate optimization API for supported decoder language models. The published example makes the profiling output directly inspectable."
+      },
+      {
+        "title": "Inspect a real profiling run",
+        "body": "The example below runs the released 0.2.4 profiling code on a small, randomly initialized PyTorch network. Agnitra records each layer's type, input and output shapes, dtype and operator events. The downloadable script recreates the fixture and writes the report. The recorded example uses CPU, Python 3.10.2 and PyTorch 2.9.1; it demonstrates the profiling path independently of the decoder-LLM optimization path."
       },
       {
         "title": "Released scope",
-        "body": "The beta package is available on PyPI. Its decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Supported paths, fallback behavior and workload-specific evaluation matter more than a universal speedup claim."
+        "body": "The beta package is available on PyPI. Profiling and decoder-LLM optimization are separate execution paths. Automatic quality checks do not cover every optimization path, so developers need to measure output quality and runtime on their own workloads. The example here demonstrates profiling only."
       }
     ]
   },
@@ -3469,23 +3513,20 @@ Operations Layer (Console, Alerts, Runbooks)`
     projectKind: "research",
     surfaceTags: ["computer-vision", "ai", "search", "video", "mlops"],
     keyFeatures: ["Keyframes, speech transcripts, OCR and scene information", "Visual and text embeddings for complementary retrieval signals", "Dense and sparse search with hybrid ranking", "Regression comparisons for retrieval coverage and recovery"],
-    techStack: ["Python", "FastAPI", "Qdrant", "Postgres", "CLIP", "OCR", "ASR", "Hybrid Search", "Celery"],
+    techStack: ["Python", "FastAPI", "Qdrant", "Postgres", "Visual Embeddings", "OCR", "ASR", "Hybrid Search", "Celery"],
     links: [],
     mermaidDiagram: `flowchart LR
-  Upload["Video Upload"] --> Frames["Scenes + Keyframes"]
-  Upload --> ASR["ASR Transcript"]
-  Frames --> OCR["OCR + Captions"]
-  Frames --> Visual["Visual / Face / Object Signals"]
-  ASR --> Index["Dense + Sparse Indexes"]
-  OCR --> Index
-  Visual --> Index
-  Index --> Rank["Hybrid Scorer"]
-  Rank --> Results["Ranked Results + Review Metrics"]`,
-    images: [
-      MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE,
-      { url: `${LOCAL_IMG_BASE}/cv-ai-systems-map.png`, alt: "Conceptual computer vision systems map for OCR, face analysis, and video neural search" },
-      SELECTED_AI_CV_EXCALIDRAW_IMAGE
-    ],
+  Video["Video"] --> Frames["Keyframes + visual embeddings"]
+  Video --> ASR["Speech transcripts"]
+  Frames --> OCR["On-screen text"]
+  Frames --> VisualIndex["Visual index"]
+  ASR --> TextIndex["Dense + sparse text index"]
+  OCR --> TextIndex
+  Query["Query"] --> Retrieve["Retrieve + fuse matches"]
+  VisualIndex --> Retrieve
+  TextIndex --> Retrieve
+  Retrieve --> Results["Timestamped matches"]`,
+    images: [MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE],
     thumbnail: MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE.url,
     createdAt: "2026-05-14"
   },

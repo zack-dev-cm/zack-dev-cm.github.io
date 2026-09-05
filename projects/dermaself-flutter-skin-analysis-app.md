@@ -3,11 +3,13 @@
 > Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
 
 ## Summary
-I develop Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joins PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guide model release decisions.
+I developed Dermaself's cosmetic skin-analysis computer vision, spanning guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration. The work joined PyTorch and OpenMMLab model development with ONNX and Flutter delivery. I resolved model-asset and runtime differences across cloud and GPU deployments, restoring matching segmentation outputs in regression comparisons. Capture quality, runtime behavior and reproducible evaluation guided candidate release decisions.
 
 ## Project Figures
 
-![Generated public-safe mobile computer-vision card showing Dermaself capture, ROI gates, model runtime, and results flow without patient imagery](https://zack-dev-cm.github.io/docs/images/dermaself-flutter-skin-analysis-card.webp)
+![Workflow diagram of guided capture, facial regions, selected model runtime and structured results, with separate model-release evaluation](https://zack-dev-cm.github.io/docs/images/dermaself-verified-workflow.png)
+
+Workflow diagram. Image analysis and model-release evaluation are separate.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md
@@ -32,10 +34,9 @@ https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md
 ## Architecture Diagram
 ```mermaid
 flowchart LR
-  Onboarding["Onboarding + Questionnaire"] --> Capture["Selfie / Device Capture"]
-  Capture --> ROI["Face ROI + Capture Gates"]
-  ROI --> Runtime["ONNX / Model Runtime"]
-  Runtime --> Texture["Wrinkle, Pore, Acne Signals"]
-  Texture --> QA["QA Review + Promotion Decision"]
-  QA --> Results["Results + Recommendations"]
+  Capture["Guided capture + input checks"] --> ROI["Facial regions + preprocessing"]
+  ROI --> Runtime["Selected mobile candidate or server runtime"]
+  Runtime --> Results["Masks + region measurements"]
+  Runtime -.-> Evaluation["Separate model and runtime evaluation"]
+  Evaluation --> Release["Candidate release decision"]
 ```

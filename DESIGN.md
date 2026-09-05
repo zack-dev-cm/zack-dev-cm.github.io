@@ -47,8 +47,8 @@ components:
     textColor: "#10222A"
   project:
     border: "1px solid {colors.line}"
-    mediaHeightDesktop: "250px"
-    mediaHeightMobile: "245px"
+    mediaAspectRatio: "16 / 9"
+    caption: "11px / 1.5"
   section:
     borderTop: "1px solid {colors.line}"
 ---
@@ -77,8 +77,10 @@ one positioning sentence, visible resume and work actions, and selected work.
 2. A small curated selection of maintained products, ML infrastructure, and
    document/CV systems. Public links sit beside each story.
 3. Current and previous engineering experience, then approach and expertise.
-4. A searchable archive for deeper exploration, with a small default selection.
-5. Contributions, updates, optional release counters, and direct contact.
+4. A clearly labeled, initially collapsed project archive for deeper exploration.
+   Search actions and direct archive anchors open it; every existing route remains usable.
+5. Specific contribution records with visible PR status, updates, optional release
+   counters, and direct contact. Issue participation is a separate disclosure.
 
 Sections use whitespace and horizontal rules. Cards are for repeated projects
 and the project modal. Avoid nested dashboards, decorative grids, glows, generic
@@ -113,6 +115,18 @@ Do not fabricate product dashboards, CLI commands or benchmark plots. Real resea
 retain their axes, full captions, and evaluation limitations. Case studies show
 all selected figures in a responsive, inspectable gallery rather than reusing
 a title card as the only visual.
+
+Selected cards lead with a readable HTML title and context label. A consistent
+framed figure follows as supporting material, with its source type in a readable
+caption below the image rather than a tiny overlay. Keep the six selected stories;
+avoid making dense illustration text carry the card's meaning. Main case-study
+links navigate to a full reading page; archive cards retain the quick-view modal.
+Direct reading pages share the home page's typeface, identity and navigation.
+
+Open-source evidence is a short list of repository, contribution, status and link.
+Merged PRs appear first, followed by open PRs. Bug reports and issue discussions
+remain available in an explicitly labeled disclosure. Do not use organization logos
+as a substitute for describing the contribution.
 
 ## Responsive and accessibility
 

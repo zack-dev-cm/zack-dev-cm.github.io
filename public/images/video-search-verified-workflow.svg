@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title description">
+  <title id="title">Multimodal video search: parallel signals and hybrid ranking</title>
+  <desc id="description">Video produces keyframes, speech transcripts and on-screen text. Visual and text signals feed their indexes. Query input and indexed matches feed hybrid ranking and timestamped results. This is an R&amp;D workflow diagram without invented footage or ranking scores.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 8 5 1 9" fill="none" stroke="#256172" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="#F0F3F5"/>
+  <g font-family="Space Grotesk, Segoe UI, Arial, sans-serif" fill="#11161C">
+    <text x="48" y="73" font-size="44" font-weight="600">Multimodal video search</text>
+    <text x="48" y="116" font-size="26" fill="#465663">Parallel signals, complementary indexes, timestamped matches</text>
+    <path d="M48 142H1232" stroke="#BAC7CF" stroke-width="1.5"/>
+    <g fill="#FFFFFF" stroke="#BAC7CF" stroke-width="1.5">
+      <rect x="48" y="308" width="194" height="154" rx="8"/>
+      <rect x="314" y="192" width="258" height="116" rx="8"/>
+      <rect x="314" y="344" width="258" height="116" rx="8"/>
+      <rect x="314" y="496" width="258" height="116" rx="8"/>
+      <rect x="644" y="222" width="252" height="134" rx="8"/>
+      <rect x="644" y="450" width="252" height="134" rx="8"/>
+    </g>
+    <g fill="#E6F1F4" stroke="#A5C9D2" stroke-width="1.5">
+      <rect x="968" y="192" width="264" height="98" rx="8"/>
+      <rect x="968" y="344" width="264" height="134" rx="8"/>
+      <rect x="968" y="532" width="264" height="80" rx="8"/>
+    </g>
+    <g font-size="30" font-weight="600">
+      <text x="72" y="359">Video</text>
+      <text x="338" y="236">Keyframes</text>
+      <text x="338" y="388">Speech</text>
+      <text x="338" y="540">On-screen text</text>
+      <text x="668" y="269">Visual index</text>
+      <text x="668" y="497">Text index</text>
+      <text x="992" y="250">Query</text>
+      <text x="992" y="389">Hybrid ranking</text>
+    </g>
+    <g font-size="24" fill="#465663">
+      <text x="72" y="406">Normalize<tspan x="72" dy="29">and decode</tspan></text>
+      <text x="338" y="279">Visual embeddings</text>
+      <text x="338" y="431">ASR transcripts</text>
+      <text x="338" y="583">OCR observations</text>
+      <text x="668" y="315">Dense vectors</text>
+      <text x="668" y="543">Dense + sparse</text>
+      <text x="992" y="437">Retrieve + fuse hits</text>
+    </g>
+    <text x="992" y="566" font-size="25" font-weight="600">Timestamped<tspan x="992" dy="30">matches</tspan></text>
+    <g fill="none" stroke="#256172" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow)">
+      <path d="M248 385H278V250H304"/>
+      <path d="M278 385V402H304"/>
+      <path d="M278 402V554H304"/>
+      <path d="M578 250H610V289H634"/>
+      <path d="M578 402H610V517H634"/>
+      <path d="M578 554H610V517"/>
+      <path d="M902 289H932V411H958"/>
+      <path d="M902 517H932V411"/>
+      <path d="M1100 296V334"/>
+      <path d="M1100 484V522"/>
+    </g>
+    <g fill="#256172"><circle cx="278" cy="385" r="4"/><circle cx="610" cy="517" r="4"/><circle cx="932" cy="411" r="4"/></g>
+    <path d="M48 651H1232" stroke="#BAC7CF" stroke-width="1.5"/>
+    <text x="48" y="688" font-size="23" fill="#465663">Workflow diagram · Parallel extraction and hybrid retrieval</text>
+  </g>
+</svg>

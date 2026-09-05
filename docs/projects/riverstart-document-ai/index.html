@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Riverstart Document AI | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results. Zakhar Pashkin case study." />
+    <meta name="description" content="R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material. Zakhar Pashkin case study." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/riverstart-document-ai/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/riverstart-document-ai.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Riverstart Document AI" />
-    <meta property="og:description" content="On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results." />
+    <meta property="og:description" content="R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/riverstart-document-ai/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Riverstart Document AI" />
-    <meta name="twitter:description" content="On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/document-ai-workflow-v3.webp" />
-    <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:alt" content="Conceptual illustration of source documents, retrieval connections and a source-linked review answer" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/document-ai-workflow-v3.webp" />
-    <meta name="twitter:image:alt" content="Conceptual illustration of source documents, retrieval connections and a source-linked review answer" />
+    <meta name="twitter:description" content="R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/document-ai-verified-workflow.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/document-ai-verified-workflow.png" />
+    <meta name="twitter:image:alt" content="Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -27,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/#case-study",
       "headline": "Riverstart Document AI",
       "name": "Riverstart Document AI",
-      "description": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
+      "description": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
       "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
       "author": {
@@ -42,7 +42,7 @@
       },
       "genre": "research",
       "keywords": "ai-systems, document-ai, rag, research, Python, LangGraph, LangChain, Pydantic, Qdrant, Neo4j, Local LLMs, FastAPI",
-      "image": "https://zack-dev-cm.github.io/docs/images/document-ai-workflow-v3.webp",
+      "image": "https://zack-dev-cm.github.io/docs/images/document-ai-verified-workflow.png",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -97,50 +97,33 @@
       "workExample": []
 }
     </script>
-    <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
-      body { margin: 0; }
-      * { box-sizing: border-box; }
-      p { line-height: 1.7; }
-      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
-      .figure-link { display: block; text-decoration: none; }
-      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
-      .figure-gallery { display: grid; gap: 28px; }
-      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
-      a { color: #1b5f8f; }
-      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
-      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
-      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
-      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
-      figure { margin: 0; }
-      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
-      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
-      h2 { margin: 0 0 14px; font-size: 1.35rem; }
-      ul { margin: 0; padding-left: 1.2rem; }
-      li { margin: 0.45rem 0; line-height: 1.55; }
-      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
-      .footer { color: #52616f; font-size: 0.94rem; }
-      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
   </head>
   <body>
-    <main>
-      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="https://zack-dev-cm.github.io/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="https://zack-dev-cm.github.io/#featured">Work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Resume</a><a href="mailto:kaisenaiko@gmail.com">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="https://zack-dev-cm.github.io/#featured">← Selected work</a>
       <article>
         <header class="hero">
-          <p class="eyebrow">research</p>
+          <p class="eyebrow">Research &amp; development</p>
           <h1>Riverstart Document AI</h1>
-          <p class="lede">On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.</p>
-          <figure><a class="figure-link" href="/docs/images/document-ai-workflow-v3.webp" aria-label="Open full-size figure 1: Conceptual illustration of source documents, retrieval connections and a source-linked review answer"><img class="visual" src="/docs/images/document-ai-workflow-v3.webp" alt="Conceptual illustration of source documents, retrieval connections and a source-linked review answer" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Conceptual illustration: documents, retrieved evidence and specialist review. No client records shown.</figcaption></figure>
+          <p class="lede">R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.</p>
+          <figure><a class="figure-link" href="/docs/images/document-ai-verified-workflow.png" aria-label="Open full-size figure 1: Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers"><img class="visual" src="/docs/images/document-ai-verified-workflow.png" alt="Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow diagram. Case checking and reference retrieval are distinct R&amp;D paths.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>As Senior ML Engineer in Riverstart&#39;s R&amp;D ML team, I develop a document assistant for specialist review workflows. The R&amp;D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&amp;D system with staged validation.</p>
         </section>
-        <section><h2>Engineering decisions</h2><p>Document extraction produces structured facts that can be checked independently of a generated explanation. Retrieval supplies relevant passages; deterministic reconciliation handles comparisons that should be repeatable. An expert can follow the answer back to its supporting document.</p></section>
+        <section><h2>Engineering decisions</h2><p>Document extraction produces structured facts and source references for deterministic reconciliation and a specialist review packet. A separate retrieval path supplies reference passages for grounded answers. These paths have different contracts and evaluations; the diagram keeps them separate.</p></section>
 <section><h2>Evaluation and current stage</h2><p>The work is in staged R&amp;D validation. My scope includes extraction contracts, retrieval experiments and versioned evaluations, with observability and rollback around deployment candidates. Source traceability and specialist review are part of acceptance.</p></section>
 
         <section>
@@ -173,7 +156,7 @@
             <li><a href="https://zack-dev-cm.github.io/projects/riverstart-document-ai.md">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/#featured">More selected work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a><a href="mailto:kaisenaiko@gmail.com">Contact Zakhar ↗</a></p>
       </article>
     </main>
   </body>

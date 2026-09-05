@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Engineering Drawing &amp; CAD Analysis | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts. Zakhar Pashkin case study." />
+    <meta name="description" content="Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis. Zakhar Pashkin case study." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Engineering Drawing &amp; CAD Analysis" />
-    <meta property="og:description" content="Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts." />
+    <meta property="og:description" content="Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Engineering Drawing &amp; CAD Analysis" />
-    <meta name="twitter:description" content="Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp" />
+    <meta name="twitter:description" content="Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/point-cloud-room-workflow-v1.webp" />
     <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:alt" content="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp" />
-    <meta name="twitter:image:alt" content="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" />
+    <meta property="og:image:alt" content="The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/point-cloud-room-workflow-v1.webp" />
+    <meta name="twitter:image:alt" content="The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -27,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/#case-study",
       "headline": "Engineering Drawing & CAD Analysis",
       "name": "Engineering Drawing & CAD Analysis",
-      "description": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
+      "description": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
       "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "author": {
@@ -41,8 +41,8 @@
             "url": "https://zack-dev-cm.github.io"
       },
       "genre": "research",
-      "keywords": "computer-vision, ai-systems, engineering, research, Python, Open Cascade, CadQuery, build123d, NumPy, SciPy, Geometry Processing",
-      "image": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp",
+      "keywords": "computer-vision, ai-systems, engineering, research, Python, Open Cascade, CadQuery, build123d, NumPy, SciPy, IfcOpenShell, ezdxf, Geometry Processing",
+      "image": "https://zack-dev-cm.github.io/docs/images/point-cloud-room-workflow-v1.webp",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -87,72 +87,74 @@
             },
             {
                   "@type": "Thing",
+                  "name": "IfcOpenShell"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "ezdxf"
+            },
+            {
+                  "@type": "Thing",
                   "name": "Geometry Processing"
             }
       ],
       "workExample": [
             {
                   "@type": "CreativeWork",
-                  "name": "Inspect projection SVG",
-                  "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+                  "name": "Inspect the generated room floor plan (SVG)",
+                  "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Inspect the inferred room geometry (JSON)",
+                  "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Download the synthetic point-cloud input (XYZ)",
+                  "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
             }
       ]
 }
     </script>
-    <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
-      body { margin: 0; }
-      * { box-sizing: border-box; }
-      p { line-height: 1.7; }
-      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
-      .figure-link { display: block; text-decoration: none; }
-      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
-      .figure-gallery { display: grid; gap: 28px; }
-      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
-      a { color: #1b5f8f; }
-      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
-      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
-      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
-      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
-      figure { margin: 0; }
-      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
-      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
-      h2 { margin: 0 0 14px; font-size: 1.35rem; }
-      ul { margin: 0; padding-left: 1.2rem; }
-      li { margin: 0.45rem 0; line-height: 1.55; }
-      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
-      .footer { color: #52616f; font-size: 0.94rem; }
-      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
   </head>
   <body>
-    <main>
-      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="https://zack-dev-cm.github.io/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="https://zack-dev-cm.github.io/#featured">Work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Resume</a><a href="mailto:kaisenaiko@gmail.com">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="https://zack-dev-cm.github.io/#featured">← Selected work</a>
       <article>
         <header class="hero">
-          <p class="eyebrow">research</p>
+          <p class="eyebrow">Research &amp; development</p>
           <h1>Engineering Drawing &amp; CAD Analysis</h1>
-          <p class="lede">Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.</p>
-          <figure><a class="figure-link" href="/docs/images/cad-analytic-fixture-source.webp" aria-label="Open full-size figure 1: Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes"><img class="visual" src="/docs/images/cad-analytic-fixture-source.webp" alt="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Analytic CAD test fixture: a through-bore block used to evaluate projection and hidden-line handling. Rendered from the source STEP.</figcaption></figure>
+          <p class="lede">Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.</p>
+          <figure><a class="figure-link" href="/docs/images/point-cloud-room-workflow-v1.webp" aria-label="Open full-size figure 1: The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan"><img class="visual" src="/docs/images/point-cloud-room-workflow-v1.webp" alt="The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Building prototype: saved point-cloud input, a 3D rendering of the inferred semantic room model, and its actual SVG floor plan. This is one synthetic room test; the 3D view renders semantic JSON, not the experimental IFC export.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>I develop engineering-analysis research at Riverstart, connecting scans, CAD geometry and engineering drawings through reproducible evaluation. My work covers reference registration, CAD-to-2D projection, geometry checks and review artifacts. Each stage has its own acceptance criteria so engineers can inspect the geometry and decide what is ready for further development.</p>
+          <p>My engineering-geometry work at Riverstart covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.</p>
         </section>
-        <section><h2>Engineering decisions</h2><p>I separate scan registration, CAD projection and drawing comparison into measurable stages. The projection research compares direct Open Cascade routes with CadQuery and build123d, checks visible and hidden geometry separately, and preserves intermediate artifacts for review. Analytic fixtures provide expected geometry that is defined independently of the candidate projection backend.</p></section>
-<section><h2>Evaluation and current stage</h2><p>The demonstrated milestone is a research baseline for registration and projection evaluation. Checks cover coordinate consistency, surface alignment, projected geometry and selected drawing views. Scan-to-parametric reconstruction requires separate evidence and acceptance; the supplied reference CAD in a registration test is not a reconstructed output.</p></section>
-<section><h2>What the images show</h2><p>The first image renders an existing analytic STEP fixture built for the evaluation workflow. The second shows the actual generated XY and XZ projections of that same solid, including hidden edges. These are reproducible test artifacts using synthetic geometry; they do not contain a customer part, a generated product interface or a claim of manufacturing accuracy.</p></section>
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/cad-analytic-fixture-projections.webp" aria-label="Open full-size figure 2: XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges"><img class="visual" src="/docs/images/cad-analytic-fixture-projections.webp" alt="XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Generated XY and XZ projections of the same test fixture, separating visible and hidden edges. Actual HLR output.</figcaption></figure></div></section>
+        <section><h2>Building point cloud -&gt; room model -&gt; floor plan</h2><p>The building prototype reads XYZ or NumPy point clouds with declared units, estimates rectangular room bounds and detects door/window openings from gaps in the wall points. These are geometric methods; wall thickness is a declared input. A semantic model records the room, walls and openings, supplying both the 3D visualization and 2D floor-plan exports. The figures use a saved synthetic fixture, with its original point cloud, geometry JSON and SVG plan available below.</p></section>
+<section><h2>Mechanical scans, reference CAD and engineering views</h2><p>The mechanical track evaluates scan-to-reference registration separately from STEP-to-drawing projection. It compares Open Cascade, CadQuery and build123d routes, checks visible and hidden edges, and compares generated views with supplied drawings. The through-bore example below isolates the projection stage with known analytic geometry. A reference STEP used for registration is an input, not a model reconstructed from the scan.</p></section>
+<section><h2>Current stage</h2><p>The room workflow has passed a synthetic software-path test; real-building reconstruction still needs reference data and engineering acceptance. It currently assumes a single axis-aligned room. IFC export is experimental, with cross-format opening placement under review. Mechanical results establish registration and projection baselines; arbitrary scan-to-parametric CAD and manufacturing-ready drawing generation remain separate research goals.</p></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/point-cloud-room-model-v1.webp" aria-label="Open full-size figure 2: Detailed comparison of the synthetic room point cloud and inferred walls with a door and window at matching positions"><img class="visual" src="/docs/images/point-cloud-room-model-v1.webp" alt="Detailed comparison of the synthetic room point cloud and inferred walls with a door and window at matching positions" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Building prototype, enlarged: the input points and inferred room geometry share the same coordinates and viewpoint. Transparency reveals the interior and openings.</figcaption></figure><figure><a class="figure-link" href="/docs/images/cad-analytic-fixture-source.webp" aria-label="Open full-size figure 3: Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes"><img class="visual" src="/docs/images/cad-analytic-fixture-source.webp" alt="Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Separate mechanical CAD track: a synthetic through-bore STEP fixture for projection and hidden-line tests. This solid is a supplied test input.</figcaption></figure><figure><a class="figure-link" href="/docs/images/cad-analytic-fixture-projections.webp" aria-label="Open full-size figure 4: XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges"><img class="visual" src="/docs/images/cad-analytic-fixture-projections.webp" alt="XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Mechanical CAD output: generated XY and XZ views of the same through-bore fixture, with visible edges in solid lines and hidden edges dashed.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Evaluate scan registration against supplied CAD references</li>
-        <li>Compare CAD-to-2D projection and hidden-line handling across geometry backends</li>
-        <li>Check outputs against independently defined analytic fixtures</li>
-        <li>Preserve geometry, evaluation results and review artifacts for repeatable inspection</li>
+        <li>Infer axis-aligned room boundaries, walls and rectangular openings from XYZ point clouds</li>
+        <li>Represent inferred geometry as a semantic room model and export 2D DXF/SVG floor plans</li>
+        <li>Evaluate mechanical scan registration against supplied CAD references</li>
+        <li>Generate visible and hidden 2D edges from STEP models using Open Cascade</li>
+        <li>Preserve source geometry and outputs for comparison and engineering review</li>
           </ul>
         </section>
         <section>
@@ -164,6 +166,8 @@
         <li>build123d</li>
         <li>NumPy</li>
         <li>SciPy</li>
+        <li>IfcOpenShell</li>
+        <li>ezdxf</li>
         <li>Geometry Processing</li>
           </ul>
         </section>
@@ -171,11 +175,14 @@
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg">Inspect projection SVG</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg">Inspect the generated room floor plan (SVG)</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json">Inspect the inferred room geometry (JSON)</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz">Download the synthetic point-cloud input (XYZ)</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg">Inspect the mechanical fixture projections (SVG)</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/#featured">More selected work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a><a href="mailto:kaisenaiko@gmail.com">Contact Zakhar ↗</a></p>
       </article>
     </main>
   </body>

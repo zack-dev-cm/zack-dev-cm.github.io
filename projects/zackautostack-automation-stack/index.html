@@ -65,41 +65,24 @@
       "workExample": []
 }
     </script>
-    <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
-      body { margin: 0; }
-      * { box-sizing: border-box; }
-      p { line-height: 1.7; }
-      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
-      .figure-link { display: block; text-decoration: none; }
-      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
-      .figure-gallery { display: grid; gap: 28px; }
-      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
-      a { color: #1b5f8f; }
-      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
-      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
-      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
-      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
-      figure { margin: 0; }
-      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
-      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
-      h2 { margin: 0 0 14px; font-size: 1.35rem; }
-      ul { margin: 0; padding-left: 1.2rem; }
-      li { margin: 0.45rem 0; line-height: 1.55; }
-      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
-      .footer { color: #52616f; font-size: 0.94rem; }
-      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
   </head>
   <body>
-    <main>
-      <a class="back" href="https://zack-dev-cm.github.io/">Back to portfolio</a>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="https://zack-dev-cm.github.io/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="https://zack-dev-cm.github.io/#featured">Work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Resume</a><a href="mailto:kaisenaiko@gmail.com">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="https://zack-dev-cm.github.io/#featured">← Selected work</a>
       <article>
         <header class="hero">
-          <p class="eyebrow">Portfolio case study</p>
+          <p class="eyebrow">Portfolio project</p>
           <h1>ZackAutoStack Automation Stack</h1>
           <p class="lede">Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.</p>
           <figure><a class="figure-link" href="/docs/images/zackautostack.png" aria-label="Open full-size figure 1: ZackAutoStack automation stack"><img class="visual" src="/docs/images/zackautostack.png" alt="ZackAutoStack automation stack" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
@@ -136,7 +119,7 @@
             <li><a href="https://zack-dev-cm.github.io/projects/zackautostack-automation-stack.md">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer"><a href="https://zack-dev-cm.github.io/">More selected work</a> · <a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a></p>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/#featured">More selected work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a><a href="mailto:kaisenaiko@gmail.com">Contact Zakhar ↗</a></p>
       </article>
     </main>
   </body>

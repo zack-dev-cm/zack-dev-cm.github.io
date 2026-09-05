@@ -12,11 +12,11 @@ Contact: mailto:kaisenaiko@gmail.com
 - **Inference and delivery:** Profiling, model packaging, evaluation and deployment across cloud and mobile. Examples: [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/), [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/).
 
 ## Selected projects
-- [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/): On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.
+- [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
 - [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/): A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
 - [Calorio - AI Nutrition Service](https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/): A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.
-- [Engineering Drawing & CAD Analysis](https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/): Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.
+- [Engineering Drawing & CAD Analysis](https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/): Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.
 - [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Further reading

@@ -1,14 +1,16 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createCanvas } from '@napi-rs/canvas';
 import ts from 'typescript';
+import { assertUniqueProjectRoutes, getProjectCanonicalSlug, getProjectRouteSlugs, mergeProjects, selectReviewedFeedProjects } from '../utils/project-catalog.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
+const PORTFOLIO_UPDATES_PATH = path.resolve(ROOT_DIR, 'public', 'portfolio-updates.json');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
 const PROJECT_SOCIAL_IMAGE_DIR = path.resolve(ROOT_DIR, 'public', 'images', 'project-social');
 const LLMS_PATH = path.resolve(ROOT_DIR, 'llms.txt');
@@ -227,12 +229,6 @@ const escapeHtml = (value) => {
 
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const slugify = (value) => {
-  const ascii = toAscii(value).toLowerCase();
-  const slug = ascii.replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  return slug || 'project';
-};
-
 function projectHtmlUrlFromSlug(slug) { return `${SITE_BASE}/projects/${slug}/`; }
 const projectMarkdownUrlFromSlug = (slug) => `${SITE_BASE}/projects/${slug}.md`;
 const projectSearchUrl = (project) => project.htmlUrl || project.markdownUrl;
@@ -444,6 +440,9 @@ const extractProjects = (sourceFile, imageConstants) => {
         projectKind,
         surfaceTags,
         createdAt,
+        repoFullName: parseString(getPropertyValue(element, 'repoFullName')) || undefined,
+        repoId: parseJsonLiteral(getPropertyValue(element, 'repoId')) ?? undefined,
+        hideImages: parseJsonLiteral(getPropertyValue(element, 'hideImages')) === true,
         keyFeatures,
         techStack,
         links,
@@ -952,41 +951,24 @@ ${socialImageMeta}
     <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 6)}
     </script>
-    <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17202a; background: #f7f8fa; }
-      body { margin: 0; }
-      * { box-sizing: border-box; }
-      p { line-height: 1.7; }
-      a:focus-visible { outline: 3px solid #1b5f8f; outline-offset: 5px; }
-      .figure-link { display: block; text-decoration: none; }
-      .image-action { display: inline-block; margin-top: 8px; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; }
-      .figure-gallery { display: grid; gap: 28px; }
-      main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
-      a { color: #1b5f8f; }
-      .back { display: inline-flex; margin-bottom: 28px; font-size: 0.95rem; }
-      .hero { display: grid; gap: 18px; padding: 34px 0 28px; border-bottom: 1px solid #d9dee5; }
-      .eyebrow { margin: 0; color: #52616f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-      h1 { margin: 0; font-size: clamp(2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0; }
-      .lede { max-width: 760px; margin: 0; font-size: 1.12rem; line-height: 1.65; color: #344250; }
-      .visual { display: block; width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 1px solid #d9dee5; border-radius: 8px; }
-      figure { margin: 0; }
-      figcaption { margin-top: 8px; color: #52616f; font-size: 0.85rem; line-height: 1.5; }
-      section { padding: 28px 0; border-bottom: 1px solid #d9dee5; }
-      h2 { margin: 0 0 14px; font-size: 1.35rem; }
-      ul { margin: 0; padding-left: 1.2rem; }
-      li { margin: 0.45rem 0; line-height: 1.55; }
-      .stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
-      .stack li { margin: 0; padding: 6px 10px; border: 1px solid #cdd5df; border-radius: 999px; background: #fff; }
-      .footer { color: #52616f; font-size: 0.94rem; }
-      @media (max-width: 640px) { main { padding: 24px 16px 44px; } h1 { font-size: 2rem; } .hero { padding-top: 18px; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
   </head>
   <body>
-    <main>
-      <a class="back" href="${SITE_BASE}/">Back to portfolio</a>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="${SITE_BASE}/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="${SITE_BASE}/#featured">Work</a><a href="${RESUME_URL}">Resume</a><a href="mailto:${CONTACT_EMAIL}">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="${SITE_BASE}/#featured">← Selected work</a>
       <article>
         <header class="hero">
-          <p class="eyebrow">${escapeHtml(project.projectKind || 'Portfolio case study')}</p>
+          <p class="eyebrow">${escapeHtml(({ research: 'Research & development', 'user-product': project.id === 11 ? 'Maintained service' : 'Product', 'open-source': 'Open source', 'case-study': 'Case study' })[project.projectKind] || 'Portfolio project')}</p>
           <h1>${escapeHtml(title)}</h1>
           <p class="lede">${escapeHtml(description)}</p>
           ${visualImage ? renderFigure({ url: visualImage, alt: imageAlt, caption: visualCaption }, 0) : ''}
@@ -1022,7 +1004,7 @@ ${linkList}
             <li><a href="${markdownUrl}">Plain-text case study</a></li>
           </ul>
         </section>
-        <p class="footer"><a href="${SITE_BASE}/">More selected work</a> · <a href="${RESUME_URL}">Download resume</a></p>
+        <p class="footer"><a href="${SITE_BASE}/#featured">More selected work</a><a href="${RESUME_URL}">Download resume</a><a href="mailto:${CONTACT_EMAIL}">Contact Zakhar ↗</a></p>
       </article>
     </main>
   </body>
@@ -1614,11 +1596,29 @@ const buildSitemap = (projects) => {
   return lines.join('\n');
 };
 
+// Also used by focused, read-only catalogue checks; importing this file never builds.
+export const readProjectCatalogue = async (sourceFile) => {
+  if (!sourceFile) {
+    const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
+    sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
+  }
+  const imageConstants = extractImageConstants(sourceFile);
+  const curatedProjects = extractProjects(sourceFile, imageConstants);
+  const feed = JSON.parse(await fs.readFile(PORTFOLIO_UPDATES_PATH, 'utf8'));
+  const excludedRepos = extractJsonVariable(sourceFile, 'PORTFOLIO_UPDATE_REPO_EXCLUSIONS', []);
+  const projects = mergeProjects(curatedProjects, selectReviewedFeedProjects(feed, excludedRepos)).map((project) => ({
+    ...project,
+    images: (project.images || []).map((image) => ({ ...image, url: toPublicAssetUrl(image.url) })),
+    thumbnail: toPublicAssetUrl(project.thumbnail),
+  }));
+  assertUniqueProjectRoutes(projects);
+  return projects;
+};
+
 const main = async () => {
   const sourceText = await fs.readFile(CONSTANTS_PATH, 'utf8');
   const sourceFile = ts.createSourceFile(CONSTANTS_PATH, sourceText, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
-  const imageConstants = extractImageConstants(sourceFile);
-  const projects = extractProjects(sourceFile, imageConstants);
+  const projects = await readProjectCatalogue(sourceFile);
   tractionSnapshot = extractClawHubSnapshot(sourceFile);
   paperReviewSnapshot = await readPaperReviewSnapshot();
   const chromeExtensionStats = extractChromeExtensionStatsSnapshot(sourceFile);
@@ -1628,15 +1628,11 @@ const main = async () => {
   await fs.mkdir(PROJECT_SOCIAL_IMAGE_DIR, { recursive: true });
   await fs.writeFile(CHROME_EXTENSION_STATS_PATH, `${JSON.stringify(chromeExtensionStats, null, 2)}\n`, 'utf8');
 
-  const slugCounts = new Map();
   const projectEntries = [];
   const expectedProjectSocialImageFiles = new Set();
 
   for (const project of projects) {
-    const baseSlug = slugify(project.title || 'project');
-    const count = (slugCounts.get(baseSlug) || 0) + 1;
-    slugCounts.set(baseSlug, count);
-    const slug = count > 1 && project.id ? `${baseSlug}-${project.id}` : baseSlug;
+    const slug = getProjectCanonicalSlug(project);
     const fileName = `${slug}.md`;
     const markdownUrl = projectMarkdownUrlFromSlug(slug);
     const htmlUrl = projectHtmlUrlFromSlug(slug);
@@ -1661,7 +1657,7 @@ const main = async () => {
     const htmlOutputDir = path.resolve(OUTPUT_DIR, slug);
     await fs.mkdir(htmlOutputDir, { recursive: true });
     await fs.writeFile(path.resolve(htmlOutputDir, 'index.html'), buildProjectHtml(projectEntry).replace(/[ \t]+$/gm, ''), 'utf8');
-    for (const legacySlug of project.legacySlugs || []) {
+    for (const legacySlug of getProjectRouteSlugs(project).filter((route) => route !== slug)) {
       const aliasOutputPath = path.resolve(OUTPUT_DIR, `${legacySlug}.md`);
       const aliasMarkdown = buildAliasMarkdown(projectEntry, markdownUrl);
       await fs.writeFile(aliasOutputPath, aliasMarkdown, 'utf8');
@@ -1719,7 +1715,9 @@ const main = async () => {
   await updateMetadataJson(projectEntries.length);
 };
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

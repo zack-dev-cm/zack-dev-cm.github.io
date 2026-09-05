@@ -16,6 +16,7 @@ import {
   CHROME_EXTENSION_STATS
 } from './constants';
 import { DEFAULT_PROJECT_IMAGE, resolveAssetUrl } from './utils/assets';
+import { slugify, getProjectCanonicalSlug, getProjectRouteSlugs, selectReviewedFeedProjects, mergeProjects } from './utils/project-catalog.mjs';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
 const FEATURED_PROJECT_IDS = [101, 63, 81, 11, 102, 72] as const;
@@ -28,7 +29,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   101: {
     label: 'Current R&D · Riverstart',
     title: 'Document AI for expert workflows',
-    summary: 'On-premises document AI with hybrid retrieval and source-linked answers, built around the way experts review information.',
+    summary: 'R&D for source-linked specialist review: document extraction, deterministic checks and retrieval experiments.',
   },
   63: {
     label: 'Mobile computer vision',
@@ -37,8 +38,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   },
   81: {
     label: 'Python package · PyPI',
-    title: 'Agnitra · Inference optimization',
-    summary: 'A released Python package for profiling LLM inference and applying optimization strategies through a model-level API.',
+    title: 'Agnitra · Model profiling & optimization',
+    summary: 'A Python SDK and CLI for model profiling, with a separate decoder-LLM optimization path. Inspect a recorded run from the PyPI release.',
   },
   11: {
     label: 'Maintained AI service',
@@ -47,8 +48,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   },
   102: {
     label: 'Engineering R&D',
-    title: 'Drawing & CAD analysis',
-    summary: 'Scan alignment, reference-CAD comparison, and CAD-to-2D projection, evaluated with geometric checks and analytic test fixtures.',
+    title: 'Point clouds, CAD & 2D drawings',
+    summary: 'Point-cloud room reconstruction and floor-plan export, plus separate research in mechanical scan alignment and CAD projection. Inspect the geometry and outputs.',
   },
   72: {
     label: 'Retrieval R&D',
@@ -59,15 +60,33 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
 };
 
 const CAREER = [
-  { company: 'Riverstart', role: 'Senior ML Engineer · R&D ML', period: 'Jul 2026 — Present', description: 'Document AI, hybrid retrieval, and source-linked expert workflows in on-premises environments.', current: true },
-  { company: 'Independent ML & CV Engineering', role: 'Client projects · Dermaself & Calorio', period: 'Jun 2024 — Present', description: 'Developed skin-analysis pipelines for Dermaself and built Calorio’s AI meal-logging service. Ongoing work focuses on Calorio maintenance.' },
-  { company: 'Wombat Apps / Carb Manager', role: 'Senior Computer Vision Engineer', period: 'Jun 2022 — Jun 2024', description: 'Computer vision engineering for nutrition and food-recognition product workflows.' },
-  { company: 'Center of Financial Technologies', role: 'Computer Vision Engineer', period: 'Jun 2019 — Jun 2022', description: 'Computer vision and document recognition systems, from model development to engineering integration.' },
+  { company: 'Riverstart', role: 'Senior ML Engineer · R&D ML', period: 'Jul 2026 — Present', description: 'Document AI with source-linked specialist review, plus evaluation workflows for CAD and construction-document analysis.', current: true },
+  { company: 'Dermaself · Agnitra · Video Search', role: 'ML / Computer Vision Engineer', period: 'Jun 2024 — Jun 2026', description: 'Developed skin segmentation and mobile/API integration, built a published model-profiling SDK, and delivered multimodal video retrieval with Qdrant.' },
+  { company: 'Wombat Apps / Carb Manager', role: 'Senior Computer Vision Engineer', period: 'Jun 2022 — Jun 2024', description: 'Shipped food recognition and nutrition-label workflows across cloud, iOS and Android, combining detection, OCR and table parsing into structured nutrition data.' },
+  { company: 'Center of Financial Technologies', role: 'Computer Vision Engineer', period: 'Jun 2019 — Jun 2022', description: 'Built financial-document recognition models and assisted-annotation workflows, optimized mobile meter recognition, and mentored engineers on data quality and evaluation.' },
 ];
 
 const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
 const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 9;
+const CODE_CONTRIBUTIONS = OPEN_SOURCE_CONTRIBUTIONS
+  .filter((item) => item.evidenceLabel === 'Merged PR' || item.evidenceLabel === 'Open PR')
+  .sort((a, b) => Number(b.evidenceLabel === 'Merged PR') - Number(a.evidenceLabel === 'Merged PR'));
+const ISSUE_PARTICIPATION = OPEN_SOURCE_CONTRIBUTIONS
+  .filter((item) => item.evidenceLabel !== 'Merged PR' && item.evidenceLabel !== 'Open PR');
+
+const renderContribution = (item: (typeof OPEN_SOURCE_CONTRIBUTIONS)[number]) => (
+  <li key={item.sourceUrl}>
+    <a className="contribution-card" href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
+      <div className="contribution-card__heading">
+        <span className="contribution-card__repo">{item.repo}</span>
+        <span className={`contribution-card__status${item.evidenceLabel === 'Merged PR' ? ' is-merged' : ''}`}>{item.evidenceLabel}</span>
+      </div>
+      <p className="contribution-card__description">{item.contribution}</p>
+      <span className="contribution-card__action">View {item.evidenceLabel.toLowerCase().replace(/\bpr\b/g, 'PR')} <span aria-hidden="true">↗</span></span>
+    </a>
+  </li>
+);
 
 const parseGithubRepo = (url?: string) => {
   if (!url) return null;
@@ -179,41 +198,12 @@ const renderChromeExtensionStatCard = (extension: ChromeExtensionStat) => {
   );
 };
 
-const slugify = (value: string) => {
-  const slug = value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-  return slug || 'item';
-};
-
 const getLatestKey = (update: LatestUpdate) => {
   return update.repoFullName || (update.repoId ? `${update.repoId}` : '') || getRepoKeyFromLinks(update.links) || update.title;
 };
 
-const getProjectKey = (project: Project) => {
-  return project.repoFullName || (project.repoId ? `${project.repoId}` : '') || getRepoKeyFromLinks(project.links) || project.title;
-};
-
 const getLatestSlug = (update: LatestUpdate) => {
   return slugify(getLatestKey(update) || update.title || 'latest');
-};
-
-const getProjectSlug = (project: Project) => {
-  return slugify(getProjectKey(project) || `${project.id}`);
-};
-
-const getProjectCanonicalSlug = (project: Project) => {
-  return slugify(project.title || `${project.id}`);
-};
-
-const getProjectRouteSlugs = (project: Project) => {
-  return dedupeStrings([
-    getProjectCanonicalSlug(project),
-    getProjectSlug(project),
-    ...(project.legacySlugs ?? []),
-  ]).map((slug) => slug.toLowerCase());
 };
 
 const buildProjectPublicUrl = (slug: string) => {
@@ -650,34 +640,11 @@ const isAiSystemDomainProject = (project: Project) => {
   return getProjectSignals(project).isAiSystem || isPrioritizedProject(AI_SYSTEM_PRIORITY_IDS, project);
 };
 
-const isHighSignalSyncedProject = (project: Project) => {
-  const summary = (project.longDescription || project.description || '').trim();
-  const links = project.links ?? [];
-  if (!summary || /new project added from github/i.test(summary)) return false;
-  if ((project.keyFeatures?.length ?? 0) < 2) return false;
-  if ((project.techStack?.length ?? 0) < 2) return false;
-  if (!links.length && !(project.benchmarks && project.benchmarks.length > 0)) return false;
-  return true;
-};
-
 const isHighSignalLatestUpdate = (update: LatestUpdate) => {
   const description = update.description?.trim() || '';
   if (!update.links.length) return false;
   if (/new project added from github/i.test(description)) return false;
   return true;
-};
-
-const mergeProjectEntries = (primary: Project, fallback: Project): Project => {
-  // Curated content is authoritative, including deliberately absent metrics/media.
-  return normalizeProject({
-    ...primary,
-    legacySlugs: dedupeStrings([...(fallback.legacySlugs ?? []), ...(primary.legacySlugs ?? []), getProjectSlug(fallback)])
-      .filter((slug) => slug !== getProjectCanonicalSlug(primary)),
-    aliases: dedupeStrings([...(fallback.aliases ?? []), ...(primary.aliases ?? [])]),
-    repoFullName: primary.repoFullName || fallback.repoFullName,
-    repoId: primary.repoId ?? fallback.repoId,
-    createdAt: primary.createdAt || fallback.createdAt,
-  });
 };
 
 const mergeLatestEntries = (primary: LatestUpdate, fallback: LatestUpdate): LatestUpdate => {
@@ -691,22 +658,6 @@ const mergeLatestEntries = (primary: LatestUpdate, fallback: LatestUpdate): Late
     repoId: primary.repoId ?? fallback.repoId,
     createdAt: primary.createdAt || fallback.createdAt,
   };
-};
-
-const mergeProjects = (curatedProjects: Project[], syncedProjects: Project[]) => {
-  const identityKeys = (project: Project) => [
-    `id:${project.id}`,
-    ...dedupeStrings([getProjectSlug(project), getProjectCanonicalSlug(project), ...(project.legacySlugs ?? [])])
-      .map((slug) => `slug:${slug}`),
-  ];
-  const usedSynced = new Set<Project>();
-  const mergedCurated = curatedProjects.map((project) => {
-    const keys = new Set(identityKeys(project));
-    const matches = syncedProjects.filter((synced) => identityKeys(synced).some((key) => keys.has(key)));
-    matches.forEach((synced) => usedSynced.add(synced));
-    return matches.length ? mergeProjectEntries(project, matches[0]) : project;
-  });
-  return sortByCreatedAtDesc([...mergedCurated, ...syncedProjects.filter((project) => !usedSynced.has(project))]);
 };
 
 const mergeLatestUpdates = (curatedUpdates: LatestUpdate[], syncedUpdates: LatestUpdate[]) => {
@@ -828,18 +779,33 @@ const App: React.FC = () => {
   const [showAllUpdates, setShowAllUpdates] = useState(false);
   const deferredProjectQuery = useDeferredValue(projectQuery);
   const copyTimeoutRef = useRef<number | null>(null);
+  const projectArchiveRef = useRef<HTMLDetailsElement | null>(null);
 
   useEffect(() => {
-    const revealAnchor = () => {
-      const id = window.location.hash.slice(1);
-      if (!id) return;
+    const revealTarget = (id: string) => {
       const target = document.getElementById(id);
       const disclosure = target?.closest('details');
       if (disclosure) disclosure.open = true;
+      return target;
+    };
+    const revealAnchor = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      const target = revealTarget(id);
+      window.requestAnimationFrame(() => target?.scrollIntoView({ block: 'start' }));
+    };
+    const revealLocalLink = (event: MouseEvent) => {
+      const anchor = event.target instanceof Element ? event.target.closest('a[href^="#"]') : null;
+      const hash = anchor?.getAttribute('href');
+      if (hash && hash.length > 1) revealTarget(hash.slice(1));
     };
     revealAnchor();
     window.addEventListener('hashchange', revealAnchor);
-    return () => window.removeEventListener('hashchange', revealAnchor);
+    document.addEventListener('click', revealLocalLink);
+    return () => {
+      window.removeEventListener('hashchange', revealAnchor);
+      document.removeEventListener('click', revealLocalLink);
+    };
   }, []);
 
 
@@ -885,13 +851,7 @@ const App: React.FC = () => {
   }, [portfolioUpdates]);
 
   const updateProjects = useMemo(
-    () =>
-      sortByCreatedAtDesc(
-        (portfolioUpdates?.projects ?? [])
-          .filter((project) => !isExcludedRepo(project.repoFullName))
-          .filter(isHighSignalSyncedProject)
-          .map(normalizeProject)
-      ),
+    () => selectReviewedFeedProjects(portfolioUpdates, PORTFOLIO_UPDATE_REPO_EXCLUSIONS).map(normalizeProject),
     [portfolioUpdates]
   );
 
@@ -999,6 +959,7 @@ const App: React.FC = () => {
     if (projectSlug) {
       const project = projectBySlug.get(projectSlug);
       setSelectedProject(project ?? null);
+      if (project && projectArchiveRef.current) projectArchiveRef.current.open = true;
       if (project && !pathProjectSlug) {
         window.history.replaceState(null, '', buildProjectPublicUrl(getProjectCanonicalSlug(project)));
       }
@@ -1126,12 +1087,6 @@ const App: React.FC = () => {
     [updateProjectPath]
   );
 
-  const handleProjectLinkClick = useCallback((event: React.MouseEvent<HTMLAnchorElement>, project: Project) => {
-    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    handleSelectProject(project);
-  }, [handleSelectProject]);
-
   const handleCloseProject = useCallback(() => {
     setSelectedProject(null);
     updateUrlParams({ project: null }, { replace: true });
@@ -1232,6 +1187,7 @@ const App: React.FC = () => {
   const showQuickTopics = visibleQuickTopics.length > 0 && (!projectQuery.trim() || isSmartSearchFocused);
 
   const scrollToProjectExplorer = useCallback(() => {
+    if (projectArchiveRef.current) projectArchiveRef.current.open = true;
     window.requestAnimationFrame(() => {
       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -1314,18 +1270,23 @@ const App: React.FC = () => {
             </aside>
           </section>
 
-          <Section id="featured" eyebrow="01 / Selected work" title="Systems, tools, and products" description="A closer look at the work: what it does, how it is built, and where to explore it.">
+          <Section id="featured" eyebrow="01 / Selected work" title="Systems, tools, and products" description="Selected systems and the engineering work behind them.">
             <div className="featured-grid">
               {featuredProjects.map((project, index) => {
                 const context = FEATURED_PROJECT_CONTEXT[project.id];
                 const asset = project.images[0];
                 const isIllustration = Boolean(asset && /generated|conceptual|illustration|public-safe.*card/i.test(asset.alt));
+                const figureLabel = project.id === 102 ? 'Point cloud → model → plan' : project.id === 81 ? 'Recorded profiling output' : context.artifact ? 'System outline' : /workflow diagram/i.test(asset?.caption || '') ? 'Workflow diagram' : isIllustration ? 'Workflow illustration' : 'Project figure';
                 return (
                   <article key={project.id} className="featured-card">
-                    <a className="featured-card__visual" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} onClick={(event) => handleProjectLinkClick(event, project)} aria-label={`Explore ${context.title}`}>
+                    <header className="featured-card__header">
+                      <p className="featured-card__label">{context.label}</p>
+                      <h3><a href={buildProjectPublicUrl(getProjectCanonicalSlug(project))}>{context.title}</a></h3>
+                    </header>
+                    <a className="featured-card__visual" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} aria-label={`Explore ${context.title}`}>
+                      <div className="featured-card__media">
                       {context.artifact ? (
                         <div className={`work-artifact work-artifact--${project.id}`}>
-                          <span className="work-artifact__caption">{project.id === 81 ? 'Released Python package' : 'System outline'}</span>
                           <strong className={project.id === 81 ? 'work-artifact__command' : ''}>{context.artifact.heading}</strong>
                           <ol>{context.artifact.lines.map((line) => <li key={line}><span aria-hidden="true" />{line}</li>)}</ol>
                           <span className="work-artifact__footer">{context.artifact.footer}</span>
@@ -1337,16 +1298,15 @@ const App: React.FC = () => {
                           ) : (
                             <img src={asset.url} alt={asset.alt} className="featured-card__asset" loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
                           )}
-                          {project.id === 102 ? <span className="featured-card__caption">Engineering test fixture</span> : isIllustration && <span className="featured-card__caption">System illustration</span>}
                         </>
                       ) : null}
+                      </div>
+                      <span className="featured-card__caption">{figureLabel}</span>
                     </a>
                     <div className="featured-card__content">
-                      <p className="featured-card__label">{context.label}</p>
-                      <h3><a href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} onClick={(event) => handleProjectLinkClick(event, project)}>{context.title}</a></h3>
                       <p className="featured-card__summary">{context.summary}</p>
                       <div className="featured-card__links">
-                        <a className="text-link" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} onClick={(event) => handleProjectLinkClick(event, project)}>Case study <span aria-hidden="true">↗</span></a>
+                        <a className="text-link" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))}>Case study <span aria-hidden="true">↗</span></a>
                         {project.links.slice(0, 1).map((link) => <a className="text-link" key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.text} <span aria-hidden="true">↗</span></a>)}
                       </div>
                     </div>
@@ -1356,7 +1316,7 @@ const App: React.FC = () => {
             </div>
           </Section>
 
-          <Section id="experience" eyebrow="02 / Experience" title="A career in applied ML" description="From document recognition and nutrition products to independent CV work and current document AI research.">
+          <Section id="experience" eyebrow="02 / Experience" title="A career in applied ML" description="Document recognition, mobile vision, model tooling and retrieval systems, followed by current document AI research.">
             <div className="career-list">
               {CAREER.map((item) => (
                 <article key={item.company} className="career-row">
@@ -1392,6 +1352,11 @@ const App: React.FC = () => {
             </div>
           </Section>
 
+          <details id="project-archive" className="project-archive" ref={projectArchiveRef}>
+            <summary className="project-archive__summary">
+              <span><strong>Browse the project archive</strong><span>Search earlier projects, experiments, and released tools.</span></span>
+              <span className="project-archive__toggle" aria-hidden="true">+</span>
+            </summary>
           <Section
             id="smart-search"
             eyebrow="Explore the archive"
@@ -1556,33 +1521,19 @@ const App: React.FC = () => {
               <p className="empty-state">No projects match the current filters.</p>
             )}
           </Section>
+          </details>
 
           <Section
             id="contributed-to"
             eyebrow="Open Source"
             title="Open-source contributions"
+            description="Code changes, documentation, and issue reports with direct evidence."
           >
-            <div className="contribution-grid">
-              {OPEN_SOURCE_CONTRIBUTIONS.map((item, index) => (
-                <a
-                  key={item.login}
-                  className="contribution-card"
-                  href={item.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={item.name}
-                >
-                  <img
-                    src={item.avatarUrl}
-                    alt=""
-                    className="contribution-card__avatar"
-                    loading={index < 6 ? 'eager' : 'lazy'}
-                    decoding="async"
-                  />
-                  <span className="contribution-card__name">{item.name}</span>
-                </a>
-              ))}
-            </div>
+            <ul className="contribution-list">{CODE_CONTRIBUTIONS.map(renderContribution)}</ul>
+            <details className="contribution-participation">
+              <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
+              <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>
+            </details>
           </Section>
 
           <Section

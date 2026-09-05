@@ -1,0 +1,23 @@
+{
+  "source_kind": "synthetic_fixture",
+  "description": "One axis-aligned room. Saved input, inferred semantic geometry and original SVG export.",
+  "quality_accepted": false,
+  "limitations": [
+    "Synthetic software-path test; real-scan reconstruction has not been accepted.",
+    "The 3D illustration renders semantic JSON, not IFC. IFC opening placement is under review."
+  ],
+  "artifacts": [
+    {
+      "file": "floor-plan.svg",
+      "sha256": "603e42fa5e3130c52a2427a4448dbbdd7bc8513029e6cc74bdd47029f3ddd9b2"
+    },
+    {
+      "file": "semantic-model.json",
+      "sha256": "ec59807370d248d407e5433fce256cc81f02fab20b9446e93e992d299fea6c4d"
+    },
+    {
+      "file": "synthetic-room.xyz",
+      "sha256": "0e9c4c740d3f8933d9e33ce2ee1e807a3c90230122458d481b4a8100ecefe67d"
+    }
+  ]
+}

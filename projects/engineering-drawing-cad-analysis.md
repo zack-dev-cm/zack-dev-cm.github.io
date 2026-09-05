@@ -1,37 +1,46 @@
 # Engineering Drawing & CAD Analysis
 
-> Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.
+> Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.
 
 ## Summary
-I develop engineering-analysis research at Riverstart, connecting scans, CAD geometry and engineering drawings through reproducible evaluation. My work covers reference registration, CAD-to-2D projection, geometry checks and review artifacts. Each stage has its own acceptance criteria so engineers can inspect the geometry and decide what is ready for further development.
+My engineering-geometry work at Riverstart covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.
 
-## Engineering decisions
-I separate scan registration, CAD projection and drawing comparison into measurable stages. The projection research compares direct Open Cascade routes with CadQuery and build123d, checks visible and hidden geometry separately, and preserves intermediate artifacts for review. Analytic fixtures provide expected geometry that is defined independently of the candidate projection backend.
+## Building point cloud -> room model -> floor plan
+The building prototype reads XYZ or NumPy point clouds with declared units, estimates rectangular room bounds and detects door/window openings from gaps in the wall points. These are geometric methods; wall thickness is a declared input. A semantic model records the room, walls and openings, supplying both the 3D visualization and 2D floor-plan exports. The figures use a saved synthetic fixture, with its original point cloud, geometry JSON and SVG plan available below.
 
-## Evaluation and current stage
-The demonstrated milestone is a research baseline for registration and projection evaluation. Checks cover coordinate consistency, surface alignment, projected geometry and selected drawing views. Scan-to-parametric reconstruction requires separate evidence and acceptance; the supplied reference CAD in a registration test is not a reconstructed output.
+## Mechanical scans, reference CAD and engineering views
+The mechanical track evaluates scan-to-reference registration separately from STEP-to-drawing projection. It compares Open Cascade, CadQuery and build123d routes, checks visible and hidden edges, and compares generated views with supplied drawings. The through-bore example below isolates the projection stage with known analytic geometry. A reference STEP used for registration is an input, not a model reconstructed from the scan.
 
-## What the images show
-The first image renders an existing analytic STEP fixture built for the evaluation workflow. The second shows the actual generated XY and XZ projections of that same solid, including hidden edges. These are reproducible test artifacts using synthetic geometry; they do not contain a customer part, a generated product interface or a claim of manufacturing accuracy.
+## Current stage
+The room workflow has passed a synthetic software-path test; real-building reconstruction still needs reference data and engineering acceptance. It currently assumes a single axis-aligned room. IFC export is experimental, with cross-format opening placement under review. Mechanical results establish registration and projection baselines; arbitrary scan-to-parametric CAD and manufacturing-ready drawing generation remain separate research goals.
 
 ## Project Figures
 
+![The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan](https://zack-dev-cm.github.io/docs/images/point-cloud-room-workflow-v1.webp)
+
+Building prototype: saved point-cloud input, a 3D rendering of the inferred semantic room model, and its actual SVG floor plan. This is one synthetic room test; the 3D view renders semantic JSON, not the experimental IFC export.
+
+![Detailed comparison of the synthetic room point cloud and inferred walls with a door and window at matching positions](https://zack-dev-cm.github.io/docs/images/point-cloud-room-model-v1.webp)
+
+Building prototype, enlarged: the input points and inferred room geometry share the same coordinates and viewpoint. Transparency reveals the interior and openings.
+
 ![Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes](https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-source.webp)
 
-Analytic CAD test fixture: a through-bore block used to evaluate projection and hidden-line handling. Rendered from the source STEP.
+Separate mechanical CAD track: a synthetic through-bore STEP fixture for projection and hidden-line tests. This solid is a supplied test input.
 
 ![XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges](https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-projections.webp)
 
-Generated XY and XZ projections of the same test fixture, separating visible and hidden edges. Actual HLR output.
+Mechanical CAD output: generated XY and XZ views of the same through-bore fixture, with visible edges in solid lines and hidden edges dashed.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md
 
 ## Key Features
-- Evaluate scan registration against supplied CAD references
-- Compare CAD-to-2D projection and hidden-line handling across geometry backends
-- Check outputs against independently defined analytic fixtures
-- Preserve geometry, evaluation results and review artifacts for repeatable inspection
+- Infer axis-aligned room boundaries, walls and rectangular openings from XYZ point clouds
+- Represent inferred geometry as a semantic room model and export 2D DXF/SVG floor plans
+- Evaluate mechanical scan registration against supplied CAD references
+- Generate visible and hidden 2D edges from STEP models using Open Cascade
+- Preserve source geometry and outputs for comparison and engineering review
 
 ## Tech Stack
 - Python
@@ -40,7 +49,12 @@ https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md
 - build123d
 - NumPy
 - SciPy
+- IfcOpenShell
+- ezdxf
 - Geometry Processing
 
 ## Links
-- [Inspect projection SVG](https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg)
+- [Inspect the generated room floor plan (SVG)](https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg)
+- [Inspect the inferred room geometry (JSON)](https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json)
+- [Download the synthetic point-cloud input (XYZ)](https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz)
+- [Inspect the mechanical fixture projections (SVG)](https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg)

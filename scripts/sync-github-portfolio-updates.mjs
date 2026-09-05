@@ -1,5 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import ts from 'typescript';
+import { mergeProjects, selectReviewedFeedProjects } from '../utils/project-catalog.mjs';
 
 const GITHUB_API_BASE = 'https://api.github.com';
 const DEFAULT_OWNER = 'zack-dev-cm';
@@ -30,8 +33,6 @@ const CLEARML_DERMASELF_TITLE = 'ClearML Experiment Tracking for Dermaself';
 const CLEARML_DERMASELF_IMAGE = 'images/clearml-dermaself-experiment-tracking-card.png';
 const AGNITRA_AI_PROJECT_ID = 81;
 const AGNITRA_AI_SLUG = 'agnitra-ai-inference-optimizer';
-const AGNITRA_AI_TITLE = 'Agnitra - ML Profiling & Optimization';
-const AGNITRA_AI_IMAGE = 'images/agnitra-ai-inference-optimizer-card.png';
 
 const BLOCKED_TEXT_PATTERNS = [
   ['private key block', /-----BEGIN (?:RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY-----/i],
@@ -442,39 +443,51 @@ const buildNameOnlyEntries = (repo, checkedAt, shouldPromote, clawHubStat) => {
   };
 };
 
-const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
+// Read literals, never evaluate portfolio TypeScript. Unsupported expressions fail
+// rather than restoring a retired fallback image or a second copy of the claims.
+export const readCuratedAgnitra = (source) => {
+  const file = ts.createSourceFile('constants.ts', source, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
+  const property = (node, name) => node.properties.find((item) => ts.isPropertyAssignment(item)
+    && (ts.isIdentifier(item.name) || ts.isStringLiteral(item.name)) && item.name.text === name)?.initializer;
+  const literal = (node) => {
+    if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text;
+    if (ts.isNumericLiteral(node)) return Number(node.text);
+    if (node.kind === ts.SyntaxKind.TrueKeyword) return true;
+    if (node.kind === ts.SyntaxKind.FalseKeyword) return false;
+    if (node.kind === ts.SyntaxKind.NullKeyword) return null;
+    if (ts.isArrayLiteralExpression(node)) return node.elements.map(literal);
+    if (ts.isObjectLiteralExpression(node)) return Object.fromEntries(node.properties.map((item) => {
+      if (!ts.isPropertyAssignment(item) || !(ts.isIdentifier(item.name) || ts.isStringLiteral(item.name))) {
+        throw new Error('Agnitra source must use literal properties');
+      }
+      return [item.name.text, literal(item.initializer)];
+    }));
+    throw new Error('Agnitra source must use literal values');
+  };
+  let result;
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && node.name.getText(file) === 'PROJECTS'
+      && node.initializer && ts.isArrayLiteralExpression(node.initializer)) {
+      const record = node.initializer.elements.find((item) => ts.isObjectLiteralExpression(item)
+        && property(item, 'id')?.getText(file) === String(AGNITRA_AI_PROJECT_ID));
+      if (record) result = literal(record);
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(file);
+  if (!result?.images?.length || !result.thumbnail) throw new Error('Curated Agnitra media is missing');
+  const mediaPath = (value) => value.replace(/^\/?docs\//, '');
+  return { ...result, images: result.images.map((image) => ({ ...image, url: mediaPath(image.url) })), thumbnail: mediaPath(result.thumbnail) };
+};
+
+export const addPortfolioCaseStudyEntries = (updates, checkedAt, agnitra) => {
+  if (agnitra?.id !== AGNITRA_AI_PROJECT_ID) throw new Error('The curated Agnitra record is required');
   const review = createReview(checkedAt, PORTFOLIO_STATIC_REVIEW_GATES);
   const staticEntries = [
     {
-      id: AGNITRA_AI_PROJECT_ID,
+      ...agnitra,
       slug: AGNITRA_AI_SLUG,
-      title: AGNITRA_AI_TITLE,
-      latestDescription:
-        'Agnitra is available on PyPI: a Python SDK and CLI for model profiling, runtime telemetry and inference optimization.',
-      description:
-        'A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.',
-      longDescription:
-        'I develop Agnitra, a model profiling and inference-optimization SDK available on PyPI. It brings runtime telemetry, baseline comparisons and optimization passes into a Python and command-line workflow. The released decoder-LLM path supports hardware-aware quantization and integrations with Hugging Face, LangChain and LlamaIndex. Quality checks and fallback behavior help developers evaluate changes before adopting an optimized runtime. Performance depends on the model, hardware and workload; the package is a beta release.',
-      projectKind: 'open-source',
-      surfaceTags: ['open-source', 'ai-systems', 'llm-inference', 'mlops', 'optimization'],
-      mobileReady: false,
-      keyFeatures: [
-        'Inspect model runtime and compare baseline and optimized execution',
-        'Apply hardware-aware quantization to supported decoder-only language models',
-        'Integrate optimization into existing Python, Hugging Face and agent workflows',
-        'Evaluate quality changes and retain fallback behavior for unsupported paths',
-      ],
-      techStack: ['Python', 'PyTorch', 'Transformers', 'torchao', 'Hugging Face', 'LangChain', 'LlamaIndex', 'MLOps'],
-      links: [
-        { text: 'Install from PyPI', url: 'https://pypi.org/project/agnitra/' },
-      ],
-      image: {
-        url: AGNITRA_AI_IMAGE,
-        alt: 'Conceptual diagram of Agnitra model optimization and package workflow',
-        caption: 'Conceptual workflow illustration.',
-      },
-      canonicalWebsite: 'https://pypi.org/project/agnitra/',
-      createdAt: '2026-06-09',
+      latestDescription: agnitra.description,
     },
     {
       id: CLEARML_DERMASELF_PROJECT_ID,
@@ -532,21 +545,13 @@ const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
       ...common,
     });
 
+    const { slug, latestDescription, image, canonicalWebsite, ...projectFields } = item;
     updates.projects.unshift({
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      longDescription: item.longDescription,
-      projectKind: item.projectKind,
-      surfaceTags: item.surfaceTags,
-      mobileReady: item.mobileReady,
-      keyFeatures: item.keyFeatures,
-      techStack: item.techStack,
+      ...projectFields,
       links,
-      images: [item.image],
-      thumbnail: item.image.url,
-      benchmarks: item.benchmarks,
-      canonicalLinks: { website: item.canonicalWebsite || caseStudyUrl },
+      images: item.images || [image],
+      thumbnail: item.thumbnail || image.url,
+      canonicalLinks: item.canonicalLinks || { website: canonicalWebsite || caseStudyUrl },
       ...common,
     });
   }
@@ -554,7 +559,7 @@ const addPortfolioCaseStudyEntries = (updates, checkedAt) => {
 
 const getStaticExclusions = async (owner) => {
   const source = await fs.readFile('constants.ts', 'utf8');
-  const repoKeys = new Set([`${owner}/zack-dev-cm.github.io`]);
+  const repoKeys = new Set([`${owner}/zack-dev-cm.github.io`, `${owner}/${owner}`]);
   const clawHubStatsBySlug = new Map();
 
   const exclusionsMatch = source.match(/export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS:[\s\S]*?=\s*\[([\s\S]*?)\];/);
@@ -576,8 +581,15 @@ const getStaticExclusions = async (owner) => {
     });
   }
 
-  return { repoKeys, clawHubStatsBySlug };
+  return { repoKeys, clawHubStatsBySlug, agnitra: readCuratedAgnitra(source) };
 };
+
+// The recent-activity window is for news, not a deletion policy for published
+// project routes. Retained records keep their original activity/review dates.
+export const preserveReviewedProjectArchive = (updates, previous, excludedRepos = []) => ({
+  ...updates,
+  projects: mergeProjects(updates.projects, selectReviewedFeedProjects(previous, excludedRepos)),
+});
 
 const buildEntries = async (repo, checkedAt, shouldPromote, clawHubStat) => {
   const nameOnlyEntries = buildNameOnlyEntries(repo, checkedAt, shouldPromote, clawHubStat);
@@ -684,7 +696,7 @@ const main = async () => {
   const now = Date.now();
   const lookbackMs = options.lookbackDays * 24 * 60 * 60 * 1000;
   const promotionMs = options.promoteDays * 24 * 60 * 60 * 1000;
-  const { repoKeys, clawHubStatsBySlug } = await getStaticExclusions(options.owner);
+  const { repoKeys, clawHubStatsBySlug, agnitra } = await getStaticExclusions(options.owner);
   const repos = await listRepos(options.owner);
   const eligibleRepos = repos
     .filter((repo) => !repo.archived && !repo.fork && !repo.private)
@@ -693,7 +705,7 @@ const main = async () => {
     .sort((a, b) => Date.parse(getRepoActivityAt(b)) - Date.parse(getRepoActivityAt(a)))
     .slice(0, options.maxRepos);
 
-  const updates = {
+  let updates = {
     version: 2,
     lastSyncedAt: new Date().toISOString(),
     review: {
@@ -717,7 +729,16 @@ const main = async () => {
     updates.latestUpdates.push(latestEntry);
     if (projectEntry) updates.projects.push(projectEntry);
   }
-  addPortfolioCaseStudyEntries(updates, checkedAt);
+  addPortfolioCaseStudyEntries(updates, checkedAt, agnitra);
+  updates.latestUpdates = updates.latestUpdates.filter((item) => now - Date.parse(item.createdAt) <= lookbackMs);
+
+  let previous = null;
+  try {
+    previous = JSON.parse(await fs.readFile(PUBLIC_UPDATES_PATH, 'utf8'));
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  updates = preserveReviewedProjectArchive(updates, previous, [...repoKeys]);
 
   assertSafePayload(updates, options.owner);
   const serialized = `${JSON.stringify(updates, null, 2)}\n`;
@@ -761,7 +782,9 @@ const main = async () => {
   );
 };
 
-main().catch((error) => {
-  console.error(error?.message || error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  main().catch((error) => {
+    console.error(error?.message || error);
+    process.exitCode = 1;
+  });
+}

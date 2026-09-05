@@ -1,0 +1,139 @@
+{
+  "example": "Agnitra CPU profiling example",
+  "package_release": "0.2.4",
+  "scope": "Recorded shapes from a randomly initialized profiling fixture; no optimization or accuracy comparison.",
+  "environment": {
+    "device": "CPU",
+    "python": "3.10.2",
+    "pytorch": "2.9.1"
+  },
+  "input_shape": [
+    1,
+    3,
+    32,
+    32
+  ],
+  "output_shape": [
+    1,
+    4
+  ],
+  "dtype": "float32",
+  "layers": [
+    {
+      "name": "0",
+      "type": "Conv2d",
+      "input_shapes": [
+        [
+          1,
+          3,
+          32,
+          32
+        ]
+      ],
+      "output_shapes": [
+        [
+          1,
+          8,
+          32,
+          32
+        ]
+      ],
+      "output_dtype": "float32"
+    },
+    {
+      "name": "1",
+      "type": "ReLU",
+      "input_shapes": [
+        [
+          1,
+          8,
+          32,
+          32
+        ]
+      ],
+      "output_shapes": [
+        [
+          1,
+          8,
+          32,
+          32
+        ]
+      ],
+      "output_dtype": "float32"
+    },
+    {
+      "name": "2",
+      "type": "AdaptiveAvgPool2d",
+      "input_shapes": [
+        [
+          1,
+          8,
+          32,
+          32
+        ]
+      ],
+      "output_shapes": [
+        [
+          1,
+          8,
+          1,
+          1
+        ]
+      ],
+      "output_dtype": "float32"
+    },
+    {
+      "name": "3",
+      "type": "Flatten",
+      "input_shapes": [
+        [
+          1,
+          8,
+          1,
+          1
+        ]
+      ],
+      "output_shapes": [
+        [
+          1,
+          8
+        ]
+      ],
+      "output_dtype": "float32"
+    },
+    {
+      "name": "4",
+      "type": "Linear",
+      "input_shapes": [
+        [
+          1,
+          8
+        ]
+      ],
+      "output_shapes": [
+        [
+          1,
+          4
+        ]
+      ],
+      "output_dtype": "float32"
+    }
+  ],
+  "recorded_operators": [
+    "aten::conv2d",
+    "aten::convolution",
+    "aten::_convolution",
+    "aten::_nnpack_available",
+    "aten::thnn_conv2d",
+    "aten::_slow_conv2d_forward",
+    "aten::empty",
+    "aten::view",
+    "aten::resize_",
+    "aten::reshape",
+    "aten::copy_",
+    "aten::relu",
+    "aten::clamp_min",
+    "[memory]",
+    "aten::adaptive_avg_pool2d"
+  ]
+}

@@ -7,7 +7,7 @@
   "website": "https://zack-dev-cm.github.io/",
   "github": "https://github.com/zack-dev-cm",
   "linkedin": "https://www.linkedin.com/in/zakhar-pashkin-a524a6163/",
-  "summary": "Senior ML Engineer with 8+ years developing computer vision and applied ML from research through deployment. Shipped food-recognition and OCR workflows at Carb Manager and built financial-document recognition at CFT. Currently in Riverstart's R&D ML team, developing document AI and evaluating engineering-analysis methods. Also maintain an AI nutrition service and publish model-profiling and optimization tools.",
+  "summary": "Senior ML Engineer with 8+ years developing computer vision and applied ML from research through deployment. Shipped food-recognition and OCR workflows at Carb Manager and built financial-document recognition at CFT. Delivered skin-analysis models, multimodal retrieval and a published model-profiling SDK. Currently in Riverstart's R&D ML team, developing document AI and 3D geometry workflows.",
   "experience": [
     {
       "company": "Riverstart",
@@ -15,39 +15,53 @@
       "context": "R&D ML | Remote",
       "dates": "Jul 2026 - Present",
       "bullets": [
-        "Own R&D implementation and evaluation of an on-premises document assistant that extracts case facts and reconciles records for specialist review. Separate deterministic checks from model explanations and link outputs to source documents.",
-        "Build evaluation workflows for scan registration against CAD references, CAD projection and drawing comparison, using controlled geometry to check projected and hidden edges. Develop construction-document analysis that links extracted quantities to source pages.",
-        "Build repeatable evaluation and release workflows for LLM services with versioned artifacts, regression checks, observability and rollback."
+        "Develop and evaluate an on-premises document assistant for specialist case review, separating deterministic checks from model explanations. Build construction-plan analysis with structured quantities; link both workflows to source pages.",
+        "Prototyped point-cloud reconstruction of axis-aligned rooms, producing semantic 3D models and DXF/SVG floor plans. Evaluate mechanical scan registration against reference CAD and CAD-to-drawing projection."
       ]
     },
     {
-      "company": "Dermaself & Calorio (client projects)",
-      "role": "ML / Computer Vision Engineer - Independent Projects",
-      "context": "Ongoing Calorio maintenance | Remote",
-      "dates": "Jun 2024 - Present (project activity)",
+      "company": "Dermaself · Agnitra · Multimodal Video Search",
+      "role": "ML / Computer Vision Engineer",
+      "context": "Remote",
+      "dates": "Jun 2024 - Jun 2026",
       "bullets": [
-        "Developed skin-analysis CV pipelines for Dermaself, covering guided capture, facial regions, pore and wrinkle segmentation, model evaluation and mobile/API integration with PyTorch, OpenMMLab, ONNX and Flutter.",
-        "Resolved model-asset and runtime differences between Cloud Run and GPU deployments, restoring matching wrinkle-segmentation outputs in regression comparisons and profiling remaining bottlenecks."
+        "Developed Dermaself's skin-analysis pipeline from guided capture and facial regions through pore/wrinkle segmentation and mobile/API integration. Restored matching wrinkle outputs across cloud and GPU runtimes in regression checks.",
+        "Developed multimodal video search combining speech, on-screen text and visual signals. Delivered Qdrant hybrid retrieval with BM25 and dense embeddings, supported by evaluation and runtime profiling.",
+        "Built Agnitra, a Python SDK and CLI for model profiling and inference optimization, with runtime telemetry, model graph representations and benchmark workflows. Published the package on PyPI."
+      ],
+      "links": [
+        {
+          "label": "Agnitra on PyPI",
+          "url": "https://pypi.org/project/agnitra/"
+        },
+        {
+          "label": "Video search",
+          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/"
+        },
+        {
+          "label": "Dermaself",
+          "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/"
+        }
       ]
     },
     {
       "company": "Wombat Apps LLC / Carb Manager",
       "role": "Senior Computer Vision Engineer",
-      "context": "Contract | Remote",
+      "context": "Remote",
       "dates": "Jun 2022 - Jun 2024",
       "bullets": [
-        "Built and shipped food-recognition and nutrition-label workflows across cloud, iOS and Android for Carb Manager, a nutrition product serving millions of customers.",
-        "Owned data preparation, model development and evaluation through APIs, mobile export and runtime profiling. Combined detection, OCR and table parsing into structured nutrition data, working with mobile, backend and product teams on quality and failure handling."
+        "Shipped food-recognition and nutrition-label workflows across cloud, iOS and Android for Carb Manager, a nutrition product serving millions of customers.",
+        "Combined detection, OCR and table parsing to turn nutrition-label images into structured nutrition data. Owned data preparation, model evaluation, API integration, mobile export and runtime profiling with mobile, backend and product teams."
       ]
     },
     {
-      "company": "CFT",
+      "company": "Center of Financial Technologies (CFT)",
       "role": "Computer Vision Engineer",
       "context": "Financial technology",
       "dates": "Jun 2019 - Jun 2022",
       "bullets": [
-        "Built core detection, segmentation and OCR models for CFT's financial-document recognition platform using PyTorch and OpenMMLab.",
-        "Optimized meter-recognition models for mobile use through architecture changes, quantization and runtime profiling. Built active-learning and assisted-annotation workflows to reduce manual labeling, and mentored engineers on data quality and evaluation."
+        "Built core detection, segmentation and OCR models for CFT's financial-document recognition platform using PyTorch and OpenMMLab. Developed active-learning and assisted-annotation workflows to reduce manual labeling.",
+        "Optimized meter-recognition models for mobile use through architecture changes, quantization and runtime profiling. Mentored engineers on data quality and evaluation."
       ]
     },
     {
@@ -62,34 +76,22 @@
   ],
   "projects": [
     {
-      "name": "Agnitra",
-      "status": "Published on PyPI",
-      "url": "https://pypi.org/project/agnitra/",
-      "text": "Published a Python SDK and CLI for model profiling and inference optimization, combining runtime telemetry, baseline comparisons and optimization passes, including hardware-aware quantization for decoder LLMs."
-    },
-    {
-      "name": "Calorio / YourFit",
-      "status": "Maintained AI nutrition service",
-      "url": "https://t.me/calorio_yf_bot",
-      "text": "Built and maintain a Telegram AI nutrition service for meal logging from photos, voice and text, with a food diary, nutrition-goal tracking, deployment and technical support."
-    },
-    {
       "name": "InQuest",
-      "status": "Document-agent engineering",
+      "status": "Project-aware document agents",
       "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
-      "text": "Built document agents using OpenAI Agents SDK and MCP, with retrieval, tool calls, handoffs and persistent context across document collections."
+      "text": "Built document agents with project-specific source routing and output storage using OpenAI Agents SDK and MCP. Added evaluation scenarios for retrieval selection and saving behavior."
     },
     {
-      "name": "Multimodal Video Search",
-      "status": "Retrieval R&D",
-      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
-      "text": "Designed video retrieval combining visual embeddings, speech transcripts, on-screen text and scene descriptions with dense and sparse search to find relevant clips."
+      "name": "Calorio",
+      "status": "Maintained service",
+      "url": "https://t.me/calorio_yf_bot",
+      "text": "Built and maintain a Telegram AI nutrition service for meal logging from photos, voice and text, with a food diary and nutrition-goal tracking."
     },
     {
       "name": "LigninQC",
       "status": "Research tooling | In progress",
       "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
-      "text": "Built a reproducible literature-discovery and audit pipeline for computational lignin research, with publication-version grouping and field-level source provenance."
+      "text": "Built a reproducible literature-discovery and audit pipeline for computational lignin research, with publication-version grouping and traceable extraction schemas."
     }
   ],
   "skills": [

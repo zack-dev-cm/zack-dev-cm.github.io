@@ -1,15 +1,15 @@
 # Construction Document Intelligence
 
-> Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.
+> Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.
 
 ## Summary
-I develop construction-document analysis as part of Riverstart R&D. The workflow interprets complete plan sets, extracts structured quantities and connects each result to the corresponding source page. Persistent review state lets specialists inspect and correct results across a document set. My contribution spans document processing, model orchestration, output contracts and evaluation for expert review.
+I develop construction-document analysis as part of Riverstart R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.
 
 ## Engineering decisions
 I separate document observations, quantity calculations and specialist acceptance. Extracted facts retain their source page and location, while schema and unit checks run before deterministic calculation. Missing or unconfirmed dimensions block a quantity from being accepted.
 
 ## Review across a document set
-The R&D workflow keeps related drawings and review decisions together so a specialist can inspect a result in context and correct it across revisions. This is an evaluation-stage workflow; generated quantities still require source checks and expert acceptance.
+The R&D workflow keeps related drawings, saved observations, source pages and open questions together for specialist review. Generated quantities still require source checks and expert acceptance.
 
 ## Project Figures
 
@@ -24,7 +24,7 @@ https://zack-dev-cm.github.io/projects/construction-document-intelligence.md
 - Analyze related drawings as a complete document set
 - Validate observations and units before calculating quantities
 - Link quantities to source pages for checking
-- Preserve specialist review decisions across revisions
+- Preserve analysis results and source references for repeatable review
 
 ## Tech Stack
 - Python

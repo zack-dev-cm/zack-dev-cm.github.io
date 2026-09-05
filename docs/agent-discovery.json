@@ -237,7 +237,7 @@
           "title": "Engineering Drawing & CAD Analysis",
           "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-          "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
+          "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -253,12 +253,26 @@
             "build123d",
             "NumPy",
             "SciPy",
+            "IfcOpenShell",
+            "ezdxf",
             "Geometry Processing"
           ],
           "benchmarks": [],
           "links": [
             {
-              "label": "Inspect projection SVG",
+              "label": "Inspect the generated room floor plan (SVG)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
+            },
+            {
+              "label": "Inspect the inferred room geometry (JSON)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
+            },
+            {
+              "label": "Download the synthetic point-cloud input (XYZ)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
+            },
+            {
+              "label": "Inspect the mechanical fixture projections (SVG)",
               "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
             }
           ]
@@ -268,7 +282,7 @@
           "title": "Construction Document Intelligence",
           "url": "https://zack-dev-cm.github.io/projects/construction-document-intelligence/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/construction-document-intelligence.md",
-          "summary": "Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.",
+          "summary": "Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -284,38 +298,6 @@
             "Vision-language models",
             "Structured Outputs",
             "Evaluation"
-          ],
-          "benchmarks": [],
-          "links": []
-        },
-        {
-          "id": 63,
-          "title": "Dermaself Flutter Skin Analysis App",
-          "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
-          "markdownUrl": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
-          "summary": "Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.",
-          "kind": "case-study",
-          "tags": [
-            "mobile",
-            "computer-vision",
-            "health-ai",
-            "case-study"
-          ],
-          "aliases": [
-            "dermaself mobile app",
-            "flutter skin analysis",
-            "mobile skin analysis app"
-          ],
-          "techStack": [
-            "Flutter",
-            "Dart",
-            "Firebase",
-            "Riverpod",
-            "GoRouter",
-            "ONNX",
-            "Mobile CV",
-            "iOS",
-            "Android"
           ],
           "benchmarks": [],
           "links": []
@@ -376,51 +358,196 @@
           "links": []
         },
         {
-          "id": 67,
-          "title": "Senior Conservator OpenClaw Agent",
-          "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/",
-          "markdownUrl": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
-          "summary": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
+          "id": 76,
+          "title": "Jaw and Face-Type Classifier for Aesthetic Review",
+          "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
+          "summary": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
           "kind": "case-study",
           "tags": [
-            "automation",
             "computer-vision",
-            "openclaw",
-            "operations"
+            "classification",
+            "beautytech",
+            "health-ai",
+            "face-analysis"
           ],
           "aliases": [
-            "senior conservator agent",
-            "conservation openclaw workflow",
-            "autonomous conservation report"
+            "jaw classifier",
+            "face type classifier",
+            "plastic surgery review",
+            "beauty examination classifier",
+            "aesthetic face analysis"
           ],
           "techStack": [
-            "FastAPI",
-            "OpenClaw",
             "Python",
-            "MCP",
-            "Pillow",
-            "ReportLab",
+            "PyTorch",
+            "OpenCV",
             "Computer Vision",
-            "Review Gates"
+            "Facial Landmarks",
+            "Classification",
+            "K-fold Validation",
+            "Visual QA"
           ],
           "benchmarks": [
             {
-              "label": "Artifact families",
-              "value": "8+",
-              "context": "reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status"
+              "label": "Review deck",
+              "value": "v0.12.7",
+              "context": "Jaw / Face-type analyser project deck checked 2026-06-04"
             },
             {
-              "label": "Review posture",
-              "value": "strict",
-              "context": "stage-by-stage gates documented in project records"
+              "label": "Experiment pattern",
+              "value": "k-fold",
+              "context": "classifier experiment folder review, 2026-06-04"
             },
             {
-              "label": "Source review date",
-              "value": "2026-03-01",
-              "context": "project source review"
+              "label": "Reviewed references",
+              "value": "5+",
+              "context": "jaw-class workspaces, jaw database, analyzer deck, labels, and experiment folders"
+            },
+            {
+              "label": "Public posture",
+              "value": "sanitized",
+              "context": "no raw patient images, private labels, or model weights published"
             }
           ],
           "links": []
+        },
+        {
+          "id": 77,
+          "title": "Architectural Drawing and Interior Catalog Matching",
+          "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+          "summary": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
+          "kind": "case-study",
+          "tags": [
+            "computer-vision",
+            "architecture",
+            "ocr",
+            "catalog-matching",
+            "interior-ai",
+            "retrieval"
+          ],
+          "aliases": [
+            "architectural drawings recognition",
+            "floor plan recognition",
+            "room plan recognition",
+            "interior catalog matching",
+            "casework catalog matching",
+            "commercial reception catalog preview",
+            "school reception design configuration",
+            "utility building interior planning",
+            "whole building interior planning",
+            "blueprint symbol detection"
+          ],
+          "techStack": [
+            "Python",
+            "OpenCV",
+            "OCR",
+            "PDF Processing",
+            "LLM/Vision Parsing",
+            "Catalog Indexing",
+            "OpenEvolve",
+            "BOM Export",
+            "3D/CV",
+            "Visual QA"
+          ],
+          "benchmarks": [
+            {
+              "label": "Input families",
+              "value": "3",
+              "context": "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04"
+            },
+            {
+              "label": "Catalog flow",
+              "value": "callouts -> items",
+              "context": "visible drawing codes mapped to catalog records, evidence notes, and candidate pools"
+            },
+            {
+              "label": "Output artifacts",
+              "value": "5",
+              "context": "room graph, catalog mapping, layout preview, render, and BOM/rationale export"
+            },
+            {
+              "label": "Public posture",
+              "value": "sanitized",
+              "context": "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published"
+            }
+          ],
+          "links": []
+        },
+        {
+          "id": 79,
+          "title": "ComfyUI and Colab Generative Prototype Lab",
+          "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
+          "summary": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
+          "kind": "research",
+          "tags": [
+            "generative-ai",
+            "colab",
+            "notebooks",
+            "computer-vision",
+            "custom-models",
+            "automation"
+          ],
+          "aliases": [
+            "ComfyUI prototype lab",
+            "colab prototype archive",
+            "custom models lab",
+            "research paper implementation snippets",
+            "generative media factory",
+            "advanced notebook prototypes"
+          ],
+          "techStack": [
+            "Google Colab",
+            "ComfyUI",
+            "Python",
+            "PyTorch",
+            "MMOCR",
+            "PaddleOCR",
+            "LangChain",
+            "Pinecone",
+            "MoviePy",
+            "FFmpeg",
+            "LivePortrait",
+            "WebSocket"
+          ],
+          "benchmarks": [
+            {
+              "label": "Prototype lanes",
+              "value": "6",
+              "context": "ComfyUI, LivePortrait, OCR/PDF, retrieval QA, model fine-tuning, media assembly"
+            },
+            {
+              "label": "Source posture",
+              "value": "public links only",
+              "context": "private source and Colab URLs excluded from published portfolio files"
+            },
+            {
+              "label": "Notebook posture",
+              "value": "prototype",
+              "context": "research and implementation snippets, not presented as maintained production services"
+            },
+            {
+              "label": "Review date",
+              "value": "2026-06-04",
+              "context": "private-source and local portfolio review for missing notebook/prototype work"
+            }
+          ],
+          "links": [
+            {
+              "label": "Digits recognition MMOCR",
+              "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
+            },
+            {
+              "label": "Voice and lip sync Colab app",
+              "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
+            },
+            {
+              "label": "Text to cartoon CLIP",
+              "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
+            }
+          ]
         },
         {
           "id": 70,
@@ -497,39 +624,6 @@
             }
           ],
           "links": []
-        },
-        {
-          "id": 72,
-          "title": "Multimodal Video Search Platform",
-          "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
-          "markdownUrl": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
-          "summary": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
-          "kind": "research",
-          "tags": [
-            "computer-vision",
-            "ai",
-            "search",
-            "video",
-            "mlops"
-          ],
-          "aliases": [
-            "SVS4 search",
-            "video neural search",
-            "hybrid media search"
-          ],
-          "techStack": [
-            "Python",
-            "FastAPI",
-            "Qdrant",
-            "Postgres",
-            "CLIP",
-            "OCR",
-            "ASR",
-            "Hybrid Search",
-            "Celery"
-          ],
-          "benchmarks": [],
-          "links": []
         }
       ]
     },
@@ -548,7 +642,7 @@
           "title": "Riverstart Document AI",
           "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
-          "summary": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
+          "summary": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
           "kind": "research",
           "tags": [
             "ai-systems",
@@ -575,7 +669,7 @@
           "title": "Engineering Drawing & CAD Analysis",
           "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-          "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
+          "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -591,12 +685,26 @@
             "build123d",
             "NumPy",
             "SciPy",
+            "IfcOpenShell",
+            "ezdxf",
             "Geometry Processing"
           ],
           "benchmarks": [],
           "links": [
             {
-              "label": "Inspect projection SVG",
+              "label": "Inspect the generated room floor plan (SVG)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
+            },
+            {
+              "label": "Inspect the inferred room geometry (JSON)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
+            },
+            {
+              "label": "Download the synthetic point-cloud input (XYZ)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
+            },
+            {
+              "label": "Inspect the mechanical fixture projections (SVG)",
               "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
             }
           ]
@@ -606,7 +714,7 @@
           "title": "Construction Document Intelligence",
           "url": "https://zack-dev-cm.github.io/projects/construction-document-intelligence/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/construction-document-intelligence.md",
-          "summary": "Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.",
+          "summary": "Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -622,6 +730,42 @@
             "Vision-language models",
             "Structured Outputs",
             "Evaluation"
+          ],
+          "benchmarks": [],
+          "links": []
+        },
+        {
+          "id": 78,
+          "title": "InQuest Project Binder RAG QA",
+          "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
+          "summary": "Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.",
+          "kind": "case-study",
+          "tags": [
+            "ai",
+            "rag",
+            "project-context",
+            "qa",
+            "vector-storage",
+            "site-planning"
+          ],
+          "aliases": [
+            "INQI Quest",
+            "InQuest operation logic",
+            "project binder agent",
+            "site plan RAG",
+            "binder vector storage"
+          ],
+          "techStack": [
+            "RAG",
+            "Vector Stores",
+            "OpenAI APIs",
+            "Project Context",
+            "Binder Workflows",
+            "PDF Generation",
+            "S3",
+            "QA Matrix",
+            "Web Search"
           ],
           "benchmarks": [],
           "links": []
@@ -663,44 +807,16 @@
             {
               "label": "Install from PyPI",
               "url": "https://pypi.org/project/agnitra/"
+            },
+            {
+              "label": "Reproduce the CPU profiling example",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py"
+            },
+            {
+              "label": "Inspect the recorded model shapes (JSON)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json"
             }
           ]
-        },
-        {
-          "id": 78,
-          "title": "InQuest Project Binder RAG QA",
-          "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
-          "markdownUrl": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
-          "summary": "Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.",
-          "kind": "case-study",
-          "tags": [
-            "ai",
-            "rag",
-            "project-context",
-            "qa",
-            "vector-storage",
-            "site-planning"
-          ],
-          "aliases": [
-            "INQI Quest",
-            "InQuest operation logic",
-            "project binder agent",
-            "site plan RAG",
-            "binder vector storage"
-          ],
-          "techStack": [
-            "RAG",
-            "Vector Stores",
-            "OpenAI APIs",
-            "Project Context",
-            "Binder Workflows",
-            "PDF Generation",
-            "S3",
-            "QA Matrix",
-            "Web Search"
-          ],
-          "benchmarks": [],
-          "links": []
         }
       ]
     },
@@ -770,46 +886,6 @@
           "links": []
         },
         {
-          "id": 81,
-          "title": "Agnitra - ML Profiling & Optimization",
-          "url": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
-          "markdownUrl": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md",
-          "summary": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
-          "kind": "open-source",
-          "tags": [
-            "open-source",
-            "ai-systems",
-            "llm-inference",
-            "mlops",
-            "optimization"
-          ],
-          "aliases": [
-            "agnitra",
-            "agnitra ai",
-            "agnitra labs",
-            "model profiling",
-            "inference optimization",
-            "decoder-only llm optimizer"
-          ],
-          "techStack": [
-            "Python",
-            "PyTorch",
-            "Transformers",
-            "torchao",
-            "Hugging Face",
-            "LangChain",
-            "LlamaIndex",
-            "MLOps"
-          ],
-          "benchmarks": [],
-          "links": [
-            {
-              "label": "Install from PyPI",
-              "url": "https://pypi.org/project/agnitra/"
-            }
-          ]
-        },
-        {
           "id": 70,
           "title": "Fast OCR ONNX Inference Server",
           "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
@@ -863,7 +939,7 @@
             "FastAPI",
             "Qdrant",
             "Postgres",
-            "CLIP",
+            "Visual Embeddings",
             "OCR",
             "ASR",
             "Hybrid Search",
@@ -871,6 +947,54 @@
           ],
           "benchmarks": [],
           "links": []
+        },
+        {
+          "id": 81,
+          "title": "Agnitra - ML Profiling & Optimization",
+          "url": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md",
+          "summary": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
+          "kind": "open-source",
+          "tags": [
+            "open-source",
+            "ai-systems",
+            "llm-inference",
+            "mlops",
+            "optimization"
+          ],
+          "aliases": [
+            "agnitra",
+            "agnitra ai",
+            "agnitra labs",
+            "model profiling",
+            "inference optimization",
+            "decoder-only llm optimizer"
+          ],
+          "techStack": [
+            "Python",
+            "PyTorch",
+            "Transformers",
+            "torchao",
+            "Hugging Face",
+            "LangChain",
+            "LlamaIndex",
+            "MLOps"
+          ],
+          "benchmarks": [],
+          "links": [
+            {
+              "label": "Install from PyPI",
+              "url": "https://pypi.org/project/agnitra/"
+            },
+            {
+              "label": "Reproduce the CPU profiling example",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py"
+            },
+            {
+              "label": "Inspect the recorded model shapes (JSON)",
+              "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json"
+            }
+          ]
         }
       ]
     }
@@ -881,7 +1005,7 @@
       "title": "Riverstart Document AI",
       "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
-      "summary": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
+      "summary": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
       "kind": "research",
       "tags": [
         "ai-systems",
@@ -972,6 +1096,14 @@
         {
           "label": "Install from PyPI",
           "url": "https://pypi.org/project/agnitra/"
+        },
+        {
+          "label": "Reproduce the CPU profiling example",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py"
+        },
+        {
+          "label": "Inspect the recorded model shapes (JSON)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json"
         }
       ]
     },
@@ -1016,7 +1148,7 @@
       "title": "Engineering Drawing & CAD Analysis",
       "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-      "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
+      "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
       "kind": "research",
       "tags": [
         "computer-vision",
@@ -1032,12 +1164,26 @@
         "build123d",
         "NumPy",
         "SciPy",
+        "IfcOpenShell",
+        "ezdxf",
         "Geometry Processing"
       ],
       "benchmarks": [],
       "links": [
         {
-          "label": "Inspect projection SVG",
+          "label": "Inspect the generated room floor plan (SVG)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
+        },
+        {
+          "label": "Inspect the inferred room geometry (JSON)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
+        },
+        {
+          "label": "Download the synthetic point-cloud input (XYZ)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
+        },
+        {
+          "label": "Inspect the mechanical fixture projections (SVG)",
           "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
         }
       ]
@@ -1066,7 +1212,7 @@
         "FastAPI",
         "Qdrant",
         "Postgres",
-        "CLIP",
+        "Visual Embeddings",
         "OCR",
         "ASR",
         "Hybrid Search",
@@ -1077,6 +1223,103 @@
     }
   ],
   "allProjects": [
+    {
+      "id": 101,
+      "title": "Riverstart Document AI",
+      "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
+      "summary": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
+      "kind": "research",
+      "tags": [
+        "ai-systems",
+        "document-ai",
+        "rag",
+        "research"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "LangGraph",
+        "LangChain",
+        "Pydantic",
+        "Qdrant",
+        "Neo4j",
+        "Local LLMs",
+        "FastAPI"
+      ],
+      "benchmarks": [],
+      "links": []
+    },
+    {
+      "id": 102,
+      "title": "Engineering Drawing & CAD Analysis",
+      "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
+      "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "ai-systems",
+        "engineering",
+        "research"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "Open Cascade",
+        "CadQuery",
+        "build123d",
+        "NumPy",
+        "SciPy",
+        "IfcOpenShell",
+        "ezdxf",
+        "Geometry Processing"
+      ],
+      "benchmarks": [],
+      "links": [
+        {
+          "label": "Inspect the generated room floor plan (SVG)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
+        },
+        {
+          "label": "Inspect the inferred room geometry (JSON)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
+        },
+        {
+          "label": "Download the synthetic point-cloud input (XYZ)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
+        },
+        {
+          "label": "Inspect the mechanical fixture projections (SVG)",
+          "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "title": "Construction Document Intelligence",
+      "url": "https://zack-dev-cm.github.io/projects/construction-document-intelligence/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/construction-document-intelligence.md",
+      "summary": "Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "ai-systems",
+        "document-ai",
+        "research"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "Document AI",
+        "OCR",
+        "Vision-language models",
+        "Structured Outputs",
+        "Evaluation"
+      ],
+      "benchmarks": [],
+      "links": []
+    },
     {
       "id": 104,
       "title": "LigninQC - Reproducible Scientific Research Workflows",
@@ -1107,86 +1350,2012 @@
       "links": []
     },
     {
-      "id": 101,
-      "title": "Riverstart Document AI",
-      "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
-      "summary": "On-premise document AI that helps specialists retrieve case information, reconcile structured data and review source-linked results.",
-      "kind": "research",
+      "id": 80,
+      "title": "ClearML Experiment Tracking for Dermaself",
+      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
+      "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
+      "kind": "case-study",
       "tags": [
-        "ai-systems",
-        "document-ai",
-        "rag",
-        "research"
+        "computer-vision",
+        "mlops",
+        "experiment-tracking",
+        "clearml",
+        "health-ai"
+      ],
+      "aliases": [
+        "clearml dermaself",
+        "dermaself mlops",
+        "skin analysis experiment tracking",
+        "clear ml"
+      ],
+      "techStack": [
+        "ClearML",
+        "Python",
+        "PyTorch",
+        "ONNX",
+        "TFLite",
+        "Flutter",
+        "Computer Vision",
+        "MLOps",
+        "Experiment Tracking"
+      ],
+      "benchmarks": [
+        {
+          "label": "Tracking stack",
+          "value": "ClearML",
+          "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
+        },
+        {
+          "label": "Tracked surfaces",
+          "value": "5",
+          "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs"
+        },
+        {
+          "label": "Promotion boundary",
+          "value": "review-gated",
+          "context": "debug experiments stay separate from release-ready mobile/server claims"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 1260969567,
+      "title": "Unitree G1 Colab Ik",
+      "url": "https://zack-dev-cm.github.io/projects/unitree-g1-colab-ik/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/unitree-g1-colab-ik.md",
+      "summary": "Colab GPU batched inverse-kinematics benchmark for Unitree G1 arm teleoperation",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
       ],
       "aliases": [],
       "techStack": [
         "Python",
-        "LangGraph",
-        "LangChain",
-        "Pydantic",
-        "Qdrant",
-        "Neo4j",
-        "Local LLMs",
-        "FastAPI"
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-06-06",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-06-06",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/unitree-g1-colab-ik"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "title": "Jaw and Face-Type Classifier for Aesthetic Review",
+      "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
+      "summary": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "classification",
+        "beautytech",
+        "health-ai",
+        "face-analysis"
+      ],
+      "aliases": [
+        "jaw classifier",
+        "face type classifier",
+        "plastic surgery review",
+        "beauty examination classifier",
+        "aesthetic face analysis"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "OpenCV",
+        "Computer Vision",
+        "Facial Landmarks",
+        "Classification",
+        "K-fold Validation",
+        "Visual QA"
+      ],
+      "benchmarks": [
+        {
+          "label": "Review deck",
+          "value": "v0.12.7",
+          "context": "Jaw / Face-type analyser project deck checked 2026-06-04"
+        },
+        {
+          "label": "Experiment pattern",
+          "value": "k-fold",
+          "context": "classifier experiment folder review, 2026-06-04"
+        },
+        {
+          "label": "Reviewed references",
+          "value": "5+",
+          "context": "jaw-class workspaces, jaw database, analyzer deck, labels, and experiment folders"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "no raw patient images, private labels, or model weights published"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 77,
+      "title": "Architectural Drawing and Interior Catalog Matching",
+      "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+      "summary": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "architecture",
+        "ocr",
+        "catalog-matching",
+        "interior-ai",
+        "retrieval"
+      ],
+      "aliases": [
+        "architectural drawings recognition",
+        "floor plan recognition",
+        "room plan recognition",
+        "interior catalog matching",
+        "casework catalog matching",
+        "commercial reception catalog preview",
+        "school reception design configuration",
+        "utility building interior planning",
+        "whole building interior planning",
+        "blueprint symbol detection"
+      ],
+      "techStack": [
+        "Python",
+        "OpenCV",
+        "OCR",
+        "PDF Processing",
+        "LLM/Vision Parsing",
+        "Catalog Indexing",
+        "OpenEvolve",
+        "BOM Export",
+        "3D/CV",
+        "Visual QA"
+      ],
+      "benchmarks": [
+        {
+          "label": "Input families",
+          "value": "3",
+          "context": "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04"
+        },
+        {
+          "label": "Catalog flow",
+          "value": "callouts -> items",
+          "context": "visible drawing codes mapped to catalog records, evidence notes, and candidate pools"
+        },
+        {
+          "label": "Output artifacts",
+          "value": "5",
+          "context": "room graph, catalog mapping, layout preview, render, and BOM/rationale export"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 78,
+      "title": "InQuest Project Binder RAG QA",
+      "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
+      "summary": "Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.",
+      "kind": "case-study",
+      "tags": [
+        "ai",
+        "rag",
+        "project-context",
+        "qa",
+        "vector-storage",
+        "site-planning"
+      ],
+      "aliases": [
+        "INQI Quest",
+        "InQuest operation logic",
+        "project binder agent",
+        "site plan RAG",
+        "binder vector storage"
+      ],
+      "techStack": [
+        "RAG",
+        "Vector Stores",
+        "OpenAI APIs",
+        "Project Context",
+        "Binder Workflows",
+        "PDF Generation",
+        "S3",
+        "QA Matrix",
+        "Web Search"
       ],
       "benchmarks": [],
       "links": []
     },
     {
-      "id": 102,
-      "title": "Engineering Drawing & CAD Analysis",
-      "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-      "summary": "Research workflows for CAD projection, drawing comparison and scan-to-reference evaluation, with inspectable engineering artifacts.",
+      "id": 79,
+      "title": "ComfyUI and Colab Generative Prototype Lab",
+      "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
+      "summary": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
       "kind": "research",
       "tags": [
+        "generative-ai",
+        "colab",
+        "notebooks",
         "computer-vision",
-        "ai-systems",
-        "engineering",
-        "research"
+        "custom-models",
+        "automation"
       ],
-      "aliases": [],
+      "aliases": [
+        "ComfyUI prototype lab",
+        "colab prototype archive",
+        "custom models lab",
+        "research paper implementation snippets",
+        "generative media factory",
+        "advanced notebook prototypes"
+      ],
       "techStack": [
+        "Google Colab",
+        "ComfyUI",
         "Python",
-        "Open Cascade",
-        "CadQuery",
-        "build123d",
-        "NumPy",
-        "SciPy",
-        "Geometry Processing"
+        "PyTorch",
+        "MMOCR",
+        "PaddleOCR",
+        "LangChain",
+        "Pinecone",
+        "MoviePy",
+        "FFmpeg",
+        "LivePortrait",
+        "WebSocket"
       ],
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "label": "Prototype lanes",
+          "value": "6",
+          "context": "ComfyUI, LivePortrait, OCR/PDF, retrieval QA, model fine-tuning, media assembly"
+        },
+        {
+          "label": "Source posture",
+          "value": "public links only",
+          "context": "private source and Colab URLs excluded from published portfolio files"
+        },
+        {
+          "label": "Notebook posture",
+          "value": "prototype",
+          "context": "research and implementation snippets, not presented as maintained production services"
+        },
+        {
+          "label": "Review date",
+          "value": "2026-06-04",
+          "context": "private-source and local portfolio review for missing notebook/prototype work"
+        }
+      ],
       "links": [
         {
-          "label": "Inspect projection SVG",
-          "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
+          "label": "Digits recognition MMOCR",
+          "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
+        },
+        {
+          "label": "Voice and lip sync Colab app",
+          "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
+        },
+        {
+          "label": "Text to cartoon CLIP",
+          "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
         }
       ]
     },
     {
-      "id": 103,
-      "title": "Construction Document Intelligence",
-      "url": "https://zack-dev-cm.github.io/projects/construction-document-intelligence/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/construction-document-intelligence.md",
-      "summary": "Multi-document plan analysis that links extracted quantities to source pages and keeps specialist decisions attached to the result.",
-      "kind": "research",
+      "id": 75,
+      "title": "Research Claim Ledger",
+      "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
+      "summary": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
+      "kind": "case-study",
       "tags": [
-        "computer-vision",
-        "ai-systems",
-        "document-ai",
-        "research"
+        "research",
+        "ai",
+        "release-engineering",
+        "openclaw"
+      ],
+      "aliases": [
+        "research claim audit",
+        "claim ledger skill",
+        "academic source receipt"
+      ],
+      "techStack": [
+        "ClawHub",
+        "Codex Skills",
+        "Research QA",
+        "Citation Review",
+        "Markdown",
+        "Release Engineering"
+      ],
+      "benchmarks": [
+        {
+          "label": "ClawHub downloads",
+          "value": "198",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Published versions",
+          "value": "1",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Verdict labels",
+          "value": "9",
+          "context": "supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review"
+        },
+        {
+          "label": "Release posture",
+          "value": "instruction-only",
+          "context": "SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow"
+        }
+      ],
+      "links": [
+        {
+          "label": "Open on ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/research-claim-ledger"
+        },
+        {
+          "label": "Reference academic-research-skills",
+          "url": "https://github.com/Imbad0202/academic-research-skills"
+        },
+        {
+          "label": "Reference academic-research-skills-codex",
+          "url": "https://github.com/Imbad0202/academic-research-skills-codex"
+        }
+      ]
+    },
+    {
+      "id": 1244370879,
+      "title": "Tutorial To Skill Free Pack",
+      "url": "https://zack-dev-cm.github.io/projects/tutorial-to-skill-free-pack/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/tutorial-to-skill-free-pack.md",
+      "summary": "Free OpenClaw/Codex tutorial-to-skill validation pack with source notes and smoke-test receipts",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "affiliate-marketing",
+        "agent-skills",
+        "ai-video",
+        "claude-skills",
+        "codex",
+        "openclaw",
+        "skill-pack"
+      ],
+      "aliases": [],
+      "techStack": [
+        "TypeScript",
+        "Affiliate Marketing",
+        "Agent Skills",
+        "AI Video",
+        "Claude Skills",
+        "Codex",
+        "OpenClaw",
+        "Skill Pack"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-20",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-21",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/tutorial-to-skill-free-pack"
+        }
+      ]
+    },
+    {
+      "id": 1239848703,
+      "title": "Open Feed Recsys Lab",
+      "url": "https://zack-dev-cm.github.io/projects/open-feed-recsys-lab/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/open-feed-recsys-lab.md",
+      "summary": "Commit-pinned reproducibility reports for open feed recommendation repos",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
       ],
       "aliases": [],
       "techStack": [
         "Python",
-        "Document AI",
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "558",
+          "context": "public ClawHub listing, 2026-08-06"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "5",
+          "context": "public ClawHub listing, 2026-08-06"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/open-feed-recsys-lab"
+        },
+        {
+          "label": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "title": "GitHub + ClawHub Launcher",
+      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
+      "summary": "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
+      "kind": "case-study",
+      "tags": [],
+      "aliases": [],
+      "techStack": [
+        "ClawHub",
+        "GitHub CLI",
+        "Python",
+        "Release Engineering",
+        "OpenClaw Skills"
+      ],
+      "benchmarks": [
+        {
+          "label": "ClawHub downloads",
+          "value": "646",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Published versions",
+          "value": "9",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Public release",
+          "value": "v1.0.7",
+          "context": "GitHub release, 2026-05-14"
+        },
+        {
+          "label": "Bundled scripts",
+          "value": "4",
+          "context": "manifest, check, notes, commands"
+        },
+        {
+          "label": "Publish surfaces",
+          "value": "2",
+          "context": "GitHub repo + ClawHub package"
+        },
+        {
+          "label": "Validation posture",
+          "value": "release-checked",
+          "context": "launcher check + publish-guard audit"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher"
+        },
+        {
+          "label": "Open on ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher"
+        },
+        {
+          "label": "Release v1.0.7",
+          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7"
+        }
+      ]
+    },
+    {
+      "id": 1239596343,
+      "title": "ClawHub Published Skills",
+      "url": "https://zack-dev-cm.github.io/projects/clawhub-published-skills/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/clawhub-published-skills.md",
+      "summary": "Curated source bundle for ClawHub-published skills",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
+      ],
+      "aliases": [],
+      "techStack": [
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/clawhub-published-skills"
+        }
+      ]
+    },
+    {
+      "id": 1238345725,
+      "title": "Interactive Doc Mapper",
+      "url": "https://zack-dev-cm.github.io/projects/interactive-doc-mapper/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/interactive-doc-mapper.md",
+      "summary": "Create clickable JSON-driven HTML documentation for app workflows between packages and components.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "architecture",
+        "clawhub",
+        "codex",
+        "documentation",
+        "grok"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "Architecture",
+        "ClawHub",
+        "Codex",
+        "Documentation",
+        "Grok",
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-14",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "506",
+          "context": "public ClawHub listing, 2026-08-06"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "2",
+          "context": "public ClawHub listing, 2026-08-06"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/interactive-doc-mapper"
+        },
+        {
+          "label": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper"
+        }
+      ]
+    },
+    {
+      "id": 1238345904,
+      "title": "Codex ClawHub Skill Pack",
+      "url": "https://zack-dev-cm.github.io/projects/codex-clawhub-skill-pack/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/codex-clawhub-skill-pack.md",
+      "summary": "Public ClawHub skills for routing, delivery lifecycle, and high-risk review.",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-14",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/codex-clawhub-skill-pack"
+        }
+      ]
+    },
+    {
+      "id": 1239777240,
+      "title": "Affiliate Video Skill Pack",
+      "url": "https://zack-dev-cm.github.io/projects/affiliate-video-skill-pack/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/affiliate-video-skill-pack.md",
+      "summary": "Original skill for compliant AI affiliate-video campaign review across Claude.",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/affiliate-video-skill-pack"
+        }
+      ]
+    },
+    {
+      "id": 1239766603,
+      "title": "Agentic Video Production Receipt",
+      "url": "https://zack-dev-cm.github.io/projects/agentic-video-production-receipt/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/agentic-video-production-receipt.md",
+      "summary": "MV3 Chrome extension prototype for the Agentic Video Production Publisher",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
+      ],
+      "aliases": [],
+      "techStack": [
+        "JavaScript",
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-video-production-receipt"
+        }
+      ]
+    },
+    {
+      "id": 1239706151,
+      "title": "Agentic Video Production Skill",
+      "url": "https://zack-dev-cm.github.io/projects/agentic-video-production-skill/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/agentic-video-production-skill.md",
+      "summary": "Run consistent-character AI video production through OpenClaw publisher handoff.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "ai-video",
+        "clawhub",
+        "codex-skills",
+        "openclaw",
+        "tiktok",
+        "youtube"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Python",
+        "AI Video",
+        "ClawHub",
+        "Codex Skills",
+        "OpenClaw",
+        "Tiktok",
+        "Youtube",
+        "GitHub"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-08-06"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-05-15",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-video-production-skill"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "title": "Fast OCR ONNX Inference Server",
+      "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
+      "summary": "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "ocr",
+        "api",
+        "mlops"
+      ],
+      "aliases": [
+        "fast ocr",
+        "onnx ocr api",
+        "three-stage ocr"
+      ],
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "ONNX Runtime",
+        "CRNN",
         "OCR",
-        "Vision-language models",
-        "Structured Outputs",
-        "Evaluation"
+        "Docker",
+        "Cloud Run"
       ],
       "benchmarks": [],
+      "links": []
+    },
+    {
+      "id": 71,
+      "title": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
+      "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
+      "summary": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "segmentation",
+        "deep-learning",
+        "health-ai"
+      ],
+      "aliases": [
+        "wrinkle segmentation lab",
+        "skin texture segmentation",
+        "cosmetic face analysis"
+      ],
+      "techStack": [
+        "Python",
+        "YOLO",
+        "MediaPipe",
+        "OpenCV",
+        "ONNX",
+        "Segmentation",
+        "Visual QA"
+      ],
+      "benchmarks": [
+        {
+          "label": "Face regions",
+          "value": "9",
+          "context": "forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck"
+        },
+        {
+          "label": "Artifact families",
+          "value": "6",
+          "context": "overlays, masks, skeletons, CSV, events, QA panels"
+        },
+        {
+          "label": "Gate posture",
+          "value": "advisory",
+          "context": "review signal, not automatic deployment claim"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 72,
+      "title": "Multimodal Video Search Platform",
+      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
+      "summary": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "ai",
+        "search",
+        "video",
+        "mlops"
+      ],
+      "aliases": [
+        "SVS4 search",
+        "video neural search",
+        "hybrid media search"
+      ],
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "Qdrant",
+        "Postgres",
+        "Visual Embeddings",
+        "OCR",
+        "ASR",
+        "Hybrid Search",
+        "Celery"
+      ],
+      "benchmarks": [],
+      "links": []
+    },
+    {
+      "id": 73,
+      "title": "Public CV and Deep Learning GitHub Archive",
+      "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
+      "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "deep-learning",
+        "ocr",
+        "mobile",
+        "github"
+      ],
+      "aliases": [
+        "public cv dl archive",
+        "github computer vision archive",
+        "older cv research repos"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "TensorFlow",
+        "YOLO",
+        "EfficientNet",
+        "OCR",
+        "ML Kit",
+        "TFLite",
+        "OpenCV",
+        "Android",
+        "Flutter"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub accounts reviewed",
+          "value": "2",
+          "context": "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14"
+        },
+        {
+          "label": "Public CV/DL repos sampled",
+          "value": "18+",
+          "context": "authored or project-specific public repositories, forks excluded from authored-count metrics"
+        },
+        {
+          "label": "Top public repo",
+          "value": "14 stars / 6 forks",
+          "context": "YOLOv3-EfficientNet-EffYolo API snapshot"
+        },
+        {
+          "label": "Source posture",
+          "value": "public-only",
+          "context": "public GitHub repos and generated case studies only"
+        }
+      ],
+      "links": [
+        {
+          "label": "YOLOv3 EfficientNet EffYolo",
+          "url": "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo"
+        },
+        {
+          "label": "shiftlab OCR",
+          "url": "https://github.com/ZackPashkin/shiftlab_ocr"
+        },
+        {
+          "label": "Cyrillic handwriting dataset",
+          "url": "https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset"
+        },
+        {
+          "label": "ML Kit face contours Android",
+          "url": "https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android"
+        },
+        {
+          "label": "TFLite glasses classifier",
+          "url": "https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite"
+        },
+        {
+          "label": "Flutter OpenCV image processing",
+          "url": "https://github.com/zack-dev-cm/cm_cpp_flutter_opencv"
+        },
+        {
+          "label": "CV Repro Lab skill",
+          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "title": "Colab CV/DL Prototype Archive",
+      "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
+      "summary": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
+      "kind": "research",
+      "tags": [
+        "computer-vision",
+        "deep-learning",
+        "colab",
+        "notebooks",
+        "generative-ai"
+      ],
+      "aliases": [
+        "colab notebooks archive",
+        "cv dl prototype archive",
+        "vision notebook prototypes"
+      ],
+      "techStack": [
+        "Jupyter Notebook",
+        "Google Colab",
+        "PyTorch",
+        "TensorFlow",
+        "Swin Transformer",
+        "CvT",
+        "CLIP",
+        "MMOCR",
+        "OpenCV",
+        "CameraX"
+      ],
+      "benchmarks": [
+        {
+          "label": "Public prototype links",
+          "value": "8",
+          "context": "GitHub API and repo URL review, 2026-05-14"
+        },
+        {
+          "label": "Research families",
+          "value": "5",
+          "context": "classification, OCR, mobile capture, video retrieval, generative media"
+        },
+        {
+          "label": "Notebook posture",
+          "value": "prototype",
+          "context": "not presented as live service or production accuracy claim"
+        },
+        {
+          "label": "Source links",
+          "value": "public-only",
+          "context": "GitHub repos and generated case studies only"
+        }
+      ],
+      "links": [
+        {
+          "label": "Swin transformer starter",
+          "url": "https://github.com/ZackPashkin/swin-transformer-pytorch-starter"
+        },
+        {
+          "label": "CvT convolutional transformer starter",
+          "url": "https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch"
+        },
+        {
+          "label": "Digits recognition MMOCR",
+          "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
+        },
+        {
+          "label": "Android document scan",
+          "url": "https://github.com/ZackPashkin/DocumentsScan"
+        },
+        {
+          "label": "Search through videos",
+          "url": "https://github.com/ZackPashkin/search-through-videos"
+        },
+        {
+          "label": "Voice and lip sync Colab app",
+          "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
+        },
+        {
+          "label": "Text to cartoon CLIP",
+          "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
+        },
+        {
+          "label": "Sticker maker with CLIP",
+          "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "title": "SourcePack Chrome Extension Wave",
+      "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
+      "summary": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
+      "kind": "user-product",
+      "tags": [
+        "browser-extension",
+        "web",
+        "automation",
+        "release-engineering"
+      ],
+      "aliases": [
+        "sourcepack suite",
+        "web2csv",
+        "video2source",
+        "sourcepack hub",
+        "chatarchive",
+        "browser run receipt",
+        "support packet"
+      ],
+      "techStack": [
+        "Chrome Extension",
+        "Manifest V3",
+        "React",
+        "TypeScript",
+        "SourcePack",
+        "Playwright",
+        "Chrome Web Store"
+      ],
+      "benchmarks": [
+        {
+          "label": "Current public publisher listings",
+          "value": "18",
+          "context": "Chrome Web Store detail pages and live developer dashboard, 2026-06-15"
+        },
+        {
+          "label": "Current publisher users",
+          "value": "253",
+          "context": "Chrome Web Store detail pages and dashboard proof across 15 displayed rows, 2026-06-15"
+        },
+        {
+          "label": "Average rating",
+          "value": "5.00",
+          "context": "4 reported Chrome Web Store ratings, 2026-06-15"
+        },
+        {
+          "label": "Visible SourcePack products",
+          "value": "4",
+          "context": "Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-15"
+        }
+      ],
+      "links": [
+        {
+          "label": "SourcePack product pages",
+          "url": "https://sourcepack-tools.pages.dev/"
+        },
+        {
+          "label": "Chrome Web Store publisher",
+          "url": "https://chromewebstore.google.com/search/kaisenaiko"
+        },
+        {
+          "label": "Web2CSV CWS",
+          "url": "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc"
+        },
+        {
+          "label": "Video2Source CWS",
+          "url": "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh"
+        },
+        {
+          "label": "SourcePack Hub CWS",
+          "url": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao"
+        },
+        {
+          "label": "ChatArchive CWS",
+          "url": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "title": "Trusted ClawHub Install Gate",
+      "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
+      "summary": "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
+      "kind": "case-study",
+      "tags": [
+        "security",
+        "automation",
+        "release-engineering"
+      ],
+      "aliases": [
+        "trusted clawhub gate",
+        "clawhub install gate",
+        "openclaw skill installer review"
+      ],
+      "techStack": [
+        "Python",
+        "CLI",
+        "OpenClaw",
+        "ClawHub",
+        "Security Review",
+        "Receipt Verification"
+      ],
+      "benchmarks": [
+        {
+          "label": "Verdict states",
+          "value": "3",
+          "context": "PASS, REVIEW, BLOCK in project contract"
+        },
+        {
+          "label": "Default unsafe install policy",
+          "value": "deny",
+          "context": "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review"
+        },
+        {
+          "label": "Verification model",
+          "value": "receipt-aware",
+          "context": "installed hash and approved verdict must match receipt"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 81,
+      "title": "Agnitra - ML Profiling & Optimization",
+      "url": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md",
+      "summary": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "ai-systems",
+        "llm-inference",
+        "mlops",
+        "optimization"
+      ],
+      "aliases": [
+        "agnitra",
+        "agnitra ai",
+        "agnitra labs",
+        "model profiling",
+        "inference optimization",
+        "decoder-only llm optimizer"
+      ],
+      "techStack": [
+        "Python",
+        "PyTorch",
+        "Transformers",
+        "torchao",
+        "Hugging Face",
+        "LangChain",
+        "LlamaIndex",
+        "MLOps"
+      ],
+      "benchmarks": [],
+      "links": [
+        {
+          "label": "Install from PyPI",
+          "url": "https://pypi.org/project/agnitra/"
+        },
+        {
+          "label": "Reproduce the CPU profiling example",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py"
+        },
+        {
+          "label": "Inspect the recorded model shapes (JSON)",
+          "url": "https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "title": "Dermaself Flutter Skin Analysis App",
+      "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
+      "summary": "Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.",
+      "kind": "case-study",
+      "tags": [
+        "mobile",
+        "computer-vision",
+        "health-ai",
+        "case-study"
+      ],
+      "aliases": [
+        "dermaself mobile app",
+        "flutter skin analysis",
+        "mobile skin analysis app"
+      ],
+      "techStack": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Riverpod",
+        "GoRouter",
+        "ONNX",
+        "Mobile CV",
+        "iOS",
+        "Android"
+      ],
+      "benchmarks": [],
+      "links": []
+    },
+    {
+      "id": 60,
+      "title": "Telegram Mini App Security Auditor",
+      "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
+      "summary": "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "automation",
+        "security",
+        "mini-app-security"
+      ],
+      "aliases": [
+        "tma security auditor",
+        "telegram launch gate",
+        "telegram mini app audit"
+      ],
+      "techStack": [
+        "Python",
+        "Static Analysis",
+        "Telegram Mini Apps",
+        "Security Review",
+        "Markdown Reports",
+        "Codex Skills"
+      ],
+      "benchmarks": [
+        {
+          "label": "Decision states",
+          "value": "3",
+          "context": "PASS, REVIEW, BLOCK"
+        },
+        {
+          "label": "Report formats",
+          "value": "2",
+          "context": "JSON + Markdown"
+        },
+        {
+          "label": "Audit families",
+          "value": "9",
+          "context": "initData, tokens, admin, CORS, HTML, frames, PII, health, Bot API dry-run"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/telegram-miniapp-security-auditor"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "title": "Agentic Codex Dev Skill",
+      "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
+      "summary": "Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "automation",
+        "codex",
+        "release-engineering"
+      ],
+      "aliases": [
+        "agentic codex skill",
+        "codex development skill",
+        "openclaw development loop"
+      ],
+      "techStack": [
+        "Codex Skills",
+        "OpenClaw",
+        "Release Engineering",
+        "GitHub",
+        "Markdown",
+        "Agent Workflows"
+      ],
+      "benchmarks": [
+        {
+          "label": "Runtime scripts",
+          "value": "0",
+          "context": "instruction-only public skill"
+        },
+        {
+          "label": "Reference docs",
+          "value": "5",
+          "context": "source review, comparison, system design, eval run, publish checklist"
+        },
+        {
+          "label": "Release gates",
+          "value": "2",
+          "context": "leak review and publish checklist"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/agentic-codex-dev-skill"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "title": "Session Rescue",
+      "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
+      "summary": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
+      "kind": "user-product",
+      "tags": [
+        "browser-extension",
+        "web",
+        "open-source"
+      ],
+      "aliases": [
+        "session rescue extension",
+        "tab restore",
+        "browser session backup"
+      ],
+      "techStack": [
+        "Chrome Extension",
+        "JavaScript",
+        "IndexedDB",
+        "Playwright",
+        "Chrome Web Store",
+        "Local-first UX"
+      ],
+      "benchmarks": [
+        {
+          "label": "Chrome Web Store version",
+          "value": "0.1.4",
+          "context": "public listing updated 2026-04-29"
+        },
+        {
+          "label": "Storage model",
+          "value": "local-only",
+          "context": "no backend, account, analytics, ads, or remote code"
+        },
+        {
+          "label": "Verification stack",
+          "value": "unit + manifest + CWS + E2E",
+          "context": "repo-local verification command"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on Chrome Web Store",
+          "url": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf"
+        },
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/session-rescue"
+        },
+        {
+          "label": "Product site",
+          "url": "https://session-rescue.pages.dev/"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "title": "Random Coffee Best Fit Outreach",
+      "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
+      "summary": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "automation",
+        "social"
+      ],
+      "aliases": [
+        "random coffee matcher",
+        "best fit outreach",
+        "coffee chat matching"
+      ],
+      "techStack": [
+        "OpenClaw",
+        "Codex Skills",
+        "Matching",
+        "LinkedIn",
+        "Discord",
+        "Markdown Reports"
+      ],
+      "benchmarks": [
+        {
+          "label": "Outreach channels",
+          "value": "2",
+          "context": "LinkedIn or Discord draft packets"
+        },
+        {
+          "label": "Consent model",
+          "value": "double opt-in",
+          "context": "reviewed introductions only"
+        },
+        {
+          "label": "Automation boundary",
+          "value": "no auto-send",
+          "context": "public safety contract"
+        },
+        {
+          "label": "Public release",
+          "value": "repo live",
+          "context": "GitHub public repo, 2026-04-24"
+        },
+        {
+          "label": "Review artifacts",
+          "value": "rank + draft + log",
+          "context": "matching decision packet"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/random-coffee-best-fit-outreach"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "title": "OpenClaw Chinese Laoshi Ops",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
+      "summary": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "automation",
+        "education"
+      ],
+      "aliases": [
+        "chinese laoshi",
+        "openclaw chinese tutor",
+        "lesson ops skill"
+      ],
+      "techStack": [
+        "OpenClaw",
+        "ClawHub",
+        "Google Drive",
+        "Language Learning",
+        "Markdown",
+        "Release Engineering"
+      ],
+      "benchmarks": [
+        {
+          "label": "ClawHub downloads",
+          "value": "480",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Published versions",
+          "value": "7",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "ClawHub stars",
+          "value": "1",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Clean release",
+          "value": "1.0.9",
+          "context": "public README release marker"
+        },
+        {
+          "label": "Public posture",
+          "value": "sanitized",
+          "context": "lesson operations without private student data"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/openclaw-agent-chinese-laoshi"
+        },
+        {
+          "label": "Open on ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "title": "LocalArchive",
+      "url": "https://zack-dev-cm.github.io/projects/localarchive/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
+      "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
+      "kind": "user-product",
+      "tags": [
+        "browser-extension",
+        "web",
+        "open-source"
+      ],
+      "aliases": [
+        "local archive",
+        "pocket alternative",
+        "read it later extension"
+      ],
+      "techStack": [
+        "Chrome Extension",
+        "JavaScript",
+        "Local-first Storage",
+        "Readability",
+        "Markdown Export",
+        "Chrome Web Store"
+      ],
+      "benchmarks": [
+        {
+          "label": "Public Chrome Web Store users",
+          "value": "2",
+          "context": "Chrome Web Store detail page, 2026-06-05"
+        },
+        {
+          "label": "Chrome Web Store version",
+          "value": "0.1.1",
+          "context": "public listing updated 2026-04-23"
+        },
+        {
+          "label": "Export formats",
+          "value": "3",
+          "context": "Markdown, HTML, JSON"
+        },
+        {
+          "label": "Import path",
+          "value": "Pocket",
+          "context": "local migration workflow"
+        },
+        {
+          "label": "Privacy posture",
+          "value": "local-first",
+          "context": "page content stays in the extension archive"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on Chrome Web Store",
+          "url": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo"
+        },
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/localarchive"
+        },
+        {
+          "label": "Release v0.1.0",
+          "url": "https://github.com/zack-dev-cm/localarchive/releases/tag/v0.1.0"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "title": "Chrome Extension Studio Plugin",
+      "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
+      "summary": "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
+      "kind": "case-study",
+      "tags": [
+        "automation",
+        "browser-extension",
+        "release-engineering",
+        "codex"
+      ],
+      "aliases": [
+        "extension studio plugin",
+        "chrome extension release studio",
+        "cws product repo generator"
+      ],
+      "techStack": [
+        "Codex Plugin",
+        "Python",
+        "Chrome Extensions",
+        "Manifest V3",
+        "Chrome Web Store",
+        "Release Engineering"
+      ],
+      "benchmarks": [
+        {
+          "label": "Publish types",
+          "value": "4",
+          "context": "prototype-local, beta-private, cws-public, source-release"
+        },
+        {
+          "label": "Release scripts",
+          "value": "6",
+          "context": "create, design brief, store listing, release plan, release cycle, profile validation"
+        },
+        {
+          "label": "Source review date",
+          "value": "2026-04-18",
+          "context": "project source review"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 65,
+      "title": "Google Drive File Provider Repair Toolkit",
+      "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
+      "summary": "macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.",
+      "kind": "case-study",
+      "tags": [
+        "automation",
+        "macos",
+        "ops-tooling",
+        "local-first"
+      ],
+      "aliases": [
+        "google drive repair",
+        "mac file provider repair",
+        "drive file provider diagnostics"
+      ],
+      "techStack": [
+        "macOS",
+        "Shell",
+        "File Provider",
+        "Google Drive",
+        "Diagnostics",
+        "Local-first Tooling"
+      ],
+      "benchmarks": [
+        {
+          "label": "Command families",
+          "value": "6",
+          "context": "diagnose, repair, collect logs, inspect recovery, inspect sync, wait sync"
+        },
+        {
+          "label": "Destructive data actions",
+          "value": "0",
+          "context": "0 cache, CloudStorage, account, or user-data deletion paths in reviewed repair flow, 2026-04-17"
+        },
+        {
+          "label": "Source review date",
+          "value": "2026-04-17",
+          "context": "project source review"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 56,
+      "title": "LocalLens Private AI Summaries",
+      "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
+      "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
+      "kind": "user-product",
+      "tags": [
+        "browser-extension",
+        "web",
+        "open-source"
+      ],
+      "aliases": [
+        "local lens",
+        "private ai summaries",
+        "built-in ai extension"
+      ],
+      "techStack": [
+        "Chrome Extension",
+        "Built-in AI",
+        "JavaScript",
+        "Privacy",
+        "Summarization",
+        "Translation"
+      ],
+      "benchmarks": [
+        {
+          "label": "Public release",
+          "value": "v0.1.8",
+          "context": "Chrome Web Store listing updated 2026-05-05"
+        },
+        {
+          "label": "AI workflows",
+          "value": "4",
+          "context": "summarize, simplify, translate, safe-share cleanup"
+        },
+        {
+          "label": "Runtime posture",
+          "value": "local browser",
+          "context": "Chrome built-in AI surface"
+        },
+        {
+          "label": "Support pages",
+          "value": "4",
+          "context": "home, privacy, support, uninstall"
+        }
+      ],
+      "links": [
+        {
+          "label": "Prior Chrome Web Store route",
+          "url": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg"
+        },
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries"
+        },
+        {
+          "label": "Release v0.1.2",
+          "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2"
+        },
+        {
+          "label": "Product page",
+          "url": "https://zack-dev-cm.github.io/docs/locallens/"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "title": "OpenClaw CWS Publisher",
+      "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
+      "summary": "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
+      "kind": "open-source",
+      "tags": [
+        "open-source",
+        "automation",
+        "browser-extension",
+        "release-engineering"
+      ],
+      "aliases": [
+        "chrome web store publisher",
+        "cws publisher",
+        "openclaw extension release kit"
+      ],
+      "techStack": [
+        "ClawHub",
+        "Python",
+        "Chrome Web Store",
+        "Playwright",
+        "Release Engineering",
+        "Security Review"
+      ],
+      "benchmarks": [
+        {
+          "label": "ClawHub downloads",
+          "value": "676",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Published versions",
+          "value": "14",
+          "context": "public ClawHub listing, 2026-06-04"
+        },
+        {
+          "label": "Release checks",
+          "value": "7",
+          "context": "ZIP, listing, leaks, E2E, design, Chrome Stable, competitors"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/openclaw-cws-publisher"
+        },
+        {
+          "label": "Open on ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "title": "CollectionsAI ChatGPT App",
+      "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
+      "summary": "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
+      "kind": "case-study",
+      "tags": [
+        "automation",
+        "mcp",
+        "chatgpt-app",
+        "operations"
+      ],
+      "aliases": [
+        "collectionsai chatgpt app",
+        "conservation mcp app",
+        "senior conservation widgets"
+      ],
+      "techStack": [
+        "Node.js",
+        "MCP",
+        "ChatGPT Apps",
+        "Zod",
+        "Python",
+        "Widget Metadata",
+        "Release Gates"
+      ],
+      "benchmarks": [
+        {
+          "label": "MCP tools",
+          "value": "10",
+          "context": "documented app tool surface"
+        },
+        {
+          "label": "Load harness",
+          "value": "10-user",
+          "context": "explicit concurrency test described in release checks"
+        },
+        {
+          "label": "Source review date",
+          "value": "2026-03-04",
+          "context": "project source review"
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": 67,
+      "title": "Senior Conservator OpenClaw Agent",
+      "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
+      "summary": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
+      "kind": "case-study",
+      "tags": [
+        "automation",
+        "computer-vision",
+        "openclaw",
+        "operations"
+      ],
+      "aliases": [
+        "senior conservator agent",
+        "conservation openclaw workflow",
+        "autonomous conservation report"
+      ],
+      "techStack": [
+        "FastAPI",
+        "OpenClaw",
+        "Python",
+        "MCP",
+        "Pillow",
+        "ReportLab",
+        "Computer Vision",
+        "Review Gates"
+      ],
+      "benchmarks": [
+        {
+          "label": "Artifact families",
+          "value": "8+",
+          "context": "reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status"
+        },
+        {
+          "label": "Review posture",
+          "value": "strict",
+          "context": "stage-by-stage gates documented in project records"
+        },
+        {
+          "label": "Source review date",
+          "value": "2026-03-01",
+          "context": "project source review"
+        }
+      ],
       "links": []
     },
     {
@@ -2471,69 +4640,6 @@
       ]
     },
     {
-      "id": 46,
-      "title": "GitHub + ClawHub Launcher",
-      "url": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-clawhub-launcher.md",
-      "summary": "Public launcher skill that turns one local project folder into a repeatable GitHub repo plus ClawHub publish flow.",
-      "kind": "case-study",
-      "tags": [],
-      "aliases": [],
-      "techStack": [
-        "ClawHub",
-        "GitHub CLI",
-        "Python",
-        "Release Engineering",
-        "OpenClaw Skills"
-      ],
-      "benchmarks": [
-        {
-          "label": "ClawHub downloads",
-          "value": "646",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Published versions",
-          "value": "9",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Public release",
-          "value": "v1.0.7",
-          "context": "GitHub release, 2026-05-14"
-        },
-        {
-          "label": "Bundled scripts",
-          "value": "4",
-          "context": "manifest, check, notes, commands"
-        },
-        {
-          "label": "Publish surfaces",
-          "value": "2",
-          "context": "GitHub repo + ClawHub package"
-        },
-        {
-          "label": "Validation posture",
-          "value": "release-checked",
-          "context": "launcher check + publish-guard audit"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher"
-        },
-        {
-          "label": "Open on ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher"
-        },
-        {
-          "label": "Release v1.0.7",
-          "url": "https://github.com/zack-dev-cm/github-clawhub-launcher/releases/tag/v1.0.7"
-        }
-      ]
-    },
-    {
       "id": 47,
       "title": "Browser QA Report Pack",
       "url": "https://zack-dev-cm.github.io/projects/browser-qa-report-pack/",
@@ -2953,1479 +5059,6 @@
         {
           "label": "Release v0.1.0",
           "url": "https://github.com/zack-dev-cm/toybox-tma-oss/releases/tag/v0.1.0"
-        }
-      ]
-    },
-    {
-      "id": 55,
-      "title": "LocalArchive",
-      "url": "https://zack-dev-cm.github.io/projects/localarchive/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/localarchive.md",
-      "summary": "Local-first Chrome extension for saving readable pages, selections, Pocket imports, and portable exports.",
-      "kind": "user-product",
-      "tags": [
-        "browser-extension",
-        "web",
-        "open-source"
-      ],
-      "aliases": [
-        "local archive",
-        "pocket alternative",
-        "read it later extension"
-      ],
-      "techStack": [
-        "Chrome Extension",
-        "JavaScript",
-        "Local-first Storage",
-        "Readability",
-        "Markdown Export",
-        "Chrome Web Store"
-      ],
-      "benchmarks": [
-        {
-          "label": "Public Chrome Web Store users",
-          "value": "2",
-          "context": "Chrome Web Store detail page, 2026-06-05"
-        },
-        {
-          "label": "Chrome Web Store version",
-          "value": "0.1.1",
-          "context": "public listing updated 2026-04-23"
-        },
-        {
-          "label": "Export formats",
-          "value": "3",
-          "context": "Markdown, HTML, JSON"
-        },
-        {
-          "label": "Import path",
-          "value": "Pocket",
-          "context": "local migration workflow"
-        },
-        {
-          "label": "Privacy posture",
-          "value": "local-first",
-          "context": "page content stays in the extension archive"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on Chrome Web Store",
-          "url": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo"
-        },
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/localarchive"
-        },
-        {
-          "label": "Release v0.1.0",
-          "url": "https://github.com/zack-dev-cm/localarchive/releases/tag/v0.1.0"
-        }
-      ]
-    },
-    {
-      "id": 56,
-      "title": "LocalLens Private AI Summaries",
-      "url": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/locallens-private-ai-summaries.md",
-      "summary": "Chrome extension release for private summaries, simplification, translation, and safe-share cleanup with built-in AI.",
-      "kind": "user-product",
-      "tags": [
-        "browser-extension",
-        "web",
-        "open-source"
-      ],
-      "aliases": [
-        "local lens",
-        "private ai summaries",
-        "built-in ai extension"
-      ],
-      "techStack": [
-        "Chrome Extension",
-        "Built-in AI",
-        "JavaScript",
-        "Privacy",
-        "Summarization",
-        "Translation"
-      ],
-      "benchmarks": [
-        {
-          "label": "Public release",
-          "value": "v0.1.8",
-          "context": "Chrome Web Store listing updated 2026-05-05"
-        },
-        {
-          "label": "AI workflows",
-          "value": "4",
-          "context": "summarize, simplify, translate, safe-share cleanup"
-        },
-        {
-          "label": "Runtime posture",
-          "value": "local browser",
-          "context": "Chrome built-in AI surface"
-        },
-        {
-          "label": "Support pages",
-          "value": "4",
-          "context": "home, privacy, support, uninstall"
-        }
-      ],
-      "links": [
-        {
-          "label": "Prior Chrome Web Store route",
-          "url": "https://chromewebstore.google.com/detail/locallens-private-ai-summaries/bgmdmikdapojncddhpabnofcioffnhbg"
-        },
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries"
-        },
-        {
-          "label": "Release v0.1.2",
-          "url": "https://github.com/zack-dev-cm/locallens-private-ai-summaries/releases/tag/v0.1.2"
-        },
-        {
-          "label": "Product page",
-          "url": "https://zack-dev-cm.github.io/docs/locallens/"
-        }
-      ]
-    },
-    {
-      "id": 57,
-      "title": "OpenClaw Chinese Laoshi Ops",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md",
-      "summary": "Public OpenClaw skill for sanitized Chinese lesson operations and checked lesson-packet generation.",
-      "kind": "open-source",
-      "tags": [
-        "open-source",
-        "automation",
-        "education"
-      ],
-      "aliases": [
-        "chinese laoshi",
-        "openclaw chinese tutor",
-        "lesson ops skill"
-      ],
-      "techStack": [
-        "OpenClaw",
-        "ClawHub",
-        "Google Drive",
-        "Language Learning",
-        "Markdown",
-        "Release Engineering"
-      ],
-      "benchmarks": [
-        {
-          "label": "ClawHub downloads",
-          "value": "480",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Published versions",
-          "value": "7",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "ClawHub stars",
-          "value": "1",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Clean release",
-          "value": "1.0.9",
-          "context": "public README release marker"
-        },
-        {
-          "label": "Public posture",
-          "value": "sanitized",
-          "context": "lesson operations without private student data"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/openclaw-agent-chinese-laoshi"
-        },
-        {
-          "label": "Open on ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi"
-        }
-      ]
-    },
-    {
-      "id": 58,
-      "title": "Random Coffee Best Fit Outreach",
-      "url": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/random-coffee-best-fit-outreach.md",
-      "summary": "Consent-first matcher for ranking best-fit coffee chats and preparing reviewed LinkedIn or Discord outreach packets.",
-      "kind": "open-source",
-      "tags": [
-        "open-source",
-        "automation",
-        "social"
-      ],
-      "aliases": [
-        "random coffee matcher",
-        "best fit outreach",
-        "coffee chat matching"
-      ],
-      "techStack": [
-        "OpenClaw",
-        "Codex Skills",
-        "Matching",
-        "LinkedIn",
-        "Discord",
-        "Markdown Reports"
-      ],
-      "benchmarks": [
-        {
-          "label": "Outreach channels",
-          "value": "2",
-          "context": "LinkedIn or Discord draft packets"
-        },
-        {
-          "label": "Consent model",
-          "value": "double opt-in",
-          "context": "reviewed introductions only"
-        },
-        {
-          "label": "Automation boundary",
-          "value": "no auto-send",
-          "context": "public safety contract"
-        },
-        {
-          "label": "Public release",
-          "value": "repo live",
-          "context": "GitHub public repo, 2026-04-24"
-        },
-        {
-          "label": "Review artifacts",
-          "value": "rank + draft + log",
-          "context": "matching decision packet"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/random-coffee-best-fit-outreach"
-        }
-      ]
-    },
-    {
-      "id": 59,
-      "title": "Session Rescue",
-      "url": "https://zack-dev-cm.github.io/projects/session-rescue/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/session-rescue.md",
-      "summary": "Local-first Chrome extension for saving browser session snapshots, restoring tabs, and exporting/importing portable backups.",
-      "kind": "user-product",
-      "tags": [
-        "browser-extension",
-        "web",
-        "open-source"
-      ],
-      "aliases": [
-        "session rescue extension",
-        "tab restore",
-        "browser session backup"
-      ],
-      "techStack": [
-        "Chrome Extension",
-        "JavaScript",
-        "IndexedDB",
-        "Playwright",
-        "Chrome Web Store",
-        "Local-first UX"
-      ],
-      "benchmarks": [
-        {
-          "label": "Chrome Web Store version",
-          "value": "0.1.4",
-          "context": "public listing updated 2026-04-29"
-        },
-        {
-          "label": "Storage model",
-          "value": "local-only",
-          "context": "no backend, account, analytics, ads, or remote code"
-        },
-        {
-          "label": "Verification stack",
-          "value": "unit + manifest + CWS + E2E",
-          "context": "repo-local verification command"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on Chrome Web Store",
-          "url": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf"
-        },
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/session-rescue"
-        },
-        {
-          "label": "Product site",
-          "url": "https://session-rescue.pages.dev/"
-        }
-      ]
-    },
-    {
-      "id": 60,
-      "title": "Telegram Mini App Security Auditor",
-      "url": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/telegram-mini-app-security-auditor.md",
-      "summary": "Static launch gate for Telegram Mini Apps that flags initData, token, admin, CORS, PII, and Bot API dry-run risks before release.",
-      "kind": "open-source",
-      "tags": [
-        "open-source",
-        "automation",
-        "security",
-        "mini-app-security"
-      ],
-      "aliases": [
-        "tma security auditor",
-        "telegram launch gate",
-        "telegram mini app audit"
-      ],
-      "techStack": [
-        "Python",
-        "Static Analysis",
-        "Telegram Mini Apps",
-        "Security Review",
-        "Markdown Reports",
-        "Codex Skills"
-      ],
-      "benchmarks": [
-        {
-          "label": "Decision states",
-          "value": "3",
-          "context": "PASS, REVIEW, BLOCK"
-        },
-        {
-          "label": "Report formats",
-          "value": "2",
-          "context": "JSON + Markdown"
-        },
-        {
-          "label": "Audit families",
-          "value": "9",
-          "context": "initData, tokens, admin, CORS, HTML, frames, PII, health, Bot API dry-run"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/telegram-miniapp-security-auditor"
-        }
-      ]
-    },
-    {
-      "id": 61,
-      "title": "Agentic Codex Dev Skill",
-      "url": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/agentic-codex-dev-skill.md",
-      "summary": "Instruction-only Codex/OpenClaw skill for scoped development loops, verification, leak review, durable memory, and publish gates.",
-      "kind": "open-source",
-      "tags": [
-        "open-source",
-        "automation",
-        "codex",
-        "release-engineering"
-      ],
-      "aliases": [
-        "agentic codex skill",
-        "codex development skill",
-        "openclaw development loop"
-      ],
-      "techStack": [
-        "Codex Skills",
-        "OpenClaw",
-        "Release Engineering",
-        "GitHub",
-        "Markdown",
-        "Agent Workflows"
-      ],
-      "benchmarks": [
-        {
-          "label": "Runtime scripts",
-          "value": "0",
-          "context": "instruction-only public skill"
-        },
-        {
-          "label": "Reference docs",
-          "value": "5",
-          "context": "source review, comparison, system design, eval run, publish checklist"
-        },
-        {
-          "label": "Release gates",
-          "value": "2",
-          "context": "leak review and publish checklist"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/agentic-codex-dev-skill"
-        }
-      ]
-    },
-    {
-      "id": 62,
-      "title": "OpenClaw CWS Publisher",
-      "url": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md",
-      "summary": "Public release kit for Chrome extension packaging, CWS listing validation, leak scanning, design gates, and publish-command generation.",
-      "kind": "open-source",
-      "tags": [
-        "open-source",
-        "automation",
-        "browser-extension",
-        "release-engineering"
-      ],
-      "aliases": [
-        "chrome web store publisher",
-        "cws publisher",
-        "openclaw extension release kit"
-      ],
-      "techStack": [
-        "ClawHub",
-        "Python",
-        "Chrome Web Store",
-        "Playwright",
-        "Release Engineering",
-        "Security Review"
-      ],
-      "benchmarks": [
-        {
-          "label": "ClawHub downloads",
-          "value": "676",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Published versions",
-          "value": "14",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Release checks",
-          "value": "7",
-          "context": "ZIP, listing, leaks, E2E, design, Chrome Stable, competitors"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/openclaw-cws-publisher"
-        },
-        {
-          "label": "Open on ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher"
-        }
-      ]
-    },
-    {
-      "id": 63,
-      "title": "Dermaself Flutter Skin Analysis App",
-      "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app.md",
-      "summary": "Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.",
-      "kind": "case-study",
-      "tags": [
-        "mobile",
-        "computer-vision",
-        "health-ai",
-        "case-study"
-      ],
-      "aliases": [
-        "dermaself mobile app",
-        "flutter skin analysis",
-        "mobile skin analysis app"
-      ],
-      "techStack": [
-        "Flutter",
-        "Dart",
-        "Firebase",
-        "Riverpod",
-        "GoRouter",
-        "ONNX",
-        "Mobile CV",
-        "iOS",
-        "Android"
-      ],
-      "benchmarks": [],
-      "links": []
-    },
-    {
-      "id": 80,
-      "title": "ClearML Experiment Tracking for Dermaself",
-      "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md",
-      "summary": "MLOps case study for setting up ClearML tracking around Dermaself skin-analysis experiments, run metrics, and promotion gates.",
-      "kind": "case-study",
-      "tags": [
-        "computer-vision",
-        "mlops",
-        "experiment-tracking",
-        "clearml",
-        "health-ai"
-      ],
-      "aliases": [
-        "clearml dermaself",
-        "dermaself mlops",
-        "skin analysis experiment tracking",
-        "clear ml"
-      ],
-      "techStack": [
-        "ClearML",
-        "Python",
-        "PyTorch",
-        "ONNX",
-        "TFLite",
-        "Flutter",
-        "Computer Vision",
-        "MLOps",
-        "Experiment Tracking"
-      ],
-      "benchmarks": [
-        {
-          "label": "Tracking stack",
-          "value": "ClearML",
-          "context": "Dermaself MLOps setup added to public portfolio scope, 2026-06-09"
-        },
-        {
-          "label": "Tracked surfaces",
-          "value": "5",
-          "context": "dataset, parameters, metrics, artifacts, and promotion decisions"
-        },
-        {
-          "label": "Public posture",
-          "value": "sanitized",
-          "context": "public case study excludes raw skin photos, private datasets, model weights, and ClearML server URLs"
-        },
-        {
-          "label": "Promotion boundary",
-          "value": "review-gated",
-          "context": "debug experiments stay separate from release-ready mobile/server claims"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 81,
-      "title": "Agnitra - ML Profiling & Optimization",
-      "url": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md",
-      "summary": "A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.",
-      "kind": "open-source",
-      "tags": [
-        "open-source",
-        "ai-systems",
-        "llm-inference",
-        "mlops",
-        "optimization"
-      ],
-      "aliases": [
-        "agnitra",
-        "agnitra ai",
-        "agnitra labs",
-        "model profiling",
-        "inference optimization",
-        "decoder-only llm optimizer"
-      ],
-      "techStack": [
-        "Python",
-        "PyTorch",
-        "Transformers",
-        "torchao",
-        "Hugging Face",
-        "LangChain",
-        "LlamaIndex",
-        "MLOps"
-      ],
-      "benchmarks": [],
-      "links": [
-        {
-          "label": "Install from PyPI",
-          "url": "https://pypi.org/project/agnitra/"
-        }
-      ]
-    },
-    {
-      "id": 64,
-      "title": "Chrome Extension Studio Plugin",
-      "url": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/chrome-extension-studio-plugin.md",
-      "summary": "Codex plugin case study for planning, designing, generating, packaging, QA, and release preparation across Chrome extension product repos.",
-      "kind": "case-study",
-      "tags": [
-        "automation",
-        "browser-extension",
-        "release-engineering",
-        "codex"
-      ],
-      "aliases": [
-        "extension studio plugin",
-        "chrome extension release studio",
-        "cws product repo generator"
-      ],
-      "techStack": [
-        "Codex Plugin",
-        "Python",
-        "Chrome Extensions",
-        "Manifest V3",
-        "Chrome Web Store",
-        "Release Engineering"
-      ],
-      "benchmarks": [
-        {
-          "label": "Publish types",
-          "value": "4",
-          "context": "prototype-local, beta-private, cws-public, source-release"
-        },
-        {
-          "label": "Release scripts",
-          "value": "6",
-          "context": "create, design brief, store listing, release plan, release cycle, profile validation"
-        },
-        {
-          "label": "Source review date",
-          "value": "2026-04-18",
-          "context": "project source review"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 65,
-      "title": "Google Drive File Provider Repair Toolkit",
-      "url": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/google-drive-file-provider-repair-toolkit.md",
-      "summary": "macOS repair toolkit case study for diagnosing and conservatively restoring Google Drive File Provider state without deleting Drive data.",
-      "kind": "case-study",
-      "tags": [
-        "automation",
-        "macos",
-        "ops-tooling",
-        "local-first"
-      ],
-      "aliases": [
-        "google drive repair",
-        "mac file provider repair",
-        "drive file provider diagnostics"
-      ],
-      "techStack": [
-        "macOS",
-        "Shell",
-        "File Provider",
-        "Google Drive",
-        "Diagnostics",
-        "Local-first Tooling"
-      ],
-      "benchmarks": [
-        {
-          "label": "Command families",
-          "value": "6",
-          "context": "diagnose, repair, collect logs, inspect recovery, inspect sync, wait sync"
-        },
-        {
-          "label": "Destructive data actions",
-          "value": "0",
-          "context": "0 cache, CloudStorage, account, or user-data deletion paths in reviewed repair flow, 2026-04-17"
-        },
-        {
-          "label": "Source review date",
-          "value": "2026-04-17",
-          "context": "project source review"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 66,
-      "title": "CollectionsAI ChatGPT App",
-      "url": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/collectionsai-chatgpt-app.md",
-      "summary": "ChatGPT app case study with MCP tools and widgets for conservation report Q&A, portfolio planning, materials estimates, staffing, and voice-note structuring.",
-      "kind": "case-study",
-      "tags": [
-        "automation",
-        "mcp",
-        "chatgpt-app",
-        "operations"
-      ],
-      "aliases": [
-        "collectionsai chatgpt app",
-        "conservation mcp app",
-        "senior conservation widgets"
-      ],
-      "techStack": [
-        "Node.js",
-        "MCP",
-        "ChatGPT Apps",
-        "Zod",
-        "Python",
-        "Widget Metadata",
-        "Release Gates"
-      ],
-      "benchmarks": [
-        {
-          "label": "MCP tools",
-          "value": "10",
-          "context": "documented app tool surface"
-        },
-        {
-          "label": "Load harness",
-          "value": "10-user",
-          "context": "explicit concurrency test described in release checks"
-        },
-        {
-          "label": "Source review date",
-          "value": "2026-03-04",
-          "context": "project source review"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 67,
-      "title": "Senior Conservator OpenClaw Agent",
-      "url": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/senior-conservator-openclaw-agent.md",
-      "summary": "Autonomous OpenClaw workflow case study for conservation-style photo review, segmentation overlays, staged review gates, reports, audio, and manifests.",
-      "kind": "case-study",
-      "tags": [
-        "automation",
-        "computer-vision",
-        "openclaw",
-        "operations"
-      ],
-      "aliases": [
-        "senior conservator agent",
-        "conservation openclaw workflow",
-        "autonomous conservation report"
-      ],
-      "techStack": [
-        "FastAPI",
-        "OpenClaw",
-        "Python",
-        "MCP",
-        "Pillow",
-        "ReportLab",
-        "Computer Vision",
-        "Review Gates"
-      ],
-      "benchmarks": [
-        {
-          "label": "Artifact families",
-          "value": "8+",
-          "context": "reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status"
-        },
-        {
-          "label": "Review posture",
-          "value": "strict",
-          "context": "stage-by-stage gates documented in project records"
-        },
-        {
-          "label": "Source review date",
-          "value": "2026-03-01",
-          "context": "project source review"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 68,
-      "title": "SourcePack Chrome Extension Wave",
-      "url": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md",
-      "summary": "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
-      "kind": "user-product",
-      "tags": [
-        "browser-extension",
-        "web",
-        "automation",
-        "release-engineering"
-      ],
-      "aliases": [
-        "sourcepack suite",
-        "web2csv",
-        "video2source",
-        "sourcepack hub",
-        "chatarchive",
-        "browser run receipt",
-        "support packet"
-      ],
-      "techStack": [
-        "Chrome Extension",
-        "Manifest V3",
-        "React",
-        "TypeScript",
-        "SourcePack",
-        "Playwright",
-        "Chrome Web Store"
-      ],
-      "benchmarks": [
-        {
-          "label": "Current public publisher listings",
-          "value": "18",
-          "context": "Chrome Web Store detail pages and live developer dashboard, 2026-06-15"
-        },
-        {
-          "label": "Current publisher users",
-          "value": "253",
-          "context": "Chrome Web Store detail pages and dashboard proof across 15 displayed rows, 2026-06-15"
-        },
-        {
-          "label": "Average rating",
-          "value": "5.00",
-          "context": "4 reported Chrome Web Store ratings, 2026-06-15"
-        },
-        {
-          "label": "Visible SourcePack products",
-          "value": "4",
-          "context": "Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-15"
-        }
-      ],
-      "links": [
-        {
-          "label": "SourcePack product pages",
-          "url": "https://sourcepack-tools.pages.dev/"
-        },
-        {
-          "label": "Chrome Web Store publisher",
-          "url": "https://chromewebstore.google.com/search/kaisenaiko"
-        },
-        {
-          "label": "Web2CSV CWS",
-          "url": "https://chromewebstore.google.com/detail/web2csv-table-list-extractor/egjcdmlfdnkpgkmffkhfdooacmglnjbc"
-        },
-        {
-          "label": "Video2Source CWS",
-          "url": "https://chromewebstore.google.com/detail/video2source-youtube-trans/hjfdpklldhofiehpcfcfdonjppdkmgoh"
-        },
-        {
-          "label": "SourcePack Hub CWS",
-          "url": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-re/hlbflaklicefinhckdkbamhhkfklmgao"
-        },
-        {
-          "label": "ChatArchive CWS",
-          "url": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-exporter/pmofpiclpglbdnjgkgijlolefiojjomn"
-        }
-      ]
-    },
-    {
-      "id": 69,
-      "title": "Trusted ClawHub Install Gate",
-      "url": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md",
-      "summary": "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
-      "kind": "case-study",
-      "tags": [
-        "security",
-        "automation",
-        "release-engineering"
-      ],
-      "aliases": [
-        "trusted clawhub gate",
-        "clawhub install gate",
-        "openclaw skill installer review"
-      ],
-      "techStack": [
-        "Python",
-        "CLI",
-        "OpenClaw",
-        "ClawHub",
-        "Security Review",
-        "Receipt Verification"
-      ],
-      "benchmarks": [
-        {
-          "label": "Verdict states",
-          "value": "3",
-          "context": "PASS, REVIEW, BLOCK in project contract"
-        },
-        {
-          "label": "Default unsafe install policy",
-          "value": "deny",
-          "context": "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review"
-        },
-        {
-          "label": "Verification model",
-          "value": "receipt-aware",
-          "context": "installed hash and approved verdict must match receipt"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 70,
-      "title": "Fast OCR ONNX Inference Server",
-      "url": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server.md",
-      "summary": "Containerized OCR API that stages line segmentation, word segmentation, and CRNN text recognition behind a FastAPI endpoint.",
-      "kind": "case-study",
-      "tags": [
-        "computer-vision",
-        "ocr",
-        "api",
-        "mlops"
-      ],
-      "aliases": [
-        "fast ocr",
-        "onnx ocr api",
-        "three-stage ocr"
-      ],
-      "techStack": [
-        "Python",
-        "FastAPI",
-        "ONNX Runtime",
-        "CRNN",
-        "OCR",
-        "Docker",
-        "Cloud Run"
-      ],
-      "benchmarks": [],
-      "links": []
-    },
-    {
-      "id": 71,
-      "title": "Full-Face Wrinkle and Skin Texture Segmentation Lab",
-      "url": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/full-face-wrinkle-and-skin-texture-segmentation-lab.md",
-      "summary": "Cosmetic face-texture pipeline with region masks, YOLO segmentation, skeletonized wrinkle traces, overlays, and visual quality gates.",
-      "kind": "case-study",
-      "tags": [
-        "computer-vision",
-        "segmentation",
-        "deep-learning",
-        "health-ai"
-      ],
-      "aliases": [
-        "wrinkle segmentation lab",
-        "skin texture segmentation",
-        "cosmetic face analysis"
-      ],
-      "techStack": [
-        "Python",
-        "YOLO",
-        "MediaPipe",
-        "OpenCV",
-        "ONNX",
-        "Segmentation",
-        "Visual QA"
-      ],
-      "benchmarks": [
-        {
-          "label": "Face regions",
-          "value": "9",
-          "context": "forehead, t-area, nose, eyes, nasolabial, cheeks, mouth, mental, neck"
-        },
-        {
-          "label": "Artifact families",
-          "value": "6",
-          "context": "overlays, masks, skeletons, CSV, events, QA panels"
-        },
-        {
-          "label": "Gate posture",
-          "value": "advisory",
-          "context": "review signal, not automatic deployment claim"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 72,
-      "title": "Multimodal Video Search Platform",
-      "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md",
-      "summary": "Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.",
-      "kind": "research",
-      "tags": [
-        "computer-vision",
-        "ai",
-        "search",
-        "video",
-        "mlops"
-      ],
-      "aliases": [
-        "SVS4 search",
-        "video neural search",
-        "hybrid media search"
-      ],
-      "techStack": [
-        "Python",
-        "FastAPI",
-        "Qdrant",
-        "Postgres",
-        "CLIP",
-        "OCR",
-        "ASR",
-        "Hybrid Search",
-        "Celery"
-      ],
-      "benchmarks": [],
-      "links": []
-    },
-    {
-      "id": 73,
-      "title": "Public CV and Deep Learning GitHub Archive",
-      "url": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/public-cv-and-deep-learning-github-archive.md",
-      "summary": "GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.",
-      "kind": "research",
-      "tags": [
-        "computer-vision",
-        "deep-learning",
-        "ocr",
-        "mobile",
-        "github"
-      ],
-      "aliases": [
-        "public cv dl archive",
-        "github computer vision archive",
-        "older cv research repos"
-      ],
-      "techStack": [
-        "Python",
-        "PyTorch",
-        "TensorFlow",
-        "YOLO",
-        "EfficientNet",
-        "OCR",
-        "ML Kit",
-        "TFLite",
-        "OpenCV",
-        "Android",
-        "Flutter"
-      ],
-      "benchmarks": [
-        {
-          "label": "GitHub accounts reviewed",
-          "value": "2",
-          "context": "zack-dev-cm and ZackPashkin public API snapshot, 2026-05-14"
-        },
-        {
-          "label": "Public CV/DL repos sampled",
-          "value": "18+",
-          "context": "authored or project-specific public repositories, forks excluded from authored-count metrics"
-        },
-        {
-          "label": "Top public repo",
-          "value": "14 stars / 6 forks",
-          "context": "YOLOv3-EfficientNet-EffYolo API snapshot"
-        },
-        {
-          "label": "Source posture",
-          "value": "public-only",
-          "context": "public GitHub repos and generated case studies only"
-        }
-      ],
-      "links": [
-        {
-          "label": "YOLOv3 EfficientNet EffYolo",
-          "url": "https://github.com/ZackPashkin/YOLOv3-EfficientNet-EffYolo"
-        },
-        {
-          "label": "shiftlab OCR",
-          "url": "https://github.com/ZackPashkin/shiftlab_ocr"
-        },
-        {
-          "label": "Cyrillic handwriting dataset",
-          "url": "https://github.com/ZackPashkin/Cyrillic-Handwriting-Dataset"
-        },
-        {
-          "label": "ML Kit face contours Android",
-          "url": "https://github.com/ZackPashkin/Snapchat-Filter-MLkit-Face-Countours-Firebase-Android"
-        },
-        {
-          "label": "TFLite glasses classifier",
-          "url": "https://github.com/ZackPashkin/tensorflow_glasses_classifier_plus_tflite"
-        },
-        {
-          "label": "Flutter OpenCV image processing",
-          "url": "https://github.com/zack-dev-cm/cm_cpp_flutter_opencv"
-        },
-        {
-          "label": "CV Repro Lab skill",
-          "url": "https://github.com/zack-dev-cm/agentic-cv-repro-lab-skill"
-        }
-      ]
-    },
-    {
-      "id": 74,
-      "title": "Colab CV/DL Prototype Archive",
-      "url": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/colab-cv-dl-prototype-archive.md",
-      "summary": "Public notebook-style CV/DL prototype archive for Swin/CvT starters, OCR finetuning, Android document capture, video search, lip sync, and CLIP media experiments.",
-      "kind": "research",
-      "tags": [
-        "computer-vision",
-        "deep-learning",
-        "colab",
-        "notebooks",
-        "generative-ai"
-      ],
-      "aliases": [
-        "colab notebooks archive",
-        "cv dl prototype archive",
-        "vision notebook prototypes"
-      ],
-      "techStack": [
-        "Jupyter Notebook",
-        "Google Colab",
-        "PyTorch",
-        "TensorFlow",
-        "Swin Transformer",
-        "CvT",
-        "CLIP",
-        "MMOCR",
-        "OpenCV",
-        "CameraX"
-      ],
-      "benchmarks": [
-        {
-          "label": "Public prototype links",
-          "value": "8",
-          "context": "GitHub API and repo URL review, 2026-05-14"
-        },
-        {
-          "label": "Research families",
-          "value": "5",
-          "context": "classification, OCR, mobile capture, video retrieval, generative media"
-        },
-        {
-          "label": "Notebook posture",
-          "value": "prototype",
-          "context": "not presented as live service or production accuracy claim"
-        },
-        {
-          "label": "Source links",
-          "value": "public-only",
-          "context": "GitHub repos and generated case studies only"
-        }
-      ],
-      "links": [
-        {
-          "label": "Swin transformer starter",
-          "url": "https://github.com/ZackPashkin/swin-transformer-pytorch-starter"
-        },
-        {
-          "label": "CvT convolutional transformer starter",
-          "url": "https://github.com/ZackPashkin/CvT-convolutional-transformer-pytorch"
-        },
-        {
-          "label": "Digits recognition MMOCR",
-          "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
-        },
-        {
-          "label": "Android document scan",
-          "url": "https://github.com/ZackPashkin/DocumentsScan"
-        },
-        {
-          "label": "Search through videos",
-          "url": "https://github.com/ZackPashkin/search-through-videos"
-        },
-        {
-          "label": "Voice and lip sync Colab app",
-          "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
-        },
-        {
-          "label": "Text to cartoon CLIP",
-          "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
-        },
-        {
-          "label": "Sticker maker with CLIP",
-          "url": "https://github.com/ZackPashkin/sticker-maker-flutter-app-with-OpenAI-CLIP"
-        }
-      ]
-    },
-    {
-      "id": 76,
-      "title": "Jaw and Face-Type Classifier for Aesthetic Review",
-      "url": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/jaw-and-face-type-classifier-for-aesthetic-review.md",
-      "summary": "Computer-vision review system for jaw and face-type classification in beauty and plastic-surgery examination workflows.",
-      "kind": "case-study",
-      "tags": [
-        "computer-vision",
-        "classification",
-        "beautytech",
-        "health-ai",
-        "face-analysis"
-      ],
-      "aliases": [
-        "jaw classifier",
-        "face type classifier",
-        "plastic surgery review",
-        "beauty examination classifier",
-        "aesthetic face analysis"
-      ],
-      "techStack": [
-        "Python",
-        "PyTorch",
-        "OpenCV",
-        "Computer Vision",
-        "Facial Landmarks",
-        "Classification",
-        "K-fold Validation",
-        "Visual QA"
-      ],
-      "benchmarks": [
-        {
-          "label": "Review deck",
-          "value": "v0.12.7",
-          "context": "Jaw / Face-type analyser project deck checked 2026-06-04"
-        },
-        {
-          "label": "Experiment pattern",
-          "value": "k-fold",
-          "context": "classifier experiment folder review, 2026-06-04"
-        },
-        {
-          "label": "Reviewed references",
-          "value": "5+",
-          "context": "jaw-class workspaces, jaw database, analyzer deck, labels, and experiment folders"
-        },
-        {
-          "label": "Public posture",
-          "value": "sanitized",
-          "context": "no raw patient images, private labels, or model weights published"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 77,
-      "title": "Architectural Drawing and Interior Catalog Matching",
-      "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-      "summary": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
-      "kind": "case-study",
-      "tags": [
-        "computer-vision",
-        "architecture",
-        "ocr",
-        "catalog-matching",
-        "interior-ai",
-        "retrieval"
-      ],
-      "aliases": [
-        "architectural drawings recognition",
-        "floor plan recognition",
-        "room plan recognition",
-        "interior catalog matching",
-        "casework catalog matching",
-        "commercial reception catalog preview",
-        "school reception design configuration",
-        "utility building interior planning",
-        "whole building interior planning",
-        "blueprint symbol detection"
-      ],
-      "techStack": [
-        "Python",
-        "OpenCV",
-        "OCR",
-        "PDF Processing",
-        "LLM/Vision Parsing",
-        "Catalog Indexing",
-        "OpenEvolve",
-        "BOM Export",
-        "3D/CV",
-        "Visual QA"
-      ],
-      "benchmarks": [
-        {
-          "label": "Input families",
-          "value": "3",
-          "context": "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04"
-        },
-        {
-          "label": "Catalog flow",
-          "value": "callouts -> items",
-          "context": "visible drawing codes mapped to catalog records, evidence notes, and candidate pools"
-        },
-        {
-          "label": "Output artifacts",
-          "value": "5",
-          "context": "room graph, catalog mapping, layout preview, render, and BOM/rationale export"
-        },
-        {
-          "label": "Public posture",
-          "value": "sanitized",
-          "context": "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published"
-        }
-      ],
-      "links": []
-    },
-    {
-      "id": 78,
-      "title": "InQuest Project Binder RAG QA",
-      "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa.md",
-      "summary": "Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.",
-      "kind": "case-study",
-      "tags": [
-        "ai",
-        "rag",
-        "project-context",
-        "qa",
-        "vector-storage",
-        "site-planning"
-      ],
-      "aliases": [
-        "INQI Quest",
-        "InQuest operation logic",
-        "project binder agent",
-        "site plan RAG",
-        "binder vector storage"
-      ],
-      "techStack": [
-        "RAG",
-        "Vector Stores",
-        "OpenAI APIs",
-        "Project Context",
-        "Binder Workflows",
-        "PDF Generation",
-        "S3",
-        "QA Matrix",
-        "Web Search"
-      ],
-      "benchmarks": [],
-      "links": []
-    },
-    {
-      "id": 79,
-      "title": "ComfyUI and Colab Generative Prototype Lab",
-      "url": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/comfyui-and-colab-generative-prototype-lab.md",
-      "summary": "Notebook and prototype archive for ComfyUI automation, custom model experiments, paper-to-code snippets, and generated media pipelines.",
-      "kind": "research",
-      "tags": [
-        "generative-ai",
-        "colab",
-        "notebooks",
-        "computer-vision",
-        "custom-models",
-        "automation"
-      ],
-      "aliases": [
-        "ComfyUI prototype lab",
-        "colab prototype archive",
-        "custom models lab",
-        "research paper implementation snippets",
-        "generative media factory",
-        "advanced notebook prototypes"
-      ],
-      "techStack": [
-        "Google Colab",
-        "ComfyUI",
-        "Python",
-        "PyTorch",
-        "MMOCR",
-        "PaddleOCR",
-        "LangChain",
-        "Pinecone",
-        "MoviePy",
-        "FFmpeg",
-        "LivePortrait",
-        "WebSocket"
-      ],
-      "benchmarks": [
-        {
-          "label": "Prototype lanes",
-          "value": "6",
-          "context": "ComfyUI, LivePortrait, OCR/PDF, retrieval QA, model fine-tuning, media assembly"
-        },
-        {
-          "label": "Source posture",
-          "value": "public links only",
-          "context": "private source and Colab URLs excluded from published portfolio files"
-        },
-        {
-          "label": "Notebook posture",
-          "value": "prototype",
-          "context": "research and implementation snippets, not presented as maintained production services"
-        },
-        {
-          "label": "Review date",
-          "value": "2026-06-04",
-          "context": "private-source and local portfolio review for missing notebook/prototype work"
-        }
-      ],
-      "links": [
-        {
-          "label": "Digits recognition MMOCR",
-          "url": "https://github.com/ZackPashkin/digits-recognition-mm-ocr"
-        },
-        {
-          "label": "Voice and lip sync Colab app",
-          "url": "https://github.com/ZackPashkin/voice-and-lip-sync-in-pytorch-web-app-colab"
-        },
-        {
-          "label": "Text to cartoon CLIP",
-          "url": "https://github.com/ZackPashkin/text2cartoon-pytorch-CLIP"
-        }
-      ]
-    },
-    {
-      "id": 75,
-      "title": "Research Claim Ledger",
-      "url": "https://zack-dev-cm.github.io/projects/research-claim-ledger/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/research-claim-ledger.md",
-      "summary": "ClawHub skill-build case study for turning research drafts, source packets, literature matrices, or reviewer notes into source-backed claim ledgers.",
-      "kind": "case-study",
-      "tags": [
-        "research",
-        "ai",
-        "release-engineering",
-        "openclaw"
-      ],
-      "aliases": [
-        "research claim audit",
-        "claim ledger skill",
-        "academic source receipt"
-      ],
-      "techStack": [
-        "ClawHub",
-        "Codex Skills",
-        "Research QA",
-        "Citation Review",
-        "Markdown",
-        "Release Engineering"
-      ],
-      "benchmarks": [
-        {
-          "label": "ClawHub downloads",
-          "value": "198",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Published versions",
-          "value": "1",
-          "context": "public ClawHub listing, 2026-06-04"
-        },
-        {
-          "label": "Verdict labels",
-          "value": "9",
-          "context": "supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review"
-        },
-        {
-          "label": "Release posture",
-          "value": "instruction-only",
-          "context": "SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow"
-        }
-      ],
-      "links": [
-        {
-          "label": "Open on ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/research-claim-ledger"
-        },
-        {
-          "label": "Reference academic-research-skills",
-          "url": "https://github.com/Imbad0202/academic-research-skills"
-        },
-        {
-          "label": "Reference academic-research-skills-codex",
-          "url": "https://github.com/Imbad0202/academic-research-skills-codex"
         }
       ]
     },
