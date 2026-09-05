@@ -40,6 +40,9 @@ jobs:
       - name: Validate portfolio source
         run: npm run validate
 
+      - name: Check catalogue and deployment regressions
+        run: node --test tests/project-catalog.test.mjs tests/stage-pages.test.mjs
+
       - name: Build site
         run: npm run build
 
@@ -53,29 +56,7 @@ jobs:
         run: npm run security:gate
 
       - name: Stage Pages artifact
-        run: |
-          rm -rf .site
-          mkdir -p .site
-          cp index.html \
-            favicon.svg \
-            geo.txt \
-            llms.txt \
-            llms-full.txt \
-            metadata.json \
-            robots.txt \
-            schema.jsonld \
-            sitemap.xml \
-            agent-context.md \
-            google-site-verification.txt \
-            google9a05bdeaa5b048bb.html \
-            .site/
-          cp docs/404.html .site/404.html
-          cp docs/paper-reviews.json .site/paper-reviews.json
-          cp -R docs/papers .site/papers
-          cp -R docs/resume .site/resume
-          cp -R docs .site/docs
-          cp -R projects .site/projects
-          : > .site/.nojekyll
+        run: node scripts/stage-pages.mjs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
