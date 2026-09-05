@@ -925,9 +925,13 @@ const App: React.FC = () => {
   const handleSmartSearchSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      runSmartSearch(projectQuery);
+      // Results already follow the archive input. Submitting hands off focus
+      // without resetting the visible filters, order or selected topic.
+      setIsSmartSearchFocused(false);
+      setShowAllProjects(true);
+      scrollToProjectExplorer();
     },
-    [projectQuery, runSmartSearch]
+    [scrollToProjectExplorer]
   );
 
   const handleHeroSearchSubmit = useCallback(

@@ -31,6 +31,10 @@ For search changes, retain a small expected-results set covering `point cloud`,
 content. Verify that generic word fragments do not admit unrelated work, and
 that A–Z and Recent change active search order. Recheck keyboard handoff,
 clear/reset and responsive layout when the search flow changes.
+Check complete project names combined with supported qualifiers (`FastOCR ONNX`,
+`Auto Toloka Python`) and narrow spelling variants (`node js`, `3-D`). Submitting
+the archive search must preserve the selected category, order and topic results;
+the hero search starts a fresh global search.
 
 | Date | Change | Metric | Result | Kept |
 | --- | --- | --- | --- | --- |

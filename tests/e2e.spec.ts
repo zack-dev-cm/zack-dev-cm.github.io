@@ -575,6 +575,34 @@ test('specific project names and technologies exclude unrelated archive work', a
   await expect(cards.first()).toContainText('Calorio - AI Nutrition Service');
 });
 
+test('a spaced project name accepts a qualifier and works with filtering and clearing', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await gotoPortfolio(page);
+  const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
+  const archiveSearch = page.getByRole('searchbox', { name: 'Search projects', exact: true });
+  const projects = page.locator('#projects');
+  const cards = projects.getByTestId('project-card');
+  await heroSearch.fill('Auto Toloka Python');
+  await heroSearch.press('Enter');
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toHaveAttribute('data-project-id', '12');
+  await expect(projects.getByRole('status')).toBeFocused();
+
+  await projects.getByRole('button', { name: /^Mobile ready/ }).click();
+  await expect(cards).toHaveCount(0);
+  await expect(archiveSearch).toHaveValue('Auto Toloka Python');
+  await projects.getByRole('button', { name: /^All projects/ }).click();
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toHaveAttribute('data-project-id', '12');
+
+  await projects.getByRole('button', { name: 'Clear', exact: true }).click();
+  await expect(archiveSearch).toHaveValue('');
+  await expect(heroSearch).toHaveValue('');
+  await expect(archiveSearch).toBeFocused();
+  await expect(projects.locator('.empty-state')).toHaveCount(0);
+  await expect.poll(() => cards.count()).toBeGreaterThan(1);
+});
+
 test('active search sorting changes the displayed order while preserving the query', async ({ page }) => {
   await gotoPortfolio(page);
   const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
@@ -613,6 +641,18 @@ test('active search sorting changes the displayed order while preserving the que
   await expect(projects.locator('[data-project-id="63"]')).toBeVisible();
   await expect(projects.locator('[data-project-id="70"]')).toHaveCount(0);
   await expect(archiveSearch).toHaveValue('ONNX');
+
+  await projects.getByRole('button', { name: 'A-Z', exact: true }).click();
+  const filteredIds = await cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id')));
+  await archiveSearch.press('Enter');
+  await expect(projects.getByRole('button', { name: /^Mobile ready/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(projects.getByRole('button', { name: 'A-Z', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(archiveSearch).toHaveValue('ONNX');
+  await expect(heroSearch).toHaveValue('ONNX');
+  await expect.poll(() => cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id'))))
+    .toEqual(filteredIds);
+  await expect(projects.getByRole('status')).toBeFocused();
+
   await projects.getByRole('button', { name: /^All projects/ }).click();
   await expect(projects.locator('[data-project-id="70"]')).toBeVisible();
 });
@@ -729,6 +769,17 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     await expect(explorerSearch).toHaveValue(topic.query);
     await expect(topicPanel).not.toHaveClass(/is-visible/);
     await expectFirstProject(topic.expected);
+    if (topic.label === 'Mobile vision') {
+      const cards = explorer.getByTestId('project-card');
+      const topicIds = await cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id')));
+      expect(topicIds).toEqual(expect.arrayContaining(['10', '63']));
+      await explorerSearch.press('Enter');
+      await expect(explorerSearch).toHaveValue(topic.query);
+      await expect(explorer.getByRole('button', { name: /^Computer vision/ })).toHaveAttribute('aria-pressed', 'true');
+      await expect.poll(() => cards.evaluateAll((nodes) => nodes.map((node) => node.getAttribute('data-project-id'))))
+        .toEqual(topicIds);
+      await expect(explorer.getByRole('status')).toBeFocused();
+    }
   }
 
   const filteredTopics = [
@@ -805,6 +856,8 @@ test('smart search bubbles and semantic queries surface relevant projects', asyn
     },
   ];
 
+  // These independent queries cover the full catalogue, after topic-specific filters.
+  await explorer.getByRole('button', { name: /^All projects/ }).click();
   for (const item of customQueries) {
     await smartSearch.scrollIntoViewIfNeeded();
     await smartSearch.locator('#portfolio-smart-search').fill(item.query);

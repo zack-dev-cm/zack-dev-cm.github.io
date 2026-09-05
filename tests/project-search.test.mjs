@@ -27,6 +27,46 @@ test('specific names and aliases remain precise across case, spacing and punctua
   }
 });
 
+test('project-name spacing works with supported qualifiers without bypassing other query terms', () => {
+  for (const [query, id] of [
+    ['FastOCR ONNX', 70], ['Fast OCR ONNX', 70],
+    ['Auto Toloka Python', 12], ['AutoToloka Python', 12],
+  ]) {
+    assert.deepEqual(ids(search(query)), [id], query);
+  }
+  for (const query of ['FastOCR Calorio', 'Auto Toloka Qdrant']) {
+    assert.deepEqual(search(query), [], `${query}: a recognized name must not ignore an unsupported qualifier`);
+  }
+});
+
+test('Node.js spelling variants find the same declared technology projects', () => {
+  const expected = new Set(ids(search('Node.js')));
+  assert.ok(expected.size > 0, 'Use a technology represented in the actual catalogue');
+  for (const query of ['node js', 'nodejs']) {
+    assert.deepEqual(new Set(ids(search(query))), expected, query);
+  }
+});
+
+test('hyphenating 3D retains the same engineering and geometry results', () => {
+  const expected = new Set(ids(search('3D')));
+  assert.ok(expected.has(102), 'The geometry case study must remain discoverable');
+  assert.deepEqual(new Set(ids(search('3-D'))), expected);
+});
+
+test('technical punctuation keeps C, C++ and C# as distinct languages', () => {
+  // The actual catalogue has no verified C++/C# entries. These controlled
+  // records guard matching behavior without inventing public project claims.
+  const languages = ['C', 'C++', 'C#'];
+  const fixtures = languages.map((language, index) => ({
+    id: -(index + 1),
+    title: `Language tooling ${index + 1}`,
+    techStack: [language],
+  }));
+  for (const [index, language] of languages.entries()) {
+    assert.deepEqual(ids(searchProjects(fixtures, language)), [fixtures[index].id], language);
+  }
+});
+
 test('OpenCV finds declared CV work without admitting ordinary open-source words', () => {
   const results = search('OpenCV');
   assertIncludes(results, [76, 77, 71, 73, 74, 21], 'OpenCV');

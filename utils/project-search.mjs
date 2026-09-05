@@ -6,6 +6,8 @@ export const normalizeSearchValue = (value) => String(value ?? '')
   .normalize('NFKC').toLowerCase()
   .replace(/\br\s*(?:&|and)\s*d\b/g, 'researchdevelopment')
   .replace(/\bresearch\s+(?:and|&)\s+development\b/g, 'researchdevelopment')
+  .replace(/\bnode(?:\.|\s+)js\b/g, 'nodejs')
+  .replace(/\b3[\s-]+d\b/g, '3d')
   .replace(/&/g, ' and ')
   .replace(/[^\p{L}\p{N}+#.]+/gu, ' ')
   .replace(/(^|\s)\.+|\.+(?=\s|$)/g, '$1')
@@ -90,13 +92,34 @@ const makeConcepts = (query) => {
 };
 
 const compactName = (value) => normalizeSearchValue(value).replace(/\s/g, '');
-const compactNameMatch = (project, query) => {
-  const compactQuery = compactName(query);
-  if (!compactQuery) return false;
+const declaredNames = (project) => {
   // A category-prefixed title also declares its complete name after the colon,
   // e.g. "Python Library: AutoToloka". No individual title words become aliases.
   const categorySuffix = project.title.includes(':') ? project.title.slice(project.title.indexOf(':') + 1).trim() : '';
-  return [project.title, ...(project.aliases ?? []), categorySuffix].some((name) => compactName(name) === compactQuery);
+  return [project.title, ...(project.aliases ?? []), categorySuffix].map(compactName).filter(Boolean);
+};
+const compactNameMatch = (project, query) => declaredNames(project).includes(compactName(query));
+
+const hasOwnedConcepts = (fields, concepts) => concepts.every((alternatives) =>
+  fields.some((field) => field.owned !== false && alternatives.some((phrase) => containsPhrase(field.tokens, phrase))));
+
+const qualifiedNameMatch = (project, query, fields) => {
+  const tokens = normalizeSearchValue(query).split(' ').filter(Boolean);
+  // Consume only a complete declared name at token boundaries. Spaced and
+  // compact names can then compose with qualifiers without weakening coverage.
+  for (const name of declaredNames(project)) {
+    for (let start = 0; start < tokens.length; start += 1) {
+      let span = '';
+      for (let end = start; end < tokens.length; end += 1) {
+        span += tokens[end];
+        if (span.length > name.length) break;
+        if (span !== name) continue;
+        const remaining = [...tokens.slice(0, start), ...tokens.slice(end + 1)].join(' ');
+        if (hasOwnedConcepts(fields, makeConcepts(remaining))) return true;
+      }
+    }
+  }
+  return false;
 };
 
 const isSupportingCollection = (project) => /\b(?:archive|collection|skills|skill pack|skill library)\b/i.test(project.title);
@@ -108,20 +131,20 @@ const studyTier = (project, query) => {
 const rankEntry = (project, query, concepts, boostedProjectIds, getSignalScore, sharedImages) => {
   const fields = fieldsFor(project, sharedImages).map((field) => ({ ...field, tokens: phraseTokens(field.text) }));
   const exactName = compactNameMatch(project, query);
+  const qualifiedName = !exactName && qualifiedNameMatch(project, query, fields);
   const strengths = concepts.map((alternatives) => Math.max(0, ...fields.map((field) => {
     const match = alternatives.findIndex((phrase) => containsPhrase(field.tokens, phrase));
     return match < 0 ? 0 : field.weight * (match === 0 ? 1 : 0.8);
   })));
   const topicIndex = boostedProjectIds.indexOf(project.id);
-  const ownedMatch = exactName || (concepts.length > 0 && concepts.every((alternatives) =>
-    fields.some((field) => field.owned !== false && alternatives.some((phrase) => containsPhrase(field.tokens, phrase)))));
+  const ownedMatch = exactName || qualifiedName || (concepts.length > 0 && hasOwnedConcepts(fields, concepts));
   const phrase = phraseTokens(query);
   const phraseScore = Math.max(0, ...fields.map((field) => containsPhrase(field.tokens, phrase) ? field.weight * 3 : 0));
   return {
     project, exactName, matches: ownedMatch || topicIndex >= 0,
     // Bounded field strengths prevent a long archive from winning by repetition.
     score: (topicIndex < 0 ? 0 : 10000 - topicIndex * 100)
-      + (exactName ? 5000 : 0) + studyTier(project, query) * 25
+      + (exactName ? 5000 : qualifiedName ? 250 : 0) + studyTier(project, query) * 25
       + strengths.reduce((sum, value) => sum + value, 0) * 4 + phraseScore
       + Math.min(100, Math.max(0, getSignalScore(project))) * 0.02,
   };
