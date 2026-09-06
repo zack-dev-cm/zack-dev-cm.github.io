@@ -4,7 +4,7 @@
 
 Role: Senior ML Engineer
 Portfolio: https://zack-dev-cm.github.io/
-Updated: 2026-09-05
+Updated: 2026-09-06
 
 ## Selected projects
 - [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.

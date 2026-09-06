@@ -1,0 +1,87 @@
+{
+  "id": "clearance",
+  "revision": "LINEAR-R1",
+  "title": "LINEAR-R1",
+  "units": "mm",
+  "binary": "clearance.bin",
+  "binarySha256": "d789418d69e7d4e0029e667126c20cccde66f5cbbd372c39c83304324d97d7b8",
+  "sourceSha256": "68942bb9f5a5f9e69bb9ead124d4426c58fc8e0a3bf30fd02b0c2464740dce20",
+  "parts": [
+    {
+      "id": "clearance:base",
+      "group": "frame",
+      "role": "frame",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 0,
+      "positionCount": 24,
+      "indexOffset": 96,
+      "indexCount": 36
+    },
+    {
+      "id": "clearance:guide",
+      "group": "hardware",
+      "role": "hardware",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 240,
+      "positionCount": 24,
+      "indexOffset": 336,
+      "indexCount": 36
+    },
+    {
+      "id": "clearance:carriage-left",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 480,
+      "positionCount": 24,
+      "indexOffset": 576,
+      "indexCount": 36
+    },
+    {
+      "id": "clearance:carriage-right",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 720,
+      "positionCount": 24,
+      "indexOffset": 816,
+      "indexCount": 36
+    },
+    {
+      "id": "clearance:carriage-bridge",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 960,
+      "positionCount": 24,
+      "indexOffset": 1056,
+      "indexCount": 36
+    }
+  ],
+  "sourcePartCount": 5,
+  "partCount": 5,
+  "triangleCount": 60,
+  "omitted": [],
+  "physicsGeometry": false,
+  "physicalValidation": false
+}

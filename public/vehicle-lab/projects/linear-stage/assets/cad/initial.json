@@ -1,0 +1,87 @@
+{
+  "id": "initial",
+  "revision": "LINEAR-R0",
+  "title": "LINEAR-R0",
+  "units": "mm",
+  "binary": "initial.bin",
+  "binarySha256": "94c03bec66cb9bceea4b116d6885e690a84a8f127298f5dcc8cd2771d0f486c0",
+  "sourceSha256": "0c0197edd41c96ad0f9a7613b451d50ac0f17b93306d0f779d9cd05f814bd440",
+  "parts": [
+    {
+      "id": "initial:base",
+      "group": "frame",
+      "role": "frame",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 0,
+      "positionCount": 24,
+      "indexOffset": 96,
+      "indexCount": 36
+    },
+    {
+      "id": "initial:guide",
+      "group": "hardware",
+      "role": "hardware",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 240,
+      "positionCount": 24,
+      "indexOffset": 336,
+      "indexCount": 36
+    },
+    {
+      "id": "initial:carriage-left",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 480,
+      "positionCount": 24,
+      "indexOffset": 576,
+      "indexCount": 36
+    },
+    {
+      "id": "initial:carriage-right",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 720,
+      "positionCount": 24,
+      "indexOffset": 816,
+      "indexCount": 36
+    },
+    {
+      "id": "initial:carriage-bridge",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.32,
+        0.48,
+        0.48
+      ],
+      "positionOffset": 960,
+      "positionCount": 24,
+      "indexOffset": 1056,
+      "indexCount": 36
+    }
+  ],
+  "sourcePartCount": 5,
+  "partCount": 5,
+  "triangleCount": 60,
+  "omitted": [],
+  "physicsGeometry": false,
+  "physicalValidation": false
+}

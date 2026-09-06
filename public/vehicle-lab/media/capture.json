@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "kind": "DETERMINISTIC_BROWSER_SCREEN_CAPTURE",
+  "durationSeconds": 96,
+  "fps": 24,
+  "width": 1920,
+  "height": 1080,
+  "frames": 2304,
+  "audio": false,
+  "captions": "English",
+  "solverSegment": {
+    "start": 61,
+    "end": 76,
+    "recordedRunSeconds": 12,
+    "playbackRate": 1,
+    "historical": true,
+    "newSimulationRun": false
+  },
+  "sourceSha256": {
+    "app.js": "1864d8b29d2726f523bc1b34fb13096cf2838d940a5b1c2323e66c5a20d097d5",
+    "chapters.js": "e01046c95916816e7c96710d14463720d428726eb235b681e9607db10ba92ff2",
+    "style.css": "5899861f39362032b572b412440081ca96703377e9442faf6761e70f9346ee58",
+    "studio.html": "dece941931b375ffd69cf803d640b859a6debbcaf9261df22ad7f27732cca0ba",
+    "replay-player.js": "a9a9e768a9593b7fb7e7774d65b4a5b5927f4610c992a0b841b18a73da9fe7cf",
+    "replay-contract.js": "1c4a4391b488c2d8b872e9e1b4be06a4fffc8eaa738b712cae10c794f39b7e68",
+    "project-contract.js": "36ad6c0c43b823564506fd86277cd2f32dfacbfd420ba07e7d90c704ed22136f",
+    "project-record.js": "1094ad6a6221deded4ae48c87b4faf66bd19563e140920264f9bfa3d15420fc3",
+    "data/baseline.json": "5a7341765110a84f32c87fb0f68bdf67871d5afac9bd37ad91b4bc3895c00edf",
+    "data/prototype.json": "9f594e58462c8a3ca44888b05fc980baab0c20837c603397d3823c03ef022a0c",
+    "data/mechanical.json": "2531c7b25bb16714440e59f602e0934d47323d9fe2319e008411b152dc482c98",
+    "data/body.json": "1d4d516f64c2cbfc499e4f33f1a6af242c5aaa193ed2469bbf6276a64a954e96",
+    "data/baseline.bin": "e27802a1619ff74c1f782bde8a4a6b26aeb42a707b47cdce8ed787b4fe155e12",
+    "data/prototype.bin": "f3d10d4ebb78414a8d3ece849a272f24dcb047568af415fa4aba523db5f2053d",
+    "data/mechanical.bin": "6d37347cb5039c3dbced0d07becad7b163fce00600393054c048767f74702018",
+    "data/body.bin": "528520f9f55462c49aa55b08faec89d81e5ec692f241dd192b512ce3c1ca0b75",
+    "data/provenance.json": "a84d3bb1a2c8d13e45aab4ded3a9321f64a28b8de4d6d01267c81fb9232f5981",
+    "data/physics.json": "5ab36bd3c7dba32b5ad6fb8e8b630b7acd81223db36ceffe2e6fdd8f9271aa69",
+    "data/evolution.json": "230497db6ca2b0f8bb2acd98214add494d907ee59bdb9b6f2194a98d4af20fb6",
+    "tools/capture.mjs": "d15f111b748dcc544c064485be2e5fd0ca9cd5dd1ad63a9544c3019310151f5b",
+    "tools/browser-session.mjs": "b6faec2a469076e87dbe1b20939fc0b89b8f8cbb50f329df4aba36b1acfc93b5"
+  },
+  "models": {
+    "body": {
+      "parts": 183,
+      "triangles": 1225338,
+      "withheld": 5,
+      "sha256": "528520f9f55462c49aa55b08faec89d81e5ec692f241dd192b512ce3c1ca0b75"
+    },
+    "prototype": {
+      "parts": 138,
+      "triangles": 466174,
+      "withheld": 0,
+      "sha256": "f3d10d4ebb78414a8d3ece849a272f24dcb047568af415fa4aba523db5f2053d"
+    },
+    "baseline": {
+      "parts": 305,
+      "triangles": 525506,
+      "withheld": 37,
+      "sha256": "e27802a1619ff74c1f782bde8a4a6b26aeb42a707b47cdce8ed787b4fe155e12"
+    },
+    "mechanical": {
+      "parts": 963,
+      "triangles": 2243124,
+      "withheld": 12,
+      "sha256": "6d37347cb5039c3dbced0d07becad7b163fce00600393054c048767f74702018"
+    }
+  },
+  "outputs": {
+    "vehicle-lab-pipeline.mp4": {
+      "sha256": "7438cdfe415e2c3f741a45779630434703d2927178a34906ca3a7119c8b6d588",
+      "bytes": 20031414
+    },
+    "vehicle-lab-preview.gif": {
+      "sha256": "4c0b09baaf94e3e59e47dac36bc1cbbeaa84787290ec8b43d514ca29d1be2f97",
+      "bytes": 2570100
+    },
+    "vehicle-lab-poster.jpg": {
+      "sha256": "42a558495ffa3f8804a5a1bc4cbd129394ec2c4f92c33bc570875c119330279d",
+      "bytes": 242834
+    },
+    "vehicle-lab-pipeline.vtt": {
+      "sha256": "22fc68f2bc539ddede2fcfbf325604f968fb187e216fc310ac4acee7a1600367",
+      "bytes": 1113
+    },
+    "ideation.jpg": {
+      "sha256": "8ba01d04ebee164f3bb8e9b82f28f1030c19ceb8e4206875368bb954d8e1dbfd",
+      "bytes": 127910
+    },
+    "prototype.jpg": {
+      "sha256": "7e6271e336ce0e95e3f85a1185463373295c6b9213914dbfecf193c635bf386b",
+      "bytes": 133105
+    },
+    "inspection.jpg": {
+      "sha256": "b460dc819e26da8db5d39778c0bc1ff64a7f21f1a0a17ce2366e8256b4b4ca9d",
+      "bytes": 117311
+    },
+    "evolution.jpg": {
+      "sha256": "a93f3149e8ec811525b6046c5d3e04cda495a89f91ddda6cc5c85ed913ea671d",
+      "bytes": 133180
+    },
+    "physics.jpg": {
+      "sha256": "e3a90e1fe8678994882be1489af338261a07b672bc085cae91f6065c02049f30",
+      "bytes": 60525
+    },
+    "assembly.jpg": {
+      "sha256": "da6fe844ee421d173eae85927773329de5a1f7b8d67f01f339cc0ce23eb3ff34",
+      "bytes": 141019
+    }
+  },
+  "hardwareRelease": false
+}

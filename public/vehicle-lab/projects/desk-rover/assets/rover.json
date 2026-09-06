@@ -1,0 +1,129 @@
+{
+  "id": "rover",
+  "revision": "STARTER-R0",
+  "title": "STARTER-R0",
+  "units": "mm",
+  "binary": "rover.bin",
+  "binarySha256": "1170109d1e0ca276e0638d13e3b8d7cde718a340542e280653b8d068b746dc0d",
+  "sourceSha256": "3b3c59489441c41f611c7abeabe9f9e41cbe9631f4f6dbe12a67252133ad4c70",
+  "parts": [
+    {
+      "id": "deck",
+      "group": "frame",
+      "role": "frame",
+      "color": [
+        0.22,
+        0.36,
+        0.39
+      ],
+      "positionOffset": 0,
+      "positionCount": 24,
+      "indexOffset": 96,
+      "indexCount": 36
+    },
+    {
+      "id": "electronics-envelope",
+      "group": "electrical",
+      "role": "electrical",
+      "color": [
+        0.83,
+        0.37,
+        0.19
+      ],
+      "positionOffset": 240,
+      "positionCount": 24,
+      "indexOffset": 336,
+      "indexCount": 36
+    },
+    {
+      "id": "axle--82",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.53,
+        0.55,
+        0.5
+      ],
+      "positionOffset": 480,
+      "positionCount": 24,
+      "indexOffset": 576,
+      "indexCount": 36
+    },
+    {
+      "id": "wheel--82--94",
+      "group": "wheels",
+      "role": "wheels",
+      "color": [
+        0.16,
+        0.19,
+        0.18
+      ],
+      "positionOffset": 720,
+      "positionCount": 192,
+      "indexOffset": 1488,
+      "indexCount": 372
+    },
+    {
+      "id": "wheel--82-94",
+      "group": "wheels",
+      "role": "wheels",
+      "color": [
+        0.16,
+        0.19,
+        0.18
+      ],
+      "positionOffset": 2976,
+      "positionCount": 192,
+      "indexOffset": 3744,
+      "indexCount": 372
+    },
+    {
+      "id": "axle-82",
+      "group": "drive",
+      "role": "drive",
+      "color": [
+        0.53,
+        0.55,
+        0.5
+      ],
+      "positionOffset": 5232,
+      "positionCount": 24,
+      "indexOffset": 5328,
+      "indexCount": 36
+    },
+    {
+      "id": "wheel-82--94",
+      "group": "wheels",
+      "role": "wheels",
+      "color": [
+        0.16,
+        0.19,
+        0.18
+      ],
+      "positionOffset": 5472,
+      "positionCount": 192,
+      "indexOffset": 6240,
+      "indexCount": 372
+    },
+    {
+      "id": "wheel-82-94",
+      "group": "wheels",
+      "role": "wheels",
+      "color": [
+        0.16,
+        0.19,
+        0.18
+      ],
+      "positionOffset": 7728,
+      "positionCount": 192,
+      "indexOffset": 8496,
+      "indexCount": 372
+    }
+  ],
+  "sourcePartCount": 8,
+  "partCount": 8,
+  "triangleCount": 544,
+  "omitted": [],
+  "physicsGeometry": false,
+  "physicalValidation": false
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-09-05",
+  "generatedAt": "2026-09-06",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -3404,6 +3404,63 @@
         }
       ],
       "links": []
+    },
+    {
+      "id": 82,
+      "title": "Vehicle Lab: A Reusable Engineering Notebook",
+      "url": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md",
+      "summary": "Connect design intent, inspectable 3D geometry, revision decisions, and recorded simulation evidence in a portable project.",
+      "kind": "open-source",
+      "tags": [],
+      "aliases": [
+        "vehicle lab",
+        "engineering notebook",
+        "3D engineering studies"
+      ],
+      "techStack": [
+        "Python",
+        "Three.js",
+        "FreeCAD exports",
+        "Project Chrono data",
+        "Playwright",
+        "FFmpeg"
+      ],
+      "benchmarks": [
+        {
+          "label": "Film",
+          "value": "96 seconds",
+          "context": "1920 x 1080, 24 fps; actual browser capture"
+        },
+        {
+          "label": "Vehicle studies",
+          "value": "4",
+          "context": "CAD-derived display snapshots with separate engineering scopes"
+        },
+        {
+          "label": "Physical validation",
+          "value": "Open",
+          "context": "Digital examples; no qualified hardware release"
+        }
+      ],
+      "links": [
+        {
+          "label": "Source on GitHub",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab"
+        },
+        {
+          "label": "Explore Vehicle Lab",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
+        },
+        {
+          "label": "Read the documentation",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/"
+        },
+        {
+          "label": "Download source v0.1.0",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz"
+        }
+      ]
     },
     {
       "id": 1,

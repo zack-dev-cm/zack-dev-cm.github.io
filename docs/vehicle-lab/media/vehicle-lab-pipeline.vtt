@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:10.000
+Vehicle Lab connects ideation, prototyping, inspection, evolution, physics and assembly planning.
+
+2
+00:00:10.000 --> 00:00:22.000
+The baseline makes assumptions visible. Geometry helps ask better questions before parts are selected.
+
+3
+00:00:22.000 --> 00:00:35.000
+This is the actual RC25 CAD export. Separating the parts is an inspection animation, not a proven assembly path.
+
+4
+00:00:35.000 --> 00:00:48.000
+Native mesh geometry exposes the chain, bearing and frame detail. Detail alone does not close mechanical fit.
+
+5
+00:00:48.000 --> 00:01:01.000
+Design evolution is a revision history. No evolutionary optimizer or physical prototype campaign is claimed.
+
+6
+00:01:01.000 --> 00:01:16.000
+A real saved solver run, replayed at 1× during the motion segment. The failed obstacle test stays visible.
+
+7
+00:01:16.000 --> 00:01:29.000
+Assembly planning connects part identity to the next experiment. Physical verification is the next engineering step.
+
+8
+00:01:29.000 --> 00:01:36.000
+Vehicle Lab · an experimental pipeline from design intent to inspectable evidence.

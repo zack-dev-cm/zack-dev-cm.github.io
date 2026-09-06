@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "desk-rover",
+  "name": "Desk Rover",
+  "description": "A new engineering notebook. Replace the included conceptual rover fixture with your own geometry and evidence.",
+  "units": "mm",
+  "models": [
+    {
+      "id": "rover",
+      "metadata": "projects/desk-rover/assets/rover.json"
+    }
+  ],
+  "stages": [
+    {
+      "id": "intent",
+      "title": "Define your experiment",
+      "description": "Record what the next prototype needs to teach you.",
+      "model": "rover",
+      "status": "unverified"
+    },
+    {
+      "id": "inspect",
+      "title": "Inspect your geometry",
+      "description": "Orbit, isolate systems and separate the illustrative fixture. Replace it with your own OBJ export.",
+      "model": "rover",
+      "status": "unverified"
+    }
+  ],
+  "revisions": [
+    {
+      "id": "STARTER-R0",
+      "parents": [],
+      "decision": "Original illustrative fixture; no simulation or physical build."
+    }
+  ],
+  "evidence": [],
+  "claims": {
+    "physicalValidation": false,
+    "hardwareRelease": false
+  }
+}

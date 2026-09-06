@@ -996,6 +996,18 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Vehicle Lab v0.1.0",
+    description: "A reusable engineering notebook with inspectable 3D models, revision decisions, recorded simulation evidence, and a 96-second pipeline film. Create your own project from the documented examples.",
+    links: [
+      { text: "Explore Vehicle Lab", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/" },
+      { text: "Watch the pipeline film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0" }
+    ],
+    projectId: 82,
+    repoFullName: "zack-dev-cm/vehicle-lab",
+    createdAt: "2026-09-07"
+  },
+  {
     title: "Document AI and engineering R&D",
     description: "Current work in Riverstart's R&D ML team: document assistants, engineering-drawing analysis and construction-document interpretation with source-linked specialist review.",
     links: [
@@ -1455,6 +1467,40 @@ export const LATEST_UPDATES: LatestUpdate[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 82,
+    title: "Vehicle Lab: A Reusable Engineering Notebook",
+    projectKind: "open-source",
+    aliases: ["vehicle lab", "engineering notebook", "3D engineering studies"],
+    searchProfile: { capabilities: ["3D visualization", "CAD inspection", "recorded simulation replay", "engineering notebooks", "reproducible research"], evidence: "implementation" },
+    description: "Connect design intent, inspectable 3D geometry, revision decisions, and recorded simulation evidence in a portable project.",
+    longDescription: "Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 96-second film follows real CAD-derived geometry through ideation, digital prototyping, mechanical inspection, revision comparison, and an archived Project Chrono obstacle run. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.",
+    keyFeatures: [
+      "Reusable project CLI, manifest schema, and original desk-rover starter",
+      "3D orbit, subsystem isolation, wireframe, and exploded inspection",
+      "Revision graph and scoped evidence with source and asset checksums",
+      "Engine-neutral replay interface with an explicit recorded-pose contract",
+      "Eleven documentation pages and a captioned 1080p pipeline film"
+    ],
+    techStack: ["Python", "Three.js", "FreeCAD exports", "Project Chrono data", "Playwright", "FFmpeg"],
+    benchmarks: [
+      { label: "Film", value: "96 seconds", context: "1920 × 1080, 24 fps; actual browser capture" },
+      { label: "Vehicle studies", value: "4", context: "CAD-derived display snapshots with separate engineering scopes" },
+      { label: "Physical validation", value: "Open", context: "Digital examples; no qualified hardware release" }
+    ],
+    links: [
+      { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/vehicle-lab" },
+      { text: "Explore Vehicle Lab", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/" },
+      { text: "Read the documentation", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/" },
+      { text: "Download source v0.1.0", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-pipeline.mp4`, alt: "Vehicle Lab: the complete engineering pipeline", caption: "Real CAD-derived geometry and recorded Chrono states. Digital studies; physical validation remains open." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-poster.jpg`, alt: "Vehicle Lab body study in the interactive engineering notebook" },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-inspection.jpg`, alt: "Mechanical inspection of the vehicle frame, suspension, wheels, and chain drive" }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-poster.jpg`
+  },
   {
     "id": 104,
     "title": "LigninQC - Reproducible Scientific Research Workflows",

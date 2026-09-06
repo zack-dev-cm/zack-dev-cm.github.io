@@ -1,0 +1,12 @@
+{
+  "kind": "nominal-clearance-check",
+  "revision": "LINEAR-R0",
+  "units": "mm",
+  "guide_width": 20,
+  "slot_width": 18,
+  "total_clearance": -2,
+  "required_total_clearance": 2,
+  "status": "failed",
+  "scope": "One dimensional nominal clearance only. Tolerances, loads, friction and physical fit are unverified.",
+  "physicalValidation": false
+}

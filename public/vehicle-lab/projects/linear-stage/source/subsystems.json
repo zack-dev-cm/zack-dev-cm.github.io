@@ -1,0 +1,7 @@
+{
+  "base": "frame",
+  "guide": "hardware",
+  "carriage-left": "drive",
+  "carriage-right": "drive",
+  "carriage-bridge": "drive"
+}

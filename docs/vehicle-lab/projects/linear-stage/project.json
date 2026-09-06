@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "linear-stage",
+  "name": "Linear stage / a decision with evidence",
+  "description": "Inspect a grouped assembly, retain a failed nominal clearance check, follow the revision, and replay a prescribed travel fixture.",
+  "units": "mm",
+  "models": [
+    {
+      "id": "initial",
+      "metadata": "projects/linear-stage/assets/cad/initial.json"
+    },
+    {
+      "id": "clearance",
+      "metadata": "projects/linear-stage/assets/cad/clearance.json"
+    }
+  ],
+  "stages": [
+    {
+      "id": "question",
+      "title": "What stops the carriage?",
+      "description": "A guide and sliding carriage need nominal clearance. The original slot is narrower than the guide. Inspect the drive and hardware groups.",
+      "model": "initial",
+      "status": "unverified"
+    },
+    {
+      "id": "initial-fit",
+      "title": "Keep the failed fit.",
+      "description": "An 18 mm slot around a 20 mm guide gives \u22122 mm total clearance. The nominal fit fails. Open Project record for the original result and revision decision.",
+      "model": "initial",
+      "status": "failed"
+    },
+    {
+      "id": "revision",
+      "title": "Change one dimension.",
+      "description": "The revised slot is 24 mm wide, giving 4 mm total nominal clearance. This observed dimension check does not establish tolerance, load or physical acceptance.",
+      "model": "clearance",
+      "status": "observed"
+    },
+    {
+      "id": "travel",
+      "title": "Inspect the recorded travel.",
+      "description": "Three named bodies retain their recorded poses. The carriage travels 180 mm in a prescribed adapter fixture; a dynamics engine has not solved this motion.",
+      "replay": "travel",
+      "status": "unverified"
+    }
+  ],
+  "revisions": [
+    {
+      "id": "LINEAR-R0",
+      "parents": [],
+      "decision": "Initial grouped assembly. The 18 mm slot interferes with the 20 mm guide by 2 mm in total."
+    },
+    {
+      "id": "LINEAR-R1",
+      "parents": [
+        "LINEAR-R0"
+      ],
+      "decision": "Increase only the slot width to 24 mm. Retain the earlier failure and check nominal clearance again."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "initial-clearance",
+      "kind": "analysis",
+      "revision": "LINEAR-R0",
+      "path": "projects/linear-stage/assets/initial-clearance.json",
+      "sha256": "45396550da75986e528d772137e9e1b2835ec64f37fbc79065812a0dedbb56f3",
+      "scope": "One dimensional nominal clearance only. Tolerances, loads, friction and physical fit are unverified.",
+      "status": "failed"
+    },
+    {
+      "id": "clearance-clearance",
+      "kind": "analysis",
+      "revision": "LINEAR-R1",
+      "path": "projects/linear-stage/assets/clearance-clearance.json",
+      "sha256": "26d61e738dd13317cd3dc974bba4227fb414629d48dc86e0da6b97430696e95b",
+      "scope": "One dimensional nominal clearance only. Tolerances, loads, friction and physical fit are unverified.",
+      "status": "observed"
+    },
+    {
+      "id": "travel",
+      "kind": "rigid-body-replay",
+      "revision": "LINEAR-R1",
+      "path": "projects/linear-stage/assets/prescribed-travel.json",
+      "sha256": "72c4c38e6ac11f957458c7b60913aa10c17093991220a31b7e055086bdcb3a14",
+      "scope": "Recorded prescribed travel for adapter inspection; no dynamics solution or physical test.",
+      "status": "unverified"
+    }
+  ],
+  "claims": {
+    "physicalValidation": false,
+    "hardwareRelease": false
+  }
+}

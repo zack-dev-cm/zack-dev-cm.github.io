@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vehicle Lab is an experimental vehicle engineering notebook connecting parametric studies, native CAD inspection, design history and recorded physics.">
+  <meta name="theme-color" content="#edf0eb">
+  <meta property="og:title" content="Vehicle Lab — from idea to inspectable machine">
+  <meta property="og:description" content="Explore real 3D design studies, a digital bench prototype, mechanical inspection and an archived physics replay.">
+  <meta property="og:image" content="https://zack-dev-cm.github.io/docs/vehicle-lab/media/vehicle-lab-poster.jpg">
+  <title>Vehicle Lab · An open engineering notebook</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/controls/OrbitControls.js":"./vendor/three/OrbitControls.js"}}</script>
+<link rel="canonical" href="https://zack-dev-cm.github.io/docs/vehicle-lab/studio.html"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/vehicle-lab/media/vehicle-lab-poster.jpg"></head>
+<body>
+  <a class="skip" href="#chapters">Skip to chapters</a>
+  <header class="masthead">
+    <a href="./" class="brand" aria-label="Vehicle Lab home"><img src="icon.svg" width="32" height="32" alt=""> VEHICLE<span>LAB</span><small id="project-name">ENGINEERING NOTEBOOK</small></a>
+    <div class="header-right"><button id="record-toggle" hidden>Project record</button><span class="status-dot"></span><span>EXPERIMENTAL / v0.1</span><a href="watch.html">Watch the film ↗</a></div>
+  </header>
+  <main id="app" aria-busy="true">
+    <section class="copy" aria-label="Current chapter">
+      <p class="eyebrow"><span id="chapter-number">00</span><span id="chapter-category">THE COMPLETE WORKFLOW</span></p>
+      <h1 id="headline">From idea to<br><em>inspectable</em><br>machine.</h1>
+      <p id="description" class="description">A working notebook that connects design intent, native geometry and the evidence behind each revision.</p>
+      <div id="facts" class="facts"></div>
+      <p class="chapter-note" id="chapter-note">Digital engineering studies. Physical validation remains open.</p>
+    </section>
+    <section class="stage" aria-label="Interactive 3D engineering study">
+      <div class="stage-heading"><span id="model-label">RIDGE / BODY STUDY</span><span id="view-label">NATIVE CAD → WEBGL</span></div>
+      <canvas id="scene" tabindex="0" aria-label="3D model. Drag to orbit; scroll to zoom. Use the chapter buttons to change study."></canvas>
+      <div id="loading" role="status"><span class="loader"></span><p>Opening the engineering notebook…</p><small>Loading verified local geometry</small></div>
+      <div id="error" role="alert" hidden><h2>The study could not load</h2><p></p><a href="watch.html">Watch the recorded walkthrough</a><button id="retry">Try again</button></div>
+      <div id="diagram" class="diagram" hidden></div>
+      <div id="telemetry" class="telemetry" hidden></div>
+      <div class="viewport-tools" id="viewport-tools"><button id="orbit" aria-pressed="false">Orbit view</button><button id="explode" aria-pressed="false">Separate groups</button><button id="wire" aria-pressed="false">Wireframe</button><select id="isolate" aria-label="Inspect a subsystem"><option value="all">All components</option><option value="body">Bodywork</option><option value="frame">Frame</option><option value="suspension">Suspension</option><option value="drive">Drivetrain</option><option value="electrical">Electrical</option><option value="wheels">Wheels</option><option value="hardware">Hardware</option></select></div>
+      <div class="stage-footer"><span id="geometry-count">READING SOURCE GEOMETRY</span><span id="geometry-note">Drag to orbit · scroll to zoom</span></div>
+    </section>
+    <div class="caption"><span class="caption-index" id="caption-index">FIELD NOTES / 00</span><p id="caption">Explore the model. Follow the evidence.</p></div>
+  </main>
+  <footer class="transport">
+    <div class="playback"><button id="play" aria-label="Play the guided tour" disabled>▶ <span>Play tour</span></button><span id="time">00:00 / 01:36</span><label class="sr-only" for="scrub">Tour position in seconds</label><input id="scrub" type="range" min="0" max="96" value="0" step="0.1"></div>
+    <nav id="chapters" aria-label="Pipeline chapters"></nav>
+  </footer>
+  <dialog id="project-record" aria-labelledby="record-title"><div class="record-header"><div><p>PROJECT RECORD</p><h2 id="record-title">Revision decisions & evidence</h2></div><button id="record-close" aria-label="Close project record">Close ×</button></div><div class="record-content"></div></dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
