@@ -20,12 +20,12 @@ import { slugify, getProjectCanonicalSlug, getProjectRouteSlugs, selectReviewedF
 import { searchProjects, getProjectSearchText, normalizeSearchValue, extractSearchTerms } from './utils/project-search.mjs';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [101, 63, 81, 11, 102, 72] as const;
+const FEATURED_PROJECT_IDS = [101, 82, 63, 81, 11, 72] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
 
 const FEATURED_PROJECT_CONTEXT: Record<number, {
-  label: string; title: string; summary: string; artifact?: { heading: string; lines: string[]; footer: string };
+  label: string; title: string; summary: string; imageIndex?: number; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
 }> = {
   101: {
     label: 'Current R&D · Riverstart',
@@ -36,6 +36,13 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Mobile computer vision',
     title: 'Dermaself · Skin analysis',
     summary: 'A guided capture-to-analysis mobile workflow, connecting vision models, API integration, and model evaluation.',
+  },
+  82: {
+    label: 'Open-source engineering · v0.1.0',
+    title: 'Vehicle Lab · CAD to simulation',
+    summary: 'Built and released an engineering notebook connecting CAD inspection, digital prototypes, revision decisions and recorded simulation. Explore the models and the 96-second film.',
+    imageIndex: 1,
+    figureLabel: 'CAD assembly inspection · frame from the film',
   },
   81: {
     label: 'Python package · PyPI',
@@ -1015,9 +1022,9 @@ const App: React.FC = () => {
             <div className="featured-grid">
               {featuredProjects.map((project, index) => {
                 const context = FEATURED_PROJECT_CONTEXT[project.id];
-                const asset = project.images[0];
+                const asset = project.images[context.imageIndex ?? 0];
                 const isIllustration = Boolean(asset && /generated|conceptual|illustration|public-safe.*card/i.test(asset.alt));
-                const figureLabel = project.id === 102 ? 'Point cloud → model → plan' : project.id === 81 ? 'Recorded profiling output' : context.artifact ? 'System outline' : /workflow diagram/i.test(asset?.caption || '') ? 'Workflow diagram' : isIllustration ? 'Workflow illustration' : 'Project figure';
+                const figureLabel = context.figureLabel || (project.id === 102 ? 'Point cloud → model → plan' : project.id === 81 ? 'Recorded profiling output' : context.artifact ? 'System outline' : /workflow diagram/i.test(asset?.caption || '') ? 'Workflow diagram' : isIllustration ? 'Workflow illustration' : 'Project figure');
                 return (
                   <article key={project.id} className="featured-card">
                     <header className="featured-card__header">
@@ -1055,6 +1062,7 @@ const App: React.FC = () => {
                 );
               })}
             </div>
+            <p><a className="text-link" href={buildProjectPublicUrl('engineering-drawing-cad-analysis')}>More engineering R&D: point clouds, CAD &amp; 2D drawings <span aria-hidden="true">↗</span></a></p>
           </Section>
 
           <Section id="experience" eyebrow="02 / Experience" title="A career in applied ML" description="Document recognition, mobile vision, model tooling and retrieval systems, followed by current document AI research.">

@@ -140,6 +140,14 @@ avoid making dense illustration text carry the card's meaning. Main case-study
 links navigate to a full reading page; archive cards retain the quick-view modal.
 Direct reading pages share the home page's typeface, identity and navigation.
 
+Vehicle Lab appears in the first selected-work row as a released engineering
+notebook. Use the 01:22 exploded-inspection frame from its actual film, cropped
+to the CAD viewport, with a visible source caption. Keep its full film in the
+case-study links and archive viewer. The six selected cards retain the ML career
+focus; point-cloud/CAD research has a direct text link below the selection.
+Vehicle Lab copy distinguishes released software and digital prototypes from
+physical assembly or driving, which remain unverified.
+
 Open-source evidence is a short list of repository, contribution, status and link.
 Merged PRs appear first, followed by open PRs. Bug reports and issue discussions
 remain available in an explicitly labeled disclosure. Do not use organization logos

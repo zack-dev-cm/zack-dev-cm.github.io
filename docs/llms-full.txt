@@ -21,13 +21,43 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 
 ## Selected projects
 - [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
+- [Vehicle Lab: A Reusable Engineering Notebook](https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/): Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
 - [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/): A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
 - [Calorio - AI Nutrition Service](https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/): A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.
-- [Engineering Drawing & CAD Analysis](https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/): Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.
 - [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Projects (Full Details)
+### Vehicle Lab: A Reusable Engineering Notebook
+Summary: Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
+Details: Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 96-second film follows real CAD-derived geometry through ideation, digital prototyping, mechanical inspection, revision comparison, and an archived Project Chrono obstacle run. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.
+Project URL: https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/
+Markdown URL: https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md
+Key Features:
+- Reusable project CLI, manifest schema, and original desk-rover starter
+- 3D orbit, subsystem isolation, wireframe, and exploded inspection
+- Revision graph and scoped evidence with source and asset checksums
+- Engine-neutral replay interface with an explicit recorded-pose contract
+- Eleven documentation pages and a captioned 1080p pipeline film
+Tech Stack:
+- Python
+- Three.js
+- FreeCAD exports
+- Project Chrono data
+- Playwright
+- FFmpeg
+Benchmarks & Analytics:
+- Film: 96 seconds (1920 x 1080, 24 fps; actual browser capture)
+- Vehicle studies: 4 (CAD-derived display snapshots with separate engineering scopes)
+- Physical validation: Open (Digital examples; no qualified hardware release)
+Links:
+- Watch the 96-second film: https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html
+- Source on GitHub: https://github.com/zack-dev-cm/vehicle-lab
+- Explore Vehicle Lab: https://zack-dev-cm.github.io/docs/vehicle-lab/
+- Read the documentation: https://zack-dev-cm.github.io/docs/vehicle-lab/docs/
+- Release v0.1.0: https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0
+- Download source v0.1.0: https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz
+
 ### Riverstart Document AI
 Summary: R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
 Details: As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.
@@ -1061,34 +1091,6 @@ Benchmarks & Analytics:
 - Artifact families: 8+ (reports, overlays, manifests, audio, video, dashboard, inspection logs, delivery status)
 - Review posture: strict (stage-by-stage gates documented in project records)
 - Source review date: 2026-03-01 (project source review)
-
-### Vehicle Lab: A Reusable Engineering Notebook
-Summary: Connect design intent, inspectable 3D geometry, revision decisions, and recorded simulation evidence in a portable project.
-Details: Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 96-second film follows real CAD-derived geometry through ideation, digital prototyping, mechanical inspection, revision comparison, and an archived Project Chrono obstacle run. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.
-Project URL: https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/
-Markdown URL: https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md
-Key Features:
-- Reusable project CLI, manifest schema, and original desk-rover starter
-- 3D orbit, subsystem isolation, wireframe, and exploded inspection
-- Revision graph and scoped evidence with source and asset checksums
-- Engine-neutral replay interface with an explicit recorded-pose contract
-- Eleven documentation pages and a captioned 1080p pipeline film
-Tech Stack:
-- Python
-- Three.js
-- FreeCAD exports
-- Project Chrono data
-- Playwright
-- FFmpeg
-Benchmarks & Analytics:
-- Film: 96 seconds (1920 x 1080, 24 fps; actual browser capture)
-- Vehicle studies: 4 (CAD-derived display snapshots with separate engineering scopes)
-- Physical validation: Open (Digital examples; no qualified hardware release)
-Links:
-- Source on GitHub: https://github.com/zack-dev-cm/vehicle-lab
-- Explore Vehicle Lab: https://zack-dev-cm.github.io/docs/vehicle-lab/
-- Read the documentation: https://zack-dev-cm.github.io/docs/vehicle-lab/docs/
-- Download source v0.1.0: https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz
 
 ### Android Remote Control with VLM AI Agents
 Summary: Hands-free Android automation via server-side VLM agents deciding the next tap/swipe/type.

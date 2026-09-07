@@ -1,6 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test('Vehicle Lab can be found and its film plays in the portfolio', async ({ page }) => {
+test('Vehicle Lab is featured, has direct demo links and its film plays in the portfolio', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.site-layout')).toBeVisible();
+  const featured = page.locator('.featured-card').filter({ has: page.getByRole('heading', { name: 'Vehicle Lab · CAD to simulation', exact: true }) });
+  await expect(featured.locator('img')).toHaveAttribute('src', /vehicle-lab-assembly-hero\.webp$/);
+  await expect(featured.getByRole('link', { name: 'Watch the 96-second film' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/watch\.html$/);
+  await page.goto('/projects/vehicle-lab-a-reusable-engineering-notebook/');
+  const actions = page.getByRole('navigation', { name: 'Project actions' });
+  await expect(actions.getByRole('link', { name: 'Watch the 96-second film' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/watch\.html$/);
+  await expect(actions.getByRole('link', { name: 'Explore Vehicle Lab' })).toBeVisible();
   await page.goto('/');
   await expect(page.locator('.site-layout')).toBeVisible();
   const archive = page.locator('#project-archive');

@@ -416,6 +416,7 @@ const extractProjects = (sourceFile, imageConstants) => {
       const description = parseString(getPropertyValue(element, 'description'));
       const longDescription = parseString(getPropertyValue(element, 'longDescription'));
       const caseStudySections = parseJsonLiteral(getPropertyValue(element, 'caseStudySections')) || [];
+      const primaryLinks = parseStringArray(getPropertyValue(element, 'primaryLinks'));
       const reproducibleWorkflow = parseJsonLiteral(getPropertyValue(element, 'reproducibleWorkflow')) || undefined;
       const keyFeatures = parseStringArray(getPropertyValue(element, 'keyFeatures'));
       const techStack = parseStringArray(getPropertyValue(element, 'techStack'));
@@ -440,6 +441,7 @@ const extractProjects = (sourceFile, imageConstants) => {
         description,
         longDescription,
         caseStudySections,
+        primaryLinks,
         reproducibleWorkflow,
         projectKind,
         surfaceTags,
@@ -878,6 +880,14 @@ const buildProjectHtml = (project) => {
     `<section><h2>${escapeHtml(toAscii(section.title))}</h2><p>${escapeHtml(toAscii(section.body))}</p></section>`
   ).join('\n');
   const workflow = project.reproducibleWorkflow;
+  const primaryActions = (project.primaryLinks || []).map((label) => {
+    const link = links.find((item) => item.text === toAscii(label));
+    if (!link) throw new Error(`Missing primary link "${label}" for ${title}`);
+    return link;
+  });
+  const projectActions = primaryActions.length
+    ? `<nav class="research-actions" aria-label="Project actions">${primaryActions.map((link, index) => `<a class="research-action${index === 0 ? ' research-action--primary' : ''}" href="${escapeHtml(link.url)}">${escapeHtml(link.text)}</a>`).join('')}</nav>`
+    : '';
   const workflowActions = workflow
     ? `<nav class="research-actions" aria-label="Research workflow actions">${links.slice(0, 4).map((link, index) => `<a class="research-action${index === 0 ? ' research-action--primary' : ''}" href="${escapeHtml(link.url)}">${escapeHtml(link.text)}</a>`).join('')}<a class="research-action" href="#run-cases">Run the cases</a></nav>`
     : '';
@@ -993,7 +1003,7 @@ ${JSON.stringify(jsonLd, null, 6)}
         <header class="hero">
           <p class="eyebrow">${escapeHtml(({ research: 'Research & development', 'user-product': project.id === 11 ? 'Maintained service' : 'Product', 'open-source': 'Open source', 'case-study': 'Case study' })[project.projectKind] || 'Portfolio project')}</p>
           <h1>${escapeHtml(title)}</h1>
-          <p class="lede">${escapeHtml(description)}</p>${workflowActions ? `\n          ${workflowActions}` : ''}
+          <p class="lede">${escapeHtml(description)}</p>${projectActions || workflowActions ? `\n          ${projectActions || workflowActions}` : ''}
           ${visualImage ? renderFigure({ url: visualImage, alt: imageAlt, caption: visualCaption }, 0) : ''}
         </header>
         <section>
@@ -1701,10 +1711,10 @@ const main = async () => {
 
   const topProjectTitles = [
     'Riverstart Document AI',
+    'Vehicle Lab: A Reusable Engineering Notebook',
     'Dermaself Flutter Skin Analysis App',
     'Agnitra - ML Profiling & Optimization',
     'Calorio - AI Nutrition Service',
-    'Engineering Drawing & CAD Analysis',
     'Multimodal Video Search Platform'
   ].map(toAscii);
 

@@ -253,7 +253,7 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   const discovery = await discoveryResponse.json();
   expect(discovery.entity.name).toBe('Zakhar Pashkin');
   expect(discovery.entity.role).toBe('Senior ML Engineer');
-  expect(discovery.featuredProjects.map((project: { id: number }) => project.id)).toEqual([101, 63, 81, 11, 102, 72]);
+  expect(discovery.featuredProjects.map((project: { id: number }) => project.id)).toEqual([101, 82, 63, 81, 11, 72]);
   for (const project of discovery.featuredProjects) {
     expect(project.url).toMatch(/^https:\/\/zack-dev-cm\.github\.io\/projects\/[^/]+\/$/);
     expect(projectLocs).toContain(project.url);

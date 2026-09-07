@@ -46,6 +46,7 @@ export interface Project {
   description: string;
   longDescription?: string;
   caseStudySections?: { title: string; body: string }[];
+  primaryLinks?: string[];
   reproducibleWorkflow?: {
     requirements: string;
     steps: string[];

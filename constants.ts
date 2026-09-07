@@ -1471,10 +1471,35 @@ export const PROJECTS: Project[] = [
     id: 82,
     title: "Vehicle Lab: A Reusable Engineering Notebook",
     projectKind: "open-source",
-    aliases: ["vehicle lab", "engineering notebook", "3D engineering studies"],
-    searchProfile: { capabilities: ["3D visualization", "CAD inspection", "recorded simulation replay", "engineering notebooks", "reproducible research"], evidence: "implementation" },
-    description: "Connect design intent, inspectable 3D geometry, revision decisions, and recorded simulation evidence in a portable project.",
+    aliases: ["vehicle lab", "engineering notebook", "3D engineering studies", "RC25"],
+    repoFullName: "zack-dev-cm/vehicle-lab",
+    primaryLinks: ["Watch the 96-second film", "Explore Vehicle Lab", "Source on GitHub"],
+    createdAt: "2026-09-06T20:22:38Z",
+    searchProfile: { capabilities: ["3D visualization", "CAD inspection", "digital prototyping", "recorded simulation replay", "engineering notebooks", "reproducible research", "geometry import", "revision tracking"], evidence: "implementation" },
+    description: "Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.",
     longDescription: "Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 96-second film follows real CAD-derived geometry through ideation, digital prototyping, mechanical inspection, revision comparison, and an archived Project Chrono obstacle run. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.",
+    caseStudySections: [
+      {
+        title: "Engineering across the workflow",
+        body: "I built and released the notebook software around a vehicle design study: a Python project CLI, a portable manifest schema, a Three.js inspection interface, revision records and recorded-motion adapters. The workflow connects design assumptions, geometry, numerical checks and the reasoning behind each revision. The same software supports independent desk-rover and linear-stage examples."
+      },
+      {
+        title: "From CAD to digital prototypes",
+        body: "Four CAD-derived studies cover packaging, the RC25 digital prototype, detailed mechanical inspection and a body/ergonomics study. The viewer preserves component identities and supports subsystem isolation, wireframe and exploded inspection. Grouped OBJ import lets another project map its own geometry to inspection subsystems. The exploded view explains component relationships; it does not establish a feasible physical assembly sequence."
+      },
+      {
+        title: "Keep the failed result with the revision",
+        body: "A project record links parent revisions, decisions, check results and original artifact downloads. In the linear-stage example, an initial clearance failure stays visible beside the revised geometry and its clearance check. Source and asset checksums make each recorded result traceable. The revision graph is an authored engineering record; no automatic evolutionary optimization run is claimed."
+      },
+      {
+        title: "Recorded simulation, with its scope intact",
+        body: "The film includes a 12-second historical Project Chrono run of a separate simplified vehicle model, replayed at its recorded speed. Its rear axle failed to clear the obstacle, and that result remains visible. An engine-neutral JSON interface specifies body identities, metre units, quaternion ordering, poses and metrics for other recorded runs. Prescribed-motion examples are labelled separately. The browser replays saved states; it does not solve new dynamics."
+      },
+      {
+        title: "Released software and the next experiment",
+        body: "Version 0.1.0 includes the source, runnable examples, documentation, a captioned 1080p film and reproducible capture tooling. Original release material is MIT-licensed. Physical printing, assembly, load testing and driving remain open: RC25 has not been printed or driven, mechanical fit findings are unresolved, and the vehicle studies are unqualified for fabrication or riding."
+      }
+    ],
     keyFeatures: [
       "Reusable project CLI, manifest schema, and original desk-rover starter",
       "3D orbit, subsystem isolation, wireframe, and exploded inspection",
@@ -1489,17 +1514,21 @@ export const PROJECTS: Project[] = [
       { label: "Physical validation", value: "Open", context: "Digital examples; no qualified hardware release" }
     ],
     links: [
+      { text: "Watch the 96-second film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html" },
       { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/vehicle-lab" },
       { text: "Explore Vehicle Lab", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/" },
       { text: "Read the documentation", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/" },
+      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0" },
       { text: "Download source v0.1.0", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz" }
     ],
     images: [
       { url: `${LOCAL_IMG_BASE}/vehicle-lab-pipeline.mp4`, alt: "Vehicle Lab: the complete engineering pipeline", caption: "Real CAD-derived geometry and recorded Chrono states. Digital studies; physical validation remains open." },
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-poster.jpg`, alt: "Vehicle Lab body study in the interactive engineering notebook" },
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-inspection.jpg`, alt: "Mechanical inspection of the vehicle frame, suspension, wheels, and chain drive" }
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-assembly-hero.webp`, alt: "RC25 digital prototype with body panels separated above its chassis, wheels and suspension", caption: "Frame at 01:22 from the released film, cropped to the CAD viewport. Exploded inspection of a digital prototype; physical assembly remains unverified." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-inspection.jpg`, alt: "Mechanical inspection of the vehicle frame, suspension, wheels, and chain drive", caption: "CAD-derived mechanical study. Component detail does not close the remaining fit findings." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-revisions.webp`, alt: "Packaging, digital prototype and body studies displayed together in the revision view", caption: "Frame at 00:54 from the film. Authored design revisions with separate scopes." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-physics.webp`, alt: "Saved Project Chrono obstacle simulation shown in Vehicle Lab with its failed result and telemetry", caption: "Frame at 01:08 from the film. A separate historical model; the rear axle did not clear the obstacle." }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-poster.jpg`
+    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-assembly-hero.webp`
   },
   {
     "id": 104,

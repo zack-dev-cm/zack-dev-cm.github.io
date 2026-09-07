@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-09-06",
+  "generatedAt": "2026-09-07",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -33,10 +33,10 @@
     "preferredCitationOrder": [
       "https://zack-dev-cm.github.io/",
       "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
+      "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
       "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
       "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
       "https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/",
-      "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
       "https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.html",
       "https://zack-dev-cm.github.io/papers/"
@@ -1028,6 +1028,72 @@
       "links": []
     },
     {
+      "id": 82,
+      "title": "Vehicle Lab: A Reusable Engineering Notebook",
+      "url": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md",
+      "summary": "Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.",
+      "kind": "open-source",
+      "tags": [],
+      "aliases": [
+        "vehicle lab",
+        "engineering notebook",
+        "3D engineering studies",
+        "RC25"
+      ],
+      "techStack": [
+        "Python",
+        "Three.js",
+        "FreeCAD exports",
+        "Project Chrono data",
+        "Playwright",
+        "FFmpeg"
+      ],
+      "benchmarks": [
+        {
+          "label": "Film",
+          "value": "96 seconds",
+          "context": "1920 x 1080, 24 fps; actual browser capture"
+        },
+        {
+          "label": "Vehicle studies",
+          "value": "4",
+          "context": "CAD-derived display snapshots with separate engineering scopes"
+        },
+        {
+          "label": "Physical validation",
+          "value": "Open",
+          "context": "Digital examples; no qualified hardware release"
+        }
+      ],
+      "links": [
+        {
+          "label": "Watch the 96-second film",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html"
+        },
+        {
+          "label": "Source on GitHub",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab"
+        },
+        {
+          "label": "Explore Vehicle Lab",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
+        },
+        {
+          "label": "Read the documentation",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/"
+        },
+        {
+          "label": "Release v0.1.0",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0"
+        },
+        {
+          "label": "Download source v0.1.0",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz"
+        }
+      ]
+    },
+    {
       "id": 63,
       "title": "Dermaself Flutter Skin Analysis App",
       "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
@@ -1144,51 +1210,6 @@
       ]
     },
     {
-      "id": 102,
-      "title": "Engineering Drawing & CAD Analysis",
-      "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-      "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
-      "kind": "research",
-      "tags": [
-        "computer-vision",
-        "ai-systems",
-        "engineering",
-        "research"
-      ],
-      "aliases": [],
-      "techStack": [
-        "Python",
-        "Open Cascade",
-        "CadQuery",
-        "build123d",
-        "NumPy",
-        "SciPy",
-        "IfcOpenShell",
-        "ezdxf",
-        "Geometry Processing"
-      ],
-      "benchmarks": [],
-      "links": [
-        {
-          "label": "Inspect the generated room floor plan (SVG)",
-          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
-        },
-        {
-          "label": "Inspect the inferred room geometry (JSON)",
-          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
-        },
-        {
-          "label": "Download the synthetic point-cloud input (XYZ)",
-          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
-        },
-        {
-          "label": "Inspect the mechanical fixture projections (SVG)",
-          "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
-        }
-      ]
-    },
-    {
       "id": 72,
       "title": "Multimodal Video Search Platform",
       "url": "https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/",
@@ -1223,6 +1244,72 @@
     }
   ],
   "allProjects": [
+    {
+      "id": 82,
+      "title": "Vehicle Lab: A Reusable Engineering Notebook",
+      "url": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md",
+      "summary": "Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.",
+      "kind": "open-source",
+      "tags": [],
+      "aliases": [
+        "vehicle lab",
+        "engineering notebook",
+        "3D engineering studies",
+        "RC25"
+      ],
+      "techStack": [
+        "Python",
+        "Three.js",
+        "FreeCAD exports",
+        "Project Chrono data",
+        "Playwright",
+        "FFmpeg"
+      ],
+      "benchmarks": [
+        {
+          "label": "Film",
+          "value": "96 seconds",
+          "context": "1920 x 1080, 24 fps; actual browser capture"
+        },
+        {
+          "label": "Vehicle studies",
+          "value": "4",
+          "context": "CAD-derived display snapshots with separate engineering scopes"
+        },
+        {
+          "label": "Physical validation",
+          "value": "Open",
+          "context": "Digital examples; no qualified hardware release"
+        }
+      ],
+      "links": [
+        {
+          "label": "Watch the 96-second film",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html"
+        },
+        {
+          "label": "Source on GitHub",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab"
+        },
+        {
+          "label": "Explore Vehicle Lab",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
+        },
+        {
+          "label": "Read the documentation",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/"
+        },
+        {
+          "label": "Release v0.1.0",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0"
+        },
+        {
+          "label": "Download source v0.1.0",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz"
+        }
+      ]
+    },
     {
       "id": 101,
       "title": "Riverstart Document AI",
@@ -3404,63 +3491,6 @@
         }
       ],
       "links": []
-    },
-    {
-      "id": 82,
-      "title": "Vehicle Lab: A Reusable Engineering Notebook",
-      "url": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md",
-      "summary": "Connect design intent, inspectable 3D geometry, revision decisions, and recorded simulation evidence in a portable project.",
-      "kind": "open-source",
-      "tags": [],
-      "aliases": [
-        "vehicle lab",
-        "engineering notebook",
-        "3D engineering studies"
-      ],
-      "techStack": [
-        "Python",
-        "Three.js",
-        "FreeCAD exports",
-        "Project Chrono data",
-        "Playwright",
-        "FFmpeg"
-      ],
-      "benchmarks": [
-        {
-          "label": "Film",
-          "value": "96 seconds",
-          "context": "1920 x 1080, 24 fps; actual browser capture"
-        },
-        {
-          "label": "Vehicle studies",
-          "value": "4",
-          "context": "CAD-derived display snapshots with separate engineering scopes"
-        },
-        {
-          "label": "Physical validation",
-          "value": "Open",
-          "context": "Digital examples; no qualified hardware release"
-        }
-      ],
-      "links": [
-        {
-          "label": "Source on GitHub",
-          "url": "https://github.com/zack-dev-cm/vehicle-lab"
-        },
-        {
-          "label": "Explore Vehicle Lab",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
-        },
-        {
-          "label": "Read the documentation",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/"
-        },
-        {
-          "label": "Download source v0.1.0",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz"
-        }
-      ]
     },
     {
       "id": 1,
