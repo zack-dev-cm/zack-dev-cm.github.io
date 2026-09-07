@@ -28,8 +28,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   label: string; title: string; summary: string; imageIndex?: number; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
 }> = {
   101: {
-    label: 'Current R&D · Riverstart',
-    title: 'Document AI for expert workflows',
+    label: 'Applied ML · R&D',
+    title: 'Document AI',
     summary: 'R&D for source-linked specialist review: document extraction, deterministic checks and retrieval experiments.',
   },
   63: {
@@ -1011,7 +1011,7 @@ const App: React.FC = () => {
             </div>
             <aside className="hero__current" aria-label="Current work">
               <p className="current-label"><span aria-hidden="true" /> Currently</p>
-              <h2>R&D ML at{' '}<br />Riverstart</h2>
+              <h2>Document AI{' '}<br />& applied ML R&D</h2>
               <p>Document intelligence and source-linked workflows for expert teams.</p>
               <a href="#experience" className="text-link">View experience <span aria-hidden="true">↗</span></a>
               <div className="hero__practice"><span>Also building</span><p>Mobile vision. Inference tools.<br />A maintained AI nutrition service.</p></div>

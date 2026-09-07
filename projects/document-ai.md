@@ -1,7 +1,5 @@
 # Document AI
 
-> Legacy project URL kept for compatibility. Use the canonical project link below.
-
 > R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
 
 ## Summary

@@ -4,7 +4,7 @@
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
-    "description": "Senior ML Engineer in Riverstart’s R&D ML team, working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.",
+    "description": "Senior ML Engineer working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.",
     "primaryUrl": "https://zack-dev-cm.github.io/",
     "contact": "mailto:kaisenaiko@gmail.com",
     "sameAs": [
@@ -32,7 +32,7 @@
   "discoveryPolicy": {
     "preferredCitationOrder": [
       "https://zack-dev-cm.github.io/",
-      "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
+      "https://zack-dev-cm.github.io/projects/document-ai/",
       "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
       "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
       "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
@@ -140,12 +140,12 @@
         "ai-systems"
       ],
       "references": [
-        "Riverstart Document AI",
+        "Document AI",
         "Construction Document Intelligence",
         "InQuest"
       ],
       "canonicalUrls": [
-        "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
+        "https://zack-dev-cm.github.io/projects/document-ai/",
         "https://zack-dev-cm.github.io/projects/construction-document-intelligence/",
         "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/"
       ]
@@ -639,9 +639,9 @@
       "canonicalProjects": [
         {
           "id": 101,
-          "title": "Riverstart Document AI",
-          "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
-          "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
+          "title": "Document AI",
+          "url": "https://zack-dev-cm.github.io/projects/document-ai/",
+          "markdownUrl": "https://zack-dev-cm.github.io/projects/document-ai.md",
           "summary": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
           "kind": "research",
           "tags": [
@@ -1002,9 +1002,9 @@
   "featuredProjects": [
     {
       "id": 101,
-      "title": "Riverstart Document AI",
-      "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
+      "title": "Document AI",
+      "url": "https://zack-dev-cm.github.io/projects/document-ai/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/document-ai.md",
       "summary": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
       "kind": "research",
       "tags": [
@@ -1312,9 +1312,9 @@
     },
     {
       "id": 101,
-      "title": "Riverstart Document AI",
-      "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
+      "title": "Document AI",
+      "url": "https://zack-dev-cm.github.io/projects/document-ai/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/document-ai.md",
       "summary": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
       "kind": "research",
       "tags": [

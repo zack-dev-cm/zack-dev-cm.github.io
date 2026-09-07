@@ -31,7 +31,7 @@ const AUTHOR_TITLE = 'Senior ML Engineer';
 const SITE_TITLE = `${AUTHOR_NAME} | Senior ML Engineer - Computer Vision & Agentic AI`;
 const SITE_NAME = `${AUTHOR_NAME} - Applied Machine Learning Portfolio`;
 const SOCIAL_DESCRIPTION =
-  'Senior ML Engineer in Riverstart R&D. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.';
+  'Senior ML Engineer. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.';
 const SOCIAL_IMAGE_URL = `${SITE_BASE}/docs/images/portfolio-social-card-ml-ai-products.png`;
 const SOCIAL_IMAGE_ALT =
   'Zakhar Pashkin - Senior ML Engineer. Computer vision, document AI and agentic systems.';
@@ -39,7 +39,7 @@ const PROJECT_SOCIAL_IMAGE_URL_BASE = `${SITE_BASE}/docs/images/project-social`;
 const PROJECT_SOCIAL_IMAGE_WIDTH = 1200;
 const PROJECT_SOCIAL_IMAGE_HEIGHT = 630;
 const AUTHOR_DESCRIPTION =
-  'Senior ML Engineer in Riverstart’s R&D ML team, working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.';
+  'Senior ML Engineer working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.';
 const PORTFOLIO_TAGLINE =
   'Computer vision, document AI and agentic systems, from R&D to maintained products.';
 const PRIMARY_STACK_LINE =
@@ -142,9 +142,9 @@ const FOCUS_AREAS = [
     name: 'Document and agentic AI',
     description: 'Hybrid retrieval, source-linked answers and human review for document and tool-based workflows.',
     tags: ['document-ai', 'rag', 'llm', 'ai-systems'],
-    references: ['Riverstart Document AI', 'Construction Document Intelligence', 'InQuest'],
+    references: ['Document AI', 'Construction Document Intelligence', 'InQuest'],
     canonicalUrls: [
-      projectHtmlUrlFromSlug('riverstart-document-ai'),
+      projectHtmlUrlFromSlug('document-ai'),
       projectHtmlUrlFromSlug('construction-document-intelligence'),
       projectHtmlUrlFromSlug('inquest-project-binder-rag-qa')
     ]
@@ -1710,7 +1710,7 @@ const main = async () => {
   }
 
   const topProjectTitles = [
-    'Riverstart Document AI',
+    'Document AI',
     'Vehicle Lab: A Reusable Engineering Notebook',
     'Dermaself Flutter Skin Analysis App',
     'Agnitra - ML Profiling & Optimization',

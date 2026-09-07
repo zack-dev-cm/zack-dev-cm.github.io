@@ -212,7 +212,7 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
 ];
 
 export const KEY_HIGHLIGHTS: string[] = [
-  "Senior ML Engineer in Riverstart's R&D ML team, developing document AI and engineering-analysis systems.",
+  "Senior ML Engineer developing document AI and engineering-analysis systems.",
   "Shipped mobile and cloud computer vision at Carb Manager and built core document-recognition models at CFT.",
   "Build and maintain an AI nutrition service and publish model profiling and optimization tooling."
 ];
@@ -1009,9 +1009,9 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Document AI and engineering R&D",
-    description: "Current work in Riverstart's R&D ML team: document assistants, engineering-drawing analysis and construction-document interpretation with source-linked specialist review.",
+    description: "Current R&D: document assistants, engineering-drawing analysis and construction-document interpretation with source-linked specialist review.",
     links: [
-      { text: "Document AI", url: "https://zack-dev-cm.github.io/projects/riverstart-document-ai/" },
+      { text: "Document AI", url: "https://zack-dev-cm.github.io/projects/document-ai/" },
       { text: "Engineering analysis", url: "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/" },
       { text: "Construction documents", url: "https://zack-dev-cm.github.io/projects/construction-document-intelligence/" }
     ],
@@ -1654,13 +1654,14 @@ export const PROJECTS: Project[] = [
   },
   {
     "id": 101,
-    "title": "Riverstart Document AI",
+    "title": "Document AI",
+    "legacySlugs": ["riverstart-document-ai"],
     searchProfile: {
       capabilities: ["document ai","research","evaluation","information extraction","document recognition","retrieval augmented generation","agent workflows","deterministic validation"],
       evidence: "implementation"
     },
     "description": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
-    "longDescription": "As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.",
+    "longDescription": "I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.",
     "keyFeatures": [
       "Hybrid retrieval over document and relationship indexes",
       "Structured extraction and deterministic reconciliation",
@@ -1719,7 +1720,7 @@ export const PROJECTS: Project[] = [
       evidence: "implementation"
     },
     "description": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
-    "longDescription": "My engineering-geometry work at Riverstart covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.",
+    "longDescription": "My engineering-geometry work covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.",
     "keyFeatures": [
       "Infer axis-aligned room boundaries, walls and rectangular openings from XYZ point clouds",
       "Represent inferred geometry as a semantic room model and export 2D DXF/SVG floor plans",
@@ -1811,7 +1812,7 @@ export const PROJECTS: Project[] = [
       evidence: "implementation"
     },
     "description": "Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.",
-    "longDescription": "I develop construction-document analysis as part of Riverstart R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.",
+    "longDescription": "I develop construction-document analysis as part of applied ML R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.",
     "keyFeatures": [
       "Analyze related drawings as a complete document set",
       "Validate observations and units before calculating quantities",

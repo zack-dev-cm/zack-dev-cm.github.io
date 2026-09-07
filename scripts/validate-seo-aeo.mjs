@@ -84,7 +84,7 @@ const assertHtml = (label, html, schema, discovery) => {
     `<link rel="canonical" href="${SITE_BASE}/"`,
     '<meta name="robots" content="index, follow',
     '<h1>Zakhar Pashkin</h1>',
-    'Senior ML Engineer', 'Riverstart',
+    'Senior ML Engineer', 'Document AI',
     'id="featured"', 'id="about"', 'id="projects"',
     `href="${RESUME_PDF}"`
   ]);
@@ -142,7 +142,8 @@ const assertArtifacts = async (prefix = '') => {
   await assertProjectHtmlPages(`${prefix}sitemap.xml`, locs, prefix);
   for (const [legacy, current] of [
     ['dishes-recognition-nutrition-goals-telegram-bot', 'calorio-ai-nutrition-service'],
-    ['agnitra-ai-inference-optimizer', 'agnitra-ml-profiling-optimization']
+    ['agnitra-ai-inference-optimizer', 'agnitra-ml-profiling-optimization'],
+    ['riverstart-document-ai', 'document-ai']
   ]) {
     const file = `${prefix}projects/${legacy}/index.html`;
     const redirect = await readText(file).catch(() => '');
@@ -152,7 +153,7 @@ const assertArtifacts = async (prefix = '') => {
   }
   for (const file of ['llms.txt', 'llms-full.txt', 'geo.txt', 'agent-context.md']) {
     const text = await readText(`${prefix}${file}`);
-    includesAll(`${prefix}${file}`, text, ['Zakhar Pashkin', 'Senior ML Engineer', 'Riverstart']);
+    includesAll(`${prefix}${file}`, text, ['Zakhar Pashkin', 'Senior ML Engineer', 'Document AI']);
     if (file === 'llms.txt') {
       assertNoTargetingCopy(`${prefix}${file}`, text);
       includesAll(`${prefix}${file}`, text, ['## Selected projects', RESUME_PDF, RESUME_HTML]);

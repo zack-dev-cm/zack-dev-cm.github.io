@@ -1,6 +1,6 @@
 # Zakhar Pashkin - Applied Machine Learning Project Details
 
-Summary: Senior ML Engineer in Riverstart’s R&D ML team, working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.
+Summary: Senior ML Engineer working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.
 Role: Senior ML Engineer
 Primary URL: https://zack-dev-cm.github.io/
 Contact: mailto:kaisenaiko@gmail.com
@@ -9,7 +9,7 @@ Topics: Machine Learning, Computer Vision, Document AI, OCR, Segmentation, Objec
 
 ## Focus
 - **Computer vision:** OCR, detection, segmentation and multimodal retrieval, from model experiments to server and on-device inference. Examples: [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/), [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/), [Fast OCR ONNX Inference Server](https://zack-dev-cm.github.io/projects/fast-ocr-onnx-inference-server/).
-- **Document and agentic AI:** Hybrid retrieval, source-linked answers and human review for document and tool-based workflows. Examples: [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/), [Construction Document Intelligence](https://zack-dev-cm.github.io/projects/construction-document-intelligence/), [InQuest](https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/).
+- **Document and agentic AI:** Hybrid retrieval, source-linked answers and human review for document and tool-based workflows. Examples: [Document AI](https://zack-dev-cm.github.io/projects/document-ai/), [Construction Document Intelligence](https://zack-dev-cm.github.io/projects/construction-document-intelligence/), [InQuest](https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/).
 - **Inference and delivery:** Profiling, model packaging, evaluation and deployment across cloud and mobile. Examples: [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/), [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/).
 
 ## Research Review Feed
@@ -20,7 +20,7 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 - Business World Model. arXiv: 2606.10044. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.10044
 
 ## Selected projects
-- [Riverstart Document AI](https://zack-dev-cm.github.io/projects/riverstart-document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
+- [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
 - [Vehicle Lab: A Reusable Engineering Notebook](https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/): Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
 - [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/): A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
@@ -58,11 +58,11 @@ Links:
 - Release v0.1.0: https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0
 - Download source v0.1.0: https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz
 
-### Riverstart Document AI
+### Document AI
 Summary: R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
-Details: As Senior ML Engineer in Riverstart's R&D ML team, I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.
-Project URL: https://zack-dev-cm.github.io/projects/riverstart-document-ai/
-Markdown URL: https://zack-dev-cm.github.io/projects/riverstart-document-ai.md
+Details: I develop a document assistant for specialist review workflows. The R&D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&D system with staged validation.
+Project URL: https://zack-dev-cm.github.io/projects/document-ai/
+Markdown URL: https://zack-dev-cm.github.io/projects/document-ai.md
 Key Features:
 - Hybrid retrieval over document and relationship indexes
 - Structured extraction and deterministic reconciliation
@@ -80,7 +80,7 @@ Tech Stack:
 
 ### Engineering Drawing & CAD Analysis
 Summary: Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.
-Details: My engineering-geometry work at Riverstart covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.
+Details: My engineering-geometry work covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.
 Project URL: https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/
 Markdown URL: https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md
 Key Features:
@@ -107,7 +107,7 @@ Links:
 
 ### Construction Document Intelligence
 Summary: Multi-document plan analysis that links structured quantities to source pages and preserves results for specialist review.
-Details: I develop construction-document analysis as part of Riverstart R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.
+Details: I develop construction-document analysis as part of applied ML R&D. The workflow processes related plan documents, records structured observations and connects calculations to their source pages. Saved analysis results and source references support repeatable specialist review. My contribution spans document processing, model orchestration, output contracts and evaluation.
 Project URL: https://zack-dev-cm.github.io/projects/construction-document-intelligence/
 Markdown URL: https://zack-dev-cm.github.io/projects/construction-document-intelligence.md
 Key Features:

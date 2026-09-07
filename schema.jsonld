@@ -17,7 +17,7 @@
       },
       "url": "https://zack-dev-cm.github.io/",
       "email": "mailto:kaisenaiko@gmail.com",
-      "description": "Senior ML Engineer in Riverstart’s R&D ML team, working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.",
+      "description": "Senior ML Engineer working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.",
       "image": "https://zack-dev-cm.github.io/docs/images/portfolio-social-card-ml-ai-products.png",
       "sameAs": [
         "https://de.linkedin.com/in/zakhar-pashkin-a524a6163",
@@ -66,7 +66,7 @@
       "name": "Zakhar Pashkin - Applied Machine Learning Portfolio",
       "alternateName": "Zakhar Pashkin AI and Computer Vision Portfolio",
       "url": "https://zack-dev-cm.github.io/",
-      "description": "Senior ML Engineer in Riverstart R&D. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.",
+      "description": "Senior ML Engineer. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.",
       "inLanguage": "en",
       "keywords": "Machine Learning, Computer Vision, Document AI, OCR, Segmentation, Object Detection, Multimodal Retrieval, Agentic Systems, Model Evaluation, Inference Optimization, Mobile Inference, MLOps",
       "publisher": {
@@ -81,7 +81,7 @@
       "@id": "https://zack-dev-cm.github.io/#webpage",
       "url": "https://zack-dev-cm.github.io/",
       "name": "Zakhar Pashkin | Senior ML Engineer - Computer Vision & Agentic AI",
-      "description": "Senior ML Engineer in Riverstart R&D. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.",
+      "description": "Senior ML Engineer. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.",
       "inLanguage": "en",
       "dateModified": "2026-09-07",
       "isPartOf": {
@@ -97,7 +97,7 @@
       "significantLink": [
         "https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf",
         "https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.html",
-        "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
+        "https://zack-dev-cm.github.io/projects/document-ai/",
         "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
         "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
         "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
@@ -208,13 +208,13 @@
           "position": 2,
           "item": {
             "@type": "CreativeWork",
-            "name": "Riverstart Document AI",
+            "name": "Document AI",
             "description": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
-            "url": "https://zack-dev-cm.github.io/projects/riverstart-document-ai/",
+            "url": "https://zack-dev-cm.github.io/projects/document-ai/",
             "encoding": [
               {
                 "@type": "MediaObject",
-                "contentUrl": "https://zack-dev-cm.github.io/projects/riverstart-document-ai.md",
+                "contentUrl": "https://zack-dev-cm.github.io/projects/document-ai.md",
                 "encodingFormat": "text/markdown"
               }
             ],

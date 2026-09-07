@@ -6,7 +6,7 @@ The source for my engineering portfolio: computer vision, document AI, agentic s
 
 ## Selected work
 
-- **Riverstart Document AI:** document assistants with structured answers, deterministic checks, and evidence for specialist review.
+- **Document AI:** document assistants with structured answers, deterministic checks, and evidence for specialist review.
 - **Dermaself:** guided capture, skin-analysis models, and mobile/API integration.
 - **Agnitra:** a PyPI-published SDK and CLI for model profiling and inference optimization.
 - **Calorio:** a maintained Telegram nutrition service for meal logging through photos, voice, and text.

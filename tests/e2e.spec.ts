@@ -112,7 +112,7 @@ test('LigninQC exposes its report, runnable release and matching download checks
 
 test('new case studies expose loaded, inspectable figures on mobile and desktop', async ({ page }, testInfo) => {
   const slugs = [
-    'engineering-drawing-cad-analysis', 'riverstart-document-ai',
+    'engineering-drawing-cad-analysis', 'document-ai',
     'construction-document-intelligence', 'agnitra-ml-profiling-optimization',
     'calorio-ai-nutrition-service', 'ligninqc-reproducible-scientific-research-workflows',
     'dermaself-flutter-skin-analysis-app', 'multimodal-video-search-platform'
@@ -202,7 +202,7 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   expect(heroCopy).toMatch(/Computer vision/i);
   expect(heroCopy).toMatch(/Document AI/i);
   expect(heroCopy).toMatch(/Agentic systems/i);
-  expect(heroCopy).toMatch(/Riverstart/i);
+  expect(heroCopy).not.toMatch(/Riverstart/i);
   expect(heroCopy).not.toMatch(/daily active|case.stud(?:y|ies).*\d|ClawHub|downloads across/i);
   await expect(page.locator('#intro').getByRole('link', { name: 'Selected work' })).toBeInViewport();
   await expect(page.locator('#intro').getByRole('link', { name: 'Download resume' })).toBeInViewport();

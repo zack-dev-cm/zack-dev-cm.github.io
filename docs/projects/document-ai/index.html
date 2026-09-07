@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document AI | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/document-ai/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/document-ai.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Document AI" />
+    <meta property="og:description" content="R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/document-ai/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Document AI" />
+    <meta name="twitter:description" content="R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/document-ai-verified-workflow.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/document-ai-verified-workflow.png" />
+    <meta name="twitter:image:alt" content="Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/document-ai/#case-study",
+      "headline": "Document AI",
+      "name": "Document AI",
+      "description": "R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.",
+      "url": "https://zack-dev-cm.github.io/projects/document-ai/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/document-ai/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "research",
+      "keywords": "ai-systems, document-ai, rag, research, Python, LangGraph, LangChain, Pydantic, Qdrant, Neo4j, Local LLMs, FastAPI",
+      "image": "https://zack-dev-cm.github.io/docs/images/document-ai-verified-workflow.png",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "ai-systems"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "document-ai"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "rag"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "research"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "LangGraph"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "LangChain"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Pydantic"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Qdrant"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Neo4j"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Local LLMs"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "FastAPI"
+            }
+      ],
+      "workExample": []
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="https://zack-dev-cm.github.io/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="https://zack-dev-cm.github.io/#featured">Work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Resume</a><a href="mailto:kaisenaiko@gmail.com">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="https://zack-dev-cm.github.io/#featured">← Selected work</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">Research &amp; development</p>
+          <h1>Document AI</h1>
+          <p class="lede">R&amp;D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.</p>
+          <figure><a class="figure-link" href="/docs/images/document-ai-verified-workflow.png" aria-label="Open full-size figure 1: Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers"><img class="visual" src="/docs/images/document-ai-verified-workflow.png" alt="Workflow diagram separating document extraction and deterministic case checks from reference retrieval and grounded answers" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow diagram. Case checking and reference retrieval are distinct R&amp;D paths.</figcaption></figure>
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>I develop a document assistant for specialist review workflows. The R&amp;D work evaluates local language models, hybrid retrieval and agent orchestration for document collections. My scope includes extraction contracts, retrieval design, deterministic reconciliation, evaluation and deployment controls. Results retain source citations and pass through expert review; the work is an R&amp;D system with staged validation.</p>
+        </section>
+        <section><h2>Engineering decisions</h2><p>Document extraction produces structured facts and source references for deterministic reconciliation and a specialist review packet. A separate retrieval path supplies reference passages for grounded answers. These paths have different contracts and evaluations; the diagram keeps them separate.</p></section>
+<section><h2>Evaluation and current stage</h2><p>The work is in staged R&amp;D validation. My scope includes extraction contracts, retrieval experiments and versioned evaluations, with observability and rollback around deployment candidates. Source traceability and specialist review are part of acceptance.</p></section>
+
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Hybrid retrieval over document and relationship indexes</li>
+        <li>Structured extraction and deterministic reconciliation</li>
+        <li>Source citations and expert review of generated results</li>
+        <li>Versioned evaluations, observability and rollback</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>Python</li>
+        <li>LangGraph</li>
+        <li>LangChain</li>
+        <li>Pydantic</li>
+        <li>Qdrant</li>
+        <li>Neo4j</li>
+        <li>Local LLMs</li>
+        <li>FastAPI</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/document-ai.md">Plain-text case study</a></li>
+          </ul>
+        </section>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/#featured">More selected work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a><a href="mailto:kaisenaiko@gmail.com">Contact Zakhar ↗</a></p>
+      </article>
+    </main>
+  </body>
+</html>
