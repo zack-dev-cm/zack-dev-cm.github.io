@@ -996,12 +996,12 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
-    title: "Vehicle Lab v0.1.0",
-    description: "A reusable engineering notebook with inspectable 3D models, revision decisions, recorded simulation evidence, and a 96-second pipeline film. Create your own project from the documented examples.",
+    title: "Vehicle Lab v0.1.1",
+    description: "A new 37.5-second hero connects detailed model inspection, the full revision tree and saved Chrono motion. Explore logs, pits, steering/braking and simulation parameters in the interactive terrain viewer.",
     links: [
       { text: "Explore Vehicle Lab", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/" },
-      { text: "Watch the pipeline film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html" },
-      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0" }
+      { text: "Watch the new film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html" },
+      { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.1" }
     ],
     projectId: 82,
     repoFullName: "zack-dev-cm/vehicle-lab",
@@ -1473,11 +1473,11 @@ export const PROJECTS: Project[] = [
     projectKind: "open-source",
     aliases: ["vehicle lab", "engineering notebook", "3D engineering studies", "RC25"],
     repoFullName: "zack-dev-cm/vehicle-lab",
-    primaryLinks: ["Watch the 96-second film", "Explore Vehicle Lab", "Source on GitHub"],
+    primaryLinks: ["Watch the 37.5-second film", "Explore motion and terrain", "Source on GitHub"],
     createdAt: "2026-09-06T20:22:38Z",
     searchProfile: { capabilities: ["3D visualization", "CAD inspection", "digital prototyping", "recorded simulation replay", "engineering notebooks", "reproducible research", "geometry import", "revision tracking"], evidence: "implementation" },
     description: "Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.",
-    longDescription: "Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 96-second film follows real CAD-derived geometry through ideation, digital prototyping, mechanical inspection, revision comparison, and an archived Project Chrono obstacle run. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.",
+    longDescription: "Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.",
     caseStudySections: [
       {
         title: "Engineering across the workflow",
@@ -1485,7 +1485,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "From CAD to digital prototypes",
-        body: "Four CAD-derived studies cover packaging, the RC25 digital prototype, detailed mechanical inspection and a body/ergonomics study. The viewer preserves component identities and supports subsystem isolation, wireframe and exploded inspection. Grouped OBJ import lets another project map its own geometry to inspection subsystems. The exploded view explains component relationships; it does not establish a feasible physical assembly sequence."
+        body: "The original notebook studies cover packaging, the RC25 digital prototype, mechanical inspection and a body study. The cinematic viewer adds close Ridge R3d component inspection, the complete recorded revision tree and a separate 73-part Baby AG23 study. The viewer preserves component identities and supports subsystem isolation, wireframe and exploded inspection. Grouped OBJ import lets another project map its own geometry to inspection subsystems. The exploded view explains component relationships; it does not establish a feasible physical assembly sequence."
       },
       {
         title: "Keep the failed result with the revision",
@@ -1493,11 +1493,11 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Recorded simulation, with its scope intact",
-        body: "The film includes a 12-second historical Project Chrono run of a separate simplified vehicle model, replayed at its recorded speed. Its rear axle failed to clear the obstacle, and that result remains visible. An engine-neutral JSON interface specifies body identities, metre units, quaternion ordering, poses and metrics for other recorded runs. Prescribed-motion examples are labelled separately. The browser replays saved states; it does not solve new dynamics."
+        body: "The motion viewer contains three complete 12-second Chrono log, pit and steering/braking records from a separate simplified model. The log and pit traversals failed, and those outcomes remain visible. Chase, side, wheel, driver and landscape cameras accompany contact forces, suspension traces and downloadable parameters. Native wheel support courses use prescribed geometry; the forest scenery supplies visual context. An engine-neutral JSON interface specifies body identities, metre units, quaternion ordering, poses and metrics for other recorded runs. Prescribed-motion examples are labelled separately. The browser replays saved states; it does not solve new dynamics."
       },
       {
         title: "Released software and the next experiment",
-        body: "Version 0.1.0 includes the source, runnable examples, documentation, a captioned 1080p film and reproducible capture tooling. Original release material is MIT-licensed. Physical printing, assembly, load testing and driving remain open: RC25 has not been printed or driven, mechanical fit findings are unresolved, and the vehicle studies are unqualified for fabrication or riding."
+        body: "Version 0.1.1 includes source, runnable examples, documentation, the new scored hero, a separate 96-second walkthrough and reproducible capture tooling. It also corrects cached Back navigation, evidence-status labels and mobile geometry framing. Original release material is MIT-licensed. Physical printing, assembly, load testing and driving remain open: RC25 has not been printed or driven, mechanical fit findings are unresolved, and the vehicle studies are unqualified for fabrication or riding."
       }
     ],
     keyFeatures: [
@@ -1505,30 +1505,32 @@ export const PROJECTS: Project[] = [
       "3D orbit, subsystem isolation, wireframe, and exploded inspection",
       "Revision graph and scoped evidence with source and asset checksums",
       "Engine-neutral replay interface with an explicit recorded-pose contract",
-      "Eleven documentation pages and a captioned 1080p pipeline film"
+      "Native obstacle inspection and saved Chrono handling, log and pit replays",
+      "Eleven documentation pages, a scored hero and an engineering walkthrough"
     ],
     techStack: ["Python", "Three.js", "FreeCAD exports", "Project Chrono data", "Playwright", "FFmpeg"],
     benchmarks: [
-      { label: "Film", value: "96 seconds", context: "1920 × 1080, 24 fps; actual browser capture" },
-      { label: "Vehicle studies", value: "4", context: "CAD-derived display snapshots with separate engineering scopes" },
+      { label: "Hero film", value: "37.5 seconds", context: "1920 × 1080, 32 fps; original 128 BPM score" },
+      { label: "Revision tree", value: "65 records", context: "68 preserved parent links; authored history" },
       { label: "Physical validation", value: "Open", context: "Digital examples; no qualified hardware release" }
     ],
     links: [
-      { text: "Watch the 96-second film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html" },
+      { text: "Watch the 37.5-second film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html" },
+      { text: "Explore motion and terrain", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html" },
       { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/vehicle-lab" },
       { text: "Explore Vehicle Lab", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/" },
       { text: "Read the documentation", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/" },
-      { text: "Release v0.1.0", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0" },
-      { text: "Download source v0.1.0", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz" }
+      { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.1" },
+      { text: "Download source v0.1.1", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.1.tar.gz" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-pipeline.mp4`, alt: "Vehicle Lab: the complete engineering pipeline", caption: "Real CAD-derived geometry and recorded Chrono states. Digital studies; physical validation remains open." },
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-assembly-hero.webp`, alt: "RC25 digital prototype with body panels separated above its chassis, wheels and suspension", caption: "Frame at 01:22 from the released film, cropped to the CAD viewport. Exploded inspection of a digital prototype; physical assembly remains unverified." },
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-inspection.jpg`, alt: "Mechanical inspection of the vehicle frame, suspension, wheels, and chain drive", caption: "CAD-derived mechanical study. Component detail does not close the remaining fit findings." },
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-revisions.webp`, alt: "Packaging, digital prototype and body studies displayed together in the revision view", caption: "Frame at 00:54 from the film. Authored design revisions with separate scopes." },
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-physics.webp`, alt: "Saved Project Chrono obstacle simulation shown in Vehicle Lab with its failed result and telemetry", caption: "Frame at 01:08 from the film. A separate historical model; the rear axle did not clear the obstacle." }
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero.mp4`, alt: "Vehicle Lab: inside the evolution", caption: "37.5 seconds of source-derived CAD inspection, revision history, native obstacle support and saved Chrono motion, with an original electronic score." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-poster.jpg`, alt: "Ridge R3d in the opening frame of the Vehicle Lab film", caption: "Actual project geometry in the first frame. Physical validation remains open." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-exploded.jpg`, alt: "Ridge R3d systems separated for detailed inspection", caption: "Display separation explains component relationships; it is not a verified assembly path." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-evolution.jpg`, alt: "The complete 65-revision engineering tree", caption: "Recorded revisions and 68 parent links; authored history, not an optimization run." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-chrono.jpg`, alt: "Detailed tyre at recorded Chrono log contact", caption: "Saved solver response from the separate tyre study. The failed obstacle traversal remains visible." }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-assembly-hero.webp`
+    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-hero-poster.jpg`
   },
   {
     "id": 104,

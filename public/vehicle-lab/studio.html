@@ -7,22 +7,22 @@
   <meta name="theme-color" content="#edf0eb">
   <meta property="og:title" content="Vehicle Lab — from idea to inspectable machine">
   <meta property="og:description" content="Explore real 3D design studies, a digital bench prototype, mechanical inspection and an archived physics replay.">
-  <meta property="og:image" content="https://zack-dev-cm.github.io/docs/vehicle-lab/media/vehicle-lab-poster.jpg">
+  <meta property="og:image" content="https://zack-dev-cm.github.io/docs/vehicle-lab/media/vehicle-lab-hero-poster.jpg">
   <title>Vehicle Lab · An open engineering notebook</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/controls/OrbitControls.js":"./vendor/three/OrbitControls.js"}}</script>
-<link rel="canonical" href="https://zack-dev-cm.github.io/docs/vehicle-lab/studio.html"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/vehicle-lab/media/vehicle-lab-poster.jpg"></head>
+<link rel="canonical" href="https://zack-dev-cm.github.io/docs/vehicle-lab/studio.html"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/vehicle-lab/media/vehicle-lab-hero-poster.jpg"></head>
 <body>
   <a class="skip" href="#chapters">Skip to chapters</a>
   <header class="masthead">
     <a href="./" class="brand" aria-label="Vehicle Lab home"><img src="icon.svg" width="32" height="32" alt=""> VEHICLE<span>LAB</span><small id="project-name">ENGINEERING NOTEBOOK</small></a>
-    <div class="header-right"><button id="record-toggle" hidden>Project record</button><span class="status-dot"></span><span>EXPERIMENTAL / v0.1</span><a href="watch.html">Watch the film ↗</a></div>
+    <div class="header-right"><button id="record-toggle" hidden>Project record</button><span class="status-dot"></span><span>EXPERIMENTAL / v0.1.1</span><a href="watch.html">Watch the film ↗</a></div>
   </header>
   <main id="app" aria-busy="true">
     <section class="copy" aria-label="Current chapter">
       <p class="eyebrow"><span id="chapter-number">00</span><span id="chapter-category">THE COMPLETE WORKFLOW</span></p>
-      <h1 id="headline">From idea to<br><em>inspectable</em><br>machine.</h1>
+      <h1 id="headline">From idea to<br> <em>inspectable</em><br> machine.</h1>
       <p id="description" class="description">A working notebook that connects design intent, native geometry and the evidence behind each revision.</p>
       <div id="facts" class="facts"></div>
       <p class="chapter-note" id="chapter-note">Digital engineering studies. Physical validation remains open.</p>
@@ -34,7 +34,7 @@
       <div id="error" role="alert" hidden><h2>The study could not load</h2><p></p><a href="watch.html">Watch the recorded walkthrough</a><button id="retry">Try again</button></div>
       <div id="diagram" class="diagram" hidden></div>
       <div id="telemetry" class="telemetry" hidden></div>
-      <div class="viewport-tools" id="viewport-tools"><button id="orbit" aria-pressed="false">Orbit view</button><button id="explode" aria-pressed="false">Separate groups</button><button id="wire" aria-pressed="false">Wireframe</button><select id="isolate" aria-label="Inspect a subsystem"><option value="all">All components</option><option value="body">Bodywork</option><option value="frame">Frame</option><option value="suspension">Suspension</option><option value="drive">Drivetrain</option><option value="electrical">Electrical</option><option value="wheels">Wheels</option><option value="hardware">Hardware</option></select></div>
+      <div class="viewport-tools" id="viewport-tools"><button id="orbit" disabled>Reset view</button><button id="explode" aria-pressed="false" disabled>Separate groups</button><button id="wire" aria-pressed="false" disabled>Wireframe</button><select id="isolate" aria-label="Inspect a subsystem" disabled><option value="all">All components</option><option value="body">Bodywork</option><option value="frame">Frame</option><option value="suspension">Suspension</option><option value="drive">Drivetrain</option><option value="electrical">Electrical</option><option value="wheels">Wheels</option><option value="hardware">Hardware</option></select></div>
       <div class="stage-footer"><span id="geometry-count">READING SOURCE GEOMETRY</span><span id="geometry-note">Drag to orbit · scroll to zoom</span></div>
     </section>
     <div class="caption"><span class="caption-index" id="caption-index">FIELD NOTES / 00</span><p id="caption">Explore the model. Follow the evidence.</p></div>

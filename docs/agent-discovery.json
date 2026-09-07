@@ -1051,14 +1051,14 @@
       ],
       "benchmarks": [
         {
-          "label": "Film",
-          "value": "96 seconds",
-          "context": "1920 x 1080, 24 fps; actual browser capture"
+          "label": "Hero film",
+          "value": "37.5 seconds",
+          "context": "1920 x 1080, 32 fps; original 128 BPM score"
         },
         {
-          "label": "Vehicle studies",
-          "value": "4",
-          "context": "CAD-derived display snapshots with separate engineering scopes"
+          "label": "Revision tree",
+          "value": "65 records",
+          "context": "68 preserved parent links; authored history"
         },
         {
           "label": "Physical validation",
@@ -1068,8 +1068,12 @@
       ],
       "links": [
         {
-          "label": "Watch the 96-second film",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html"
+          "label": "Watch the 37.5-second film",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html"
+        },
+        {
+          "label": "Explore motion and terrain",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html"
         },
         {
           "label": "Source on GitHub",
@@ -1084,12 +1088,12 @@
           "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/"
         },
         {
-          "label": "Release v0.1.0",
-          "url": "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0"
+          "label": "Release v0.1.1",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.1"
         },
         {
-          "label": "Download source v0.1.0",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz"
+          "label": "Download source v0.1.1",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.1.tar.gz"
         }
       ]
     },
@@ -1268,14 +1272,14 @@
       ],
       "benchmarks": [
         {
-          "label": "Film",
-          "value": "96 seconds",
-          "context": "1920 x 1080, 24 fps; actual browser capture"
+          "label": "Hero film",
+          "value": "37.5 seconds",
+          "context": "1920 x 1080, 32 fps; original 128 BPM score"
         },
         {
-          "label": "Vehicle studies",
-          "value": "4",
-          "context": "CAD-derived display snapshots with separate engineering scopes"
+          "label": "Revision tree",
+          "value": "65 records",
+          "context": "68 preserved parent links; authored history"
         },
         {
           "label": "Physical validation",
@@ -1285,8 +1289,12 @@
       ],
       "links": [
         {
-          "label": "Watch the 96-second film",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html"
+          "label": "Watch the 37.5-second film",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html"
+        },
+        {
+          "label": "Explore motion and terrain",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html"
         },
         {
           "label": "Source on GitHub",
@@ -1301,12 +1309,12 @@
           "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/docs/"
         },
         {
-          "label": "Release v0.1.0",
-          "url": "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0"
+          "label": "Release v0.1.1",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.1"
         },
         {
-          "label": "Download source v0.1.0",
-          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz"
+          "label": "Download source v0.1.1",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.1.tar.gz"
         }
       ]
     },

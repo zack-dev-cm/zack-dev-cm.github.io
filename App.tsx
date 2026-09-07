@@ -38,11 +38,11 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     summary: 'A guided capture-to-analysis mobile workflow, connecting vision models, API integration, and model evaluation.',
   },
   82: {
-    label: 'Open-source engineering · v0.1.0',
+    label: 'Open-source engineering · v0.1.1',
     title: 'Vehicle Lab · CAD to simulation',
-    summary: 'Built and released an engineering notebook connecting CAD inspection, digital prototypes, revision decisions and recorded simulation. Explore the models and the 96-second film.',
+    summary: 'Inspect detailed CAD, follow the full revision tree, and explore recorded physics on an obstacle course. Watch the new 37.5-second film or open the interactive terrain study.',
     imageIndex: 1,
-    figureLabel: 'CAD assembly inspection · frame from the film',
+    figureLabel: 'Ridge R3d · opening frame from the film',
   },
   81: {
     label: 'Python package · PyPI',

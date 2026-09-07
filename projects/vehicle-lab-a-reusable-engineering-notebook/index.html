@@ -15,11 +15,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Vehicle Lab: A Reusable Engineering Notebook" />
     <meta name="twitter:description" content="Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/vehicle-lab-assembly-hero.webp" />
-    <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:alt" content="RC25 digital prototype with body panels separated above its chassis, wheels and suspension" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/vehicle-lab-assembly-hero.webp" />
-    <meta name="twitter:image:alt" content="RC25 digital prototype with body panels separated above its chassis, wheels and suspension" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/vehicle-lab-hero-poster.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Ridge R3d in the opening frame of the Vehicle Lab film" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/vehicle-lab-hero-poster.jpg" />
+    <meta name="twitter:image:alt" content="Ridge R3d in the opening frame of the Vehicle Lab film" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -42,7 +42,7 @@
       },
       "genre": "open-source",
       "keywords": "Python, Three.js, FreeCAD exports, Project Chrono data, Playwright, FFmpeg",
-      "image": "https://zack-dev-cm.github.io/docs/images/vehicle-lab-assembly-hero.webp",
+      "image": "https://zack-dev-cm.github.io/docs/images/vehicle-lab-hero-poster.jpg",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -73,18 +73,18 @@
       "workExample": [
             {
                   "@type": "CreativeWork",
-                  "name": "Watch the 96-second film",
-                  "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html"
+                  "name": "Watch the 37.5-second film",
+                  "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Explore motion and terrain",
+                  "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html"
             },
             {
                   "@type": "CreativeWork",
                   "name": "Source on GitHub",
                   "url": "https://github.com/zack-dev-cm/vehicle-lab"
-            },
-            {
-                  "@type": "CreativeWork",
-                  "name": "Explore Vehicle Lab",
-                  "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
             }
       ]
 }
@@ -109,19 +109,19 @@
           <p class="eyebrow">Open source</p>
           <h1>Vehicle Lab: A Reusable Engineering Notebook</h1>
           <p class="lede">Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.</p>
-          <nav class="research-actions" aria-label="Project actions"><a class="research-action research-action--primary" href="https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html">Watch the 96-second film</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/vehicle-lab/">Explore Vehicle Lab</a><a class="research-action" href="https://github.com/zack-dev-cm/vehicle-lab">Source on GitHub</a></nav>
-          <figure><a class="figure-link" href="/docs/images/vehicle-lab-assembly-hero.webp" aria-label="Open full-size figure 1: RC25 digital prototype with body panels separated above its chassis, wheels and suspension"><img class="visual" src="/docs/images/vehicle-lab-assembly-hero.webp" alt="RC25 digital prototype with body panels separated above its chassis, wheels and suspension" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Frame at 01:22 from the released film, cropped to the CAD viewport. Exploded inspection of a digital prototype; physical assembly remains unverified.</figcaption></figure>
+          <nav class="research-actions" aria-label="Project actions"><a class="research-action research-action--primary" href="https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html">Watch the 37.5-second film</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html">Explore motion and terrain</a><a class="research-action" href="https://github.com/zack-dev-cm/vehicle-lab">Source on GitHub</a></nav>
+          <figure><a class="figure-link" href="/docs/images/vehicle-lab-hero-poster.jpg" aria-label="Open full-size figure 1: Ridge R3d in the opening frame of the Vehicle Lab film"><img class="visual" src="/docs/images/vehicle-lab-hero-poster.jpg" alt="Ridge R3d in the opening frame of the Vehicle Lab film" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Actual project geometry in the first frame. Physical validation remains open.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 96-second film follows real CAD-derived geometry through ideation, digital prototyping, mechanical inspection, revision comparison, and an archived Project Chrono obstacle run. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.</p>
+          <p>Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.</p>
         </section>
         <section><h2>Engineering across the workflow</h2><p>I built and released the notebook software around a vehicle design study: a Python project CLI, a portable manifest schema, a Three.js inspection interface, revision records and recorded-motion adapters. The workflow connects design assumptions, geometry, numerical checks and the reasoning behind each revision. The same software supports independent desk-rover and linear-stage examples.</p></section>
-<section><h2>From CAD to digital prototypes</h2><p>Four CAD-derived studies cover packaging, the RC25 digital prototype, detailed mechanical inspection and a body/ergonomics study. The viewer preserves component identities and supports subsystem isolation, wireframe and exploded inspection. Grouped OBJ import lets another project map its own geometry to inspection subsystems. The exploded view explains component relationships; it does not establish a feasible physical assembly sequence.</p></section>
+<section><h2>From CAD to digital prototypes</h2><p>The original notebook studies cover packaging, the RC25 digital prototype, mechanical inspection and a body study. The cinematic viewer adds close Ridge R3d component inspection, the complete recorded revision tree and a separate 73-part Baby AG23 study. The viewer preserves component identities and supports subsystem isolation, wireframe and exploded inspection. Grouped OBJ import lets another project map its own geometry to inspection subsystems. The exploded view explains component relationships; it does not establish a feasible physical assembly sequence.</p></section>
 <section><h2>Keep the failed result with the revision</h2><p>A project record links parent revisions, decisions, check results and original artifact downloads. In the linear-stage example, an initial clearance failure stays visible beside the revised geometry and its clearance check. Source and asset checksums make each recorded result traceable. The revision graph is an authored engineering record; no automatic evolutionary optimization run is claimed.</p></section>
-<section><h2>Recorded simulation, with its scope intact</h2><p>The film includes a 12-second historical Project Chrono run of a separate simplified vehicle model, replayed at its recorded speed. Its rear axle failed to clear the obstacle, and that result remains visible. An engine-neutral JSON interface specifies body identities, metre units, quaternion ordering, poses and metrics for other recorded runs. Prescribed-motion examples are labelled separately. The browser replays saved states; it does not solve new dynamics.</p></section>
-<section><h2>Released software and the next experiment</h2><p>Version 0.1.0 includes the source, runnable examples, documentation, a captioned 1080p film and reproducible capture tooling. Original release material is MIT-licensed. Physical printing, assembly, load testing and driving remain open: RC25 has not been printed or driven, mechanical fit findings are unresolved, and the vehicle studies are unqualified for fabrication or riding.</p></section>
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/vehicle-lab-inspection.jpg" aria-label="Open full-size figure 2: Mechanical inspection of the vehicle frame, suspension, wheels, and chain drive"><img class="visual" src="/docs/images/vehicle-lab-inspection.jpg" alt="Mechanical inspection of the vehicle frame, suspension, wheels, and chain drive" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>CAD-derived mechanical study. Component detail does not close the remaining fit findings.</figcaption></figure><figure><a class="figure-link" href="/docs/images/vehicle-lab-revisions.webp" aria-label="Open full-size figure 3: Packaging, digital prototype and body studies displayed together in the revision view"><img class="visual" src="/docs/images/vehicle-lab-revisions.webp" alt="Packaging, digital prototype and body studies displayed together in the revision view" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Frame at 00:54 from the film. Authored design revisions with separate scopes.</figcaption></figure><figure><a class="figure-link" href="/docs/images/vehicle-lab-physics.webp" aria-label="Open full-size figure 4: Saved Project Chrono obstacle simulation shown in Vehicle Lab with its failed result and telemetry"><img class="visual" src="/docs/images/vehicle-lab-physics.webp" alt="Saved Project Chrono obstacle simulation shown in Vehicle Lab with its failed result and telemetry" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Frame at 01:08 from the film. A separate historical model; the rear axle did not clear the obstacle.</figcaption></figure></div></section>
+<section><h2>Recorded simulation, with its scope intact</h2><p>The motion viewer contains three complete 12-second Chrono log, pit and steering/braking records from a separate simplified model. The log and pit traversals failed, and those outcomes remain visible. Chase, side, wheel, driver and landscape cameras accompany contact forces, suspension traces and downloadable parameters. Native wheel support courses use prescribed geometry; the forest scenery supplies visual context. An engine-neutral JSON interface specifies body identities, metre units, quaternion ordering, poses and metrics for other recorded runs. Prescribed-motion examples are labelled separately. The browser replays saved states; it does not solve new dynamics.</p></section>
+<section><h2>Released software and the next experiment</h2><p>Version 0.1.1 includes source, runnable examples, documentation, the new scored hero, a separate 96-second walkthrough and reproducible capture tooling. It also corrects cached Back navigation, evidence-status labels and mobile geometry framing. Original release material is MIT-licensed. Physical printing, assembly, load testing and driving remain open: RC25 has not been printed or driven, mechanical fit findings are unresolved, and the vehicle studies are unqualified for fabrication or riding.</p></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/vehicle-lab-hero-exploded.jpg" aria-label="Open full-size figure 2: Ridge R3d systems separated for detailed inspection"><img class="visual" src="/docs/images/vehicle-lab-hero-exploded.jpg" alt="Ridge R3d systems separated for detailed inspection" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Display separation explains component relationships; it is not a verified assembly path.</figcaption></figure><figure><a class="figure-link" href="/docs/images/vehicle-lab-hero-evolution.jpg" aria-label="Open full-size figure 3: The complete 65-revision engineering tree"><img class="visual" src="/docs/images/vehicle-lab-hero-evolution.jpg" alt="The complete 65-revision engineering tree" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded revisions and 68 parent links; authored history, not an optimization run.</figcaption></figure><figure><a class="figure-link" href="/docs/images/vehicle-lab-hero-chrono.jpg" aria-label="Open full-size figure 4: Detailed tyre at recorded Chrono log contact"><img class="visual" src="/docs/images/vehicle-lab-hero-chrono.jpg" alt="Detailed tyre at recorded Chrono log contact" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Saved solver response from the separate tyre study. The failed obstacle traversal remains visible.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
@@ -129,7 +129,8 @@
         <li>3D orbit, subsystem isolation, wireframe, and exploded inspection</li>
         <li>Revision graph and scoped evidence with source and asset checksums</li>
         <li>Engine-neutral replay interface with an explicit recorded-pose contract</li>
-        <li>Eleven documentation pages and a captioned 1080p pipeline film</li>
+        <li>Native obstacle inspection and saved Chrono handling, log and pit replays</li>
+        <li>Eleven documentation pages, a scored hero and an engineering walkthrough</li>
           </ul>
         </section>
         <section>
@@ -146,20 +147,21 @@
         <section>
           <h2>Public Signals</h2>
           <ul>
-        <li><strong>Film:</strong> 96 seconds <span>1920 x 1080, 24 fps; actual browser capture</span></li>
-        <li><strong>Vehicle studies:</strong> 4 <span>CAD-derived display snapshots with separate engineering scopes</span></li>
+        <li><strong>Hero film:</strong> 37.5 seconds <span>1920 x 1080, 32 fps; original 128 BPM score</span></li>
+        <li><strong>Revision tree:</strong> 65 records <span>68 preserved parent links; authored history</span></li>
         <li><strong>Physical validation:</strong> Open <span>Digital examples; no qualified hardware release</span></li>
           </ul>
         </section>
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/watch.html">Watch the 96-second film</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html">Watch the 37.5-second film</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html">Explore motion and terrain</a></li>
         <li><a href="https://github.com/zack-dev-cm/vehicle-lab">Source on GitHub</a></li>
         <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/">Explore Vehicle Lab</a></li>
         <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/docs/">Read the documentation</a></li>
-        <li><a href="https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.0">Release v0.1.0</a></li>
-        <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.0.tar.gz">Download source v0.1.0</a></li>
+        <li><a href="https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.1">Release v0.1.1</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.1.tar.gz">Download source v0.1.1</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md">Plain-text case study</a></li>
           </ul>
         </section>

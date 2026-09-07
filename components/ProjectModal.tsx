@@ -89,6 +89,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   };
 
   const currentImage = project.images[currentImageIndex];
+  const videoPoster = (project.thumbnail && !isVideoUrl(project.thumbnail) ? project.thumbnail : undefined)
+    || project.images.find((image) => !isVideoUrl(image.url))?.url
+    || fallbackImageUrl;
   const mediaCaption = currentImage?.caption || (
     /generated|conceptual|illustration|public-safe.*card/i.test(currentImage?.alt ?? '')
       ? 'Conceptual workflow illustration.'
@@ -120,7 +123,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 controls
                 playsInline
                 preload="metadata"
-                poster={fallbackImageUrl}
+                poster={videoPoster}
               />
             ) : (
               <img

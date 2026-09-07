@@ -56,5 +56,7 @@ export function mountProjectRecord(project,models,evidence){
     for(const [label,value] of [['Source SHA-256',m.meta.sourceSha256],['Display SHA-256',m.meta.binarySha256]]){const p=element('p',label+' ','record-meta');p.append(element('code',value));card.append(p);}content.append(card);
   }
   document.querySelector('#record-toggle').hidden=false;
-  const cleanup=()=>urls.forEach(url=>URL.revokeObjectURL(url));window.addEventListener('pagehide',cleanup,{once:true});return cleanup;
+  const cleanup=()=>{urls.splice(0).forEach(url=>URL.revokeObjectURL(url));window.removeEventListener('pagehide',onPageHide);};
+  const onPageHide=event=>{if(!event.persisted)cleanup();};
+  window.addEventListener('pagehide',onPageHide);return cleanup;
 }

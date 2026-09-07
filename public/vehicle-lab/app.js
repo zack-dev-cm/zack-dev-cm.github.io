@@ -32,6 +32,7 @@ function initScene() {
   scene=new T.Scene();defaultFog=new T.Fog(0xe1e8e3,15,35);scene.fog=defaultFog;
   camera=new T.PerspectiveCamera(33,1,.01,80);camera.up.set(0,0,1);
   controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=false;
+  controls.enabled=false;
   controls.minDistance=2;controls.maxDistance=18;controls.maxPolarAngle=Math.PI*.49;
   controls.addEventListener('start',()=>{pause();userView=true;});
   controls.addEventListener('change',()=>{if(userView&&!playing)render();});
@@ -50,7 +51,7 @@ function resize() {
   const {width,height}=$('#scene').getBoundingClientRect();
   renderer.setSize(Math.max(1,width),Math.max(1,height),false);
   camera.aspect=width/Math.max(1,height);camera.updateProjectionMatrix();
-  if(window.vehicleTour.ready&&current>=0&&chapters[current]?.replay)showTime(clock);else render();
+  if(window.vehicleTour.ready&&current>=0)showTime(clock);else render();
 }
 function render(){if(renderer&&!disposed)renderer.render(scene,camera);}
 
@@ -146,9 +147,10 @@ function setChapter(index){
   if(customProject)$('#headline').textContent=ch.title;else $('#headline').innerHTML=ch.title;
   $('#chapter-number').textContent=String(index).padStart(2,'0');$('#chapter-category').textContent=ch.category;
   $('#description').textContent=ch.description;$('#chapter-note').textContent=ch.note;$('#caption').textContent=ch.caption;$('#caption-index').textContent='FIELD NOTES / '+String(index).padStart(2,'0');
-  $('#facts').replaceChildren(...ch.facts.map(([value,label])=>{const div=document.createElement('div');div.className='fact';if(ch.status&&value===ch.status)div.dataset.status=ch.status;const b=document.createElement('b'),span=document.createElement('span');b.textContent=value;span.textContent=label;div.append(b,span);return div;}));
+  $('#facts').dataset.count=ch.facts.length;
+  $('#facts').replaceChildren(...ch.facts.map(([value,label])=>{const div=document.createElement('div');div.className='fact';const status=label==='evidence status'?ch.evidenceStatus:ch.status;if(status&&value===status)div.dataset.status=status;const b=document.createElement('b'),span=document.createElement('span');b.textContent=value;span.textContent=label;div.append(b,span);return div;}));
   for(const b of $('#chapters').children)b.setAttribute('aria-current',String(Number(b.dataset.index)===index));
-  for(const b of ['#orbit','#explode','#wire'])$(b).setAttribute('aria-pressed','false');$('#isolate').value='all';
+  for(const b of ['#explode','#wire'])$(b).setAttribute('aria-pressed','false');$('#isolate').value='all';
   for(const m of Object.values(models)){m.root.visible=false;m.root.scale.setScalar(1);m.root.position.set(0,0,0);for(const o of m.root.children){o.position.set(0,0,0);o.visible=true;o.material.wireframe=false;o.material.color.copy(o.userData.original);}}
   const special=customProject?null:ch.model;
   scene.fog=ch.replay?null:defaultFog;camera.near=.01;camera.far=80;camera.updateProjectionMatrix();controls.minDistance=2;controls.maxDistance=18;
@@ -160,7 +162,7 @@ function setChapter(index){
   if(typeof ch.model==='string'&&models[ch.model])models[ch.model].root.visible=true;
   if(special==='comparison'){
     for(const [i,id] of ['baseline','prototype','body'].entries()){const m=models[id];m.root.visible=true;m.root.scale.setScalar(.62);m.root.position.set((i-1)*2.4,0,0);}
-    $('#model-label').textContent='DESIGN EVOLUTION / BRANCH COMPARISON';$('#geometry-count').textContent='SOURCE SNAPSHOTS / DISPLAY SCALE NORMALIZED';
+    $('#model-label').textContent='DESIGN EVOLUTION / BRANCH COMPARISON';$('#view-label').textContent='CAD STUDIES / NORMALIZED SCALE';$('#geometry-count').textContent='SOURCE SNAPSHOTS / DISPLAY SCALE NORMALIZED';
   } else if(special==='physics'){
     $('#model-label').textContent='CQ-PH1.1 / PROJECT CHRONO';$('#view-label').textContent='SAVED SOLVER STATES / 1×';
   } else if(ch.replay){
@@ -182,14 +184,14 @@ function showTime(t){
     if(!userView){
       const vertical=T.MathUtils.degToRad(camera.fov)/2,horizontal=Math.atan(Math.tan(vertical)*camera.aspect),distance=run.radius/Math.sin(Math.min(vertical,horizontal))*1.15;
       controls.target.copy(run.center);camera.position.copy(run.center).addScaledVector(new T.Vector3(-1.8,-2.3,1.2).normalize(),distance);camera.lookAt(controls.target);
-      camera.near=Math.max(.00001,distance/1000);camera.far=Math.max(80,distance+run.radius*4);camera.updateProjectionMatrix();controls.minDistance=Math.max(.0001,run.radius*.1);controls.maxDistance=distance*4;
+      camera.near=Math.max(.00001,distance/1000);camera.far=Math.max(80,distance*4+run.radius*4);camera.updateProjectionMatrix();controls.minDistance=Math.max(.0001,run.radius*.1);controls.maxDistance=distance*4;
       const ground=Math.min(0,run.bounds.min.z-.03);floor.position.set(run.center.x,run.center.y,ground);grid.position.set(run.center.x,run.center.y,ground+.004);floor.scale.setScalar(Math.max(1,run.extent/30));grid.scale.setScalar(Math.max(.01,run.extent/12));
     }
     $('#telemetry').replaceChildren();
     for(const [label,value] of [['TIME / s',frame.t],...Object.entries(frame.metrics||{}).slice(0,3)]){
       const div=document.createElement('div');div.className='metric';const span=document.createElement('span'),strong=document.createElement('strong');span.textContent=label;strong.textContent=Number(value).toFixed(3);div.append(span,strong);$('#telemetry').append(div);
     }
-    const note=document.createElement('p');note.className='fail';note.textContent=ch.status.toUpperCase()+' / '+run.data.engine;$('#telemetry').append(note);
+    const note=document.createElement('p');note.className='evidence-outcome';note.dataset.status=ch.evidenceStatus;note.textContent='EVIDENCE: '+ch.evidenceStatus.toUpperCase()+' / '+run.data.engine;$('#telemetry').append(note);
   }
   else if(!customProject&&ch.model==='physics'){physicsAt(Math.min(12,Math.max(0,local-1)));}
   else if(!customProject&&ch.model==='comparison'){
@@ -211,9 +213,13 @@ function showTime(t){
       o.material.color.copy(!customProject&&index===3?new T.Color(colors[o.userData.group]):o.userData.original);
     }
     if(!userView){
-      const angle=-2.2+u*.65+(index===3?.2:0),distance=8.3+(separation*.85);
-      controls.target.set(0,0,m.height*.43);
-      camera.position.set(distance*Math.cos(angle),distance*Math.sin(angle),m.height*.4+3.1+Math.sin(u*Math.PI)*.45);
+      const angle=-2.2+u*.65+(index===3?.2:0),baseDistance=8.3+(separation*.85);
+      const bounds=new T.Box3().setFromObject(m.root),sphere=bounds.getBoundingSphere(new T.Sphere());
+      const vertical=T.MathUtils.degToRad(camera.fov)/2,horizontal=Math.atan(Math.tan(vertical)*camera.aspect);
+      const offset=new T.Vector3(baseDistance*Math.cos(angle),baseDistance*Math.sin(angle),3.1+Math.sin(u*Math.PI)*.45);
+      const distance=Math.max(offset.length(),sphere.radius/Math.sin(Math.min(vertical,horizontal))*1.12);
+      controls.target.copy(sphere.center);camera.position.copy(sphere.center).addScaledVector(offset.normalize(),distance);
+      camera.far=Math.max(80,distance+sphere.radius*4);camera.updateProjectionMatrix();controls.maxDistance=Math.max(18,distance*3);
       camera.lookAt(controls.target);
     }
   }
@@ -238,16 +244,17 @@ for(const [index,ch] of chapters.entries()){
 }
 setupChapters();
 $('#play').onclick=()=>playing?pause():play();$('#scrub').disabled=true;
-$('#scrub').oninput=e=>{pause();showTime(+e.target.value);};
-$('#orbit').onclick=()=>{pause();userView=false;showTime(clock);$('#orbit').setAttribute('aria-pressed','true');};
-$('#explode').onclick=()=>{pause();userExplode=!userExplode;$('#explode').setAttribute('aria-pressed',String(userExplode));showTime(clock);};
-$('#wire').onclick=()=>{pause();userWire=!userWire;$('#wire').setAttribute('aria-pressed',String(userWire));showTime(clock);};
-$('#isolate').onchange=e=>{pause();solo=e.target.value;showTime(clock);};
+$('#scrub').oninput=e=>{if(!window.vehicleTour.ready)return;pause();showTime(+e.target.value);};
+$('#orbit').onclick=()=>{if(!window.vehicleTour.ready)return;pause();userView=false;showTime(clock);};
+$('#explode').onclick=()=>{if(!window.vehicleTour.ready)return;pause();userExplode=!userExplode;$('#explode').setAttribute('aria-pressed',String(userExplode));showTime(clock);};
+$('#wire').onclick=()=>{if(!window.vehicleTour.ready)return;pause();userWire=!userWire;$('#wire').setAttribute('aria-pressed',String(userWire));showTime(clock);};
+$('#isolate').onchange=e=>{if(!window.vehicleTour.ready)return;pause();solo=e.target.value;showTime(clock);};
 $('#retry').onclick=()=>location.reload();
 $('#record-toggle').onclick=()=>{pause();$('#project-record').showModal();const graph=$('#project-record .revision-graph');if(graph)graph.scrollLeft=Math.max(0,Number(graph.dataset.focusX)-graph.clientWidth/2);};
 $('#record-close').onclick=()=>$('#project-record').close();
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
-window.addEventListener('pagehide',()=>{pause();disposed=true;controls?.dispose();scene?.traverse(o=>{o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();});renderer?.dispose();});
+window.addEventListener('pagehide',event=>{pause();if(event.persisted)return;disposed=true;controls?.dispose();scene?.traverse(o=>{o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();});renderer?.dispose();});
+window.addEventListener('pageshow',event=>{if(event.persisted)resize();});
 
 async function start(){
   initScene();
@@ -269,8 +276,8 @@ async function start(){
     let stageTime=0;
     chapters=customProject.stages.map((stage,i)=>{
       const start=stageTime;stageTime+=stage.replay?Math.max(12,(customReplays[stage.replay]?.duration||0)+1):12;
-      if(stage.replay){const run=customReplays[stage.replay];if(!run)throw Error('Stage references a missing replay');return {start,end:stageTime,label:stage.id,category:'EXPERIMENT / '+customProject.name.toUpperCase(),title:stage.title,replay:stage.replay,status:stage.status,description:stage.description,
-        facts:[[String(run.data.bodies.length),'named rigid bodies'],[String(run.data.frames.length),'saved states'],[stage.status,'evidence status']],note:run.data.scope,caption:'Recorded body poses. No new simulation runs in this view.'};}
+      if(stage.replay){const run=customReplays[stage.replay],evidence=customProject.evidence.find(e=>e.id===stage.replay);if(!run)throw Error('Stage references a missing replay');return {start,end:stageTime,label:stage.id,category:'EXPERIMENT / '+customProject.name.toUpperCase(),title:stage.title,replay:stage.replay,status:stage.status,evidenceStatus:evidence.status,description:stage.description,
+        facts:[[String(run.data.bodies.length),'named rigid bodies'],[String(run.data.frames.length),'saved states'],[evidence.status,'evidence status'],[stage.status,'stage status']],note:run.data.scope,caption:'Recorded body poses. No new simulation runs in this view.'};}
       const m=models[stage.model];if(!m)throw Error('Stage references a missing model');
       return {start,end:stageTime,label:stage.id,category:'PROJECT / '+customProject.name.toUpperCase(),title:stage.title,model:stage.model,
         status:stage.status,description:stage.description,facts:[[String(m.meta.partCount),'authored component groups'],[m.meta.revision,'source revision'],[stage.status,'recorded stage status']],
@@ -285,11 +292,19 @@ async function start(){
     physics=makePhysics(replay);setupTelemetry();setupDiagram();
     mountProjectRecord({name:'Vehicle Lab / preserved design register',revisionHeading:'Preserved revisions',description:history.meaning||'Historical revision identities and parent links. These records do not establish physical acceptance.',revisions:history.nodes.map(n=>({id:n.id,parents:n.parent_ids,decision:n.label+' · recorded status: '+n.status+' · '+n.track}))},models,[]);
   }
-  window.vehicleTour={ready:true,duration,chapters,seek:showTime,play,pause,models,manifest,physics,replay,customReplays,renderer,scene,camera,
-    inspect:()=>({ready:true,time:clock,chapter:current,playing,sourceChecks:Object.fromEntries(Object.entries(models).map(([id,m])=>[id,{parts:m.meta.partCount,triangles:m.meta.triangleCount,withheld:m.meta.omitted.length,sha256:m.meta.binarySha256}])),physicsFrame:lastPhysicsFrame?.t??null,hardwareRelease:false})};
+  const requested=Number(new URLSearchParams(location.search).get('t')||0),initialTime=Number.isFinite(requested)?requested:0;
+  showTime(initialTime);$('#loading small').textContent='Preparing 3D materials';
+  await renderer.compileAsync(scene,camera);
+  // Let uploads and shadow materials finish while the loading cover is visible.
+  // Compilation alone can leave the first displayed draw incomplete on some GPUs.
+  for(let frame=0;frame<3;frame++){
+    await new Promise(requestAnimationFrame);if(disposed)return;showTime(initialTime);
+  }
+  Object.assign(window.vehicleTour,{ready:true,duration,chapters,seek:showTime,play,pause,models,manifest,physics,replay,customReplays,renderer,scene,camera,
+    inspect:()=>({ready:true,time:clock,chapter:current,playing,sourceChecks:Object.fromEntries(Object.entries(models).map(([id,m])=>[id,{parts:m.meta.partCount,triangles:m.meta.triangleCount,withheld:m.meta.omitted.length,sha256:m.meta.binarySha256}])),physicsFrame:lastPhysicsFrame?.t??null,hardwareRelease:false})});
   $('#loading').hidden=true;$('#app').setAttribute('aria-busy','false');$('#play').disabled=false;$('#scrub').disabled=false;
+  controls.enabled=true;for(const control of $('#viewport-tools').querySelectorAll('button,select'))control.disabled=false;
   for(const b of $('#chapters').children)b.disabled=false;
-  const requested=Number(new URLSearchParams(location.search).get('t')||0);showTime(Number.isFinite(requested)?requested:0);
   // Motion always starts with an explicit action, including reduced-motion users.
   if(reducedMotion)$('#geometry-note').textContent='Reduced motion · play only when requested';
 }
