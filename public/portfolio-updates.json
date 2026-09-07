@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-09-05T11:56:18.441Z",
+  "lastSyncedAt": "2026-09-07T19:37:13.184Z",
   "review": {
     "status": "PASS",
-    "checkedAt": "2026-09-05",
-    "syncedAt": "2026-09-05T11:56:18.441Z",
+    "checkedAt": "2026-09-07",
+    "syncedAt": "2026-09-07T19:37:13.184Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -28,28 +28,27 @@
   },
   "latestUpdates": [
     {
-      "title": "ClearML Experiment Tracking for Dermaself",
-      "description": "Added Dermaself MLOps case study: ClearML experiment tracking for skin-analysis model runs, dataset hygiene, metric review, and promotion gates.",
+      "title": "Vehicle Lab",
+      "description": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references.",
       "links": [
         {
-          "text": "Open case study",
-          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself/"
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab"
         },
         {
-          "text": "Read Markdown case study",
-          "url": "https://zack-dev-cm.github.io/projects/clearml-experiment-tracking-for-dermaself.md"
+          "text": "Public homepage",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
         }
       ],
-      "projectId": 80,
-      "source": "portfolio-static",
-      "sourceId": "clearml-experiment-tracking-for-dermaself",
-      "createdAt": "2026-06-09",
+      "repoFullName": "zack-dev-cm/vehicle-lab",
+      "repoId": 1359484305,
+      "createdAt": "2026-09-07T19:33:39Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-09-05",
+        "checkedAt": "2026-09-07",
         "gateVersion": 2,
         "gates": [
-          "portfolio-static-source-backed",
+          "public-github-api-only",
           "private-repo-default-off",
           "safe-public-links-only",
           "readme-code-blocks-stripped",
@@ -58,7 +57,8 @@
           "clawhub-stat-crosslink",
           "clawpatch-review-ready"
         ]
-      }
+      },
+      "projectId": 1359484305
     },
     {
       "title": "Session Rescue",
@@ -78,7 +78,7 @@
       "createdAt": "2026-06-11T09:48:36Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-09-05",
+        "checkedAt": "2026-09-07",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -96,10 +96,109 @@
   ],
   "projects": [
     {
+      "id": 1359484305,
+      "title": "Vehicle Lab",
+      "description": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references.",
+      "longDescription": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-09-07.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "3d-visualization",
+        "cad",
+        "engineering",
+        "python",
+        "simulation",
+        "threejs"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source references",
+        "Public GitHub API snapshot captured on 2026-09-07",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include 3d Visualization, Cad, Engineering, Python",
+        "Public homepage or listing is linked from repository metadata"
+      ],
+      "techStack": [
+        "Python",
+        "3d Visualization",
+        "Cad",
+        "Engineering",
+        "Simulation",
+        "Threejs",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/vehicle-lab"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Vehicle Lab preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-09-07"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-09-07"
+        },
+        {
+          "label": "Created",
+          "value": "2026-09-06",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-09-07",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/vehicle-lab",
+        "website": "https://zack-dev-cm.github.io/docs/vehicle-lab/"
+      },
+      "repoFullName": "zack-dev-cm/vehicle-lab",
+      "repoId": 1359484305,
+      "createdAt": "2026-09-07T19:33:39Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-09-07",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "legacySlugs": [
+        "zack-dev-cm-vehicle-lab"
+      ],
+      "aliases": []
+    },
+    {
       "id": 1218785042,
       "title": "Session Rescue",
       "description": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf Session Rescue is a local-first Chrome extension for saving browser session",
-      "longDescription": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf Session Rescue is a local-first Chrome extension for saving browser session This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-09-05.",
+      "longDescription": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf Session Rescue is a local-first Chrome extension for saving browser session This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-09-07.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -107,7 +206,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-09-05",
+        "Public GitHub API snapshot captured on 2026-09-07",
         "JavaScript code surface is visible in repository metadata",
         "Public homepage or listing is linked from repository metadata"
       ],
@@ -137,12 +236,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-09-05"
+          "context": "public GitHub API snapshot, 2026-09-07"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-09-05"
+          "context": "public GitHub API snapshot, 2026-09-07"
         },
         {
           "label": "Created",
@@ -164,7 +263,7 @@
       "createdAt": "2026-06-11T09:48:36Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-09-05",
+        "checkedAt": "2026-09-07",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -259,7 +358,7 @@
       "sourceId": "clearml-experiment-tracking-for-dermaself",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-09-05",
+        "checkedAt": "2026-09-07",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -1525,7 +1624,7 @@
       "sourceId": "agnitra-ai-inference-optimizer",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-09-05",
+        "checkedAt": "2026-09-07",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
