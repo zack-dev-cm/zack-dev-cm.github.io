@@ -997,9 +997,9 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
     title: "Vehicle Lab v0.1.1",
-    description: "A new 37.5-second hero connects detailed model inspection, the full revision tree and saved Chrono motion. Explore logs, pits, steering/braking and simulation parameters in the interactive terrain viewer.",
+    description: "Open the 3D explorer in your browser: orbit detailed models, separate systems, select parts and navigate the full revision tree. Explore saved Chrono logs, pits, steering/braking and simulation parameters, or watch the 37.5-second film.",
     links: [
-      { text: "Explore Vehicle Lab", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/" },
+      { text: "Explore in 3D", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/film.html" },
       { text: "Watch the new film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html" },
       { text: "Release v0.1.1", url: "https://github.com/zack-dev-cm/vehicle-lab/releases/tag/v0.1.1" }
     ],
@@ -1473,11 +1473,11 @@ export const PROJECTS: Project[] = [
     projectKind: "open-source",
     aliases: ["vehicle lab", "engineering notebook", "3D engineering studies", "RC25"],
     repoFullName: "zack-dev-cm/vehicle-lab",
-    primaryLinks: ["Watch the 37.5-second film", "Explore motion and terrain", "Source on GitHub"],
+    primaryLinks: ["Explore in 3D", "Explore motion and terrain", "Source on GitHub"],
     createdAt: "2026-09-06T20:22:38Z",
     searchProfile: { capabilities: ["3D visualization", "CAD inspection", "digital prototyping", "recorded simulation replay", "engineering notebooks", "reproducible research", "geometry import", "revision tracking"], evidence: "implementation" },
     description: "Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.",
-    longDescription: "Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.",
+    longDescription: "Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. Open the 3D explorer in your browser: drag to orbit Ridge R3d, select individual parts, isolate and separate systems, and navigate the complete revision tree. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.",
     caseStudySections: [
       {
         title: "Engineering across the workflow",
@@ -1515,6 +1515,7 @@ export const PROJECTS: Project[] = [
       { label: "Physical validation", value: "Open", context: "Digital examples; no qualified hardware release" }
     ],
     links: [
+      { text: "Explore in 3D", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/film.html" },
       { text: "Watch the 37.5-second film", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html" },
       { text: "Explore motion and terrain", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html" },
       { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/vehicle-lab" },

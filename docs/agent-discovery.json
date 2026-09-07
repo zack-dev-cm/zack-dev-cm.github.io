@@ -1068,6 +1068,10 @@
       ],
       "links": [
         {
+          "label": "Explore in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/film.html"
+        },
+        {
           "label": "Watch the 37.5-second film",
           "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html"
         },
@@ -1288,6 +1292,10 @@
         }
       ],
       "links": [
+        {
+          "label": "Explore in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/film.html"
+        },
         {
           "label": "Watch the 37.5-second film",
           "url": "https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html"

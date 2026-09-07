@@ -30,7 +30,7 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 ## Projects (Full Details)
 ### Vehicle Lab: A Reusable Engineering Notebook
 Summary: Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
-Details: Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.
+Details: Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. Open the 3D explorer in your browser: drag to orbit Ridge R3d, select individual parts, isolate and separate systems, and navigate the complete revision tree. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.
 Project URL: https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/
 Markdown URL: https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook.md
 Key Features:
@@ -52,6 +52,7 @@ Benchmarks & Analytics:
 - Revision tree: 65 records (68 preserved parent links; authored history)
 - Physical validation: Open (Digital examples; no qualified hardware release)
 Links:
+- Explore in 3D: https://zack-dev-cm.github.io/docs/vehicle-lab/film.html
 - Watch the 37.5-second film: https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html
 - Explore motion and terrain: https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html
 - Source on GitHub: https://github.com/zack-dev-cm/vehicle-lab

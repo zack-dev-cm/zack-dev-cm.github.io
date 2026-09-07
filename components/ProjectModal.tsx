@@ -29,6 +29,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const titleId = `project-modal-title-${project.id}`;
   const descriptionId = `project-modal-description-${project.id}`;
+  const primaryLinks = (project.primaryLinks ?? []).flatMap(label =>
+    project.links.filter(link => link.text === label)
+  );
+  const otherLinks = project.links.filter(link => !primaryLinks.includes(link));
 
   useEffect(() => {
     setCurrentImageIndex(0);
@@ -192,6 +196,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             )}
           </div>
 
+          {primaryLinks.length > 0 && (
+            <nav className="button-row" aria-label="Project actions">
+              {primaryLinks.map((link, index) => (
+                <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
+                  className={`button button--${index === 0 ? 'primary' : 'ghost'} button--small`}>
+                  {link.text}<span aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </nav>
+          )}
+
           <p id={descriptionId} className="modal-body__lead">
             {project.longDescription || project.description}
           </p>
@@ -288,12 +303,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </section>
           )}
 
-          {project.links.length > 0 && (
+          {otherLinks.length > 0 && (
             <section className="panel">
               <p className="panel__eyebrow">Outbound</p>
               <h3>Links</h3>
               <div className="modal-links">
-                {project.links.map((link) => (
+                {otherLinks.map((link) => (
                   <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
                     <ExternalLinkIcon className="h-4 w-4" />
                     <span>{link.text}</span>

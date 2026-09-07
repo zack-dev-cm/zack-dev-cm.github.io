@@ -40,7 +40,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   82: {
     label: 'Open-source engineering · v0.1.1',
     title: 'Vehicle Lab · CAD to simulation',
-    summary: 'Inspect detailed CAD, follow the full revision tree, and explore recorded physics on an obstacle course. Watch the new 37.5-second film or open the interactive terrain study.',
+    summary: 'Explore Ridge R3d in your browser: orbit the model, separate systems and select individual parts. Navigate the full revision tree, then explore recorded physics on an obstacle course.',
     imageIndex: 1,
     figureLabel: 'Ridge R3d · opening frame from the film',
   },

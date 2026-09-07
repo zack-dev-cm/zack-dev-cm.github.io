@@ -5,10 +5,10 @@ test('Vehicle Lab is featured, has direct demo links and its film plays in the p
   await expect(page.locator('.site-layout')).toBeVisible();
   const featured = page.locator('.featured-card').filter({ has: page.getByRole('heading', { name: 'Vehicle Lab · CAD to simulation', exact: true }) });
   await expect(featured.locator('img')).toHaveAttribute('src', /vehicle-lab-hero-poster\.jpg$/);
-  await expect(featured.getByRole('link', { name: 'Watch the 37.5-second film' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/hero\.html$/);
+  await expect(featured.getByRole('link', { name: 'Explore in 3D' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/film\.html$/);
   await page.goto('/projects/vehicle-lab-a-reusable-engineering-notebook/');
   const actions = page.getByRole('navigation', { name: 'Project actions' });
-  await expect(actions.getByRole('link', { name: 'Watch the 37.5-second film' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/hero\.html$/);
+  await expect(actions.getByRole('link', { name: 'Explore in 3D' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/film\.html$/);
   await expect(actions.getByRole('link', { name: 'Explore motion and terrain' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/terrain\.html$/);
   await page.goto('/');
   await expect(page.locator('.site-layout')).toBeVisible();
@@ -20,6 +20,9 @@ test('Vehicle Lab is featured, has direct demo links and its film plays in the p
   await page.getByRole('link', { name: /Open project: Vehicle Lab:/ }).click();
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
+  const interactiveAction = dialog.getByRole('navigation', { name: 'Project actions' }).getByRole('link', { name: 'Explore in 3D' });
+  await expect(interactiveAction).toHaveAttribute('href', /\/docs\/vehicle-lab\/film\.html$/);
+  await expect(interactiveAction).toBeInViewport();
   const video = dialog.locator('video');
   await expect(video).toHaveAttribute('poster', /vehicle-lab-hero-poster\.jpg$/);
   await expect(video).toHaveAttribute('controls', '');

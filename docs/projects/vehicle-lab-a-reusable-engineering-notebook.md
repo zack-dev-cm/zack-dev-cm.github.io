@@ -3,7 +3,7 @@
 > Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 
 ## Summary
-Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.
+Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. Open the 3D explorer in your browser: drag to orbit Ridge R3d, select individual parts, isolate and separate systems, and navigate the complete revision tree. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.
 
 ## Engineering across the workflow
 I built and released the notebook software around a vehicle design study: a Python project CLI, a portable manifest schema, a Three.js inspection interface, revision records and recorded-motion adapters. The workflow connects design assumptions, geometry, numerical checks and the reasoning behind each revision. The same software supports independent desk-rover and linear-stage examples.
@@ -63,6 +63,7 @@ https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebo
 - Physical validation: Open (Digital examples; no qualified hardware release)
 
 ## Links
+- [Explore in 3D](https://zack-dev-cm.github.io/docs/vehicle-lab/film.html)
 - [Watch the 37.5-second film](https://zack-dev-cm.github.io/docs/vehicle-lab/hero.html)
 - [Explore motion and terrain](https://zack-dev-cm.github.io/docs/vehicle-lab/terrain.html)
 - [Source on GitHub](https://github.com/zack-dev-cm/vehicle-lab)
