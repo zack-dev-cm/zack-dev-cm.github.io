@@ -76,12 +76,6 @@
   ],
   "projects": [
     {
-      "name": "Vehicle Lab",
-      "status": "Open-source engineering notebook | v0.1.0",
-      "url": "https://github.com/zack-dev-cm/vehicle-lab",
-      "text": "Built and released a Python CLI and Three.js notebook connecting CAD inspection, digital prototypes, revision decisions and recorded simulation. Added grouped geometry import, an engine-neutral replay interface and traceable checks across vehicle, rover and linear-stage examples. Physical assembly and driving validation remain open."
-    },
-    {
       "name": "InQuest",
       "status": "Project-aware document agents",
       "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
@@ -98,6 +92,12 @@
       "status": "Research tooling | In progress",
       "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
       "text": "Built a reproducible literature-discovery and audit pipeline for computational lignin research, with publication-version grouping and traceable extraction schemas."
+    },
+    {
+      "name": "Vehicle Lab",
+      "status": "Open-source engineering notebook",
+      "url": "https://github.com/zack-dev-cm/vehicle-lab",
+      "text": "Built a Python and Three.js notebook for CAD inspection, design revisions and recorded simulation."
     }
   ],
   "skills": [
@@ -112,10 +112,6 @@
     {
       "label": "ML systems",
       "text": "FastAPI, PostgreSQL, Redis, Docker, Kubernetes, AWS/GCP, Cloud Run, GitLab CI/CD, GitHub Actions, MLflow/ClearML, Prometheus/Grafana"
-    },
-    {
-      "label": "Engineering tools",
-      "text": "Three.js, CAD/OBJ inspection, geometry processing, recorded simulation adapters, reproducible experiment artifacts"
     }
   ],
   "education": "Siberian Federal University | Computer Science & Microelectronic Engineering | 2007-2012",
