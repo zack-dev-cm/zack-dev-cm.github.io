@@ -16,6 +16,7 @@ Use this file to define the checks that keep portfolio changes honest.
 - Source validation: `npm run validate`
 - Build and generation: `npm run build`
 - Public-surface gate: `npm run security:gate`
+- Disclosure regressions: `npm run test:disclosure`. The security gate checks known retired assets by byte identity, JSON data up to 2 MiB by canonical content, and retired prose by normalized phrase fingerprints across public text and extracted PDF text. The fingerprint policy contains hashes; test fixtures are fictional. These checks do not classify new confidential material, altered images, or paraphrases. Review new material before adding it.
 - E2E smoke: `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e`
 - Search relevance: `npm run test:search` against the actual reviewed catalogue. Check complete query meaning, visible case-study text, exact names, short acronyms and explicit sorting. A passing exact-name query does not establish general recruiter search quality.
 - Link audit for link/resume/page changes: `npm run check:links`

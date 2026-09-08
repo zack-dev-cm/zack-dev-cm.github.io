@@ -3,11 +3,13 @@ import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
+import { compilePolicy, containsWithdrawnCopy, scanPublishedAssets } from './disclosure-policy.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const execFileAsync = promisify(execFile);
+const disclosurePolicy = compilePolicy(JSON.parse(await fs.readFile(new URL('./disclosure-fingerprints.json', import.meta.url), 'utf8')));
 
 const SKIP_DIRECTORIES = new Set([
   '.clawpatch',
@@ -252,6 +254,12 @@ const scanPatterns = (relativePath, text, patterns) => {
   }
 };
 
+const scanWithdrawnCopy = (relativePath, text) => {
+  if (containsWithdrawnCopy(text, disclosurePolicy)) {
+    errors.push(`${relativePath}: contains withdrawn project copy (content fingerprint)`);
+  }
+};
+
 const assertPrivateRepoSyncFailsClosed = async () => {
   const relativePath = 'gcp/github-portfolio-sync/index.js';
   const source = await fs.readFile(path.join(ROOT_DIR, relativePath), 'utf8');
@@ -454,6 +462,7 @@ const scanPublicPdfText = async () => {
     scanPatterns(`${file.relativePath} extracted text`, stdout, SECRET_PATTERNS);
     scanPatterns(`${file.relativePath} extracted text`, stdout, PUBLIC_LEAK_PATTERNS);
     scanPatterns(`${file.relativePath} extracted text`, stdout, PUBLIC_INSTRUCTION_BLEED_PATTERNS);
+    scanWithdrawnCopy(`${file.relativePath} extracted text`, stdout);
   }
 };
 
@@ -496,6 +505,7 @@ const main = async () => {
     if (isPublicSurface(file.relativePath)) {
       scanPatterns(file.relativePath, text, PUBLIC_LEAK_PATTERNS);
       scanPatterns(file.relativePath, text, PUBLIC_INSTRUCTION_BLEED_PATTERNS);
+      scanWithdrawnCopy(file.relativePath, text);
     }
     if (isPublishedOutput(file.relativePath)) {
       scanPatterns(file.relativePath, text, PUBLIC_DRAFT_SURFACE_PATTERNS);
@@ -507,6 +517,9 @@ const main = async () => {
   await assertCodexDocsAreInSync();
   await assertHiddenPublishingSurfacesAreNotPublished();
   await assertWithdrawnProjectAssetsAreAbsent();
+  errors.push(...await scanPublishedAssets({
+    rootDir: ROOT_DIR, roots: PUBLIC_PREFIXES, files: [...PUBLIC_ROOT_FILES, ...PUBLIC_SOURCE_FILES], policy: disclosurePolicy,
+  }));
   await assertVercelSecurityHeaders();
   await assertCloudflareSecurityHeaders();
   await scanPublicPdfText();

@@ -10,6 +10,7 @@ const repo = new URL('../', import.meta.url);
 const resumeName = 'zakhar-pashkin-senior-ml-engineer';
 const requiredSuites = [
   'tests/project-catalog.test.mjs', 'tests/project-search.test.mjs', 'tests/stage-pages.test.mjs',
+  'tests/disclosure-guard.test.mjs',
 ];
 
 const fixture = async (t) => {

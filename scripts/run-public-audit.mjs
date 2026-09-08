@@ -8,7 +8,7 @@ const checks = [
   ['Source positioning and unsupported-copy patterns', ['scripts/validate-positioning-copy.mjs']],
   ['Public-surface security and instruction-bleed scan', ['scripts/security-gate.mjs']],
   ['Generated metadata and canonical-page consistency', ['scripts/validate-seo-aeo.mjs']],
-  ['Catalogue and deployment failure regressions', ['--test', 'tests/project-catalog.test.mjs', 'tests/project-search.test.mjs', 'tests/stage-pages.test.mjs']],
+  ['Catalogue, disclosure and deployment failure regressions', ['--test', 'tests/project-catalog.test.mjs', 'tests/project-search.test.mjs', 'tests/stage-pages.test.mjs', 'tests/disclosure-guard.test.mjs']],
 ];
 
 console.log('Public source/artifact audit: repository-owned checks; no external audit package or numeric score.');

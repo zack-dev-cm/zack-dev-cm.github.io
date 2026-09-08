@@ -23,9 +23,10 @@
     "build": "vite build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/security-gate.mjs && npm run validate:positioning:docs",
     "preview": "vite preview",
-    "pretest:e2e": "node --test tests/project-catalog.test.mjs tests/project-search.test.mjs tests/stage-pages.test.mjs",
+    "pretest:e2e": "node --test tests/project-catalog.test.mjs tests/project-search.test.mjs tests/stage-pages.test.mjs tests/disclosure-guard.test.mjs",
     "test:e2e": "playwright test",
     "test:search": "node --test tests/project-search.test.mjs",
+    "test:disclosure": "node --test tests/disclosure-guard.test.mjs",
     "check:links": "node scripts/check-links.mjs",
     "audit:public": "node scripts/run-public-audit.mjs"
   },
