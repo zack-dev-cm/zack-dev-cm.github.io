@@ -8,11 +8,19 @@ async function expectAnimatedPreview(image: Locator) {
   await expect.poll(async () => firstFrame.equals(await image.screenshot()), { timeout: 10000 }).toBe(false);
 }
 
+async function expectPreviewVideo(video: Locator) {
+  await video.scrollIntoViewIfNeeded();
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted && !v.paused && v.currentTime > 0)).toBe(true);
+  await expect(video).toHaveAttribute('src', /vehicle-lab-hero-loop\.mp4$/);
+  const before = await video.evaluate((v: HTMLVideoElement) => v.currentTime);
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime)).toBeGreaterThan(before);
+}
+
 test('Vehicle Lab is featured, has direct demo links and its film plays in the portfolio', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.site-layout')).toBeVisible();
   const featured = page.locator('.featured-card').filter({ has: page.getByRole('heading', { name: 'Vehicle Lab · CAD to simulation', exact: true }) });
-  await expectAnimatedPreview(featured.locator('img'));
+  await expectPreviewVideo(featured.locator('video'));
   await expect(featured.getByRole('link', { name: 'Explore in 3D' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/film\.html$/);
   await page.goto('/projects/vehicle-lab-a-reusable-engineering-notebook/');
   await expectAnimatedPreview(page.locator('img.visual').first());
@@ -124,7 +132,7 @@ for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
     const featured = page.locator('.featured-card').filter({ hasText: 'Vehicle Lab · CAD to simulation' });
-    await expectAnimatedPreview(featured.locator('img'));
+    await expectPreviewVideo(featured.locator('video'));
     await page.goto('/?project=vehicle-lab-a-reusable-engineering-notebook');
     const video = page.getByRole('dialog').locator('video');
     await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted && !v.paused && v.currentTime > 0)).toBe(true);
@@ -134,3 +142,58 @@ for (const width of [1440, 390]) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });
 }
+
+test('Vehicle Lab preview pauses offscreen and remembers an explicit pause', async ({ page }) => {
+  const requests: string[] = [];
+  page.on('request', request => requests.push(request.url()));
+  await page.goto('/');
+  const featured = page.locator('.featured-card').filter({ hasText: 'Vehicle Lab · CAD to simulation' });
+  const video = featured.locator('video');
+  await expectPreviewVideo(video);
+  expect(requests.filter(url => url.includes('vehicle-lab-hero-preview.gif'))).toEqual([]);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+  await expectPreviewVideo(video);
+  await featured.getByRole('button', { name: /Pause .* preview/ }).click();
+  const held = await video.evaluate((v: HTMLVideoElement) => v.currentTime);
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await video.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(500);
+  expect(await video.evaluate((v: HTMLVideoElement) => v.currentTime)).toBe(held);
+  await featured.getByRole('button', { name: /Play .* preview/ }).click();
+  await expectPreviewVideo(video);
+  await featured.getByRole('link', { name: 'Explore Vehicle Lab · CAD to simulation', exact: true }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Vehicle Lab: A Reusable Engineering Notebook');
+});
+
+test('Vehicle Lab respects reduced motion but allows explicit playback', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const featured = page.locator('.featured-card').filter({ hasText: 'Vehicle Lab · CAD to simulation' });
+  const video = featured.locator('video');
+  await video.scrollIntoViewIfNeeded();
+  await expect(featured.getByRole('button', { name: /Play .* preview/ })).toBeVisible();
+  expect(await video.getAttribute('src')).toBeNull();
+  await featured.getByRole('button', { name: /Play .* preview/ }).click();
+  await expectPreviewVideo(video);
+});
+
+test('Vehicle Lab data saving defers video transfer until Play', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(navigator, 'connection', { value: Object.assign(new EventTarget(), { saveData: true }), configurable: true }));
+  await page.goto('/');
+  const featured = page.locator('.featured-card').filter({ hasText: 'Vehicle Lab · CAD to simulation' });
+  const video = featured.locator('video');
+  await video.scrollIntoViewIfNeeded();
+  expect(await video.getAttribute('src')).toBeNull();
+  await featured.getByRole('button', { name: /Play .* preview/ }).click();
+  await expectPreviewVideo(video);
+});
+
+test('Vehicle Lab retains navigation if the preview cannot load', async ({ page }) => {
+  await page.route('**/vehicle-lab-hero-loop.mp4', route => route.abort());
+  await page.goto('/');
+  const featured = page.locator('.featured-card').filter({ hasText: 'Vehicle Lab · CAD to simulation' });
+  await featured.scrollIntoViewIfNeeded();
+  await expect(featured.getByRole('status')).toHaveText('Preview unavailable');
+  await expect(featured.getByRole('link', { name: 'Explore in 3D' })).toBeVisible();
+});

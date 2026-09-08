@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Sidebar } from './components/Sidebar';
 import { ArchiveProjectCard as ProjectCard } from './components/ArchiveProjectCard';
 import { ProjectModal } from './components/ProjectModal';
+import { PreviewVideo } from './components/PreviewVideo';
 import { Section } from './components/Section';
 import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, XSocialIcon } from './components/Icons';
 import {
@@ -25,7 +26,7 @@ const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
 
 const FEATURED_PROJECT_CONTEXT: Record<number, {
-  label: string; title: string; summary: string; imageIndex?: number; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
+  label: string; title: string; summary: string; imageIndex?: number; previewVideo?: string; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
 }> = {
   101: {
     label: 'Applied ML · R&D',
@@ -41,7 +42,8 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Open-source engineering · v0.1.1',
     title: 'Vehicle Lab · CAD to simulation',
     summary: 'Explore Ridge R3d in your browser: orbit the model, separate systems and select individual parts. Navigate the full revision tree, then explore recorded physics on an obstacle course.',
-    imageIndex: 1,
+    imageIndex: 2,
+    previewVideo: '/docs/vehicle-lab/media/vehicle-lab-hero-loop.mp4',
     figureLabel: 'Vehicle Lab · animated pipeline preview',
   },
   81: {
@@ -1031,6 +1033,14 @@ const App: React.FC = () => {
                       <p className="featured-card__label">{context.label}</p>
                       <h3><a href={buildProjectPublicUrl(getProjectCanonicalSlug(project))}>{context.title}</a></h3>
                     </header>
+                    {context.previewVideo && asset && !project.hideImages ? (
+                      <div className="featured-card__visual">
+                        <div className="featured-card__media">
+                          <PreviewVideo src={context.previewVideo} poster={asset.url} label={`${context.title} preview`} suspended={Boolean(selectedProject)} />
+                        </div>
+                        <a className="featured-card__caption" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} aria-label={`Explore ${context.title}`}>{figureLabel} ↗</a>
+                      </div>
+                    ) : (
                     <a className="featured-card__visual" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} aria-label={`Explore ${context.title}`}>
                       <div className="featured-card__media">
                       {context.artifact ? (
@@ -1051,6 +1061,7 @@ const App: React.FC = () => {
                       </div>
                       <span className="featured-card__caption">{figureLabel}</span>
                     </a>
+                    )}
                     <div className="featured-card__content">
                       <p className="featured-card__summary">{context.summary}</p>
                       <div className="featured-card__links">
