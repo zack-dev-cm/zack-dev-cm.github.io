@@ -18,8 +18,8 @@ conceptual imagery. Animation duration does not represent computation time.
   documented in the [source diagnostic](https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit).
   It is not an application screenshot.
 - **Dermaself and video retrieval:** the two PNG subjects in this directory were
-  created with the built-in ImageGen tool on 8 September 2026. Model selection
-  was not exposed by the tool. They contain no real user image or project data.
+  generated with AI on 8 September 2026. They contain no real user image or
+  project data.
   The face regions, search query and timestamp are illustrative, not predictions
   or recorded product results.
 
