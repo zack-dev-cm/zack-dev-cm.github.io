@@ -73,18 +73,18 @@
       "workExample": [
             {
                   "@type": "CreativeWork",
-                  "name": "Open synthetic report",
-                  "url": "https://zack-dev-cm.github.io/sectioncheck/"
+                  "name": "Explore in 3D",
+                  "url": "https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=sectioncheck"
             },
             {
                   "@type": "CreativeWork",
-                  "name": "Source on GitHub",
-                  "url": "https://github.com/zack-dev-cm/sectioncheck"
+                  "name": "Watch the 30-second film",
+                  "url": "https://zack-dev-cm.github.io/docs/neural-engineering/media/sectioncheck-film.mp4"
             },
             {
                   "@type": "CreativeWork",
-                  "name": "Prerelease 0.2.1.dev0",
-                  "url": "https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0"
+                  "name": "Download 3D model",
+                  "url": "https://zack-dev-cm.github.io/docs/neural-engineering/models/sectioncheck.glb"
             }
       ]
 }
@@ -115,11 +115,12 @@
           <h2>Overview</h2>
           <p>I built a Python CLI that makes a proposed image transform inspectable: validate the coordinate contract, render source and target regions, record an explicit decision and verify the exported annotations against the bound inputs. Version 0.2.1.dev0 includes a self-contained HTML report and a reproducible synthetic workflow. This is independent research tooling developed alongside the Neuralink contribution work, with AI assistance. Only authored synthetic data is supported; researcher usefulness, VALIS integration and external-viewer interoperability remain unconfirmed.</p>
         </section>
-        <section><h2>From a transform to an inspectable report</h2><p>The CLI checks manifest and image hashes, affine geometry, coordinate frames and declared policy bounds. The report shows source, target, resampling, overlay and ROI panels. The bundled fixture uses a known translation of 40 pixels right and 24 pixels down, with independently authored landmark and polygon expectations.</p></section>
+        <section><h2>Inspect the original geometry in 3D</h2><p>The interactive scene verifies and loads the released synthetic PNGs and original ROI coordinates, including the excluded hole and separate polygon regions. Orbit, layer separation and wireframe expose the geometry. Added depth explains the 2D inputs; it is not anatomy. The saved warning, missing calibration and decision_required state remain visible. A 30-second 1080p film, muted preview, GIF and downloadable GLB accompany the scene.</p></section>
+<section><h2>From a transform to an inspectable report</h2><p>The CLI checks manifest and image hashes, affine geometry, coordinate frames and declared policy bounds. The report shows source, target, resampling, overlay and ROI panels. The bundled fixture uses a known translation of 40 pixels right and 24 pixels down, with independently authored landmark and polygon expectations.</p></section>
 <section><h2>Keep review and export connected</h2><p>An explicit decision binds the report, image hashes, annotations, tool source and geometry-engine versions. Export revalidates those inputs and writes separate target coordinates. Re-import verification checks geometry and the receipt. Changed inputs require a new review and decision; rejection and stale decisions block export. Local decisions do not authenticate a reviewer.</p></section>
 <section><h2>What the release demonstrates</h2><p>The published 0.2.1.dev0 verification records 90 hosted tests and a fresh installed-wheel exercise. The protocol preserves polygon parts and holes, checks independently expected coordinates, and rejects changed outputs. The animated figure uses the actual authored fixture and exact translation, not a fitted registration or tissue image.</p></section>
 <section><h2>Prototype boundary</h2><p>This release accepts one authored synthetic image pair and a bounded pixel-ROI profile. It reviews a proposed transform; it does not optimize or fit one. There is no confirmed researcher acceptance, real-data validation, clinical capability or Neuralink affiliation. VALIS and external-viewer integration remain future work.</p></section>
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><video class="visual" controls playsinline preload="none" poster="/docs/images/sectioncheck-registration-poster.png" aria-label="SectionCheck synthetic polygon translation and explicit review sequence"><source src="/docs/images/sectioncheck-registration-preview.mp4" type="video/mp4" /><a href="/docs/images/sectioncheck-registration-preview.mp4">Open video</a></video><figcaption>Animated explanation of the released synthetic geometry. Intermediate motion illustrates the mapping, not an optimization run.</figcaption></figure></div></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><video class="visual" controls playsinline preload="none" poster="https://zack-dev-cm.github.io/docs/images/sectioncheck-registration-poster.png" aria-label="Inspect the original geometry in 3D"><source src="/docs/neural-engineering/media/sectioncheck-loop.mp4" type="video/mp4" /><a href="/docs/neural-engineering/media/sectioncheck-loop.mp4">Open video</a></video><figcaption>Original synthetic image and ROI coordinates; added depth explains the 2D geometry.</figcaption></figure><figure><a class="figure-link" href="/docs/neural-engineering/media/sectioncheck-poster.jpg" aria-label="Open full-size figure 3: Inspect the original geometry in 3D - interactive model"><img class="visual" src="/docs/neural-engineering/media/sectioncheck-poster.jpg" alt="Inspect the original geometry in 3D - interactive model" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>The published synthetic image pair with added display depth and source-linked ROI geometry.</figcaption></figure><figure><video class="visual" controls playsinline preload="none" poster="/docs/images/sectioncheck-registration-poster.png" aria-label="SectionCheck synthetic polygon translation and explicit review sequence"><source src="/docs/images/sectioncheck-registration-preview.mp4" type="video/mp4" /><a href="/docs/images/sectioncheck-registration-preview.mp4">Open video</a></video><figcaption>Animated explanation of the released synthetic geometry. Intermediate motion illustrates the mapping, not an optimization run.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
@@ -145,6 +146,9 @@
         <section>
           <h2>References</h2>
           <ul>
+        <li><a href="https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=sectioncheck">Explore in 3D</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/neural-engineering/media/sectioncheck-film.mp4">Watch the 30-second film</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/neural-engineering/models/sectioncheck.glb">Download 3D model</a></li>
         <li><a href="https://zack-dev-cm.github.io/sectioncheck/">Open synthetic report</a></li>
         <li><a href="https://github.com/zack-dev-cm/sectioncheck">Source on GitHub</a></li>
         <li><a href="https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0">Prerelease 0.2.1.dev0</a></li>

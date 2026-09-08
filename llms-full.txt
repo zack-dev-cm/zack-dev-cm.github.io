@@ -22,6 +22,8 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
 - [Vehicle Lab: A Reusable Engineering Notebook](https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/): Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
+- [SectionCheck - Image Registration Review](https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/): A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.
+- [Neuralink datarepo Contributions](https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/): Three independent PRs to Neuralink's public datarepo library: query correctness, a runnable quick start and installed-wheel compatibility.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
 - [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/): A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
 - [Calorio - AI Nutrition Service](https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/): A maintained Telegram service that helps people keep a food diary with meal photos, voice messages and text.
@@ -46,6 +48,9 @@ Tech Stack:
 - pytest
 - GitHub Actions
 Links:
+- Explore in 3D: https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=datarepo
+- Watch the 30-second film: https://zack-dev-cm.github.io/docs/neural-engineering/media/datarepo-film.mp4
+- Download 3D model: https://zack-dev-cm.github.io/docs/neural-engineering/models/datarepo.glb
 - Query-correctness PR #57: https://github.com/neuralinkcorp/datarepo/pull/57
 - Quick-start PR #58: https://github.com/neuralinkcorp/datarepo/pull/58
 - Packaging PR #59: https://github.com/neuralinkcorp/datarepo/pull/59
@@ -71,6 +76,9 @@ Tech Stack:
 - JSON Schema
 - pytest
 Links:
+- Explore in 3D: https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=sectioncheck
+- Watch the 30-second film: https://zack-dev-cm.github.io/docs/neural-engineering/media/sectioncheck-film.mp4
+- Download 3D model: https://zack-dev-cm.github.io/docs/neural-engineering/models/sectioncheck.glb
 - Open synthetic report: https://zack-dev-cm.github.io/sectioncheck/
 - Source on GitHub: https://github.com/zack-dev-cm/sectioncheck
 - Prerelease 0.2.1.dev0: https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0

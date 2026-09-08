@@ -287,7 +287,7 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   const discovery = await discoveryResponse.json();
   expect(discovery.entity.name).toBe('Zakhar Pashkin');
   expect(discovery.entity.role).toBe('Senior ML Engineer');
-  expect(discovery.featuredProjects.map((project: { id: number }) => project.id)).toEqual([101, 82, 63, 81, 11, 72]);
+  expect(discovery.featuredProjects.map((project: { id: number }) => project.id)).toEqual([101, 82, 84, 83, 63, 81, 11, 72]);
   for (const project of discovery.featuredProjects) {
     expect(project.url).toMatch(/^https:\/\/zack-dev-cm\.github\.io\/projects\/[^/]+\/$/);
     expect(projectLocs).toContain(project.url);
@@ -342,7 +342,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('heading', { name: 'A career in applied ML' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Research depth. Engineering follow-through.' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Recent work & releases' })).toBeVisible();
-  await expect(page.locator('#featured .featured-card')).toHaveCount(6);
+  await expect(page.locator('#featured .featured-card')).toHaveCount(8);
   await expect(page.locator('#experience')).toContainText('Riverstart');
   await expect(page.locator('#experience')).toContainText('Wombat Apps / Carb Manager');
   await expect(page.locator('#project-archive')).not.toHaveAttribute('open', '');
@@ -362,7 +362,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   const agentDiscovery = await agentDiscoveryResponse.json();
   expect(agentDiscovery.entity.name).toBe('Zakhar Pashkin');
   expect(agentDiscovery.entity.role).toBe('Senior ML Engineer');
-  expect(agentDiscovery.featuredProjects).toHaveLength(6);
+  expect(agentDiscovery.featuredProjects).toHaveLength(8);
 
   await expect(page.getByRole('link', { name: 'LinkedIn' }).first()).toHaveAttribute(
     'href',
@@ -1111,7 +1111,7 @@ test('featured cards stay inside their own bounds on desktop breakpoints', async
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await gotoPortfolio(page);
-    await expect(page.locator('.featured-card')).toHaveCount(6);
+    await expect(page.locator('.featured-card')).toHaveCount(8);
     await page.locator('#featured').scrollIntoViewIfNeeded();
 
     await expect
@@ -1193,7 +1193,7 @@ test('feed-only archive projects have real canonical pages and discovery entries
 test('project cards expose canonical links and support opening a new tab', async ({ page, context }) => {
   await gotoPortfolio(page);
   const caseLinks = page.locator('#featured').getByRole('link', { name: 'Case study', exact: true });
-  await expect(caseLinks).toHaveCount(6);
+  await expect(caseLinks).toHaveCount(8);
   for (const link of await caseLinks.all()) {
     await expect(link).toHaveAttribute('href', /\/projects\/[^/]+\/$/);
   }

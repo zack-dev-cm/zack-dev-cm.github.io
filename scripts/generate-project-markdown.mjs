@@ -1721,6 +1721,8 @@ const main = async () => {
   const topProjectTitles = [
     'Document AI',
     'Vehicle Lab: A Reusable Engineering Notebook',
+    'SectionCheck - Image Registration Review',
+    'Neuralink datarepo Contributions',
     'Dermaself Flutter Skin Analysis App',
     'Agnitra - ML Profiling & Optimization',
     'Calorio - AI Nutrition Service',

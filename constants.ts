@@ -1530,6 +1530,7 @@ export const PROJECTS: Project[] = [
     description: "Three independent PRs to Neuralink's public datarepo library: query correctness, a runnable quick start and installed-wheel compatibility.",
     longDescription: "I traced a dropped ClickHouse null predicate from the public query builder to incorrect backend results, then submitted a focused fix with real-backend regression tests. Two separate PRs repair the local quick start and propose a tested Python support minimum. The patches, baseline failures, contributor CI and reproduction commands are public. All three PRs remain open as checked on 8 September 2026. This is independent open-source work, developed with AI assistance; it does not imply employment, affiliation or adoption by Neuralink.",
     caseStudySections: [
+      { title: "Follow the records in 3D", body: "The interactive Three.js explanation follows the executable quick start: Bolt, Nut and Washer join by supplier_id to Supplier B, A and B. A separate chapter shows the four-row null fixture. Original part models use arbitrary dimensions; their motion illustrates relationships rather than database timing. A 30-second 1080p film, muted preview, GIF and downloadable GLB accompany the scene." },
       { title: "A query that silently changes meaning", body: "On the published four-row synthetic fixture, IS NULL returned all four rows instead of IDs 1 and 3. The change emits unary null predicates directly and rejects unsupported operators before creating a backend client. It preserves the existing comparison and grouping behavior. The baseline recorded 20 expected failures; the patched contributor run recorded 135 passing tests with a real disposable ClickHouse and zero skips." },
       { title: "A quick start people can run", body: "The documentation PR replaces a cloud-dependent example with local synthetic Parquet data and a supplier join. Two tests check the documented source, schema and displayed results. The example runs without real credentials or a cloud service." },
       { title: "Test the installed package", body: "The packaging PR proposes Python 3.10 as the minimum after measured Python 3.8 dependency-resolution and Python 3.9 import failures. Clean installed-wheel reads passed on Python 3.10 and 3.12 on Linux. The support-policy change remains a maintainer proposal; these runs cover a bounded installation and local read path." },
@@ -1538,6 +1539,9 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["ClickHouse IS NULL / IS NOT NULL regression fix", "Synthetic local Parquet and supplier-join example", "Clean wheel installation and read checks", "Separate patches, baseline failures and contributor CI"],
     techStack: ["Python", "ClickHouse", "Polars", "Parquet", "pytest", "GitHub Actions"],
     links: [
+      { text: "Explore in 3D", url: "https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=datarepo" },
+      { text: "Watch the 30-second film", url: "https://zack-dev-cm.github.io/docs/neural-engineering/media/datarepo-film.mp4" },
+      { text: "Download 3D model", url: "https://zack-dev-cm.github.io/docs/neural-engineering/models/datarepo.glb" },
       { text: "Query-correctness PR #57", url: "https://github.com/neuralinkcorp/datarepo/pull/57" },
       { text: "Quick-start PR #58", url: "https://github.com/neuralinkcorp/datarepo/pull/58" },
       { text: "Packaging PR #59", url: "https://github.com/neuralinkcorp/datarepo/pull/59" },
@@ -1545,6 +1549,8 @@ export const PROJECTS: Project[] = [
       { text: "Contributor CI", url: "https://github.com/zack-dev-cm/neuralink-contributions/actions/runs/34191476771" }
     ],
     images: [
+      { url: "/docs/neural-engineering/media/datarepo-loop.mp4", alt: "Follow the records in 3D", autoPlay: true, caption: "Source-linked synthetic query examples with original illustrative part models." },
+      { url: "/docs/neural-engineering/media/datarepo-poster.jpg", alt: "Follow the records in 3D — interactive model", caption: "Original illustrative parts represent the quick-start records; dimensions are arbitrary." },
       { url: `${LOCAL_IMG_BASE}/datarepo-query-poster.png`, alt: "Published synthetic null-filter example showing four source rows and the two expected matching IDs", caption: "Reconstructed from the published regression fixture. Open PR; contributor verification." },
       { url: `${LOCAL_IMG_BASE}/datarepo-query-preview.mp4`, alt: "Animated explanation of the datarepo null-predicate regression", caption: "Synthetic fixture: IS NULL must select IDs 1 and 3. Animation explains the recorded behavior; it is not a benchmark." }
     ],
@@ -1561,6 +1567,7 @@ export const PROJECTS: Project[] = [
     description: "A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.",
     longDescription: "I built a Python CLI that makes a proposed image transform inspectable: validate the coordinate contract, render source and target regions, record an explicit decision and verify the exported annotations against the bound inputs. Version 0.2.1.dev0 includes a self-contained HTML report and a reproducible synthetic workflow. This is independent research tooling developed alongside the Neuralink contribution work, with AI assistance. Only authored synthetic data is supported; researcher usefulness, VALIS integration and external-viewer interoperability remain unconfirmed.",
     caseStudySections: [
+      { title: "Inspect the original geometry in 3D", body: "The interactive scene verifies and loads the released synthetic PNGs and original ROI coordinates, including the excluded hole and separate polygon regions. Orbit, layer separation and wireframe expose the geometry. Added depth explains the 2D inputs; it is not anatomy. The saved warning, missing calibration and decision_required state remain visible. A 30-second 1080p film, muted preview, GIF and downloadable GLB accompany the scene." },
       { title: "From a transform to an inspectable report", body: "The CLI checks manifest and image hashes, affine geometry, coordinate frames and declared policy bounds. The report shows source, target, resampling, overlay and ROI panels. The bundled fixture uses a known translation of 40 pixels right and 24 pixels down, with independently authored landmark and polygon expectations." },
       { title: "Keep review and export connected", body: "An explicit decision binds the report, image hashes, annotations, tool source and geometry-engine versions. Export revalidates those inputs and writes separate target coordinates. Re-import verification checks geometry and the receipt. Changed inputs require a new review and decision; rejection and stale decisions block export. Local decisions do not authenticate a reviewer." },
       { title: "What the release demonstrates", body: "The published 0.2.1.dev0 verification records 90 hosted tests and a fresh installed-wheel exercise. The protocol preserves polygon parts and holes, checks independently expected coordinates, and rejects changed outputs. The animated figure uses the actual authored fixture and exact translation, not a fitted registration or tissue image." },
@@ -1569,12 +1576,17 @@ export const PROJECTS: Project[] = [
     keyFeatures: ["Affine and coordinate-frame validation", "Source, target and ROI review report", "Explicit decisions bound to input and tool versions", "Annotation export and local verification", "Known synthetic geometry and reproducible installed-wheel exercise"],
     techStack: ["Python", "NumPy", "Pillow", "Shapely", "JSON Schema", "pytest"],
     links: [
+      { text: "Explore in 3D", url: "https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=sectioncheck" },
+      { text: "Watch the 30-second film", url: "https://zack-dev-cm.github.io/docs/neural-engineering/media/sectioncheck-film.mp4" },
+      { text: "Download 3D model", url: "https://zack-dev-cm.github.io/docs/neural-engineering/models/sectioncheck.glb" },
       { text: "Open synthetic report", url: "https://zack-dev-cm.github.io/sectioncheck/" },
       { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/sectioncheck" },
       { text: "Prerelease 0.2.1.dev0", url: "https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0" },
       { text: "Coordinate and ROI workflow", url: "https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md" }
     ],
     images: [
+      { url: "/docs/neural-engineering/media/sectioncheck-loop.mp4", alt: "Inspect the original geometry in 3D", autoPlay: true, caption: "Original synthetic image and ROI coordinates; added depth explains the 2D geometry." },
+      { url: "/docs/neural-engineering/media/sectioncheck-poster.jpg", alt: "Inspect the original geometry in 3D — interactive model", caption: "The published synthetic image pair with added display depth and source-linked ROI geometry." },
       { url: `${LOCAL_IMG_BASE}/sectioncheck-registration-poster.png`, alt: "SectionCheck authored source polygons and their proposed 40 by 24 pixel translation into target coordinates", caption: "Actual synthetic fixture, redrawn from the released coordinates. Proposed mapping; no researcher approval implied." },
       { url: `${LOCAL_IMG_BASE}/sectioncheck-registration-preview.mp4`, alt: "SectionCheck synthetic polygon translation and explicit review sequence", caption: "Animated explanation of the released synthetic geometry. Intermediate motion illustrates the mapping, not an optimization run." }
     ],

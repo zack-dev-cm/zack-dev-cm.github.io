@@ -73,18 +73,18 @@
       "workExample": [
             {
                   "@type": "CreativeWork",
-                  "name": "Query-correctness PR #57",
-                  "url": "https://github.com/neuralinkcorp/datarepo/pull/57"
+                  "name": "Explore in 3D",
+                  "url": "https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=datarepo"
             },
             {
                   "@type": "CreativeWork",
-                  "name": "Quick-start PR #58",
-                  "url": "https://github.com/neuralinkcorp/datarepo/pull/58"
+                  "name": "Watch the 30-second film",
+                  "url": "https://zack-dev-cm.github.io/docs/neural-engineering/media/datarepo-film.mp4"
             },
             {
                   "@type": "CreativeWork",
-                  "name": "Packaging PR #59",
-                  "url": "https://github.com/neuralinkcorp/datarepo/pull/59"
+                  "name": "Download 3D model",
+                  "url": "https://zack-dev-cm.github.io/docs/neural-engineering/models/datarepo.glb"
             }
       ]
 }
@@ -115,11 +115,12 @@
           <h2>Overview</h2>
           <p>I traced a dropped ClickHouse null predicate from the public query builder to incorrect backend results, then submitted a focused fix with real-backend regression tests. Two separate PRs repair the local quick start and propose a tested Python support minimum. The patches, baseline failures, contributor CI and reproduction commands are public. All three PRs remain open as checked on 8 September 2026. This is independent open-source work, developed with AI assistance; it does not imply employment, affiliation or adoption by Neuralink.</p>
         </section>
-        <section><h2>A query that silently changes meaning</h2><p>On the published four-row synthetic fixture, IS NULL returned all four rows instead of IDs 1 and 3. The change emits unary null predicates directly and rejects unsupported operators before creating a backend client. It preserves the existing comparison and grouping behavior. The baseline recorded 20 expected failures; the patched contributor run recorded 135 passing tests with a real disposable ClickHouse and zero skips.</p></section>
+        <section><h2>Follow the records in 3D</h2><p>The interactive Three.js explanation follows the executable quick start: Bolt, Nut and Washer join by supplier_id to Supplier B, A and B. A separate chapter shows the four-row null fixture. Original part models use arbitrary dimensions; their motion illustrates relationships rather than database timing. A 30-second 1080p film, muted preview, GIF and downloadable GLB accompany the scene.</p></section>
+<section><h2>A query that silently changes meaning</h2><p>On the published four-row synthetic fixture, IS NULL returned all four rows instead of IDs 1 and 3. The change emits unary null predicates directly and rejects unsupported operators before creating a backend client. It preserves the existing comparison and grouping behavior. The baseline recorded 20 expected failures; the patched contributor run recorded 135 passing tests with a real disposable ClickHouse and zero skips.</p></section>
 <section><h2>A quick start people can run</h2><p>The documentation PR replaces a cloud-dependent example with local synthetic Parquet data and a supplier join. Two tests check the documented source, schema and displayed results. The example runs without real credentials or a cloud service.</p></section>
 <section><h2>Test the installed package</h2><p>The packaging PR proposes Python 3.10 as the minimum after measured Python 3.8 dependency-resolution and Python 3.9 import failures. Clean installed-wheel reads passed on Python 3.10 and 3.12 on Linux. The support-policy change remains a maintainer proposal; these runs cover a bounded installation and local read path.</p></section>
 <section><h2>Contribution status</h2><p>PRs 57, 58 and 59 are separate open submissions. The linked contributor CI passed for the submitted commits. Those results do not establish upstream approval or a merge. Status checked on 8 September 2026.</p></section>
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><video class="visual" controls playsinline preload="none" poster="/docs/images/datarepo-query-poster.png" aria-label="Animated explanation of the datarepo null-predicate regression"><source src="/docs/images/datarepo-query-preview.mp4" type="video/mp4" /><a href="/docs/images/datarepo-query-preview.mp4">Open video</a></video><figcaption>Synthetic fixture: IS NULL must select IDs 1 and 3. Animation explains the recorded behavior; it is not a benchmark.</figcaption></figure></div></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><video class="visual" controls playsinline preload="none" poster="https://zack-dev-cm.github.io/docs/images/datarepo-query-poster.png" aria-label="Follow the records in 3D"><source src="/docs/neural-engineering/media/datarepo-loop.mp4" type="video/mp4" /><a href="/docs/neural-engineering/media/datarepo-loop.mp4">Open video</a></video><figcaption>Source-linked synthetic query examples with original illustrative part models.</figcaption></figure><figure><a class="figure-link" href="/docs/neural-engineering/media/datarepo-poster.jpg" aria-label="Open full-size figure 3: Follow the records in 3D - interactive model"><img class="visual" src="/docs/neural-engineering/media/datarepo-poster.jpg" alt="Follow the records in 3D - interactive model" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Original illustrative parts represent the quick-start records; dimensions are arbitrary.</figcaption></figure><figure><video class="visual" controls playsinline preload="none" poster="/docs/images/datarepo-query-poster.png" aria-label="Animated explanation of the datarepo null-predicate regression"><source src="/docs/images/datarepo-query-preview.mp4" type="video/mp4" /><a href="/docs/images/datarepo-query-preview.mp4">Open video</a></video><figcaption>Synthetic fixture: IS NULL must select IDs 1 and 3. Animation explains the recorded behavior; it is not a benchmark.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
@@ -144,6 +145,9 @@
         <section>
           <h2>References</h2>
           <ul>
+        <li><a href="https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=datarepo">Explore in 3D</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/neural-engineering/media/datarepo-film.mp4">Watch the 30-second film</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/neural-engineering/models/datarepo.glb">Download 3D model</a></li>
         <li><a href="https://github.com/neuralinkcorp/datarepo/pull/57">Query-correctness PR #57</a></li>
         <li><a href="https://github.com/neuralinkcorp/datarepo/pull/58">Quick-start PR #58</a></li>
         <li><a href="https://github.com/neuralinkcorp/datarepo/pull/59">Packaging PR #59</a></li>
