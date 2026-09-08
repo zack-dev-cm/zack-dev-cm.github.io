@@ -7,6 +7,10 @@ I developed Dermaself's cosmetic skin-analysis computer vision, spanning guided 
 
 ## Project Figures
 
+![Illustrated Dermaself workflow showing facial regions on an AI-generated synthetic face](https://zack-dev-cm.github.io/docs/images/dermaself-workflow-poster.png)
+
+Illustrated workflow with a synthetic face. The regions are authored illustrations, not model predictions.
+
 ![Workflow diagram of guided capture, facial regions, selected model runtime and structured results, with separate model-release evaluation](https://zack-dev-cm.github.io/docs/images/dermaself-verified-workflow.png)
 
 Workflow diagram. Image analysis and model-release evaluation are separate.

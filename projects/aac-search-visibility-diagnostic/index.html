@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AAC Search Visibility Diagnostic | Zakhar Pashkin Case Study</title>
+    <meta name="description" content="A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search. Zakhar Pashkin case study." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic/" />
+    <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic.md" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="AAC Search Visibility Diagnostic" />
+    <meta property="og:description" content="A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search." />
+    <meta property="og:url" content="https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AAC Search Visibility Diagnostic" />
+    <meta name="twitter:description" content="A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/aac-visibility-poster.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/aac-visibility-poster.png" />
+    <meta name="twitter:image:alt" content="Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten" />
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic/#case-study",
+      "headline": "AAC Search Visibility Diagnostic",
+      "name": "AAC Search Visibility Diagnostic",
+      "description": "A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search.",
+      "url": "https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic/",
+      "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic/",
+      "author": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "creator": {
+            "@type": "Person",
+            "name": "Zakhar Pashkin",
+            "url": "https://zack-dev-cm.github.io"
+      },
+      "genre": "research",
+      "keywords": "JavaScript, Playwright, Chromium, Firefox, Jest",
+      "image": "https://zack-dev-cm.github.io/docs/images/aac-visibility-poster.png",
+      "isAccessibleForFree": true,
+      "about": [
+            {
+                  "@type": "Thing",
+                  "name": "JavaScript"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Playwright"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Chromium"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Firefox"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "Jest"
+            }
+      ],
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Diagnostic source and reproduction",
+                  "url": "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Pinned browser evidence",
+                  "url": "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/evidence/A-02"
+            }
+      ]
+}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/docs/case-studies.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <div class="case-header-wrap">
+      <header class="case-header">
+        <a class="case-brand" href="https://zack-dev-cm.github.io/" aria-label="Zakhar Pashkin portfolio"><strong>zp<span>.</span></strong><span>Zakhar Pashkin</span></a>
+        <nav aria-label="Portfolio navigation"><a href="https://zack-dev-cm.github.io/#featured">Work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Resume</a><a href="mailto:kaisenaiko@gmail.com">Contact ↗</a></nav>
+      </header>
+    </div>
+    <main id="case-content">
+      <a class="back" href="https://zack-dev-cm.github.io/#featured">← Selected work</a>
+      <article>
+        <header class="hero">
+          <p class="eyebrow">Research &amp; development</p>
+          <h1>AAC Search Visibility Diagnostic</h1>
+          <p class="lede">A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search.</p>
+          <figure><a class="figure-link" href="/docs/images/aac-visibility-poster.png" aria-label="Open full-size figure 1: Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten"><img class="visual" src="/docs/images/aac-visibility-poster.png" alt="Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Diagnostic schematic based on the published synthetic fixture; not an application screenshot.</figcaption></figure>
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>I built a small diagnostic around the actual released and development AsTeRICS AAC component methods. At vocabulary level 8, the grid shows the synthetic eight item while search also returns ten. The public harness pins upstream source hashes and records the mismatch in Chromium and Firefox with the local fixture online and offline. It was developed with AI assistance as independent adjacent work in the Neuralink contribution evidence repository; AsTeRICS is the upstream project, and no Neuralink integration is involved.</p>
+        </section>
+        <section><h2>Reproduce the inconsistency at its source</h2><p>The harness imports the real upstream methods instead of copying the search implementation. It compares vocabulary visibility and search results, and probes unrestricted vocabulary, a local level toggle, manual hiding and unchanged source data.</p></section>
+<section><h2>Bounded browser evidence</h2><p>Released and development baselines reproduce the mismatch in Chromium and Firefox. Online and offline refer to the same loaded local fixture with network availability toggled. These are component-level checks, not full-app keyboard, speech or assistive-device tests.</p></section>
+<section><h2>Diagnostic status</h2><p>The published output is a diagnostic and reproduction, not an upstream patch or user trial. A human-led contribution route and consenting collaborator remain pending. There is no claim of adoption, demonstrated user benefit or affiliation with AsTeRICS or Neuralink.</p></section>
+
+        <section>
+          <h2>What It Covers</h2>
+          <ul>
+        <li>Actual upstream component methods</li>
+        <li>Pinned released and development baselines</li>
+        <li>Chromium and Firefox reproduction</li>
+        <li>Vocabulary-level and hidden-item probes</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Stack And Topics</h2>
+          <ul class="stack">
+        <li>JavaScript</li>
+        <li>Playwright</li>
+        <li>Chromium</li>
+        <li>Firefox</li>
+        <li>Jest</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>References</h2>
+          <ul>
+        <li><a href="https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit">Diagnostic source and reproduction</a></li>
+        <li><a href="https://github.com/zack-dev-cm/neuralink-contributions/tree/main/evidence/A-02">Pinned browser evidence</a></li>
+            <li><a href="https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic.md">Plain-text case study</a></li>
+          </ul>
+        </section>
+        <p class="footer"><a href="https://zack-dev-cm.github.io/#featured">More selected work</a><a href="https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf">Download resume</a><a href="mailto:kaisenaiko@gmail.com">Contact Zakhar ↗</a></p>
+      </article>
+    </main>
+  </body>
+</html>

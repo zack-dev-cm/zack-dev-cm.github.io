@@ -20,6 +20,10 @@ The beta package is available on PyPI. Profiling and decoder-LLM optimization ar
 
 Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown.
 
+![Agnitra recorded input and output tensor shapes shown as channel planes](https://zack-dev-cm.github.io/docs/images/agnitra-layers-poster.png)
+
+Redrawn from the recorded Agnitra 0.2.4 CPU fixture. Plane grids illustrate dimensions; they are not activation values.
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization.md
 

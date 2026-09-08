@@ -17,7 +17,9 @@ const repoFromLinks = (links = []) => {
   return '';
 };
 
-export const getProjectSlug = (project) => slugify(project.repoFullName || project.repoId || repoFromLinks(project.links) || project.title || project.id);
+// A focused case study can share a source repository with another project.
+// An explicit route keeps those independently authored pages from aliasing.
+export const getProjectSlug = (project) => slugify(project.routeSlug || project.repoFullName || project.repoId || repoFromLinks(project.links) || project.title || project.id);
 export const getProjectCanonicalSlug = (project) => slugify(project.title || project.id);
 export const getProjectRouteSlugs = (project) => uniqueStrings([
   getProjectCanonicalSlug(project), getProjectSlug(project), ...(project.legacySlugs || []),

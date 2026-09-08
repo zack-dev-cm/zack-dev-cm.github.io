@@ -38,6 +38,7 @@ export interface PortfolioUpdateReview {
 export interface Project {
   id: number;
   title: string;
+  routeSlug?: string;
   legacySlugs?: string[];
   aliases?: string[];
   searchProfile?: {

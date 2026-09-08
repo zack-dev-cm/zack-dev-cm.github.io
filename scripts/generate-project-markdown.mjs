@@ -413,6 +413,7 @@ const extractProjects = (sourceFile, imageConstants) => {
       const id = idNode && ts.isNumericLiteral(idNode) ? Number(idNode.text) : null;
       const title = parseString(getPropertyValue(element, 'title'));
       const legacySlugs = parseStringArray(getPropertyValue(element, 'legacySlugs'));
+      const routeSlug = parseString(getPropertyValue(element, 'routeSlug'));
       const description = parseString(getPropertyValue(element, 'description'));
       const longDescription = parseString(getPropertyValue(element, 'longDescription'));
       const caseStudySections = parseJsonLiteral(getPropertyValue(element, 'caseStudySections')) || [];
@@ -436,6 +437,7 @@ const extractProjects = (sourceFile, imageConstants) => {
         id,
         title,
         legacySlugs,
+        routeSlug,
         aliases,
         searchProfile,
         description,
@@ -621,6 +623,7 @@ const buildMarkdown = (project, markdownUrl) => {
 
 const isCrawlerSafeSocialImage = (url) => /\.(?:avif|jpe?g|png|webp)(?:[?#].*)?$/i.test(url);
 const isDisplayImage = (url) => /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i.test(url);
+const isDisplayVideo = (url) => /\.(?:mp4|webm)(?:[?#].*)?$/i.test(url);
 
 const getProjectImageCandidates = (project) => [
   project.thumbnail,
@@ -870,12 +873,16 @@ const buildProjectHtml = (project) => {
   const isIllustration = visualImage === project.generatedSocialImage || /generated|conceptual|illustration|public-safe.*card/i.test(imageAlt);
   const visualCaption = toAscii(visualAsset?.caption || (isIllustration ? 'System illustration' : ''));
   const galleryAssets = (project.images || []).filter((asset) =>
-    isDisplayImage(asset.url) && toPublicAssetUrl(asset.url) !== visualImage
+    (isDisplayImage(asset.url) || isDisplayVideo(asset.url)) && toPublicAssetUrl(asset.url) !== visualImage
   );
   const renderFigure = (asset, index) => {
     const publicUrl = toPublicAssetUrl(asset.url);
     const url = publicUrl.startsWith(`${SITE_BASE}/`) ? new URL(publicUrl).pathname : publicUrl;
     const caption = toAscii(asset.caption || (/generated|conceptual|illustration/i.test(asset.alt) ? 'Conceptual illustration.' : ''));
+    if (isDisplayVideo(asset.url)) {
+      const poster = /-preview\.mp4$/.test(url) ? url.replace(/-preview\.mp4$/, '-poster.png') : visualImage;
+      return `<figure><video class="visual" controls playsinline preload="none" poster="${escapeHtml(poster)}" aria-label="${escapeHtml(toAscii(asset.alt))}"><source src="${escapeHtml(url)}" type="${/\.webm$/.test(url) ? 'video/webm' : 'video/mp4'}" /><a href="${escapeHtml(url)}">Open video</a></video>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
+    }
     return `<figure><a class="figure-link" href="${escapeHtml(url)}" aria-label="Open full-size figure ${index + 1}: ${escapeHtml(toAscii(asset.alt))}"><img class="visual" src="${escapeHtml(url)}" alt="${escapeHtml(toAscii(asset.alt))}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
   };
   const narrativeSections = (project.caseStudySections || []).map((section) =>

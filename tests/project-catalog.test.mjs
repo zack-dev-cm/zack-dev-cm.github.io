@@ -89,6 +89,18 @@ test('shared slugs preserve public links and reject collisions before writing pa
   assert.throws(() => assertUniqueProjectRoutes([project, { ...project, id: 999 }]), /route collision/);
 });
 
+test('focused case studies can share evidence in a repository without claiming each other’s routes', () => {
+  const contribution = { id: 501, title: 'Query correctness', repoFullName: 'example/evidence', links: [] };
+  const diagnostic = { id: 502, title: 'Search diagnostic', routeSlug: 'search-diagnostic', links: [{ url: 'https://github.com/example/evidence/tree/main/diagnostic' }] };
+  const feed = { id: 503, title: 'Evidence repository', repoFullName: 'example/evidence', links: [] };
+  const merged = mergeProjects([contribution, diagnostic], [feed]);
+  assert.equal(merged.length, 2);
+  assertUniqueProjectRoutes(merged);
+  assert.deepEqual(getProjectRouteSlugs(merged.find(project => project.id === 502)), ['search-diagnostic']);
+  assert.equal(merged.find(project => project.id === 502).repoFullName, undefined);
+  assert.ok(getProjectRouteSlugs(merged.find(project => project.id === 501)).includes('evidence-repository'));
+});
+
 test('the next offline sync overlay retains the current curated Agnitra media, claims and source identity', async () => {
   const updates = { latestUpdates: [], projects: [] };
   const source = readCuratedAgnitra(await fs.readFile(new URL('constants.ts', root), 'utf8'));

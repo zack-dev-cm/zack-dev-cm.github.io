@@ -15,11 +15,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Agnitra - ML Profiling &amp; Optimization" />
     <meta name="twitter:description" content="A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/agnitra-recorded-shapes.png" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/agnitra-layers-poster.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/agnitra-recorded-shapes.png" />
-    <meta name="twitter:image:alt" content="Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture" />
+    <meta property="og:image:alt" content="Agnitra recorded input and output tensor shapes shown as channel planes" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/agnitra-layers-poster.png" />
+    <meta name="twitter:image:alt" content="Agnitra recorded input and output tensor shapes shown as channel planes" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -42,7 +42,7 @@
       },
       "genre": "open-source",
       "keywords": "open-source, ai-systems, llm-inference, mlops, optimization, Python, PyTorch, Transformers, torchao, Hugging Face, LangChain, LlamaIndex, MLOps",
-      "image": "https://zack-dev-cm.github.io/docs/images/agnitra-recorded-shapes.png",
+      "image": "https://zack-dev-cm.github.io/docs/images/agnitra-layers-poster.png",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -137,7 +137,7 @@
           <p class="eyebrow">Open source</p>
           <h1>Agnitra - ML Profiling &amp; Optimization</h1>
           <p class="lede">A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.</p>
-          <figure><a class="figure-link" href="/docs/images/agnitra-recorded-shapes.png" aria-label="Open full-size figure 1: Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture"><img class="visual" src="/docs/images/agnitra-recorded-shapes.png" alt="Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown.</figcaption></figure>
+          <figure><a class="figure-link" href="/docs/images/agnitra-layers-poster.png" aria-label="Open full-size figure 1: Agnitra recorded input and output tensor shapes shown as channel planes"><img class="visual" src="/docs/images/agnitra-layers-poster.png" alt="Agnitra recorded input and output tensor shapes shown as channel planes" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Redrawn from the recorded Agnitra 0.2.4 CPU fixture. Plane grids illustrate dimensions; they are not activation values.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
@@ -146,7 +146,7 @@
         <section><h2>Why this tool</h2><p>Understanding a model&#39;s execution is a useful starting point for optimization. Agnitra exposes profiling through Python and the CLI, alongside a separate optimization API for supported decoder language models. The published example makes the profiling output directly inspectable.</p></section>
 <section><h2>Inspect a real profiling run</h2><p>The example below runs the released 0.2.4 profiling code on a small, randomly initialized PyTorch network. Agnitra records each layer&#39;s type, input and output shapes, dtype and operator events. The downloadable script recreates the fixture and writes the report. The recorded example uses CPU, Python 3.10.2 and PyTorch 2.9.1; it demonstrates the profiling path independently of the decoder-LLM optimization path.</p></section>
 <section><h2>Released scope</h2><p>The beta package is available on PyPI. Profiling and decoder-LLM optimization are separate execution paths. Automatic quality checks do not cover every optimization path, so developers need to measure output quality and runtime on their own workloads. The example here demonstrates profiling only.</p></section>
-
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/agnitra-recorded-shapes.png" aria-label="Open full-size figure 2: Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture"><img class="visual" src="/docs/images/agnitra-recorded-shapes.png" alt="Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown.</figcaption></figure><figure><video class="visual" controls playsinline preload="none" poster="/docs/images/agnitra-layers-poster.png" aria-label="Animated layer-by-layer walkthrough of Agnitra&#39;s recorded tensor shapes"><source src="/docs/images/agnitra-layers-preview.mp4" type="video/mp4" /><a href="/docs/images/agnitra-layers-preview.mp4">Open video</a></video><figcaption>Recorded shapes: convolution, activation, pooling, flatten and projection. Animation timing is illustrative; no latency or accuracy comparison.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>

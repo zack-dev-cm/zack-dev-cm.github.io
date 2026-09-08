@@ -148,14 +148,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 }}
               />
             )}
-
+          </div>
             {project.images.length > 1 && (
-              <>
+              <div className="modal-media__controls" role="group" aria-label="Project media">
                 <button type="button" onClick={handlePrevImage} className="modal-media__nav modal-media__nav--prev" aria-label="Previous image">
                   <ChevronLeftIcon className="h-5 w-5" />
-                </button>
-                <button type="button" onClick={handleNextImage} className="modal-media__nav modal-media__nav--next" aria-label="Next image">
-                  <ChevronRightIcon className="h-5 w-5" />
                 </button>
                 <div className="modal-media__dots">
                   {project.images.map((image, index) => (
@@ -165,12 +162,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                       onClick={() => setCurrentImageIndex(index)}
                       className={`modal-media__dot${index === currentImageIndex ? ' is-active' : ''}`}
                       aria-label={`Go to image ${index + 1}`}
+                      aria-current={index === currentImageIndex ? 'true' : undefined}
                     />
                   ))}
                 </div>
-              </>
+                <button type="button" onClick={handleNextImage} className="modal-media__nav modal-media__nav--next" aria-label="Next image">
+                  <ChevronRightIcon className="h-5 w-5" />
+                </button>
+              </div>
             )}
-          </div>
           <div className="modal-media-caption">
             {mediaCaption && <p>{mediaCaption}</p>}
             {currentImage && !isVideoUrl(currentImage.url) && (

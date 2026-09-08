@@ -76,6 +76,12 @@
   ],
   "projects": [
     {
+      "name": "Neuralink datarepo",
+      "status": "Independent open-source contributions | 3 open PRs",
+      "url": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/",
+      "text": "Submitted fixes for ClickHouse null filtering, a runnable local quick start and Python wheel compatibility. Published patches and real-backend regression evidence; awaiting upstream review as of 8 Sep 2026."
+    },
+    {
       "name": "InQuest",
       "status": "Project-aware document agents",
       "url": "https://zack-dev-cm.github.io/projects/inquest-project-binder-rag-qa/",
@@ -115,5 +121,5 @@
     }
   ],
   "education": "Siberian Federal University | Computer Science & Microelectronic Engineering | 2007-2012",
-  "updated": "2026-09-07"
+  "updated": "2026-09-08"
 }

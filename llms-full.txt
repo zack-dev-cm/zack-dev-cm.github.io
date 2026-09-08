@@ -28,6 +28,74 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 - [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Projects (Full Details)
+### Neuralink datarepo Contributions
+Summary: Three independent PRs to Neuralink's public datarepo library: query correctness, a runnable quick start and installed-wheel compatibility.
+Details: I traced a dropped ClickHouse null predicate from the public query builder to incorrect backend results, then submitted a focused fix with real-backend regression tests. Two separate PRs repair the local quick start and propose a tested Python support minimum. The patches, baseline failures, contributor CI and reproduction commands are public. All three PRs remain open as checked on 8 September 2026. This is independent open-source work, developed with AI assistance; it does not imply employment, affiliation or adoption by Neuralink.
+Project URL: https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/
+Markdown URL: https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions.md
+Key Features:
+- ClickHouse IS NULL / IS NOT NULL regression fix
+- Synthetic local Parquet and supplier-join example
+- Clean wheel installation and read checks
+- Separate patches, baseline failures and contributor CI
+Tech Stack:
+- Python
+- ClickHouse
+- Polars
+- Parquet
+- pytest
+- GitHub Actions
+Links:
+- Query-correctness PR #57: https://github.com/neuralinkcorp/datarepo/pull/57
+- Quick-start PR #58: https://github.com/neuralinkcorp/datarepo/pull/58
+- Packaging PR #59: https://github.com/neuralinkcorp/datarepo/pull/59
+- Source and reproduction evidence: https://github.com/zack-dev-cm/neuralink-contributions
+- Contributor CI: https://github.com/zack-dev-cm/neuralink-contributions/actions/runs/34191476771
+
+### SectionCheck - Image Registration Review
+Summary: A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.
+Details: I built a Python CLI that makes a proposed image transform inspectable: validate the coordinate contract, render source and target regions, record an explicit decision and verify the exported annotations against the bound inputs. Version 0.2.1.dev0 includes a self-contained HTML report and a reproducible synthetic workflow. This is independent research tooling developed alongside the Neuralink contribution work, with AI assistance. Only authored synthetic data is supported; researcher usefulness, VALIS integration and external-viewer interoperability remain unconfirmed.
+Project URL: https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/
+Markdown URL: https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review.md
+Key Features:
+- Affine and coordinate-frame validation
+- Source, target and ROI review report
+- Explicit decisions bound to input and tool versions
+- Annotation export and local verification
+- Known synthetic geometry and reproducible installed-wheel exercise
+Tech Stack:
+- Python
+- NumPy
+- Pillow
+- Shapely
+- JSON Schema
+- pytest
+Links:
+- Open synthetic report: https://zack-dev-cm.github.io/sectioncheck/
+- Source on GitHub: https://github.com/zack-dev-cm/sectioncheck
+- Prerelease 0.2.1.dev0: https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0
+- Coordinate and ROI workflow: https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md
+
+### AAC Search Visibility Diagnostic
+Summary: A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search.
+Details: I built a small diagnostic around the actual released and development AsTeRICS AAC component methods. At vocabulary level 8, the grid shows the synthetic eight item while search also returns ten. The public harness pins upstream source hashes and records the mismatch in Chromium and Firefox with the local fixture online and offline. It was developed with AI assistance as independent adjacent work in the Neuralink contribution evidence repository; AsTeRICS is the upstream project, and no Neuralink integration is involved.
+Project URL: https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic/
+Markdown URL: https://zack-dev-cm.github.io/projects/aac-search-visibility-diagnostic.md
+Key Features:
+- Actual upstream component methods
+- Pinned released and development baselines
+- Chromium and Firefox reproduction
+- Vocabulary-level and hidden-item probes
+Tech Stack:
+- JavaScript
+- Playwright
+- Chromium
+- Firefox
+- Jest
+Links:
+- Diagnostic source and reproduction: https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit
+- Pinned browser evidence: https://github.com/zack-dev-cm/neuralink-contributions/tree/main/evidence/A-02
+
 ### Vehicle Lab: A Reusable Engineering Notebook
 Summary: Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 Details: Vehicle Lab turns an experimental vehicle study into a reusable engineering notebook. Open the 3D explorer in your browser: drag to orbit Ridge R3d, select individual parts, isolate and separate systems, and navigate the complete revision tree. A 37.5-second film opens on Ridge R3d, zooms through the complete 65-revision tree, inspects components and separates systems to an original electronic score. Explore native wheel obstacle courses and saved Chrono log, pit and steering/braking studies with camera controls, telemetry and recorded parameters. Create a separate project, import grouped OBJ geometry, inspect revision decisions and original evidence, and attach recorded body states through a documented JSON contract. A small linear-stage example retains a failed fit alongside its revised clearance check. The viewer preserves failed results and source hashes; the vehicle remains unqualified for fabrication or riding.

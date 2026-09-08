@@ -205,6 +205,7 @@ const extractProjects = (sourceFile) => {
       id: parseNumber(getPropertyValue(element, 'id')),
       title: parseString(getPropertyValue(element, 'title')),
       legacySlugs: parseStringArray(getPropertyValue(element, 'legacySlugs')),
+      routeSlug: parseString(getPropertyValue(element, 'routeSlug')),
       aliases: parseStringArray(getPropertyValue(element, 'aliases')),
       description: parseString(getPropertyValue(element, 'description')),
       longDescription: parseString(getPropertyValue(element, 'longDescription')),
@@ -273,7 +274,7 @@ const getItemRepoKey = (item) => {
 const getProjectRouteSlugs = (project) => {
   return Array.from(
     new Set(
-      [slugify(project.title), slugify(getItemRepoKey(project)), ...(project.legacySlugs || [])]
+      [slugify(project.title), slugify(project.routeSlug || getItemRepoKey(project)), ...(project.legacySlugs || [])]
         .map((value) => value.trim().toLowerCase())
         .filter(Boolean)
     )

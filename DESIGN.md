@@ -154,6 +154,40 @@ Merged PRs appear first, followed by open PRs. Bug reports and issue discussions
 remain available in an explicitly labeled disclosure. Do not use organization logos
 as a substitute for describing the contribution.
 
+## Project motion — September 2026
+
+The Vehicle Lab preview works because the subject remains large while its state
+changes. The older white workflow sheets and profiling table lose their detail
+at card size. Keep the page hierarchy and six selected projects; improve the
+figures rather than expanding the homepage into a gallery.
+
+Three media directions were assessed: decorative studio art, full workflow
+diagrams, and short process sequences. Use process sequences for cards. Retain
+full diagrams and recorded reports in case studies. Generated art supplies a
+subject only; labels, geometry, numbers, and transitions come from the project.
+
+- Dermaself: a synthetic face, guided capture, facial regions, and structured
+  results. Label the sequence as an illustrated workflow, never a model result.
+- Agnitra: animate the actual recorded tensor shapes layer by layer. Keep the
+  package version visible and make no optimization or accuracy claim.
+- Video retrieval: reveal the visual, speech, and OCR lanes, then timestamped
+  retrieval. Use an authored illustrative scene and label it as a schematic.
+- SectionCheck: use the released synthetic shapes and exact translation/ROI
+  coordinates. Explain proposed mapping and review without implying approval.
+- Datarepo: show the published four-row null-filter regression and expected
+  IDs. Status describes the submitted PR, not upstream adoption.
+
+Use 1280 × 720 sequences, an immediately informative poster, a restrained dark
+background, large subject and short labels. Prefer MP4 for on-page motion; GIF
+exports are optional sharing assets. Reuse the existing pause control,
+visibility suspension, reduced-motion and data-saving behavior. Captions must
+distinguish recorded output, synthetic fixtures, and conceptual illustrations.
+
+Neuralink appears in contribution and independent-project contexts. Do not add
+it to employment history, employer logos, or imply affiliation. The three
+datarepo PRs are open as checked on 8 September 2026. SectionCheck and AAC remain
+independent adjacent work with their own upstream and scope boundaries.
+
 ## Responsive and accessibility
 
 At 390px and 360px, name, role, positioning sentence, and both main actions must

@@ -7,6 +7,10 @@ I designed retrieval across video and rich media using complementary visual and 
 
 ## Project Figures
 
+![Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals](https://zack-dev-cm.github.io/docs/images/video-retrieval-poster.png)
+
+Illustrative query, AI-generated scene and authored timestamp. This is a workflow explanation, not a recorded retrieval result.
+
 ![Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches](https://zack-dev-cm.github.io/docs/images/video-search-verified-workflow.png)
 
 Workflow diagram of parallel extraction, indexing and hybrid retrieval.

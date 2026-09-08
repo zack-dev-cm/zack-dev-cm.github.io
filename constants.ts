@@ -90,6 +90,36 @@ export const COMPANIES: Company[] = [
 
 export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
   {
+    name: "Neuralink",
+    login: "neuralinkcorp",
+    avatarUrl: "https://github.com/neuralinkcorp.png?size=96",
+    repo: "neuralinkcorp/datarepo",
+    contribution: "Proposed a ClickHouse null-filter fix, with regression tests against a real local backend.",
+    evidenceLabel: "Open PR",
+    sourceUrl: "https://github.com/neuralinkcorp/datarepo/pull/57",
+    account: "zack-dev-cm"
+  },
+  {
+    name: "Neuralink",
+    login: "neuralinkcorp",
+    avatarUrl: "https://github.com/neuralinkcorp.png?size=96",
+    repo: "neuralinkcorp/datarepo",
+    contribution: "Replaced the cloud-dependent quick start with runnable synthetic Parquet data and tested joins.",
+    evidenceLabel: "Open PR",
+    sourceUrl: "https://github.com/neuralinkcorp/datarepo/pull/58",
+    account: "zack-dev-cm"
+  },
+  {
+    name: "Neuralink",
+    login: "neuralinkcorp",
+    avatarUrl: "https://github.com/neuralinkcorp.png?size=96",
+    repo: "neuralinkcorp/datarepo",
+    contribution: "Proposed a Python 3.10 minimum and isolated installed-wheel checks on Python 3.10 and 3.12.",
+    evidenceLabel: "Open PR",
+    sourceUrl: "https://github.com/neuralinkcorp/datarepo/pull/59",
+    account: "zack-dev-cm"
+  },
+  {
     name: "OpenClaw",
     login: "openclaw",
     avatarUrl: "https://avatars.githubusercontent.com/u/252820863?s=96&v=4",
@@ -996,6 +1026,28 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Neuralink datarepo: three focused contributions",
+    description: "Submitted independent PRs for ClickHouse query correctness, a runnable local quick start and Python wheel compatibility. All three are open as of 8 September 2026; contributor CI and reproduction records are linked.",
+    links: [
+      { text: "Explore the work", url: "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/" },
+      { text: "Null-filter PR", url: "https://github.com/neuralinkcorp/datarepo/pull/57" }
+    ],
+    projectId: 83,
+    repoFullName: "zack-dev-cm/neuralink-contributions",
+    createdAt: "2026-09-08"
+  },
+  {
+    title: "SectionCheck: inspect a proposed image transform",
+    description: "A released synthetic prototype for affine and ROI review, explicit decisions and verified annotation export. Explore the actual authored fixture and self-contained report.",
+    links: [
+      { text: "Read the case study", url: "https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/" },
+      { text: "Open synthetic report", url: "https://zack-dev-cm.github.io/sectioncheck/" }
+    ],
+    projectId: 84,
+    repoFullName: "zack-dev-cm/sectioncheck",
+    createdAt: "2026-09-08"
+  },
+  {
     title: "Vehicle Lab v0.1.1",
     description: "Open the 3D explorer in your browser: orbit detailed models, separate systems, select parts and navigate the full revision tree. Explore saved Chrono logs, pits, steering/braking and simulation parameters, or watch the 37.5-second film.",
     links: [
@@ -1467,6 +1519,91 @@ export const LATEST_UPDATES: LatestUpdate[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 83,
+    title: "Neuralink datarepo Contributions",
+    projectKind: "open-source",
+    repoFullName: "zack-dev-cm/neuralink-contributions",
+    createdAt: "2026-09-08",
+    aliases: ["Neuralink", "datarepo", "ClickHouse null filters", "Python wheels"],
+    searchProfile: { evidence: "implementation", capabilities: ["data engineering", "database query correctness", "Python packaging", "integration testing", "reproducible builds"] },
+    description: "Three independent PRs to Neuralink's public datarepo library: query correctness, a runnable quick start and installed-wheel compatibility.",
+    longDescription: "I traced a dropped ClickHouse null predicate from the public query builder to incorrect backend results, then submitted a focused fix with real-backend regression tests. Two separate PRs repair the local quick start and propose a tested Python support minimum. The patches, baseline failures, contributor CI and reproduction commands are public. All three PRs remain open as checked on 8 September 2026. This is independent open-source work, developed with AI assistance; it does not imply employment, affiliation or adoption by Neuralink.",
+    caseStudySections: [
+      { title: "A query that silently changes meaning", body: "On the published four-row synthetic fixture, IS NULL returned all four rows instead of IDs 1 and 3. The change emits unary null predicates directly and rejects unsupported operators before creating a backend client. It preserves the existing comparison and grouping behavior. The baseline recorded 20 expected failures; the patched contributor run recorded 135 passing tests with a real disposable ClickHouse and zero skips." },
+      { title: "A quick start people can run", body: "The documentation PR replaces a cloud-dependent example with local synthetic Parquet data and a supplier join. Two tests check the documented source, schema and displayed results. The example runs without real credentials or a cloud service." },
+      { title: "Test the installed package", body: "The packaging PR proposes Python 3.10 as the minimum after measured Python 3.8 dependency-resolution and Python 3.9 import failures. Clean installed-wheel reads passed on Python 3.10 and 3.12 on Linux. The support-policy change remains a maintainer proposal; these runs cover a bounded installation and local read path." },
+      { title: "Contribution status", body: "PRs 57, 58 and 59 are separate open submissions. The linked contributor CI passed for the submitted commits. Those results do not establish upstream approval or a merge. Status checked on 8 September 2026." }
+    ],
+    keyFeatures: ["ClickHouse IS NULL / IS NOT NULL regression fix", "Synthetic local Parquet and supplier-join example", "Clean wheel installation and read checks", "Separate patches, baseline failures and contributor CI"],
+    techStack: ["Python", "ClickHouse", "Polars", "Parquet", "pytest", "GitHub Actions"],
+    links: [
+      { text: "Query-correctness PR #57", url: "https://github.com/neuralinkcorp/datarepo/pull/57" },
+      { text: "Quick-start PR #58", url: "https://github.com/neuralinkcorp/datarepo/pull/58" },
+      { text: "Packaging PR #59", url: "https://github.com/neuralinkcorp/datarepo/pull/59" },
+      { text: "Source and reproduction evidence", url: "https://github.com/zack-dev-cm/neuralink-contributions" },
+      { text: "Contributor CI", url: "https://github.com/zack-dev-cm/neuralink-contributions/actions/runs/34191476771" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/datarepo-query-poster.png`, alt: "Published synthetic null-filter example showing four source rows and the two expected matching IDs", caption: "Reconstructed from the published regression fixture. Open PR; contributor verification." },
+      { url: `${LOCAL_IMG_BASE}/datarepo-query-preview.mp4`, alt: "Animated explanation of the datarepo null-predicate regression", caption: "Synthetic fixture: IS NULL must select IDs 1 and 3. Animation explains the recorded behavior; it is not a benchmark." }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/datarepo-query-poster.png`
+  },
+  {
+    id: 84,
+    title: "SectionCheck - Image Registration Review",
+    projectKind: "research",
+    repoFullName: "zack-dev-cm/sectioncheck",
+    createdAt: "2026-09-08",
+    aliases: ["SectionCheck", "image registration", "affine transform", "ROI review"],
+    searchProfile: { evidence: "implementation", capabilities: ["computer vision", "image registration review", "affine geometry", "annotation validation", "reproducible research tooling"] },
+    description: "A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.",
+    longDescription: "I built a Python CLI that makes a proposed image transform inspectable: validate the coordinate contract, render source and target regions, record an explicit decision and verify the exported annotations against the bound inputs. Version 0.2.1.dev0 includes a self-contained HTML report and a reproducible synthetic workflow. This is independent research tooling developed alongside the Neuralink contribution work, with AI assistance. Only authored synthetic data is supported; researcher usefulness, VALIS integration and external-viewer interoperability remain unconfirmed.",
+    caseStudySections: [
+      { title: "From a transform to an inspectable report", body: "The CLI checks manifest and image hashes, affine geometry, coordinate frames and declared policy bounds. The report shows source, target, resampling, overlay and ROI panels. The bundled fixture uses a known translation of 40 pixels right and 24 pixels down, with independently authored landmark and polygon expectations." },
+      { title: "Keep review and export connected", body: "An explicit decision binds the report, image hashes, annotations, tool source and geometry-engine versions. Export revalidates those inputs and writes separate target coordinates. Re-import verification checks geometry and the receipt. Changed inputs require a new review and decision; rejection and stale decisions block export. Local decisions do not authenticate a reviewer." },
+      { title: "What the release demonstrates", body: "The published 0.2.1.dev0 verification records 90 hosted tests and a fresh installed-wheel exercise. The protocol preserves polygon parts and holes, checks independently expected coordinates, and rejects changed outputs. The animated figure uses the actual authored fixture and exact translation, not a fitted registration or tissue image." },
+      { title: "Prototype boundary", body: "This release accepts one authored synthetic image pair and a bounded pixel-ROI profile. It reviews a proposed transform; it does not optimize or fit one. There is no confirmed researcher acceptance, real-data validation, clinical capability or Neuralink affiliation. VALIS and external-viewer integration remain future work." }
+    ],
+    keyFeatures: ["Affine and coordinate-frame validation", "Source, target and ROI review report", "Explicit decisions bound to input and tool versions", "Annotation export and local verification", "Known synthetic geometry and reproducible installed-wheel exercise"],
+    techStack: ["Python", "NumPy", "Pillow", "Shapely", "JSON Schema", "pytest"],
+    links: [
+      { text: "Open synthetic report", url: "https://zack-dev-cm.github.io/sectioncheck/" },
+      { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/sectioncheck" },
+      { text: "Prerelease 0.2.1.dev0", url: "https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0" },
+      { text: "Coordinate and ROI workflow", url: "https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md" }
+    ],
+    images: [
+      { url: `${LOCAL_IMG_BASE}/sectioncheck-registration-poster.png`, alt: "SectionCheck authored source polygons and their proposed 40 by 24 pixel translation into target coordinates", caption: "Actual synthetic fixture, redrawn from the released coordinates. Proposed mapping; no researcher approval implied." },
+      { url: `${LOCAL_IMG_BASE}/sectioncheck-registration-preview.mp4`, alt: "SectionCheck synthetic polygon translation and explicit review sequence", caption: "Animated explanation of the released synthetic geometry. Intermediate motion illustrates the mapping, not an optimization run." }
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/sectioncheck-registration-poster.png`
+  },
+  {
+    id: 85,
+    title: "AAC Search Visibility Diagnostic",
+    routeSlug: "aac-search-visibility-diagnostic",
+    projectKind: "research",
+    createdAt: "2026-09-08",
+    aliases: ["AAC", "AsTeRICS", "assistive communication", "vocabulary search"],
+    searchProfile: { evidence: "implementation", capabilities: ["browser regression testing", "accessibility software diagnostics", "source-based reproduction", "cross-browser testing"] },
+    description: "A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search.",
+    longDescription: "I built a small diagnostic around the actual released and development AsTeRICS AAC component methods. At vocabulary level 8, the grid shows the synthetic eight item while search also returns ten. The public harness pins upstream source hashes and records the mismatch in Chromium and Firefox with the local fixture online and offline. It was developed with AI assistance as independent adjacent work in the Neuralink contribution evidence repository; AsTeRICS is the upstream project, and no Neuralink integration is involved.",
+    caseStudySections: [
+      { title: "Reproduce the inconsistency at its source", body: "The harness imports the real upstream methods instead of copying the search implementation. It compares vocabulary visibility and search results, and probes unrestricted vocabulary, a local level toggle, manual hiding and unchanged source data." },
+      { title: "Bounded browser evidence", body: "Released and development baselines reproduce the mismatch in Chromium and Firefox. Online and offline refer to the same loaded local fixture with network availability toggled. These are component-level checks, not full-app keyboard, speech or assistive-device tests." },
+      { title: "Diagnostic status", body: "The published output is a diagnostic and reproduction, not an upstream patch or user trial. A human-led contribution route and consenting collaborator remain pending. There is no claim of adoption, demonstrated user benefit or affiliation with AsTeRICS or Neuralink." }
+    ],
+    keyFeatures: ["Actual upstream component methods", "Pinned released and development baselines", "Chromium and Firefox reproduction", "Vocabulary-level and hidden-item probes"],
+    techStack: ["JavaScript", "Playwright", "Chromium", "Firefox", "Jest"],
+    links: [
+      { text: "Diagnostic source and reproduction", url: "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit" },
+      { text: "Pinned browser evidence", url: "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/evidence/A-02" }
+    ],
+    images: [{ url: `${LOCAL_IMG_BASE}/aac-visibility-poster.png`, alt: "Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten", caption: "Diagnostic schematic based on the published synthetic fixture; not an application screenshot." }],
+    thumbnail: `${LOCAL_IMG_BASE}/aac-visibility-poster.png`
+  },
   {
     id: 82,
     title: "Vehicle Lab: A Reusable Engineering Notebook",
@@ -3358,8 +3495,12 @@ Operations Layer (Console, Alerts, Runbooks)`
   Runtime --> Results["Masks + region measurements"]
   Runtime -.-> Evaluation["Separate model and runtime evaluation"]
   Evaluation --> Release["Candidate release decision"]`,
-    images: [DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE],
-    thumbnail: DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE.url,
+    images: [
+      { url: `${LOCAL_IMG_BASE}/dermaself-workflow-poster.png`, alt: "Illustrated Dermaself workflow showing facial regions on an AI-generated synthetic face", caption: "Illustrated workflow with a synthetic face. The regions are authored illustrations, not model predictions." },
+      { url: `${LOCAL_IMG_BASE}/dermaself-workflow-preview.mp4`, alt: "Animated Dermaself capture, region analysis and structured-result workflow", caption: "Illustrated workflow. Model-release evaluation remains separate from an individual image analysis." },
+      DERMASELF_FLUTTER_SKIN_ANALYSIS_IMAGE
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/dermaself-workflow-poster.png`,
     createdAt: "2026-05-05"
   },
   {
@@ -3464,9 +3605,11 @@ Operations Layer (Console, Alerts, Runbooks)`
         "url": "/docs/images/agnitra-recorded-shapes.png",
         "alt": "Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture",
         "caption": "Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown."
-      }
+      },
+      { "url": "/docs/images/agnitra-layers-poster.png", "alt": "Agnitra recorded input and output tensor shapes shown as channel planes", "caption": "Redrawn from the recorded Agnitra 0.2.4 CPU fixture. Plane grids illustrate dimensions; they are not activation values." },
+      { "url": "/docs/images/agnitra-layers-preview.mp4", "alt": "Animated layer-by-layer walkthrough of Agnitra's recorded tensor shapes", "caption": "Recorded shapes: convolution, activation, pooling, flatten and projection. Animation timing is illustrative; no latency or accuracy comparison." }
     ],
-    "thumbnail": "/docs/images/agnitra-recorded-shapes.png",
+    "thumbnail": "/docs/images/agnitra-layers-poster.png",
     "createdAt": "2026-05-06",
     "canonicalLinks": {
       "website": "https://pypi.org/project/agnitra/"
@@ -3765,8 +3908,12 @@ Operations Layer (Console, Alerts, Runbooks)`
   VisualIndex --> Retrieve
   TextIndex --> Retrieve
   Retrieve --> Results["Timestamped matches"]`,
-    images: [MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE],
-    thumbnail: MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE.url,
+    images: [
+      { url: `${LOCAL_IMG_BASE}/video-retrieval-poster.png`, alt: "Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals", caption: "Illustrative query, AI-generated scene and authored timestamp. This is a workflow explanation, not a recorded retrieval result." },
+      { url: `${LOCAL_IMG_BASE}/video-retrieval-preview.mp4`, alt: "Illustrated sequence of video frames, parallel extraction and timestamped retrieval", caption: "Illustrated retrieval workflow. Speech, OCR and visual signals are extracted in parallel and combined for ranking." },
+      MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE
+    ],
+    thumbnail: `${LOCAL_IMG_BASE}/video-retrieval-poster.png`,
     createdAt: "2026-05-14"
   },
   {

@@ -26,7 +26,7 @@ const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
 
 const FEATURED_PROJECT_CONTEXT: Record<number, {
-  label: string; title: string; summary: string; imageIndex?: number; previewVideo?: string; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
+  label: string; title: string; summary: string; imageIndex?: number; previewVideo?: string; previewPoster?: string; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
 }> = {
   101: {
     label: 'Applied ML · R&D',
@@ -37,6 +37,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Mobile computer vision',
     title: 'Dermaself · Skin analysis',
     summary: 'A guided capture-to-analysis mobile workflow, connecting vision models, API integration, and model evaluation.',
+    previewVideo: resolveAssetUrl('images/dermaself-workflow-preview.mp4'),
+    previewPoster: resolveAssetUrl('images/dermaself-workflow-poster.png'),
+    figureLabel: 'Illustrated workflow · synthetic face',
   },
   82: {
     label: 'Open-source engineering · v0.1.1',
@@ -50,6 +53,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Python package · PyPI',
     title: 'Agnitra · Model profiling & optimization',
     summary: 'A Python SDK and CLI for model profiling, with a separate decoder-LLM optimization path. Inspect a recorded run from the PyPI release.',
+    previewVideo: resolveAssetUrl('images/agnitra-layers-preview.mp4'),
+    previewPoster: resolveAssetUrl('images/agnitra-layers-poster.png'),
+    figureLabel: 'Animated recorded tensor shapes · v0.2.4',
   },
   11: {
     label: 'Maintained AI service',
@@ -60,7 +66,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Retrieval R&D',
     title: 'Multimodal video search',
     summary: 'Video retrieval combining speech, on-screen text, and visual embeddings to find relevant clips across complementary signals.',
-    artifact: { heading: 'Search beyond a transcript', lines: ['Video and keyframes', 'Speech, text, and visual embeddings', 'Ranked clips'], footer: 'ASR / OCR / Embeddings / Hybrid search' }
+    previewVideo: resolveAssetUrl('images/video-retrieval-preview.mp4'),
+    previewPoster: resolveAssetUrl('images/video-retrieval-poster.png'),
+    figureLabel: 'Illustrated retrieval sequence',
   },
 };
 
@@ -1031,7 +1039,7 @@ const App: React.FC = () => {
                     {context.previewVideo && asset && !project.hideImages ? (
                       <div className="featured-card__visual">
                         <div className="featured-card__media">
-                          <PreviewVideo src={context.previewVideo} poster={asset.url} label={`${context.title} preview`} suspended={Boolean(selectedProject)} />
+                          <PreviewVideo src={context.previewVideo} poster={context.previewPoster || asset.url} label={`${context.title} preview`} suspended={Boolean(selectedProject)} />
                         </div>
                         <a className="featured-card__caption" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))} aria-label={`Explore ${context.title}`}>{figureLabel} ↗</a>
                       </div>

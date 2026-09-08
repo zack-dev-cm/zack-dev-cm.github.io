@@ -115,7 +115,9 @@ test('new case studies expose loaded, inspectable figures on mobile and desktop'
     'document-ai',
     'construction-document-intelligence', 'agnitra-ml-profiling-optimization',
     'calorio-ai-nutrition-service', 'ligninqc-reproducible-scientific-research-workflows',
-    'dermaself-flutter-skin-analysis-app', 'multimodal-video-search-platform'
+    'dermaself-flutter-skin-analysis-app', 'multimodal-video-search-platform',
+    'neuralink-datarepo-contributions', 'sectioncheck-image-registration-review',
+    'aac-search-visibility-diagnostic'
   ];
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
@@ -128,10 +130,21 @@ test('new case studies expose loaded, inspectable figures on mobile and desktop'
       expect(await figures.count()).toBeGreaterThan(0);
       for (const figure of await figures.all()) {
         await figure.scrollIntoViewIfNeeded();
-        const img = figure.locator('img');
-        await expect.poll(() => img.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
         await expect(figure.locator('figcaption')).not.toBeEmpty();
-        await expect(figure.getByRole('link', { name: /Open full-size figure/ })).toBeVisible();
+        const video = figure.locator('video');
+        if (await video.count()) {
+          await expect(video).toHaveAttribute('controls', '');
+          await expect(video).toHaveAttribute('preload', 'none');
+          const poster = await video.getAttribute('poster');
+          expect(poster).toBeTruthy();
+          expect((await page.request.get(poster!)).ok()).toBe(true);
+          await video.evaluate(async (node: HTMLVideoElement) => { await node.play(); node.pause(); });
+          await expect.poll(() => video.evaluate((node: HTMLVideoElement) => node.videoWidth)).toBeGreaterThan(0);
+        } else {
+          const img = figure.locator('img');
+          await expect.poll(() => img.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+          await expect(figure.getByRole('link', { name: /Open full-size figure/ })).toBeVisible();
+        }
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
       await page.screenshot({ path: testInfo.outputPath(`${slug}-${width}.png`), fullPage: true });
@@ -406,8 +419,12 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const contributedSection = page.locator('#contributed-to');
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeVisible();
-  await expect(contributedSection.getByRole('link')).toHaveCount(3);
+  await expect(contributedSection.getByRole('link')).toHaveCount(6);
   await expect(contributedSection.getByText('Merged PR', { exact: true })).toHaveCount(2);
+  await expect(contributedSection.getByText('Open PR', { exact: true })).toHaveCount(4);
+  for (const number of [57, 58, 59]) {
+    await expect(contributedSection.locator(`a[href="https://github.com/neuralinkcorp/datarepo/pull/${number}"]`)).toContainText('neuralinkcorp/datarepo');
+  }
   await expect(contributedSection.locator('.contribution-participation')).not.toHaveAttribute('open', '');
   await contributedSection.locator('.contribution-participation > summary').click();
   await expect(contributedSection.getByRole('link')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
