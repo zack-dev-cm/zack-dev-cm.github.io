@@ -28,35 +28,6 @@
   },
   "latestUpdates": [
     {
-      "title": "Neuralink Contributions",
-      "description": "Independent datarepo PRs, reproducible AAC diagnostics and SectionCheck synthetic prototype references. No affiliation or research validation claimed.",
-      "links": [
-        {
-          "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions"
-        }
-      ],
-      "repoFullName": "zack-dev-cm/neuralink-contributions",
-      "repoId": 1360968582,
-      "createdAt": "2026-09-08T06:25:27Z",
-      "review": {
-        "status": "PASS",
-        "checkedAt": "2026-09-08",
-        "gateVersion": 2,
-        "gates": [
-          "public-github-api-only",
-          "private-repo-default-off",
-          "safe-public-links-only",
-          "readme-code-blocks-stripped",
-          "leak-pattern-scan",
-          "instruction-bleed-scan",
-          "clawhub-stat-crosslink",
-          "clawpatch-review-ready"
-        ]
-      },
-      "projectId": 1360968582
-    },
-    {
       "title": "Sectioncheck",
       "description": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated.",
       "links": [
@@ -153,87 +124,6 @@
     }
   ],
   "projects": [
-    {
-      "id": 1360968582,
-      "title": "Neuralink Contributions",
-      "description": "Independent datarepo PRs, reproducible AAC diagnostics and SectionCheck synthetic prototype references. No affiliation or research validation claimed.",
-      "longDescription": "Independent datarepo PRs, reproducible AAC diagnostics and SectionCheck synthetic prototype references. No affiliation or research validation claimed. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-09-08.",
-      "projectKind": "open-source",
-      "surfaceTags": [
-        "open-source"
-      ],
-      "mobileReady": false,
-      "keyFeatures": [
-        "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-09-08",
-        "HTML code surface is visible in repository metadata"
-      ],
-      "techStack": [
-        "HTML",
-        "GitHub",
-        "Open Source"
-      ],
-      "links": [
-        {
-          "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions"
-        }
-      ],
-      "images": [
-        {
-          "url": "images/project-placeholder.svg",
-          "alt": "Neuralink Contributions preview"
-        }
-      ],
-      "thumbnail": "images/project-placeholder.svg",
-      "benchmarks": [
-        {
-          "label": "GitHub stars",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-09-08"
-        },
-        {
-          "label": "GitHub forks",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-09-08"
-        },
-        {
-          "label": "Created",
-          "value": "2026-09-08",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "Last push",
-          "value": "2026-09-08",
-          "context": "public GitHub repository metadata"
-        }
-      ],
-      "canonicalLinks": {
-        "github": "https://github.com/zack-dev-cm/neuralink-contributions"
-      },
-      "repoFullName": "zack-dev-cm/neuralink-contributions",
-      "repoId": 1360968582,
-      "createdAt": "2026-09-08T06:25:27Z",
-      "review": {
-        "status": "PASS",
-        "checkedAt": "2026-09-08",
-        "gateVersion": 2,
-        "gates": [
-          "public-github-api-only",
-          "private-repo-default-off",
-          "safe-public-links-only",
-          "readme-code-blocks-stripped",
-          "leak-pattern-scan",
-          "instruction-bleed-scan",
-          "clawhub-stat-crosslink",
-          "clawpatch-review-ready"
-        ]
-      },
-      "legacySlugs": [
-        "zack-dev-cm-neuralink-contributions"
-      ],
-      "aliases": []
-    },
     {
       "id": 1360954516,
       "title": "Sectioncheck",

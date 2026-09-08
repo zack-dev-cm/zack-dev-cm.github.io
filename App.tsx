@@ -21,7 +21,7 @@ import { slugify, getProjectCanonicalSlug, getProjectRouteSlugs, selectReviewedF
 import { searchProjects, getProjectSearchText, normalizeSearchValue, extractSearchTerms } from './utils/project-search.mjs';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [101, 82, 84, 83, 63, 81, 11, 72] as const;
+const FEATURED_PROJECT_IDS = [101, 82, 84, 63, 81, 11, 72] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
 
@@ -35,14 +35,6 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     previewVideo: '/docs/neural-engineering/media/sectioncheck-loop.mp4',
     previewPoster: '/docs/neural-engineering/media/sectioncheck-poster.jpg',
     figureLabel: 'SectionCheck · animated geometry inspection',
-  },
-  83: {
-    label: 'Independent open-source contributions',
-    title: 'datarepo · Follow the records',
-    summary: 'Trace the executable part/supplier example and null-filter fixture through an interactive 3D explanation, with the recorded contribution evidence attached.',
-    previewVideo: '/docs/neural-engineering/media/datarepo-loop.mp4',
-    previewPoster: '/docs/neural-engineering/media/datarepo-poster.jpg',
-    figureLabel: 'datarepo · animated query explanation',
   },
   101: {
     label: 'Applied ML · R&D',

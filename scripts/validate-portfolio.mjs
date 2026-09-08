@@ -644,7 +644,9 @@ const validateGeneratedProjectPages = async () => {
     if (redirect) {
       const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
       const targetSlug = redirect.match(/^https:\/\/zack-dev-cm\.github\.io\/projects\/([a-z0-9-]+)\/$/)?.[1];
-      if (!targetSlug || canonical !== redirect || !projectSlugs.includes(targetSlug) || path.basename(path.dirname(pagePath)) === targetSlug) {
+      const isContributionRedirect = redirect === "/#contributed-to"
+        && canonical === `${SITE_BASE}/#contributed-to` && html.includes('<meta name="robots" content="noindex,follow">');
+      if (!isContributionRedirect && (!targetSlug || canonical !== redirect || !projectSlugs.includes(targetSlug) || path.basename(path.dirname(pagePath)) === targetSlug)) {
         fail(`${relativePage} has an invalid canonical redirect`);
       }
       continue;

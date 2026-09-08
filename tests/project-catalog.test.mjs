@@ -19,9 +19,19 @@ const example = {
 };
 const makeFeed = (project) => ({ review: example.review, projects: [project] });
 
+test('small datarepo contributions stay out of the project catalogue and automatic feed', async () => {
+  const catalogue = await readProjectCatalogue();
+  assert.ok(!catalogue.some((project) => project.id === 83
+    || project.repoFullName === 'zack-dev-cm/neuralink-contributions'));
+  const constants = await fs.readFile(new URL('constants.ts', root), 'utf8');
+  const exclusions = JSON.parse(constants.match(/export const PORTFOLIO_UPDATE_REPO_EXCLUSIONS:[\s\S]*?=\s*(\[[\s\S]*?\]);/)[1]);
+  const stale = { ...example, id: 1360968582, title: 'Neuralink Contributions', repoFullName: 'zack-dev-cm/neuralink-contributions' };
+  assert.deepEqual(selectReviewedFeedProjects(makeFeed(stale), exclusions), []);
+});
+
 test('the page generator includes every reviewed runtime project and its shared canonical route', async () => {
   const catalogue = await readProjectCatalogue();
-  const reviewed = selectReviewedFeedProjects(feed, ['zack-dev-cm/zack-dev-cm.github.io', 'zack-dev-cm/antirot']);
+  const reviewed = selectReviewedFeedProjects(feed, ['zack-dev-cm/zack-dev-cm.github.io', 'zack-dev-cm/antirot', 'zack-dev-cm/neuralink-contributions']);
   assert.ok(reviewed.length > 0);
   for (const project of reviewed) {
     const routes = new Set(getProjectRouteSlugs(project));

@@ -1712,6 +1712,15 @@ const main = async () => {
     projectEntries.push(projectEntry);
   }
 
+  // Small upstream patches are represented by the contribution list.
+  const contributionUrl = `${SITE_BASE}/#contributed-to`;
+  for (const slug of ['neuralink-datarepo-contributions', 'neuralink-contributions', 'zack-dev-cm-neuralink-contributions']) {
+    const directory = path.resolve(OUTPUT_DIR, slug);
+    await fs.mkdir(directory, { recursive: true });
+    await fs.writeFile(path.join(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${contributionUrl}"><meta http-equiv="refresh" content="0;url=/#contributed-to"><title>Open-source contributions</title></head><body><p><a href="/#contributed-to">View the open-source contributions</a></p></body></html>\n`);
+    await fs.writeFile(path.resolve(OUTPUT_DIR, `${slug}.md`), `The datarepo pull requests are listed under [open-source contributions](${contributionUrl}).\n`);
+  }
+
   for (const entry of await fs.readdir(PROJECT_SOCIAL_IMAGE_DIR, { withFileTypes: true })) {
     if (entry.isFile() && entry.name.endsWith('.png') && !expectedProjectSocialImageFiles.has(entry.name)) {
       await fs.rm(path.resolve(PROJECT_SOCIAL_IMAGE_DIR, entry.name));
@@ -1722,7 +1731,6 @@ const main = async () => {
     'Document AI',
     'Vehicle Lab: A Reusable Engineering Notebook',
     'SectionCheck - Image Registration Review',
-    'Neuralink datarepo Contributions',
     'Dermaself Flutter Skin Analysis App',
     'Agnitra - ML Profiling & Optimization',
     'Calorio - AI Nutrition Service',

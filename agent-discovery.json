@@ -35,7 +35,6 @@
       "https://zack-dev-cm.github.io/projects/document-ai/",
       "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
       "https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/",
-      "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/",
       "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
       "https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/",
       "https://zack-dev-cm.github.io/projects/calorio-ai-nutrition-service/",
@@ -1110,64 +1109,6 @@
       ]
     },
     {
-      "id": 83,
-      "title": "Neuralink datarepo Contributions",
-      "url": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions.md",
-      "summary": "Three independent PRs to Neuralink's public datarepo library: query correctness, a runnable quick start and installed-wheel compatibility.",
-      "kind": "open-source",
-      "tags": [],
-      "aliases": [
-        "Neuralink",
-        "datarepo",
-        "ClickHouse null filters",
-        "Python wheels"
-      ],
-      "techStack": [
-        "Python",
-        "ClickHouse",
-        "Polars",
-        "Parquet",
-        "pytest",
-        "GitHub Actions"
-      ],
-      "benchmarks": [],
-      "links": [
-        {
-          "label": "Explore in 3D",
-          "url": "https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=datarepo"
-        },
-        {
-          "label": "Watch the 30-second film",
-          "url": "https://zack-dev-cm.github.io/docs/neural-engineering/media/datarepo-film.mp4"
-        },
-        {
-          "label": "Download 3D model",
-          "url": "https://zack-dev-cm.github.io/docs/neural-engineering/models/datarepo.glb"
-        },
-        {
-          "label": "Query-correctness PR #57",
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/57"
-        },
-        {
-          "label": "Quick-start PR #58",
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/58"
-        },
-        {
-          "label": "Packaging PR #59",
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/59"
-        },
-        {
-          "label": "Source and reproduction evidence",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions"
-        },
-        {
-          "label": "Contributor CI",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions/actions/runs/34191476771"
-        }
-      ]
-    },
-    {
       "id": 63,
       "title": "Dermaself Flutter Skin Analysis App",
       "url": "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
@@ -1318,64 +1259,6 @@
     }
   ],
   "allProjects": [
-    {
-      "id": 83,
-      "title": "Neuralink datarepo Contributions",
-      "url": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions.md",
-      "summary": "Three independent PRs to Neuralink's public datarepo library: query correctness, a runnable quick start and installed-wheel compatibility.",
-      "kind": "open-source",
-      "tags": [],
-      "aliases": [
-        "Neuralink",
-        "datarepo",
-        "ClickHouse null filters",
-        "Python wheels"
-      ],
-      "techStack": [
-        "Python",
-        "ClickHouse",
-        "Polars",
-        "Parquet",
-        "pytest",
-        "GitHub Actions"
-      ],
-      "benchmarks": [],
-      "links": [
-        {
-          "label": "Explore in 3D",
-          "url": "https://zack-dev-cm.github.io/docs/neural-engineering/studio.html?project=datarepo"
-        },
-        {
-          "label": "Watch the 30-second film",
-          "url": "https://zack-dev-cm.github.io/docs/neural-engineering/media/datarepo-film.mp4"
-        },
-        {
-          "label": "Download 3D model",
-          "url": "https://zack-dev-cm.github.io/docs/neural-engineering/models/datarepo.glb"
-        },
-        {
-          "label": "Query-correctness PR #57",
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/57"
-        },
-        {
-          "label": "Quick-start PR #58",
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/58"
-        },
-        {
-          "label": "Packaging PR #59",
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/59"
-        },
-        {
-          "label": "Source and reproduction evidence",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions"
-        },
-        {
-          "label": "Contributor CI",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions/actions/runs/34191476771"
-        }
-      ]
-    },
     {
       "id": 84,
       "title": "SectionCheck - Image Registration Review",

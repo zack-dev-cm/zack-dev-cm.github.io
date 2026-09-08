@@ -11,9 +11,6 @@ conceptual imagery. Animation duration does not represent computation time.
   [SectionCheck 0.2.1.dev0](https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0).
   The preview redraws the exact source polygons and the proposed +40/+24 pixel
   translation. Intermediate positions illustrate mapping; no transform is fitted.
-- **Datarepo:** the four synthetic rows and expected IDs come from
-  [PR #57](https://github.com/neuralinkcorp/datarepo/pull/57). The before/after
-  sequence explains published regression evidence, not upstream acceptance.
 - **AAC:** the schematic reproduces the synthetic vocabulary-level mismatch
   documented in the [source diagnostic](https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit).
   It is not an application screenshot.

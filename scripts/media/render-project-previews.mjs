@@ -8,6 +8,18 @@ import { once } from 'node:events';
 import { pipeline } from 'node:stream/promises';
 import { createCanvas, loadImage, GlobalFonts } from '@napi-rs/canvas';
 
+const previews = [
+  ['agnitra-layers', agnitra, 1.1], ['dermaself-workflow', dermaself, 5.8],
+  ['video-retrieval', retrieval, 9.5], ['sectioncheck-registration', sectioncheck, 8.8]
+];
+const chosen = process.argv.slice(2).filter(x => !x.startsWith('--'));
+const postersOnly = process.argv.includes('--posters-only');
+const supported = [...previews.map(([name]) => name), 'aac-visibility'];
+const unknown = chosen.filter(name => !supported.includes(name));
+if (unknown.length) {
+  throw new Error(`Unknown preview: ${unknown.join(', ')}. Supported: ${supported.join(', ')}`);
+}
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const out = path.join(root, 'public/images');
 const inputs = path.join(root, 'public/artifacts/project-media');
@@ -171,25 +183,6 @@ function sectioncheck(t) {
   stages(['Source regions', 'Proposed mapping', 'Review + decision'], i);
 }
 
-function datarepo(t) {
-  const i = Math.min(2, Math.floor(t / 4));
-  reset('NEURALINK DATAREPO / QUERY CORRECTNESS', 'Published synthetic fixture · open PR #57 · independent contribution', t);
-  text(['A predicate disappeared', 'Make null filtering explicit', 'Return the matching rows'][i], 48, 126, 50, C.ink, 700);
-  text('SOURCE TABLE', 48, 189, 23, C.muted);
-  const values = ['NULL', '10', 'NULL', '20'];
-  values.forEach((value, j) => {
-    const match = j === 0 || j === 2;
-    box(48, 219 + j * 78, 456, 65, i > 0 && match ? '#20393F' : '#172129', i > 0 && match ? '#69949C' : C.line);
-    text(String(j + 1), 79, 263 + j * 78, 31, C.muted);
-    text(value, 226, 263 + j * 78, 31, match ? C.cyan : C.ink);
-  });
-  text('WHERE x IS NULL', 603, 258, 42, C.cyan, 700);
-  line(604, 298, 1190, 298);
-  text(i === 0 ? 'Before' : 'Expected / patched', 604, 362, 28, C.muted);
-  text(i === 0 ? '[1, 2, 3, 4]' : '[1, 3]', 602, 441, 70, i === 0 ? C.coral : C.green, 700);
-  text(i === 0 ? 'Unfiltered rows returned' : 'Only the two null rows', 606, 516, 31);
-  stages(['Reproduce', 'Preserve predicate', 'Verify backend'], i);
-}
 function aac() {
   reset('AAC / SOURCE-BASED BROWSER DIAGNOSTIC', 'Synthetic fixture schematic · component methods · not an app screenshot', 0);
   text('Search and the grid disagree', 48, 133, 53, C.ink, 700);
@@ -202,13 +195,6 @@ function aac() {
   text('Released + development', 65, 579, 26, C.muted); text('Chromium + Firefox', 698, 579, 26, C.muted);
 }
 
-const previews = [
-  ['agnitra-layers', agnitra, 1.1], ['dermaself-workflow', dermaself, 5.8],
-  ['video-retrieval', retrieval, 9.5], ['sectioncheck-registration', sectioncheck, 8.8],
-  ['datarepo-query', datarepo, 9.0]
-];
-const chosen = process.argv.slice(2).filter(x => !x.startsWith('--'));
-const postersOnly = process.argv.includes('--posters-only');
 await fs.mkdir(out, { recursive: true });
 for (const [name, render, posterTime] of previews.filter(([name]) => !chosen.length || chosen.includes(name))) {
   // Keep incomplete files outside the public tree until both encoders succeed.
