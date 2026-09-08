@@ -1,0 +1,68 @@
+{
+  "format": "glTF 2.0",
+  "meshes": 133,
+  "bytes": 4905404,
+  "sha256": "92b3a7ecc541442673ccfc3f2d6145fe2c06aef503d088ce0af930e8af2355ba",
+  "sourceFacts": {
+    "architecture": [
+      "video input",
+      "keyframes and visual embeddings",
+      "speech transcripts",
+      "on-screen text",
+      "visual index",
+      "dense and sparse text index",
+      "hybrid ranking",
+      "timestamped matches"
+    ],
+    "query": "red van beside a loading bay",
+    "keyframes": [
+      {
+        "timestamp": "00:12.0",
+        "image": "retrieval-still.png"
+      },
+      {
+        "timestamp": "00:18.4",
+        "image": "retrieval-still.png"
+      },
+      {
+        "timestamp": "00:24.0",
+        "image": "retrieval-still.png"
+      }
+    ],
+    "result": {
+      "timestamp": "00:18.4",
+      "evidence": [
+        "visual frame",
+        "authored speech context"
+      ],
+      "measured": false
+    },
+    "fixtureKind": "AUTHORED_ARCHITECTURE_EXAMPLE",
+    "missingOcr": true,
+    "scope": "An original explanation of the published video-search architecture. A generated still, authored transcript and timestamps illustrate the flow. No recorded retrieval, computed embeddings, ranking score or latency is represented."
+  },
+  "sourceSha256": {
+    "studio.html": "64f5cabcace42b0718903669b860c0754d21933d5b4f5f6df8698ddaf388ddad",
+    "studio.css": "8c5a680674347295b3336eb88e23b235f76004bb62dd89f324678610a50647a8",
+    "studio.js": "86a982e7cd258ecff3653ab8edebca9711371c12c18eb3b12ec190ef27eba0af",
+    "scene-kit.js": "5125f38cc58a815bd607ad2b04d1b9d6fee1df0415bfd6737ea4a37e828c8716",
+    "agnitra-model.js": "4b6855ab359948a8657aae6f4a2400eeafe20580c9c8b8f62912ff100eb5cc35",
+    "retrieval-model.js": "42185cd80161a14cbe1245f677f4dc2cf488043668a453491b95c4d030ef8830",
+    "timeline.js": "7dde70d66e577c9225ebf8ef73dad5f1304280c8262248f47cf9cf45d1b6fc39",
+    "data/agnitra-reproduce.py": "63f35931b95a1ffbd1fd8ca06d2831bf4dc706387382558327011f44703d9aa5",
+    "data/agnitra-shapes.json": "b14221a7a41e6bda2c2d3fa84be5e081df98efd9848d5c25244ce63dcb4b35d1",
+    "data/provenance.json": "d0beb346e0eba66edef66e7c244100894805faaa35f25f1c89dc450213a08124",
+    "data/retrieval-still.png": "6239c970ceb21e31d556bddf385b0ae6fc5e57a9703c9014a54d96de90deb03a",
+    "data/retrieval.json": "f74a0d508e284a3f27806c2f651f6317c8fcbb2b1e314c0853f7be56ed00e868",
+    "vendor/three.module.min.js": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6",
+    "vendor/three.core.min.js": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de",
+    "vendor/OrbitControls.js": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c",
+    "vendor/GLTFExporter.js": "e7c29444454eb321b39e4c8b3062944f4fd5299a0e7483e9cb8c0594cdec829f"
+  },
+  "toolSha256": {
+    "export.mjs": "c5a975e9f801dc509520c3591231f8081af63a147a287cb3c86f806047e876f6",
+    "browser.mjs": "1e498a655051f1b060ee6899d981893cd71da55479be68130770ea5f428b4fdf",
+    "publish.mjs": "739471ae82396c9241949af246a692d6e25bd49004b19eda402c7f76c658ff6d"
+  },
+  "units": "Illustrative display units; not manufacturing or anatomical dimensions"
+}

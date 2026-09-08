@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inside the work — Selected engineering projects</title>
+  <meta name="description" content="Explore Agnitra model-layer shapes and multimodal video-search architecture in interactive 3D. Original project films, inspection models and source references.">
+  <link rel="canonical" href="https://zack-dev-cm.github.io/docs/engineering-studies/studio.html">
+  <link rel="icon" href="icon.svg"><link rel="stylesheet" href="studio.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script>
+</head>
+<body>
+  <noscript><p style="position:relative;z-index:10;padding:24px;background:#0c1822">Interactive inspection needs JavaScript. Watch the <a href="media/agnitra-film.mp4">Agnitra film</a> or <a href="media/retrieval-film.mp4">Video Search film</a>, or <a href="index.html">browse the project models and sources</a>.</p></noscript>
+  <main id="studio">
+    <canvas id="scene" aria-label="Interactive 3D explanation. Drag to orbit; scroll to zoom."></canvas>
+    <header><a class="brand" href="index.html"><span class="brand-mark">S / T</span> Selected engineering</a><a id="source-link" target="_blank" rel="noopener">Project source ↗</a></header>
+    <section id="story" aria-live="off"><p id="eyebrow"></p><h1 id="title"></h1><p id="subtitle"></p><div id="fact"><strong id="fact-value"></strong><span id="fact-label"></span></div></section>
+    <div id="object-label"></div>
+    <aside id="evidence"><span id="evidence-label"></span><strong id="evidence-value"></strong><p id="evidence-note"></p></aside>
+    <div id="scope">Original project explanations · illustrative depth</div>
+    <div id="loading" role="status">Building the scene…</div>
+    <nav id="transport" aria-label="Explore the model">
+      <div class="transport-row"><button id="play" type="button">Pause tour</button><button id="inspect" type="button">Inspect in 3D</button><button id="reset" type="button">Reset view</button><button id="sound" type="button" aria-pressed="false">Sound off</button><a id="download" download>Download 3D model</a><span id="clock">00:00 / 00:30</span></div>
+      <label class="timeline-label">Film position <input id="timeline" type="range" min="0" max="30" step="0.01" value="0"></label>
+      <div class="inspection-tools" hidden><label>Separate layers <input id="separate" type="range" min="0" max="1" step="0.01" value="0.4"></label><label><input id="wire" type="checkbox"> Wireframe</label><span>Drag to orbit · scroll or pinch to zoom</span></div>
+      <div id="chapters" aria-label="Film chapters"></div>
+    </nav>
+    <div id="film-progress"><i></i></div>
+  </main>
+  <audio id="music" src="media/score.m4a" loop preload="none"></audio>
+  <script type="module" src="studio.js"></script>
+</body></html>

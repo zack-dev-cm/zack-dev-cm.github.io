@@ -15,6 +15,16 @@ The source for my engineering portfolio: computer vision, document AI, agentic s
 
 The site includes individual case studies, a searchable project archive, current experience, and an accessible resume. The interface is built with React, TypeScript, and Vite; static project pages and structured data keep the content readable without JavaScript.
 
+## Selected projects in 3D
+
+Explore the layers and architecture behind two main projects. Each has an interactive 3D model, a 30-second film with original music, a shareable GIF and a downloadable GLB.
+
+| Agnitra · recorded model shapes | Multimodal video search · architecture |
+| --- | --- |
+| [![Agnitra 3D preview](public/engineering-studies/media/agnitra-preview.gif)](https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra) | [![Video Search 3D preview](public/engineering-studies/media/retrieval-preview.gif)](https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval) |
+
+Agnitra uses its public CPU profiling fixture; Video Search uses explicitly illustrative inputs. [Open the gallery](https://zack-dev-cm.github.io/docs/engineering-studies/) or [inspect the sources, models and films](public/engineering-studies/README.md).
+
 ## Development
 
 Requires Node.js 22. Install Poppler for PDF text checks. The public source/artifact audit uses the repository's existing Node dependencies.

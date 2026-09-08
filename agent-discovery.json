@@ -758,6 +758,22 @@
           "benchmarks": [],
           "links": [
             {
+              "label": "Explore in 3D",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra"
+            },
+            {
+              "label": "Watch the 30-second film",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/agnitra-film.mp4"
+            },
+            {
+              "label": "Download 3D model",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/agnitra.glb"
+            },
+            {
+              "label": "3D source and GIF on GitHub",
+              "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#agnitra"
+            },
+            {
               "label": "Install from PyPI",
               "url": "https://pypi.org/project/agnitra/"
             },
@@ -899,7 +915,24 @@
             "Celery"
           ],
           "benchmarks": [],
-          "links": []
+          "links": [
+            {
+              "label": "Explore in 3D",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval"
+            },
+            {
+              "label": "Watch the 30-second film",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4"
+            },
+            {
+              "label": "Download 3D model",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb"
+            },
+            {
+              "label": "3D source and GIF on GitHub",
+              "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#multimodal-video-search"
+            }
+          ]
         },
         {
           "id": 81,
@@ -935,6 +968,22 @@
           ],
           "benchmarks": [],
           "links": [
+            {
+              "label": "Explore in 3D",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra"
+            },
+            {
+              "label": "Watch the 30-second film",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/agnitra-film.mp4"
+            },
+            {
+              "label": "Download 3D model",
+              "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/agnitra.glb"
+            },
+            {
+              "label": "3D source and GIF on GitHub",
+              "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#agnitra"
+            },
             {
               "label": "Install from PyPI",
               "url": "https://pypi.org/project/agnitra/"
@@ -1175,6 +1224,22 @@
       "benchmarks": [],
       "links": [
         {
+          "label": "Explore in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra"
+        },
+        {
+          "label": "Watch the 30-second film",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/agnitra-film.mp4"
+        },
+        {
+          "label": "Download 3D model",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/agnitra.glb"
+        },
+        {
+          "label": "3D source and GIF on GitHub",
+          "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#agnitra"
+        },
+        {
           "label": "Install from PyPI",
           "url": "https://pypi.org/project/agnitra/"
         },
@@ -1255,7 +1320,24 @@
         "Celery"
       ],
       "benchmarks": [],
-      "links": []
+      "links": [
+        {
+          "label": "Explore in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval"
+        },
+        {
+          "label": "Watch the 30-second film",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4"
+        },
+        {
+          "label": "Download 3D model",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb"
+        },
+        {
+          "label": "3D source and GIF on GitHub",
+          "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#multimodal-video-search"
+        }
+      ]
     }
   ],
   "allProjects": [
@@ -2550,7 +2632,24 @@
         "Celery"
       ],
       "benchmarks": [],
-      "links": []
+      "links": [
+        {
+          "label": "Explore in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval"
+        },
+        {
+          "label": "Watch the 30-second film",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4"
+        },
+        {
+          "label": "Download 3D model",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb"
+        },
+        {
+          "label": "3D source and GIF on GitHub",
+          "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#multimodal-video-search"
+        }
+      ]
     },
     {
       "id": 73,
@@ -2883,6 +2982,22 @@
       ],
       "benchmarks": [],
       "links": [
+        {
+          "label": "Explore in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra"
+        },
+        {
+          "label": "Watch the 30-second film",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/agnitra-film.mp4"
+        },
+        {
+          "label": "Download 3D model",
+          "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/agnitra.glb"
+        },
+        {
+          "label": "3D source and GIF on GitHub",
+          "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#agnitra"
+        },
         {
           "label": "Install from PyPI",
           "url": "https://pypi.org/project/agnitra/"

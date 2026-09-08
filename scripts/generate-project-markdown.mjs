@@ -880,7 +880,8 @@ const buildProjectHtml = (project) => {
     const url = publicUrl.startsWith(`${SITE_BASE}/`) ? new URL(publicUrl).pathname : publicUrl;
     const caption = toAscii(asset.caption || (/generated|conceptual|illustration/i.test(asset.alt) ? 'Conceptual illustration.' : ''));
     if (isDisplayVideo(asset.url)) {
-      const poster = /-preview\.mp4$/.test(url) ? url.replace(/-preview\.mp4$/, '-poster.png') : visualImage;
+      const publicPoster = /-preview\.mp4$/.test(url) ? url.replace(/-preview\.mp4$/, '-poster.png') : visualImage;
+      const poster = publicPoster.startsWith(`${SITE_BASE}/`) ? new URL(publicPoster).pathname : publicPoster;
       return `<figure><video class="visual" controls playsinline preload="none" poster="${escapeHtml(poster)}" aria-label="${escapeHtml(toAscii(asset.alt))}"><source src="${escapeHtml(url)}" type="${/\.webm$/.test(url) ? 'video/webm' : 'video/mp4'}" /><a href="${escapeHtml(url)}">Open video</a></video>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
     }
     return `<figure><a class="figure-link" href="${escapeHtml(url)}" aria-label="Open full-size figure ${index + 1}: ${escapeHtml(toAscii(asset.alt))}"><img class="visual" src="${escapeHtml(url)}" alt="${escapeHtml(toAscii(asset.alt))}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;

@@ -1,0 +1,24 @@
+{
+  "sourceSnapshot": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/39af558b6792111d140615ba94c56e0a3dd871d1",
+  "agnitraRelease": "https://pypi.org/project/agnitra/0.2.4/",
+  "files": {
+    "agnitra-shapes.json": {
+      "sha256": "b14221a7a41e6bda2c2d3fa84be5e081df98efd9848d5c25244ce63dcb4b35d1",
+      "kind": "recorded public profiling fixture"
+    },
+    "agnitra-reproduce.py": {
+      "sha256": "63f35931b95a1ffbd1fd8ca06d2831bf4dc706387382558327011f44703d9aa5",
+      "kind": "recorded public profiling fixture"
+    },
+    "retrieval-still.png": {
+      "sha256": "6239c970ceb21e31d556bddf385b0ae6fc5e57a9703c9014a54d96de90deb03a",
+      "kind": "original illustrative input"
+    },
+    "retrieval.json": {
+      "sha256": "f74a0d508e284a3f27806c2f651f6317c8fcbb2b1e314c0853f7be56ed00e868",
+      "kind": "original illustrative input"
+    }
+  },
+  "displayGeometry": "Original illustrative display units. Tensor labels use the recorded dimensions; scene depth, positions, grid colors and timing do not represent activation values, physical geometry or measured latency.",
+  "retrievalScope": "An original explanation of the published video-search architecture. A generated still, authored transcript and timestamps illustrate the flow. No recorded retrieval, computed embeddings, ranking score or latency is represented."
+}

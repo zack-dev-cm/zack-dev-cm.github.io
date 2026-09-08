@@ -3509,6 +3509,7 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     "id": 81,
+    routeSlug: "agnitra-ml-profiling-optimization",
     "title": "Agnitra - ML Profiling & Optimization",
     searchProfile: {
       capabilities: ["machine learning","model profiling","model inference","inference optimization","model evaluation","quantization"],
@@ -3552,6 +3553,10 @@ Operations Layer (Console, Alerts, Runbooks)`
       "MLOps"
     ],
     "links": [
+      { "text": "Explore in 3D", "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra" },
+      { "text": "Watch the 30-second film", "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/agnitra-film.mp4" },
+      { "text": "Download 3D model", "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/agnitra.glb" },
+      { "text": "3D source and GIF on GitHub", "url": "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#agnitra" },
       {
         "text": "Install from PyPI",
         "url": "https://pypi.org/project/agnitra/"
@@ -3571,15 +3576,19 @@ Operations Layer (Console, Alerts, Runbooks)`
         "alt": "Actual layer types and input/output tensor shapes recorded by Agnitra 0.2.4 for a small CPU profiling fixture",
         "caption": "Recorded output from Agnitra 0.2.4 on a randomly initialized CPU fixture. This demonstrates profiling; no optimization or accuracy comparison is shown."
       },
-      { "url": "/docs/images/agnitra-layers-poster.png", "alt": "Agnitra recorded input and output tensor shapes shown as channel planes", "caption": "Redrawn from the recorded Agnitra 0.2.4 CPU fixture. Plane grids illustrate dimensions; they are not activation values." },
-      { "url": "/docs/images/agnitra-layers-preview.mp4", "alt": "Animated layer-by-layer walkthrough of Agnitra's recorded tensor shapes", "caption": "Recorded shapes: convolution, activation, pooling, flatten and projection. Animation timing is illustrative; no latency or accuracy comparison." }
+      { "url": "/docs/engineering-studies/media/agnitra-poster.jpg", "alt": "Agnitra recorded input and output tensor shapes shown as channel planes", "caption": "Redrawn from the recorded Agnitra 0.2.4 CPU fixture. Plane grids illustrate dimensions; they are not activation values." },
+      { "url": "/docs/engineering-studies/media/agnitra-loop.mp4", "alt": "3D layer-by-layer walkthrough of Agnitra's recorded tensor shapes", "autoPlay": true, "caption": "Recorded shapes: convolution, activation, pooling, flatten and projection. Animation timing is illustrative; no latency or accuracy comparison." }
     ],
-    "thumbnail": "/docs/images/agnitra-layers-poster.png",
+    "thumbnail": "/docs/engineering-studies/media/agnitra-poster.jpg",
     "createdAt": "2026-05-06",
     "canonicalLinks": {
       "website": "https://pypi.org/project/agnitra/"
     },
     "caseStudySections": [
+      {
+        "title": "Follow the model in 3D",
+        "body": "The interactive model and 30-second film follow the recorded CPU fixture through convolution, ReLU, pooling, flattening and linear projection. Orbit the geometry, separate channel planes or inspect the wireframe, then download the self-contained GLB model. Channel counts and tensor dimensions come from the saved report; depth, color and animation timing explain the structure without representing activation values or a measured speedup."
+      },
       {
         "title": "Why this tool",
         "body": "Understanding a model's execution is a useful starting point for optimization. Agnitra exposes profiling through Python and the CLI, alongside a separate optimization API for supported decoder language models. The published example makes the profiling output directly inspectable."
@@ -3849,6 +3858,7 @@ Operations Layer (Console, Alerts, Runbooks)`
   },
   {
     id: 72,
+    routeSlug: "multimodal-video-search-platform",
     title: "Multimodal Video Search Platform",
     searchProfile: {
       capabilities: ["research","machine learning","information retrieval","semantic search","video search","model evaluation","multimodal retrieval","speech recognition","text recognition"],
@@ -3861,7 +3871,15 @@ Operations Layer (Console, Alerts, Runbooks)`
     surfaceTags: ["computer-vision", "ai", "search", "video", "mlops"],
     keyFeatures: ["Keyframes, speech transcripts, OCR and scene information", "Visual and text embeddings for complementary retrieval signals", "Dense and sparse search with hybrid ranking", "Regression comparisons for retrieval coverage and recovery"],
     techStack: ["Python", "FastAPI", "Qdrant", "Postgres", "Visual Embeddings", "OCR", "ASR", "Hybrid Search", "Celery"],
-    links: [],
+    links: [
+      { text: "Explore in 3D", url: "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval" },
+      { text: "Watch the 30-second film", url: "https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4" },
+      { text: "Download 3D model", url: "https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb" },
+      { text: "3D source and GIF on GitHub", url: "https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#multimodal-video-search" }
+    ],
+    caseStudySections: [
+      { title: "Follow a query through the architecture", body: "The interactive 3D model and 30-second film follow video frames through visual, speech and OCR signals, complementary indexes, hybrid ranking and a timestamped match. Inspect and separate the stages or download the GLB. The red-van still is generated, and the query, transcript and timestamps are authored examples. The still contains no readable text, so its OCR lane stays empty. Index positions and the match explain the architecture; they are not computed embeddings or recorded retrieval results." }
+    ],
     mermaidDiagram: `flowchart LR
   Video["Video"] --> Frames["Keyframes + visual embeddings"]
   Video --> ASR["Speech transcripts"]
@@ -3874,11 +3892,11 @@ Operations Layer (Console, Alerts, Runbooks)`
   TextIndex --> Retrieve
   Retrieve --> Results["Timestamped matches"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/video-retrieval-poster.png`, alt: "Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals", caption: "Illustrative query, AI-generated scene and authored timestamp. This is a workflow explanation, not a recorded retrieval result." },
-      { url: `${LOCAL_IMG_BASE}/video-retrieval-preview.mp4`, alt: "Illustrated sequence of video frames, parallel extraction and timestamped retrieval", caption: "Illustrated retrieval workflow. Speech, OCR and visual signals are extracted in parallel and combined for ranking." },
+      { url: "/docs/engineering-studies/media/retrieval-poster.jpg", alt: "Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals", caption: "Illustrative query, AI-generated scene and authored timestamp. This is a workflow explanation, not a recorded retrieval result." },
+      { url: "/docs/engineering-studies/media/retrieval-loop.mp4", alt: "3D explanation of video frames, parallel extraction and timestamped retrieval", autoPlay: true, caption: "Illustrated retrieval workflow. Speech, OCR and visual signals are extracted in parallel and combined for ranking." },
       MULTIMODAL_VIDEO_SEARCH_PLATFORM_IMAGE
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/video-retrieval-poster.png`,
+    thumbnail: "/docs/engineering-studies/media/retrieval-poster.jpg",
     createdAt: "2026-05-14"
   },
   {

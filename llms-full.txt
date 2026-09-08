@@ -658,6 +658,11 @@ Tech Stack:
 - ASR
 - Hybrid Search
 - Celery
+Links:
+- Explore in 3D: https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval
+- Watch the 30-second film: https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4
+- Download 3D model: https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb
+- 3D source and GIF on GitHub: https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#multimodal-video-search
 
 ### Public CV and Deep Learning GitHub Archive
 Summary: GitHub API-backed archive of public authored CV/DL repos across YOLO/EfficientNet detection, Cyrillic OCR, mobile ML Kit, TFLite, and vision-transformer prototypes.
@@ -804,6 +809,10 @@ Tech Stack:
 - LlamaIndex
 - MLOps
 Links:
+- Explore in 3D: https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=agnitra
+- Watch the 30-second film: https://zack-dev-cm.github.io/docs/engineering-studies/media/agnitra-film.mp4
+- Download 3D model: https://zack-dev-cm.github.io/docs/engineering-studies/models/agnitra.glb
+- 3D source and GIF on GitHub: https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#agnitra
 - Install from PyPI: https://pypi.org/project/agnitra/
 - Reproduce the CPU profiling example: https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/reproduce.py
 - Inspect the recorded model shapes (JSON): https://zack-dev-cm.github.io/docs/artifacts/agnitra-cpu-profile/shape-report.json

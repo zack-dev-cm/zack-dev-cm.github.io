@@ -15,10 +15,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Multimodal Video Search Platform" />
     <meta name="twitter:description" content="Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/video-retrieval-poster.png" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-poster.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/video-retrieval-poster.png" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-poster.jpg" />
     <meta name="twitter:image:alt" content="Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals" />
     <script type="application/ld+json">
 {
@@ -42,7 +42,7 @@
       },
       "genre": "research",
       "keywords": "computer-vision, ai, search, video, mlops, Python, FastAPI, Qdrant, Postgres, Visual Embeddings, OCR, ASR, Hybrid Search, Celery",
-      "image": "https://zack-dev-cm.github.io/docs/images/video-retrieval-poster.png",
+      "image": "https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-poster.jpg",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -102,7 +102,23 @@
                   "name": "Celery"
             }
       ],
-      "workExample": []
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Explore in 3D",
+                  "url": "https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Watch the 30-second film",
+                  "url": "https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Download 3D model",
+                  "url": "https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb"
+            }
+      ]
 }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -125,14 +141,14 @@
           <p class="eyebrow">Research &amp; development</p>
           <h1>Multimodal Video Search Platform</h1>
           <p class="lede">Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.</p>
-          <figure><a class="figure-link" href="/docs/images/video-retrieval-poster.png" aria-label="Open full-size figure 1: Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals"><img class="visual" src="/docs/images/video-retrieval-poster.png" alt="Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Illustrative query, AI-generated scene and authored timestamp. This is a workflow explanation, not a recorded retrieval result.</figcaption></figure>
+          <figure><a class="figure-link" href="/docs/engineering-studies/media/retrieval-poster.jpg" aria-label="Open full-size figure 1: Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals"><img class="visual" src="/docs/engineering-studies/media/retrieval-poster.jpg" alt="Illustrated multimodal retrieval example connecting a synthetic scene to visual, speech and on-screen text signals" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Illustrative query, AI-generated scene and authored timestamp. This is a workflow explanation, not a recorded retrieval result.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
           <p>I designed retrieval across video and rich media using complementary visual and language signals. The R&amp;D pipeline normalizes uploads, extracts keyframes, transcribes speech, reads on-screen text and computes visual and text embeddings. Dense and sparse indexes feed hybrid ranking, while regression comparisons help evaluate signal coverage and failure recovery.</p>
         </section>
-
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><video class="visual" controls playsinline preload="none" poster="/docs/images/video-retrieval-poster.png" aria-label="Illustrated sequence of video frames, parallel extraction and timestamped retrieval"><source src="/docs/images/video-retrieval-preview.mp4" type="video/mp4" /><a href="/docs/images/video-retrieval-preview.mp4">Open video</a></video><figcaption>Illustrated retrieval workflow. Speech, OCR and visual signals are extracted in parallel and combined for ranking.</figcaption></figure><figure><a class="figure-link" href="/docs/images/video-search-verified-workflow.png" aria-label="Open full-size figure 3: Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches"><img class="visual" src="/docs/images/video-search-verified-workflow.png" alt="Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow diagram of parallel extraction, indexing and hybrid retrieval.</figcaption></figure></div></section>
+        <section><h2>Follow a query through the architecture</h2><p>The interactive 3D model and 30-second film follow video frames through visual, speech and OCR signals, complementary indexes, hybrid ranking and a timestamped match. Inspect and separate the stages or download the GLB. The red-van still is generated, and the query, transcript and timestamps are authored examples. The still contains no readable text, so its OCR lane stays empty. Index positions and the match explain the architecture; they are not computed embeddings or recorded retrieval results.</p></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><video class="visual" controls playsinline preload="none" poster="/docs/engineering-studies/media/retrieval-poster.jpg" aria-label="3D explanation of video frames, parallel extraction and timestamped retrieval"><source src="/docs/engineering-studies/media/retrieval-loop.mp4" type="video/mp4" /><a href="/docs/engineering-studies/media/retrieval-loop.mp4">Open video</a></video><figcaption>Illustrated retrieval workflow. Speech, OCR and visual signals are extracted in parallel and combined for ranking.</figcaption></figure><figure><a class="figure-link" href="/docs/images/video-search-verified-workflow.png" aria-label="Open full-size figure 3: Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches"><img class="visual" src="/docs/images/video-search-verified-workflow.png" alt="Workflow diagram of parallel video, speech and OCR signals feeding visual and text indexes, hybrid ranking and timestamped matches" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Workflow diagram of parallel extraction, indexing and hybrid retrieval.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
@@ -160,7 +176,10 @@
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/engineering-studies/studio.html?project=retrieval">Explore in 3D</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/engineering-studies/media/retrieval-film.mp4">Watch the 30-second film</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/engineering-studies/models/retrieval.glb">Download 3D model</a></li>
+        <li><a href="https://github.com/zack-dev-cm/zack-dev-cm.github.io/tree/main/public/engineering-studies#multimodal-video-search">3D source and GIF on GitHub</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/multimodal-video-search-platform.md">Plain-text case study</a></li>
           </ul>
         </section>

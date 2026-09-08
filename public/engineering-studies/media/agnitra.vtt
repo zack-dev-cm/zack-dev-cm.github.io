@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.750
+Open a recorded model profile. Follow the shape of every layer. Randomly initialized fixture. No trained predictions.
+
+2
+00:00:03.750 --> 00:00:07.500
+A 3 × 3 convolution changes the channel count and keeps the spatial size. The moving stencil explains connectivity, not activation values.
+
+3
+00:00:07.500 --> 00:00:11.250
+ReLU preserves the recorded tensor dimensions. Grid colors identify layers; they do not encode computed values.
+
+4
+00:00:11.250 --> 00:00:15.000
+Average each spatial channel into one value. The changing geometry illustrates pooling. Motion is not execution time.
+
+5
+00:00:15.000 --> 00:00:18.750
+Turn the eight pooled channels into a flat vector. Positions illustrate layout; element values are not displayed.
+
+6
+00:00:18.750 --> 00:00:22.500
+Inspect the final fully connected projection. Lines show parameter connectivity, not weight magnitudes.
+
+7
+00:00:22.500 --> 00:00:26.250
+Connect layer shapes to names in the recorded operator events. This arrangement is not a trace of elapsed time.
+
+8
+00:00:26.250 --> 00:00:30.000
+Orbit the layers. Inspect their shapes. Reproduce the profiling example. The separate LLM optimization path is not demonstrated here.

@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.750
+Explore the architecture behind visual and language retrieval. Authored example. No recorded platform result.
+
+2
+00:00:03.750 --> 00:00:07.500
+Connect visual frames to positions on the video timeline. The same generated still is reused at illustrative timestamps.
+
+3
+00:00:07.500 --> 00:00:11.250
+Separate the visual, speech and on-screen text paths. Speech text and waveform are authored examples.
+
+4
+00:00:11.250 --> 00:00:15.000
+Visual embeddings and dense/sparse text indexes support complementary matches. Node positions illustrate index structure, not measured embeddings.
+
+5
+00:00:15.000 --> 00:00:18.750
+The request reaches the relevant visual and language indexes. No search request is sent by this standalone viewer.
+
+6
+00:00:18.750 --> 00:00:22.500
+Combine complementary candidates into timestamped matches. Motion does not encode a ranking formula, score or latency.
+
+7
+00:00:22.500 --> 00:00:26.250
+A result points back to a moment and the signals that support it. This is a workflow example, not a measured retrieval result.
+
+8
+00:00:26.250 --> 00:00:30.000
+Orbit the scene, separate the branches and inspect how they connect. No private footage, customer data or performance claims.

@@ -135,7 +135,7 @@ a title card as the only visual.
 
 Selected cards lead with a readable HTML title and context label. A consistent
 framed figure follows as supporting material, with its source type in a readable
-caption below the image rather than a tiny overlay. Keep the six selected stories;
+caption below the image rather than a tiny overlay. Keep the selected stories;
 avoid making dense illustration text carry the card's meaning. Main case-study
 links navigate to a full reading page; archive cards retain the quick-view modal.
 Direct reading pages share the home page's typeface, identity and navigation.
@@ -143,7 +143,7 @@ Direct reading pages share the home page's typeface, identity and navigation.
 Vehicle Lab appears in the first selected-work row as a released engineering
 notebook. Use the 01:22 exploded-inspection frame from its actual film, cropped
 to the CAD viewport, with a visible source caption. Keep its full film in the
-case-study links and archive viewer. The six selected cards retain the ML career
+case-study links and archive viewer. The selected cards retain the ML career
 focus. Private company R&D uses brief experience summaries without project assets
 or implementation details.
 Vehicle Lab copy distinguishes released software and digital prototypes from
@@ -158,7 +158,7 @@ as a substitute for describing the contribution.
 
 The Vehicle Lab preview works because the subject remains large while its state
 changes. The older white workflow sheets and profiling table lose their detail
-at card size. Keep the page hierarchy and six selected projects; improve the
+at card size. Keep the page hierarchy and seven selected projects; improve the
 figures rather than expanding the homepage into a gallery.
 
 Three media directions were assessed: decorative studio art, full workflow
@@ -174,8 +174,12 @@ subject only; labels, geometry, numbers, and transitions come from the project.
   retrieval. Use an authored illustrative scene and label it as a schematic.
 - SectionCheck: use the released synthetic shapes and exact translation/ROI
   coordinates. Explain proposed mapping and review without implying approval.
-- Datarepo: show the published four-row null-filter regression and expected
-  IDs. Status describes the submitted PR, not upstream adoption.
+
+Reserve new 3D models, films and GIFs for substantial main projects with a clear
+engineering story. Datarepo consists of small upstream contributions: retain its
+PR links in the contributions list and exclude it from the main catalogue and
+3D galleries. Agnitra and Multimodal Video Search are the next selected batch;
+small patches and diagnostic notes do not receive standalone showcases.
 
 Use 1280 × 720 sequences, an immediately informative poster, a restrained dark
 background, large subject and short labels. Prefer MP4 for on-page motion; GIF

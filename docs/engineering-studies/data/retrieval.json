@@ -1,0 +1,39 @@
+{
+  "kind": "AUTHORED_ARCHITECTURE_EXAMPLE",
+  "query": "red van beside a loading bay",
+  "keyframes": [
+    {
+      "timestamp": "00:12.0",
+      "image": "retrieval-still.png"
+    },
+    {
+      "timestamp": "00:18.4",
+      "image": "retrieval-still.png"
+    },
+    {
+      "timestamp": "00:24.0",
+      "image": "retrieval-still.png"
+    }
+  ],
+  "speech": "The red van is beside the loading bay.",
+  "ocr": [],
+  "result": {
+    "timestamp": "00:18.4",
+    "evidence": [
+      "visual frame",
+      "authored speech context"
+    ],
+    "measured": false
+  },
+  "architecture": [
+    "video input",
+    "keyframes and visual embeddings",
+    "speech transcripts",
+    "on-screen text",
+    "visual index",
+    "dense and sparse text index",
+    "hybrid ranking",
+    "timestamped matches"
+  ],
+  "scope": "An original explanation of the published video-search architecture. A generated still, authored transcript and timestamps illustrate the flow. No recorded retrieval, computed embeddings, ranking score or latency is represented."
+}

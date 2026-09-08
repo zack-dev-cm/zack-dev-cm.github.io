@@ -61,9 +61,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Python package · PyPI',
     title: 'Agnitra · Model profiling & optimization',
     summary: 'A Python SDK and CLI for model profiling, with a separate decoder-LLM optimization path. Inspect a recorded run from the PyPI release.',
-    previewVideo: resolveAssetUrl('images/agnitra-layers-preview.mp4'),
-    previewPoster: resolveAssetUrl('images/agnitra-layers-poster.png'),
-    figureLabel: 'Animated recorded tensor shapes · v0.2.4',
+    previewVideo: '/docs/engineering-studies/media/agnitra-loop.mp4',
+    previewPoster: '/docs/engineering-studies/media/agnitra-poster.jpg',
+    figureLabel: '3D explanation · recorded tensor shapes, v0.2.4',
   },
   11: {
     label: 'Maintained AI service',
@@ -74,9 +74,9 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     label: 'Retrieval R&D',
     title: 'Multimodal video search',
     summary: 'Video retrieval combining speech, on-screen text, and visual embeddings to find relevant clips across complementary signals.',
-    previewVideo: resolveAssetUrl('images/video-retrieval-preview.mp4'),
-    previewPoster: resolveAssetUrl('images/video-retrieval-poster.png'),
-    figureLabel: 'Illustrated retrieval sequence',
+    previewVideo: '/docs/engineering-studies/media/retrieval-loop.mp4',
+    previewPoster: '/docs/engineering-studies/media/retrieval-poster.jpg',
+    figureLabel: '3D architecture explanation · illustrative inputs',
   },
 };
 
