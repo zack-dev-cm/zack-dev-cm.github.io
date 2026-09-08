@@ -68,4 +68,8 @@ test('the production policy loads and accepts the approved CV and catalogue', as
   for (const file of ['constants.ts', 'scripts/resume/resume-content.json']) {
     assert.equal(containsWithdrawnCopy(await fs.readFile(new URL(file, root), 'utf8'), production), false, file);
   }
+  for (const summary of [
+    'Professional experience with computer vision for engineering drawings and 3D geometry; private company R&D.',
+    'Professional experience with computer vision, engineering drawings and 3D geometry. Private company R&D.',
+  ]) assert.equal(containsWithdrawnCopy(summary, production), false, summary);
 });
