@@ -1525,13 +1525,14 @@ export const PROJECTS: Project[] = [
       { text: "Download source v0.1.1", url: "https://zack-dev-cm.github.io/docs/vehicle-lab/downloads/vehicle-lab-0.1.1.tar.gz" }
     ],
     images: [
-      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero.mp4`, alt: "Vehicle Lab: inside the evolution", caption: "37.5 seconds of source-derived CAD inspection, revision history, native obstacle support and saved Chrono motion, with an original electronic score." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero.mp4`, alt: "Vehicle Lab: inside the evolution", autoPlay: true, caption: "37.5 seconds of source-derived CAD inspection, revision history, native obstacle support and saved Chrono motion, with an original electronic score." },
+      { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-preview.gif`, alt: "Animated Vehicle Lab preview: CAD inspection, revision tree and recorded simulation", caption: "Looping excerpt from the published film. Digital studies; physical validation remains open." },
       { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-poster.jpg`, alt: "Ridge R3d in the opening frame of the Vehicle Lab film", caption: "Actual project geometry in the first frame. Physical validation remains open." },
       { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-exploded.jpg`, alt: "Ridge R3d systems separated for detailed inspection", caption: "Display separation explains component relationships; it is not a verified assembly path." },
       { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-evolution.jpg`, alt: "The complete 65-revision engineering tree", caption: "Recorded revisions and 68 parent links; authored history, not an optimization run." },
       { url: `${LOCAL_IMG_BASE}/vehicle-lab-hero-chrono.jpg`, alt: "Detailed tyre at recorded Chrono log contact", caption: "Saved solver response from the separate tyre study. The failed obstacle traversal remains visible." }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-hero-poster.jpg`
+    thumbnail: `${LOCAL_IMG_BASE}/vehicle-lab-hero-preview.gif`
   },
   {
     "id": 104,

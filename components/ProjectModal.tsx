@@ -93,8 +93,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   };
 
   const currentImage = project.images[currentImageIndex];
-  const videoPoster = (project.thumbnail && !isVideoUrl(project.thumbnail) ? project.thumbnail : undefined)
-    || project.images.find((image) => !isVideoUrl(image.url))?.url
+  const isStillImage = (url: string) => !isVideoUrl(url) && !/\.gif(?:[?#].*)?$/i.test(url);
+  const videoPoster = (project.thumbnail && isStillImage(project.thumbnail) ? project.thumbnail : undefined)
+    || project.images.find((image) => isStillImage(image.url))?.url
     || fallbackImageUrl;
   const mediaCaption = currentImage?.caption || (
     /generated|conceptual|illustration|public-safe.*card/i.test(currentImage?.alt ?? '')
@@ -125,6 +126,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 className="modal-media__asset"
                 key={currentImage.url}
                 controls
+                autoPlay={currentImage.autoPlay}
+                muted={currentImage.autoPlay}
+                loop={currentImage.autoPlay}
                 playsInline
                 preload="metadata"
                 poster={videoPoster}

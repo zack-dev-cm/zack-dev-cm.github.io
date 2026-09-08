@@ -22,6 +22,10 @@ Version 0.1.1 includes source, runnable examples, documentation, the new scored 
 
 ## Project Figures
 
+![Animated Vehicle Lab preview: CAD inspection, revision tree and recorded simulation](https://zack-dev-cm.github.io/docs/images/vehicle-lab-hero-preview.gif)
+
+Looping excerpt from the published film. Digital studies; physical validation remains open.
+
 ![Ridge R3d in the opening frame of the Vehicle Lab film](https://zack-dev-cm.github.io/docs/images/vehicle-lab-hero-poster.jpg)
 
 Actual project geometry in the first frame. Physical validation remains open.

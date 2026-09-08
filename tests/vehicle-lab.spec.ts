@@ -1,12 +1,21 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Locator } from '@playwright/test';
+
+async function expectAnimatedPreview(image: Locator) {
+  await expect(image).toHaveAttribute('src', /vehicle-lab-hero-preview\.gif$/);
+  await image.scrollIntoViewIfNeeded();
+  await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+  const firstFrame = await image.screenshot();
+  await expect.poll(async () => firstFrame.equals(await image.screenshot()), { timeout: 10000 }).toBe(false);
+}
 
 test('Vehicle Lab is featured, has direct demo links and its film plays in the portfolio', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.site-layout')).toBeVisible();
   const featured = page.locator('.featured-card').filter({ has: page.getByRole('heading', { name: 'Vehicle Lab · CAD to simulation', exact: true }) });
-  await expect(featured.locator('img')).toHaveAttribute('src', /vehicle-lab-hero-poster\.jpg$/);
+  await expectAnimatedPreview(featured.locator('img'));
   await expect(featured.getByRole('link', { name: 'Explore in 3D' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/film\.html$/);
   await page.goto('/projects/vehicle-lab-a-reusable-engineering-notebook/');
+  await expectAnimatedPreview(page.locator('img.visual').first());
   const actions = page.getByRole('navigation', { name: 'Project actions' });
   await expect(actions.getByRole('link', { name: 'Explore in 3D' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/film\.html$/);
   await expect(actions.getByRole('link', { name: 'Explore motion and terrain' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/terrain\.html$/);
@@ -27,7 +36,9 @@ test('Vehicle Lab is featured, has direct demo links and its film plays in the p
   await expect(video).toHaveAttribute('poster', /vehicle-lab-hero-poster\.jpg$/);
   await expect(video).toHaveAttribute('controls', '');
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.duration)).toBe(37.5);
-  await video.evaluate(async (v: HTMLVideoElement) => { v.muted = true; await v.play(); });
+  await expect(video).toHaveAttribute('autoplay', '');
+  await expect(video).toHaveAttribute('loop', '');
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted && !v.paused)).toBe(true);
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime)).toBeGreaterThan(0);
   await video.evaluate((v: HTMLVideoElement) => v.pause());
   await expect(dialog.getByRole('link', { name: 'Read the documentation' })).toHaveAttribute('href', /\/docs\/vehicle-lab\/docs\/$/);
@@ -107,3 +118,19 @@ test('Vehicle Lab terrain exposes recorded handling and source parameters on mob
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(errors).toEqual([]);
 });
+
+for (const width of [1440, 390]) {
+  test(`Vehicle Lab preview animates automatically at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    const featured = page.locator('.featured-card').filter({ hasText: 'Vehicle Lab · CAD to simulation' });
+    await expectAnimatedPreview(featured.locator('img'));
+    await page.goto('/?project=vehicle-lab-a-reusable-engineering-notebook');
+    const video = page.getByRole('dialog').locator('video');
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.muted && !v.paused && v.currentTime > 0)).toBe(true);
+    const start = await video.evaluate((v: HTMLVideoElement) => v.currentTime);
+    await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime)).toBeGreaterThan(start);
+    await video.evaluate((v: HTMLVideoElement) => v.pause());
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+}

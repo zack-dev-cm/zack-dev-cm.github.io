@@ -4,7 +4,7 @@
 
 Role: Senior ML Engineer
 Portfolio: https://zack-dev-cm.github.io/
-Updated: 2026-09-07
+Updated: 2026-09-08
 
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.

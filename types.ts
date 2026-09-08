@@ -8,6 +8,7 @@ export interface ProjectImage {
   url: string;
   alt: string;
   caption?: string;
+  autoPlay?: boolean;
 }
 
 export interface ProjectBenchmark {
