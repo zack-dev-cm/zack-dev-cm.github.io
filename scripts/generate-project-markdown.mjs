@@ -860,7 +860,9 @@ const buildProjectHtml = (project) => {
     url: link.url
   }));
   const socialImage = getProjectSocialImage(project);
-  const visualImage = getProjectVisualImage(project);
+  // Keep a text-only experience summary brief while retaining its social metadata.
+  const visualImage = project.hideImages && project.searchProfile?.evidence === 'summary'
+    ? '' : getProjectVisualImage(project);
   const socialImageType = getSocialImageType(socialImage);
   const isGeneratedSocialImage = Boolean(project.generatedSocialImage && socialImage === project.generatedSocialImage);
   const visualAsset = (project.images || []).find((image) => toPublicAssetUrl(image.url) === visualImage);

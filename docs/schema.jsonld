@@ -236,7 +236,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Engineering Drawing & CAD Analysis",
-            "description": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
+            "description": "Professional experience in engineering-drawing interpretation and 3D geometry analysis.",
             "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
             "encoding": [
               {
@@ -252,7 +252,7 @@
               "@id": "https://zack-dev-cm.github.io/#zakhar-pashkin"
             },
             "genre": "research",
-            "keywords": "computer-vision, ai-systems, engineering, research, Python, Open Cascade, CadQuery, build123d, NumPy, SciPy, IfcOpenShell, ezdxf, Geometry Processing",
+            "keywords": "computer-vision, ai-systems, engineering, research, Computer Vision, 3D Geometry",
             "dateCreated": "2026-09-05",
             "isAccessibleForFree": true
           }

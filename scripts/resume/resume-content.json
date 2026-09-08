@@ -16,7 +16,7 @@
       "dates": "Jul 2026 - Present",
       "bullets": [
         "Develop and evaluate an on-premises document assistant for specialist case review, separating deterministic checks from model explanations. Build construction-plan analysis with structured quantities; link both workflows to source pages.",
-        "Prototyped point-cloud reconstruction of axis-aligned rooms, producing semantic 3D models and DXF/SVG floor plans. Evaluate mechanical scan registration against reference CAD and CAD-to-drawing projection."
+        "Research computer vision for engineering-drawing interpretation and 3D geometry analysis."
       ]
     },
     {

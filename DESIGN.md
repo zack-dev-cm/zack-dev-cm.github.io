@@ -144,7 +144,8 @@ Vehicle Lab appears in the first selected-work row as a released engineering
 notebook. Use the 01:22 exploded-inspection frame from its actual film, cropped
 to the CAD viewport, with a visible source caption. Keep its full film in the
 case-study links and archive viewer. The six selected cards retain the ML career
-focus; point-cloud/CAD research has a direct text link below the selection.
+focus. Private company R&D uses brief experience summaries without project assets
+or implementation details.
 Vehicle Lab copy distinguishes released software and digital prototypes from
 physical assembly or driving, which remain unverified.
 

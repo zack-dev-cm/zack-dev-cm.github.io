@@ -10,7 +10,7 @@ The source for my engineering portfolio: computer vision, document AI, agentic s
 - **Dermaself:** guided capture, skin-analysis models, and mobile/API integration.
 - **Agnitra:** a PyPI-published SDK and CLI for model profiling and inference optimization.
 - **Calorio:** a maintained Telegram nutrition service for meal logging through photos, voice, and text.
-- **Engineering analysis:** scan registration, CAD projection tests, and source-linked construction-document interpretation.
+- **Engineering analysis:** professional experience with computer vision for engineering drawings and 3D geometry.
 - **LigninQC:** offline reanalysis of two published lignin-chemistry cases, with source-linked tables, runnable code and explicit limits.
 
 The site includes individual case studies, a searchable project archive, current experience, and an accessible resume. The interface is built with React, TypeScript, and Vite; static project pages and structured data keep the content readable without JavaScript.

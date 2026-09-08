@@ -1720,28 +1720,18 @@ export const PROJECTS: Project[] = [
     "id": 102,
     "title": "Engineering Drawing & CAD Analysis",
     searchProfile: {
-      capabilities: ["research","CAD","geometric computing","point cloud processing","drawing analysis","evaluation","reproducibility"],
-      evidence: "implementation"
+      capabilities: ["research","CAD","geometric computing","drawing analysis","evaluation"],
+      evidence: "summary"
     },
-    "description": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
-    "longDescription": "My engineering-geometry work covers two distinct problems. The building prototype infers a room model from a point cloud and exports floor plans. The mechanical-part research evaluates scans against reference CAD and projects supplied STEP models into engineering views. The examples below show the actual data and geometry behind each track.",
+    "description": "Professional experience in engineering-drawing interpretation and 3D geometry analysis.",
+    "longDescription": "Professional experience applying computer vision to engineering drawings and 3D geometry analysis. This is private company R&D; implementation and project materials are not publicly released.",
     "keyFeatures": [
-      "Infer axis-aligned room boundaries, walls and rectangular openings from XYZ point clouds",
-      "Represent inferred geometry as a semantic room model and export 2D DXF/SVG floor plans",
-      "Evaluate mechanical scan registration against supplied CAD references",
-      "Generate visible and hidden 2D edges from STEP models using Open Cascade",
-      "Preserve source geometry and outputs for comparison and engineering review"
+      "Engineering-drawing interpretation",
+      "3D geometry analysis and evaluation"
     ],
     "techStack": [
-      "Python",
-      "Open Cascade",
-      "CadQuery",
-      "build123d",
-      "NumPy",
-      "SciPy",
-      "IfcOpenShell",
-      "ezdxf",
-      "Geometry Processing"
+      "Computer Vision",
+      "3D Geometry"
     ],
     "surfaceTags": [
       "computer-vision",
@@ -1751,62 +1741,11 @@ export const PROJECTS: Project[] = [
     ],
     "createdAt": "2026-09-05",
     "projectKind": "research",
-    "links": [
-      {
-        "text": "Inspect the generated room floor plan (SVG)",
-        "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
-      },
-      {
-        "text": "Inspect the inferred room geometry (JSON)",
-        "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
-      },
-      {
-        "text": "Download the synthetic point-cloud input (XYZ)",
-        "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
-      },
-      {
-        "text": "Inspect the mechanical fixture projections (SVG)",
-        "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
-      }
-    ],
-    "images": [
-      {
-        "url": "/docs/images/point-cloud-room-workflow-v1.webp",
-        "alt": "The same synthetic room shown as an XYZ point cloud, inferred 3D wall and opening geometry, and the exported 2D floor plan",
-        "caption": "Building prototype: saved point-cloud input, a 3D rendering of the inferred semantic room model, and its actual SVG floor plan. This is one synthetic room test; the 3D view renders semantic JSON, not the experimental IFC export."
-      },
-      {
-        "url": "/docs/images/point-cloud-room-model-v1.webp",
-        "alt": "Detailed comparison of the synthetic room point cloud and inferred walls with a door and window at matching positions",
-        "caption": "Building prototype, enlarged: the input points and inferred room geometry share the same coordinates and viewpoint. Transparency reveals the interior and openings."
-      },
-      {
-        "url": "/docs/images/cad-analytic-fixture-source.webp",
-        "alt": "Actual STEP rendering of a synthetic through-bore block, shown in an orthographic 3D view with millimeter axes",
-        "caption": "Separate mechanical CAD track: a synthetic through-bore STEP fixture for projection and hidden-line tests. This solid is a supplied test input."
-      },
-      {
-        "url": "/docs/images/cad-analytic-fixture-projections.webp",
-        "alt": "XY and XZ projections of the same synthetic block, with solid visible edges and dashed hidden bore edges",
-        "caption": "Mechanical CAD output: generated XY and XZ views of the same through-bore fixture, with visible edges in solid lines and hidden edges dashed."
-      }
-    ],
-    "thumbnail": "/docs/images/point-cloud-room-workflow-v1.webp",
-    "hideImages": false,
-    "caseStudySections": [
-      {
-        "title": "Building point cloud → room model → floor plan",
-        "body": "The building prototype reads XYZ or NumPy point clouds with declared units, estimates rectangular room bounds and detects door/window openings from gaps in the wall points. These are geometric methods; wall thickness is a declared input. A semantic model records the room, walls and openings, supplying both the 3D visualization and 2D floor-plan exports. The figures use a saved synthetic fixture, with its original point cloud, geometry JSON and SVG plan available below."
-      },
-      {
-        "title": "Mechanical scans, reference CAD and engineering views",
-        "body": "The mechanical track evaluates scan-to-reference registration separately from STEP-to-drawing projection. It compares Open Cascade, CadQuery and build123d routes, checks visible and hidden edges, and compares generated views with supplied drawings. The through-bore example below isolates the projection stage with known analytic geometry. A reference STEP used for registration is an input, not a model reconstructed from the scan."
-      },
-      {
-        "title": "Current stage",
-        "body": "The room workflow has passed a synthetic software-path test; real-building reconstruction still needs reference data and engineering acceptance. It currently assumes a single axis-aligned room. IFC export is experimental, with cross-format opening placement under review. Mechanical results establish registration and projection baselines; arbitrary scan-to-parametric CAD and manufacturing-ready drawing generation remain separate research goals."
-      }
-    ]
+    "links": [],
+    "images": [],
+    "thumbnail": "",
+    "hideImages": true,
+    "caseStudySections": []
   },
   {
     "id": 103,

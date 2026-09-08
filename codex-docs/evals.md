@@ -53,10 +53,11 @@ After query or Metrics changes, category totals must describe the results that
 clicking each category displays. Recovering from a filter-caused empty result
 must preserve the query and selected order.
 
-For search changes, retain a small expected-results set covering `point cloud`,
-`3D`, `IFC`, `document recognition`, `mobile inference`, `OpenCV`, `FastOCR`,
+For search changes, retain a small expected-results set covering `CAD`,
+`3D`, `document recognition`, `mobile inference`, `OpenCV`, `FastOCR`,
 `Auto Toloka`, `app` and `R&D`. Relevant results must have supporting public
-content. Verify that generic word fragments do not admit unrelated work, and
+content. Use controlled fixtures for capabilities absent from public summaries.
+Verify that generic word fragments do not admit unrelated work, and
 that A–Z and Recent change active search order. Recheck keyboard handoff,
 clear/reset and responsive layout when the search flow changes.
 Check complete project names combined with supported qualifiers (`FastOCR ONNX`,

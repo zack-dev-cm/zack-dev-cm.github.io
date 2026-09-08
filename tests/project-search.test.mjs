@@ -89,22 +89,33 @@ test('ONNX retains its supported projects and excludes unrelated services', () =
   assertExcludes(results, [11, 104, 49], 'ONNX');
 });
 
-test('CAD is discoverable through visible sections without losing its limitations', () => {
+test('private engineering work is discoverable only through its public experience summary', () => {
   const cad = catalogue.find((project) => project.id === 102);
   assert.ok(cad);
-  assert.match(cad.caseStudySections.map((section) => section.body).join(' '), /IFC export is experimental/i);
-  for (const query of ['3D', 'IFC']) {
-    const found = search(query).find((project) => project.id === cad.id);
-    assert.ok(found, `${query}: missing the engineering geometry case study`);
-    assert.deepEqual(found.caseStudySections, cad.caseStudySections, `${query}: retain the evidence and stage context`);
+  assert.equal(cad.searchProfile.evidence, 'summary');
+  assert.match(cad.longDescription, /private company R&D/i);
+  assert.equal(cad.hideImages, true);
+  assert.deepEqual(cad.images, []);
+  assert.deepEqual(cad.links, []);
+  assert.deepEqual(cad.caseStudySections, []);
+  assert.doesNotMatch(JSON.stringify(cad), /point.?cloud|IFC|scan registration|STEP|DXF|through.bore|floor.plan/i);
+  for (const query of ['CAD', '3D', 'drawing analysis']) {
+    assertIncludes(search(query), [cad.id], query);
+  }
+  for (const query of ['IFC', 'point cloud']) {
+    assertExcludes(search(query), [cad.id], query);
   }
 });
 
 test('point-cloud compounds do not turn into generic cloud or talking-point searches', () => {
+  const fixture = {
+    id: -1, title: 'Depth sensing study',
+    searchProfile: { capabilities: ['point cloud processing'], evidence: 'workflow' },
+  };
   for (const query of ['point cloud', 'point-cloud', 'pointcloud']) {
-    const results = search(query);
-    assert.equal(results[0]?.id, 102, query);
-    assertExcludes(results, [40, 29, 63, 35, 44], query);
+    const results = searchProjects([...catalogue, fixture], query);
+    assert.equal(results[0]?.id, fixture.id, query);
+    assertExcludes(results, [40, 29, 63, 35, 44, 102], query);
   }
 });
 

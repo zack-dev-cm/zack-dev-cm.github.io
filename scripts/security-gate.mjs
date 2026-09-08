@@ -72,11 +72,13 @@ const PUBLIC_ROOT_FILES = new Set([
 ]);
 
 const PUBLIC_SOURCE_FILES = new Set([
+  'README.md',
   'App.tsx',
   'components/Sidebar.tsx',
   'components/ProjectCard.tsx',
   'components/ProjectModal.tsx',
   'constants.ts',
+  'scripts/resume/resume-content.json',
   'types.ts',
 ]);
 
@@ -99,6 +101,7 @@ const SECRET_PATTERNS = [
 ];
 
 const PUBLIC_LEAK_PATTERNS = [
+  ['withdrawn company project asset reference', /\b(?:point-cloud-room-demo|point-cloud-room-(?:workflow|model)|cad-analytic-fixture)\b/i],
   ['internal analytics wording', /\b(?:internal snapshot|prod pulse|DB slice|Profiles in DB|Sessions in DB|DAU\s*\/\s*WAU\s*\/\s*MAU)\b/i],
   ['client-facing process wording', /\b(?:internal process|client-facing claim|should not appear|do not leak|local Mac (?:project )?scan|local Mac repo history reviewed before portfolio add)\b/i],
   ['local source review wording', /\b(?:local source (?:README|review)|documented in local source)\b/i],
@@ -454,6 +457,24 @@ const scanPublicPdfText = async () => {
   }
 };
 
+const assertWithdrawnProjectAssetsAreAbsent = async () => {
+  for (const root of ['public', 'docs']) {
+    const artifactDirectory = `${root}/artifacts/point-cloud-room-demo`;
+    try {
+      await fs.access(path.join(ROOT_DIR, artifactDirectory));
+      errors.push(`${artifactDirectory}: withdrawn company project assets must not be published`);
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
+    const imageDirectory = `${root}/images`;
+    for (const name of await fs.readdir(path.join(ROOT_DIR, imageDirectory))) {
+      if (/^(?:cad-analytic-fixture|point-cloud-room)-/i.test(name)) {
+        errors.push(`${imageDirectory}/${name}: withdrawn company project image must not be published`);
+      }
+    }
+  }
+};
+
 const main = async () => {
   await loadTrackedFilePaths();
   await loadUntrackedFilePaths();
@@ -485,6 +506,7 @@ const main = async () => {
   await assertPublicUpdatesDoNotExposePrivateMetadata();
   await assertCodexDocsAreInSync();
   await assertHiddenPublishingSurfacesAreNotPublished();
+  await assertWithdrawnProjectAssetsAreAbsent();
   await assertVercelSecurityHeaders();
   await assertCloudflareSecurityHeaders();
   await scanPublicPdfText();

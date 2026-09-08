@@ -4,8 +4,6 @@ The portfolio distinguishes actual engineering artifacts from illustrations.
 
 | Surface | Asset | Basis |
 | --- | --- | --- |
-| Engineering Drawing & CAD Analysis | `cad-analytic-fixture-source.webp` | Orthographic render imported from the existing synthetic STEP test fixture. Bounds and the cylindrical bore were checked against the source. |
-| Engineering Drawing & CAD Analysis | `cad-analytic-fixture-projections.webp` | Actual XY/XZ hidden-line output. Original SVG paths and visibility layers are preserved in `cad-analytic-fixture-hlr-source.svg`. |
 | Document AI | `document-ai-workflow-v3.webp` | Conceptual document/retrieval/reconciliation/review diagram. |
 | Construction Document Intelligence | `construction-documents-workflow-v3.webp` | Conceptual plan/observation/check/review diagram using invented drawings. |
 | Agnitra | `agnitra-profiling-workflow-v7.webp` | Conceptual profiling/quantization/evaluation diagram. Color-level quantization does not imply changing tensor shape. |
@@ -19,10 +17,8 @@ waveforms and technical shapes in these illustrations are explanatory, not
 measurements or screenshots. Detailed prompts and the review trail are retained
 in the owner's local delivery artifacts.
 
-The CAD figures demonstrate analytic geometry and projection evaluation, not
-scan-to-parametric reconstruction or manufacturing accuracy. The source fixture
-and projection geometry were checked independently. No customer geometry is
-included in these figures.
+Engineering Drawing & CAD Analysis is a brief professional-experience summary
+of private company R&D. It has no public implementation or project assets.
 
 All images retain visible captions. Case-study figures and modal media have
 full-size links for inspection. Keep the curated image/caption fields

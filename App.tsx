@@ -56,11 +56,6 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     title: 'Calorio · AI nutrition assistant',
     summary: 'An actively maintained Telegram service that helps people record meals and work toward nutrition goals using photos, voice, and text.',
   },
-  102: {
-    label: 'Engineering R&D',
-    title: 'Point clouds, CAD & 2D drawings',
-    summary: 'Point-cloud room reconstruction and floor-plan export, plus separate research in mechanical scan alignment and CAD projection. Inspect the geometry and outputs.',
-  },
   72: {
     label: 'Retrieval R&D',
     title: 'Multimodal video search',
@@ -1026,7 +1021,7 @@ const App: React.FC = () => {
                 const context = FEATURED_PROJECT_CONTEXT[project.id];
                 const asset = project.images[context.imageIndex ?? 0];
                 const isIllustration = Boolean(asset && /generated|conceptual|illustration|public-safe.*card/i.test(asset.alt));
-                const figureLabel = context.figureLabel || (project.id === 102 ? 'Point cloud → model → plan' : project.id === 81 ? 'Recorded profiling output' : context.artifact ? 'System outline' : /workflow diagram/i.test(asset?.caption || '') ? 'Workflow diagram' : isIllustration ? 'Workflow illustration' : 'Project figure');
+                const figureLabel = context.figureLabel || (project.id === 81 ? 'Recorded profiling output' : context.artifact ? 'System outline' : /workflow diagram/i.test(asset?.caption || '') ? 'Workflow diagram' : isIllustration ? 'Workflow illustration' : 'Project figure');
                 return (
                   <article key={project.id} className="featured-card">
                     <header className="featured-card__header">
@@ -1073,7 +1068,6 @@ const App: React.FC = () => {
                 );
               })}
             </div>
-            <p><a className="text-link" href={buildProjectPublicUrl('engineering-drawing-cad-analysis')}>More engineering R&D: point clouds, CAD &amp; 2D drawings <span aria-hidden="true">↗</span></a></p>
           </Section>
 
           <Section id="experience" eyebrow="02 / Experience" title="A career in applied ML" description="Document recognition, mobile vision, model tooling and retrieval systems, followed by current document AI research.">

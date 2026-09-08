@@ -237,7 +237,7 @@
           "title": "Engineering Drawing & CAD Analysis",
           "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-          "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
+          "summary": "Professional experience in engineering-drawing interpretation and 3D geometry analysis.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -247,35 +247,11 @@
           ],
           "aliases": [],
           "techStack": [
-            "Python",
-            "Open Cascade",
-            "CadQuery",
-            "build123d",
-            "NumPy",
-            "SciPy",
-            "IfcOpenShell",
-            "ezdxf",
-            "Geometry Processing"
+            "Computer Vision",
+            "3D Geometry"
           ],
           "benchmarks": [],
-          "links": [
-            {
-              "label": "Inspect the generated room floor plan (SVG)",
-              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
-            },
-            {
-              "label": "Inspect the inferred room geometry (JSON)",
-              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
-            },
-            {
-              "label": "Download the synthetic point-cloud input (XYZ)",
-              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
-            },
-            {
-              "label": "Inspect the mechanical fixture projections (SVG)",
-              "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
-            }
-          ]
+          "links": []
         },
         {
           "id": 103,
@@ -669,7 +645,7 @@
           "title": "Engineering Drawing & CAD Analysis",
           "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-          "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
+          "summary": "Professional experience in engineering-drawing interpretation and 3D geometry analysis.",
           "kind": "research",
           "tags": [
             "computer-vision",
@@ -679,35 +655,11 @@
           ],
           "aliases": [],
           "techStack": [
-            "Python",
-            "Open Cascade",
-            "CadQuery",
-            "build123d",
-            "NumPy",
-            "SciPy",
-            "IfcOpenShell",
-            "ezdxf",
-            "Geometry Processing"
+            "Computer Vision",
+            "3D Geometry"
           ],
           "benchmarks": [],
-          "links": [
-            {
-              "label": "Inspect the generated room floor plan (SVG)",
-              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
-            },
-            {
-              "label": "Inspect the inferred room geometry (JSON)",
-              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
-            },
-            {
-              "label": "Download the synthetic point-cloud input (XYZ)",
-              "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
-            },
-            {
-              "label": "Inspect the mechanical fixture projections (SVG)",
-              "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
-            }
-          ]
+          "links": []
         },
         {
           "id": 103,
@@ -1358,7 +1310,7 @@
       "title": "Engineering Drawing & CAD Analysis",
       "url": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/engineering-drawing-cad-analysis.md",
-      "summary": "Research on turning point clouds into room models and 2D plans, alongside mechanical CAD projection and drawing analysis.",
+      "summary": "Professional experience in engineering-drawing interpretation and 3D geometry analysis.",
       "kind": "research",
       "tags": [
         "computer-vision",
@@ -1368,35 +1320,11 @@
       ],
       "aliases": [],
       "techStack": [
-        "Python",
-        "Open Cascade",
-        "CadQuery",
-        "build123d",
-        "NumPy",
-        "SciPy",
-        "IfcOpenShell",
-        "ezdxf",
-        "Geometry Processing"
+        "Computer Vision",
+        "3D Geometry"
       ],
       "benchmarks": [],
-      "links": [
-        {
-          "label": "Inspect the generated room floor plan (SVG)",
-          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/floor-plan.svg"
-        },
-        {
-          "label": "Inspect the inferred room geometry (JSON)",
-          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/semantic-model.json"
-        },
-        {
-          "label": "Download the synthetic point-cloud input (XYZ)",
-          "url": "https://zack-dev-cm.github.io/docs/artifacts/point-cloud-room-demo/synthetic-room.xyz"
-        },
-        {
-          "label": "Inspect the mechanical fixture projections (SVG)",
-          "url": "https://zack-dev-cm.github.io/docs/images/cad-analytic-fixture-hlr-source.svg"
-        }
-      ]
+      "links": []
     },
     {
       "id": 103,

@@ -112,7 +112,7 @@ test('LigninQC exposes its report, runnable release and matching download checks
 
 test('new case studies expose loaded, inspectable figures on mobile and desktop', async ({ page }, testInfo) => {
   const slugs = [
-    'engineering-drawing-cad-analysis', 'document-ai',
+    'document-ai',
     'construction-document-intelligence', 'agnitra-ml-profiling-optimization',
     'calorio-ai-nutrition-service', 'ligninqc-reproducible-scientific-research-workflows',
     'dermaself-flutter-skin-analysis-app', 'multimodal-video-search-platform'
@@ -126,7 +126,6 @@ test('new case studies expose loaded, inspectable figures on mobile and desktop'
       await expect(page.getByRole('navigation', { name: 'Portfolio navigation' })).toBeVisible();
       const figures = page.locator('figure');
       expect(await figures.count()).toBeGreaterThan(0);
-      if (slug === 'engineering-drawing-cad-analysis') await expect(figures).toHaveCount(4);
       for (const figure of await figures.all()) {
         await figure.scrollIntoViewIfNeeded();
         const img = figure.locator('img');
@@ -137,6 +136,28 @@ test('new case studies expose loaded, inspectable figures on mobile and desktop'
       expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
       await page.screenshot({ path: testInfo.outputPath(`${slug}-${width}.png`), fullPage: true });
     }
+  }
+});
+
+test('private engineering experience has no public project assets or download links', async ({ page }, testInfo) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await gotoStandalone(page, 'projects/engineering-drawing-cad-analysis');
+    await expect(page.getByRole('article')).toContainText('private company R&D');
+    await expect(page.locator('figure')).toHaveCount(0);
+    await expect(page.locator('a[href*="/artifacts/"], a[href*="cad-analytic-fixture"], a[href*="point-cloud-room"]')).toHaveCount(0);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
+    await page.screenshot({ path: testInfo.outputPath(`engineering-summary-${width}.png`), fullPage: true });
+  }
+  for (const asset of [
+    'artifacts/point-cloud-room-demo/synthetic-room.xyz',
+    'artifacts/point-cloud-room-demo/semantic-model.json',
+    'artifacts/point-cloud-room-demo/floor-plan.svg',
+    'images/point-cloud-room-workflow-v1.webp',
+    'images/cad-analytic-fixture-hlr-source.svg',
+  ]) {
+    const response = await page.request.get(`/docs/${asset}`);
+    expect(response.status(), asset).toBe(404);
   }
 });
 
@@ -785,7 +806,7 @@ test('active search sorting changes the displayed order while preserving the que
   await expect(projects.locator('[data-project-id="70"]')).toBeVisible();
 });
 
-test('CAD search supports keyboard handoff, evidence context and clearing', async ({ page }) => {
+test('engineering search supports keyboard handoff, private-work context and clearing', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await gotoPortfolio(page);
   const heroSearch = page.getByRole('searchbox', { name: 'Search portfolio work' });
@@ -797,14 +818,14 @@ test('CAD search supports keyboard handoff, evidence context and clearing', asyn
   await expect(cad).toBeVisible();
   await expect(projects.getByRole('status')).toBeFocused();
 
-  await heroSearch.fill('IFC');
+  await heroSearch.fill('Engineering Drawing & CAD Analysis');
   await heroSearch.press('Enter');
   await expect(cad).toBeVisible();
   await expect(projects.getByRole('status')).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(cad).toBeFocused();
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('dialog')).toContainText(/IFC export is experimental/i);
+  await expect(page.getByRole('dialog')).toContainText(/private company R&D/i);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
   await expect(cad).toBeFocused();
