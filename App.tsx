@@ -1774,6 +1774,7 @@ const App: React.FC = () => {
             <p>© {new Date().getFullYear()} Zakhar Pashkin</p>
             <a href="/papers/">Research notes <span aria-hidden="true">↗</span></a>
             <a href="#intro">Back to top ↑</a>
+            <p className="site-footer__saying" lang="hy">Լավություն արա, ջուրը գցիր</p>
           </footer>
         </main>
       </div>

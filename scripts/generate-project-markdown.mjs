@@ -1171,6 +1171,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     `      <li><a href="${SITE_BASE}/llms.txt">Text portfolio summary</a></li>`,
     '    </ul>',
     '  </section>',
+    '  <footer><p lang="hy">Լավություն արա, ջուրը գցիր</p></footer>',
     '</main>'
   ].join('\n');
 };
