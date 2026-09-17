@@ -1690,7 +1690,6 @@ const App: React.FC = () => {
           <Section
             id="contact"
             title="Contact"
-            description="For senior ML roles and focused collaborations in computer vision, document AI, and inference systems."
           >
             <div className="contact-grid">
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="contact-card">
