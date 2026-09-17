@@ -1,0 +1,205 @@
+{
+  "verifiedAt": "2026-09-17",
+  "projects": [
+    {
+      "name": "Neuralink",
+      "project": "datarepo",
+      "logo": "images/contributions/neuralink.png",
+      "logoSource": "https://github.com/neuralinkcorp.png?size=96",
+      "benefit": "Prevents lost query rows and makes setup reproducible.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/68",
+          "number": 68,
+          "title": "Preserve complete ClickHouse row identity during projected reads",
+          "status": "merged",
+          "mergedAt": "2026-09-16T20:14:35Z"
+        },
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/67",
+          "number": 67,
+          "title": "Preserve satisfied OR branches during Parquet partition pruning",
+          "status": "merged",
+          "mergedAt": "2026-09-16T20:14:31Z"
+        },
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/57",
+          "number": 57,
+          "title": "Fix ClickHouse null predicates and reject unsupported filters",
+          "status": "merged",
+          "mergedAt": "2026-09-08T08:26:28Z"
+        },
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/58",
+          "number": 58,
+          "title": "Make the README quick start runnable with local synthetic data",
+          "status": "merged",
+          "mergedAt": "2026-09-16T20:14:22Z"
+        },
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/59",
+          "number": 59,
+          "title": "Declare Python 3.10 minimum and verify installed wheels",
+          "status": "merged",
+          "mergedAt": "2026-09-16T20:14:26Z"
+        }
+      ]
+    },
+    {
+      "name": "Tesla",
+      "project": "Camera Kit",
+      "logo": "images/contributions/tesla.png",
+      "logoSource": "https://github.com/teslamotors.png?size=96",
+      "benefit": "Fixes Android scan accuracy, resource leaks and camera reuse.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/teslamotors/react-native-camera-kit/pull/812",
+          "number": 812,
+          "title": "Map Android barcode bounds into the visible scan frame",
+          "status": "open",
+          "mergedAt": null
+        },
+        {
+          "url": "https://github.com/teslamotors/react-native-camera-kit/pull/813",
+          "number": 813,
+          "title": "Reuse and close Android barcode scanners without leaking shared images",
+          "status": "open",
+          "mergedAt": null
+        },
+        {
+          "url": "https://github.com/teslamotors/react-native-camera-kit/pull/817",
+          "number": 817,
+          "title": "Restore camera executor after Android view reattachment",
+          "status": "open",
+          "mergedAt": null
+        },
+        {
+          "url": "https://github.com/teslamotors/react-native-camera-kit/pull/816",
+          "number": 816,
+          "title": "Fix iOS CI toolchain drift and default-branch triggers",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
+      "name": "UNSW",
+      "project": "Nempy",
+      "logo": "images/contributions/unsw.png",
+      "logoSource": "https://github.com/UNSW-CEEM.png?size=96",
+      "benefit": "Corrects battery dispatch inputs and prevents Linux solver crashes.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/UNSW-CEEM/nempy/pull/43",
+          "number": 43,
+          "title": "Preserve bidirectional unit identity in time-sequential ramp inputs",
+          "status": "open",
+          "mergedAt": null
+        },
+        {
+          "url": "https://github.com/UNSW-CEEM/nempy/pull/44",
+          "number": 44,
+          "title": "Prevent bundled CBC crashes with CFFI 2.x on Linux",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
+      "name": "pydicom",
+      "project": "Pixel encoding",
+      "logo": "images/contributions/pydicom.png",
+      "logoSource": "https://github.com/pydicom.png?size=96",
+      "benefit": "Preserves one-bit image pixels during compression.",
+      "account": "zack-dev-cm",
+      "scope": "Contributor branch",
+      "pullRequests": [
+        {
+          "url": "https://github.com/asaraog/pydicom/pull/1",
+          "number": 1,
+          "title": "Normalize packed one-bit OW data before frame encoding",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
+      "name": "Unitree Robotics",
+      "project": "Teleoperation & SDK",
+      "logo": "images/contributions/unitree.jpg",
+      "logoSource": "https://github.com/unitreerobotics.png?size=96",
+      "benefit": "Repairs teleoperation stop calls and documents DDS security.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/unitreerobotics/xr_teleoperate/pull/310",
+          "number": 310,
+          "title": "Fix teleop input-mode docs and damp call",
+          "status": "open",
+          "mergedAt": null
+        },
+        {
+          "url": "https://github.com/unitreerobotics/unitree_sdk2/pull/34",
+          "number": 34,
+          "title": "Add SECURITY.md with DDS deployment guidance",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
+      "name": "OpenClaw",
+      "project": "ClawPatch",
+      "logo": "images/contributions/openclaw.jpg",
+      "logoSource": "https://github.com/openclaw.png?size=96",
+      "benefit": "Fixes crawler access and adds website checks.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/openclaw/clawpatch/pull/95",
+          "number": 95,
+          "title": "[codex] fix site crawler checks",
+          "status": "merged",
+          "mergedAt": "2026-05-22T09:33:12Z"
+        }
+      ]
+    },
+    {
+      "name": "Keras",
+      "project": "Examples",
+      "logo": "images/contributions/keras.jpg",
+      "logoSource": "https://github.com/keras-team.png?size=96",
+      "benefit": "Adds missing setup dependencies for a documentation example.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/keras-team/keras-io/pull/520",
+          "number": 520,
+          "title": "Updated add dependencies",
+          "status": "merged",
+          "mergedAt": "2021-06-27T20:47:14Z"
+        }
+      ]
+    },
+    {
+      "name": "Toloka",
+      "project": "Python SDK",
+      "logo": "images/contributions/toloka.png",
+      "logoSource": "https://github.com/Toloka.png?size=96",
+      "benefit": "Fixes the pool analytics code example.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/Toloka/toloka-kit/pull/55",
+          "number": 55,
+          "title": "Replace undefined var \"op\" to \"operation\"",
+          "status": "merged",
+          "mergedAt": "2022-06-22T15:53:14Z"
+        }
+      ]
+    }
+  ]
+}

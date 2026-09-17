@@ -35,12 +35,12 @@ clinical accuracy and external-viewer import remain unconfirmed.
 - [SectionCheck source snapshot](https://github.com/zack-dev-cm/sectioncheck/tree/c11ee36b86b62f5d73ace0d5029900db1c24cb08): images, manifest, annotations and saved review.
 - [Fixture provenance](data/provenance.json): the viewer verifies copied fixture hashes before rendering.
 - [Film capture receipt](media/sectioncheck-capture.json): original input/output hashes, frame timestamps and renderer checks.
-- [Capture source snapshot](https://github.com/zack-dev-cm/neuralink-contributions/tree/7fd77f0bddaae8794dbaa9ee64a2662495771d66/showcase): reproduction tools, source code and input hashes used for the film and static model.
+- Capture source snapshot and contributor validation records are retained privately. The scene code, synthetic inputs and rendered assets remain available in this directory.
 
 The hosted gallery now presents SectionCheck alone. Capture-source hashes refer
-to the linked original snapshot. Serve this directory over HTTP to run the viewer;
+to the privately retained original snapshot. Serve this directory over HTTP to run the viewer;
 it uses same-origin local assets and does not upload data. Reproduction commands
-and dependencies are documented in the capture source snapshot. GPU rasterization
+and dependencies are retained in that private capture snapshot. GPU rasterization
 can differ between hosts; byte-identical media reproduction is not promised.
 
 ## Licenses

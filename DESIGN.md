@@ -149,10 +149,12 @@ or implementation details.
 Vehicle Lab copy distinguishes released software and digital prototypes from
 physical assembly or driving, which remain unverified.
 
-Open-source evidence is a short list of repository, contribution, status and link.
-Merged PRs appear first, followed by open PRs. Bug reports and issue discussions
-remain available in an explicitly labeled disclosure. Do not use organization logos
-as a substitute for describing the contribution.
+Open-source evidence groups contributions by project, ranked by practical impact
+and upstream acceptance. Each row pairs the project's GitHub logo with one short
+benefit, accurate merged/open counts and direct PR links. Neuralink leads with
+five merged changes; substantial pending fixes follow before smaller documentation
+changes. Mark contributor-branch work explicitly. Keep bug reports in a disclosure.
+The hero includes an Open-source contributions button linking to this section.
 
 ## Project motion — September 2026
 
@@ -188,8 +190,8 @@ visibility suspension, reduced-motion and data-saving behavior. Captions must
 distinguish recorded output, synthetic fixtures, and conceptual illustrations.
 
 Neuralink appears in contribution and independent-project contexts. Do not add
-it to employment history, employer logos, or imply affiliation. The three
-datarepo PRs are open as checked on 8 September 2026. SectionCheck and AAC remain
+it to employment history, employer logos, or imply affiliation. The five
+datarepo PRs #57, #58, #59, #67 and #68 are merged as checked on 17 September 2026. SectionCheck and AAC remain
 independent adjacent work with their own upstream and scope boundaries.
 
 ## Responsive and accessibility

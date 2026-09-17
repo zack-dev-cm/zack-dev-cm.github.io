@@ -26,8 +26,9 @@
   "display_depth": "Authored separation and extrusion for explanation; input is two-dimensional synthetic geometry.",
   "datarepo": {
     "quickstart": "https://github.com/zack-dev-cm/datarepo/blob/ec6b19441c9ebe8abd8dd8a4eef3d42f71aa0927/docs/examples/local_quickstart.py",
-    "null_predicates": "https://github.com/zack-dev-cm/neuralink-contributions/blob/c9841dc/review/D1_PR.md",
-    "tests": "https://github.com/zack-dev-cm/neuralink-contributions/actions/runs/34191476771"
+    "null_predicates": "https://github.com/neuralinkcorp/datarepo/pull/57",
+    "tests": "https://github.com/neuralinkcorp/datarepo/pull/57/files",
+    "validation_records": "Contributor validation records are retained privately; the upstream PR contains public source and regression tests."
   },
   "affiliation": "Independent contributions. No Neuralink affiliation or endorsement.",
   "validation": "Software demonstration. No anatomical, clinical or researcher validation.",

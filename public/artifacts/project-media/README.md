@@ -12,7 +12,7 @@ conceptual imagery. Animation duration does not represent computation time.
   The preview redraws the exact source polygons and the proposed +40/+24 pixel
   translation. Intermediate positions illustrate mapping; no transform is fitted.
 - **AAC:** the schematic reproduces the synthetic vocabulary-level mismatch
-  documented in the [source diagnostic](https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit).
+  documented in the privately retained source diagnostic.
   It is not an application screenshot.
 - **Dermaself and video retrieval:** the two PNG subjects in this directory were
   generated with AI on 8 September 2026. They contain no real user image or
@@ -32,5 +32,5 @@ Rebuild after installing the portfolio dependencies and FFmpeg:
 node scripts/media/render-project-previews.mjs
 ```
 
-Neuralink PR status was checked on 8 September 2026. Contributions and adjacent
+The five Neuralink datarepo PRs are merged as checked on 17 September 2026. Contributions and adjacent
 independent prototypes do not imply employment or affiliation.

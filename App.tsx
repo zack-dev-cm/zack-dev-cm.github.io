@@ -9,6 +9,8 @@ import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, XSocial
 import {
   PROJECTS,
   OPEN_SOURCE_CONTRIBUTIONS,
+  OPEN_SOURCE_PROJECTS,
+  OPEN_SOURCE_VERIFIED_AT,
   LATEST_UPDATES,
   SOCIAL_LINKS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
@@ -90,9 +92,6 @@ const CAREER = [
 const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10, 11, 1, 5, 6, 8, 9, 12, 13, 14, 25, 67, 43, 35] as const;
 const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 9;
-const CODE_CONTRIBUTIONS = OPEN_SOURCE_CONTRIBUTIONS
-  .filter((item) => item.evidenceLabel === 'Merged PR' || item.evidenceLabel === 'Open PR')
-  .sort((a, b) => Number(b.evidenceLabel === 'Merged PR') - Number(a.evidenceLabel === 'Merged PR'));
 const ISSUE_PARTICIPATION = OPEN_SOURCE_CONTRIBUTIONS
   .filter((item) => item.evidenceLabel !== 'Merged PR' && item.evidenceLabel !== 'Open PR');
 
@@ -1003,6 +1002,9 @@ const App: React.FC = () => {
                 <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
                 <a href={`mailto:${SOCIAL_LINKS.email}`}>Email <span aria-hidden="true">↗</span></a>
               </div>
+              <a href="#contributed-to" className="button button--ghost hero__contributions">
+                <GitHubIcon className="h-4 w-4" /> Open-source contributions <span aria-hidden="true">↓</span>
+              </a>
               <form className="hero-search" role="search" aria-label="Find portfolio work" onSubmit={handleHeroSearchSubmit}>
                 <label className="sr-only" htmlFor="hero-project-search">Search portfolio work</label>
                 <input
@@ -1312,9 +1314,32 @@ const App: React.FC = () => {
             id="contributed-to"
             eyebrow="Open Source"
             title="Open-source contributions"
-            description="Code changes, documentation, and issue reports with direct evidence."
+            description="Independent contributions, ordered by impact. Each links to the actual change."
           >
-            <ul className="contribution-list">{CODE_CONTRIBUTIONS.map(renderContribution)}</ul>
+            <ul className="contribution-list contribution-projects">
+              {OPEN_SOURCE_PROJECTS.map((project) => {
+                const merged = project.pullRequests.filter((pr) => pr.status === 'merged').length;
+                const open = project.pullRequests.filter((pr) => pr.status === 'open').length;
+                const status = [merged && `${merged} merged ${merged === 1 ? 'PR' : 'PRs'}`, open && `${open} open ${open === 1 ? 'PR' : 'PRs'}`].filter(Boolean).join(' · ');
+                return (
+                  <li className="contribution-project" key={project.name}>
+                    <img className="contribution-project__logo" src={resolveAssetUrl(project.logo)} alt="" width="48" height="48" loading="lazy" />
+                    <div className="contribution-project__body">
+                      <div className="contribution-card__heading">
+                        <h3 className="contribution-project__name">{project.name} <span>· {project.project}</span></h3>
+                        <span className={`contribution-card__status${merged === project.pullRequests.length ? ' is-merged' : ''}`}>{status}</span>
+                        {project.scope && <span className="contribution-card__status">{project.scope}</span>}
+                      </div>
+                      <p className="contribution-card__description">{project.benefit}</p>
+                    </div>
+                    <div className="contribution-project__links" aria-label={`${project.name} pull requests`}>
+                      {project.pullRequests.map((pr) => <a key={pr.url} href={pr.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} #${pr.number}: ${pr.title} (${pr.status})`} title={pr.title}>#{pr.number}<span aria-hidden="true">↗</span></a>)}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="contribution-verified">Status checked <time dateTime={OPEN_SOURCE_VERIFIED_AT}>17 September 2026</time>.</p>
             <details className="contribution-participation">
               <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
               <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>

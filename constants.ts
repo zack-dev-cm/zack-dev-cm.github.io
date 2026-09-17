@@ -1,3 +1,4 @@
+import contributionData from './data/open-source-contributions.json' with { type: 'json' };
 import { resolveAssetUrl } from './utils/assets';
 import type {
   Project,
@@ -88,47 +89,20 @@ export const COMPANIES: Company[] = [
   { name: "Curv Innovation", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/curv.png` }
 ];
 
+export const OPEN_SOURCE_PROJECTS = contributionData.projects;
+export const OPEN_SOURCE_VERIFIED_AT = contributionData.verifiedAt;
+
 export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
-  {
-    name: "Neuralink",
-    login: "neuralinkcorp",
-    avatarUrl: "https://github.com/neuralinkcorp.png?size=96",
-    repo: "neuralinkcorp/datarepo",
-    contribution: "Proposed a ClickHouse null-filter fix, with regression tests against a real local backend.",
-    evidenceLabel: "Open PR",
-    sourceUrl: "https://github.com/neuralinkcorp/datarepo/pull/57",
-    account: "zack-dev-cm"
-  },
-  {
-    name: "Neuralink",
-    login: "neuralinkcorp",
-    avatarUrl: "https://github.com/neuralinkcorp.png?size=96",
-    repo: "neuralinkcorp/datarepo",
-    contribution: "Replaced the cloud-dependent quick start with runnable synthetic Parquet data and tested joins.",
-    evidenceLabel: "Open PR",
-    sourceUrl: "https://github.com/neuralinkcorp/datarepo/pull/58",
-    account: "zack-dev-cm"
-  },
-  {
-    name: "Neuralink",
-    login: "neuralinkcorp",
-    avatarUrl: "https://github.com/neuralinkcorp.png?size=96",
-    repo: "neuralinkcorp/datarepo",
-    contribution: "Proposed a Python 3.10 minimum and isolated installed-wheel checks on Python 3.10 and 3.12.",
-    evidenceLabel: "Open PR",
-    sourceUrl: "https://github.com/neuralinkcorp/datarepo/pull/59",
-    account: "zack-dev-cm"
-  },
-  {
-    name: "OpenClaw",
-    login: "openclaw",
-    avatarUrl: "https://avatars.githubusercontent.com/u/252820863?s=96&v=4",
-    repo: "openclaw/clawpatch",
-    contribution: "Fixed site crawler checks in the ClawPatch code-review workflow.",
-    evidenceLabel: "Merged PR",
-    sourceUrl: "https://github.com/openclaw/clawpatch/pull/95",
-    account: "zack-dev-cm"
-  },
+  ...OPEN_SOURCE_PROJECTS.flatMap((project) => project.pullRequests.map((pr) => ({
+    name: project.name,
+    login: new URL(pr.url).pathname.split('/')[1],
+    avatarUrl: resolveAssetUrl(project.logo),
+    repo: new URL(pr.url).pathname.split('/').slice(1, 3).join('/'),
+    contribution: pr.title,
+    evidenceLabel: pr.status === 'merged' ? 'Merged PR' : 'Open PR',
+    sourceUrl: pr.url,
+    account: project.account as OpenSourceContribution['account']
+  }))),
   {
     name: "OpenAI",
     login: "openai",
@@ -137,16 +111,6 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
     contribution: "Reported a Codex Desktop sidebar interaction issue.",
     evidenceLabel: "Issue",
     sourceUrl: "https://github.com/openai/codex/issues/22363",
-    account: "zack-dev-cm"
-  },
-  {
-    name: "Unitree Robotics",
-    login: "unitreerobotics",
-    avatarUrl: "https://avatars.githubusercontent.com/u/44998897?s=96&v=4",
-    repo: "unitreerobotics/xr_teleoperate",
-    contribution: "Opened a teleoperation documentation and runtime PR.",
-    evidenceLabel: "Open PR",
-    sourceUrl: "https://github.com/unitreerobotics/xr_teleoperate/pull/310",
     account: "zack-dev-cm"
   },
   {
@@ -177,16 +141,6 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
     contribution: "Participated in debugging a torch.load compatibility issue.",
     evidenceLabel: "Issue comment",
     sourceUrl: "https://github.com/pytorch/pytorch/issues/25214",
-    account: "ZackPashkin"
-  },
-  {
-    name: "Keras",
-    login: "keras-team",
-    avatarUrl: "https://avatars.githubusercontent.com/u/34455048?s=96&v=4",
-    repo: "keras-team/keras-io",
-    contribution: "Updated dependencies for a public Keras documentation example.",
-    evidenceLabel: "Merged PR",
-    sourceUrl: "https://github.com/keras-team/keras-io/pull/520",
     account: "ZackPashkin"
   },
   {
@@ -1554,19 +1508,18 @@ export const PROJECTS: Project[] = [
     aliases: ["AAC", "AsTeRICS", "assistive communication", "vocabulary search"],
     searchProfile: { evidence: "implementation", capabilities: ["browser regression testing", "accessibility software diagnostics", "source-based reproduction", "cross-browser testing"] },
     description: "A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search.",
-    longDescription: "I built a small diagnostic around the actual released and development AsTeRICS AAC component methods. At vocabulary level 8, the grid shows the synthetic eight item while search also returns ten. The public harness pins upstream source hashes and records the mismatch in Chromium and Firefox with the local fixture online and offline. It was developed with AI assistance as independent adjacent work in the Neuralink contribution evidence repository; AsTeRICS is the upstream project, and no Neuralink integration is involved.",
+    longDescription: "I built a small diagnostic around the actual released and development AsTeRICS AAC component methods. At vocabulary level 8, the grid shows the synthetic eight item while search also returns ten. The harness pins upstream source hashes and records the mismatch in Chromium and Firefox with the local fixture online and offline. It was developed with AI assistance as independent adjacent work in the Neuralink contribution evidence repository; AsTeRICS is the upstream project, and no Neuralink integration is involved.",
     caseStudySections: [
       { title: "Reproduce the inconsistency at its source", body: "The harness imports the real upstream methods instead of copying the search implementation. It compares vocabulary visibility and search results, and probes unrestricted vocabulary, a local level toggle, manual hiding and unchanged source data." },
       { title: "Bounded browser evidence", body: "Released and development baselines reproduce the mismatch in Chromium and Firefox. Online and offline refer to the same loaded local fixture with network availability toggled. These are component-level checks, not full-app keyboard, speech or assistive-device tests." },
-      { title: "Diagnostic status", body: "The published output is a diagnostic and reproduction, not an upstream patch or user trial. A human-led contribution route and consenting collaborator remain pending. There is no claim of adoption, demonstrated user benefit or affiliation with AsTeRICS or Neuralink." }
+      { title: "Diagnostic status", body: "The diagnostic and validation records are retained privately. This is not an upstream patch or user trial. A human-led contribution route and consenting collaborator remain pending. There is no claim of adoption, demonstrated user benefit or affiliation with AsTeRICS or Neuralink." }
     ],
     keyFeatures: ["Actual upstream component methods", "Pinned released and development baselines", "Chromium and Firefox reproduction", "Vocabulary-level and hidden-item probes"],
     techStack: ["JavaScript", "Playwright", "Chromium", "Firefox", "Jest"],
     links: [
-      { text: "Diagnostic source and reproduction", url: "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit" },
-      { text: "Pinned browser evidence", url: "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/evidence/A-02" }
+      { text: "AsTeRICS AAC (upstream project)", url: "https://github.com/asterics/Asterics-AAC" }
     ],
-    images: [{ url: `${LOCAL_IMG_BASE}/aac-visibility-poster.png`, alt: "Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten", caption: "Diagnostic schematic based on the published synthetic fixture; not an application screenshot." }],
+    images: [{ url: `${LOCAL_IMG_BASE}/aac-visibility-poster.png`, alt: "Schematic of the synthetic level-8 diagnostic: the grid contains eight while search also returns ten", caption: "Diagnostic schematic based on an authored synthetic fixture; not an application screenshot." }],
     thumbnail: `${LOCAL_IMG_BASE}/aac-visibility-poster.png`
   },
   {

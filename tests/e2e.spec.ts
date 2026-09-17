@@ -1,6 +1,6 @@
 import { test, expect, type Locator, type Page } from '@playwright/test';
 import { createHash } from 'node:crypto';
-import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, OPEN_SOURCE_CONTRIBUTIONS } from '../constants';
+import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, OPEN_SOURCE_CONTRIBUTIONS, OPEN_SOURCE_PROJECTS } from '../constants';
 
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
 const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
@@ -419,17 +419,28 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   const contributedSection = page.locator('#contributed-to');
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeVisible();
-  await expect(contributedSection.getByRole('link')).toHaveCount(6);
-  await expect(contributedSection.getByText('Merged PR', { exact: true })).toHaveCount(2);
-  await expect(contributedSection.getByText('Open PR', { exact: true })).toHaveCount(4);
-  for (const number of [57, 58, 59]) {
-    await expect(contributedSection.locator(`a[href="https://github.com/neuralinkcorp/datarepo/pull/${number}"]`)).toContainText('neuralinkcorp/datarepo');
+  const contributionButton = page.locator('#intro').getByRole('link', { name: 'Open-source contributions' });
+  await contributionButton.click();
+  await expect(page).toHaveURL(/#contributed-to$/);
+  await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeInViewport();
+  await expect(contributedSection.locator('.contribution-project').first()).toContainText('Neuralink');
+  await expect(contributedSection.locator('.contribution-project').first()).toContainText('5 merged PRs');
+  await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('Tesla');
+  await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('4 open PRs');
+  await expect(contributedSection.getByText('Contributor branch', { exact: true })).toBeVisible();
+  for (const project of OPEN_SOURCE_PROJECTS) {
+    const row = contributedSection.locator('.contribution-project').filter({ has: page.getByRole('heading', { name: `${project.name} · ${project.project}`, exact: true }) });
+    await expect(row).toContainText(project.benefit);
+    await expectImageLoaded(row.locator('img'), `${project.name} logo`);
+    for (const pr of project.pullRequests) {
+      await expect(row.locator(`a[href="${pr.url}"]`)).toHaveAccessibleName(`${project.name} #${pr.number}: ${pr.title} (${pr.status})`);
+    }
   }
   await expect(contributedSection.locator('.contribution-participation')).not.toHaveAttribute('open', '');
   await contributedSection.locator('.contribution-participation > summary').click();
   await expect(contributedSection.getByRole('link')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
   await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
-  for (const contribution of OPEN_SOURCE_CONTRIBUTIONS) {
+  for (const contribution of OPEN_SOURCE_CONTRIBUTIONS.filter((item) => item.evidenceLabel.startsWith('Issue'))) {
     const row = contributedSection.locator(`a[href="${contribution.sourceUrl}"]`);
     await expect(row).toBeVisible();
     await expect(row).toContainText(contribution.contribution);

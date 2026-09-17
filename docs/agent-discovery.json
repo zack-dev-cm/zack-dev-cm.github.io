@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-09-08",
+  "generatedAt": "2026-09-17",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -1419,12 +1419,8 @@
       "benchmarks": [],
       "links": [
         {
-          "label": "Diagnostic source and reproduction",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/aac-audit"
-        },
-        {
-          "label": "Pinned browser evidence",
-          "url": "https://github.com/zack-dev-cm/neuralink-contributions/tree/main/evidence/A-02"
+          "label": "AsTeRICS AAC (upstream project)",
+          "url": "https://github.com/asterics/Asterics-AAC"
         }
       ]
     },

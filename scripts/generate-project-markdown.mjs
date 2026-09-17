@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const ROOT_DIR = path.resolve(__dirname, '..');
+const CONTRIBUTION_DATA = JSON.parse(await fs.readFile(path.join(ROOT_DIR, 'data/open-source-contributions.json'), 'utf8'));
 const CONSTANTS_PATH = path.resolve(ROOT_DIR, 'constants.ts');
 const PORTFOLIO_UPDATES_PATH = path.resolve(ROOT_DIR, 'public', 'portfolio-updates.json');
 const OUTPUT_DIR = path.resolve(ROOT_DIR, 'projects');
@@ -1131,6 +1132,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     `    <a href="${RESUME_HTML_URL}">Read resume</a>`,
     `    <a href="mailto:${CONTACT_EMAIL}">Email Zakhar</a>`,
     '    <a href="https://github.com/zack-dev-cm">GitHub</a>',
+    '    <a href="#contributed-to">Open-source contributions</a>',
     `    <a href="${LINKEDIN_URL}">LinkedIn</a>`,
     '  </div>',
     '  <section id="featured" class="crawlable-shell__section">',
@@ -1145,6 +1147,13 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     ...focusMarkup,
     '    </div>',
     `    <p>${escapeHtml(PRIMARY_STACK_LINE)}</p>`,
+    '  </section>',
+    '  <section id="contributed-to" class="crawlable-shell__section">',
+    '    <h2>Open-source contributions</h2>',
+    `    <p>Independent contributions. Status checked ${escapeHtml(CONTRIBUTION_DATA.verifiedAt)}.</p>`,
+    '    <ul class="crawlable-shell__link-list">',
+    ...CONTRIBUTION_DATA.projects.map((project) => `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)}${project.scope ? ` (${escapeHtml(project.scope)})` : ''} ${project.pullRequests.map((pr) => `<a href="${escapeHtml(pr.url)}">#${pr.number} (${escapeHtml(pr.status)})</a>`).join(' · ')}</li>`),
+    '    </ul>',
     '  </section>',
     '  <section id="projects" class="crawlable-shell__section">',
     '    <h2>Project archive</h2>',
