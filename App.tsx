@@ -1689,8 +1689,7 @@ const App: React.FC = () => {
 
           <Section
             id="contact"
-            eyebrow="Get in touch"
-            title="Let’s build something useful."
+            title="Contact"
             description="For senior ML roles and focused collaborations in computer vision, document AI, and inference systems."
           >
             <div className="contact-grid">
