@@ -60,7 +60,17 @@ for (const width of [1440, 700, 390]) {
       await page.locator('#scene').scrollIntoViewIfNeeded();
       const canvas = await page.locator('#scene').boundingBox();
       const camera = await page.evaluate(() => (window as any).neuralFilm.inspect().camera);
-      const x = canvas!.x + canvas!.width * .68, y = canvas!.y + canvas!.height * .5;
+      // Stage markers are clickable controls over the model. Orbit from a
+      // point that actually hits the canvas rather than a numbered button.
+      const point = await page.locator('#scene').evaluate((element) => {
+        const bounds = element.getBoundingClientRect();
+        for (const [fx, fy] of [[.1, .25], [.1, .5], [.85, .8]]) {
+          const x = bounds.x + bounds.width * fx, y = bounds.y + bounds.height * fy;
+          if (document.elementFromPoint(x, y) === element) return { x, y };
+        }
+        throw new Error('No unobstructed canvas point for orbit gesture');
+      });
+      const { x, y } = point;
       await page.mouse.move(x, y); await page.mouse.down(); await page.mouse.move(x + 35, y + 18, { steps: 4 }); await page.mouse.up();
       expect(await page.evaluate(() => (window as any).neuralFilm.inspect().camera)).not.toEqual(camera);
       await page.getByRole('button', { name: 'Reset view', exact: true }).click();

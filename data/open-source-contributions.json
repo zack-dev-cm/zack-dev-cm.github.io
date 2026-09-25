@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-09-17",
+  "verifiedAt": "2026-09-25",
   "projects": [
     {
       "name": "Neuralink",
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Prevents lost query rows and makes setup reproducible.",
+      "benefit": "Prevents lost query rows, fixes generated filters and makes setup reproducible.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -43,6 +43,13 @@
           "title": "Declare Python 3.10 minimum and verify installed wheels",
           "status": "merged",
           "mergedAt": "2026-09-16T20:14:26Z"
+        },
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/73",
+          "number": 73,
+          "title": "Preserve Python literals in generated catalog queries",
+          "status": "open",
+          "mergedAt": null
         }
       ]
     },
@@ -85,6 +92,23 @@
       ]
     },
     {
+      "name": "Unidata",
+      "project": "netCDF4",
+      "logo": "images/contributions/unidata.png",
+      "logoSource": "https://github.com/Unidata.png?size=96",
+      "benefit": "Preserves array dimensions when scientific-data selections are empty.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/Unidata/netcdf4-python/pull/1499",
+          "number": 1499,
+          "title": "Preserve dimensions for empty orthogonal indexing",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
       "name": "UNSW",
       "project": "Nempy",
       "logo": "images/contributions/unsw.png",
@@ -103,6 +127,23 @@
           "url": "https://github.com/UNSW-CEEM/nempy/pull/44",
           "number": 44,
           "title": "Prevent bundled CBC crashes with CFFI 2.x on Linux",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
+      "name": "pydicom",
+      "project": "Display lookup tables",
+      "logo": "images/contributions/pydicom.png",
+      "logoSource": "https://github.com/pydicom.png?size=96",
+      "benefit": "Prevents integer overflow when mapping pixel values through display lookup tables.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/pydicom/pydicom/pull/2378",
+          "number": 2378,
+          "title": "Prevent overflow in VOI LUT index calculation",
           "status": "open",
           "mergedAt": null
         }

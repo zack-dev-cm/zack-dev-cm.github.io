@@ -71,6 +71,19 @@ export function retrievalModel(data, texture) {
   root.add(connections);
   const rest = new Map(); for (const group of [vision, speech, ocr, visualIndex, textIndex, fusion]) group.children.forEach((object, i) => rest.set(object, { z: object.position.z, index: i }));
   const facts = { architecture: data.architecture, query: data.query, keyframes: data.keyframes, result: data.result, fixtureKind: data.kind, missingOcr: true, scope: data.scope };
+  const inspection = [
+    { id: 'input', name: 'Video / keyframes', shape: data.keyframes.map(frame => frame.timestamp).join(' · '), description: 'A timestamp gives each frame an address in the source video. The extraction branches share this time context.', note: 'These timestamps are authored. All three cards reuse the same generated still.' },
+    { id: 'vision', name: 'Visual signal', shape: 'Frame → visual embedding → visual index', description: 'The visual branch represents scene appearance, so search can use what a frame shows.', note: 'The lens is a schematic marker. No embedding vector or model inference is computed in this viewer.' },
+    { id: 'speech', name: 'Speech / ASR', shape: 'Audio → transcript → text index', description: 'Example transcript: “' + data.speech + '” Speech adds language context associated with a moment.', note: 'The transcript and waveform are authored examples, not recorded speech-recognition output.' },
+    { id: 'ocr', name: 'On-screen text / OCR', shape: data.ocr.length === 0 ? 'Example still: no readable text' : 'On-screen text → text index', description: 'The OCR branch can supply visible words to the text index. This example has no readable on-screen text.', note: 'A missing signal stays missing. The diagram does not invent an OCR match for the example still.' },
+    { id: 'visual-index', name: 'Visual index', shape: 'Visual embeddings → visual candidates', description: 'Visual candidates are retrieved from the visual index and passed toward hybrid ranking.', note: 'Node positions and edges are an authored layout, not computed embedding coordinates or similarity scores.' },
+    { id: 'text-index', name: 'Dense + sparse text index', shape: 'Transcript / OCR → text candidates', description: 'Language signals support complementary dense and sparse text retrieval before candidate fusion.', note: 'The displayed text entries illustrate the authored example. They are not a recorded index export.' },
+    { id: 'fusion', name: 'Hybrid ranking', shape: 'Visual + text candidates → ranked moments', description: 'Candidates from the available visual and language paths are combined into timestamped matches.', note: 'The architecture describes fusion and ranking; ring positions do not specify weights, scores or latency.' },
+    { id: 'result', name: 'Timestamped match', shape: data.result.timestamp + ' · ' + data.result.evidence.join(' + '), description: 'A timestamp lets a reader return to the matching moment and inspect its supporting signals.', note: 'This is an authored result card, not a measured retrieval result. No search request is sent.' }
+  ].map((stage, i) => {
+    const object = groups[i]; object.userData.stageId = stage.id;
+    return { ...stage, object, number: i + 1 };
+  });
   function update(shot, u, manual = false, separation = .4) {
     const s = smooth(u); if (manual) shot = 'overview';
     groups.forEach((group, i) => { group.position.copy(homes[i]); group.scale.setScalar(1); group.rotation.set(0, 0, 0); group.visible = true; });
@@ -109,5 +122,5 @@ export function retrievalModel(data, texture) {
     if (shot === 'resolve') dir = v(.8 - .2 * s, -1.55, 2.1);
     root.updateMatrixWorld(true); return { focus: center, distance, dir };
   }
-  return { root, update, facts };
+  return { root, update, facts, inspection };
 }

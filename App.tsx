@@ -1322,7 +1322,7 @@ const App: React.FC = () => {
                 const open = project.pullRequests.filter((pr) => pr.status === 'open').length;
                 const status = [merged && `${merged} merged ${merged === 1 ? 'PR' : 'PRs'}`, open && `${open} open ${open === 1 ? 'PR' : 'PRs'}`].filter(Boolean).join(' · ');
                 return (
-                  <li className="contribution-project" key={project.name}>
+                  <li className="contribution-project" key={`${project.name}-${project.project}`}>
                     <img className="contribution-project__logo" src={resolveAssetUrl(project.logo)} alt="" width="48" height="48" loading="lazy" />
                     <div className="contribution-project__body">
                       <div className="contribution-card__heading">
@@ -1331,6 +1331,8 @@ const App: React.FC = () => {
                         {project.scope && <span className="contribution-card__status">{project.scope}</span>}
                       </div>
                       <p className="contribution-card__description">{project.benefit}</p>
+                      {project.name === 'Unidata' && <a href="/docs/contribution-lab/" className="contribution-card__action">Explore empty selections in 3D <span aria-hidden="true">↗</span></a>}
+                      {project.name === 'pydicom' && !project.scope && <a href="/docs/contribution-lab/pydicom.html" className="contribution-card__action">Play the lookup-table example <span aria-hidden="true">↗</span></a>}
                     </div>
                     <div className="contribution-project__links" aria-label={`${project.name} pull requests`}>
                       {project.pullRequests.map((pr) => <a key={pr.url} href={pr.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} #${pr.number}: ${pr.title} (${pr.status})`} title={pr.title}>#{pr.number}<span aria-hidden="true">↗</span></a>)}
@@ -1339,7 +1341,7 @@ const App: React.FC = () => {
                 );
               })}
             </ul>
-            <p className="contribution-verified">Status checked <time dateTime={OPEN_SOURCE_VERIFIED_AT}>17 September 2026</time>.</p>
+            <p className="contribution-verified">Status checked <time dateTime={OPEN_SOURCE_VERIFIED_AT}>{new Date(`${OPEN_SOURCE_VERIFIED_AT}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</time>.</p>
             <details className="contribution-participation">
               <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
               <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>

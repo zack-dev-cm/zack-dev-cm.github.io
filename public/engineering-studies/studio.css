@@ -18,3 +18,74 @@ body[data-project=retrieval] #film-progress i{background:#eeb99f}
 @media(max-width:700px){#scope{display:none}#chapters button{font-size:9px}#transport{padding-bottom:3px}}
 #transport button,#download{min-height:44px}#chapters button{min-height:24px}
 @media(max-width:700px){#studio{min-height:960px}#scene{height:22.5%}#evidence{bottom:calc(24% + 48px)}h1{font-size:clamp(30px,10vw,42px)}}
+
+/* Inspection uses normal document flow; the film keeps its capture composition. */
+h1{letter-spacing:0;line-height:1.06}
+select{font:inherit;color:inherit;background:#142731;border:1px solid #527079;border-radius:4px;min-height:44px;padding:8px;width:100%;cursor:pointer}
+select:focus-visible{outline:2px solid #b9e7dc;outline-offset:3px}
+button:disabled{cursor:default;opacity:.5;filter:none}
+.capture #stage-picker,.capture #stage-actions,.capture #stage-description,.capture #stage-markers{display:none}
+body:not(.capture) #studio{height:auto;min-height:100svh;overflow:visible;display:flex;flex-direction:column;max-width:1800px;margin:auto;padding:24px 4% 18px;gap:24px}
+body:not(.capture) header{position:static;gap:24px;font-size:12px;min-height:36px;letter-spacing:.035em}
+body:not(.capture) header a{min-height:44px;display:flex;align-items:center}
+body:not(.capture) #workspace{display:grid;grid-template-columns:minmax(270px,340px) minmax(0,1fr);grid-template-rows:auto 1fr auto;column-gap:32px;row-gap:20px;flex:1}
+body:not(.capture) #story{position:static;grid-column:1;grid-row:1;width:auto;pointer-events:auto}
+body:not(.capture) #eyebrow{font-size:11px;letter-spacing:.11em;line-height:1.5;margin:0 0 12px}
+body:not(.capture) h1{font-size:clamp(32px,3.2vw,46px);letter-spacing:0;line-height:1.08;margin:0 0 15px;max-width:none}
+body:not(.capture) #subtitle{font-size:14px;line-height:1.55;max-width:none}
+body:not(.capture) #fact{position:static;display:flex;align-items:baseline;gap:14px;border-top:1px solid #31464d;padding:12px 0 0;margin-top:16px;text-align:left}
+body:not(.capture) #fact-value{font-size:26px;letter-spacing:0}
+body:not(.capture) #fact-label{font-size:11px;max-width:180px;margin:0;text-align:left}
+body:not(.capture) #viewport{position:relative;grid-column:2;grid-row:1/4;min-height:520px;border:1px solid #2a414d;border-radius:8px;overflow:hidden;background:#0c1822}
+body:not(.capture) #scene{inset:0;width:100%;height:100%;mask-image:none}
+body:not(.capture) #object-label{position:absolute;top:16px;left:18px;right:18px;color:#bdd0d4;font-size:10px;line-height:1.5;letter-spacing:.04em;z-index:2}
+body:not(.capture) #evidence{position:static;grid-column:1;grid-row:2;align-self:start;max-height:none;width:auto;padding:16px;pointer-events:auto;min-width:0}
+#stage-picker{display:grid;gap:8px;margin-bottom:17px;font-size:12px;color:#bdced0}
+#evidence-value{overflow-wrap:anywhere}
+body:not(.capture) #evidence-label{font-size:10px;line-height:1.5;margin-bottom:8px}
+body:not(.capture) #evidence-value{font-size:13px;line-height:1.65;display:block}
+#stage-description{font-size:13px;line-height:1.6;color:#d0dddd;margin:12px 0 0}
+body:not(.capture) #evidence-note{font-size:12px;line-height:1.55;margin:10px 0 0;color:#a4bdc5}
+#stage-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:16px}
+#stage-actions button{min-height:44px;padding:9px 12px}
+#fixture-link{font-size:11px;color:#bde4dc;line-height:1.5;text-decoration:underline;text-underline-offset:3px;min-height:44px;display:flex;align-items:center}
+body:not(.capture) #scope{display:block;position:static;grid-column:1;grid-row:3;font-size:11px;line-height:1.55;max-width:none;color:#97afb7;letter-spacing:0}
+body:not(.capture) #transport{position:static;padding:16px 0 0;background:transparent}
+body:not(.capture) .transport-row{flex-wrap:wrap;gap:8px}
+body:not(.capture) #chapters{flex-wrap:wrap;gap:4px;justify-content:flex-start;margin-top:8px}
+body:not(.capture) #chapters button{font-size:11px;min-height:44px;padding:8px 10px;border:1px solid transparent}
+body:not(.capture) #chapters button.active{border-color:#527079;border-radius:4px;background:#142731}
+body:not(.capture) .timeline-label{font-size:11px;min-height:32px;margin-top:10px}
+body:not(.capture) #timeline{height:24px}
+body:not(.capture) .inspection-tools{display:flex;gap:20px;flex-wrap:wrap;line-height:1.5;font-size:11px;margin:10px 0 0}
+body:not(.capture) .inspection-tools[hidden]{display:none}
+body:not(.capture) .inspection-tools label{min-height:36px}
+body:not(.capture) .inspection-tools span{color:#a5bbc4}
+#stage-markers{position:absolute;inset:0;pointer-events:none}
+#stage-markers[hidden]{display:none}
+.stage-marker{position:absolute;left:0;top:0;transform:translate(-50%,-50%);pointer-events:auto;min-width:44px;min-height:44px;padding:0;border:1px solid #9bb9c1;border-radius:50%;background:#0a202ee8;color:#e9f3f2;box-shadow:0 2px 8px #0006;font:600 13px monospace}
+.stage-marker[aria-pressed=true]{background:#d6eeb3;color:#14231d;border-color:#d6eeb3;outline:3px solid #0c1822}
+body[data-project=retrieval] .stage-marker[aria-pressed=true]{background:#efb89a;border-color:#efb89a;color:#30241e}
+@media(max-width:1000px){body:not(.capture) #workspace{grid-template-columns:minmax(260px,300px) minmax(0,1fr);column-gap:20px}body:not(.capture) #viewport{min-height:570px}body:not(.capture) h1{font-size:34px}body:not(.capture) .inspection-tools span{display:none}}
+@media(max-width:760px){
+  body:not(.capture) #studio{padding:16px 5% 20px;gap:20px;min-height:100svh}
+  body:not(.capture) header{font-size:10px;gap:12px}
+  body:not(.capture) #source-link{max-width:100px;text-align:right}
+  body:not(.capture) #workspace{display:flex;flex-direction:column;gap:18px}
+  body:not(.capture) #story{order:0}
+  body:not(.capture) #viewport{order:1;min-height:0;height:360px;width:100%;flex:none}
+  body:not(.capture) #evidence{order:2;width:100%}
+  body:not(.capture) #scope{order:3}
+  body:not(.capture) h1{font-size:36px;max-width:none}
+  body:not(.capture) h1 br{display:none}
+  body:not(.capture) #fact{margin-top:14px}
+  body:not(.capture) #fact-label{max-width:none}
+  body:not(.capture) #eyebrow{font-size:10px}
+  body:not(.capture) #object-label{top:12px;left:12px;right:12px;font-size:9px}
+  body:not(.capture) #transport{padding-bottom:0}
+  body:not(.capture) #transport button,body:not(.capture) #download{font-size:11px;padding:9px 10px}
+  body:not(.capture) #clock{font-size:10px;white-space:nowrap}
+  body:not(.capture) #chapters{gap:3px}
+  body:not(.capture) #chapters button{font-size:10px}
+  body:not(.capture) .inspection-tools{gap:12px}
+}

@@ -53,6 +53,19 @@ export function agnitraModel(data) {
   trace.add(tag('SELECTED OPERATOR NAMES / NO TIMING SCALE', 0, -2.2, .1, '#a0b8a7', 7.6));
   root.add(bases, captions, routes, stencil, trace);
   const facts = { release: data.package_release, input: data.input_shape, output: data.output_shape, layers: data.layers, parameters: 260, linearConnections: 32, device: data.environment.device, dtype: data.dtype, selectedOperators, scope: data.scope };
+  const shape = value => '[' + value.join(', ') + ']';
+  const inspection = [
+    { id: 'input', name: 'Input', shape: shape(data.input_shape), description: `${data.input_shape[1]} channels, each a ${data.input_shape[2]} × ${data.input_shape[3]} grid. The sheet surface represents height and width; stacking separates channels.`, note: 'Shape order: batch, channels, height, width. Colors and depth are illustrative; no pixel or activation values are shown.' },
+    { id: 'conv', name: 'Conv2d', description: 'A 3 × 3 convolution expands three input channels into eight feature maps while preserving the 32 × 32 spatial grid.', note: 'The kernel footprint explains connectivity. The recorded fixture contains shapes, not activation values.' },
+    { id: 'relu', name: 'ReLU', description: 'ReLU applies an elementwise activation. All eight channels retain their 32 × 32 spatial grid.', note: 'Matching dimensions show that this operation changes values without reshaping the tensor. Values are not displayed.' },
+    { id: 'pool', name: 'AdaptiveAvgPool2d', description: 'Each 32 × 32 channel becomes one pooled value. Eight small cubes represent the eight remaining channels.', note: 'Each cube represents one channel after spatial averaging. Cube position and depth do not encode its value.' },
+    { id: 'flat', name: 'Flatten', description: 'The eight pooled values are laid out as a vector. Reshaping keeps the value count at eight.', note: 'The row is a layout illustration; no new values or trainable parameters are introduced by Flatten.' },
+    { id: 'linear', name: 'Linear', description: 'Eight vector elements connect to four outputs. The 32 connections represent weight parameters, with four additional bias parameters.', note: 'Lines show connectivity only. The fixture is randomly initialized; these outputs are not trained predictions.' }
+  ].map((stage, i) => {
+    const object = stages[i]; object.userData.stageId = stage.id;
+    bases.children[i].userData.stageId = stage.id; captions.children[i].userData.stageId = stage.id;
+    return { ...stage, object, number: i + 1, shape: i ? shape(data.layers[i - 1].input_shapes[0]) + ' → ' + shape(data.layers[i - 1].output_shapes[0]) : stage.shape };
+  });
   function update(shot, u, manual = false, separation = .45) {
     const s = smooth(u); if (manual) shot = 'overview';
     for (let i = 0; i < stages.length; i++) { stages[i].visible = true; stages[i].position.copy(homes[i]); stages[i].scale.setScalar(1); stages[i].rotation.set(0, 0, 0); }
@@ -91,5 +104,5 @@ export function agnitraModel(data) {
     if (shot === 'resolve') { distance = 27.5; dir = v(.9 - .2 * s, -1.65, 2); }
     root.updateMatrixWorld(true); return { focus, distance, dir };
   }
-  return { root, update, facts };
+  return { root, update, facts, inspection };
 }

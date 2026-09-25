@@ -13,6 +13,7 @@ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),smooth=v=>{v=clamp(v);return 
 const mix=(a,b,t)=>a+(b-a)*t;
 const models={},sourceChecks={};let graph,motion,terrainEnvelope,time=0,playing=false,previous=0,raf=null,currentShot='',userCamera=false,manual=false,selected=null,activeModel=null;
 let manualGroup=0,manualMembers=0,system='all',wire=false,treeManual=null;
+let partOptionsModel=null,partOptionsKey=null;
 const renderer=new T.WebGLRenderer({canvas:$('#scene'),antialias:true,preserveDrawingBuffer:true});
 renderer.setPixelRatio(capture?1:Math.min(devicePixelRatio,1.5));renderer.setClearColor(0x101a23);renderer.outputColorSpace=T.SRGBColorSpace;
 renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
@@ -179,7 +180,7 @@ function setupTree(){
 function ancestors(id,set=new Set()){if(set.has(id))return set;set.add(id);for(const parent of nodeMap.get(id)?.parent_ids||[])ancestors(parent,set);return set;}
 function focusTree(id){const branch=ancestors(id);for(const n of graph.nodes){n.element.classList.toggle('active',branch.has(n.id));n.element.classList.toggle('focus',n.id===id);}for(const edge of $('#tree-svg').querySelectorAll('.edge'))edge.classList.toggle('active',branch.has(edge.dataset.parent)&&branch.has(edge.dataset.child));}
 function treeShot(shot,u){
- for(const m of Object.values(models))m.root.visible=false;floor.visible=false;grid.visible=false;$('#detail-tag').hidden=true;
+ for(const m of Object.values(models))m.root.visible=false;activeModel=null;floor.visible=false;grid.visible=false;$('#detail-tag').hidden=true;
  const returnShot=shot.id==='tree-return',id=returnShot?'BABY-AG23-P01':'RIDGE-MECH-R3D';focusTree(treeManual?.id||id);
  const n=nodeMap.get(id),wide=graphBox,close={x:Math.max(-30,n.x-600),y:Math.max(-45,n.y-180),width:1050,height:530};
  const zoom=returnShot?1-smooth(u/.65):smooth((u-.48)/.45);
@@ -216,6 +217,7 @@ function seek(seconds){
  for(const id of ['system','separate','members','wire'])$('#'+id).disabled=isTree||isMotion;
  motion.show(false);app.motionState=null;
  if(isTree)treeShot(shot,u);else if(isMotion)motionShot(shot,u);else modelShot(shot,u);
+ syncPartOptions();
  // Beat accent changes a narrow progress line and fill light, not frame luminance.
  const beatPhase=(time/BEAT)%1;front.intensity=1.2+.12*Math.exp(-beatPhase*7);
  if(selected)selected.material.emissive.set(0x244c50);
@@ -227,16 +229,41 @@ function play(){if(!app.ready)return;if(time>=DURATION)seek(0);manual=false;user
 function pause(){playing=false;previous=0;if(raf!==null)cancelAnimationFrame(raf);raf=null;$('#play').textContent='Play film';}
 function loop(now){raf=null;if(!playing)return;const delta=previous?Math.min(.1,(now-previous)/1000):0;previous=now;seek(time+delta);if(time>=DURATION)pause();else raf=requestAnimationFrame(loop);}
 function resize(){const w=$('#scene').clientWidth,h=$('#scene').clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();if(app.ready){userCamera=false;seek(time);}else render();}
-function clearSelection(){if(selected)selected.material.emissive.set(0);selected=null;$('#focus').disabled=true;$('#selection').textContent=currentShot.startsWith('tree')?'Scroll to zoom. Drag to pan. Select a revision to inspect its recorded status and parents.':'Drag to orbit. Scroll to inspect. Select a part to reveal its source identity.';}
+function clearSelection(){if(selected)selected.material.emissive.set(0);selected=null;$('#part').value='';$('#focus').disabled=true;$('#selection').textContent=currentShot.startsWith('tree')?'Scroll to zoom. Drag to pan. Select a revision to inspect its recorded status and parents.':'Drag to orbit. Scroll to inspect. Choose a part from the list or select it in the model to reveal its source identity.';}
+function syncPartOptions(){
+ const parts=activeModel?.root.visible?activeModel.objects.filter(o=>o.visible):[],key=parts.map(o=>o.userData.id).join('\n'),select=$('#part');
+ if(selected&&!parts.includes(selected))clearSelection();
+ if(partOptionsModel!==activeModel||partOptionsKey!==key){
+  const placeholder=new Option(parts.length?'Choose a visible part':'No parts in this view','');select.replaceChildren(placeholder);
+  const groups=new Map(),labels=new Map(Array.from($('#system').options,o=>[o.value,o.text]));
+  for(const part of parts){
+   const {id,group,role}=part.userData;
+   if(!groups.has(group)){const optionGroup=document.createElement('optgroup');optionGroup.label=labels.get(group)||group;groups.set(group,optionGroup);select.append(optionGroup);}
+   groups.get(group).append(new Option(`${id} · ${role.replaceAll('_',' ')}`,id));
+  }
+  partOptionsModel=activeModel;partOptionsKey=key;
+ }
+ select.disabled=!parts.length;select.value=selected?.userData.id||'';
+}
+function selectPart(part){
+ pause();clearSelection();
+ if(part&&activeModel?.root.visible&&part.visible&&activeModel.objects.includes(part)){
+  selected=part;selected.material.emissive.set(0x244c50);$('#part').value=selected.userData.id;
+  $('#selection').textContent=`${selected.userData.id} · ${selected.userData.group} · ${selected.userData.role}`;$('#focus').disabled=false;
+ }
+ render();
+}
 function manualChange(){if(!app.ready)return;pause();clearSelection();manual=true;userCamera=false;manualGroup=+$('#separate').value;manualMembers=+$('#members').value;system=$('#system').value;seek(time);}
 $('#play').onclick=()=>playing?pause():play();$('#scrub').oninput=e=>{pause();seek(+e.target.value);};
 $('#reset').onclick=()=>{pause();manual=false;userCamera=false;treeManual=null;system='all';$('#system').value='all';$('#members').value=0;$('#separate').value=0;wire=false;clearSelection();$('#wire').setAttribute('aria-pressed','false');seek(time);};
 $('#tree-button').onclick=()=>{pause();seek(8*BEAT);};for(const id of ['system','separate','members'])$('#'+id).oninput=manualChange;
 $('#wire').onclick=()=>{pause();wire=!wire;$('#wire').setAttribute('aria-pressed',String(wire));seek(time);};
+$('#part').onfocus=pause;
+$('#part').onchange=e=>selectPart(activeModel?.objects.find(o=>o.userData.id===e.target.value));
 $('#focus').onclick=()=>{if(!selected)return;userCamera=false;fit(boundsFor([selected]),[.8,1,.5],1.3);userCamera=true;render();};
 let down=null;
 $('#scene').addEventListener('pointerdown',e=>{down=[e.clientX,e.clientY];});
-$('#scene').addEventListener('pointerup',e=>{if(!app.ready||!activeModel||!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const rect=$('#scene').getBoundingClientRect();pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,camera);const hit=raycaster.intersectObjects(activeModel.objects.filter(o=>o.visible),false)[0];clearSelection();if(hit){selected=hit.object;selected.material.emissive.set(0x244c50);$('#selection').textContent=`${selected.userData.id} · ${selected.userData.group} · ${selected.userData.role}`;$('#focus').disabled=false;}render();});
+$('#scene').addEventListener('pointerup',e=>{if(!app.ready||!activeModel?.root.visible||!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>5)return;const rect=$('#scene').getBoundingClientRect();pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,camera);const hit=raycaster.intersectObjects(activeModel.objects.filter(o=>o.visible),false)[0];selectPart(hit?.object);});
 const tree=$('#tree');let pan=null;
 tree.addEventListener('wheel',e=>{if(!app.ready)return;e.preventDefault();pause();const b=treeManual||app.treeView,scale=Math.exp(clamp(e.deltaY,-120,120)*.002);treeManual={...b,x:b.x+b.width*(1-scale)/2,y:b.y+b.height*(1-scale)/2,width:clamp(b.width*scale,350,graphBox.width*1.8),height:clamp(b.height*scale,200,graphBox.height*1.8)};seek(time);},{passive:false});
 tree.addEventListener('pointerdown',e=>{if(e.target.closest('.node'))return;pause();pan={x:e.clientX,y:e.clientY,b:{...(treeManual||app.treeView)}};tree.setPointerCapture(e.pointerId);});

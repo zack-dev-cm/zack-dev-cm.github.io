@@ -197,3 +197,49 @@ test('Vehicle Lab retains navigation if the preview cannot load', async ({ page 
   await expect(featured.getByRole('status')).toHaveText('Preview unavailable');
   await expect(featured.getByRole('link', { name: 'Explore in 3D' })).toBeVisible();
 });
+
+test('Vehicle Lab parts can be selected and focused by keyboard without stale selections', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/docs/vehicle-lab/film.html');
+  await page.waitForFunction(() => (window as any).vehicleFilm?.ready || (window as any).vehicleFilm?.error);
+  expect(await page.evaluate(() => (window as any).vehicleFilm.error)).toBe(null);
+
+  const part = page.getByRole('combobox', { name: 'Part', exact: true });
+  const focus = page.getByRole('button', { name: 'Focus selected part', exact: true });
+  await expect(part).toBeEnabled();
+  await expect(focus).toBeDisabled();
+  await page.getByRole('combobox', { name: 'System', exact: true }).focus();
+  await page.keyboard.press('Tab');
+  await expect(part).toBeFocused();
+  const firstPart = await part.locator('option').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value).find(Boolean));
+  expect(firstPart).toBeTruthy();
+  await part.selectOption(firstPart!);
+  await expect(part).not.toHaveValue('');
+  const selectedId = await part.inputValue();
+  await expect(page.locator('#selection')).toContainText(selectedId);
+  await expect(focus).toBeEnabled();
+  const beforeFocus = await page.evaluate(() => (window as any).vehicleFilm.camera.position.toArray());
+  await focus.focus();
+  await focus.press('Enter');
+  expect(await page.evaluate(() => (window as any).vehicleFilm.camera.position.toArray())).not.toEqual(beforeFocus);
+  await expect(part).toHaveValue(selectedId);
+
+  await page.getByRole('combobox', { name: 'System', exact: true }).selectOption('frame');
+  await expect(part).toHaveValue('');
+  await expect(focus).toBeDisabled();
+  await expect(part.locator('optgroup')).toHaveCount(1);
+  await expect(part.locator('optgroup')).toHaveAttribute('label', 'Frame');
+  const framePart = await part.locator('optgroup option').first().getAttribute('value');
+  expect(framePart).toBeTruthy();
+  await part.selectOption(framePart!);
+  await expect(focus).toBeEnabled();
+
+  await page.getByRole('button', { name: 'Full evolution tree', exact: true }).click();
+  await expect(page.locator('#tree')).toBeVisible();
+  await expect(part).toBeDisabled();
+  await expect(part).toHaveValue('');
+  await expect(focus).toBeDisabled();
+  await expect(part.locator('optgroup')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});

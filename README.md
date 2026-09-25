@@ -25,6 +25,13 @@ Explore the layers and architecture behind two main projects. Each has an intera
 
 Agnitra uses its public CPU profiling fixture; Video Search uses explicitly illustrative inputs. [Open the gallery](https://zack-dev-cm.github.io/docs/engineering-studies/) or [inspect the sources, models and films](public/engineering-studies/README.md).
 
+Two playable contribution lessons connect code changes to editable examples:
+
+- [netCDF4 empty selections](https://zack-dev-cm.github.io/docs/contribution-lab/): play a 30-second walkthrough, select array axes, separate layers and inspect values.
+- [pydicom lookup-table indexing](https://zack-dev-cm.github.io/docs/contribution-lab/pydicom.html): play a 24-second example, cross the overflow boundary and compare the resulting table entries.
+
+Both support pause, restart, chapter selection, scrubbing and manual exploration.
+
 ## Development
 
 Requires Node.js 22. Install Poppler for PDF text checks. The public source/artifact audit uses the repository's existing Node dependencies.

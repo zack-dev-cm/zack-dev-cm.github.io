@@ -1,0 +1,57 @@
+import { test, expect } from '@playwright/test';
+test.use({ launchOptions: { args: ['--enable-webgl', '--ignore-gpu-blocklist', '--enable-unsafe-swiftshader'] } });
+const url='/docs/contribution-lab/';
+for(const width of [390,768,1440]) {
+  test(`selection geometry and metadata stay understandable at ${width}px`,async({page},info)=>{
+    await page.setViewportSize({width,height:900});
+    await page.goto(url);
+    await expect(page.locator('#loading')).toBeHidden({timeout:30000});
+    await expect(page.locator('#shape')).toHaveText('(3, 5, 7)');
+    await page.getByRole('button',{name:'Play example',exact:true}).click();
+    await expect(page.getByRole('button',{name:'Pause example',exact:true})).toBeVisible();
+    await expect.poll(()=>page.locator('#example-time').inputValue()).not.toBe('0');
+    await page.getByRole('button',{name:'Pause example',exact:true}).click();
+    const paused=await page.locator('#example-time').inputValue();
+    await page.waitForTimeout(180);
+    await expect(page.locator('#example-time')).toHaveValue(paused);
+    await page.getByLabel('Example position',{exact:true}).fill('14');
+    await expect(page.locator('#shape')).toHaveText('(0, 5, 7)');
+    await expect(page.locator('#step-title')).toContainText('Zero X positions');
+    await page.getByRole('button',{name:'Every other cell',exact:true}).click();
+    await expect(page.locator('#count')).toHaveText('24 values selected');
+    await expect(page.locator('#shape')).toHaveText('(2, 3, 4)');
+    await page.getByLabel('Inspect a selected value',{exact:true}).selectOption('2,4,6');
+    await expect(page.locator('#cell-detail')).toContainText('[2, 4, 6]');
+    await page.screenshot({path:info.outputPath(`netcdf-selected-${width}.png`),fullPage:true});
+    await page.getByLabel('Separate X layers',{exact:true}).fill('0.8');
+    await expect(page.getByLabel('Inspect a selected value',{exact:true})).toHaveValue('2,4,6');
+    await expect(page.locator('#cell-detail')).toContainText('[2, 4, 6]');
+    await page.getByRole('button',{name:'Empty X',exact:true}).click();
+    await expect(page.locator('#shape')).toHaveText('(0, 5, 7)');
+    await expect(page.locator('#count')).toHaveText('0 values selected');
+    await expect(page.getByLabel('Inspect a selected value',{exact:true})).toBeDisabled();
+    await page.getByRole('button',{name:'Scalar + empty',exact:true}).click();
+    await expect(page.locator('#shape')).toHaveText('(0, 7)');
+    await page.getByRole('button',{name:'Restart',exact:true}).click();
+    await expect(page.locator('#shape')).toHaveText('(3, 5, 7)');
+    await expect(page.locator('#example-time')).toHaveValue('0');
+    await page.getByRole('button',{name:'Play example in model',exact:true}).click();
+    await expect(page.getByRole('button',{name:'Pause example',exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Pause example in model',exact:true}).click();
+    await expect(page.getByRole('button',{name:'Play example',exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'Restart',exact:true}).click();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+    await page.screenshot({path:info.outputPath(`netcdf-${width}.png`),fullPage:true});
+  });
+}
+test('shape controls and textual inspection work when 3D cannot load',async({page})=>{
+  await page.route('**/engineering-studies/vendor/three.module.min.js',route=>route.abort());
+  await page.goto(url);
+  await expect(page.locator('#loading')).toContainText('3D is unavailable');
+  await expect(page.locator('#cube')).toBeHidden();
+  await expect(page.locator('.view-controls')).toBeHidden();
+  await page.getByLabel('Inspect a selected value',{exact:true}).selectOption('0,0,0');
+  await expect(page.locator('#cell-detail')).toContainText('[0, 0, 0]');
+  await page.getByRole('button',{name:'Empty X',exact:true}).click();
+  await expect(page.locator('#shape')).toHaveText('(0, 5, 7)');
+});

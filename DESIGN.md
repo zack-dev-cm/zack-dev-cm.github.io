@@ -196,6 +196,30 @@ independent adjacent work with their own upstream and scope boundaries.
 
 ## Responsive and accessibility
 
+### Playable contribution lessons
+
+For substantial contributions with an inspectable example, link a focused lesson
+from its contribution row without promoting every patch into selected work.
+The September 2026 batch covers netCDF4 empty selections and pydicom LUT indexing.
+Each opens paused with a useful model, an explicit Play/Pause action, restart,
+scrubbing and chapter navigation. Input, camera and selection interactions pause
+the example. Reduced motion and a hidden tab stop playback. Keep arithmetic and
+shape explanations usable if WebGL cannot load.
+
+Every scene answers a specific question through a real change in state. netCDF4
+uses the PR's synthetic 3 × 5 × 7 shape; no cubes survive an empty selection.
+pydicom uses synthetic values and a four-entry LUT; height represents value,
+never anatomy. Keep dated PR status in the contribution listings and link source/tests from the lesson.
+Labs focus on the example and controls; omit contributor, acceptance and benchmark
+disclaimer blocks. Use short legends only where they help interpret the model.
+Use semantic colors, readable DOM explanations, keyboard equivalents for picking,
+and explicit source versus illustration boundaries. Separate text from the model
+viewport so smaller screens can scroll instead of hiding controls or shrinking type.
+
+Considered directions: a film-only preview, an orbit-only scene, and a guided
+example with editable inputs. Use the third: the visitor should be able to pause
+at the failure, change the input, and understand the corrected result.
+
 At 390px and 360px, name, role, positioning sentence, and both main actions must
 fit in the first viewport. At 768px, work cards form two columns where their
 copy remains readable. At desktop, the layout uses generous side margins and

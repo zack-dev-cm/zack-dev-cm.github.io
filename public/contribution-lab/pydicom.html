@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>When bright values wrap — pydicom contribution lab</title>
+  <meta name="description" content="Play a guided 3D example of pydicom PR #2378. Explore how integer overflow changes a display lookup, and how the proposed fix preserves the correct endpoint.">
+  <link rel="canonical" href="https://zack-dev-cm.github.io/docs/contribution-lab/pydicom.html">
+  <link rel="icon" href="../engineering-studies/icon.svg"><link rel="stylesheet" href="pydicom.css">
+  <script type="importmap">{"imports":{"three":"../engineering-studies/vendor/three.module.min.js","three/addons/controls/OrbitControls.js":"../engineering-studies/vendor/OrbitControls.js"}}</script>
+</head>
+<body>
+  <a class="skip" href="#explore">Skip to hands-on controls</a>
+  <header><a href="/#contributed-to">ZP / Contributions</a><a href="https://github.com/pydicom/pydicom/pull/2378">pydicom PR #2378 ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">Contribution lab / Pixel display</p><h1>When bright<br>values <em>wrap.</em></h1></div><p class="lede">A large input can accidentally choose the darkest entry in a display table. Play the example, then move the values yourself to see the proposed correction.</p></section>
+    <div class="workbench">
+      <section class="stage" aria-label="Guided display lookup example">
+        <div class="transport"><button type="button" id="play" class="primary">Play example</button><button type="button" id="restart">Restart</button><span id="play-state" role="status">Paused · ready to play</span></div>
+        <div class="timeline"><div class="range-label"><label for="timeline">Example timeline</label><output id="time">0:00 / 0:24</output></div><input id="timeline" type="range" min="0" max="24" step="0.05" value="0" aria-valuetext="0 seconds: Read the table"></div>
+        <div class="chapters" aria-label="Example chapters"><button type="button" data-chapter="0" aria-current="step">01 · Table</button><button type="button" data-chapter="1">02 · Wrap</button><button type="button" data-chapter="2">03 · Fix</button><button type="button" data-chapter="3">04 · Shift</button></div>
+        <div class="scene-top"><span>Display lookup table</span><b>Synthetic values · height = intensity</b></div>
+        <canvas id="lut-scene" hidden aria-label="Four synthetic table entries. Their heights represent output values 10, 20, 30 and 40. The same entries can be inspected with the buttons below."></canvas>
+        <p id="scene-status" role="status">Loading the 3D table. The arithmetic and controls work without it.</p>
+        <p id="scene-readout" class="scene-readout">Input 2 · Before 30 → After 30</p>
+        <div class="scene-legend"><span><i class="before"></i>Baseline route</span><span><i class="after"></i>Proposed route</span></div>
+        <div class="camera" hidden><button type="button" id="scene-play" aria-label="Play example beside model">Play</button><button type="button" id="reset-view">Reset view</button><button type="button" id="front-view">Front view</button><span>Drag to orbit · scroll to zoom</span></div>
+        <div class="entries" aria-label="Inspect a table entry"><button type="button" data-entry="0" aria-pressed="false"><span>Index 0</span><b>10</b></button><button type="button" data-entry="1" aria-pressed="false"><span>Index 1</span><b>20</b></button><button type="button" data-entry="2" aria-pressed="false"><span>Index 2</span><b>30</b></button><button type="button" data-entry="3" aria-pressed="false"><span>Index 3</span><b>40</b></button></div>
+        <p id="entry-detail" class="entry-detail" aria-live="polite">Select a bar or an index button to inspect its mapping.</p>
+      </section>
+      <section class="explanation" aria-label="Synchronized explanation">
+        <div class="narration"><p class="eyebrow" id="stage-label">01 / Read the table</p><h2 id="stage-title">One input. One table entry.</h2><p id="stage-copy">The first mapped input is 0. Input 2 selects index 2, whose output is 30. Both paths agree.</p></div>
+        <div class="input-readout"><span>Input value</span><strong id="input-value">2</strong><span>First mapped input <b id="first-value">0</b></span></div>
+        <div class="comparison"><div class="before-result"><p>Baseline · 8-bit index</p><strong id="before-output">30</strong><span id="before-index">Index 2</span></div><div class="after-result"><p>Proposed · safe index</p><strong id="after-output">30</strong><span id="after-index">Index 2</span></div></div>
+        <p class="comparison-note" id="comparison-note">Both select the same table entry.</p>
+        <details class="arithmetic" open><summary>Follow the arithmetic</summary><p><b>Baseline</b><code id="before-math">2 − 0 = 2 → uint8: 2 → clip: 2 → LUT[2] = 30</code></p><p><b>Proposed</b><code id="after-math">0 ≤ 2 &lt; 4 → 2 − 0 = 2 → LUT[2] = 30</code></p></details>
+        <section id="explore" class="explore" tabindex="-1" aria-labelledby="explore-title"><h2 id="explore-title">Explore the boundary</h2><p>Changing a control pauses the guided example.</p><div class="range-label"><label for="input-slider">Input</label><output id="input-control-value">2</output></div><input id="input-slider" type="range" min="-128" max="640" step="1" value="2"><div class="range-label"><label for="first-slider">First mapped input</label><output id="first-control-value">0</output></div><input id="first-slider" type="range" min="-100" max="100" step="1" value="0"><div class="presets"><button type="button" data-input="2" data-first="0">In range · 2</button><button type="button" data-input="255" data-first="0">Before wrap · 255</button><button type="button" data-input="256" data-first="0">Wrap · 256</button><button type="button" data-input="257" data-first="0">Next value · 257</button><button type="button" data-input="-101" data-first="-100">Below range</button><button type="button" data-input="356" data-first="100">Shifted · 356</button></div></section>
+      </section>
+    </div>
+    <section class="context"><div><p class="eyebrow">Why the change matters</p><h2>The index needs its own width.</h2><p>An 8-bit output does not require an 8-bit lookup index. In the reported example, converting offset 256 to an 8-bit index makes it 0 before clipping can help. The result is 10 instead of 40.</p></div><div><p>The proposed integer path stores indices as <code>uint16</code>, selects the endpoints for out-of-range inputs, and subtracts in <code>int32</code> only for in-range inputs. The PR also covers larger tables and integer extremes; floating-input behavior is unchanged.</p><a href="https://github.com/pydicom/pydicom/pull/2378/files">Inspect the implementation and regression tests ↗</a></div></section>
+    <noscript><p class="no-js">JavaScript is needed for playback and sliders. The documented example uses an 8-bit output LUT [10, 20, 30, 40] starting at 0. Input 256 wraps to index 0 and output 10 in the baseline; the proposed correction chooses index 3 and output 40. The source link and explanation remain available.</p></noscript>
+  </main>
+  <footer><a href="./">Play the netCDF4 shape lesson →</a><a href="/#contributed-to">All contributions ↗</a></footer>
+  <script type="module" src="pydicom.js"></script>
+</body>
+</html>

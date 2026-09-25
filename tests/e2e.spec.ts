@@ -438,7 +438,9 @@ test('homepage renders core sections and project discovery controls', async ({ p
   }
   await expect(contributedSection.locator('.contribution-participation')).not.toHaveAttribute('open', '');
   await contributedSection.locator('.contribution-participation > summary').click();
-  await expect(contributedSection.getByRole('link')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
+  await expect(contributedSection.locator('a[href*="github.com/"]')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
+  await expect(contributedSection.getByRole('link', { name: 'Explore empty selections in 3D' })).toHaveAttribute('href', '/docs/contribution-lab/');
+  await expect(contributedSection.getByRole('link', { name: 'Play the lookup-table example' })).toHaveAttribute('href', '/docs/contribution-lab/pydicom.html');
   await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
   for (const contribution of OPEN_SOURCE_CONTRIBUTIONS.filter((item) => item.evidenceLabel.startsWith('Issue'))) {
     const row = contributedSection.locator(`a[href="${contribution.sourceUrl}"]`);

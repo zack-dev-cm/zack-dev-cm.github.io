@@ -6,3 +6,4 @@
 #tree{inset:18% 3% 16%}#tree-svg{overflow:hidden}
 @media(max-width:700px){#tree{inset:22% 1% 17%}}
 .tree-mode #scene{pointer-events:none}
+.inspection .part-control{min-width:0;max-width:100%}.inspection #part{width:min(360px,70vw);max-width:100%;min-width:0;min-height:44px}#selection{overflow-wrap:anywhere}

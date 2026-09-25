@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Empty does not mean shapeless — netCDF4 contribution lab</title>
+  <meta name="description" content="Explore orthogonal indexing with a 3 × 5 × 7 data cube. See why an empty netCDF4 selection must retain the lengths of its other axes.">
+  <link rel="canonical" href="https://zack-dev-cm.github.io/docs/contribution-lab/">
+  <link rel="icon" href="../engineering-studies/icon.svg"><link rel="stylesheet" href="lab.css">
+  <script type="importmap">{"imports":{"three":"../engineering-studies/vendor/three.module.min.js","three/addons/controls/OrbitControls.js":"../engineering-studies/vendor/OrbitControls.js"}}</script>
+</head>
+<body>
+  <a class="skip" href="#selectors">Skip to selection controls</a>
+  <header><a href="/#contributed-to">ZP / Contributions</a><a href="https://github.com/Unidata/netcdf4-python/pull/1499">netCDF4 PR #1499 ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">Contribution lab / Scientific data</p><h1>Empty does not<br>mean <em>shapeless.</em></h1></div><p class="lede">A filter can return no values and still have a meaningful shape. Change the axes of this cube to see what the netCDF4 correction preserves.</p></section>
+    <section class="example-player" aria-label="Guided netCDF4 example">
+      <div class="player-heading"><div><p class="eyebrow">30-second example / Pause anywhere to explore</p><h2 id="step-title">01 / Start with three axes</h2></div><div class="player-buttons"><button type="button" id="play-example">Play example</button><button type="button" id="restart-example">Restart</button><output id="example-clock">00:00 / 00:30</output></div></div>
+      <p id="step-copy">105 values occupy a 3 × 5 × 7 source array. Orbit the cube or separate its X layers to see all three dimensions.</p>
+      <label class="example-timeline">Example position<input type="range" id="example-time" min="0" max="30" step="0.05" value="0"></label>
+      <nav class="example-chapters" aria-label="Example chapters"><button type="button" data-step="0" aria-current="step">01 Source</button><button type="button" data-step="1">02 Select</button><button type="button" data-step="2">03 Empty</button><button type="button" data-step="3">04 Scalar</button><button type="button" data-step="4">05 Recover</button></nav>
+    </section>
+    <div class="lab">
+      <section class="viewport" aria-label="Three-dimensional selection">
+        <div class="scene-heading"><span>Source array <b>3 × 5 × 7</b></span><span id="count">105 values selected</span></div>
+        <p class="scene-output">Result shape <strong id="scene-shape">(3, 5, 7)</strong></p>
+        <canvas id="cube" aria-label="Synthetic data cube. Use the controls to select axes, or drag to orbit."></canvas>
+        <p id="loading" role="status">Loading the 3D cube…</p>
+        <div class="scene-key"><span><i class="selected"></i>Selected values</span><span><i class="context"></i>Source extent</span></div>
+        <div class="view-controls" aria-label="Model controls"><button id="scene-play" type="button" aria-label="Play example in model">Play example</button><button id="perspective" type="button" aria-pressed="true">Perspective</button><button id="front" type="button" aria-pressed="false">Along X</button><button id="top" type="button" aria-pressed="false">Along Z</button><label>Separate X layers <input id="separation" type="range" min="0" max="1" step="0.05" value="0"></label></div>
+        <p class="hint" id="cell-detail">Drag to orbit · scroll to zoom · select a cube to inspect its index.</p>
+      </section>
+      <section class="controls" id="selectors" aria-label="Array selection controls">
+        <p class="eyebrow">Try a selection</p>
+        <div class="presets"><button type="button" data-preset="all">Full cube</button><button type="button" data-preset="subset">Every other cell</button><button type="button" data-preset="empty">Empty X</button><button type="button" data-preset="scalar">Scalar + empty</button></div>
+        <div class="axis-control x"><label for="axis-x"><b>X</b> 3 positions</label><select id="axis-x"><option value="all">All — :</option><option value="alternate">Every other — ::2</option><option value="empty">None — EMPTY</option><option value="scalar">One index — 1</option></select></div>
+        <div class="axis-control y"><label for="axis-y"><b>Y</b> 5 positions</label><select id="axis-y"><option value="all">All — :</option><option value="alternate">Every other — ::2</option><option value="empty">None — EMPTY</option><option value="scalar">One index — 1</option></select></div>
+        <div class="axis-control z"><label for="axis-z"><b>Z</b> 7 positions</label><select id="axis-z"><option value="all">All — :</option><option value="alternate">Every other — ::2</option><option value="empty">None — EMPTY</option><option value="scalar">One index — 1</option></select></div>
+        <div class="result" aria-live="polite" aria-atomic="true"><code id="expression">data[:, :, :]</code><p class="result-label">Expected output shape</p><strong id="shape">(3, 5, 7)</strong><p id="explanation">All three axes survive. Each selected X position combines with every selected Y and Z position.</p><p id="axis-summary">X: 3 · Y: 5 · Z: 7</p></div>
+        <div class="index-picker"><label for="selected-cell">Inspect a selected value</label><select id="selected-cell"><option>Loading indices…</option></select></div>
+        <p class="scope">Cube positions follow the <code>(3, 5, 7)</code> example. Read the selected result’s dimensions in the shape above.</p>
+      </section>
+    </div>
+    <section class="why"><div><p class="eyebrow">The failure this addresses</p><h2>Zero values.<br>Still 100 columns.</h2><p>The reported two-dimensional case starts with a <code>(24, 100)</code> variable. Selecting zero rows returned <code>(0, 1)</code>; the proposed correction retains <code>(0, 100)</code>.</p></div><div><dl><div><dt>Before / reported baseline</dt><dd>(0, <span class="wrong">1</span>)</dd></div><div><dt>Proposed correction</dt><dd>(0, <span class="right">100</span>)</dd></div></dl><p>An empty axis is retained with length zero. An integer index removes its axis. These are different operations, even when both lead to an empty output.</p><a href="https://github.com/Unidata/netcdf4-python/pull/1499/files">Inspect the implementation and regression tests ↗</a></div></section>
+    <noscript><p class="no-js">Interactive controls need JavaScript. For a <code>(3, 5, 7)</code> array, <code>data[EMPTY, :, :]</code> has shape <code>(0, 5, 7)</code>; <code>data[1, EMPTY, :]</code> has shape <code>(0, 7)</code>. Neither contains any values. The source and regression-test link above remain available.</p></noscript>
+  </main>
+  <footer><a href="pydicom.html">Next: pydicom lookup-table correction →</a><a href="/#contributed-to">All contributions ↗</a></footer>
+  <script type="module" src="lab.js"></script>
+</body>
+</html>
