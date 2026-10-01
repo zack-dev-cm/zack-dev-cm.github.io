@@ -8,9 +8,9 @@
   "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)",
   "stableCanvasReadbacks": 2,
   "sourceSha256": {
-    "architectural-catalog/index.html": "49404c0cf4dfafe51818c89edfb8d92d5d1d90600ed5c667942b4a11b4fa3e47",
-    "architectural-catalog/studio.css": "abd6e6de40a13497d80990afe066e18c08f389c908e098be42c80f4ce798dfe7",
-    "architectural-catalog/studio.js": "e6b3f8ba113021f8b0f9d8aba09eead7f0884a8dee10a0f642e4b53e97c64a68",
+    "architectural-catalog/index.html": "60ba857efdbd830febb157ffdabdead18ad629f31a9cc98b2b7319613b954127",
+    "architectural-catalog/studio.css": "3fed6f0d9a59928b5dbb8a57fa86d7aec8de4d690889e186b2472466e12c68bc",
+    "architectural-catalog/studio.js": "94253ff34187f855e19ce12b2bc841f8f9d2a7f31a67011a2c0f5b06512bbcdd",
     "architectural-catalog/cabinets.js": "198db003d6689c38bf8525ea58264ef351f3eefe2cd73cf473b7ec7bda2dfeb0",
     "architectural-catalog/timeline.js": "8b767e3f59d7fddf7556c7b54158e8645505cc8956e3d9b4ba743ce36e1865a8",
     "architectural-catalog/data/catalog-facts.json": "2b037fa4c9f4b79759a0fe650174eb7a9c07c6d5b79be2b03c20a06202242918",

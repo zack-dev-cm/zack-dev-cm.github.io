@@ -11,6 +11,37 @@ let facts,renderer,scene,camera,controls,models=[],dimensionGroups=[],schematics
 let time=0,playing=false,manual=false,userCamera=false,selected='B3000',selectedPart='',width=36,finish='oak',opening=0,separate=0,last=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const selection=new T.Raycaster(),pointer=new T.Vector2();
+let expanded=false;
+const inertBeforeExpansion=new Map();
+
+function syncExpansionButton(){
+  $('#fullscreen').textContent=expanded?'Close expanded view':document.fullscreenElement?'Exit fullscreen':document.fullscreenEnabled?'Fullscreen':'Expand view';
+  $('#fullscreen').setAttribute('aria-pressed',String(expanded||Boolean(document.fullscreenElement)));
+}
+function setExpanded(value){
+  expanded=value;const area=$('.model-area');
+  area.classList.toggle('is-expanded',value);document.body.classList.toggle('study-expanded',value);
+  if(value){
+    area.setAttribute('role','dialog');area.setAttribute('aria-modal','true');
+    for(const element of document.querySelectorAll('.site-header,.narrative,.evidence,footer,.skip')){
+      inertBeforeExpansion.set(element,element.inert);element.inert=true;
+    }
+  }else{
+    area.removeAttribute('role');area.removeAttribute('aria-modal');
+    for(const [element,inert] of inertBeforeExpansion)element.inert=inert;inertBeforeExpansion.clear();
+  }
+  syncExpansionButton();$('#fullscreen').focus();
+}
+function expansionKey(event){
+  if(!expanded)return;
+  if(event.key==='Escape'){event.preventDefault();setExpanded(false);return;}
+  if(event.key!=='Tab')return;
+  const area=$('.model-area');
+  const items=[...area.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),[tabindex="0"]')].filter(element=>element.getClientRects().length);
+  const first=items[0],last=items.at(-1);
+  if(event.shiftKey&&(document.activeElement===first||!area.contains(document.activeElement))){event.preventDefault();last?.focus();}
+  else if(!event.shiftKey&&(document.activeElement===last||!area.contains(document.activeElement))){event.preventDefault();first?.focus();}
+}
 
 function setStory(t){
   const i=chapterAt(t),c=chapterText(i,width);
@@ -41,11 +72,12 @@ function buildModels(){
   $('#dimensions').textContent=`Selected catalog variant · ${width} W × 34 H × 24 D inches.`;
 }
 function resize(){
-  const r=$('#viewport').getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();render();
+  const r=$('#viewport').getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
+  controls.maxDistance=9*Math.max(1,1.1/camera.aspect);render();
 }
 function cameraPose(pose){
   const state=poseAt(time),o=manual?opening:state.opening,e=manual?separate:state.separate;
-  const factor=(camera.aspect<1.15?.85:camera.aspect<1.5?.75:.66)*(capture?1.08:1)*(1+o*.25+e*.18)*Math.max(1,width/36);
+  const factor=(camera.aspect<1.15?.85:camera.aspect<1.5?.75:.66)*(capture?1.08:1)*(1+o*.25+e*.18)*Math.max(1,width/36)*Math.max(1,1.1/camera.aspect);
   camera.position.set(pose[0]*factor,pose[1]*factor,pose[2]*factor);camera.lookAt(0,.43,0);controls.target.set(0,.43,0);controls.update();
 }
 function render(){
@@ -63,6 +95,21 @@ function seek(t){time=Math.max(0,Math.min(DURATION,t));setStory(time);render();}
 function reset(){
   inspect();userCamera=false;opening=0;separate=0;$('#opening').value='0';$('#separate').value='0';$('#wireframe').checked=false;
   for(const m of Object.values(materialsSet))m.wireframe=false;selectPart('');render();
+}
+function frameBounds(){
+  return models.map(model=>{
+    let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+    model.root.traverse(object=>{
+      if(!object.isMesh)return;
+      if(!object.geometry.boundingBox)object.geometry.computeBoundingBox();
+      const box=object.geometry.boundingBox;
+      for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){
+        const point=new T.Vector3(x,y,z).applyMatrix4(object.matrixWorld).project(camera);
+        minX=Math.min(minX,point.x);maxX=Math.max(maxX,point.x);minY=Math.min(minY,point.y);maxY=Math.max(maxY,point.y);
+      }
+    });
+    return {code:model.root.userData.catalogCode,minX,maxX,minY,maxY};
+  });
 }
 async function init(){
   const response=await fetch('data/catalog-facts.json');if(!response.ok)throw Error('Catalog facts are unavailable');
@@ -95,9 +142,18 @@ async function init(){
   $('#chapters').replaceChildren(...CHAPTERS.map((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>'+c.label;b.onclick=()=>{pause();manual=false;userCamera=false;selectedPart='';$('#part').value='';selectPart('');seek(i*5);};return b;}));
   $('#play').onclick=()=>{if(playing){pause();return;}manual=false;userCamera=false;selectedPart='';selectPart('');if(time>=DURATION)time=0;playing=true;$('#play').textContent='Pause story';last=performance.now();};
   $('#restart').onclick=()=>{pause();manual=false;userCamera=false;selectPart('');seek(0);};
-  $('#fullscreen').hidden=!document.fullscreenEnabled;
-  $('#fullscreen').onclick=async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await $('.model-area').requestFullscreen();};
-  document.addEventListener('fullscreenchange',()=>{$('#fullscreen').textContent=document.fullscreenElement?'Exit fullscreen':'Fullscreen';});
+  $('#fullscreen').hidden=false;syncExpansionButton();
+  $('#fullscreen').onclick=async()=>{
+    const button=$('#fullscreen');button.disabled=true;
+    try{
+      if(expanded)setExpanded(false);
+      else if(document.fullscreenElement)await document.exitFullscreen();
+      else if(!document.fullscreenEnabled)setExpanded(true);
+      else{try{await $('.model-area').requestFullscreen();}catch{setExpanded(true);}}
+    }finally{button.disabled=false;syncExpansionButton();button.focus();}
+  };
+  document.addEventListener('fullscreenchange',syncExpansionButton);
+  document.addEventListener('keydown',expansionKey);
   $('#time').oninput=()=>{pause();manual=false;userCamera=false;selectPart('');seek(Number($('#time').value));};
   $('#opening').oninput=()=>{const value=Number($('#opening').value);inspect();opening=value;$('#opening').value=String(value);render();};
   $('#separate').oninput=()=>{const value=Number($('#separate').value);inspect();separate=value;$('#separate').value=String(value);render();};
@@ -116,10 +172,10 @@ async function init(){
     if(hit){choose(hit.object.userData.cabinet);selectPart(hit.object.userData.part);render();}
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});reduced.addEventListener('change',()=>{if(reduced.matches)pause();});
-  $('#scene').addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();$('#play').click();}if(e.key==='Escape')reset();});
+  $('#scene').addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();$('#play').click();}if(e.key==='Escape'&&!expanded&&!document.fullscreenElement)reset();});
   new ResizeObserver(resize).observe($('#viewport'));
   app.seek=seek;app.renderer=renderer;
-  app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,playing,manual,selected,selectedPart,width,finish,opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),drawers:models.map(m=>m.drawers.length),visibleMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
+  app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,playing,manual,selected,selectedPart,width,finish,opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),drawers:models.map(m=>m.drawers.length),frameBounds:frameBounds(),visibleMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
   app.exportGLB=async()=>{const g=new T.Group();g.name='Case Systems catalog family visualization';g.userData={units:'metres',nominalDimensionsInches:{width,height:34,depth:24},catalogSha256:facts.catalog.sha256,scope:'Catalog family visualization. Authored finish, movement and construction; not fabrication geometry.'};for(const m of models)g.add(m.root.clone(true));return Array.from(new Uint8Array(await new GLTFExporter().parseAsync(g,{binary:true})));};
   $('#loading').hidden=true;selectPart('');resize();seek(0);app.ready=true;
   if(!capture)requestAnimationFrame(tick);

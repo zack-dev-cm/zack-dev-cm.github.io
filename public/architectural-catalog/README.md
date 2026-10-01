@@ -13,3 +13,7 @@ data saving. Small previews crop the model region from the full film so chapter
 copy stays readable in surrounding HTML. The lab adds fullscreen inspection;
 studio reflections, fine oak grain, contact shadows and camera moves are authored.
 The 30-second film retains the guided visual sequence with text and captions.
+
+Fullscreen denial falls back to an in-page expanded view with a focus boundary
+and Escape/close controls. Portrait framing keeps both cabinets and their opened
+components in view. The downloadable GLB is the captured 36-inch warm-oak pair.

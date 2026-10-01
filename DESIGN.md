@@ -288,3 +288,9 @@ same deterministic procedural scene. Keep the geometry and selected nominal
 dimensions grounded in the original catalog. Studio lighting and materials are
 illustrative. Provide fullscreen for detailed inspection. Re-render the film,
 posters, preview and GLB together, preserving source and frame receipts.
+
+If a browser denies native fullscreen, expand the scene within the page. Keep
+the controls usable, contain keyboard focus, and let Escape return to the same
+inspection state. Fit both cabinet families and opened components in portrait
+views; camera distance and orbit limits must adapt together. The downloadable
+GLB is explicitly the default 36-inch model, independent of live selections.

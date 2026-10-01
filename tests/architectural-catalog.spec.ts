@@ -123,3 +123,56 @@ test('mobile arrival offers a direct story link without moving the primary actio
     await expect(page.getByRole('button',{name:'Play story',exact:true})).toBeVisible();
   }
 });
+
+test('portrait fullscreen keeps both cabinet variants and opened components in frame',async({page})=>{
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+  await page.getByRole('button',{name:'Fullscreen',exact:true}).click();
+  await expect.poll(()=>page.evaluate(()=>document.fullscreenElement?.className)).toBe('model-area');
+  for(const time of ['0','5','10','15','20','25'])for(const width of ['24','48']){
+    await page.getByLabel('Story time',{exact:true}).fill(time);
+    await page.getByLabel('Nominal width',{exact:true}).selectOption(width);
+    for(const opening of ['0','1']){
+      await page.getByLabel('Open doors & drawers',{exact:true}).fill(opening);
+      await page.getByLabel('Separate components',{exact:true}).fill(opening);
+      const bounds=await page.evaluate(()=>(window as any).catalogStudy.inspect().frameBounds);
+      expect(bounds).toHaveLength(2);
+      for(const box of bounds){
+        const state=`${box.code} ${width} inches / open ${opening} / time ${time}`;
+        expect(box.minX,`${state}: left edge`).toBeGreaterThan(-.98);
+        expect(box.maxX,`${state}: right edge`).toBeLessThan(.98);
+        expect(box.minY,`${state}: bottom edge`).toBeGreaterThan(-.98);
+        expect(box.maxY,`${state}: top edge`).toBeLessThan(.98);
+      }
+    }
+  }
+  await page.getByRole('button',{name:'Exit fullscreen',exact:true}).click();
+});
+
+test('denied fullscreen opens a usable expanded view with keyboard exit',async({page})=>{
+  await page.addInitScript(()=>{
+    Element.prototype.requestFullscreen=()=>Promise.reject(new DOMException('Blocked by browser policy','NotAllowedError'));
+  });
+  await page.setViewportSize({width:390,height:844});
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+  await page.getByRole('button',{name:'Fullscreen',exact:true}).click();
+  const expanded=page.getByRole('dialog',{name:'Interactive cabinet comparison',exact:true});
+  await expect(expanded).toBeVisible();
+  await expect(expanded).toHaveAttribute('aria-modal','true');
+  await expect(expanded.getByRole('button',{name:'Close expanded view',exact:true})).toBeVisible();
+  await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
+  await page.getByLabel('Open doors & drawers',{exact:true}).fill('1');
+  await page.getByLabel('Select a part',{exact:true}).selectOption('doors');
+  await page.getByLabel('Select a part',{exact:true}).press('Tab');
+  expect(await page.evaluate(()=>document.activeElement?.id)).toBe('scene');
+  await page.keyboard.press('Shift+Tab');
+  expect(await page.evaluate(()=>document.activeElement?.id)).toBe('part');
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Fullscreen',exact:true})).toBeFocused();
+  await expect(page.getByLabel('Nominal width',{exact:true})).toHaveValue('48');
+  expect(await page.evaluate(()=>(window as any).catalogStudy.inspect().opening)).toBe(1);
+  expect(await page.evaluate(()=>(document.querySelector('.site-header') as HTMLElement)?.inert)).toBe(false);
+  expect(errors).toEqual([]);
+});
