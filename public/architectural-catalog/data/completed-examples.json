@@ -1,0 +1,24 @@
+{
+  "kind": "RECORDED_CODEX_IMAGEGEN_RUNS",
+  "scope": "Two document-grounded cabinet concept examples; measured individual runs, not a performance benchmark.",
+  "examples": {
+    "B3000": {
+      "request": {
+        "code": "B3000",
+        "width": 36,
+        "finish": "oak"
+      },
+      "seconds": 120.75,
+      "render_sha256": "7b7ac6a4285437fa63732c1b32c366c8cafd1378b6e8689baa760ce40be15c13"
+    },
+    "B3100": {
+      "request": {
+        "code": "B3100",
+        "width": 36,
+        "finish": "oak"
+      },
+      "seconds": 144.15,
+      "render_sha256": "edd46c7d08137eebcd84f6faa954e6de640810f068f4c636859a9f074bd9437a"
+    }
+  }
+}

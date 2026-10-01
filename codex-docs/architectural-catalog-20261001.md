@@ -1,0 +1,9 @@
+# Architectural catalog scene
+
+Source: recovered Case Systems catalog, pages 27/28, and original elevation callouts. Public media contains a procedural cabinet explanation and minimal catalog facts, not raw client sheets or full manufacturer catalogs. Cabinet dimensions are selected catalog variants; construction/finish details are illustrative.
+
+The prior 25 September portfolio animation workflow used DESIGN.md, Three.js r180, deterministic browser capture, media receipts and playable controls. This addition reuses that workflow in `public/architectural-catalog/` and `scripts/media/architectural-catalog/`.
+
+Placement: new selected-work card after Document AI, primary 3D link from case study, and a film/poster fallback. The homepage reuses PreviewVideo visibility/reduced-motion/data behavior. The lab starts paused.
+
+Build and public gates follow AGENTS.md. The primary case-study and selected-work links now open a separately deployed functional document-to-interior demo. Its original B3000/B3100 examples contain actual native extraction, catalog match, GPT-6.1 sol Codex review, built-in ImageGen output, visual review and downloads. Measured individual runs are reported without an accuracy claim. Nominal variants, source hashes and retained unknowns remain explicit. The static portfolio contains the 3D explanation and optimized copies of those recorded final images; it stores no provider credentials or private raw PDFs. The separate runtime uses a Mac-owned agent connection and an isolated API, with no CAD service changes.

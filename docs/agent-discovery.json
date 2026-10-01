@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-09-25",
+  "generatedAt": "2026-10-01",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -33,6 +33,7 @@
     "preferredCitationOrder": [
       "https://zack-dev-cm.github.io/",
       "https://zack-dev-cm.github.io/projects/document-ai/",
+      "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/",
       "https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/",
       "https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/",
@@ -394,7 +395,7 @@
           "title": "Architectural Drawing and Interior Catalog Matching",
           "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-          "summary": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
+          "summary": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
           "kind": "case-study",
           "tags": [
             "computer-vision",
@@ -402,7 +403,8 @@
             "ocr",
             "catalog-matching",
             "interior-ai",
-            "retrieval"
+            "retrieval",
+            "interactive-3d"
           ],
           "aliases": [
             "architectural drawings recognition",
@@ -418,39 +420,80 @@
           ],
           "techStack": [
             "Python",
+            "PyMuPDF",
             "OpenCV",
             "OCR",
-            "PDF Processing",
-            "LLM/Vision Parsing",
             "Catalog Indexing",
-            "OpenEvolve",
-            "BOM Export",
-            "3D/CV",
+            "Codex Mode 1",
+            "GPT-6.1 sol",
+            "ImageGen",
+            "SQLite",
+            "BOM Review",
+            "Three.js",
+            "glTF",
             "Visual QA"
           ],
           "benchmarks": [
             {
-              "label": "Input families",
-              "value": "3",
-              "context": "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04"
+              "label": "Recovered catalog",
+              "value": "306 pages",
+              "context": "Original project catalog; edition retained by source hash"
             },
             {
-              "label": "Catalog flow",
-              "value": "callouts -> items",
-              "context": "visible drawing codes mapped to catalog records, evidence notes, and candidate pools"
+              "label": "Identifier coverage",
+              "value": "1,639 / 1,639",
+              "context": "PDF/YAML identifier check, 1 October 2026; not matching accuracy"
             },
             {
-              "label": "Output artifacts",
-              "value": "5",
-              "context": "room graph, catalog mapping, layout preview, render, and BOM/rationale export"
+              "label": "Grounded comparison",
+              "value": "B3000 / B3100",
+              "context": "Catalog pages 27/28 and original elevation callouts"
             },
             {
-              "label": "Public posture",
-              "value": "sanitized",
-              "context": "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published"
+              "label": "Completed full examples",
+              "value": "120.75 / 144.15 s",
+              "context": "Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review"
+            },
+            {
+              "label": "Playable study",
+              "value": "6 chapters",
+              "context": "Same procedural scene drives the interactive controls and 30-second film"
             }
           ],
-          "links": []
+          "links": [
+            {
+              "label": "Run the full workflow",
+              "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+            },
+            {
+              "label": "Explore catalog in 3D",
+              "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
+            },
+            {
+              "label": "Watch the 30-second film",
+              "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
+            },
+            {
+              "label": "Catalog source notes",
+              "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html"
+            },
+            {
+              "label": "Download cabinet model",
+              "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb"
+            },
+            {
+              "label": "Case Systems catalog resources",
+              "url": "https://www.casesystems.com/resources/design-resources/casework-catalogs/"
+            },
+            {
+              "label": "PaddleOCR-VL-1.6",
+              "url": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6"
+            },
+            {
+              "label": "Qwen3.6-27B-FP8",
+              "url": "https://huggingface.co/Qwen/Qwen3.6-27B-FP8"
+            }
+          ]
         },
         {
           "id": 79,
@@ -1028,6 +1071,111 @@
       ],
       "benchmarks": [],
       "links": []
+    },
+    {
+      "id": 77,
+      "title": "Architectural Drawing and Interior Catalog Matching",
+      "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
+      "summary": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
+      "kind": "case-study",
+      "tags": [
+        "computer-vision",
+        "architecture",
+        "ocr",
+        "catalog-matching",
+        "interior-ai",
+        "retrieval",
+        "interactive-3d"
+      ],
+      "aliases": [
+        "architectural drawings recognition",
+        "floor plan recognition",
+        "room plan recognition",
+        "interior catalog matching",
+        "casework catalog matching",
+        "commercial reception catalog preview",
+        "school reception design configuration",
+        "utility building interior planning",
+        "whole building interior planning",
+        "blueprint symbol detection"
+      ],
+      "techStack": [
+        "Python",
+        "PyMuPDF",
+        "OpenCV",
+        "OCR",
+        "Catalog Indexing",
+        "Codex Mode 1",
+        "GPT-6.1 sol",
+        "ImageGen",
+        "SQLite",
+        "BOM Review",
+        "Three.js",
+        "glTF",
+        "Visual QA"
+      ],
+      "benchmarks": [
+        {
+          "label": "Recovered catalog",
+          "value": "306 pages",
+          "context": "Original project catalog; edition retained by source hash"
+        },
+        {
+          "label": "Identifier coverage",
+          "value": "1,639 / 1,639",
+          "context": "PDF/YAML identifier check, 1 October 2026; not matching accuracy"
+        },
+        {
+          "label": "Grounded comparison",
+          "value": "B3000 / B3100",
+          "context": "Catalog pages 27/28 and original elevation callouts"
+        },
+        {
+          "label": "Completed full examples",
+          "value": "120.75 / 144.15 s",
+          "context": "Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review"
+        },
+        {
+          "label": "Playable study",
+          "value": "6 chapters",
+          "context": "Same procedural scene drives the interactive controls and 30-second film"
+        }
+      ],
+      "links": [
+        {
+          "label": "Run the full workflow",
+          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+        },
+        {
+          "label": "Explore catalog in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
+        },
+        {
+          "label": "Watch the 30-second film",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
+        },
+        {
+          "label": "Catalog source notes",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html"
+        },
+        {
+          "label": "Download cabinet model",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb"
+        },
+        {
+          "label": "Case Systems catalog resources",
+          "url": "https://www.casesystems.com/resources/design-resources/casework-catalogs/"
+        },
+        {
+          "label": "PaddleOCR-VL-1.6",
+          "url": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6"
+        },
+        {
+          "label": "Qwen3.6-27B-FP8",
+          "url": "https://huggingface.co/Qwen/Qwen3.6-27B-FP8"
+        }
+      ]
     },
     {
       "id": 82,
@@ -1807,7 +1955,7 @@
       "title": "Architectural Drawing and Interior Catalog Matching",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-      "summary": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
+      "summary": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
       "kind": "case-study",
       "tags": [
         "computer-vision",
@@ -1815,7 +1963,8 @@
         "ocr",
         "catalog-matching",
         "interior-ai",
-        "retrieval"
+        "retrieval",
+        "interactive-3d"
       ],
       "aliases": [
         "architectural drawings recognition",
@@ -1831,39 +1980,80 @@
       ],
       "techStack": [
         "Python",
+        "PyMuPDF",
         "OpenCV",
         "OCR",
-        "PDF Processing",
-        "LLM/Vision Parsing",
         "Catalog Indexing",
-        "OpenEvolve",
-        "BOM Export",
-        "3D/CV",
+        "Codex Mode 1",
+        "GPT-6.1 sol",
+        "ImageGen",
+        "SQLite",
+        "BOM Review",
+        "Three.js",
+        "glTF",
         "Visual QA"
       ],
       "benchmarks": [
         {
-          "label": "Input families",
-          "value": "3",
-          "context": "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04"
+          "label": "Recovered catalog",
+          "value": "306 pages",
+          "context": "Original project catalog; edition retained by source hash"
         },
         {
-          "label": "Catalog flow",
-          "value": "callouts -> items",
-          "context": "visible drawing codes mapped to catalog records, evidence notes, and candidate pools"
+          "label": "Identifier coverage",
+          "value": "1,639 / 1,639",
+          "context": "PDF/YAML identifier check, 1 October 2026; not matching accuracy"
         },
         {
-          "label": "Output artifacts",
-          "value": "5",
-          "context": "room graph, catalog mapping, layout preview, render, and BOM/rationale export"
+          "label": "Grounded comparison",
+          "value": "B3000 / B3100",
+          "context": "Catalog pages 27/28 and original elevation callouts"
         },
         {
-          "label": "Public posture",
-          "value": "sanitized",
-          "context": "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published"
+          "label": "Completed full examples",
+          "value": "120.75 / 144.15 s",
+          "context": "Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review"
+        },
+        {
+          "label": "Playable study",
+          "value": "6 chapters",
+          "context": "Same procedural scene drives the interactive controls and 30-second film"
         }
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Run the full workflow",
+          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+        },
+        {
+          "label": "Explore catalog in 3D",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
+        },
+        {
+          "label": "Watch the 30-second film",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
+        },
+        {
+          "label": "Catalog source notes",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html"
+        },
+        {
+          "label": "Download cabinet model",
+          "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb"
+        },
+        {
+          "label": "Case Systems catalog resources",
+          "url": "https://www.casesystems.com/resources/design-resources/casework-catalogs/"
+        },
+        {
+          "label": "PaddleOCR-VL-1.6",
+          "url": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6"
+        },
+        {
+          "label": "Qwen3.6-27B-FP8",
+          "url": "https://huggingface.co/Qwen/Qwen3.6-27B-FP8"
+        }
+      ]
     },
     {
       "id": 78,

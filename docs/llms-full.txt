@@ -21,6 +21,7 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
+- [Architectural Drawing and Interior Catalog Matching](https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/): A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
 - [Vehicle Lab: A Reusable Engineering Notebook](https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/): Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 - [SectionCheck - Image Registration Review](https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/): A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
@@ -262,31 +263,45 @@ Benchmarks & Analytics:
 - Public posture: sanitized (no raw patient images, private labels, or model weights published)
 
 ### Architectural Drawing and Interior Catalog Matching
-Summary: CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.
-Details: Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.
+Summary: A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
+Details: I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 3D study makes their drawer, door and shelf differences inspectable through six playable chapters. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
 Project URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/
 Markdown URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 Key Features:
-- Parses PDFs, blueprint images, and elevation sheets into room graphs, dimensions, OCR labels, and catalog callouts
-- Maps visible callout codes to casework, finish, lighting, storage, and furniture catalog records with evidence notes
-- Optimizes reception and room presets against coverage, fit, style, circulation, and building-level ensemble constraints
-- Exports reviewable plan previews, commercial interior/exterior context renders, BOM CSVs, and rationale packets without exposing private source documents
+- Reuses original elevation and catalog documents for exact code matching with page-level evidence
+- Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts
+- Compares B3000 and B3100 through playable chapters, opening, exploded inspection and selectable parts
+- Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities
+- Carries unresolved catalog, finish, quantity and price fields into draft BOM review
 Tech Stack:
 - Python
+- PyMuPDF
 - OpenCV
 - OCR
-- PDF Processing
-- LLM/Vision Parsing
 - Catalog Indexing
-- OpenEvolve
-- BOM Export
-- 3D/CV
+- Codex Mode 1
+- GPT-6.1 sol
+- ImageGen
+- SQLite
+- BOM Review
+- Three.js
+- glTF
 - Visual QA
 Benchmarks & Analytics:
-- Input families: 3 (PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04)
-- Catalog flow: callouts -> items (visible drawing codes mapped to catalog records, evidence notes, and candidate pools)
-- Output artifacts: 5 (room graph, catalog mapping, layout preview, render, and BOM/rationale export)
-- Public posture: sanitized (no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published)
+- Recovered catalog: 306 pages (Original project catalog; edition retained by source hash)
+- Identifier coverage: 1,639 / 1,639 (PDF/YAML identifier check, 1 October 2026; not matching accuracy)
+- Grounded comparison: B3000 / B3100 (Catalog pages 27/28 and original elevation callouts)
+- Completed full examples: 120.75 / 144.15 s (Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review)
+- Playable study: 6 chapters (Same procedural scene drives the interactive controls and 30-second film)
+Links:
+- Run the full workflow: https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/
+- Explore catalog in 3D: https://zack-dev-cm.github.io/docs/architectural-catalog/
+- Watch the 30-second film: https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4
+- Catalog source notes: https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html
+- Download cabinet model: https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb
+- Case Systems catalog resources: https://www.casesystems.com/resources/design-resources/casework-catalogs/
+- PaddleOCR-VL-1.6: https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6
+- Qwen3.6-27B-FP8: https://huggingface.co/Qwen/Qwen3.6-27B-FP8
 
 ### InQuest Project Binder RAG QA
 Summary: Document agents that retrieve across project collections, preserve task context and save generated artifacts back to the right project.

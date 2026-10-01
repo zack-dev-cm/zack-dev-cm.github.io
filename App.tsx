@@ -23,13 +23,21 @@ import { slugify, getProjectCanonicalSlug, getProjectRouteSlugs, selectReviewedF
 import { searchProjects, getProjectSearchText, normalizeSearchValue, extractSearchTerms } from './utils/project-search.mjs';
 import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } from './types';
 
-const FEATURED_PROJECT_IDS = [101, 82, 84, 63, 81, 11, 72] as const;
+const FEATURED_PROJECT_IDS = [101, 77, 82, 84, 63, 81, 11, 72] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
 
 const FEATURED_PROJECT_CONTEXT: Record<number, {
   label: string; title: string; summary: string; imageIndex?: number; previewVideo?: string; previewPoster?: string; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
 }> = {
+  77: {
+    label: 'Document AI · Working interior demo',
+    title: 'From drawing to catalog',
+    summary: 'Follow real callouts through catalog matching, agent review and a generated interior. Explore the cabinet families in 3D, then run the complete workflow and inspect its results.',
+    previewVideo: '/docs/architectural-catalog/media/catalog-loop.mp4',
+    previewPoster: '/docs/architectural-catalog/media/catalog-poster.jpg',
+    figureLabel: 'Real catalog families · interactive 3D explanation',
+  },
   84: {
     label: 'Independent research tooling · synthetic prototype',
     title: 'SectionCheck · Pixels to a review',

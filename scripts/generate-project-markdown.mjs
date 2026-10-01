@@ -333,8 +333,9 @@ const parseProjectImage = (node, imageConstants) => {
   const url = parseString(getPropertyValue(node, 'url'));
   const alt = parseString(getPropertyValue(node, 'alt'));
   const caption = parseString(getPropertyValue(node, 'caption'));
+  const captions = parseString(getPropertyValue(node, 'captions'));
   if (!url || !alt) return null;
-  return { url, alt, ...(caption ? { caption } : {}) };
+  return { url, alt, ...(caption ? { caption } : {}), ...(captions ? { captions } : {}) };
 };
 
 const parseImages = (node, imageConstants) => {
@@ -452,6 +453,7 @@ const extractProjects = (sourceFile, imageConstants) => {
         repoFullName: parseString(getPropertyValue(element, 'repoFullName')) || undefined,
         repoId: parseJsonLiteral(getPropertyValue(element, 'repoId')) ?? undefined,
         hideImages: parseJsonLiteral(getPropertyValue(element, 'hideImages')) === true,
+        heroVideo: parseString(getPropertyValue(element, 'heroVideo')) || undefined,
         keyFeatures,
         techStack,
         links,
@@ -874,7 +876,7 @@ const buildProjectHtml = (project) => {
   const isIllustration = visualImage === project.generatedSocialImage || /generated|conceptual|illustration|public-safe.*card/i.test(imageAlt);
   const visualCaption = toAscii(visualAsset?.caption || (isIllustration ? 'System illustration' : ''));
   const galleryAssets = (project.images || []).filter((asset) =>
-    (isDisplayImage(asset.url) || isDisplayVideo(asset.url)) && toPublicAssetUrl(asset.url) !== visualImage
+    (isDisplayImage(asset.url) || isDisplayVideo(asset.url)) && toPublicAssetUrl(asset.url) !== visualImage && asset.url !== project.heroVideo
   );
   const renderFigure = (asset, index) => {
     const publicUrl = toPublicAssetUrl(asset.url);
@@ -883,7 +885,8 @@ const buildProjectHtml = (project) => {
     if (isDisplayVideo(asset.url)) {
       const publicPoster = /-preview\.mp4$/.test(url) ? url.replace(/-preview\.mp4$/, '-poster.png') : visualImage;
       const poster = publicPoster.startsWith(`${SITE_BASE}/`) ? new URL(publicPoster).pathname : publicPoster;
-      return `<figure><video class="visual" controls playsinline preload="none" poster="${escapeHtml(poster)}" aria-label="${escapeHtml(toAscii(asset.alt))}"><source src="${escapeHtml(url)}" type="${/\.webm$/.test(url) ? 'video/webm' : 'video/mp4'}" /><a href="${escapeHtml(url)}">Open video</a></video>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
+      const track = asset.captions ? `<track kind="captions" src="${escapeHtml(toPublicAssetUrl(asset.captions))}" srclang="en" label="English" />` : '';
+      return `<figure><video class="visual" controls playsinline preload="none" poster="${escapeHtml(poster)}" aria-label="${escapeHtml(toAscii(asset.alt))}"><source src="${escapeHtml(url)}" type="${/\.webm$/.test(url) ? 'video/webm' : 'video/mp4'}" />${track}<a href="${escapeHtml(url)}">Open video</a></video>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
     }
     return `<figure><a class="figure-link" href="${escapeHtml(url)}" aria-label="Open full-size figure ${index + 1}: ${escapeHtml(toAscii(asset.alt))}"><img class="visual" src="${escapeHtml(url)}" alt="${escapeHtml(toAscii(asset.alt))}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
   };
@@ -1015,7 +1018,7 @@ ${JSON.stringify(jsonLd, null, 6)}
           <p class="eyebrow">${escapeHtml(({ research: 'Research & development', 'user-product': project.id === 11 ? 'Maintained service' : 'Product', 'open-source': 'Open source', 'case-study': 'Case study' })[project.projectKind] || 'Portfolio project')}</p>
           <h1>${escapeHtml(title)}</h1>
           <p class="lede">${escapeHtml(description)}</p>${projectActions || workflowActions ? `\n          ${projectActions || workflowActions}` : ''}
-          ${visualImage ? renderFigure({ url: visualImage, alt: imageAlt, caption: visualCaption }, 0) : ''}
+          ${project.heroVideo ? renderFigure(project.images.find(asset => asset.url === project.heroVideo) || { url: project.heroVideo, alt: title + ' film' }, 0) : visualImage ? renderFigure({ url: visualImage, alt: imageAlt, caption: visualCaption }, 0) : ''}
         </header>
         <section>
           <h2>Overview</h2>
@@ -1663,6 +1666,7 @@ export const readProjectCatalogue = async (sourceFile) => {
   const projects = mergeProjects(curatedProjects, selectReviewedFeedProjects(feed, excludedRepos)).map((project) => ({
     ...project,
     images: (project.images || []).map((image) => ({ ...image, url: toPublicAssetUrl(image.url) })),
+    heroVideo: project.heroVideo ? toPublicAssetUrl(project.heroVideo) : undefined,
     thumbnail: toPublicAssetUrl(project.thumbnail),
   }));
   assertUniqueProjectRoutes(projects);
@@ -1741,6 +1745,7 @@ const main = async () => {
 
   const topProjectTitles = [
     'Document AI',
+    'Architectural Drawing and Interior Catalog Matching',
     'Vehicle Lab: A Reusable Engineering Notebook',
     'SectionCheck - Image Registration Review',
     'Dermaself Flutter Skin Analysis App',

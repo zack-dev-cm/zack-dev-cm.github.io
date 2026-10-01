@@ -1,0 +1,68 @@
+{
+  "kind": "CATALOG_GROUNDED_VISUALIZATION",
+  "catalog": {
+    "name": "Case Systems product catalog, recovered project edition",
+    "sha256": "61366d05784bd237562ba89e16cd0cdce62aa63a855f8d6d131a7f8edd31ec94",
+    "pages": 306,
+    "sourceUrl": "https://www.casesystems.com/resources/design-resources/casework-catalogs/"
+  },
+  "products": [
+    {
+      "code": "B3000",
+      "catalogPage": 27,
+      "drawerCount": 1,
+      "doorCount": 2,
+      "adjustableShelves": 1,
+      "drawerArrangement": "single full-width upper drawer",
+      "selectedVariantInches": {
+        "width": 36,
+        "height": 34,
+        "depth": 24,
+        "unit": "in"
+      },
+      "allowedWidthsInches": [
+        24,
+        30,
+        36,
+        42,
+        48
+      ],
+      "drawingCodeEvidence": {
+        "document": "Original elevation template",
+        "page": 1
+      }
+    },
+    {
+      "code": "B3100",
+      "catalogPage": 28,
+      "drawerCount": 2,
+      "doorCount": 2,
+      "adjustableShelves": 1,
+      "drawerArrangement": "two side-by-side upper drawers",
+      "selectedVariantInches": {
+        "width": 36,
+        "height": 34,
+        "depth": 24,
+        "unit": "in"
+      },
+      "allowedWidthsInches": [
+        24,
+        30,
+        36,
+        42,
+        48
+      ],
+      "drawingCodeEvidence": {
+        "document": "Original elevation template",
+        "page": 3
+      }
+    }
+  ],
+  "scope": {
+    "catalogFacts": "Original catalog facts and diagrams manually reviewed; source document identified by SHA-256.",
+    "geometry": "Procedural visual explanation; panel thickness, hardware, finishes and movement are authored.",
+    "installedDimensions": null,
+    "quantity": null,
+    "price": null
+  }
+}

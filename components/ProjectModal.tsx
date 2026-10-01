@@ -132,7 +132,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 playsInline
                 preload="metadata"
                 poster={videoPoster}
-              />
+              >
+                {currentImage.captions && <track kind="captions" src={currentImage.captions} srcLang="en" label="English" />}
+              </video>
             ) : (
               <img
                 src={currentImage.url}

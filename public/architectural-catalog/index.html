@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>From drawing to catalog — an interactive 3D study | Zakhar Pashkin</title>
+  <meta name="description" content="Compare real Case Systems B3000 and B3100 cabinet families. Follow the callout, inspect drawers and doors, and explore source-grounded catalog dimensions in 3D.">
+  <link rel="canonical" href="https://zack-dev-cm.github.io/docs/architectural-catalog/">
+  <meta property="og:title" content="From drawing to catalog — explore the match in 3D">
+  <meta property="og:description" content="One drawer or two? Follow real catalog facts into an interactive cabinet comparison.">
+  <meta property="og:image" content="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg">
+  <meta property="og:url" content="https://zack-dev-cm.github.io/docs/architectural-catalog/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="studio.css">
+  <script type="importmap">{"imports":{"three":"../engineering-studies/vendor/three.module.min.js","three/addons/controls/OrbitControls.js":"../engineering-studies/vendor/OrbitControls.js","three/addons/exporters/GLTFExporter.js":"../engineering-studies/vendor/GLTFExporter.js"}}</script>
+</head>
+<body>
+  <a class="skip" href="#controls">Skip to controls</a>
+  <header class="site-header">
+    <a class="brand" href="/#featured" aria-label="Zakhar Pashkin portfolio">zp<span>.</span></a>
+    <span>Architecture / Document AI</span>
+    <nav aria-label="Project navigation"><a href="https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/">Run full workflow ↗</a><a href="/projects/architectural-drawing-and-interior-catalog-matching/">Case study ↗</a><a href="media/catalog-film.mp4">Watch film ↗</a></nav>
+  </header>
+  <main>
+    <div class="workspace">
+      <aside class="narrative">
+        <p class="eyebrow">A drawing. A code. A real catalog.</p>
+        <h1>From drawing<br>to catalog<span>.</span></h1>
+        <p class="intro">Follow the match, then open it up. Two cabinet families show why the details matter.</p>
+        <section class="story" aria-labelledby="chapter-title">
+          <p class="eyebrow" id="chapter-number">01 / Read the callout</p>
+          <h2 id="chapter-title">Start with the evidence.</h2>
+          <p id="chapter-copy">B3000 appears in the original elevation template. Its catalog entry identifies a cabinet family; the drawing still needs its own dimensions and quantities.</p>
+          <p class="source" id="source">Original elevation · page 1<br>Case Systems catalog · page 27</p>
+        </section>
+        <nav id="chapters" aria-label="Film chapters"></nav>
+      </aside>
+      <section class="model-area" aria-label="Interactive cabinet comparison">
+        <div class="scene-header"><span id="scene-title">B3000 & B3100</span><span>Catalog-grounded 3D study</span></div>
+        <div id="viewport">
+          <canvas id="scene" aria-label="Cabinet models; drag to orbit and select parts. Equivalent controls are below." tabindex="0"></canvas>
+          <div id="loading" role="status">Preparing the cabinet study…</div>
+          <div class="model-labels" aria-hidden="true"><span><b>B3000</b>One upper drawer</span><span><b>B3100</b>Two upper drawers</span></div>
+          <p id="gesture">Drag to orbit · scroll to zoom · click a part</p>
+        </div>
+        <div id="transport">
+          <button id="play" type="button">Play story</button>
+          <button id="restart" type="button" aria-label="Restart story">↺ Restart</button>
+          <label class="scrub"><span class="sr-only">Story time</span><input id="time" type="range" min="0" max="30" step="0.05" value="0" aria-label="Story time"></label>
+          <output id="timecode" for="time">0:00 / 0:30</output>
+        </div>
+        <form id="controls" aria-label="Model controls" onsubmit="return false">
+          <div class="control-row">
+            <fieldset class="cabinet-choice"><legend>Inspect cabinet</legend><button type="button" data-cabinet="B3000" aria-pressed="true">B3000</button><button type="button" data-cabinet="B3100" aria-pressed="false">B3100</button></fieldset>
+            <label>Nominal width<select id="width" aria-label="Nominal width"><option value="24">24 inches</option><option value="30">30 inches</option><option value="36" selected>36 inches</option><option value="42">42 inches</option><option value="48">48 inches</option></select></label>
+            <label>Illustrative finish<select id="finish" aria-label="Illustrative finish"><option value="oak">Warm oak</option><option value="sage">Sage</option><option value="porcelain">Porcelain</option></select></label>
+          </div>
+          <div class="control-row">
+            <label class="range-control">Open doors & drawers<input id="opening" type="range" min="0" max="1" step="0.01" value="0"></label>
+            <label class="range-control">Separate components<input id="separate" type="range" min="0" max="1" step="0.01" value="0"></label>
+            <label class="check"><input id="wireframe" type="checkbox"> Wireframe</label>
+            <button id="reset" type="button">Reset view</button>
+          </div>
+          <div class="control-row part-row">
+            <label>Select a part<select id="part" aria-label="Select a part"><option value="">Whole cabinet</option><option value="drawers">Upper drawers</option><option value="doors">Hinged doors</option><option value="shelf">Adjustable shelf</option><option value="carcass">Cabinet body</option></select></label>
+            <p id="part-description" aria-live="polite">B3000 · one upper drawer, two hinged doors, one adjustable shelf.</p>
+          </div>
+          <p class="dimensions" id="dimensions">Selected catalog variant · 36 W × 34 H × 24 D inches.</p>
+        </form>
+      </section>
+    </div>
+    <section class="evidence" aria-label="Catalog evidence">
+      <div><p class="eyebrow">The facts behind the scene</p><h2>Similar codes.<br>Different cabinets.</h2><p>Real catalog families and available nominal sizes drive this study. Finish, movement and construction details are illustrative.</p></div>
+      <div class="fact-table"><table><caption class="sr-only">Verified cabinet family comparison</caption><thead><tr><th scope="col">Family</th><th scope="col">Upper drawers</th><th scope="col">Doors / shelf</th><th scope="col">Source</th></tr></thead><tbody><tr><th scope="row">B3000</th><td>One full-width</td><td>Two / one</td><td>Catalog p. 27</td></tr><tr><th scope="row">B3100</th><td>Two side by side</td><td>Two / one</td><td>Catalog p. 28</td></tr></tbody></table><p>A code match does not establish installed dimensions, physical quantity or price.</p><a href="sources.html">Read the source notes ↗</a></div>
+    </section>
+    <footer><a href="media/catalog-film.mp4" download>Download film</a><a href="models/catalog-cabinets.glb" download>Download 3D model</a><a href="sources.html">Sources & method</a><a href="/#featured">More selected work ↗</a></footer>
+    <noscript><p class="fallback">The interactive scene needs JavaScript. <a href="media/catalog-film.mp4">Watch the catalog film</a> or read the comparison above.</p></noscript>
+  </main>
+  <script type="module" src="studio.js"></script>
+</body>
+</html>

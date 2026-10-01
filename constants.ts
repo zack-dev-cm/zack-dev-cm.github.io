@@ -4006,56 +4006,64 @@ Operations Layer (Console, Alerts, Runbooks)`
     id: 77,
     title: "Architectural Drawing and Interior Catalog Matching",
     searchProfile: {
-      capabilities: ["computer vision","document recognition","information extraction","catalog matching","agent workflows"],
+      capabilities: ["computer vision", "document recognition", "information extraction", "catalog matching", "agent workflows"],
       evidence: "implementation"
     },
-    aliases: [
-      "architectural drawings recognition",
-      "floor plan recognition",
-      "room plan recognition",
-      "interior catalog matching",
-      "casework catalog matching",
-      "commercial reception catalog preview",
-      "school reception design configuration",
-      "utility building interior planning",
-      "whole building interior planning",
-      "blueprint symbol detection"
-    ],
-    description: "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
-    longDescription: "Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.",
+    aliases: ["architectural drawings recognition", "floor plan recognition", "room plan recognition", "interior catalog matching", "casework catalog matching", "commercial reception catalog preview", "school reception design configuration", "utility building interior planning", "whole building interior planning", "blueprint symbol detection"],
+    description: "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
+    longDescription: "I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 3D study makes their drawer, door and shelf differences inspectable through six playable chapters. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.",
     projectKind: "case-study",
-    surfaceTags: ["computer-vision", "architecture", "ocr", "catalog-matching", "interior-ai", "retrieval"],
+    surfaceTags: ["computer-vision", "architecture", "ocr", "catalog-matching", "interior-ai", "retrieval", "interactive-3d"],
+    primaryLinks: ["Run the full workflow", "Explore catalog in 3D", "Watch the 30-second film"],
+    heroVideo: "/docs/architectural-catalog/media/catalog-film.mp4",
+    caseStudySections: [
+      { title: "A grounded example", body: "B3000 appears on page 1 of the original elevation template and resolves to page 27 of the recovered catalog: one upper drawer, two hinged doors and one adjustable shelf. B3100 appears on page 3 and resolves to page 28: two side-by-side upper drawers above the same two-door lower compartment. The 3D study makes this difference visible and lets visitors open, separate and select the components." },
+      { title: "Dimensions and review", body: "The initial model uses a catalog-allowed 36 W × 34 H × 24 D inch configuration. The width control explores a reviewed subset of allowed variants. Installed sizes still need drawing evidence; repeated callouts across views do not establish physical quantity. Finish, hardware and movement are illustrative. The recovered mapping also contains useful failure cases: W0100 is a two-door wall cabinet, and R1000 is a wall scribing filler." },
+      { title: "A functional full workflow", body: "The live service uses Codex Mode 1 with GPT-6.1 sol and built-in ImageGen. The agent reads the original PDFs, runs extraction and matching tools, reviews the evidence, directs a new image, inspects its visible cabinet arrangement and packages the actual artifacts. Independent checks validate source hashes, chosen variants and artifact receipts before publication. The two 36-inch oak examples took 120.75 and 144.15 seconds; a live 48-inch sage B3100 run took 106.39 seconds. These are individual measured runs, not throughput or accuracy benchmarks. Completed examples remain available when the live agent is offline." },
+      { title: "The model evaluation plan", body: "The next scanned-document lane evaluates PaddleOCR-VL-1.6 and Qwen3.5-9B against the original document set. Qwen3.6-27B-FP8 is a newer challenger for a separate GPU window. Exact code lookup precedes embedding retrieval, and evaluation measures source accuracy, unresolved cases and render fidelity. The current demonstration uses native PDF text and the Codex agent; local GPU models are proposed and have not been deployed by this release." }
+    ],
     keyFeatures: [
-      "Parses PDFs, blueprint images, and elevation sheets into room graphs, dimensions, OCR labels, and catalog callouts",
-      "Maps visible callout codes to casework, finish, lighting, storage, and furniture catalog records with evidence notes",
-      "Optimizes reception and room presets against coverage, fit, style, circulation, and building-level ensemble constraints",
-      "Exports reviewable plan previews, commercial interior/exterior context renders, BOM CSVs, and rationale packets without exposing private source documents"
+      "Reuses original elevation and catalog documents for exact code matching with page-level evidence",
+      "Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts",
+      "Compares B3000 and B3100 through playable chapters, opening, exploded inspection and selectable parts",
+      "Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities",
+      "Carries unresolved catalog, finish, quantity and price fields into draft BOM review"
     ],
-    techStack: ["Python", "OpenCV", "OCR", "PDF Processing", "LLM/Vision Parsing", "Catalog Indexing", "OpenEvolve", "BOM Export", "3D/CV", "Visual QA"],
+    techStack: ["Python", "PyMuPDF", "OpenCV", "OCR", "Catalog Indexing", "Codex Mode 1", "GPT-6.1 sol", "ImageGen", "SQLite", "BOM Review", "Three.js", "glTF", "Visual QA"],
     benchmarks: [
-      { label: "Input families", value: "3", context: "PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04" },
-      { label: "Catalog flow", value: "callouts -> items", context: "visible drawing codes mapped to catalog records, evidence notes, and candidate pools" },
-      { label: "Output artifacts", value: "5", context: "room graph, catalog mapping, layout preview, render, and BOM/rationale export" },
-      { label: "Public posture", value: "sanitized", context: "no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published" }
+      { label: "Recovered catalog", value: "306 pages", context: "Original project catalog; edition retained by source hash" },
+      { label: "Identifier coverage", value: "1,639 / 1,639", context: "PDF/YAML identifier check, 1 October 2026; not matching accuracy" },
+      { label: "Grounded comparison", value: "B3000 / B3100", context: "Catalog pages 27/28 and original elevation callouts" },
+      { label: "Completed full examples", value: "120.75 / 144.15 s", context: "Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review" },
+      { label: "Playable study", value: "6 chapters", context: "Same procedural scene drives the interactive controls and 30-second film" }
     ],
-    links: [],
+    links: [
+      { text: "Run the full workflow", url: "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/" },
+      { text: "Explore catalog in 3D", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/" },
+      { text: "Watch the 30-second film", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4" },
+      { text: "Catalog source notes", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html" },
+      { text: "Download cabinet model", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb" },
+      { text: "Case Systems catalog resources", url: "https://www.casesystems.com/resources/design-resources/casework-catalogs/" },
+      { text: "PaddleOCR-VL-1.6", url: "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6" },
+      { text: "Qwen3.6-27B-FP8", url: "https://huggingface.co/Qwen/Qwen3.6-27B-FP8" }
+    ],
     mermaidDiagram: `flowchart LR
-  Docs["PDF / Blueprint / Elevation"] --> Parse["Vision + OCR Parsing"]
-  Parse --> Rooms["Room Graph + Dimensions"]
-  Parse --> Callouts["Catalog Callouts"]
-  Callouts --> Catalog["Catalog Index + Evidence Notes"]
-  Rooms --> Constraints["Program + Circulation Constraints"]
-  Catalog --> Presets["Candidate Presets"]
-  Constraints --> Presets
-  Presets --> Render["Reception / School / Utility Preview"]
-  Presets --> QA["Fit + Style + BOM QA"]
-  Render --> Export["Rationale + BOM Bundle"]
-  QA --> Export`,
+  Drawing["Original Plan / Elevation"] --> Evidence["Pages + Callouts + Source Coordinates"]
+  Evidence --> Lookup["Exact Code + Catalog Edition"]
+  Catalog["Manufacturer Catalog"] --> Lookup
+  Lookup --> Facts["Source-Linked Item Facts"]
+  Facts --> Review["Dimensions + Quantity Review"]
+  Review --> Render["Codex + ImageGen + Visual Review"]
+  Render --> BOM["Validated Result + Draft BOM + Evidence Bundle"]
+  Facts --> Preview["Catalog-Grounded 3D Study"]`,
     images: [
-      { url: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`, alt: "Architectural floorplan recognition and interior catalog matching visualization" },
-      ARCHITECTURAL_CATALOG_RECEPTION_IMAGE
+      { url: "/docs/architectural-catalog/media/catalog-poster.jpg", alt: "Real Case Systems B3000 and B3100 cabinet families in a catalog-grounded procedural 3D study", caption: "Catalog-grounded visualization. Selected nominal size; illustrative finish and construction." },
+      { url: "/docs/architectural-catalog/media/catalog-film.mp4", alt: "From drawing to catalog: a 30-second 3D cabinet comparison", caption: "Six chapters follow the callout, catalog match, cabinet details and reviewable dimensions.", captions: "/docs/architectural-catalog/media/catalog.vtt" },
+      { url: "/docs/architectural-catalog/media/catalog-open.jpg", alt: "B3000 and B3100 cabinets with doors and drawers open and components separated", caption: "Inspect the drawer, door and shelf facts from catalog pages 27 and 28." },
+      { url: "/docs/architectural-catalog/media/b3000-interior.webp", alt: "Actual ImageGen output from the B3000 grounded full workflow, showing one upper drawer and two lower doors", caption: "Recorded B3000 run: original drawing p. 1, catalog p. 27, agent review and fresh ImageGen. Illustrative oak finish; nominal 36-inch variant." },
+      { url: "/docs/architectural-catalog/media/b3100-interior.webp", alt: "Actual ImageGen output from the B3100 grounded full workflow, showing two upper drawers side by side and two lower doors", caption: "Recorded B3100 run: original drawing p. 3, catalog p. 28, agent review and fresh ImageGen. Inspect every phase and download the result in the live demo." }
     ],
-    thumbnail: `${LOCAL_IMG_BASE}/architectural-plan-interior-matcher-card.png`,
+    thumbnail: "/docs/architectural-catalog/media/catalog-poster.jpg",
     createdAt: "2026-06-04"
   },
   {

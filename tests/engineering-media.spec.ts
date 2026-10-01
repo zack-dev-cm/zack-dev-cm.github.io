@@ -96,7 +96,7 @@ for (const width of [1440, 390]) {
   test(`selected project previews play and pause at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 960 });
     await page.goto('/');
-    await expect(page.locator('.featured-card')).toHaveCount(7);
+    await expect(page.locator('.featured-card')).toHaveCount(8);
     for (const [project, title] of [['agnitra', 'Agnitra · Model profiling & optimization'], ['retrieval', 'Multimodal video search']]) {
       const card = page.locator('.featured-card').filter({ has: page.getByRole('heading', { name: title, exact: true }) });
       await card.scrollIntoViewIfNeeded();

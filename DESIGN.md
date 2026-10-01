@@ -140,7 +140,7 @@ avoid making dense illustration text carry the card's meaning. Main case-study
 links navigate to a full reading page; archive cards retain the quick-view modal.
 Direct reading pages share the home page's typeface, identity and navigation.
 
-Vehicle Lab appears in the first selected-work row as a released engineering
+Vehicle Lab follows the document and catalog stories as a released engineering
 notebook. Use the 01:22 exploded-inspection frame from its actual film, cropped
 to the CAD viewport, with a visible source caption. Keep its full film in the
 case-study links and archive viewer. The selected cards retain the ML career
@@ -160,7 +160,7 @@ The hero includes an Open-source contributions button linking to this section.
 
 The Vehicle Lab preview works because the subject remains large while its state
 changes. The older white workflow sheets and profiling table lose their detail
-at card size. Keep the page hierarchy and seven selected projects; improve the
+at card size. Keep the page hierarchy and a small selection of projects; improve the
 figures rather than expanding the homepage into a gallery.
 
 Three media directions were assessed: decorative studio art, full workflow
@@ -244,3 +244,29 @@ The standalone Skill Wind page keeps its existing deep ink, copper, parchment,
 animated wind currents, and transformation artwork. It is a separate visual
 piece and does not dictate the portfolio layout. Preserve its reduced-motion
 behavior and the existing discreet header navigation gesture.
+
+## Catalog matching lesson — October 2026
+
+Add Architectural Drawing and Interior Catalog Matching to the first selected-work row, following Document AI. It is an existing substantial project with recovered original catalog/elevation inputs. Retain the hero and all seven earlier selected stories. Use a compact silent preview in the repeated project layout; put the full interactive lab behind an explicit link.
+
+Considered directions: (1) a photoreal room flythrough, (2) an abstract document/AI node graph, (3) a cabinet comparison driven by the original catalog. Select the third because the one-drawer/two-drawer difference explains exact matching with real evidence. A room flythrough would require unverified room geometry; the graph would obscure the item being matched.
+
+The lab uses charcoal editorial framing, warm oak, porcelain carcasses and brushed dark hardware, with cyan dimension/evidence marks. Material finishes and construction details are authored. Product family, door/drawer counts, allowed nominal dimensions and catalog pages are source-grounded. Keep text outside the model on small screens. Use at least 44px controls, a readable no-WebGL fallback, paused entry, keyboard selection, chapter navigation and deterministic camera states.
+
+First traffic: portfolio selected work and the architectural project case study. Reader: an engineering lead or design technologist examining source-grounded document AI. Share moment: opening two cabinets reveals why similar-looking codes cannot be treated as interchangeable. Action: explore the catalog comparison; download the film or model.
+
+Seven media candidates were evaluated, each with an explicit privacy boundary (original client sheets remain local):
+
+| Hook | Audience / proof | Incentive / CTA / share trigger | Decision |
+| --- | --- | --- | --- |
+| One code, one catalog family | Engineering lead; original B3000 callout and page 27 | Follow the match; open 3D; source-to-object reveal | Use as opening |
+| One drawer or two? | Design technologist; catalog diagrams 27/28 | Compare B3000/B3100; open drawers; send the difference | Main film |
+| Open the cabinet | Product designer; grounded shelf/door counts | Inspect internals; separate parts; save the exploded view | Use chapter |
+| A code is not a dimension | Architect; allowed catalog options | Change width; inspect nominal configuration; share unit clarity | Use chapter |
+| Catch an incorrect mapping | Document-AI engineer; W0100/R1000 source pages | Read corrected facts; source notes; share failure lesson | Use text evidence |
+| From callouts to a draft BOM | Estimator; source/occurrence contract | Review unresolved quantities; case study; send review pattern | Use final chapter, no invented prices |
+| Cinematic room flythrough | General visitor; no recovered verified room geometry | Walk a room; share finish concept | Defer; would invent room facts |
+
+The 30-second film uses six 5-second chapters at 24 fps, 1920×1080; the on-page loop is 1280×720. Render a readable first frame/poster and VTT captions. The same procedural scene drives the playable lab and deterministic film. Verify source hashes, media metadata, responsive screenshots, fallback, controls and public leak gates; record critic scores after inspection.
+
+The catalog card now leads to the working full workflow. Keep its playable 3D preview in selected work and the full film in the case-study hero; the final generated cabinet images belong in the inspectable case gallery. Label real agent output, source-grounded procedural geometry and proposed model evaluation distinctly. The full workflow uses original document crops and reviewed unknowns, rather than a fabricated dashboard.

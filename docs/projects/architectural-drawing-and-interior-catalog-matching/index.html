@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Architectural Drawing and Interior Catalog Matching | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or." />
+    <meta name="description" content="A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Architectural Drawing and Interior Catalog Matching" />
-    <meta property="og:description" content="CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors." />
+    <meta property="og:description" content="A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Architectural Drawing and Interior Catalog Matching" />
-    <meta name="twitter:description" content="CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/architectural-plan-interior-matcher-card.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Architectural floorplan recognition and interior catalog matching visualization" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/architectural-plan-interior-matcher-card.png" />
-    <meta name="twitter:image:alt" content="Architectural floorplan recognition and interior catalog matching visualization" />
+    <meta name="twitter:description" content="A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Real Case Systems B3000 and B3100 cabinet families in a catalog-grounded procedural 3D study" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg" />
+    <meta name="twitter:image:alt" content="Real Case Systems B3000 and B3100 cabinet families in a catalog-grounded procedural 3D study" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -27,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/#case-study",
       "headline": "Architectural Drawing and Interior Catalog Matching",
       "name": "Architectural Drawing and Interior Catalog Matching",
-      "description": "CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.",
+      "description": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "author": {
@@ -41,8 +41,8 @@
             "url": "https://zack-dev-cm.github.io"
       },
       "genre": "case-study",
-      "keywords": "computer-vision, architecture, ocr, catalog-matching, interior-ai, retrieval, Python, OpenCV, OCR, PDF Processing, LLM/Vision Parsing, Catalog Indexing, OpenEvolve, BOM Export, 3D/CV, Visual QA",
-      "image": "https://zack-dev-cm.github.io/docs/images/architectural-plan-interior-matcher-card.png",
+      "keywords": "computer-vision, architecture, ocr, catalog-matching, interior-ai, retrieval, interactive-3d, Python, PyMuPDF, OpenCV, OCR, Catalog Indexing, Codex Mode 1, GPT-6.1 sol, ImageGen, SQLite",
+      "image": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg",
       "isAccessibleForFree": true,
       "about": [
             {
@@ -71,7 +71,15 @@
             },
             {
                   "@type": "Thing",
+                  "name": "interactive-3d"
+            },
+            {
+                  "@type": "Thing",
                   "name": "Python"
+            },
+            {
+                  "@type": "Thing",
+                  "name": "PyMuPDF"
             },
             {
                   "@type": "Thing",
@@ -83,34 +91,42 @@
             },
             {
                   "@type": "Thing",
-                  "name": "PDF Processing"
-            },
-            {
-                  "@type": "Thing",
-                  "name": "LLM/Vision Parsing"
-            },
-            {
-                  "@type": "Thing",
                   "name": "Catalog Indexing"
             },
             {
                   "@type": "Thing",
-                  "name": "OpenEvolve"
+                  "name": "Codex Mode 1"
             },
             {
                   "@type": "Thing",
-                  "name": "BOM Export"
+                  "name": "GPT-6.1 sol"
             },
             {
                   "@type": "Thing",
-                  "name": "3D/CV"
+                  "name": "ImageGen"
             },
             {
                   "@type": "Thing",
-                  "name": "Visual QA"
+                  "name": "SQLite"
             }
       ],
-      "workExample": []
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Run the full workflow",
+                  "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Explore catalog in 3D",
+                  "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Watch the 30-second film",
+                  "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
+            }
+      ]
 }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -132,52 +148,68 @@
         <header class="hero">
           <p class="eyebrow">Case study</p>
           <h1>Architectural Drawing and Interior Catalog Matching</h1>
-          <p class="lede">CV and agentic pipeline for raw plans and elevations: extract rooms and callouts, match casework and finish catalog items, and preview reception, school, or utility-building interiors.</p>
-          <figure><a class="figure-link" href="/docs/images/architectural-plan-interior-matcher-card.png" aria-label="Open full-size figure 1: Architectural floorplan recognition and interior catalog matching visualization"><img class="visual" src="/docs/images/architectural-plan-interior-matcher-card.png" alt="Architectural floorplan recognition and interior catalog matching visualization" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
+          <p class="lede">A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.</p>
+          <nav class="research-actions" aria-label="Project actions"><a class="research-action research-action--primary" href="https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/">Run the full workflow</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/architectural-catalog/">Explore catalog in 3D</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4">Watch the 30-second film</a></nav>
+          <figure><video class="visual" controls playsinline preload="none" poster="/docs/architectural-catalog/media/catalog-poster.jpg" aria-label="From drawing to catalog: a 30-second 3D cabinet comparison"><source src="/docs/architectural-catalog/media/catalog-film.mp4" type="video/mp4" /><track kind="captions" src="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog.vtt" srclang="en" label="English" /><a href="/docs/architectural-catalog/media/catalog-film.mp4">Open video</a></video><figcaption>Six chapters follow the callout, catalog match, cabinet details and reviewable dimensions.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>Architectural Drawing and Interior Catalog Matching is a public-safe case study for raw document-to-design configuration work. A 2026-06-04 source review covered plan uploads, PDF/image derivation, elevation-callout extraction, catalog-code capture, manufacturer catalog indexing, catalog mapping CSV/YAML, room-preset optimization, layout/render export, and InQI/CollectionsAI-style context routing parallels. The public entry focuses on parsing raw plans and elevations, matching rooms and callouts to catalog items, generating reception/school/utility-building interiors and exterior context previews, and exporting BOM/rationale artifacts without publishing private plans, manufacturer PDFs, addresses, client files, or proprietary SKU data.</p>
+          <p>I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 3D study makes their drawer, door and shelf differences inspectable through six playable chapters. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.</p>
         </section>
-
-        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/images/architectural-catalog-reception-preview.webp" aria-label="Open full-size figure 2: Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework"><img class="visual" src="/docs/images/architectural-catalog-reception-preview.webp" alt="Generated commercial reception preview showing plan and elevation inputs mapped to anonymous catalog items and finished casework" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Conceptual illustration.</figcaption></figure></div></section>
+        <section><h2>A grounded example</h2><p>B3000 appears on page 1 of the original elevation template and resolves to page 27 of the recovered catalog: one upper drawer, two hinged doors and one adjustable shelf. B3100 appears on page 3 and resolves to page 28: two side-by-side upper drawers above the same two-door lower compartment. The 3D study makes this difference visible and lets visitors open, separate and select the components.</p></section>
+<section><h2>Dimensions and review</h2><p>The initial model uses a catalog-allowed 36 W x 34 H x 24 D inch configuration. The width control explores a reviewed subset of allowed variants. Installed sizes still need drawing evidence; repeated callouts across views do not establish physical quantity. Finish, hardware and movement are illustrative. The recovered mapping also contains useful failure cases: W0100 is a two-door wall cabinet, and R1000 is a wall scribing filler.</p></section>
+<section><h2>A functional full workflow</h2><p>The live service uses Codex Mode 1 with GPT-6.1 sol and built-in ImageGen. The agent reads the original PDFs, runs extraction and matching tools, reviews the evidence, directs a new image, inspects its visible cabinet arrangement and packages the actual artifacts. Independent checks validate source hashes, chosen variants and artifact receipts before publication. The two 36-inch oak examples took 120.75 and 144.15 seconds; a live 48-inch sage B3100 run took 106.39 seconds. These are individual measured runs, not throughput or accuracy benchmarks. Completed examples remain available when the live agent is offline.</p></section>
+<section><h2>The model evaluation plan</h2><p>The next scanned-document lane evaluates PaddleOCR-VL-1.6 and Qwen3.5-9B against the original document set. Qwen3.6-27B-FP8 is a newer challenger for a separate GPU window. Exact code lookup precedes embedding retrieval, and evaluation measures source accuracy, unresolved cases and render fidelity. The current demonstration uses native PDF text and the Codex agent; local GPU models are proposed and have not been deployed by this release.</p></section>
+        <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/architectural-catalog/media/catalog-open.jpg" aria-label="Open full-size figure 2: B3000 and B3100 cabinets with doors and drawers open and components separated"><img class="visual" src="/docs/architectural-catalog/media/catalog-open.jpg" alt="B3000 and B3100 cabinets with doors and drawers open and components separated" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Inspect the drawer, door and shelf facts from catalog pages 27 and 28.</figcaption></figure><figure><a class="figure-link" href="/docs/architectural-catalog/media/b3000-interior.webp" aria-label="Open full-size figure 3: Actual ImageGen output from the B3000 grounded full workflow, showing one upper drawer and two lower doors"><img class="visual" src="/docs/architectural-catalog/media/b3000-interior.webp" alt="Actual ImageGen output from the B3000 grounded full workflow, showing one upper drawer and two lower doors" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded B3000 run: original drawing p. 1, catalog p. 27, agent review and fresh ImageGen. Illustrative oak finish; nominal 36-inch variant.</figcaption></figure><figure><a class="figure-link" href="/docs/architectural-catalog/media/b3100-interior.webp" aria-label="Open full-size figure 4: Actual ImageGen output from the B3100 grounded full workflow, showing two upper drawers side by side and two lower doors"><img class="visual" src="/docs/architectural-catalog/media/b3100-interior.webp" alt="Actual ImageGen output from the B3100 grounded full workflow, showing two upper drawers side by side and two lower doors" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded B3100 run: original drawing p. 3, catalog p. 28, agent review and fresh ImageGen. Inspect every phase and download the result in the live demo.</figcaption></figure></div></section>
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Parses PDFs, blueprint images, and elevation sheets into room graphs, dimensions, OCR labels, and catalog callouts</li>
-        <li>Maps visible callout codes to casework, finish, lighting, storage, and furniture catalog records with evidence notes</li>
-        <li>Optimizes reception and room presets against coverage, fit, style, circulation, and building-level ensemble constraints</li>
-        <li>Exports reviewable plan previews, commercial interior/exterior context renders, BOM CSVs, and rationale packets without exposing private source documents</li>
+        <li>Reuses original elevation and catalog documents for exact code matching with page-level evidence</li>
+        <li>Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts</li>
+        <li>Compares B3000 and B3100 through playable chapters, opening, exploded inspection and selectable parts</li>
+        <li>Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities</li>
+        <li>Carries unresolved catalog, finish, quantity and price fields into draft BOM review</li>
           </ul>
         </section>
         <section>
           <h2>Stack And Topics</h2>
           <ul class="stack">
         <li>Python</li>
+        <li>PyMuPDF</li>
         <li>OpenCV</li>
         <li>OCR</li>
-        <li>PDF Processing</li>
-        <li>LLM/Vision Parsing</li>
         <li>Catalog Indexing</li>
-        <li>OpenEvolve</li>
-        <li>BOM Export</li>
-        <li>3D/CV</li>
+        <li>Codex Mode 1</li>
+        <li>GPT-6.1 sol</li>
+        <li>ImageGen</li>
+        <li>SQLite</li>
+        <li>BOM Review</li>
+        <li>Three.js</li>
+        <li>glTF</li>
         <li>Visual QA</li>
           </ul>
         </section>
         <section>
           <h2>Public Signals</h2>
           <ul>
-        <li><strong>Input families:</strong> 3 <span>PDF plans, raster blueprint images, and elevation/casework sheets from source review, 2026-06-04</span></li>
-        <li><strong>Catalog flow:</strong> callouts -&gt; items <span>visible drawing codes mapped to catalog records, evidence notes, and candidate pools</span></li>
-        <li><strong>Output artifacts:</strong> 5 <span>room graph, catalog mapping, layout preview, render, and BOM/rationale export</span></li>
-        <li><strong>Public posture:</strong> sanitized <span>no private plans, addresses, manufacturer PDFs, raw client drawings, or proprietary SKU data published</span></li>
+        <li><strong>Recovered catalog:</strong> 306 pages <span>Original project catalog; edition retained by source hash</span></li>
+        <li><strong>Identifier coverage:</strong> 1,639 / 1,639 <span>PDF/YAML identifier check, 1 October 2026; not matching accuracy</span></li>
+        <li><strong>Grounded comparison:</strong> B3000 / B3100 <span>Catalog pages 27/28 and original elevation callouts</span></li>
+        <li><strong>Completed full examples:</strong> 120.75 / 144.15 s <span>Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review</span></li>
+        <li><strong>Playable study:</strong> 6 chapters <span>Same procedural scene drives the interactive controls and 30-second film</span></li>
           </ul>
         </section>
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+        <li><a href="https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/">Run the full workflow</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/">Explore catalog in 3D</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4">Watch the 30-second film</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html">Catalog source notes</a></li>
+        <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb">Download cabinet model</a></li>
+        <li><a href="https://www.casesystems.com/resources/design-resources/casework-catalogs/">Case Systems catalog resources</a></li>
+        <li><a href="https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6">PaddleOCR-VL-1.6</a></li>
+        <li><a href="https://huggingface.co/Qwen/Qwen3.6-27B-FP8">Qwen3.6-27B-FP8</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md">Plain-text case study</a></li>
           </ul>
         </section>

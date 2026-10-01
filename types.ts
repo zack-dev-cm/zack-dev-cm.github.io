@@ -8,6 +8,7 @@ export interface ProjectImage {
   url: string;
   alt: string;
   caption?: string;
+  captions?: string;
   autoPlay?: boolean;
 }
 
@@ -56,6 +57,7 @@ export interface Project {
     expectedOutput: string;
   };
   hideImages?: boolean;
+  heroVideo?: string;
   projectKind?: 'user-product' | 'open-source' | 'case-study' | 'research';
   surfaceTags?: string[];
   mobileReady?: boolean;
