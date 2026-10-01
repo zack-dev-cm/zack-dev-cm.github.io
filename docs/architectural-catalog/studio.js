@@ -2,7 +2,7 @@ import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 import {materials,cabinet,dimensions,elevationLines} from './cabinets.js';
-import {CHAPTERS,DURATION,chapterAt,poseAt} from './timeline.js';
+import {CHAPTERS,DURATION,chapterAt,chapterText,poseAt} from './timeline.js';
 
 const $=s=>document.querySelector(s),capture=new URLSearchParams(location.search).has('capture');
 if(capture)document.body.classList.add('capture');
@@ -13,7 +13,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const selection=new T.Raycaster(),pointer=new T.Vector2();
 
 function setStory(t){
-  const i=chapterAt(t),c=CHAPTERS[i];
+  const i=chapterAt(t),c=chapterText(i,width);
   $('#chapter-number').textContent=String(i+1).padStart(2,'0')+' / '+c.label;
   $('#chapter-title').textContent=c.title;$('#chapter-copy').textContent=c.copy;$('#source').textContent=c.source;$('#source').style.whiteSpace='pre-line';
   $('#chapters').querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-current',i===j?'step':'false'));
@@ -90,7 +90,7 @@ async function init(){
   $('#time').oninput=()=>{pause();manual=false;userCamera=false;selectPart('');seek(Number($('#time').value));};
   $('#opening').oninput=()=>{const value=Number($('#opening').value);inspect();opening=value;$('#opening').value=String(value);render();};
   $('#separate').oninput=()=>{const value=Number($('#separate').value);inspect();separate=value;$('#separate').value=String(value);render();};
-  $('#width').onchange=()=>{inspect();width=Number($('#width').value);buildModels();render();};
+  $('#width').onchange=()=>{inspect();width=Number($('#width').value);buildModels();setStory(time);render();};
   $('#finish').onchange=()=>{inspect();finish=$('#finish').value;buildModels();render();};
   $('#wireframe').onchange=()=>{inspect();for(const m of Object.values(materialsSet))m.wireframe=$('#wireframe').checked;render();};
   $('#part').onchange=()=>{inspect();selectPart($('#part').value);render();};

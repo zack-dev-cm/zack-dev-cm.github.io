@@ -28,6 +28,13 @@ for(const width of [360,390,768,1440]){
     await expect(page.locator('#part-description')).toContainText('Two upper drawers, side by side');
     await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
     await expect(page.locator('#dimensions')).toContainText('48 W × 34 H × 24 D inches');
+    await page.getByRole('button',{name:'05 Check dimensions',exact:true}).click();
+    await expect(page.locator('#chapter-copy')).toContainText('48 × 34 × 24 inch');
+    await expect(page.locator('#source')).toContainText('48 W × 34 H × 24 D inches');
+    await page.getByLabel('Nominal width',{exact:true}).selectOption('24');
+    await expect(page.locator('#chapter-copy')).toContainText('24 × 34 × 24 inch');
+    await expect(page.locator('#source')).toContainText('24 W × 34 H × 24 D inches');
+    await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
     await page.locator('#opening').fill('1');await page.locator('#separate').fill('0.7');
     const opened=await page.evaluate(()=>(window as any).catalogStudy.inspect());
     expect(opened.opening).toBe(1);expect(opened.separate).toBe(.7);expect(opened.manual).toBe(true);expect(opened.playing).toBe(false);

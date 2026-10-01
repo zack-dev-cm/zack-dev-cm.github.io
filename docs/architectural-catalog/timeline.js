@@ -8,6 +8,10 @@ export const CHAPTERS = [
   {id:'review',label:'Keep it reviewable',title:'Carry the evidence forward.',copy:'A useful draft BOM carries source references and unresolved fields. A repeated callout is not automatically another cabinet; quantity and price need their own evidence.',source:'Exact code + catalog facts + source page\nInstalled dimensions / quantity / price: review'},
 ];
 export const smooth = x => { x=Math.max(0,Math.min(1,x));return x*x*(3-2*x); };
+export function chapterText(index,width=36){
+  const chapter=CHAPTERS[index];
+  return chapter.id==='size'?{...chapter,copy:`This study uses a catalog-allowed ${width} × 34 × 24 inch variant. Change the width to explore options; an installed size still needs drawing evidence.`,source:`${width} W × 34 H × 24 D inches\nSelected catalog variant`}:chapter;
+}
 export function chapterAt(t){return Math.min(5,Math.floor(Math.max(0,t)/5));}
 export function poseAt(t){
   const i=chapterAt(t),p=smooth((t-i*5)/5);
