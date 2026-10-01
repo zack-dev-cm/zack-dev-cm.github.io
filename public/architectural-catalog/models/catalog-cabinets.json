@@ -2,8 +2,8 @@
   "format": "glTF 2.0",
   "units": "metres",
   "meshes": 70,
-  "bytes": 331484,
-  "sha256": "d924b9b76ef3e8b9f3d2db239a00d2a6b72b4397c27a672bf82ddb0e92ea3679",
+  "bytes": 622732,
+  "sha256": "2a360a4674857fcce6e973954f314faad309e56f1c2bc8c2db91a1105a50f6c7",
   "sourceFacts": {
     "kind": "CATALOG_GROUNDED_VISUALIZATION",
     "catalog": {

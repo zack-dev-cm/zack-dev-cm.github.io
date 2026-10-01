@@ -35,7 +35,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
     title: 'From drawing to catalog',
     summary: 'Follow real callouts through catalog matching, agent review and a generated interior. Explore the cabinet families in 3D, then run the complete workflow and inspect its results.',
     previewVideo: '/docs/architectural-catalog/media/catalog-loop.mp4',
-    previewPoster: '/docs/architectural-catalog/media/catalog-poster.jpg',
+    previewPoster: '/docs/architectural-catalog/media/catalog-teaser.jpg',
     figureLabel: 'Real catalog families · interactive 3D explanation',
   },
   84: {
@@ -1009,6 +1009,7 @@ const App: React.FC = () => {
                 <a href={SOCIAL_LINKS.githubPrimary} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
                 <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
                 <a href={`mailto:${SOCIAL_LINKS.email}`}>Email <span aria-hidden="true">↗</span></a>
+                <a className="hero__3d-link" href="/docs/architectural-catalog/">3D story <span aria-hidden="true">↗</span></a>
               </div>
               <a href="#contributed-to" className="button button--ghost hero__contributions">
                 <GitHubIcon className="h-4 w-4" /> Open-source contributions <span aria-hidden="true">↓</span>
@@ -1037,7 +1038,13 @@ const App: React.FC = () => {
               <h2>Document AI{' '}<br />& applied ML R&D</h2>
               <p>Document intelligence and source-linked workflows for expert teams.</p>
               <a href="#experience" className="text-link">View experience <span aria-hidden="true">↗</span></a>
-              <div className="hero__practice"><span>Also building</span><p>Mobile vision. Inference tools.<br />A maintained AI nutrition service.</p></div>
+              <figure className="hero__study">
+                <div className="hero__study-media">
+                  <PreviewVideo src="/docs/architectural-catalog/media/catalog-loop.mp4" poster="/docs/architectural-catalog/media/catalog-teaser.jpg" label="Catalog story on the main page" suspended={Boolean(selectedProject)} />
+                </div>
+                <figcaption>Drawing → catalog → interior</figcaption>
+                <a className="text-link" href="/docs/architectural-catalog/">Open the 3D story <span aria-hidden="true">↗</span></a>
+              </figure>
             </aside>
           </section>
 
@@ -1087,6 +1094,7 @@ const App: React.FC = () => {
                       <p className="featured-card__summary">{context.summary}</p>
                       <div className="featured-card__links">
                         <a className="text-link" href={buildProjectPublicUrl(getProjectCanonicalSlug(project))}>Case study <span aria-hidden="true">↗</span></a>
+                        {project.id === 77 && <a className="text-link" href="/docs/architectural-catalog/">Play 3D story <span aria-hidden="true">↗</span></a>}
                         {project.links.slice(0, 1).map((link) => <a className="text-link" key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.text} <span aria-hidden="true">↗</span></a>)}
                       </div>
                     </div>

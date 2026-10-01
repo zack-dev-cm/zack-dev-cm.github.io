@@ -18,6 +18,6 @@ export function poseAt(t){
   const openings=[0,0,.18,.15,.9,.28,0],separations=[0,0,0,0,.45,0,0];
   const opening=openings[i]+(openings[i+1]-openings[i])*p;
   const separate=separations[i]+(separations[i+1]-separations[i])*p;
-  const cameras=[[2.8,1.65,3.6],[2.3,1.5,3.4],[1.7,1.45,3.8],[2.1,1.75,3.65],[1.6,1.4,3.8],[2.8,1.65,3.6],[2.8,1.65,3.6]];
+  const cameras=[[2.2,1.45,4],[.8,1.3,3.9],[.45,1.22,4.25],[1.5,1.55,3.45],[1.05,1.5,4.1],[2.3,1.45,4.1],[2.2,1.45,4]];
   return {opening,separate,dimensions:i===4,blueprint:i===0||i===1,camera:cameras[i].map((v,k)=>v+(cameras[i+1][k]-v)*p),chapter:i};
 }

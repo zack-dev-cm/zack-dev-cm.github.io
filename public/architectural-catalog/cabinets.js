@@ -10,23 +10,28 @@ function panel(w,h,d,m,n){
   g.translate(0,0,-d/2+r);return mesh(g,m,n);
 }
 function oakTexture(){
-  const c=document.createElement('canvas');c.width=256;c.height=512;const x=c.getContext('2d');
-  x.fillStyle='#b89770';x.fillRect(0,0,256,512);
-  for(let i=0;i<320;i++){
-    const a=(Math.sin(i*17.131)*43758.5453)%1,b=Math.abs(a),px=(i*37.71)%256;
-    x.strokeStyle=`rgba(${b>.5?'75,46,25':'238,211,168'},${.025+b*.065})`;x.lineWidth=.35+b*1.7;x.beginPath();
-    for(let y=0;y<=512;y+=8){const xx=px+Math.sin(y*.015+i*.31)*(1+b*2.5);if(y===0)x.moveTo(xx,y);else x.lineTo(xx,y);}x.stroke();
+  const c=document.createElement('canvas');c.width=512;c.height=1024;const x=c.getContext('2d'),pixels=x.createImageData(c.width,c.height);
+  for(let y=0;y<c.height;y++)for(let col=0;col<c.width;col++){
+    const u=col/c.width,v=y/c.height,flow=Math.sin(v*9+u*3)*.65+Math.sin(v*19+u*7)*.2;
+    const grain=Math.sin((u*83+flow)*Math.PI*2)*4+Math.sin((u*191+flow*1.4)*Math.PI*2)*1.5;
+    const pore=Math.pow(Math.max(0,Math.sin((u*239+flow)*Math.PI*2)),18)*3;
+    let noise=Math.imul(col+1,374761393)^Math.imul(y+1,668265263);noise=Math.imul(noise^(noise>>>13),1274126177);
+    const shade=grain-pore+((noise>>>0)/4294967295-.5)*2.5;
+    const i=(y*c.width+col)*4;
+    pixels.data[i]=184+shade;pixels.data[i+1]=147+shade;pixels.data[i+2]=104+shade;pixels.data[i+3]=255;
   }
-  const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=4;return t;
+  x.putImageData(pixels,0,0);
+  const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=8;return t;
 }
 export function materials(){
+  const oak=oakTexture();
   return {
-    oak:new T.MeshStandardMaterial({color:0xffffff,map:oakTexture(),roughness:.62,metalness:0}),
+    oak:new T.MeshStandardMaterial({color:0xffffff,map:oak,bumpMap:oak,bumpScale:.0002,roughness:.48,metalness:0}),
     sage:new T.MeshStandardMaterial({color:0x74887a,roughness:.65}),
     porcelain:new T.MeshStandardMaterial({color:0xd7d1c5,roughness:.5}),
-    body:new T.MeshStandardMaterial({color:0xc9c3b7,roughness:.56}),
+    body:new T.MeshStandardMaterial({color:0xd7d1c5,roughness:.56}),
     inside:new T.MeshStandardMaterial({color:0xebe6db,roughness:.7}),
-    metal:new T.MeshStandardMaterial({color:0x393d3c,metalness:.84,roughness:.28}),
+    metal:new T.MeshStandardMaterial({color:0x626660,metalness:.88,roughness:.3}),
     base:new T.MeshStandardMaterial({color:0x242b2d,metalness:.28,roughness:.55}),
   };
 }

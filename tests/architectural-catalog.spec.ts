@@ -85,3 +85,41 @@ test('main-page preview and case-study film lead to the interactive catalog',asy
   await expect(page.locator('header.hero video source')).toHaveAttribute('src',base+'media/catalog-film.mp4');
   await expect(page.locator('header.hero video track')).toHaveAttribute('src',/catalog\.vtt$/);
 });
+
+test('catalog story is discoverable on arrival and can be inspected fullscreen',async({page})=>{
+  await page.setViewportSize({width:1440,height:1000});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/');
+  const study=page.locator('.hero__study'),video=study.locator('video');
+  await expect(study).toBeVisible();
+  const bounds=await study.boundingBox();expect(bounds!.y+bounds!.height).toBeLessThan(1000);
+  await expect(video).toHaveAttribute('poster',base+'media/catalog-teaser.jpg');
+  expect(await video.getAttribute('src')).toBeNull();
+  await study.getByRole('button',{name:'Play Catalog story on the main page',exact:true}).click();
+  await expect.poll(()=>video.evaluate((v:HTMLVideoElement)=>!v.paused&&v.currentTime>.2)).toBe(true);
+  await study.getByRole('button',{name:'Pause Catalog story on the main page',exact:true}).click();
+  expect(await video.evaluate((v:HTMLVideoElement)=>v.paused)).toBe(true);
+  await study.getByRole('link',{name:'Open the 3D story',exact:false}).click();
+  await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+  await page.getByRole('button',{name:'Fullscreen',exact:true}).click();
+  await expect.poll(()=>page.evaluate(()=>document.fullscreenElement?.className)).toBe('model-area');
+  await page.getByRole('button',{name:'Exit fullscreen',exact:true}).click();
+  await expect.poll(()=>page.evaluate(()=>document.fullscreenElement)).toBeNull();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+});
+
+test('mobile arrival offers a direct story link without moving the primary actions out of view',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});
+  for(const width of [360,390]){
+    await page.setViewportSize({width,height:900});await page.goto('/');
+    const link=page.locator('.hero__3d-link');
+    await expect(link).toBeVisible();await expect(link).toHaveAttribute('href',base);
+    for(const name of ['Selected work','Download resume']){
+      const box=await page.getByRole('link',{name,exact:false}).first().boundingBox();
+      expect(box!.y+box!.height).toBeLessThan(900);
+    }
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+    await link.click();await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+    await expect(page.getByRole('button',{name:'Play story',exact:true})).toBeVisible();
+  }
+});

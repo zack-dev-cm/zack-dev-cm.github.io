@@ -45,7 +45,7 @@ function resize(){
 }
 function cameraPose(pose){
   const state=poseAt(time),o=manual?opening:state.opening,e=manual?separate:state.separate;
-  const factor=(camera.aspect<1.15?.85:camera.aspect<1.5?.75:.66)*(1+o*.25+e*.18)*Math.max(1,width/36);
+  const factor=(camera.aspect<1.15?.85:camera.aspect<1.5?.75:.66)*(capture?1.08:1)*(1+o*.25+e*.18)*Math.max(1,width/36);
   camera.position.set(pose[0]*factor,pose[1]*factor,pose[2]*factor);camera.lookAt(0,.43,0);controls.target.set(0,.43,0);controls.update();
 }
 function render(){
@@ -73,20 +73,31 @@ async function init(){
   scene=new T.Scene();scene.background=new T.Color(capture?0x090c10:0x11161c);
   camera=new T.PerspectiveCamera(38,1,.01,50);
   renderer=new T.WebGLRenderer({canvas:$('#scene'),antialias:true,alpha:false,preserveDrawingBuffer:capture});
-  renderer.setPixelRatio(capture?1:Math.min(devicePixelRatio,2));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
-  renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
-  scene.add(new T.HemisphereLight(0xe6eef1,0x51412f,1.9));
-  const key=new T.DirectionalLight(0xfff0da,3.4);key.position.set(-2.4,4.8,3.4);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-3;key.shadow.camera.right=3;key.shadow.camera.top=3;key.shadow.camera.bottom=-3;key.shadow.normalBias=.015;key.shadow.bias=-.00008;scene.add(key);
-  const rim=new T.DirectionalLight(0xa1d9ee,2);rim.position.set(2,2,-3);scene.add(rim);
-  const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshBasicMaterial({color:capture?0x090c10:0x11161c,toneMapped:false}));floor.rotation.x=-Math.PI/2;floor.position.y=-.03;floor.name='Studio ground';scene.add(floor);
-  const shadow=new T.Mesh(new T.PlaneGeometry(20,20),new T.ShadowMaterial({opacity:.28}));shadow.rotation.x=-Math.PI/2;shadow.position.y=-.028;shadow.receiveShadow=true;scene.add(shadow);
-  const grid=new T.GridHelper(5,25,0x344049,0x1c252d);grid.position.y=-.025;grid.material.transparent=true;grid.material.opacity=.28;scene.add(grid);
+  renderer.setPixelRatio(capture?1:Math.min(devicePixelRatio,2));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+  renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;
+  // An authored studio environment gives metal and wood real light response.
+  const environment=new T.Scene();environment.background=new T.Color(0x68645d);
+  for(const [position,size,brightness] of [[[-3,3,2],[3,4],4],[[3,2,1],[2,3],2],[[0,4,-2],[4,3],3]]){
+    const material=new T.MeshBasicMaterial({color:new T.Color().setRGB(brightness,brightness*.96,brightness*.88),side:T.DoubleSide});
+    const light=new T.Mesh(new T.PlaneGeometry(...size),material);light.position.set(...position);light.lookAt(0,.4,0);environment.add(light);
+  }
+  const pmrem=new T.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(environment,.025,.1,20).texture;scene.environmentIntensity=.65;pmrem.dispose();
+  environment.traverse(o=>{if(o.isMesh){o.geometry.dispose();o.material.dispose();}});
+  scene.add(new T.HemisphereLight(0xe6eef1,0x51412f,.65));
+  const key=new T.DirectionalLight(0xfff0da,2.6);key.position.set(-2.4,4.8,3.4);key.castShadow=true;key.shadow.mapSize.set(1024,1024);key.shadow.radius=3;key.shadow.camera.left=-3;key.shadow.camera.right=3;key.shadow.camera.top=3;key.shadow.camera.bottom=-3;key.shadow.normalBias=.004;key.shadow.bias=-.00008;scene.add(key);
+  const rim=new T.DirectionalLight(0xa1d9ee,1.25);rim.position.set(2,2,-3);scene.add(rim);
+  const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshBasicMaterial({color:capture?0x090c10:0x11161c,toneMapped:false}));floor.rotation.x=-Math.PI/2;floor.position.y=-.001;floor.name='Studio ground';scene.add(floor);
+  const shadow=new T.Mesh(new T.PlaneGeometry(20,20),new T.ShadowMaterial({opacity:.2}));shadow.rotation.x=-Math.PI/2;shadow.position.y=-.0005;shadow.receiveShadow=true;scene.add(shadow);
+  const grid=new T.GridHelper(5,25,0x344049,0x1c252d);grid.position.y=.0001;grid.material.transparent=true;grid.material.opacity=.12;scene.add(grid);
   materialsSet=materials();buildModels();outline=new T.Box3Helper(new T.Box3(),0x97d8ea);outline.visible=false;scene.add(outline);
   controls=new OrbitControls(camera,$('#scene'));controls.enableDamping=false;controls.minDistance=1.5;controls.maxDistance=9;controls.maxPolarAngle=Math.PI*.49;
   controls.addEventListener('start',()=>{inspect();userCamera=true;});controls.addEventListener('change',()=>{if(userCamera)render();});
   $('#chapters').replaceChildren(...CHAPTERS.map((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>'+c.label;b.onclick=()=>{pause();manual=false;userCamera=false;selectedPart='';$('#part').value='';selectPart('');seek(i*5);};return b;}));
   $('#play').onclick=()=>{if(playing){pause();return;}manual=false;userCamera=false;selectedPart='';selectPart('');if(time>=DURATION)time=0;playing=true;$('#play').textContent='Pause story';last=performance.now();};
   $('#restart').onclick=()=>{pause();manual=false;userCamera=false;selectPart('');seek(0);};
+  $('#fullscreen').hidden=!document.fullscreenEnabled;
+  $('#fullscreen').onclick=async()=>{if(document.fullscreenElement)await document.exitFullscreen();else await $('.model-area').requestFullscreen();};
+  document.addEventListener('fullscreenchange',()=>{$('#fullscreen').textContent=document.fullscreenElement?'Exit fullscreen':'Fullscreen';});
   $('#time').oninput=()=>{pause();manual=false;userCamera=false;selectPart('');seek(Number($('#time').value));};
   $('#opening').oninput=()=>{const value=Number($('#opening').value);inspect();opening=value;$('#opening').value=String(value);render();};
   $('#separate').oninput=()=>{const value=Number($('#separate').value);inspect();separate=value;$('#separate').value=String(value);render();};

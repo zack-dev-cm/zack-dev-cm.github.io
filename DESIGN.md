@@ -270,3 +270,21 @@ Seven media candidates were evaluated, each with an explicit privacy boundary (o
 The 30-second film uses six 5-second chapters at 24 fps, 1920×1080; the on-page loop is 1280×720. Render a readable first frame/poster and VTT captions. The same procedural scene drives the playable lab and deterministic film. Verify source hashes, media metadata, responsive screenshots, fallback, controls and public leak gates; record critic scores after inspection.
 
 The catalog card now leads to the working full workflow. Keep its playable 3D preview in selected work and the full film in the case-study hero; the final generated cabinet images belong in the inspectable case gallery. Label real agent output, source-grounded procedural geometry and proposed model evaluation distinctly. The full workflow uses original document crops and reviewed unknowns, rather than a fabricated dashboard.
+
+### Catalog story discovery and cinematic finish
+
+Reuse the September 25 session's guided-example workflow: play/pause, restart,
+scrubbing, chapters and manual inspection. Considered placements: a blocking
+intro film, a standalone link, and an integrated preview. Use the integrated
+preview in the desktop current-work column, with a direct 3D Story link among
+the mobile hero links and another beside the catalog card. Retain the identity,
+resume and selected-work actions. Motion starts silently when visible, respects
+reduced motion and data saving, and stops when offscreen or user-paused.
+
+The small preview shows the cabinets at useful scale; chapter text belongs in
+HTML and in the full film, rather than being shrunk into a card. Refine warm oak
+grain, metal reflections, contact shadows and smooth camera moves using the
+same deterministic procedural scene. Keep the geometry and selected nominal
+dimensions grounded in the original catalog. Studio lighting and materials are
+illustrative. Provide fullscreen for detailed inspection. Re-render the film,
+posters, preview and GLB together, preserving source and frame receipts.

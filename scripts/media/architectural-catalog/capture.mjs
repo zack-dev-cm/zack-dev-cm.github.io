@@ -48,9 +48,13 @@ try{
     await page.evaluate(t=>catalogStudy.seek(t),t);
     await page.screenshot({path:path.join(staging,`catalog-${name}.jpg`),type:'jpeg',quality:94});
   }
+  // Compose a legible small preview from the model area, keeping chapter copy
+  // in the full film and surrounding HTML. Both crops use the same real frames.
+  const teaserCrop='crop=1306:734:614:150,scale=1280:720,setsar=1';
+  const posterCrop=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',path.join(staging,'catalog-poster.jpg'),'-vf',teaserCrop,'-frames:v','1',path.join(staging,'catalog-teaser.jpg')],{encoding:'utf8'});if(posterCrop.status!==0)throw Error(posterCrop.stderr);
   if(process.argv.includes('--preview')){
     const dir=path.join(ROOT,'media');fs.mkdirSync(dir,{recursive:true});
-    for(const n of ['poster','compare','open','dimensions'])fs.copyFileSync(path.join(staging,`catalog-${n}.jpg`),path.join(dir,`catalog-${n}.jpg`));
+    for(const n of ['poster','compare','open','dimensions','teaser'])fs.copyFileSync(path.join(staging,`catalog-${n}.jpg`),path.join(dir,`catalog-${n}.jpg`));
     publishFiles(staging,path.join(ROOT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
     console.log(JSON.stringify({preview:true,renderer,meshes:gltf.meshes.length,errors}));
   }else{
@@ -84,13 +88,13 @@ try{
       frames.push(frame);if(i%120===0)console.log(`${i}/720 frames, ${Math.round((Date.now()-started)/1000)} seconds`);
     }
     encoder.stdin.end();await encoderDone;
-    const transcode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',film,'-an','-vf','scale=1280:720','-c:v','libx264','-preset','slow','-crf','25','-pix_fmt','yuv420p','-movflags','+faststart',path.join(staging,'catalog-loop.mp4')],{encoding:'utf8'});if(transcode.status!==0)throw Error(transcode.stderr);
+    const transcode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',film,'-an','-vf',teaserCrop,'-c:v','libx264','-preset','slow','-crf','25','-pix_fmt','yuv420p','-movflags','+faststart',path.join(staging,'catalog-loop.mp4')],{encoding:'utf8'});if(transcode.status!==0)throw Error(transcode.stderr);
     const stamp=t=>'00:'+String(Math.floor(t/60)).padStart(2,'0')+':'+(t%60).toFixed(3).padStart(6,'0');
     fs.writeFileSync(path.join(staging,'catalog.vtt'),'WEBVTT\n\n'+CHAPTERS.map((c,i)=>`${i+1}\n${stamp(i*5)} --> ${stamp((i+1)*5)}\n${c.title} ${c.copy}\n`).join('\n'));
     assert.deepEqual(errors,[]);
     for(const [n,b] of frozen)assert.equal(digest(fs.readFileSync(n==='architectural-catalog/capture-pixels.mjs'?pixels:path.join(PUBLIC,n))),digest(b),'Source changed during capture: '+n);
     for(const p of toolPaths)assert.equal(digest(fs.readFileSync(p)),digest(frozenTools.get(path.basename(p))),'Capture tool changed');
-    const mediaNames=['catalog-film.mp4','catalog-loop.mp4','catalog-poster.jpg','catalog-compare.jpg','catalog-open.jpg','catalog-dimensions.jpg','catalog.vtt'];
+    const mediaNames=['catalog-film.mp4','catalog-loop.mp4','catalog-poster.jpg','catalog-teaser.jpg','catalog-compare.jpg','catalog-open.jpg','catalog-dimensions.jpg','catalog.vtt'];
     const outputs=Object.fromEntries([...mediaNames,'catalog-cabinets.glb','catalog-cabinets.json'].map(n=>{const b=fs.readFileSync(path.join(staging,n));return [n,{bytes:b.length,sha256:digest(b)}];}));
     fs.writeFileSync(path.join(staging,'catalog-capture.json'),JSON.stringify({kind:'DETERMINISTIC_BROWSER_CAPTURE',width:1920,height:1080,fps:24,duration:DURATION,frameCount:frames.length,renderer,stableCanvasReadbacks:2,sourceSha256:Object.fromEntries([...frozen].map(([n,b])=>[n,digest(b)])),toolSha256:Object.fromEntries([...frozenTools].map(([n,b])=>[n,digest(b)])),outputs,pageErrors:errors,scope:sourceFacts.scope,frames},null,2)+'\n');
     publishFiles(staging,path.join(ROOT,'media'),[...mediaNames,'catalog-capture.json']);
