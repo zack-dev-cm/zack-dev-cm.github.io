@@ -1,25 +1,33 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:05.000
-Start with the evidence. B3000 appears in the original elevation template. Its catalog entry identifies a cabinet family; the drawing still needs its own dimensions and quantities.
+00:00:00.000 --> 00:00:08.000
+Start on the original sheet. A scan follows the real elevation crop to the selected cabinet callout. The drawing page and original source stay attached to that code.
 
 2
-00:00:05.000 --> 00:00:10.000
-One code. One family. The exact B3000 match gives one upper drawer, two hinged doors and an adjustable shelf. Each fact points back to the catalog.
+00:00:08.000 --> 00:00:16.000
+Lift the code into a record. The recorded native-text extraction preserves three code occurrences and their PDF coordinates. Three mentions still leave physical quantity unresolved.
 
 3
-00:00:10.000 --> 00:00:15.000
-That second drawer matters. B3100 has two drawers side by side. Similar codes and silhouettes are not enough: the catalog diagram resolves the difference.
+00:00:16.000 --> 00:00:24.000
+Connect the exact family. The original catalog diagrams resolve B3000 to one upper drawer and B3100 to two side-by-side drawers. The code connection becomes a cabinet.
 
 4
-00:00:15.000 --> 00:00:20.000
-Look inside the match. Open the doors, pull out the drawers and separate the parts. Both families include one adjustable shelf beneath the drawer row.
+00:00:24.000 --> 00:00:32.000
+Let the construction explain it. Drawers pull forward, doors swing open and the components separate. One drawer versus two becomes visible; both families have two doors and one adjustable shelf.
 
 5
-00:00:20.000 --> 00:00:25.000
-A code is not a dimension. This study uses a catalog-allowed 36 × 34 × 24 inch variant. Change the width to explore options; an installed size still needs drawing evidence.
+00:00:32.000 --> 00:00:40.000
+Keep known facts and open questions. Nominal catalog dimensions align around the model. Source facts are confirmed; installed size, physical quantity, specified finish and price stay pending.
 
 6
-00:00:25.000 --> 00:00:30.000
-Carry the evidence forward. A useful draft BOM carries source references and unresolved fields. A repeated callout is not automatically another cabinet; quantity and price need their own evidence.
+00:00:40.000 --> 00:00:48.000
+See the recorded agent result. The model hands over to the actual ImageGen interior concept from the recorded Codex run. This image depicts the 36-inch oak example; the live 3D controls are independent.
+
+7
+00:00:48.000 --> 00:00:56.000
+Build the room. Place the cabinet. Walls rise, daylight enters and the selected cabinet slides into an illustrative bay. Change cabinet or bay width to see clearance or a width shortfall.
+
+8
+00:00:56.000 --> 00:01:04.000
+A room view with evidence attached. The final cabinet stays fitted in the room while the drawing, catalog, review, draft BOM and render form the handoff. Open the working demo to inspect or run the full agent flow.

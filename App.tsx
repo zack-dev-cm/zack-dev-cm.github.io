@@ -33,10 +33,10 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   77: {
     label: 'Document AI · Working interior demo',
     title: 'From drawing to catalog',
-    summary: 'Follow real callouts through catalog matching, agent review and a generated interior. Explore the cabinet families in 3D, then run the complete workflow and inspect its results.',
+    summary: 'Follow real drawing and catalog evidence through agent review, a recorded render and an adjustable 3D room fit. Play all eight stages, then run the complete workflow and inspect its results.',
     previewVideo: '/docs/architectural-catalog/media/catalog-loop.mp4',
     previewPoster: '/docs/architectural-catalog/media/catalog-teaser.jpg',
-    figureLabel: 'Real catalog families · interactive 3D explanation',
+    figureLabel: 'Original evidence → recorded render → illustrative room fit',
   },
   84: {
     label: 'Independent research tooling · synthetic prototype',

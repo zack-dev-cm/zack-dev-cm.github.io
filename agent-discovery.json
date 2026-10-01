@@ -456,8 +456,8 @@
             },
             {
               "label": "Playable study",
-              "value": "6 chapters",
-              "context": "Same procedural scene drives the interactive controls and 30-second film"
+              "value": "8 chapters",
+              "context": "Same procedural scene drives the interactive controls and 64-second film"
             }
           ],
           "links": [
@@ -470,7 +470,7 @@
               "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
             },
             {
-              "label": "Watch the 30-second film",
+              "label": "Watch the complete film",
               "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
             },
             {
@@ -1138,8 +1138,8 @@
         },
         {
           "label": "Playable study",
-          "value": "6 chapters",
-          "context": "Same procedural scene drives the interactive controls and 30-second film"
+          "value": "8 chapters",
+          "context": "Same procedural scene drives the interactive controls and 64-second film"
         }
       ],
       "links": [
@@ -1152,7 +1152,7 @@
           "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
         },
         {
-          "label": "Watch the 30-second film",
+          "label": "Watch the complete film",
           "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
         },
         {
@@ -2016,8 +2016,8 @@
         },
         {
           "label": "Playable study",
-          "value": "6 chapters",
-          "context": "Same procedural scene drives the interactive controls and 30-second film"
+          "value": "8 chapters",
+          "context": "Same procedural scene drives the interactive controls and 64-second film"
         }
       ],
       "links": [
@@ -2030,7 +2030,7 @@
           "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
         },
         {
-          "label": "Watch the 30-second film",
+          "label": "Watch the complete film",
           "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
         },
         {

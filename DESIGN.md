@@ -267,7 +267,7 @@ Seven media candidates were evaluated, each with an explicit privacy boundary (o
 | From callouts to a draft BOM | Estimator; source/occurrence contract | Review unresolved quantities; case study; send review pattern | Use final chapter, no invented prices |
 | Cinematic room flythrough | General visitor; no recovered verified room geometry | Walk a room; share finish concept | Defer; would invent room facts |
 
-The 30-second film uses six 5-second chapters at 24 fps, 1920×1080; the on-page loop is 1280×720. Render a readable first frame/poster and VTT captions. The same procedural scene drives the playable lab and deterministic film. Verify source hashes, media metadata, responsive screenshots, fallback, controls and public leak gates; record critic scores after inspection.
+The initial release used six 5-second chapters at 24 fps, 1920×1080; the on-page loop is 1280×720. The complete eight-stage film below supersedes that timeline. Render a readable first frame/poster and VTT captions. The same procedural scene drives the playable lab and deterministic film. Verify source hashes, media metadata, responsive screenshots, fallback, controls and public leak gates; record critic scores after inspection.
 
 The catalog card now leads to the working full workflow. Keep its playable 3D preview in selected work and the full film in the case-study hero; the final generated cabinet images belong in the inspectable case gallery. Label real agent output, source-grounded procedural geometry and proposed model evaluation distinctly. The full workflow uses original document crops and reviewed unknowns, rather than a fabricated dashboard.
 
@@ -294,3 +294,45 @@ the controls usable, contain keyboard focus, and let Escape return to the same
 inspection state. Fit both cabinet families and opened components in portrait
 views; camera distance and orbit limits must adapt together. The downloadable
 GLB is explicitly the default 36-inch model, independent of live selections.
+
+### Complete catalog film — October 2
+
+The film now follows all phases into a furnished room. Considered directions:
+full-screen document slides, an extended cabinet orbit, and a guided transition
+from real paper evidence to a physical room. Choose the third. Keep the original
+minimal document crops and recorded ImageGen output visibly separate from the
+authored 3D room. The room is an adjustable illustration, not a recovered site.
+
+Eight chapters of eight seconds each use distinct visual actions: scan the
+original drawing; lift the code into an extraction record; connect the original
+catalog diagram to its family; open and separate the drawers/doors; align known
+facts and leave unresolved fields amber; reveal the recorded interior render;
+construct the room and slide the cabinet into a measured illustrative bay;
+retain that final room while assembling the reviewable handoff. Scrubbing must
+reproduce each state, including wall growth, cabinet position and fit marks.
+
+| Hook | Audience / real proof | Incentive / CTA / share moment | Privacy boundary | Decision |
+| --- | --- | --- | --- | --- |
+| Find the original callout | Architect; original drawing crop | Follow the scan; play the story; save the source-to-code reveal | Existing minimal public crop | Opening |
+| A code becomes a record | Document-AI engineer; native page/coordinates | Inspect extraction; source notes; share mentions-versus-quantity distinction | Selected extraction fields only | Extraction |
+| Diagram becomes cabinet | Design technologist; catalog p. 27/28 | Compare families; open 3D; send the one/two-drawer difference | Existing minimal public diagrams | Match |
+| One drawer or two | Product designer; grounded family construction | Open/explode; select a part; save the exposed shelf view | Authored geometry labeled | Inspection |
+| Keep unknowns visible | Estimator; reviewed known/pending fields | Change nominal width; read sources; share the review boundary | No invented quantity/price | Review |
+| See the recorded result | Engineering lead; actual ImageGen outputs | Inspect the recorded render; open full workflow; share source-to-result contrast | Existing public concept images | Render |
+| Will this cabinet fit? | Architect; nominal width and authored bay | Adjust the bay; inspect room; share clearance/shortfall response | Authored room and site unknown labeled | Room fit |
+| Carry the result forward | Engineering lead; recorded review and exports | Keep final room; open full demo; share evidence-backed handoff | Reviewable export fields, no full raw sheets | Closing |
+
+Room controls use millimetres for available bay width and the catalog's nominal
+inch width converted to millimetres. Report equal side clearance or the width
+shortfall; do not imply installation, door-swing clearance or fabrication approval.
+Keep the existing full functional demo linked for actual agent execution and
+artifacts. The film explains its recorded examples; it does not replay live jobs.
+Use warm plaster, oak, stone, window light and contact shadows for the room;
+cyan identifies source connections and bay guides, amber marks unresolved or
+non-fitting states. No synthetic document evidence or invented price/quantity.
+
+The full 64-second film is 1920×1080 at 24 fps. The home preview retains the
+existing non-blocking placement and playback policies. Phase labels stay in HTML
+for small screens; the capture includes readable phase explanations and captions.
+Verify real asset hashes, all eight actual scene states, positive/negative fit,
+deterministic seeking, mobile framing, fullscreen fallback and keyboard controls.

@@ -86,8 +86,8 @@ export function cabinet(code,widthIn,m,finish='oak'){
   return {root,parts,width:w,height:h,depth:d,update,doors,drawers};
 }
 export function line(points,color=0x97d8ea){return new T.Line(new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(...p))),new T.LineBasicMaterial({color,transparent:true,opacity:.6}));}
-function textSprite(text,color='#97d8ea',width=.5){
-  const c=document.createElement('canvas');c.width=512;c.height=100;const x=c.getContext('2d');x.font='500 46px system-ui';x.textAlign='center';x.textBaseline='middle';x.fillStyle=color;x.fillText(text,256,50);
+export function textSprite(text,color='#97d8ea',width=.5){
+  const c=document.createElement('canvas');c.width=512;c.height=100;const x=c.getContext('2d');x.font='500 46px system-ui';const font=Math.min(46,46*470/x.measureText(text).width);x.font='500 '+font+'px system-ui';x.textAlign='center';x.textBaseline='middle';x.fillStyle=color;x.fillText(text,256,50);
   const texture=new T.CanvasTexture(c);texture.colorSpace=T.SRGBColorSpace;const s=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:false}));s.scale.set(width,width*100/512,1);return s;
 }
 export function dimensions(w,h,d,widthIn){

@@ -3,7 +3,7 @@
 > A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
 
 ## Summary
-I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 3D study makes their drawer, door and shelf differences inspectable through six playable chapters. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
+I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 64-second 3D film follows eight distinct stages from the original drawing and extraction to the recorded render, an adjustable illustrative room fit and an evidence handoff. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
 
 ## A grounded example
 B3000 appears on page 1 of the original elevation template and resolves to page 27 of the recovered catalog: one upper drawer, two hinged doors and one adjustable shelf. B3100 appears on page 3 and resolves to page 28: two side-by-side upper drawers above the same two-door lower compartment. The 3D study makes this difference visible and lets visitors open, separate and select the components.
@@ -19,9 +19,9 @@ The next scanned-document lane evaluates PaddleOCR-VL-1.6 and Qwen3.5-9B against
 
 ## Project Figures
 
-![Real Case Systems B3000 and B3100 cabinet families in a catalog-grounded procedural 3D study](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg)
+![Catalog-grounded B3000 cabinet placed in an authored 3D room with adjustable bay guides](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg)
 
-Catalog-grounded visualization. Selected nominal size; illustrative finish and construction.
+Final room-fit illustration. Catalog-grounded nominal cabinet; authored room, finish and construction.
 
 ![B3000 and B3100 cabinets with doors and drawers open and components separated](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-open.jpg)
 
@@ -41,7 +41,7 @@ https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalo
 ## Key Features
 - Reuses original elevation and catalog documents for exact code matching with page-level evidence
 - Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts
-- Compares B3000 and B3100 through playable chapters, opening, exploded inspection and selectable parts
+- Follows eight animated stages, with original evidence, exploded inspection, recorded renders and an adjustable final room fit
 - Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities
 - Carries unresolved catalog, finish, quantity and price fields into draft BOM review
 
@@ -65,12 +65,12 @@ https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalo
 - Identifier coverage: 1,639 / 1,639 (PDF/YAML identifier check, 1 October 2026; not matching accuracy)
 - Grounded comparison: B3000 / B3100 (Catalog pages 27/28 and original elevation callouts)
 - Completed full examples: 120.75 / 144.15 s (Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review)
-- Playable study: 6 chapters (Same procedural scene drives the interactive controls and 30-second film)
+- Playable study: 8 chapters (Same procedural scene drives the interactive controls and 64-second film)
 
 ## Links
 - [Run the full workflow](https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/)
 - [Explore catalog in 3D](https://zack-dev-cm.github.io/docs/architectural-catalog/)
-- [Watch the 30-second film](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4)
+- [Watch the complete film](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4)
 - [Catalog source notes](https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html)
 - [Download cabinet model](https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb)
 - [Case Systems catalog resources](https://www.casesystems.com/resources/design-resources/casework-catalogs/)

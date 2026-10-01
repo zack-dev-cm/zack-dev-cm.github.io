@@ -1,0 +1,266 @@
+{
+  "schema": "catalog-film-evidence/1",
+  "scope": "Minimal original document crops and recorded agent outputs. The procedural room is authored; installed dimensions, quantity, specified finish and price are unresolved.",
+  "examples": {
+    "B3000": {
+      "drawingPage": 1,
+      "catalogPage": 27,
+      "extraction": {
+        "code": "B3000",
+        "source": {
+          "name": "Elevation Template for AI Configuration.pdf",
+          "sha256": "84c3450c3015903d575df3b5e91058b2470dcbd86d1f3200ec1701c08f6d71e9",
+          "pages": 3
+        },
+        "page": 1,
+        "bbox_pdf_points": [
+          [
+            78.153,
+            645.223,
+            112.845,
+            661.711
+          ],
+          [
+            267.761,
+            660.755,
+            302.453,
+            677.243
+          ],
+          [
+            364.442,
+            648.553,
+            399.134,
+            665.041
+          ]
+        ],
+        "method": "PyMuPDF native text search executed on the hash-verified original PDF for this run",
+        "selected_code_occurrences_on_page": 3,
+        "physical_quantity": null,
+        "installed_dimensions": null,
+        "finish": null,
+        "coordinates": "PDF points, top-left origin; one-based pages"
+      },
+      "match": {
+        "code": "B3000",
+        "match_method": "exact catalog code; original diagram visually verified",
+        "catalog": {
+          "name": "CASESYSTEMSCatalog.pdf",
+          "sha256": "61366d05784bd237562ba89e16cd0cdce62aa63a855f8d6d131a7f8edd31ec94",
+          "pages": 306
+        },
+        "page": 27,
+        "description": [
+          "One adjustable shelf",
+          "One drawer",
+          "Two hinged doors"
+        ],
+        "drawer_count": 1,
+        "drawer_arrangement": "one full-width upper drawer",
+        "door_count": 2,
+        "adjustable_shelves": 1,
+        "selected_nominal_variant": {
+          "width": 36,
+          "height": 34,
+          "depth": 24,
+          "unit": "in"
+        },
+        "installed_dimensions": null,
+        "quantity": null,
+        "price": null,
+        "finish": null,
+        "unresolved": [
+          "Installed dimensions and physical quantity need an elevation takeoff.",
+          "SSM-01 finish schedule and TMI catalog were not recovered."
+        ]
+      },
+      "review": {
+        "code": "B3000",
+        "catalog_diagram_code": "B3000",
+        "drawer_count": 1,
+        "door_count": 2,
+        "installed_dimensions": null,
+        "quantity": null,
+        "price": null,
+        "status": "family_confirmed_takeoff_pending",
+        "summary": "Drawing page 1 identifies B3000; the CASE Systems catalog page 27 visibly labels the matching Door/Drawer Storage diagram B3000, with one full-width upper drawer, two hinged lower doors and one adjustable shelf. Three code occurrences are not a physical quantity. The 36 x 34 x 24 inch selection is an available nominal catalog variant, not verified installed dimensions. Oak is illustrative, not a recovered source finish.",
+        "unknowns": [
+          "Installed dimensions",
+          "Physical quantity",
+          "Specified finish; SSM-01 schedule and TMI catalog not recovered",
+          "Price"
+        ],
+        "render_prompt": "Use the supplied B3000 manufacturer diagram as structural reference. Create one beautiful photorealistic interior concept of a single B3000 cabinet at nominal 36-inch width, 34-inch height and 24-inch depth. Exactly ONE full-width upper drawer in ONE horizontal row above exactly TWO equal lower hinged doors, one concealed adjustable shelf. All drawer and doors CLOSED, unlike the open reference. Illustrative natural oak finish, recessed black plinth, thin white countertop, subtle dark pulls. Three-quarter architectural photograph, full cabinet in frame, minimal plaster room, soft window daylight, stone floor. No extra cabinets, stacked drawers, open shelves, sink, text, logos or watermark. Preserve the confirmed structure; this is a concept, not certified installed geometry."
+      },
+      "producer": {
+        "mode": 1,
+        "engine": "codex_cli",
+        "model": "gpt-6.1-sol",
+        "image_method": "built-in ImageGen",
+        "usage": {
+          "input_tokens": 156258,
+          "cached_input_tokens": 126336,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1456,
+          "reasoning_output_tokens": 22
+        },
+        "seconds": 120.75,
+        "instruction_sha256": "e79b28b318a0e3dad6cda35feacc824a69aaf788386e1e4a7c30a58b1298d608",
+        "image_copy_receipts": [
+          {
+            "command_sha256": "eef108dccee45d561672889c19201cb6cec047a5a03ad234ad140338b99bcf01",
+            "exit_code": 0
+          }
+        ],
+        "image_tool_trace": "Codex JSONL records the generated-image copy; internal ImageGen calls are not emitted by this CLI version."
+      },
+      "renderRole": "Recorded ImageGen interior concept; 36-inch nominal width and illustrative oak; not measured geometry.",
+      "assets": {
+        "drawing": {
+          "path": "data/examples/B3000-drawing.png",
+          "sha256": "c5f92dd08f16a91980d4d753076f359201588387beff4b24603d3e281ccd655e",
+          "bytes": 22035
+        },
+        "catalog": {
+          "path": "data/examples/B3000-catalog.png",
+          "sha256": "186c04141ca8d926d596f5e50b6654f179344eb32669dc9654f556133e545e25",
+          "bytes": 57305
+        },
+        "render": {
+          "path": "data/examples/B3000-render.png",
+          "sha256": "7b7ac6a4285437fa63732c1b32c366c8cafd1378b6e8689baa760ce40be15c13",
+          "bytes": 2222050
+        }
+      }
+    },
+    "B3100": {
+      "drawingPage": 3,
+      "catalogPage": 28,
+      "extraction": {
+        "code": "B3100",
+        "source": {
+          "name": "Elevation Template for AI Configuration.pdf",
+          "sha256": "84c3450c3015903d575df3b5e91058b2470dcbd86d1f3200ec1701c08f6d71e9",
+          "pages": 3
+        },
+        "page": 3,
+        "bbox_pdf_points": [
+          [
+            142.746,
+            355.152,
+            177.438,
+            371.64
+          ],
+          [
+            189.678,
+            256.819,
+            224.37,
+            273.307
+          ],
+          [
+            359.574,
+            368.518,
+            394.266,
+            385.006
+          ]
+        ],
+        "method": "PyMuPDF native text search executed on the hash-verified original PDF for this run",
+        "selected_code_occurrences_on_page": 3,
+        "physical_quantity": null,
+        "installed_dimensions": null,
+        "finish": null,
+        "coordinates": "PDF points, top-left origin; one-based pages"
+      },
+      "match": {
+        "code": "B3100",
+        "match_method": "exact catalog code; original diagram visually verified",
+        "catalog": {
+          "name": "CASESYSTEMSCatalog.pdf",
+          "sha256": "61366d05784bd237562ba89e16cd0cdce62aa63a855f8d6d131a7f8edd31ec94",
+          "pages": 306
+        },
+        "page": 28,
+        "description": [
+          "One adjustable shelf",
+          "Two drawers",
+          "Two hinged doors"
+        ],
+        "drawer_count": 2,
+        "drawer_arrangement": "two side-by-side upper drawers",
+        "door_count": 2,
+        "adjustable_shelves": 1,
+        "selected_nominal_variant": {
+          "width": 36,
+          "height": 34,
+          "depth": 24,
+          "unit": "in"
+        },
+        "installed_dimensions": null,
+        "quantity": null,
+        "price": null,
+        "finish": null,
+        "unresolved": [
+          "Installed dimensions and physical quantity need an elevation takeoff.",
+          "SSM-01 finish schedule and TMI catalog were not recovered."
+        ]
+      },
+      "review": {
+        "code": "B3100",
+        "drawer_count": 2,
+        "door_count": 2,
+        "installed_dimensions": null,
+        "quantity": null,
+        "price": null,
+        "status": "family_confirmed_takeoff_pending",
+        "summary": "B3100 on drawing page 3 matches CASE Systems catalog page 28: two equal side-by-side upper drawers, two hinged lower doors and one adjustable shelf. Drawing SHA-256 84c3450c3015903d575df3b5e91058b2470dcbd86d1f3200ec1701c08f6d71e9 and catalog SHA-256 61366d05784bd237562ba89e16cd0cdce62aa63a855f8d6d131a7f8edd31ec94 are preserved with the extraction code boxes. Three code occurrences do not establish physical quantity. The selected 36 x 34 x 24 inch variant is available nominal catalog sizing, not an installed dimension. Oak is illustrative only; the SSM-01 finish schedule and TMI catalog were not recovered.",
+        "unknowns": [
+          "Installed dimensions",
+          "Physical quantity",
+          "Specified finish; oak is requested illustrative finish only",
+          "Price",
+          "SSM-01 finish schedule and TMI catalog unavailable"
+        ],
+        "render_prompt": "Use the supplied B3100 manufacturer diagram as a structural reference only. Create one beautiful photorealistic interior concept of a single CASE Systems B3100 cabinet at nominal 36-inch width, 34-inch cabinet height and 24-inch depth. Exactly two equal upper drawers side by side in ONE horizontal row above exactly TWO lower hinged doors, one concealed adjustable shelf. All drawers and doors CLOSED, unlike the reference's open doors. Natural oak illustrative finish, restrained small dark pulls, recessed black plinth, thin white countertop. Three-quarter architectural photograph, full cabinet in frame in a minimal warm plaster room, soft window daylight and stone floor. Preserve the diagram's cabinet structure and proportions. No extra cabinets, stacked drawers, open shelves, sink, text, logos or watermark. Concept only, not certified fabrication geometry."
+      },
+      "producer": {
+        "mode": 1,
+        "engine": "codex_cli",
+        "model": "gpt-6.1-sol",
+        "image_method": "built-in ImageGen",
+        "usage": {
+          "input_tokens": 185207,
+          "cached_input_tokens": 165504,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1796,
+          "reasoning_output_tokens": 106
+        },
+        "seconds": 144.15,
+        "instruction_sha256": "1a6d87724418188cae72d3006ac0bcbd758815bd56100b90299aae115e6b490a",
+        "image_copy_receipts": [
+          {
+            "command_sha256": "9dbce5a243ea707e5dca60b6491ab06a7ddf93d899a1e0a013120e643ebcf1c6",
+            "exit_code": 0
+          }
+        ],
+        "image_tool_trace": "Codex JSONL records the generated-image copy; internal ImageGen calls are not emitted by this CLI version."
+      },
+      "renderRole": "Recorded ImageGen interior concept; 36-inch nominal width and illustrative oak; not measured geometry.",
+      "assets": {
+        "drawing": {
+          "path": "data/examples/B3100-drawing.png",
+          "sha256": "6112363050d293ed67c32181ad2e7165391cad0d93f896441a0fc0956ce9c8bd",
+          "bytes": 12301
+        },
+        "catalog": {
+          "path": "data/examples/B3100-catalog.png",
+          "sha256": "8638e8a071ef367d801bde15495853ab25323409567d96ae4c959a786c47738c",
+          "bytes": 57203
+        },
+        "render": {
+          "path": "data/examples/B3100-render.png",
+          "sha256": "edd46c7d08137eebcd84f6faa954e6de640810f068f4c636859a9f074bd9437a",
+          "bytes": 2179753
+        }
+      }
+    }
+  }
+}

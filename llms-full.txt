@@ -264,13 +264,13 @@ Benchmarks & Analytics:
 
 ### Architectural Drawing and Interior Catalog Matching
 Summary: A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
-Details: I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 3D study makes their drawer, door and shelf differences inspectable through six playable chapters. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
+Details: I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 64-second 3D film follows eight distinct stages from the original drawing and extraction to the recorded render, an adjustable illustrative room fit and an evidence handoff. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
 Project URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/
 Markdown URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 Key Features:
 - Reuses original elevation and catalog documents for exact code matching with page-level evidence
 - Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts
-- Compares B3000 and B3100 through playable chapters, opening, exploded inspection and selectable parts
+- Follows eight animated stages, with original evidence, exploded inspection, recorded renders and an adjustable final room fit
 - Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities
 - Carries unresolved catalog, finish, quantity and price fields into draft BOM review
 Tech Stack:
@@ -292,11 +292,11 @@ Benchmarks & Analytics:
 - Identifier coverage: 1,639 / 1,639 (PDF/YAML identifier check, 1 October 2026; not matching accuracy)
 - Grounded comparison: B3000 / B3100 (Catalog pages 27/28 and original elevation callouts)
 - Completed full examples: 120.75 / 144.15 s (Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review)
-- Playable study: 6 chapters (Same procedural scene drives the interactive controls and 30-second film)
+- Playable study: 8 chapters (Same procedural scene drives the interactive controls and 64-second film)
 Links:
 - Run the full workflow: https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/
 - Explore catalog in 3D: https://zack-dev-cm.github.io/docs/architectural-catalog/
-- Watch the 30-second film: https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4
+- Watch the complete film: https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4
 - Catalog source notes: https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html
 - Download cabinet model: https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb
 - Case Systems catalog resources: https://www.casesystems.com/resources/design-resources/casework-catalogs/

@@ -4011,10 +4011,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     },
     aliases: ["architectural drawings recognition", "floor plan recognition", "room plan recognition", "interior catalog matching", "casework catalog matching", "commercial reception catalog preview", "school reception design configuration", "utility building interior planning", "whole building interior planning", "blueprint symbol detection"],
     description: "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
-    longDescription: "I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 3D study makes their drawer, door and shelf differences inspectable through six playable chapters. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.",
+    longDescription: "I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts; a visitor can also select a nominal width and illustrative finish for a new run. The companion 64-second 3D film follows eight distinct stages from the original drawing and extraction to the recorded render, an adjustable illustrative room fit and an evidence handoff. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.",
     projectKind: "case-study",
     surfaceTags: ["computer-vision", "architecture", "ocr", "catalog-matching", "interior-ai", "retrieval", "interactive-3d"],
-    primaryLinks: ["Run the full workflow", "Explore catalog in 3D", "Watch the 30-second film"],
+    primaryLinks: ["Run the full workflow", "Explore catalog in 3D", "Watch the complete film"],
     heroVideo: "/docs/architectural-catalog/media/catalog-film.mp4",
     caseStudySections: [
       { title: "A grounded example", body: "B3000 appears on page 1 of the original elevation template and resolves to page 27 of the recovered catalog: one upper drawer, two hinged doors and one adjustable shelf. B3100 appears on page 3 and resolves to page 28: two side-by-side upper drawers above the same two-door lower compartment. The 3D study makes this difference visible and lets visitors open, separate and select the components." },
@@ -4025,7 +4025,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     keyFeatures: [
       "Reuses original elevation and catalog documents for exact code matching with page-level evidence",
       "Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts",
-      "Compares B3000 and B3100 through playable chapters, opening, exploded inspection and selectable parts",
+      "Follows eight animated stages, with original evidence, exploded inspection, recorded renders and an adjustable final room fit",
       "Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities",
       "Carries unresolved catalog, finish, quantity and price fields into draft BOM review"
     ],
@@ -4035,12 +4035,12 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Identifier coverage", value: "1,639 / 1,639", context: "PDF/YAML identifier check, 1 October 2026; not matching accuracy" },
       { label: "Grounded comparison", value: "B3000 / B3100", context: "Catalog pages 27/28 and original elevation callouts" },
       { label: "Completed full examples", value: "120.75 / 144.15 s", context: "Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review" },
-      { label: "Playable study", value: "6 chapters", context: "Same procedural scene drives the interactive controls and 30-second film" }
+      { label: "Playable study", value: "8 chapters", context: "Same procedural scene drives the interactive controls and 64-second film" }
     ],
     links: [
       { text: "Run the full workflow", url: "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/" },
       { text: "Explore catalog in 3D", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/" },
-      { text: "Watch the 30-second film", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4" },
+      { text: "Watch the complete film", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4" },
       { text: "Catalog source notes", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html" },
       { text: "Download cabinet model", url: "https://zack-dev-cm.github.io/docs/architectural-catalog/models/catalog-cabinets.glb" },
       { text: "Case Systems catalog resources", url: "https://www.casesystems.com/resources/design-resources/casework-catalogs/" },
@@ -4057,8 +4057,8 @@ Operations Layer (Console, Alerts, Runbooks)`
   Render --> BOM["Validated Result + Draft BOM + Evidence Bundle"]
   Facts --> Preview["Catalog-Grounded 3D Study"]`,
     images: [
-      { url: "/docs/architectural-catalog/media/catalog-poster.jpg", alt: "Real Case Systems B3000 and B3100 cabinet families in a catalog-grounded procedural 3D study", caption: "Catalog-grounded visualization. Selected nominal size; illustrative finish and construction." },
-      { url: "/docs/architectural-catalog/media/catalog-film.mp4", alt: "From drawing to catalog: a 30-second 3D cabinet comparison", caption: "Six chapters follow the callout, catalog match, cabinet details and reviewable dimensions.", captions: "/docs/architectural-catalog/media/catalog.vtt" },
+      { url: "/docs/architectural-catalog/media/catalog-poster.jpg", alt: "Catalog-grounded B3000 cabinet placed in an authored 3D room with adjustable bay guides", caption: "Final room-fit illustration. Catalog-grounded nominal cabinet; authored room, finish and construction." },
+      { url: "/docs/architectural-catalog/media/catalog-film.mp4", alt: "From drawing through extraction, catalog matching, review and recorded render to an interactive final room fit", caption: "Eight distinct stages follow original evidence through the recorded render and final illustrative room fit.", captions: "/docs/architectural-catalog/media/catalog.vtt" },
       { url: "/docs/architectural-catalog/media/catalog-open.jpg", alt: "B3000 and B3100 cabinets with doors and drawers open and components separated", caption: "Inspect the drawer, door and shelf facts from catalog pages 27 and 28." },
       { url: "/docs/architectural-catalog/media/b3000-interior.webp", alt: "Actual ImageGen output from the B3000 grounded full workflow, showing one upper drawer and two lower doors", caption: "Recorded B3000 run: original drawing p. 1, catalog p. 27, agent review and fresh ImageGen. Illustrative oak finish; nominal 36-inch variant." },
       { url: "/docs/architectural-catalog/media/b3100-interior.webp", alt: "Actual ImageGen output from the B3100 grounded full workflow, showing two upper drawers side by side and two lower doors", caption: "Recorded B3100 run: original drawing p. 3, catalog p. 28, agent review and fresh ImageGen. Inspect every phase and download the result in the live demo." }

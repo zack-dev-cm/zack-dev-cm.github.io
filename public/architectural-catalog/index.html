@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>From drawing to catalog — an interactive 3D study | Zakhar Pashkin</title>
-  <meta name="description" content="Compare real Case Systems B3000 and B3100 cabinet families. Follow the callout, inspect drawers and doors, and explore source-grounded catalog dimensions in 3D.">
+  <meta name="description" content="Compare real Case Systems B3000 and B3100 cabinet families. Follow original drawing extraction, catalog matching, review, recorded ImageGen output and an interactive final room fit.">
   <link rel="canonical" href="https://zack-dev-cm.github.io/docs/architectural-catalog/">
   <meta property="og:title" content="From drawing to catalog — explore the match in 3D">
-  <meta property="og:description" content="One drawer or two? Follow real catalog facts into an interactive cabinet comparison.">
+  <meta property="og:description" content="From real drawing and catalog crops to a recorded render and an adjustable 3D room fit.">
   <meta property="og:image" content="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg">
   <meta property="og:url" content="https://zack-dev-cm.github.io/docs/architectural-catalog/">
   <meta property="og:type" content="website">
@@ -27,11 +27,11 @@
       <aside class="narrative">
         <p class="eyebrow">A drawing. A code. A real catalog.</p>
         <h1>From drawing<br>to catalog<span>.</span></h1>
-        <p class="intro">Follow the match, then open it up. Two cabinet families show why the details matter.</p>
+        <p class="intro">Watch real evidence become a cabinet, then follow it into a room. Eight stages explain the complete workflow.</p>
         <section class="story" aria-labelledby="chapter-title">
-          <p class="eyebrow" id="chapter-number">01 / Read the callout</p>
-          <h2 id="chapter-title">Start with the evidence.</h2>
-          <p id="chapter-copy">B3000 appears in the original elevation template. Its catalog entry identifies a cabinet family; the drawing still needs its own dimensions and quantities.</p>
+          <p class="eyebrow" id="chapter-number">01 / Read the drawing</p>
+          <h2 id="chapter-title">Start on the original sheet.</h2>
+          <p id="chapter-copy">A scan follows the real elevation crop to the selected cabinet callout. The drawing page and original source stay attached to that code.</p>
           <p class="source" id="source">Original elevation · page 1<br>Case Systems catalog · page 27</p>
         </section>
         <nav id="chapters" aria-label="Film chapters"></nav>
@@ -40,16 +40,17 @@
         <div class="scene-header"><span id="scene-title">B3000 & B3100</span><span>Catalog-grounded 3D study</span></div>
         <div id="viewport">
           <canvas id="scene" aria-label="Cabinet models; drag to orbit and select parts. Equivalent controls are below." tabindex="0"></canvas>
-          <div id="loading" role="status">Preparing the cabinet study…</div>
+          <div id="loading" role="status">Preparing the grounded workflow…</div>
           <div class="model-labels" aria-hidden="true"><span><b>B3000</b>One upper drawer</span><span><b>B3100</b>Two upper drawers</span></div>
+          <div class="stage-caption"><p id="stage-action">Scan the original elevation → find the callout</p><p id="stage-detail">B3000 · original elevation p. 1</p></div>
           <p id="gesture">Drag to orbit · scroll to zoom · click a part</p>
         </div>
         <div id="transport">
           <button id="play" type="button">Play story</button>
           <button id="restart" type="button" aria-label="Restart story">↺ Restart</button>
           <button id="fullscreen" type="button" hidden>Fullscreen</button>
-          <label class="scrub"><span class="sr-only">Story time</span><input id="time" type="range" min="0" max="30" step="0.05" value="0" aria-label="Story time"></label>
-          <output id="timecode" for="time">0:00 / 0:30</output>
+          <label class="scrub"><span class="sr-only">Story time</span><input id="time" type="range" min="0" max="64" step="0.05" value="0" aria-label="Story time"></label>
+          <output id="timecode" for="time">0:00 / 1:04</output>
         </div>
         <form id="controls" aria-label="Model controls" onsubmit="return false">
           <div class="control-row">
@@ -63,6 +64,11 @@
             <label class="check"><input id="wireframe" type="checkbox"> Wireframe</label>
             <button id="reset" type="button">Reset view</button>
           </div>
+          <div class="control-row room-controls">
+            <label class="range-control">Illustrative bay width <output id="bay-value" for="bay-width">1100 mm</output><input id="bay-width" type="range" min="600" max="1500" step="10" value="1100" aria-label="Illustrative bay width"></label>
+            <p id="fit-status" aria-live="polite">36-inch cabinet = 914.4 mm · 92.8 mm per side in this bay.</p>
+          </div>
+          <p class="room-scope">Room geometry and bay width are illustrative. Fit checks nominal cabinet width only; site measurements and installation clearances need review.</p>
           <div class="control-row part-row">
             <label>Select a part<select id="part" aria-label="Select a part"><option value="">Whole cabinet</option><option value="drawers">Upper drawers</option><option value="doors">Hinged doors</option><option value="shelf">Adjustable shelf</option><option value="carcass">Cabinet body</option></select></label>
             <p id="part-description" aria-live="polite">B3000 · one upper drawer, two hinged doors, one adjustable shelf.</p>
@@ -72,7 +78,7 @@
       </section>
     </div>
     <section class="evidence" aria-label="Catalog evidence">
-      <div><p class="eyebrow">The facts behind the scene</p><h2>Similar codes.<br>Different cabinets.</h2><p>Real catalog families and available nominal sizes drive this study. Finish, movement and construction details are illustrative.</p></div>
+      <div><p class="eyebrow">The facts behind the scene</p><h2>Similar codes.<br>Different cabinets.</h2><p>Real catalog families and available nominal sizes drive this study. Original drawing/catalog crops and recorded agent renders appear in the film. Room, finish, movement and construction details are illustrative.</p></div>
       <div class="fact-table"><table><caption class="sr-only">Verified cabinet family comparison</caption><thead><tr><th scope="col">Family</th><th scope="col">Upper drawers</th><th scope="col">Doors / shelf</th><th scope="col">Source</th></tr></thead><tbody><tr><th scope="row">B3000</th><td>One full-width</td><td>Two / one</td><td>Catalog p. 27</td></tr><tr><th scope="row">B3100</th><td>Two side by side</td><td>Two / one</td><td>Catalog p. 28</td></tr></tbody></table><p>A code match does not establish installed dimensions, physical quantity or price.</p><a href="sources.html">Read the source notes ↗</a></div>
     </section>
     <footer><a href="media/catalog-film.mp4" download>Download film</a><a href="models/catalog-cabinets.glb" download>Download default 36-inch 3D model</a><a href="sources.html">Sources & method</a><a href="/#featured">More selected work ↗</a></footer>

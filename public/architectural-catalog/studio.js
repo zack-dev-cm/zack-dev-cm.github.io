@@ -2,13 +2,14 @@ import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 import {materials,cabinet,dimensions,elevationLines} from './cabinets.js';
-import {CHAPTERS,DURATION,chapterAt,chapterText,poseAt} from './timeline.js';
+import {CHAPTERS,DURATION,chapterAt,chapterText,poseAt,smooth} from './timeline.js';
+import {workflowScene} from './workflow-scene.js';
 
 const $=s=>document.querySelector(s),capture=new URLSearchParams(location.search).has('capture');
 if(capture)document.body.classList.add('capture');
 const app=window.catalogStudy={ready:false,error:null};
-let facts,renderer,scene,camera,controls,models=[],dimensionGroups=[],schematics=[],materialsSet,outline;
-let time=0,playing=false,manual=false,userCamera=false,selected='B3000',selectedPart='',width=36,finish='oak',opening=0,separate=0,last=0;
+let facts,renderer,scene,camera,controls,models=[],dimensionGroups=[],schematics=[],materialsSet,outline,workflow,studioGround=[];
+let time=0,playing=false,manual=false,userCamera=false,selected='B3000',selectedPart='',width=36,finish='oak',bayWidth=1100,opening=0,separate=0,last=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const selection=new T.Raycaster(),pointer=new T.Vector2();
 let expanded=false;
@@ -44,11 +45,11 @@ function expansionKey(event){
 }
 
 function setStory(t){
-  const i=chapterAt(t),c=chapterText(i,width);
+  const i=chapterAt(t),c=chapterText(i,width,selected);
   $('#chapter-number').textContent=String(i+1).padStart(2,'0')+' / '+c.label;
   $('#chapter-title').textContent=c.title;$('#chapter-copy').textContent=c.copy;$('#source').textContent=c.source;$('#source').style.whiteSpace='pre-line';
   $('#chapters').querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-current',i===j?'step':'false'));
-  $('#time').value=String(t);$('#timecode').textContent='0:'+String(Math.floor(t)).padStart(2,'0')+' / 0:30';
+  $('#time').value=String(t);const stamp=v=>Math.floor(v/60)+':'+String(Math.floor(v)%60).padStart(2,'0');$('#timecode').textContent=stamp(t)+' / '+stamp(DURATION);
 }
 function pause(){playing=false;$('#play').textContent='Play story';}
 function inspect(){
@@ -76,19 +77,48 @@ function resize(){
   controls.maxDistance=9*Math.max(1,1.1/camera.aspect);render();
 }
 function cameraPose(pose){
-  const state=poseAt(time),o=manual?opening:state.opening,e=manual?separate:state.separate;
+  const id=CHAPTERS[pose.chapter].id,roomMode=id==='room'||id==='result';
+  if((!manual&&['drawing','extract','match','review','render'].includes(id))||roomMode){
+    const bounds=new T.Box3();
+    for(const g of workflow.groups)if(g.visible)bounds.expandByObject(g);
+    for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);
+    for(const g of dimensionGroups)if(g.visible)bounds.expandByObject(g);
+    if(id==='room'){
+      const focus=new T.Box3(new T.Vector3(-.92,-.09,-1.13),new T.Vector3(1.04,1.52,.35));
+      for(const m of models)if(m.root.visible)focus.expandByObject(m.root);
+      const dolly=.6*smooth((pose.progress-.45)/.45);bounds.min.lerp(focus.min,dolly);bounds.max.lerp(focus.max,dolly);
+    }
+    scene.updateMatrixWorld(true);
+    const target=bounds.getCenter(new T.Vector3()),direction=new T.Vector3(...(roomMode?[3.4,2.2,4.6]:id==='match'?[1,1,5]:[.35,.25,4])).normalize();
+    const right=new T.Vector3().crossVectors(new T.Vector3(0,1,0),direction).normalize(),up=new T.Vector3().crossVectors(direction,right).normalize();
+    const tan=Math.tan(T.MathUtils.degToRad(camera.fov/2)),margin=roomMode?.79:.83;let distance=0;
+    for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
+      const point=new T.Vector3(x,y,z).sub(target),front=point.dot(direction);
+      distance=Math.max(distance,front+Math.abs(point.dot(right))/(tan*camera.aspect*margin),front+Math.abs(point.dot(up))/(tan*margin));
+    }
+    controls.maxDistance=Math.max(12,distance*1.3);camera.position.copy(target).addScaledVector(direction,distance);controls.target.copy(target);controls.update();return;
+  }
+  const o=manual?opening:pose.opening,e=manual?separate:pose.separate;
   const factor=(camera.aspect<1.15?.85:camera.aspect<1.5?.75:.66)*(capture?1.08:1)*(1+o*.25+e*.18)*Math.max(1,width/36)*Math.max(1,1.1/camera.aspect);
-  camera.position.set(pose[0]*factor,pose[1]*factor,pose[2]*factor);camera.lookAt(0,.43,0);controls.target.set(0,.43,0);controls.update();
+  camera.position.set(...pose.camera.map(v=>v*factor));camera.lookAt(0,.43,0);controls.target.set(0,.43,0);controls.update();
 }
 function render(){
-  if(!renderer)return;
+  if(!renderer||!workflow)return;
   const pose=poseAt(time),o=manual?opening:pose.opening,e=manual?separate:pose.separate;
   models.forEach(m=>m.update(o,e));
-  dimensionGroups.forEach((g,i)=>g.visible=!manual&&pose.dimensions&&models[i].root.userData.catalogCode===selected);
+  const state=workflow.update({pose,manual,selected,width,bayWidth,models});
+  dimensionGroups.forEach((g,i)=>{g.position.x=models[i].root.position.x;g.visible=pose.dimensions&&models[i].root.visible&&models[i].root.userData.catalogCode===selected;});
   if(!manual){$('#opening').value=String(o);$('#separate').value=String(e);}
-  schematics.forEach(g=>g.visible=!manual&&pose.blueprint);
-  if(!userCamera)cameraPose(pose.camera);
-  if(outline){outline.visible=Boolean(selectedPart);if(selectedPart){const index=selected==='B3000'?0:1,b=new T.Box3();for(const group of models[index].parts[selectedPart])b.expandByObject(group);outline.box.copy(b);}}
+  schematics.forEach(g=>g.visible=false);studioGround.forEach(g=>g.visible=!state.roomVisible);
+  $('.model-labels').hidden=!['manual-inspection','inspect'].includes(state.stage);
+  $('#scene-title').textContent=state.roomVisible?selected+' / Room fit':state.stage==='manual-inspection'?'B3000 & B3100':CHAPTERS[pose.chapter].label;
+  $('#stage-action').textContent=state.stage==='manual-inspection'?'Manual inspection · change the configuration':CHAPTERS[pose.chapter].action;
+  const margin=state.sideClearanceMm;
+  const fitText=state.fits?`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · ${margin.toFixed(1)} mm per side in this bay.`:`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · needs ${(state.cabinetWidthMm-bayWidth).toFixed(1)} mm more bay width.`;
+  if($('#fit-status').textContent!==fitText)$('#fit-status').textContent=fitText;$('#fit-status').dataset.fits=String(state.fits);
+  $('#stage-detail').textContent=state.roomVisible?(state.fits?'Nominal width fits':'Bay too narrow')+' · illustrative '+bayWidth+' mm bay':state.stage==='extract'?selected+' · 3 recorded mentions · quantity pending':state.stage==='render'?selected+' · actual recorded 36-inch oak ImageGen concept':state.stage==='review'?'Confirmed family / nominal variant · site size, quantity and price pending':state.stage==='match'?'Real catalog p. 27 / p. 28 → one drawer / two drawers':state.stage==='drawing'?selected+' · original elevation p. '+workflow.evidence.examples[selected].drawingPage:'One drawer / two drawers · two doors · one adjustable shelf';
+  if(!userCamera)cameraPose(pose);
+  if(outline){outline.visible=Boolean(selectedPart)&&models[selected==='B3000'?0:1].root.visible;if(outline.visible){const index=selected==='B3000'?0:1,b=new T.Box3();for(const group of models[index].parts[selectedPart])b.expandByObject(group);outline.box.copy(b);}}
   renderer.render(scene,camera);
 }
 function seek(t){time=Math.max(0,Math.min(DURATION,t));setStory(time);render();}
@@ -97,7 +127,7 @@ function reset(){
   for(const m of Object.values(materialsSet))m.wireframe=false;selectPart('');render();
 }
 function frameBounds(){
-  return models.map(model=>{
+  return models.filter(model=>model.root.visible).map(model=>{
     let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
     model.root.traverse(object=>{
       if(!object.isMesh)return;
@@ -135,11 +165,11 @@ async function init(){
   const rim=new T.DirectionalLight(0xa1d9ee,1.25);rim.position.set(2,2,-3);scene.add(rim);
   const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshBasicMaterial({color:capture?0x090c10:0x11161c,toneMapped:false}));floor.rotation.x=-Math.PI/2;floor.position.y=-.001;floor.name='Studio ground';scene.add(floor);
   const shadow=new T.Mesh(new T.PlaneGeometry(20,20),new T.ShadowMaterial({opacity:.2}));shadow.rotation.x=-Math.PI/2;shadow.position.y=-.0005;shadow.receiveShadow=true;scene.add(shadow);
-  const grid=new T.GridHelper(5,25,0x344049,0x1c252d);grid.position.y=.0001;grid.material.transparent=true;grid.material.opacity=.12;scene.add(grid);
-  materialsSet=materials();buildModels();outline=new T.Box3Helper(new T.Box3(),0x97d8ea);outline.visible=false;scene.add(outline);
+  const grid=new T.GridHelper(5,25,0x344049,0x1c252d);grid.position.y=.0001;grid.material.transparent=true;grid.material.opacity=.12;scene.add(grid);studioGround=[floor,shadow,grid];
+  workflow=await workflowScene(scene);materialsSet=materials();buildModels();outline=new T.Box3Helper(new T.Box3(),0x97d8ea);outline.visible=false;scene.add(outline);
   controls=new OrbitControls(camera,$('#scene'));controls.enableDamping=false;controls.minDistance=1.5;controls.maxDistance=9;controls.maxPolarAngle=Math.PI*.49;
-  controls.addEventListener('start',()=>{inspect();userCamera=true;});controls.addEventListener('change',()=>{if(userCamera)render();});
-  $('#chapters').replaceChildren(...CHAPTERS.map((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>'+c.label;b.onclick=()=>{pause();manual=false;userCamera=false;selectedPart='';$('#part').value='';selectPart('');seek(i*5);};return b;}));
+  controls.addEventListener('start',()=>{pause();userCamera=true;});controls.addEventListener('change',()=>{if(userCamera)render();});
+  $('#chapters').replaceChildren(...CHAPTERS.map((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>'+c.label;b.onclick=()=>{pause();manual=false;userCamera=false;selectedPart='';$('#part').value='';selectPart('');seek(c.start);};return b;}));
   $('#play').onclick=()=>{if(playing){pause();return;}manual=false;userCamera=false;selectedPart='';selectPart('');if(time>=DURATION)time=0;playing=true;$('#play').textContent='Pause story';last=performance.now();};
   $('#restart').onclick=()=>{pause();manual=false;userCamera=false;selectPart('');seek(0);};
   $('#fullscreen').hidden=false;syncExpansionButton();
@@ -157,6 +187,7 @@ async function init(){
   $('#time').oninput=()=>{pause();manual=false;userCamera=false;selectPart('');seek(Number($('#time').value));};
   $('#opening').oninput=()=>{const value=Number($('#opening').value);inspect();opening=value;$('#opening').value=String(value);render();};
   $('#separate').oninput=()=>{const value=Number($('#separate').value);inspect();separate=value;$('#separate').value=String(value);render();};
+  $('#bay-width').oninput=()=>{pause();bayWidth=Number($('#bay-width').value);$('#bay-value').textContent=bayWidth+' mm';if(!['room','result'].includes(CHAPTERS[chapterAt(time)].id)||(CHAPTERS[chapterAt(time)].id==='room'&&poseAt(time).progress<.875)){manual=false;userCamera=false;seek(CHAPTERS.find(c=>c.id==='room').start+7);}else render();};
   $('#width').onchange=()=>{inspect();width=Number($('#width').value);buildModels();setStory(time);render();};
   $('#finish').onchange=()=>{inspect();finish=$('#finish').value;buildModels();render();};
   $('#wireframe').onchange=()=>{inspect();for(const m of Object.values(materialsSet))m.wireframe=$('#wireframe').checked;render();};
@@ -168,19 +199,19 @@ async function init(){
   $('#scene').addEventListener('pointerup',ev=>{
     if(!start||Math.hypot(ev.clientX-start[0],ev.clientY-start[1])>6)return;
     const r=$('#scene').getBoundingClientRect();pointer.set((ev.clientX-r.left)/r.width*2-1,-(ev.clientY-r.top)/r.height*2+1);selection.setFromCamera(pointer,camera);
-    const hit=selection.intersectObjects(models.map(m=>m.root),true).find(h=>h.object.isMesh);
+    const hit=selection.intersectObjects(models.filter(m=>m.root.visible).map(m=>m.root),true).find(h=>h.object.isMesh);
     if(hit){choose(hit.object.userData.cabinet);selectPart(hit.object.userData.part);render();}
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});reduced.addEventListener('change',()=>{if(reduced.matches)pause();});
   $('#scene').addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();$('#play').click();}if(e.key==='Escape'&&!expanded&&!document.fullscreenElement)reset();});
   new ResizeObserver(resize).observe($('#viewport'));
   app.seek=seek;app.renderer=renderer;
-  app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,playing,manual,selected,selectedPart,width,finish,opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),drawers:models.map(m=>m.drawers.length),frameBounds:frameBounds(),visibleMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
-  app.exportGLB=async()=>{const g=new T.Group();g.name='Case Systems catalog family visualization';g.userData={units:'metres',nominalDimensionsInches:{width,height:34,depth:24},catalogSha256:facts.catalog.sha256,scope:'Catalog family visualization. Authored finish, movement and construction; not fabrication geometry.'};for(const m of models)g.add(m.root.clone(true));return Array.from(new Uint8Array(await new GLTFExporter().parseAsync(g,{binary:true})));};
+  app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,playing,manual,selected,selectedPart,width,finish,bayWidth,workflow:workflow.inspect(),opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),drawers:models.map(m=>m.drawers.length),frameBounds:frameBounds(),availableModelMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),visibleMeshes:(()=>{let count=0;scene.traverseVisible(o=>{if(o.isMesh)count++;});return count;})(),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
+  app.exportGLB=async()=>{const g=new T.Group();g.name='Case Systems catalog family visualization';g.userData={units:'metres',nominalDimensionsInches:{width,height:34,depth:24},catalogSha256:facts.catalog.sha256,scope:'Catalog family visualization. Authored finish, movement and construction; not fabrication geometry.'};for(const [i,m] of models.entries()){const clone=m.root.clone(true);clone.visible=true;clone.scale.setScalar(1);clone.position.set((i===0?-1:1)*(m.width/2+.24),0,0);g.add(clone);}return Array.from(new Uint8Array(await new GLTFExporter().parseAsync(g,{binary:true})));};
   $('#loading').hidden=true;selectPart('');resize();seek(0);app.ready=true;
   if(!capture)requestAnimationFrame(tick);
 }
-function choose(code){inspect();selected=code;document.querySelectorAll('[data-cabinet]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cabinet===code)));selectPart('');render();}
+function choose(code){pause();if(!['drawing','extract','match','render'].includes(CHAPTERS[chapterAt(time)].id))inspect();selected=code;setStory(time);document.querySelectorAll('[data-cabinet]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cabinet===code)));selectPart('');render();}
 function tick(now){if(playing){time+=Math.min(.1,(now-last)/1000);if(time>=DURATION){time=DURATION;pause();}seek(time);}last=now;requestAnimationFrame(tick);}
 init().catch(error=>{
   app.error=error.message;$('#loading').textContent='The 3D scene could not load on this device. '+error.message;
