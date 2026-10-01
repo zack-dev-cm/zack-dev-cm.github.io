@@ -320,7 +320,7 @@ reproduce each state, including wall growth, cabinet position and fit marks.
 | Keep unknowns visible | Estimator; reviewed known/pending fields | Change nominal width; read sources; share the review boundary | No invented quantity/price | Review |
 | See the recorded result | Engineering lead; actual ImageGen outputs | Inspect the recorded render; open full workflow; share source-to-result contrast | Existing public concept images | Render |
 | Will this cabinet fit? | Architect; nominal width and authored bay | Adjust the bay; inspect room; share clearance/shortfall response | Authored room and site unknown labeled | Room fit |
-| Carry the result forward | Engineering lead; recorded review and exports | Keep final room; open full demo; share evidence-backed handoff | Reviewable export fields, no full raw sheets | Closing |
+| Carry the result forward | Engineering lead; recorded review and exports | Keep final room; open full demo; share the recorded handoff | Reviewable export fields, no full raw sheets | Closing |
 
 Room controls use millimetres for available bay width and the catalog's nominal
 inch width converted to millimetres. Report equal side clearance or the width
