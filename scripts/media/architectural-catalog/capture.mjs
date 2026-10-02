@@ -9,13 +9,18 @@ import {spawn,spawnSync} from 'node:child_process';
 import {once} from 'node:events';
 import {chromium} from 'playwright';
 import {publishFiles} from '../engineering-studies/publish.mjs';
-import {CHAPTERS,DURATION} from '../../../public/architectural-catalog/timeline.js';
+import {chaptersFor,DURATION} from '../../../public/architectural-catalog/timeline.js';
 import {checkComposition} from './composition-review.mjs';
 
 const PUBLIC=fileURLToPath(new URL('../../../public/',import.meta.url));
 const ROOT=path.join(PUBLIC,'architectural-catalog');
-fs.mkdirSync(path.join(ROOT,'media'),{recursive:true});
-fs.mkdirSync(path.join(ROOT,'models'),{recursive:true});
+const language=process.argv.includes('--lang=ru')?'ru':'en',outputIndex=process.argv.indexOf('--output');
+assert(outputIndex<0||process.argv[outputIndex+1],'Provide an output directory');
+const OUTPUT=outputIndex<0?ROOT:path.resolve(process.argv[outputIndex+1]);
+assert(language!=='ru'||(outputIndex>=0&&!OUTPUT.startsWith(PUBLIC)),'Save the Russian version outside the public portfolio');
+const CHAPTERS=chaptersFor(language);
+fs.mkdirSync(path.join(OUTPUT,'media'),{recursive:true});
+fs.mkdirSync(path.join(OUTPUT,'models'),{recursive:true});
 const digest=b=>createHash('sha256').update(b).digest('hex');
 const sourceNames=['index.html','studio.css','studio.js','cabinets.js','timeline.js','workflow-scene.js','room-context.js','data/catalog-facts.json','data/workflow-evidence.json',...fs.readdirSync(path.join(ROOT,'data/examples')).map(n=>'data/examples/'+n)];
 const vendorNames=['three.module.min.js','three.core.min.js','OrbitControls.js','GLTFExporter.js'];
@@ -35,7 +40,7 @@ try{
   browser=await chromium.launch({executablePath:process.env.CHROME_PATH||(process.platform==='darwin'?'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome':'/usr/bin/google-chrome'),headless:true,args:process.env.SOFTWARE_GL==='1'?['--enable-unsafe-swiftshader']:['--enable-gpu']});
   const page=await browser.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(`http://127.0.0.1:${server.address().port}/architectural-catalog/?capture`);
+  await page.goto(`http://127.0.0.1:${server.address().port}/architectural-catalog/?capture&lang=${language}`);
   await page.waitForFunction(()=>window.catalogStudy?.ready||window.catalogStudy?.error,null,{timeout:60000});
   const error=await page.evaluate(()=>catalogStudy.error);if(error)throw Error(error);
   const sourceFacts=await page.evaluate(()=>catalogStudy.inspect().facts);
@@ -57,13 +62,13 @@ try{
   const teaserCrop='crop=1306:1080:614:0,scale=870:720,pad=1280:720:205:0:color=0x090c10,setsar=1';
   const posterCrop=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',path.join(staging,'catalog-poster.jpg'),'-vf',teaserCrop,'-frames:v','1',path.join(staging,'catalog-teaser.jpg')],{encoding:'utf8'});if(posterCrop.status!==0)throw Error(posterCrop.stderr);
   if(process.argv.includes('--preview')){
-    const dir=path.join(ROOT,'media');fs.mkdirSync(dir,{recursive:true});
+    const dir=path.join(OUTPUT,'media');fs.mkdirSync(dir,{recursive:true});
     for(const n of ['poster','compare','open','dimensions','drawing','extract','review','render','room','result','teaser'])fs.copyFileSync(path.join(staging,`catalog-${n}.jpg`),path.join(dir,`catalog-${n}.jpg`));
-    publishFiles(staging,path.join(ROOT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
+    publishFiles(staging,path.join(OUTPUT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
     console.log(JSON.stringify({preview:true,renderer,meshes:gltf.meshes.length,errors}));
   }else{
     const film=path.join(staging,'catalog-film.mp4');
-    encoder=spawn('ffmpeg',['-hide_banner','-loglevel','error','-y','-f','image2pipe','-vcodec','mjpeg','-framerate','24','-i','pipe:0','-an','-c:v','libx264','-preset','fast','-crf','21','-pix_fmt','yuv420p','-t',String(DURATION),'-movflags','+faststart','-metadata','title=From drawing to catalog','-metadata','comment=Catalog-grounded procedural 3D explanation; recorded source crops and ImageGen concepts; authored room, not live OCR inference or fabrication geometry.',film],{stdio:['pipe','ignore','pipe']});
+    encoder=spawn('ffmpeg',['-hide_banner','-loglevel','error','-y','-f','image2pipe','-vcodec','mjpeg','-framerate','24','-i','pipe:0','-an','-c:v','libx264','-preset','fast','-crf','21','-pix_fmt','yuv420p','-t',String(DURATION),'-movflags','+faststart','-metadata','title='+ (language==='ru'?'От чертежа к интерьеру':'From drawing to furnished room'),'-metadata','comment='+ (language==='ru'?'Выбор тумбы по чертежу и каталогу, проверка размера и размещение в примере комнаты.':'Choose a cabinet from a drawing and catalog, check its size and explore an example furnished room.'),film],{stdio:['pipe','ignore','pipe']});
     let stderr='';encoder.stderr.on('data',b=>stderr+=b);encoder.stdin.on('error',()=>{});
     encoderDone=new Promise((resolve,reject)=>{encoder.once('close',code=>code===0?resolve():reject(Error(stderr||'Encoder failed: '+code)));encoder.once('error',reject);});encoderDone.catch(()=>{});
     await page.evaluate(async()=>{
@@ -101,10 +106,10 @@ try{
     for(const p of toolPaths)assert.equal(digest(fs.readFileSync(p)),digest(frozenTools.get(path.basename(p))),'Capture tool changed');
     const mediaNames=['catalog-film.mp4','catalog-loop.mp4','catalog-poster.jpg','catalog-teaser.jpg','catalog-compare.jpg','catalog-open.jpg','catalog-dimensions.jpg','catalog-drawing.jpg','catalog-extract.jpg','catalog-review.jpg','catalog-render.jpg','catalog-room.jpg','catalog-result.jpg','catalog.vtt'];
     const outputs=Object.fromEntries([...mediaNames,'catalog-cabinets.glb','catalog-cabinets.json'].map(n=>{const b=fs.readFileSync(path.join(staging,n));return [n,{bytes:b.length,sha256:digest(b)}];}));
-    fs.writeFileSync(path.join(staging,'catalog-capture.json'),JSON.stringify({kind:'DETERMINISTIC_BROWSER_CAPTURE',width:1920,height:1080,fps:24,duration:DURATION,frameCount:frames.length,renderer,stableCanvasReadbacks:2,compositionReview:composition,sourceSha256:Object.fromEntries([...frozen].map(([n,b])=>[n,digest(b)])),toolSha256:Object.fromEntries([...frozenTools].map(([n,b])=>[n,digest(b)])),outputs,pageErrors:errors,scope:sourceFacts.scope,frames},null,2)+'\n');
-    publishFiles(staging,path.join(ROOT,'media'),[...mediaNames,'catalog-capture.json']);
-    publishFiles(staging,path.join(ROOT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
-    console.log(JSON.stringify({completed:true,outputs,renderer}));
+    fs.writeFileSync(path.join(staging,'catalog-capture.json'),JSON.stringify({kind:'DETERMINISTIC_BROWSER_CAPTURE',language,width:1920,height:1080,fps:24,duration:DURATION,frameCount:frames.length,renderer,stableCanvasReadbacks:2,compositionReview:composition,sourceSha256:Object.fromEntries([...frozen].map(([n,b])=>[n,digest(b)])),toolSha256:Object.fromEntries([...frozenTools].map(([n,b])=>[n,digest(b)])),outputs,pageErrors:errors,scope:sourceFacts.scope,frames},null,2)+'\n');
+    publishFiles(staging,path.join(OUTPUT,'media'),[...mediaNames,'catalog-capture.json']);
+    publishFiles(staging,path.join(OUTPUT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
+    console.log(JSON.stringify({completed:true,language,output:OUTPUT,outputs,renderer}));
   }
 }finally{
   if(encoder&&encoder.exitCode===null&&encoder.signalCode===null)encoder.kill();try{await encoderDone;}catch{}

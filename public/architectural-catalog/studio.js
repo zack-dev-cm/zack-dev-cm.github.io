@@ -2,11 +2,17 @@ import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
 import {materials,cabinet,dimensions,elevationLines} from './cabinets.js';
-import {CHAPTERS,DURATION,chapterAt,chapterText,poseAt,smooth} from './timeline.js';
+import {CHAPTERS,DURATION,chapterAt,chapterText,poseAt,smooth,LANGUAGE,translate} from './timeline.js';
 import {workflowScene} from './workflow-scene.js';
 
 const $=s=>document.querySelector(s),capture=new URLSearchParams(location.search).has('capture');
 if(capture)document.body.classList.add('capture');
+if(LANGUAGE==='ru'){
+  document.documentElement.lang='ru';document.title='От чертежа к интерьеру — Interior Match';
+  const copy={'.narrative>.eyebrow':'Чертёж. Каталог. Ваша комната.','.intro':'Находим тумбу в настоящем каталоге. Проверяем размеры, изучаем устройство и размещаем её в меблированной комнате.','.scene-header>span:last-child':'От чертежа к интерьеру','#loading':'Готовим комнату…','.model-labels span:first-child':'B3000|Один верхний ящик','.model-labels span:last-child':'B3100|Два верхних ящика'};
+  for(const [selector,value] of Object.entries(copy)){const element=$(selector);if(value.includes('|')){const [code,label]=value.split('|');element.replaceChildren(Object.assign(document.createElement('b'),{textContent:code}),document.createTextNode(label));}else element.textContent=value;}
+  $('.narrative h1').replaceChildren(document.createTextNode('От чертежа'),document.createElement('br'),document.createTextNode('к интерьеру.'));
+}
 const app=window.catalogStudy={ready:false,error:null};
 let facts,renderer,scene,camera,controls,models=[],dimensionGroups=[],schematics=[],materialsSet,outline,workflow,studioGround=[];
 let time=0,playing=false,manual=false,userCamera=false,selected='B3000',selectedPart='',width=36,finish='oak',bayWidth=914.4,opening=0,separate=0,last=0;
@@ -68,7 +74,7 @@ function buildModels(){
   models=['B3000','B3100'].map((code,i)=>{
     const m=cabinet(code,width,materialsSet,finish);m.root.position.x=(i===0?-1:1)*(m.width/2+.24);scene.add(m.root);return m;
   });
-  dimensionGroups=models.map(m=>{const g=dimensions(m.width,m.height,m.depth,width);g.position.x=m.root.position.x;scene.add(g);return g;});
+  dimensionGroups=models.map(m=>{const g=dimensions(m.width,m.height,m.depth,width,LANGUAGE);g.position.x=m.root.position.x;scene.add(g);return g;});
   schematics=models.map((m,i)=>{const g=elevationLines(m.width,m.height,i===0?1:2);g.position.set(m.root.position.x,.08,-.53);scene.add(g);return g;});
   $('#dimensions').textContent=`Selected catalog variant · ${width} W × 34 H × 24 D inches.`;
 }
@@ -85,12 +91,26 @@ function cameraPose(pose){
     for(const g of dimensionGroups)if(g.visible)bounds.expandByObject(g);
     if(roomMode){bounds.set(new T.Vector3(-2.3,-.1,-1.15),new T.Vector3(1.93,2.3,1.85));for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);}
     scene.updateMatrixWorld(true);
-    const target=bounds.getCenter(new T.Vector3()),direction=new T.Vector3(...(roomMode?[3.4,2.2,4.6]:id==='match'?[1,1,5]:[.35,.25,4])).normalize();
+    const orbit=id==='result'&&!manual?smooth((pose.progress-.1)/.78):0;
+    const target=bounds.getCenter(new T.Vector3());
+    if(roomMode)target.lerp(new T.Vector3(-.05,.98,.12),orbit*.25);
+    const azimuth=Math.atan2(3.4,4.6)+(T.MathUtils.degToRad(24)-Math.atan2(3.4,4.6))*orbit;
+    const elevation=Math.atan2(2.2,Math.hypot(3.4,4.6))+(T.MathUtils.degToRad(25)-Math.atan2(2.2,Math.hypot(3.4,4.6)))*orbit;
+    const direction=roomMode?new T.Vector3(Math.sin(azimuth)*Math.cos(elevation),Math.sin(elevation),Math.cos(azimuth)*Math.cos(elevation)):new T.Vector3(...(id==='match'?[1,1,5]:[.35,.25,4])).normalize();
     const right=new T.Vector3().crossVectors(new T.Vector3(0,1,0),direction).normalize(),up=new T.Vector3().crossVectors(direction,right).normalize();
-    const tan=Math.tan(T.MathUtils.degToRad(camera.fov/2)),margin=roomMode?.88:.86;let distance=0;
+    const tan=Math.tan(T.MathUtils.degToRad(camera.fov/2)),margin=roomMode?.88+.055*orbit:.86;let distance=0;
     for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
       const point=new T.Vector3(x,y,z).sub(target),front=point.dot(direction);
       distance=Math.max(distance,front+Math.abs(point.dot(right))/(tan*camera.aspect*margin),front+Math.abs(point.dot(up))/(tan*margin));
+    }
+    if(roomMode&&orbit>0){
+      const originalTarget=bounds.getCenter(new T.Vector3()),originalDirection=new T.Vector3(3.4,2.2,4.6).normalize();
+      const originalRight=new T.Vector3().crossVectors(new T.Vector3(0,1,0),originalDirection).normalize(),originalUp=new T.Vector3().crossVectors(originalDirection,originalRight).normalize();let originalDistance=0;
+      for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
+        const point=new T.Vector3(x,y,z).sub(originalTarget);
+        originalDistance=Math.max(originalDistance,point.dot(originalDirection)+Math.abs(point.dot(originalRight))/(tan*camera.aspect*.88),point.dot(originalDirection)+Math.abs(point.dot(originalUp))/(tan*.88));
+      }
+      distance=Math.max(distance,originalDistance*(1-(camera.aspect<1.15?.03:.06)*orbit));
     }
     controls.maxDistance=Math.max(12,distance*1.3);camera.position.copy(target).addScaledVector(direction,distance);controls.target.copy(target);controls.update();return;
   }
@@ -107,20 +127,20 @@ function render(){
   if(!manual){$('#opening').value=String(o);$('#separate').value=String(e);}
   schematics.forEach(g=>g.visible=false);studioGround.forEach(g=>g.visible=!state.roomVisible);
   $('.model-labels').hidden=!['manual-inspection','inspect'].includes(state.stage);
-  $('#scene-title').textContent=state.roomVisible?selected+' / Room fit':state.stage==='manual-inspection'?'B3000 & B3100':CHAPTERS[pose.chapter].label;
-  $('#stage-action').textContent=state.stage==='manual-inspection'?'Manual inspection · change the configuration':CHAPTERS[pose.chapter].action;
+  $('#scene-title').textContent=state.roomVisible?translate('Your furnished room','Ваша комната'):state.stage==='manual-inspection'?'B3000 & B3100':CHAPTERS[pose.chapter].label;
+  $('#stage-action').textContent=state.stage==='manual-inspection'?translate('Explore the cabinet','Осмотрите тумбу'):CHAPTERS[pose.chapter].action;
   if(state.roomVisible&&!state.fits){
-    $('#chapter-title').textContent='The opening is too narrow.';
-    $('#chapter-copy').textContent='The selected cabinet stops in front of the storage run. It cannot enter this opening. Increase the bay width or choose a narrower nominal variant, then review installation tolerances at the actual site.';
-    $('#stage-action').textContent='Width shortfall → stop insertion → revise cabinet or opening';
+    $('#chapter-title').textContent=translate('The opening is too narrow.','Проём слишком узкий.');
+    $('#chapter-copy').textContent=translate('The cabinet stops in front of the opening. Widen the space or choose a narrower cabinet, then check the room measurements.','Тумба останавливается перед проёмом. Увеличьте свободное место или выберите более узкую тумбу, затем проверьте замеры.');
+    $('#stage-action').textContent=translate('Not enough space — choose a narrower cabinet','Подберите тумбу меньшей ширины');
   }else if(state.roomVisible){
     const copy=chapterText(pose.chapter,width,selected);$('#chapter-title').textContent=copy.title;$('#chapter-copy').textContent=copy.copy;
   }
   const margin=state.sideClearanceMm;
   const fitText=state.exactNominalFit?`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · exact nominal fit.`:state.fits?`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · ${margin.toFixed(1)} mm per side, closed by illustrative infill.`:`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · needs ${(state.cabinetWidthMm-bayWidth).toFixed(1)} mm more bay width.`;
   if($('#fit-status').textContent!==fitText)$('#fit-status').textContent=fitText;$('#fit-status').dataset.fits=String(state.fits);
-  $('#room-fit-detail').textContent='Aligned with adjoining 24-inch variants · 863.6 mm high × 609.6 mm deep. Room, adjoining quantity and fixtures are an authored teaching/workroom concept.';
-  $('#stage-detail').textContent=state.roomVisible?(state.explodedInFront?'Exploded inspection in front of the opening':state.exactNominalFit?'Exact nominal fit between adjoining cabinets':state.fits?'Width fits · infill closes the gaps':'Bay too narrow · insertion stopped')+' · authored '+bayWidth+' mm opening':state.stage==='extract'?selected+' · 3 recorded mentions · quantity pending':state.stage==='render'?selected+' · actual recorded 36-inch oak ImageGen concept':state.stage==='review'?'Confirmed family / nominal variant · site size, quantity and price pending':state.stage==='match'?'Real catalog p. 27 / p. 28 → one drawer / two drawers':state.stage==='drawing'?selected+' · original elevation p. '+workflow.evidence.examples[selected].drawingPage:'One drawer / two drawers · two doors · one adjustable shelf';
+  $('#room-fit-detail').textContent=translate('Level with the neighbouring cabinets · 863.6 mm high × 609.6 mm deep. Check your own room before ordering.','На одной высоте с соседними тумбами · высота 863,6 мм, глубина 609,6 мм. Перед заказом проверьте замеры в своей комнате.');
+  $('#stage-detail').textContent=state.roomVisible?(state.explodedInFront?translate('Parts separated in front of the opening','Детали перед проёмом'):state.exactNominalFit?translate('The cabinet fills the opening exactly','Тумба подходит по ширине'):state.fits?translate('Side panels close the remaining gaps','Боковые вставки закрывают зазоры'):translate('The cabinet is too wide for the opening','Тумба шире проёма'))+translate(' · example opening: ',' · проём в примере: ')+String(bayWidth).replace('.',LANGUAGE==='ru'?',':'.')+translate(' mm',' мм'):state.stage==='extract'?translate('Keep the code · confirm how many to order','Сохраните код · уточните количество'):state.stage==='render'?translate('Oak finish preview · 36-inch cabinet','Дубовая отделка · ширина 914,4 мм'):state.stage==='review'?translate('Catalog dimensions · check your room before ordering','Размеры из каталога · сверьте замеры перед заказом'):state.stage==='match'?translate('B3000: one drawer · B3100: two drawers','B3000: один ящик · B3100: два ящика'):state.stage==='drawing'?selected+translate(' · drawing page ',' · страница чертежа ')+workflow.evidence.examples[selected].drawingPage:translate('One or two drawers · two doors · one shelf','Один или два ящика · две дверцы · одна полка');
   if(!userCamera)cameraPose(pose);
   if(outline){outline.visible=Boolean(selectedPart)&&models[selected==='B3000'?0:1].root.visible;if(outline.visible){const index=selected==='B3000'?0:1,b=new T.Box3();for(const group of models[index].parts[selectedPart])b.expandByObject(group);outline.box.copy(b);}}
   const isRoom=state.roomVisible,fadeIn=pose.chapter===0||CHAPTERS[pose.chapter].id==='result'?1:smooth(pose.progress*8/.45),fadeOut=pose.chapter===7||isRoom?1:smooth((1-pose.progress)*8/.45);
@@ -214,7 +234,7 @@ async function init(){
   new ResizeObserver(resize).observe($('#scene-surface'));
   app.seek=seek;app.renderer=renderer;
   app.composition=()=>{scene.updateMatrixWorld(true);return {canvas:$('#scene').getBoundingClientRect().toJSON(),caption:$('.stage-caption').getBoundingClientRect().toJSON(),fade:Number($('#scene-surface').style.opacity),objects:[...workflow.groups,...models.map(m=>m.root),...dimensionGroups].flatMap(group=>{const items=[];if(!group.visible)return items;group.traverseVisible(o=>{if(!o.isMesh&&!o.isSprite&&!o.isLine)return;const box=new T.Box3().setFromObject(o),points=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])points.push(new T.Vector3(x,y,z).project(camera));items.push({name:o.name||o.type,depthTest:o.material?.depthTest,minX:Math.min(...points.map(p=>p.x)),maxX:Math.max(...points.map(p=>p.x)),minY:Math.min(...points.map(p=>p.y)),maxY:Math.max(...points.map(p=>p.y))});});return items;})};};
-  app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,playing,manual,selected,selectedPart,width,finish,bayWidth,workflow:workflow.inspect(),opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),drawers:models.map(m=>m.drawers.length),frameBounds:frameBounds(),availableModelMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),visibleMeshes:(()=>{let count=0;scene.traverseVisible(o=>{if(o.isMesh)count++;});return count;})(),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
+  app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,language:LANGUAGE,playing,manual,selected,selectedPart,width,finish,bayWidth,workflow:workflow.inspect(),opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),cameraTarget:controls.target.toArray(),drawers:models.map(m=>m.drawers.length),frameBounds:frameBounds(),availableModelMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),visibleMeshes:(()=>{let count=0;scene.traverseVisible(o=>{if(o.isMesh)count++;});return count;})(),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
   app.exportGLB=async()=>{const g=new T.Group();g.name='Case Systems catalog family visualization';g.userData={units:'metres',nominalDimensionsInches:{width,height:34,depth:24},catalogSha256:facts.catalog.sha256,scope:'Catalog family visualization. Authored finish, movement and construction; not fabrication geometry.'};for(const [i,m] of models.entries()){const clone=m.root.clone(true);clone.visible=true;clone.scale.setScalar(1);clone.position.set((i===0?-1:1)*(m.width/2+.24),0,0);g.add(clone);}return Array.from(new Uint8Array(await new GLTFExporter().parseAsync(g,{binary:true})));};
   $('#loading').hidden=true;selectPart('');resize();seek(0);app.ready=true;
   if(!capture)requestAnimationFrame(tick);

@@ -2,6 +2,29 @@ import {test,expect} from '@playwright/test';
 
 const base='/docs/architectural-catalog/';
 test.use({launchOptions:{args:['--enable-webgl','--ignore-gpu-blocklist','--enable-unsafe-swiftshader']}});
+for(const language of ['en','ru']){
+  test(`client captions and continuous final room orbit in ${language}`,async({page})=>{
+    await page.setViewportSize({width:1920,height:1080});await page.goto(base+'?capture&lang='+language);
+    await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+    for(const time of [4,12,20,28,37,44,52,63.5]){
+      const state=await page.evaluate(t=>{(window as any).catalogStudy.seek(t);return (window as any).catalogStudy.inspect();},time);
+      expect(state.language).toBe(language);
+      const copy=await page.locator('.narrative, .scene-header, .stage-caption').allTextContents();
+      expect(copy.join(' ')).not.toMatch(/Codex|ImageGen|Mode\s*1|procedural|recorded|receipt|agent result/i);
+      if(language==='ru')expect(copy.join(' ')).not.toMatch(/(^|\s)не(\s|$)|смотрим внутрь/iu);
+      if(time===37)expect(state.opening).toBe(0);
+    }
+    if(language==='ru')await expect(page.locator('#stage-detail')).toContainText('914,4 мм');
+    const frames=await page.evaluate(()=>[55.958333333,56,56.8,60,63.5,63.958333333].map(t=>{(window as any).catalogStudy.seek(t);return (window as any).catalogStudy.inspect();}));
+    expect(frames[0].camera).toEqual(frames[1].camera);expect(frames[1].camera).toEqual(frames[2].camera);
+    expect(frames[3].camera).not.toEqual(frames[2].camera);expect(frames[4].camera).toEqual(frames[5].camera);
+    const relative=(state:any)=>state.camera.map((value:number,i:number)=>value-state.cameraTarget[i]);
+    const first=relative(frames[1]),last=relative(frames[4]);
+    expect(Math.atan2(last[0],last[2])).toBeLessThan(Math.atan2(first[0],first[2]));
+    expect(Math.hypot(...last)).toBeGreaterThanOrEqual(Math.hypot(...first)*.94-1e-6);
+    for(const frame of frames){expect(frame.workflow.roomVisible).toBe(true);expect(frame.workflow.exactNominalFit).toBe(true);}
+  });
+}
 for(const width of [360,390,768,1440]){
   test(`grounded cabinet story and inspection at ${width}px`,async({page},testInfo)=>{
     await page.setViewportSize({width,height:width<500?900:1000});
@@ -28,12 +51,12 @@ for(const width of [360,390,768,1440]){
     await expect(page.locator('#part-description')).toContainText('Two upper drawers, side by side');
     await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
     await expect(page.locator('#dimensions')).toContainText('48 W × 34 H × 24 D inches');
-    await page.getByRole('button',{name:'05 Review dimensions',exact:true}).click();
-    await expect(page.locator('#chapter-copy')).toContainText('48 × 34 × 24 inch');
-    await expect(page.locator('#source')).toContainText('48 W × 34 H × 24 D inches');
+    await page.getByRole('button',{name:'05 Check the size',exact:true}).click();
+    await expect(page.locator('#chapter-copy')).toContainText('Compare the catalog size');
+    await expect(page.locator('#source')).toContainText('1219.2 mm wide');
     await page.getByLabel('Nominal width',{exact:true}).selectOption('24');
-    await expect(page.locator('#chapter-copy')).toContainText('24 × 34 × 24 inch');
-    await expect(page.locator('#source')).toContainText('24 W × 34 H × 24 D inches');
+    await expect(page.locator('#chapter-copy')).toContainText('Compare the catalog size');
+    await expect(page.locator('#source')).toContainText('609.6 mm wide');
     await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
     await page.locator('#opening').fill('1');await page.locator('#separate').fill('0.7');
     const opened=await page.evaluate(()=>(window as any).catalogStudy.inspect());
@@ -191,7 +214,7 @@ test('all eight phases render distinct evidence and geometry with deterministic 
     await expect(page.locator('#stage-action')).not.toBeEmpty();
     if(['drawing','extract','match','render'].includes(phases[i]))expect(state.workflow.asset).toMatch(/data\/examples\/B3000-/);
     if(phases[i]==='inspect'){expect(state.opening).toBe(1);expect(state.separate).toBeGreaterThan(.5);expect(state.drawers).toEqual([1,2]);}
-    if(phases[i]==='review')await expect(page.locator('#stage-detail')).toContainText('pending');
+    if(phases[i]==='review')await expect(page.locator('#stage-detail')).toContainText('check your room');
     if(phases[i]==='render'){expect(state.workflow.recordedImageWidthInches).toBe(36);expect(state.workflow.recordedImageFinish).toBe('oak');}
     if(i>=6){expect(state.workflow.roomVisible).toBe(true);expect(state.frameBounds).toHaveLength(1);}
     const pixels=await page.locator('#scene').screenshot();images.add(pixels.toString('base64'));
@@ -214,7 +237,7 @@ test('all eight phases render distinct evidence and geometry with deterministic 
 test('final room fit responds to both families, nominal width and bay width',async({page},testInfo)=>{
   await page.setViewportSize({width:390,height:900});await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
   await page.getByLabel('Illustrative bay width',{exact:true}).fill('1000');
-  await expect(page.locator('#chapter-number')).toContainText('Fit in a room');
+  await expect(page.locator('#chapter-number')).toContainText('Place it in the room');
   const fit=await page.evaluate(()=>(window as any).catalogStudy.inspect().workflow);
   expect(fit.roomVisible).toBe(true);expect(fit.fits).toBe(true);expect(fit.cabinetWidthMm).toBeCloseTo(914.4);expect(fit.sideClearanceMm).toBeCloseTo(42.8);
   await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
@@ -226,7 +249,7 @@ test('final room fit responds to both families, nominal width and bay width',asy
   const family=await page.evaluate(()=>(window as any).catalogStudy.inspect());
   expect(family.workflow.roomVisible).toBe(true);expect(family.workflow.fits).toBe(true);expect(family.frameBounds.map((b:any)=>b.code)).toEqual(['B3100']);
   await page.getByLabel('Story time',{exact:true}).fill('64');
-  await expect(page.locator('#chapter-number')).toContainText('Take the result');
+  await expect(page.locator('#chapter-number')).toContainText('Explore the result');
   await expect(page.locator('#timecode')).toHaveText('1:04 / 1:04');
   expect(await page.evaluate(()=>(window as any).catalogStudy.inspect().workflow.roomVisible)).toBe(true);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
@@ -298,5 +321,5 @@ test('infill spans real gaps and an oversized cabinet stops clear of the furnish
   expect(blocked.selectedBounds.min[2]).toBeGreaterThan(blocked.roomContext.counter.max[2]);
   expect(blocked.roomContext.fillers.every((f:any)=>!f.visible)).toBe(true);
   await expect(page.locator('#chapter-title')).toHaveText('The opening is too narrow.');
-  await expect(page.locator('#chapter-copy')).toContainText('It cannot enter this opening');
+  await expect(page.locator('#chapter-copy')).toContainText('The cabinet stops in front of the opening.');
 });

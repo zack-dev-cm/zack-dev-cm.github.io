@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {line,textSprite} from './cabinets.js';
-import {smooth,CHAPTERS} from './timeline.js';
+import {smooth,CHAPTERS,translate} from './timeline.js';
 import {roomContext,ROOM} from './room-context.js';
 
 const EVIDENCE_SHA256='26401084a0874e6ebfc19c02e04e9156dc795f8d3b047149542980a4102d587a';
@@ -41,15 +41,15 @@ export async function workflowScene(scene,materials){
     focus.position.set((nx-.5)*b.userData.width,(.5-ny)*1.85,.032);g.add(focus);
     g.position.set(0,1.08,0);groups[0].add(g);drawing[code]={g,b,scan,focus};
     const ex=new T.Group(),paper=board(code,'drawing',1.35);paper.position.set(-.78,1.03,-.1);paper.rotation.y=.12;ex.add(paper);
-    const token=badge(code,.73,1.48,.15,1.05),page=badge('p. '+evidence.examples[code].drawingPage+' / 3 mentions',.73,1.13,.15,1.05),quantity=badge('Quantity pending',.73,.78,.15,1.05,'#e3b574');
+    const token=badge(code,.73,1.48,.15,1.05),page=badge(translate('Page ','Стр. ')+evidence.examples[code].drawingPage+translate(' · 3 labels',' · 3 отметки'),.73,1.13,.15,1.05),quantity=badge(translate('Check quantity','Проверить количество'),.73,.78,.15,1.05,'#e3b574');
     paper.updateMatrixWorld(true);const origin=new T.Vector3((nx-.5)*paper.userData.width,(.5-ny)*1.35,.06).applyMatrix4(paper.matrixWorld);
     const connection=line([origin.toArray(),origin.toArray(),origin.toArray()],0x97d8ea);ex.add(token,page,quantity,connection);groups[1].add(ex);extract[code]={g:ex,paper,token,page,quantity,connection,origin};
     const card=board(code,'catalog',1.12);card.position.set(code==='B3000'?-.8:.8,1.74,-.38);groups[2].add(card);
     const link=line([[card.position.x,1.07,-.35],[card.position.x,.86,.02],[card.position.x,.5,.28]]);groups[2].add(link);catalog[code]={card,link};
     const rb=board(code,'render',1.9);rb.position.set(.22,1.07,0);groups[5].add(rb);renderBoards[code]=rb;
   }
-  const known=badge('Family confirmed',0,1.58,-.15,1.65),unknown=badge('Site / qty / price pending',0,1.31,-.15,1.65,'#e3b574');groups[4].add(known,unknown);
-  const renderLabel=badge('Recorded 36-inch oak concept',.22,2.17,0,1.85);groups[5].add(renderLabel);
+  const known=badge(translate('Cabinet identified','Модель найдена'),0,1.58,-.15,1.65),unknown=badge(translate('Check room measurements','Проверить замеры'),0,1.31,-.15,1.65,'#e3b574');groups[4].add(known,unknown);
+  const renderLabel=badge(translate('Oak · 36-inch cabinet','Дуб · ширина 914,4 мм'),.22,2.17,0,1.85);groups[5].add(renderLabel);
   // A small architectural room, explicitly authored rather than inferred from the drawings.
   const room=groups[6],plaster=new T.MeshStandardMaterial({color:0xd5cbb9,roughness:.9}),stone=new T.MeshStandardMaterial({color:0xb8ac94,roughness:.78}),trim=new T.MeshStandardMaterial({color:0x383c37,roughness:.45}),counterMaterial=new T.MeshStandardMaterial({color:0xefe9dd,roughness:.32});
   const textureCanvas=document.createElement('canvas');textureCanvas.width=textureCanvas.height=256;const tc=textureCanvas.getContext('2d'),pixels=tc.createImageData(256,256);
@@ -73,14 +73,14 @@ export async function workflowScene(scene,materials){
   const bay=new T.Group();bay.name='Adjustable bay guides';
   for(const x of [-.5,.5])bay.add(line([[x,.006,-1.04],[x,.006,-.40],[x,1.00,-.40]],0x216275));
   bay.add(line([[-.5,.006,-.40],[.5,.006,-.40]],0x216275));room.add(bay);
-  const bayLabel=badge('NOMINAL FIT BAY',0,1.36,-1.018,.76);room.add(bayLabel);
+  const bayLabel=badge(translate('CABINET SPACE','МЕСТО ДЛЯ ТУМБЫ'),0,1.36,-1.018,.76);room.add(bayLabel);
   const decor=new T.Group();decor.name='Authored vase and plant';
   const vase=new T.Mesh(new T.LatheGeometry([new T.Vector2(.035,0),new T.Vector2(.06,.03),new T.Vector2(.065,.105),new T.Vector2(.04,.15),new T.Vector2(.035,.175)],32),cream);vase.castShadow=true;decor.add(vase);
   const leafMaterial=new T.MeshStandardMaterial({color:0x647454,roughness:.85,side:T.DoubleSide});
   for(let j=0;j<13;j++){const angle=j*2.4,stem=new T.Mesh(new T.CylinderGeometry(.001,.002,.18+j%3*.03,6),leafMaterial);stem.position.set(Math.sin(angle)*.026,.22,Math.cos(angle)*.026);stem.rotation.z=Math.sin(angle)*.36;decor.add(stem);const leaf=new T.Mesh(new T.SphereGeometry(1,10,6),leafMaterial);leaf.scale.set(.025,.055,.007);leaf.position.set(Math.sin(angle)*.055,.25+j%4*.035,Math.cos(angle)*.055);leaf.rotation.set(.3,angle,.45);leaf.castShadow=true;decor.add(leaf);}
   room.add(decor);
   const packageGroup=groups[7],handoff=new T.Group();handoff.name='Evidence handoff';
-  const packageNames=['Drawing + catalog','Agent review','Draft BOM + render'];
+  const packageNames=[translate('Drawing + catalog','Чертёж + каталог'),translate('Size + fit notes','Размеры и зазоры'),translate('Room + item list','Список мебели')];
   const cards=packageNames.map((text,i)=>{const b=badge(text,1.18,1.9-i*.27,.35,1.27);handoff.add(b);return b;});packageGroup.add(handoff);
   let state={};
   function update({pose,manual,selected,width,bayWidth,models,separate=0,opening=0}){

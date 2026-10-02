@@ -90,17 +90,18 @@ export function textSprite(text,color='#97d8ea',width=.5,background=null){
   const c=document.createElement('canvas');c.width=512;c.height=100;const x=c.getContext('2d');if(background){x.fillStyle=background;x.beginPath();x.roundRect(16,10,480,80,12);x.fill();}x.font='500 46px system-ui';const font=Math.min(46,46*470/x.measureText(text).width);x.font='500 '+font+'px system-ui';x.textAlign='center';x.textBaseline='middle';x.fillStyle=color;x.fillText(text,256,50);
   const texture=new T.CanvasTexture(c);texture.colorSpace=T.SRGBColorSpace;const s=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:true,depthWrite:Boolean(background),alphaTest:.02}));s.scale.set(width,width*100/512,1);return s;
 }
-export function dimensions(w,h,d,widthIn){
+export function dimensions(w,h,d,widthIn,language='en'){
   const group=new T.Group();group.name='Selected nominal dimensions';
   const y=.015,z=d/2+.15;
   group.add(line([[-w/2,y,z],[w/2,y,z]]));
   for(const x of [-w/2,w/2])group.add(line([[x,y-.025,z],[x,y+.025,z]]));
-  const label=textSprite(widthIn+' in W','#97d8ea',.5,'#11161c');label.position.set(0,.075,d/2+.28);group.add(label);
-  group.add(line([[-w/2-.11,0,0],[-w/2-.11,h,0]]));
-  for(const y of [0,h])group.add(line([[-w/2-.13,y,0],[-w/2-.09,y,0]]));
-  const height=textSprite('34 in H','#97d8ea',.5,'#11161c');height.position.set(-w/2-.18,h/2,.025);group.add(height);
+  const label=textSprite(language==='ru'?(w*1000).toFixed(1).replace('.',',')+' мм':widthIn+' in W','#97d8ea',.5,'#11161c');label.position.set(0,.075,d/2+.28);group.add(label);
+  const heightX=-w/2-.14,heightZ=d/2+.34;
+  group.add(line([[heightX,0,heightZ],[heightX,h,heightZ]]));
+  for(const y of [0,h])group.add(line([[heightX-.025,y,heightZ],[heightX+.025,y,heightZ]]));
+  const height=textSprite(language==='ru'?'863,6 мм':'34 in H','#97d8ea',.5,'#11161c');height.position.set(heightX-.25,h/2,heightZ);group.add(height);
   group.add(line([[w/2+.1,0,-d/2],[w/2+.1,0,d/2]]));
-  const depth=textSprite('24 in D','#97d8ea',.5,'#11161c');depth.position.set(w/2+.23,.13,d/2+.16);group.add(depth);
+  const depth=textSprite(language==='ru'?'609,6 мм':'24 in D','#97d8ea',.5,'#11161c');depth.position.set(w/2+.23,.13,d/2+.16);group.add(depth);
   return group;
 }
 export function elevationLines(width,height,drawerCount){
