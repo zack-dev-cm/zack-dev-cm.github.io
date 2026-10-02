@@ -1,9 +1,9 @@
 # Architectural Drawing and Interior Catalog Matching
 
-> A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
+> Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.
 
 ## Summary
-I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts. Visitors can also load a native-text PDF containing either callout, inspect its actual page and coordinates, then select a nominal width and illustrative finish for a new run. The companion 64-second 3D film follows eight distinct stages from the original drawing and extraction to the recorded render, an adjustable illustrative room fit and an evidence handoff. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
+The working MVP accepts new PDF, PNG or JPEG drawings and furniture catalogs, using a Codex Mode 1 agent with GPT-6.1 sol and max reasoning to choose page searches, selective OCR, visual inspection and supported catalog candidates. The agent reviews nominal width, height and depth against optional available-space constraints, directs built-in ImageGen to stage the selected furniture in a furnished room, visually reviews the actual result and packages hash-verified artifacts. Three real source sets include an annotated Case Systems elevation with its 306-page catalog, IKEA ENHET manufacturer combinations and Herman Miller OE1 technical drawings. Manufacturer example drawings are not independent measured rooms. Unmatched items and revision conflicts stay visible. The 64-second interactive companion explains eight stages and places the cabinet between adjoining units under a continuous counter, with upper storage, a worktable, chairs and a courtyard. Exact nominal width fit, infill and a blocked oversized placement have distinct behavior. Installed geometry, quantities, prices and installation tolerances still require supporting evidence.
 
 ## A grounded example
 B3000 appears on page 1 of the original elevation template and resolves to page 27 of the recovered catalog: one upper drawer, two hinged doors and one adjustable shelf. B3100 appears on page 3 and resolves to page 28: two side-by-side upper drawers above the same two-door lower compartment. The 3D study makes this difference visible and lets visitors open, separate and select the components.
@@ -12,19 +12,19 @@ B3000 appears on page 1 of the original elevation template and resolves to page 
 The initial model uses a catalog-allowed 36 W x 34 H x 24 D inch configuration. The width control explores a reviewed subset of allowed variants. Installed sizes still need drawing evidence; repeated callouts across views do not establish physical quantity. Finish, hardware and movement are illustrative. The recovered mapping also contains useful failure cases: W0100 is a two-door wall cabinet, and R1000 is a wall scribing filler.
 
 ## A functional full workflow
-The live service uses Codex Mode 1 with GPT-6.1 sol and built-in ImageGen. The agent reads the original PDFs, runs extraction and matching tools, reviews the evidence, directs a new image, inspects its visible cabinet arrangement and packages the actual artifacts. Independent checks validate source hashes, chosen variants and artifact receipts before publication. The two 36-inch oak examples took 120.75 and 144.15 seconds; a live 48-inch sage B3100 run took 106.39 seconds. These are individual measured runs, not throughput or accuracy benchmarks. Completed examples remain available when the live agent is offline.
+A real Codex Mode 1 CLI agent uses GPT-6.1 sol with max reasoning and the installed ImageGen, design and PDF drawing-reading skills. It chooses the matching strategy, inspects actual document pixels and native/OCR text, reviews evidence, generates a furnished-room concept and packages the result. Independent tools verify original hashes, quotations, page coordinates, nominal fit arithmetic and phase receipts. The Mac executes the agent through this project's own reverse SSH bridge; Hypnos runs the owner-scoped API without loading a GPU model. Completed examples remain available when the Mac is offline.
 
-## Try your drawing
-Select B3000 or B3100 and load an unencrypted native-text PDF of up to 4 MiB and 12 pages. Inspect the selected callout, source hash, page and coordinates before starting the full workflow. The recovered catalog supplies the reference match. Your drawing and result belong to your browser session; exported artifacts include the minimal crop and structured evidence. Scanned documents need OCR first.
+## Bring your files
+Load one drawing and one catalog as PDF, PNG or JPEG, up to 16 MiB each: 32 drawing pages or 500 catalog pages. Intake validates and previews the actual files before a separate Run project action. Add a short brief, finish preference and any known available width, height and depth in millimetres. Leave unknown dimensions blank. Source extraction, all candidates, arithmetic fit, evidence review, final room PNG, BOM CSV and ZIP appear as their actual phases complete. Original files stay private and are excluded from exports; source access expires after 24 hours.
 
-## The model evaluation plan
-The next scanned-document lane evaluates PaddleOCR-VL-1.6 and Qwen3.5-9B against the original document set. Qwen3.6-27B-FP8 is a newer challenger for a separate GPU window. Exact code lookup precedes embedding retrieval, and evaluation measures source accuracy, unresolved cases and render fidelity. The current demonstration uses native PDF text and the Codex agent; local GPU models are proposed and have not been deployed by this release.
+## Three grounded source sets
+The recovered annotated Case Systems elevation includes red W0100 revisions over black W2052 labels, which require a revision check. IKEA ENHET uses actual combination drawings from the March 2026 buying guide; Herman Miller OE1 uses its actual dimension drawings and product sheet. The latter two drawings come from their respective catalog documents, so their room staging is authored rather than a recovered site measurement. The original B3000/B3100 casework walkthrough remains available beside the general workspace.
 
 ## Project Figures
 
-![Catalog-grounded B3000 cabinet placed in an authored 3D room with adjustable bay guides](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg)
+![B3000 cabinet fitted between adjoining units under a continuous counter in a furnished workroom with a courtyard](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg)
 
-Final room-fit illustration. Catalog-grounded nominal cabinet; authored room, finish and construction.
+Exact nominal placement between adjoining storage units, under a continuous counter. Furnished room and courtyard are authored concepts.
 
 ![B3000 and B3100 cabinets with doors and drawers open and components separated](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-open.jpg)
 
@@ -42,9 +42,9 @@ Recorded B3100 run: original drawing p. 3, catalog p. 28, agent review and fresh
 https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 
 ## Key Features
-- Reuses original elevation and catalog documents for exact code matching with page-level evidence
+- Accepts new PDF/image drawings and catalogs with native text, selective OCR and source coordinates
 - Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts
-- Follows eight animated stages, with original evidence, exploded inspection, recorded renders and an adjustable final room fit
+- Follows eight animated stages, including a furnished room, exact nominal placement, infill and blocked insertion
 - Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities
 - Carries unresolved catalog, finish, quantity and price fields into draft BOM review
 
@@ -71,7 +71,7 @@ https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalo
 - Playable study: 8 chapters (Same procedural scene drives the interactive controls and 64-second film)
 
 ## Links
-- [Run the full workflow](https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/)
+- [Run the full workflow](https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace)
 - [Explore catalog in 3D](https://zack-dev-cm.github.io/docs/architectural-catalog/)
 - [Watch the complete film](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4)
 - [Catalog source notes](https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html)

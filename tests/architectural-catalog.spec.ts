@@ -265,3 +265,38 @@ test('scene keeps its captions separate and depth tests all stages at every view
     await page.evaluate(()=>(window as any).catalogStudy.seek(56));const after=await page.evaluate(()=>(window as any).catalogStudy.inspect());expect(after.camera).toEqual(before.camera);
   }
 });
+
+test('exact nominal placement touches the counter and adjoining cabinets for every supported width',async({page})=>{
+  await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+  for(const code of ['B3000','B3100'])for(const width of [24,30,36,42,48]){
+    await page.getByRole('button',{name:code,exact:true}).click();
+    await page.getByLabel('Nominal width',{exact:true}).selectOption(String(width));
+    await page.getByRole('button',{name:'Match bay to cabinet',exact:true}).click();
+    await page.getByLabel('Story time',{exact:true}).fill('64');
+    const w=await page.evaluate(()=>(window as any).catalogStudy.inspect().workflow);
+    expect(w.exactNominalFit).toBe(true);expect(w.placementBlocked).toBe(false);expect(w.bayWidthMm).toBeCloseTo(width*25.4);
+    expect(w.selectedBounds.min[1]).toBeCloseTo(0,5);expect(w.selectedBounds.max[1]).toBeCloseTo(.8636,5);
+    expect(w.roomContext.counter.min[1]).toBeCloseTo(w.selectedBounds.max[1],5);
+    expect(w.roomContext.neighbors[0].max[0]).toBeCloseTo(w.selectedBounds.min[0],5);
+    expect(w.roomContext.neighbors[1].min[0]).toBeCloseTo(w.selectedBounds.max[0],5);
+    expect(w.roomContext.fillers.every((f:any)=>!f.visible)).toBe(true);
+  }
+});
+
+test('infill spans real gaps and an oversized cabinet stops clear of the furnished run',async({page})=>{
+  await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+  await page.getByLabel('Illustrative bay width',{exact:true}).fill('1100');
+  await page.getByLabel('Story time',{exact:true}).fill('64');
+  const fit=await page.evaluate(()=>(window as any).catalogStudy.inspect().workflow);
+  expect(fit.fits).toBe(true);expect(fit.roomContext.sideInfillMm).toBeCloseTo(92.8);
+  for(const f of fit.roomContext.fillers){expect(f.visible).toBe(true);expect((f.max[0]-f.min[0])*1000).toBeCloseTo(92.8,3);}
+  expect(fit.roomContext.fillers[0].max[0]).toBeCloseTo(fit.selectedBounds.min[0],5);
+  expect(fit.roomContext.fillers[1].min[0]).toBeCloseTo(fit.selectedBounds.max[0],5);
+  await page.getByLabel('Nominal width',{exact:true}).selectOption('48');
+  const blocked=await page.evaluate(()=>(window as any).catalogStudy.inspect().workflow);
+  expect(blocked.placementBlocked).toBe(true);expect(blocked.fits).toBe(false);
+  expect(blocked.selectedBounds.min[2]).toBeGreaterThan(blocked.roomContext.counter.max[2]);
+  expect(blocked.roomContext.fillers.every((f:any)=>!f.visible)).toBe(true);
+  await expect(page.locator('#chapter-title')).toHaveText('The opening is too narrow.');
+  await expect(page.locator('#chapter-copy')).toContainText('It cannot enter this opening');
+});

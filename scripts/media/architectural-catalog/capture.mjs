@@ -17,7 +17,7 @@ const ROOT=path.join(PUBLIC,'architectural-catalog');
 fs.mkdirSync(path.join(ROOT,'media'),{recursive:true});
 fs.mkdirSync(path.join(ROOT,'models'),{recursive:true});
 const digest=b=>createHash('sha256').update(b).digest('hex');
-const sourceNames=['index.html','studio.css','studio.js','cabinets.js','timeline.js','workflow-scene.js','data/catalog-facts.json','data/workflow-evidence.json',...fs.readdirSync(path.join(ROOT,'data/examples')).map(n=>'data/examples/'+n)];
+const sourceNames=['index.html','studio.css','studio.js','cabinets.js','timeline.js','workflow-scene.js','room-context.js','data/catalog-facts.json','data/workflow-evidence.json',...fs.readdirSync(path.join(ROOT,'data/examples')).map(n=>'data/examples/'+n)];
 const vendorNames=['three.module.min.js','three.core.min.js','OrbitControls.js','GLTFExporter.js'];
 const frozen=new Map(sourceNames.map(n=>['architectural-catalog/'+n,fs.readFileSync(path.join(ROOT,n))]));
 for(const n of vendorNames)frozen.set('engineering-studies/vendor/'+n,fs.readFileSync(path.join(PUBLIC,'engineering-studies/vendor',n)));

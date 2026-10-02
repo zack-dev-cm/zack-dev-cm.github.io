@@ -1,11 +1,12 @@
 import * as T from 'three';
 import {line,textSprite} from './cabinets.js';
 import {smooth,CHAPTERS} from './timeline.js';
+import {roomContext,ROOM} from './room-context.js';
 
 const EVIDENCE_SHA256='26401084a0874e6ebfc19c02e04e9156dc795f8d3b047149542980a4102d587a';
 const sha=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
 async function verified(url,expected){const r=await fetch(url);if(!r.ok)throw Error('Workflow evidence unavailable');const b=await r.arrayBuffer();if(await sha(b)!==expected)throw Error('Workflow evidence checksum mismatch');return b;}
-export async function workflowScene(scene){
+export async function workflowScene(scene,materials){
   const evidence=JSON.parse(new TextDecoder().decode(await verified('data/workflow-evidence.json',EVIDENCE_SHA256)));
   const textures={},loader=new T.TextureLoader();
   await Promise.all(Object.entries(evidence.examples).flatMap(([code,example])=>Object.entries(example.assets).map(async([role,asset])=>{
@@ -54,7 +55,7 @@ export async function workflowScene(scene){
   const textureCanvas=document.createElement('canvas');textureCanvas.width=textureCanvas.height=256;const tc=textureCanvas.getContext('2d'),pixels=tc.createImageData(256,256);
   for(let j=0;j<256;j++)for(let i=0;i<256;i++){const k=(j*256+i)*4,n=((Math.imul(i+7,374761393)^Math.imul(j+9,668265263))>>>8)%21;pixels.data[k]=pixels.data[k+1]=pixels.data[k+2]=127+n;pixels.data[k+3]=255;}
   tc.putImageData(pixels,0,0);const grain=new T.CanvasTexture(textureCanvas);grain.wrapS=grain.wrapT=T.RepeatWrapping;grain.repeat.set(5,5);plaster.bumpMap=grain;plaster.bumpScale=.002;stone.bumpMap=grain;stone.bumpScale=.0015;
-  const slab=box(3.5,.07,2.9,stone,'Illustrative stone floor');slab.position.set(0,-.045,.35);room.add(slab);
+  const slab=box(3.5,.07,2.9,stone,'Illustrative stone floor');slab.position.set(0,-.035,.35);room.add(slab);
   const back=box(3.5,2.25,.08,plaster,'Growing plaster wall');back.position.set(0,1.125,-1.08);room.add(back);
   const walls=[back];
   for(const [height,y,depth,z] of [[.55,.275,2.9,.35],[.4,2.05,2.9,.35],[1.3,1.2,.28,-.96],[1.3,1.2,.35,1.625]]){
@@ -64,15 +65,15 @@ export async function workflowScene(scene){
   const window=new T.Group();window.name='Daylight window';
   for(const z of [-.79,.48,1.43]){const mullion=box(.055,1.3,.035,trim,'Window mullion');mullion.position.set(-1.727,1.2,z);window.add(mullion);}
   for(const y of [.56,1.2,1.85]){const rail=box(.055,.035,2.23,trim,'Window rail');rail.position.set(-1.727,y,.32);window.add(rail);}
-  const glass=new T.Mesh(new T.PlaneGeometry(2.23,1.28),new T.MeshBasicMaterial({color:0xb8d9db,transparent:true,opacity:.95,side:T.DoubleSide,toneMapped:false}));glass.rotation.y=Math.PI/2;glass.position.set(-1.765,1.2,.32);window.add(glass);room.add(window);
+  const glass=new T.Mesh(new T.PlaneGeometry(2.23,1.28),new T.MeshBasicMaterial({color:0xb8d9db,transparent:true,opacity:.23,depthWrite:false,side:T.DoubleSide,toneMapped:false}));glass.rotation.y=Math.PI/2;glass.position.set(-1.765,1.2,.32);window.add(glass);room.add(window);
   const tileLines=new T.Group();for(let x=-1.75;x<=1.75;x+=.58)tileLines.add(line([[x,.0002,-1.1],[x,.0002,1.8]],0x8e8677));for(let z=-1.1;z<1.81;z+=.58)tileLines.add(line([[-1.75,.0002,z],[1.75,.0002,z]],0x8e8677));room.add(tileLines);
   const sunlight=new T.Group();sunlight.name='Window light on floor';
   for(let i=0;i<3;i++){const ray=new T.Mesh(new T.PlaneGeometry(.45,1.7),new T.MeshBasicMaterial({color:0xffedbd,transparent:true,opacity:.13,depthWrite:false,toneMapped:false}));ray.rotation.x=-Math.PI/2;ray.rotation.z=-.38;ray.position.set(-.75+i*.58,.001,.7);sunlight.add(ray);}room.add(sunlight);
-  const countertop=box(1,.025,.65,counterMaterial,'Illustrative thin countertop');room.add(countertop);
+  const context=roomContext(room,materials,box,stone,trim,counterMaterial);
   const bay=new T.Group();bay.name='Adjustable bay guides';
-  for(const x of [-.5,.5])bay.add(line([[x,.006,-.98],[x,.006,-.25],[x,1.06,-.25]],0x216275));
-  bay.add(line([[-.5,.006,-.25],[.5,.006,-.25]],0x216275));room.add(bay);
-  const bayLabel=badge('ILLUSTRATIVE BAY',0,1.35,-1.018,1.45);room.add(bayLabel);
+  for(const x of [-.5,.5])bay.add(line([[x,.006,-1.04],[x,.006,-.40],[x,1.00,-.40]],0x216275));
+  bay.add(line([[-.5,.006,-.40],[.5,.006,-.40]],0x216275));room.add(bay);
+  const bayLabel=badge('NOMINAL FIT BAY',0,1.36,-1.018,.76);room.add(bayLabel);
   const decor=new T.Group();decor.name='Authored vase and plant';
   const vase=new T.Mesh(new T.LatheGeometry([new T.Vector2(.035,0),new T.Vector2(.06,.03),new T.Vector2(.065,.105),new T.Vector2(.04,.15),new T.Vector2(.035,.175)],32),cream);vase.castShadow=true;decor.add(vase);
   const leafMaterial=new T.MeshStandardMaterial({color:0x647454,roughness:.85,side:T.DoubleSide});
@@ -82,7 +83,7 @@ export async function workflowScene(scene){
   const packageNames=['Drawing + catalog','Agent review','Draft BOM + render'];
   const cards=packageNames.map((text,i)=>{const b=badge(text,1.18,1.9-i*.27,.35,1.27);handoff.add(b);return b;});packageGroup.add(handoff);
   let state={};
-  function update({pose,manual,selected,width,bayWidth,models}){
+  function update({pose,manual,selected,width,bayWidth,models,separate=0,opening=0}){
     const i=pose.chapter,id=CHAPTERS[i].id,p=pose.progress,roomMode=id==='room'||id==='result',cabinetMode=manual&&!roomMode;
     groups.forEach((g,j)=>g.visible=!cabinetMode&&(j===i||(roomMode&&j===6)));
     for(const code of ['B3000','B3100']){
@@ -94,23 +95,27 @@ export async function workflowScene(scene){
       renderBoards[code].visible=code===selected;renderBoards[code].rotation.y=.22*(1-smooth(p));renderBoards[code].scale.setScalar(.72+.28*smooth(p));
     }
     known.position.y=1.67;unknown.position.y=1.4;known.scale.setScalar(.92+.08*smooth(p/.45));unknown.scale.setScalar(.92+.08*smooth((p-.2)/.45));
-    const build=id==='room'?smooth(p/.45):1,placement=id==='room'?smooth((p-.25)/.65):1;
+    const build=id==='room'?smooth(p/.32):1,alignment=id==='room'?smooth((p-.15)/.22):1;
+    const fits=bayWidth+1e-6>=width*25.4,exploded=manual&&separate>.01;
+    const placement=fits&&!exploded?(id==='room'?smooth((p-.4)/.42):1):0;
+    const cabinetZ=.38+(ROOM.cabinetZ-.38)*placement;
     if(roomMode){
-      bayLabel.visible=id==='room';decor.visible=placement>.85;decor.position.set(-width*.0254*.23+.62*(1-placement),.89,-.64+1.3*(1-placement));
+      bayLabel.visible=id==='room'&&build>.68;bayLabel.scale.x=Math.min(.76,bayWidth/1000-.1)/.76;decor.visible=placement>.98;decor.position.set(-width*.0254*.23,ROOM.cabinetY+.025,cabinetZ);
       for(const wall of walls){wall.visible=build>.01;wall.scale.y=Math.max(.002,build);wall.position.y=wall.userData.fullY*build;}
       window.visible=build>.01;window.scale.y=Math.max(.002,build);sunlight.visible=build>.35;tileLines.visible=build>.15;
       slab.scale.set(1,1,1);bay.scale.x=bayWidth/1000;
-      const fits=bayWidth>=width*25.4;bay.traverse(o=>{if(o.isLine){o.material.color.set(fits?0x216275:0xb66128);o.material.opacity=.95;}});
-      countertop.visible=placement>.85;countertop.scale.x=width*.0254+.028;countertop.position.set(.62*(1-placement),.876,-.64+1.3*(1-placement));
+      bay.traverse(o=>{if(o.isLine){o.material.color.set(fits?0x216275:0xb66128);o.material.opacity=.95;}});
+      context.update({bayWidth,width,progress:p,roomChapter:id==='room',insertion:placement,fits,separate,opening});
       cards.forEach((card,j)=>{const reveal=smooth((p-j*.12)/.45);card.position.x=1.05;card.position.y=1.9-j*.27+.08*(1-reveal);card.position.z=-1.018;card.scale.setScalar(.96+.04*reveal);card.visible=id==='result'&&p>=j*.12;});
     }
     const showPair=cabinetMode||id==='match'||id==='inspect'||id==='review';
     models.forEach((model,j)=>{
       model.root.visible=showPair||(roomMode&&model.root.userData.catalogCode===selected);
       model.root.scale.setScalar(id==='match'&&!manual?.18+.82*smooth(p):1);
-      model.root.position.set(roomMode?.62*(1-placement):(j===0?-1:1)*(model.width/2+.24),0,roomMode?-.64+1.3*(1-placement):0);
+      model.root.position.set(roomMode?.60*(1-alignment):(j===0?-1:1)*(model.width/2+.24),0,roomMode?cabinetZ:0);
     });
-    state={stage:cabinetMode?'manual-inspection':id,asset:!cabinetMode&&['drawing','extract','match','render'].includes(id)?evidence.examples[selected].assets[id==='render'?'render':id==='match'?'catalog':'drawing'].path:null,scanY:drawing[selected].scan.position.y,tokenX:extract[selected].token.position.x,catalogAngle:catalog[selected].card.rotation.y,renderScale:renderBoards[selected].scale.x,wallScale:back.scale.y,placement:models.find(m=>m.root.userData.catalogCode===selected).root.position.toArray(),roomVisible:room.visible,visibleGroups:groups.filter(g=>g.visible).map(g=>g.name),bayWidthMm:bayWidth,cabinetWidthMm:width*25.4,sideClearanceMm:(bayWidth-width*25.4)/2,fits:bayWidth>=width*25.4,roomGeometry:'Authored illustrative room; site dimensions unknown',recordedImageWidthInches:36,recordedImageFinish:'oak',evidenceHashesVerified:true};
+    const primary=models.find(m=>m.root.userData.catalogCode===selected),bounds=new T.Box3().setFromObject(primary.root);
+    state={stage:cabinetMode?'manual-inspection':id,asset:!cabinetMode&&['drawing','extract','match','render'].includes(id)?evidence.examples[selected].assets[id==='render'?'render':id==='match'?'catalog':'drawing'].path:null,scanY:drawing[selected].scan.position.y,tokenX:extract[selected].token.position.x,catalogAngle:catalog[selected].card.rotation.y,renderScale:renderBoards[selected].scale.x,wallScale:back.scale.y,placement:primary.root.position.toArray(),roomVisible:room.visible,visibleGroups:groups.filter(g=>g.visible).map(g=>g.name),bayWidthMm:bayWidth,cabinetWidthMm:width*25.4,sideClearanceMm:(bayWidth-width*25.4)/2,fits,exactNominalFit:Math.abs(bayWidth-width*25.4)<1e-6,placementBlocked:roomMode&&!fits,explodedInFront:roomMode&&exploded,selectedBounds:{min:bounds.min.toArray(),max:bounds.max.toArray()},roomContext:context.inspect(),roomGeometry:'Authored teaching/workroom and courtyard; site layout, dimensions and quantity unknown',recordedImageWidthInches:36,recordedImageFinish:'oak',evidenceHashesVerified:true};
     return state;
   }
   return {update,inspect:()=>state,evidence,groups};

@@ -351,3 +351,21 @@ A separate visual reviewer inspects decoded stage frames, chapter boundaries and
 the small preview. Automated composition checks cover the entire timeline and
 responsive views; stable GPU readback alone is insufficient for a visual pass.
 Retain defects and the revised review separately from earlier release records.
+
+### Furnished room fit — October 2
+
+Use a teaching/workroom concept informed by the recovered elevation's casework
+context. Choose an adjoining millwork run over a solitary cabinet or an unrelated
+residential kitchen: two catalog-allowed 24-inch B3000 neighbors, an opening for
+the selected family, one continuous counter, upper storage, a worktable, chairs
+and a small courtyard beyond the window. The layout, neighbor quantity, other
+furniture and exterior are authored. Do not imply recovery of a measured site.
+
+The default 914.4 mm opening exactly matches the 36-inch nominal cabinet. Other
+opening widths use visible symmetric infill or reject an oversized cabinet.
+Align the approach in front of the counter before inserting straight into the
+opening. An oversized cabinet stays in front with the opening visibly empty.
+Show actual geometry alignment, floor contact and numeric width/height/depth
+checks. Keep the selected oak cabinet dominant against quieter adjoining units.
+Retain stable framing and separate caption rows. Recheck both families, all
+nominal widths, exact/wider/narrower openings, responsive views and actual film.

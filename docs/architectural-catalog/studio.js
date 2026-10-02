@@ -9,7 +9,7 @@ const $=s=>document.querySelector(s),capture=new URLSearchParams(location.search
 if(capture)document.body.classList.add('capture');
 const app=window.catalogStudy={ready:false,error:null};
 let facts,renderer,scene,camera,controls,models=[],dimensionGroups=[],schematics=[],materialsSet,outline,workflow,studioGround=[];
-let time=0,playing=false,manual=false,userCamera=false,selected='B3000',selectedPart='',width=36,finish='oak',bayWidth=1100,opening=0,separate=0,last=0;
+let time=0,playing=false,manual=false,userCamera=false,selected='B3000',selectedPart='',width=36,finish='oak',bayWidth=914.4,opening=0,separate=0,last=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const selection=new T.Raycaster(),pointer=new T.Vector2();
 let expanded=false;
@@ -83,7 +83,7 @@ function cameraPose(pose){
     for(const g of workflow.groups)if(g.visible)bounds.expandByObject(g);
     for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);
     for(const g of dimensionGroups)if(g.visible)bounds.expandByObject(g);
-    if(roomMode){bounds.set(new T.Vector3(-1.8,-.1,-1.15),new T.Vector3(1.93,2.3,1.85));for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);}
+    if(roomMode){bounds.set(new T.Vector3(-2.3,-.1,-1.15),new T.Vector3(1.93,2.3,1.85));for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);}
     scene.updateMatrixWorld(true);
     const target=bounds.getCenter(new T.Vector3()),direction=new T.Vector3(...(roomMode?[3.4,2.2,4.6]:id==='match'?[1,1,5]:[.35,.25,4])).normalize();
     const right=new T.Vector3().crossVectors(new T.Vector3(0,1,0),direction).normalize(),up=new T.Vector3().crossVectors(direction,right).normalize();
@@ -102,17 +102,25 @@ function render(){
   if(!renderer||!workflow)return;
   const pose=poseAt(time),o=manual?opening:pose.opening,e=manual?separate:pose.separate;
   models.forEach(m=>m.update(o,e));
-  const state=workflow.update({pose,manual,selected,width,bayWidth,models});
+  const state=workflow.update({pose,manual,selected,width,bayWidth,separate:e,opening:o,models});
   dimensionGroups.forEach((g,i)=>{g.position.x=models[i].root.position.x;g.visible=pose.dimensions&&models[i].root.visible&&models[i].root.userData.catalogCode===selected;});
   if(!manual){$('#opening').value=String(o);$('#separate').value=String(e);}
   schematics.forEach(g=>g.visible=false);studioGround.forEach(g=>g.visible=!state.roomVisible);
   $('.model-labels').hidden=!['manual-inspection','inspect'].includes(state.stage);
   $('#scene-title').textContent=state.roomVisible?selected+' / Room fit':state.stage==='manual-inspection'?'B3000 & B3100':CHAPTERS[pose.chapter].label;
   $('#stage-action').textContent=state.stage==='manual-inspection'?'Manual inspection · change the configuration':CHAPTERS[pose.chapter].action;
+  if(state.roomVisible&&!state.fits){
+    $('#chapter-title').textContent='The opening is too narrow.';
+    $('#chapter-copy').textContent='The selected cabinet stops in front of the storage run. It cannot enter this opening. Increase the bay width or choose a narrower nominal variant, then review installation tolerances at the actual site.';
+    $('#stage-action').textContent='Width shortfall → stop insertion → revise cabinet or opening';
+  }else if(state.roomVisible){
+    const copy=chapterText(pose.chapter,width,selected);$('#chapter-title').textContent=copy.title;$('#chapter-copy').textContent=copy.copy;
+  }
   const margin=state.sideClearanceMm;
-  const fitText=state.fits?`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · ${margin.toFixed(1)} mm per side in this bay.`:`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · needs ${(state.cabinetWidthMm-bayWidth).toFixed(1)} mm more bay width.`;
+  const fitText=state.exactNominalFit?`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · exact nominal fit.`:state.fits?`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · ${margin.toFixed(1)} mm per side, closed by illustrative infill.`:`${width}-inch cabinet = ${state.cabinetWidthMm.toFixed(1)} mm · needs ${(state.cabinetWidthMm-bayWidth).toFixed(1)} mm more bay width.`;
   if($('#fit-status').textContent!==fitText)$('#fit-status').textContent=fitText;$('#fit-status').dataset.fits=String(state.fits);
-  $('#stage-detail').textContent=state.roomVisible?(state.fits?'Nominal width fits':'Bay too narrow')+' · illustrative '+bayWidth+' mm bay':state.stage==='extract'?selected+' · 3 recorded mentions · quantity pending':state.stage==='render'?selected+' · actual recorded 36-inch oak ImageGen concept':state.stage==='review'?'Confirmed family / nominal variant · site size, quantity and price pending':state.stage==='match'?'Real catalog p. 27 / p. 28 → one drawer / two drawers':state.stage==='drawing'?selected+' · original elevation p. '+workflow.evidence.examples[selected].drawingPage:'One drawer / two drawers · two doors · one adjustable shelf';
+  $('#room-fit-detail').textContent='Aligned with adjoining 24-inch variants · 863.6 mm high × 609.6 mm deep. Room, adjoining quantity and fixtures are an authored teaching/workroom concept.';
+  $('#stage-detail').textContent=state.roomVisible?(state.explodedInFront?'Exploded inspection in front of the opening':state.exactNominalFit?'Exact nominal fit between adjoining cabinets':state.fits?'Width fits · infill closes the gaps':'Bay too narrow · insertion stopped')+' · authored '+bayWidth+' mm opening':state.stage==='extract'?selected+' · 3 recorded mentions · quantity pending':state.stage==='render'?selected+' · actual recorded 36-inch oak ImageGen concept':state.stage==='review'?'Confirmed family / nominal variant · site size, quantity and price pending':state.stage==='match'?'Real catalog p. 27 / p. 28 → one drawer / two drawers':state.stage==='drawing'?selected+' · original elevation p. '+workflow.evidence.examples[selected].drawingPage:'One drawer / two drawers · two doors · one adjustable shelf';
   if(!userCamera)cameraPose(pose);
   if(outline){outline.visible=Boolean(selectedPart)&&models[selected==='B3000'?0:1].root.visible;if(outline.visible){const index=selected==='B3000'?0:1,b=new T.Box3();for(const group of models[index].parts[selectedPart])b.expandByObject(group);outline.box.copy(b);}}
   const isRoom=state.roomVisible,fadeIn=pose.chapter===0||CHAPTERS[pose.chapter].id==='result'?1:smooth(pose.progress*8/.45),fadeOut=pose.chapter===7||isRoom?1:smooth((1-pose.progress)*8/.45);
@@ -164,7 +172,7 @@ async function init(){
   const floor=new T.Mesh(new T.PlaneGeometry(200,200),new T.MeshBasicMaterial({color:capture?0x090c10:0x11161c,toneMapped:false}));floor.rotation.x=-Math.PI/2;floor.position.y=-.001;floor.name='Studio ground';scene.add(floor);
   const shadow=new T.Mesh(new T.PlaneGeometry(20,20),new T.ShadowMaterial({opacity:.2}));shadow.rotation.x=-Math.PI/2;shadow.position.y=-.0005;shadow.receiveShadow=true;scene.add(shadow);
   const grid=new T.GridHelper(5,25,0x344049,0x1c252d);grid.position.y=.0001;grid.material.transparent=true;grid.material.opacity=.12;scene.add(grid);studioGround=[floor,shadow,grid];
-  workflow=await workflowScene(scene);materialsSet=materials();buildModels();outline=new T.Box3Helper(new T.Box3(),0x97d8ea);outline.visible=false;scene.add(outline);
+  materialsSet=materials();workflow=await workflowScene(scene,materialsSet);buildModels();outline=new T.Box3Helper(new T.Box3(),0x97d8ea);outline.visible=false;scene.add(outline);
   controls=new OrbitControls(camera,$('#scene'));controls.enableDamping=false;controls.minDistance=1.5;controls.maxDistance=9;controls.maxPolarAngle=Math.PI*.49;
   controls.addEventListener('start',()=>{pause();userCamera=true;});controls.addEventListener('change',()=>{if(userCamera)render();});
   $('#chapters').replaceChildren(...CHAPTERS.map((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>'+c.label;b.onclick=()=>{pause();manual=false;userCamera=false;selectedPart='';$('#part').value='';selectPart('');seek(c.start);};return b;}));
@@ -186,6 +194,7 @@ async function init(){
   $('#opening').oninput=()=>{const value=Number($('#opening').value);inspect();opening=value;$('#opening').value=String(value);render();};
   $('#separate').oninput=()=>{const value=Number($('#separate').value);inspect();separate=value;$('#separate').value=String(value);render();};
   $('#bay-width').oninput=()=>{pause();bayWidth=Number($('#bay-width').value);$('#bay-value').textContent=bayWidth+' mm';if(!['room','result'].includes(CHAPTERS[chapterAt(time)].id)||(CHAPTERS[chapterAt(time)].id==='room'&&poseAt(time).progress<.875)){manual=false;userCamera=false;seek(CHAPTERS.find(c=>c.id==='room').start+7);}else render();};
+  $('#match-bay').onclick=()=>{bayWidth=Number((width*25.4).toFixed(1));$('#bay-width').value=String(bayWidth);$('#bay-width').oninput();};
   $('#width').onchange=()=>{inspect();width=Number($('#width').value);buildModels();setStory(time);render();};
   $('#finish').onchange=()=>{inspect();finish=$('#finish').value;buildModels();render();};
   $('#wireframe').onchange=()=>{inspect();for(const m of Object.values(materialsSet))m.wireframe=$('#wireframe').checked;render();};

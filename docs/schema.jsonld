@@ -454,7 +454,7 @@
           "item": {
             "@type": "CreativeWork",
             "name": "Architectural Drawing and Interior Catalog Matching",
-            "description": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
+            "description": "Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.",
             "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
             "encoding": [
               {

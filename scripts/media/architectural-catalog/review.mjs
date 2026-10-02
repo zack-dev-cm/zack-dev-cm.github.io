@@ -7,7 +7,7 @@ import {chromium} from 'playwright';
 import {checkComposition} from './composition-review.mjs';
 
 const ROOT=fileURLToPath(new URL('../../../',import.meta.url));
-const out=path.join(ROOT,'private/visual-review-20261002/revised');fs.mkdirSync(out,{recursive:true});
+const out=path.resolve(ROOT,process.env.CATALOG_REVIEW_OUTPUT||'private/visual-review-20261002/revised');fs.mkdirSync(out,{recursive:true});
 const base=process.env.CATALOG_REVIEW_URL||'http://127.0.0.1:4174/architectural-catalog/';
 const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--enable-gpu']});
 const report={kind:'COMPOSITION_REVIEW',source:'current rendered implementation',samples:[],screenshots:[],decoded:[],limitation:'Bounds and depth tests detect clipping/overlay regressions. An independent visual reviewer must inspect the actual frames and motion.'};

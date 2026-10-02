@@ -395,7 +395,7 @@
           "title": "Architectural Drawing and Interior Catalog Matching",
           "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-          "summary": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
+          "summary": "Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.",
           "kind": "case-study",
           "tags": [
             "computer-vision",
@@ -463,7 +463,7 @@
           "links": [
             {
               "label": "Run the full workflow",
-              "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+              "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
             },
             {
               "label": "Explore catalog in 3D",
@@ -1077,7 +1077,7 @@
       "title": "Architectural Drawing and Interior Catalog Matching",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-      "summary": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
+      "summary": "Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.",
       "kind": "case-study",
       "tags": [
         "computer-vision",
@@ -1145,7 +1145,7 @@
       "links": [
         {
           "label": "Run the full workflow",
-          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
         },
         {
           "label": "Explore catalog in 3D",
@@ -1955,7 +1955,7 @@
       "title": "Architectural Drawing and Interior Catalog Matching",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-      "summary": "A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.",
+      "summary": "Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.",
       "kind": "case-study",
       "tags": [
         "computer-vision",
@@ -2023,7 +2023,7 @@
       "links": [
         {
           "label": "Run the full workflow",
-          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/"
+          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
         },
         {
           "label": "Explore catalog in 3D",

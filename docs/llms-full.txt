@@ -21,7 +21,7 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
-- [Architectural Drawing and Interior Catalog Matching](https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/): A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
+- [Architectural Drawing and Interior Catalog Matching](https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/): Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.
 - [Vehicle Lab: A Reusable Engineering Notebook](https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/): Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 - [SectionCheck - Image Registration Review](https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/): A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
@@ -263,14 +263,14 @@ Benchmarks & Analytics:
 - Public posture: sanitized (no raw patient images, private labels, or model weights published)
 
 ### Architectural Drawing and Interior Catalog Matching
-Summary: A working document-to-interior demo: follow real cabinet callouts through catalog matching, evidence review, ImageGen and downloadable results, with an interactive 3D companion.
-Details: I built a pipeline for architectural plans and elevations: callout extraction, catalog indexing, exact matching and evidence review. The recovered project contains original elevation templates and a 306-page Case Systems catalog. The live demo runs a full Codex workflow from these original documents: native PDF extraction, exact family matching, agent review, a fresh ImageGen interior concept and validated exports. B3000 and B3100 have completed examples with real source crops and phase receipts. Visitors can also load a native-text PDF containing either callout, inspect its actual page and coordinates, then select a nominal width and illustrative finish for a new run. The companion 64-second 3D film follows eight distinct stages from the original drawing and extraction to the recorded render, an adjustable illustrative room fit and an evidence handoff. Installed dimensions, physical quantities, original finishes and prices remain unresolved until supported by their own evidence.
+Summary: Bring a drawing and furniture catalog: a Codex agent inspects actual pages, matches candidates, checks nominal fit and renders a furnished room. Three real source sets and an interactive 3D film make every phase reviewable.
+Details: The working MVP accepts new PDF, PNG or JPEG drawings and furniture catalogs, using a Codex Mode 1 agent with GPT-6.1 sol and max reasoning to choose page searches, selective OCR, visual inspection and supported catalog candidates. The agent reviews nominal width, height and depth against optional available-space constraints, directs built-in ImageGen to stage the selected furniture in a furnished room, visually reviews the actual result and packages hash-verified artifacts. Three real source sets include an annotated Case Systems elevation with its 306-page catalog, IKEA ENHET manufacturer combinations and Herman Miller OE1 technical drawings. Manufacturer example drawings are not independent measured rooms. Unmatched items and revision conflicts stay visible. The 64-second interactive companion explains eight stages and places the cabinet between adjoining units under a continuous counter, with upper storage, a worktable, chairs and a courtyard. Exact nominal width fit, infill and a blocked oversized placement have distinct behavior. Installed geometry, quantities, prices and installation tolerances still require supporting evidence.
 Project URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/
 Markdown URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 Key Features:
-- Reuses original elevation and catalog documents for exact code matching with page-level evidence
+- Accepts new PDF/image drawings and catalogs with native text, selective OCR and source coordinates
 - Runs actual Codex and ImageGen phases with owner-scoped exports and recorded completion receipts
-- Follows eight animated stages, with original evidence, exploded inspection, recorded renders and an adjustable final room fit
+- Follows eight animated stages, including a furnished room, exact nominal placement, infill and blocked insertion
 - Distinguishes catalog dimensions, installed drawing dimensions and repeated-view quantities
 - Carries unresolved catalog, finish, quantity and price fields into draft BOM review
 Tech Stack:
@@ -294,7 +294,7 @@ Benchmarks & Analytics:
 - Completed full examples: 120.75 / 144.15 s (Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review)
 - Playable study: 8 chapters (Same procedural scene drives the interactive controls and 64-second film)
 Links:
-- Run the full workflow: https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/
+- Run the full workflow: https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace
 - Explore catalog in 3D: https://zack-dev-cm.github.io/docs/architectural-catalog/
 - Watch the complete film: https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4
 - Catalog source notes: https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html

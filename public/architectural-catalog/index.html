@@ -67,8 +67,10 @@
             <button id="reset" type="button">Reset view</button>
           </div>
           <div class="control-row room-controls">
-            <label class="range-control">Illustrative bay width <output id="bay-value" for="bay-width">1100 mm</output><input id="bay-width" type="range" min="600" max="1500" step="10" value="1100" aria-label="Illustrative bay width"></label>
-            <p id="fit-status" aria-live="polite">36-inch cabinet = 914.4 mm · 92.8 mm per side in this bay.</p>
+            <label class="range-control">Illustrative bay width <output id="bay-value" for="bay-width">914.4 mm</output><input id="bay-width" type="range" min="600" max="1500" step="0.1" value="914.4" aria-label="Illustrative bay width"></label>
+            <button id="match-bay" type="button">Match bay to cabinet</button>
+            <p id="fit-status" aria-live="polite">36-inch cabinet = 914.4 mm · exact nominal fit.</p>
+            <p id="room-fit-detail">Aligned with adjoining 24-inch variants · 863.6 mm high × 609.6 mm deep. Room and furniture placement are authored.</p>
           </div>
           <p class="room-scope">Room geometry and bay width are illustrative. Fit checks nominal cabinet width only; site measurements and installation clearances need review.</p>
           <div class="control-row part-row">
