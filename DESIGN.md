@@ -336,3 +336,18 @@ existing non-blocking placement and playback policies. Phase labels stay in HTML
 for small screens; the capture includes readable phase explanations and captions.
 Verify real asset hashes, all eight actual scene states, positive/negative fit,
 deterministic seeking, mobile framing, fullscreen fallback and keyboard controls.
+
+### Film visual revision — October 2
+
+Reserve separate, opaque rows for the model surface and its captions. Documentary
+boards, room edges and dimension guides must fit inside the model row with a
+visible margin. Text on a physical label uses a coplanar mesh and ordinary depth
+testing; it must never float through walls or outside its plate. Room placement
+and final handoff share one fixed room framing. Use restrained fades between
+chapter compositions, smooth object easing, and an uninterrupted room-to-result
+camera. Keep original documents and the recorded render intact.
+
+A separate visual reviewer inspects decoded stage frames, chapter boundaries and
+the small preview. Automated composition checks cover the entire timeline and
+responsive views; stable GPU readback alone is insufficient for a visual pass.
+Retain defects and the revised review separately from earlier release records.

@@ -36,11 +36,13 @@
         </section>
         <nav id="chapters" aria-label="Film chapters"></nav>
       </aside>
-      <section class="model-area" aria-label="Interactive cabinet comparison">
+      <section class="model-area" aria-label="Interactive drawing to room workflow">
         <div class="scene-header"><span id="scene-title">B3000 & B3100</span><span>Catalog-grounded 3D study</span></div>
         <div id="viewport">
-          <canvas id="scene" aria-label="Cabinet models; drag to orbit and select parts. Equivalent controls are below." tabindex="0"></canvas>
+          <div id="scene-surface">
+          <canvas id="scene" aria-label="Drawing, catalog, cabinet and room workflow; drag to orbit. Equivalent controls are below." tabindex="0"></canvas>
           <div id="loading" role="status">Preparing the grounded workflow…</div>
+          </div>
           <div class="model-labels" aria-hidden="true"><span><b>B3000</b>One upper drawer</span><span><b>B3100</b>Two upper drawers</span></div>
           <div class="stage-caption"><p id="stage-action">Scan the original elevation → find the callout</p><p id="stage-detail">B3000 · original elevation p. 1</p></div>
           <p id="gesture">Drag to orbit · scroll to zoom · click a part</p>

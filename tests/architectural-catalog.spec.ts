@@ -157,7 +157,7 @@ test('denied fullscreen opens a usable expanded view with keyboard exit',async({
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
   await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
   await page.getByRole('button',{name:'Fullscreen',exact:true}).click();
-  const expanded=page.getByRole('dialog',{name:'Interactive cabinet comparison',exact:true});
+  const expanded=page.getByRole('dialog',{name:'Interactive drawing to room workflow',exact:true});
   await expect(expanded).toBeVisible();
   await expect(expanded).toHaveAttribute('aria-modal','true');
   await expect(expanded.getByRole('button',{name:'Close expanded view',exact:true})).toBeVisible();
@@ -250,4 +250,18 @@ test('orbiting original evidence preserves its phase and pauses playback',async(
   await page.mouse.move(rect!.x+rect!.width*.5+40,rect!.y+rect!.height*.4+20,{steps:5});await page.mouse.up();
   const state=await page.evaluate(()=>(window as any).catalogStudy.inspect());
   expect(state.playing).toBe(false);expect(state.workflow.stage).toBe('drawing');expect(state.workflow.asset).toBe('data/examples/B3000-drawing.png');expect(state.frameBounds).toHaveLength(0);
+});
+
+
+test('scene keeps its captions separate and depth tests all stages at every viewport',async({page})=>{
+  for(const width of [360,390,768,1440]){
+    await page.setViewportSize({width,height:1000});await page.goto(base);await page.waitForFunction(()=>(window as any).catalogStudy?.ready);
+    for(const time of Array.from({length:8},(_,i)=>[i*8,i*8+4,i*8+7.95]).flat()){
+      const c=await page.evaluate(t=>{(window as any).catalogStudy.seek(t);return (window as any).catalogStudy.composition();},time);
+      expect(c.canvas.bottom).toBeLessThanOrEqual(c.caption.top+.5);expect(c.fade).toBe(1);
+      expect(c.objects.filter((o:any)=>o.depthTest===false||o.minX<=-.98||o.maxX>=.98||o.minY<=-.98||o.maxY>=.98)).toEqual([]);
+    }
+    await page.evaluate(()=>(window as any).catalogStudy.seek(55.958333333));const before=await page.evaluate(()=>(window as any).catalogStudy.inspect());
+    await page.evaluate(()=>(window as any).catalogStudy.seek(56));const after=await page.evaluate(()=>(window as any).catalogStudy.inspect());expect(after.camera).toEqual(before.camera);
+  }
 });

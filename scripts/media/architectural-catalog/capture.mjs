@@ -10,6 +10,7 @@ import {once} from 'node:events';
 import {chromium} from 'playwright';
 import {publishFiles} from '../engineering-studies/publish.mjs';
 import {CHAPTERS,DURATION} from '../../../public/architectural-catalog/timeline.js';
+import {checkComposition} from './composition-review.mjs';
 
 const PUBLIC=fileURLToPath(new URL('../../../public/',import.meta.url));
 const ROOT=path.join(PUBLIC,'architectural-catalog');
@@ -22,7 +23,7 @@ const frozen=new Map(sourceNames.map(n=>['architectural-catalog/'+n,fs.readFileS
 for(const n of vendorNames)frozen.set('engineering-studies/vendor/'+n,fs.readFileSync(path.join(PUBLIC,'engineering-studies/vendor',n)));
 const pixels=new URL('../engineering-studies/capture-pixels.mjs',import.meta.url);
 frozen.set('architectural-catalog/capture-pixels.mjs',fs.readFileSync(pixels));
-const toolPaths=[fileURLToPath(import.meta.url),fileURLToPath(new URL('../engineering-studies/publish.mjs',import.meta.url)),fileURLToPath(pixels)];
+const toolPaths=[fileURLToPath(import.meta.url),fileURLToPath(new URL('./composition-review.mjs',import.meta.url)),fileURLToPath(new URL('../engineering-studies/publish.mjs',import.meta.url)),fileURLToPath(pixels)];
 const frozenTools=new Map(toolPaths.map(p=>[path.basename(p),fs.readFileSync(p)]));
 const staging=fs.mkdtempSync(path.join(os.tmpdir(),'architectural-catalog-capture-'));
 const types={'.html':'text/html','.css':'text/css','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.png':'image/png'};
@@ -39,6 +40,9 @@ try{
   const error=await page.evaluate(()=>catalogStudy.error);if(error)throw Error(error);
   const sourceFacts=await page.evaluate(()=>catalogStudy.inspect().facts);
   const renderer=await page.evaluate(()=>{const gl=catalogStudy.renderer.getContext(),e=gl.getExtension('WEBGL_debug_renderer_info');return e?gl.getParameter(e.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER);});
+  const composition=[];
+  for(let time=0;time<DURATION;time+=.5)composition.push(checkComposition(await page.evaluate(t=>{catalogStudy.seek(t);return catalogStudy.composition();},time),time));
+  await page.evaluate(()=>catalogStudy.seek(0));
   const glb=Buffer.from(await page.evaluate(()=>catalogStudy.exportGLB()));
   assert.equal(glb.toString('ascii',0,4),'glTF');assert.equal(glb.readUInt32LE(4),2);assert.equal(glb.readUInt32LE(8),glb.length);
   const gltf=JSON.parse(glb.toString('utf8',20,20+glb.readUInt32LE(12)));assert(gltf.meshes.length>30);
@@ -70,6 +74,7 @@ try{
     const frames=[],started=Date.now();
     for(let i=0;i<DURATION*24;i++){
       const frame=await page.evaluate(async t=>{
+        if(t%8===0){catalogStudy.seek(t);await new Promise(requestAnimationFrame);await new Promise(requestAnimationFrame);}
         const app=catalogStudy,gl=app.renderer.getContext(),canvas=app.renderer.domElement;
         const r=window.readbackCanvas;if(r.width!==canvas.width||r.height!==canvas.height){r.width=canvas.width;r.height=canvas.height;}
         const ctx=r.getContext('2d',{willReadFrequently:true}),img=document.querySelector('#capture-bitmap');
@@ -88,7 +93,7 @@ try{
       frames.push(frame);if(i%120===0)console.log(`${i}/${DURATION*24} frames, ${Math.round((Date.now()-started)/1000)} seconds`);
     }
     encoder.stdin.end();await encoderDone;
-    const transcode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',film,'-an','-vf',teaserCrop,'-c:v','libx264','-preset','slow','-crf','25','-pix_fmt','yuv420p','-movflags','+faststart',path.join(staging,'catalog-loop.mp4')],{encoding:'utf8'});if(transcode.status!==0)throw Error(transcode.stderr);
+    const transcode=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',film,'-an','-vf',teaserCrop+',fade=t=in:d=0.4,fade=t=out:st='+String(DURATION-.4)+':d=0.4','-c:v','libx264','-preset','slow','-crf','25','-pix_fmt','yuv420p','-movflags','+faststart',path.join(staging,'catalog-loop.mp4')],{encoding:'utf8'});if(transcode.status!==0)throw Error(transcode.stderr);
     const stamp=t=>'00:'+String(Math.floor(t/60)).padStart(2,'0')+':'+(t%60).toFixed(3).padStart(6,'0');
     fs.writeFileSync(path.join(staging,'catalog.vtt'),'WEBVTT\n\n'+CHAPTERS.map((c,i)=>`${i+1}\n${stamp(c.start)} --> ${stamp(c.end)}\n${c.title} ${c.copy}\n`).join('\n'));
     assert.deepEqual(errors,[]);
@@ -96,7 +101,7 @@ try{
     for(const p of toolPaths)assert.equal(digest(fs.readFileSync(p)),digest(frozenTools.get(path.basename(p))),'Capture tool changed');
     const mediaNames=['catalog-film.mp4','catalog-loop.mp4','catalog-poster.jpg','catalog-teaser.jpg','catalog-compare.jpg','catalog-open.jpg','catalog-dimensions.jpg','catalog-drawing.jpg','catalog-extract.jpg','catalog-review.jpg','catalog-render.jpg','catalog-room.jpg','catalog-result.jpg','catalog.vtt'];
     const outputs=Object.fromEntries([...mediaNames,'catalog-cabinets.glb','catalog-cabinets.json'].map(n=>{const b=fs.readFileSync(path.join(staging,n));return [n,{bytes:b.length,sha256:digest(b)}];}));
-    fs.writeFileSync(path.join(staging,'catalog-capture.json'),JSON.stringify({kind:'DETERMINISTIC_BROWSER_CAPTURE',width:1920,height:1080,fps:24,duration:DURATION,frameCount:frames.length,renderer,stableCanvasReadbacks:2,sourceSha256:Object.fromEntries([...frozen].map(([n,b])=>[n,digest(b)])),toolSha256:Object.fromEntries([...frozenTools].map(([n,b])=>[n,digest(b)])),outputs,pageErrors:errors,scope:sourceFacts.scope,frames},null,2)+'\n');
+    fs.writeFileSync(path.join(staging,'catalog-capture.json'),JSON.stringify({kind:'DETERMINISTIC_BROWSER_CAPTURE',width:1920,height:1080,fps:24,duration:DURATION,frameCount:frames.length,renderer,stableCanvasReadbacks:2,compositionReview:composition,sourceSha256:Object.fromEntries([...frozen].map(([n,b])=>[n,digest(b)])),toolSha256:Object.fromEntries([...frozenTools].map(([n,b])=>[n,digest(b)])),outputs,pageErrors:errors,scope:sourceFacts.scope,frames},null,2)+'\n');
     publishFiles(staging,path.join(ROOT,'media'),[...mediaNames,'catalog-capture.json']);
     publishFiles(staging,path.join(ROOT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
     console.log(JSON.stringify({completed:true,outputs,renderer}));

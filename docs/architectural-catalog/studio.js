@@ -73,7 +73,7 @@ function buildModels(){
   $('#dimensions').textContent=`Selected catalog variant · ${width} W × 34 H × 24 D inches.`;
 }
 function resize(){
-  const r=$('#viewport').getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
+  const r=$('#scene-surface').getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();
   controls.maxDistance=9*Math.max(1,1.1/camera.aspect);render();
 }
 function cameraPose(pose){
@@ -83,15 +83,11 @@ function cameraPose(pose){
     for(const g of workflow.groups)if(g.visible)bounds.expandByObject(g);
     for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);
     for(const g of dimensionGroups)if(g.visible)bounds.expandByObject(g);
-    if(id==='room'){
-      const focus=new T.Box3(new T.Vector3(-.92,-.09,-1.13),new T.Vector3(1.04,1.52,.35));
-      for(const m of models)if(m.root.visible)focus.expandByObject(m.root);
-      const dolly=.6*smooth((pose.progress-.45)/.45);bounds.min.lerp(focus.min,dolly);bounds.max.lerp(focus.max,dolly);
-    }
+    if(roomMode){bounds.set(new T.Vector3(-1.8,-.1,-1.15),new T.Vector3(1.93,2.3,1.85));for(const m of models)if(m.root.visible)bounds.expandByObject(m.root);}
     scene.updateMatrixWorld(true);
     const target=bounds.getCenter(new T.Vector3()),direction=new T.Vector3(...(roomMode?[3.4,2.2,4.6]:id==='match'?[1,1,5]:[.35,.25,4])).normalize();
     const right=new T.Vector3().crossVectors(new T.Vector3(0,1,0),direction).normalize(),up=new T.Vector3().crossVectors(direction,right).normalize();
-    const tan=Math.tan(T.MathUtils.degToRad(camera.fov/2)),margin=roomMode?.79:.83;let distance=0;
+    const tan=Math.tan(T.MathUtils.degToRad(camera.fov/2)),margin=roomMode?.88:.86;let distance=0;
     for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
       const point=new T.Vector3(x,y,z).sub(target),front=point.dot(direction);
       distance=Math.max(distance,front+Math.abs(point.dot(right))/(tan*camera.aspect*margin),front+Math.abs(point.dot(up))/(tan*margin));
@@ -119,6 +115,8 @@ function render(){
   $('#stage-detail').textContent=state.roomVisible?(state.fits?'Nominal width fits':'Bay too narrow')+' · illustrative '+bayWidth+' mm bay':state.stage==='extract'?selected+' · 3 recorded mentions · quantity pending':state.stage==='render'?selected+' · actual recorded 36-inch oak ImageGen concept':state.stage==='review'?'Confirmed family / nominal variant · site size, quantity and price pending':state.stage==='match'?'Real catalog p. 27 / p. 28 → one drawer / two drawers':state.stage==='drawing'?selected+' · original elevation p. '+workflow.evidence.examples[selected].drawingPage:'One drawer / two drawers · two doors · one adjustable shelf';
   if(!userCamera)cameraPose(pose);
   if(outline){outline.visible=Boolean(selectedPart)&&models[selected==='B3000'?0:1].root.visible;if(outline.visible){const index=selected==='B3000'?0:1,b=new T.Box3();for(const group of models[index].parts[selectedPart])b.expandByObject(group);outline.box.copy(b);}}
+  const isRoom=state.roomVisible,fadeIn=pose.chapter===0||CHAPTERS[pose.chapter].id==='result'?1:smooth(pose.progress*8/.45),fadeOut=pose.chapter===7||isRoom?1:smooth((1-pose.progress)*8/.45);
+  $('#scene-surface').style.opacity=String((playing||capture)&&!manual?Math.min(fadeIn,fadeOut):1);
   renderer.render(scene,camera);
 }
 function seek(t){time=Math.max(0,Math.min(DURATION,t));setStory(time);render();}
@@ -204,8 +202,9 @@ async function init(){
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});reduced.addEventListener('change',()=>{if(reduced.matches)pause();});
   $('#scene').addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();$('#play').click();}if(e.key==='Escape'&&!expanded&&!document.fullscreenElement)reset();});
-  new ResizeObserver(resize).observe($('#viewport'));
+  new ResizeObserver(resize).observe($('#scene-surface'));
   app.seek=seek;app.renderer=renderer;
+  app.composition=()=>{scene.updateMatrixWorld(true);return {canvas:$('#scene').getBoundingClientRect().toJSON(),caption:$('.stage-caption').getBoundingClientRect().toJSON(),fade:Number($('#scene-surface').style.opacity),objects:[...workflow.groups,...models.map(m=>m.root),...dimensionGroups].flatMap(group=>{const items=[];if(!group.visible)return items;group.traverseVisible(o=>{if(!o.isMesh&&!o.isSprite&&!o.isLine)return;const box=new T.Box3().setFromObject(o),points=[];for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z])points.push(new T.Vector3(x,y,z).project(camera));items.push({name:o.name||o.type,depthTest:o.material?.depthTest,minX:Math.min(...points.map(p=>p.x)),maxX:Math.max(...points.map(p=>p.x)),minY:Math.min(...points.map(p=>p.y)),maxY:Math.max(...points.map(p=>p.y))});});return items;})};};
   app.inspect=()=>({time,chapter:CHAPTERS[chapterAt(time)].id,playing,manual,selected,selectedPart,width,finish,bayWidth,workflow:workflow.inspect(),opening:manual?opening:poseAt(time).opening,separate:manual?separate:poseAt(time).separate,facts,verifiedSource:true,wireframe:materialsSet.oak.wireframe,camera:camera.position.toArray(),drawers:models.map(m=>m.drawers.length),frameBounds:frameBounds(),availableModelMeshes:models.reduce((n,m)=>{m.root.traverse(o=>{if(o.isMesh)n++;});return n;},0),visibleMeshes:(()=>{let count=0;scene.traverseVisible(o=>{if(o.isMesh)count++;});return count;})(),renderCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles});
   app.exportGLB=async()=>{const g=new T.Group();g.name='Case Systems catalog family visualization';g.userData={units:'metres',nominalDimensionsInches:{width,height:34,depth:24},catalogSha256:facts.catalog.sha256,scope:'Catalog family visualization. Authored finish, movement and construction; not fabrication geometry.'};for(const [i,m] of models.entries()){const clone=m.root.clone(true);clone.visible=true;clone.scale.setScalar(1);clone.position.set((i===0?-1:1)*(m.width/2+.24),0,0);g.add(clone);}return Array.from(new Uint8Array(await new GLTFExporter().parseAsync(g,{binary:true})));};
   $('#loading').hidden=true;selectPart('');resize();seek(0);app.ready=true;

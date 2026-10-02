@@ -2,7 +2,7 @@ import * as T from 'three';
 import {line,textSprite} from './cabinets.js';
 import {smooth,CHAPTERS} from './timeline.js';
 
-const EVIDENCE_SHA256='142c72fd567260f873f86d228c681d8483d10c51d79ccca781e867724c0e6013';
+const EVIDENCE_SHA256='26401084a0874e6ebfc19c02e04e9156dc795f8d3b047149542980a4102d587a';
 const sha=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
 async function verified(url,expected){const r=await fetch(url);if(!r.ok)throw Error('Workflow evidence unavailable');const b=await r.arrayBuffer();if(await sha(b)!==expected)throw Error('Workflow evidence checksum mismatch');return b;}
 export async function workflowScene(scene){
@@ -24,21 +24,26 @@ export async function workflowScene(scene){
   }
   function badge(text,x,y,z,width=1,color='#97d8ea'){
     const g=new T.Group();g.add(box(width,.18,.035,charcoal,'Evidence label'));
-    const s=textSprite(text,color,width*.92);s.position.z=.025;g.add(s);g.position.set(x,y,z);return g;
+    const sprite=textSprite(text,color,width*.92);
+    const s=new T.Mesh(new T.PlaneGeometry(width*.92,width*.92*100/512),new T.MeshBasicMaterial({map:sprite.material.map,transparent:true,depthTest:true,depthWrite:false,alphaTest:.02,toneMapped:false}));
+    sprite.material.dispose();s.position.z=.021;s.name='Label text: '+text;g.add(s);g.position.set(x,y,z);return g;
   }
   const drawing={},extract={},catalog={},renderBoards={};
   for(const code of ['B3000','B3100']){
     const g=new T.Group(),b=board(code,'drawing',1.85);g.add(b);
     const scan=box(b.userData.width+.04,.014,.009,cyan,'Drawing scan line');scan.position.z=.03;g.add(scan);
-    // Focus is authored in crop pixels; original PDF extraction coordinates live in the evidence record.
-    const image=textures[code+'-drawing'].image,px=code==='B3000'?109:157,py=code==='B3000'?373:373;
-    const focus=line([[-.2,-.075,0],[.2,-.075,0],[.2,.075,0],[-.2,.075,0],[-.2,-.075,0]],0x97d8ea);
-    focus.position.set((px/image.width-.5)*b.userData.width,(.5-py/image.height)*1.85,.032);g.add(focus);
+    // Use the recorded native-PDF box and crop rather than guessing image pixels.
+    const item=evidence.examples[code],source=item.extraction.bbox_pdf_points[0];
+    const crop=item.drawingCropPdfPoints, nx=((source[0]+source[2])/2-crop[0])/(crop[2]-crop[0]),ny=((source[1]+source[3])/2-crop[1])/(crop[3]-crop[1]);
+    const fw=(source[2]-source[0])/(crop[2]-crop[0])*b.userData.width+.055,fh=(source[3]-source[1])/(crop[3]-crop[1])*1.85+.05;
+    const focus=line([[-fw/2,-fh/2,0],[fw/2,-fh/2,0],[fw/2,fh/2,0],[-fw/2,fh/2,0],[-fw/2,-fh/2,0]],0x97d8ea);
+    focus.position.set((nx-.5)*b.userData.width,(.5-ny)*1.85,.032);g.add(focus);
     g.position.set(0,1.08,0);groups[0].add(g);drawing[code]={g,b,scan,focus};
     const ex=new T.Group(),paper=board(code,'drawing',1.35);paper.position.set(-.78,1.03,-.1);paper.rotation.y=.12;ex.add(paper);
     const token=badge(code,.73,1.48,.15,1.05),page=badge('p. '+evidence.examples[code].drawingPage+' / 3 mentions',.73,1.13,.15,1.05),quantity=badge('Quantity pending',.73,.78,.15,1.05,'#e3b574');
-    const connection=line([[-.25,1.3,0],[.2,1.48,.15],[.2,1.48,.15]],0x97d8ea);ex.add(token,page,quantity,connection);groups[1].add(ex);extract[code]={g:ex,paper,token,page,quantity,connection};
-    const card=board(code,'catalog',1.12);card.position.set(code==='B3000'?-.8:.8,1.67,-.38);groups[2].add(card);
+    paper.updateMatrixWorld(true);const origin=new T.Vector3((nx-.5)*paper.userData.width,(.5-ny)*1.35,.06).applyMatrix4(paper.matrixWorld);
+    const connection=line([origin.toArray(),origin.toArray(),origin.toArray()],0x97d8ea);ex.add(token,page,quantity,connection);groups[1].add(ex);extract[code]={g:ex,paper,token,page,quantity,connection,origin};
+    const card=board(code,'catalog',1.12);card.position.set(code==='B3000'?-.8:.8,1.74,-.38);groups[2].add(card);
     const link=line([[card.position.x,1.07,-.35],[card.position.x,.86,.02],[card.position.x,.5,.28]]);groups[2].add(link);catalog[code]={card,link};
     const rb=board(code,'render',1.9);rb.position.set(.22,1.07,0);groups[5].add(rb);renderBoards[code]=rb;
   }
@@ -67,7 +72,7 @@ export async function workflowScene(scene){
   const bay=new T.Group();bay.name='Adjustable bay guides';
   for(const x of [-.5,.5])bay.add(line([[x,.006,-.98],[x,.006,-.25],[x,1.06,-.25]],0x216275));
   bay.add(line([[-.5,.006,-.25],[.5,.006,-.25]],0x216275));room.add(bay);
-  const bayLabel=badge('ILLUSTRATIVE BAY',0,1.35,-1.025,1.45);room.add(bayLabel);
+  const bayLabel=badge('ILLUSTRATIVE BAY',0,1.35,-1.018,1.45);room.add(bayLabel);
   const decor=new T.Group();decor.name='Authored vase and plant';
   const vase=new T.Mesh(new T.LatheGeometry([new T.Vector2(.035,0),new T.Vector2(.06,.03),new T.Vector2(.065,.105),new T.Vector2(.04,.15),new T.Vector2(.035,.175)],32),cream);vase.castShadow=true;decor.add(vase);
   const leafMaterial=new T.MeshStandardMaterial({color:0x647454,roughness:.85,side:T.DoubleSide});
@@ -83,21 +88,21 @@ export async function workflowScene(scene){
     for(const code of ['B3000','B3100']){
       drawing[code].g.visible=code===selected;drawing[code].g.rotation.y=-.09+.18*smooth(p);
       drawing[code].scan.position.y=.9-1.8*smooth(p);drawing[code].focus.scale.setScalar(.92+.08*smooth(p));
-      const ex=extract[code];ex.g.visible=code===selected;ex.token.position.x=-.35+1.08*smooth(p/.5);ex.token.position.y=1.28+.2*smooth(p/.5);
-      ex.page.scale.setScalar(.65+.35*smooth((p-.15)/.5));ex.quantity.scale.setScalar(.65+.35*smooth((p-.4)/.5));ex.connection.geometry.setDrawRange(0,Math.max(2,Math.floor(3*smooth(p/.5))));
+      const ex=extract[code];ex.g.visible=code===selected;ex.token.position.copy(ex.origin).lerp(new T.Vector3(.73,1.48,.15),smooth(p/.55));ex.token.scale.setScalar(.3+.7*smooth(p/.55));
+      ex.page.scale.setScalar(.65+.35*smooth((p-.15)/.5));ex.quantity.scale.setScalar(.65+.35*smooth((p-.4)/.5));ex.connection.geometry.setFromPoints([ex.origin,new T.Vector3(.2,1.48,.15),ex.token.position.clone()]);ex.connection.visible=p>.1;
       catalog[code].card.rotation.y=(code==='B3000'?1:-1)*.12*(1-smooth(p));catalog[code].link.material.opacity=.15+.7*smooth(p);
       renderBoards[code].visible=code===selected;renderBoards[code].rotation.y=.22*(1-smooth(p));renderBoards[code].scale.setScalar(.72+.28*smooth(p));
     }
-    known.position.y=1.7-.12*smooth(p);unknown.position.y=1.08+.23*smooth((p-.25)/.65);
+    known.position.y=1.67;unknown.position.y=1.4;known.scale.setScalar(.92+.08*smooth(p/.45));unknown.scale.setScalar(.92+.08*smooth((p-.2)/.45));
     const build=id==='room'?smooth(p/.45):1,placement=id==='room'?smooth((p-.25)/.65):1;
     if(roomMode){
       bayLabel.visible=id==='room';decor.visible=placement>.85;decor.position.set(-width*.0254*.23+.62*(1-placement),.89,-.64+1.3*(1-placement));
-      for(const wall of walls){wall.scale.y=Math.max(.002,build);wall.position.y=wall.userData.fullY*build;}
-      window.scale.y=Math.max(.002,build);sunlight.visible=build>.35;tileLines.visible=build>.15;
-      slab.scale.set(Math.max(.04,build),1,Math.max(.04,build));bay.scale.x=bayWidth/1000;
+      for(const wall of walls){wall.visible=build>.01;wall.scale.y=Math.max(.002,build);wall.position.y=wall.userData.fullY*build;}
+      window.visible=build>.01;window.scale.y=Math.max(.002,build);sunlight.visible=build>.35;tileLines.visible=build>.15;
+      slab.scale.set(1,1,1);bay.scale.x=bayWidth/1000;
       const fits=bayWidth>=width*25.4;bay.traverse(o=>{if(o.isLine){o.material.color.set(fits?0x216275:0xb66128);o.material.opacity=.95;}});
       countertop.visible=placement>.85;countertop.scale.x=width*.0254+.028;countertop.position.set(.62*(1-placement),.876,-.64+1.3*(1-placement));
-      cards.forEach((card,j)=>{const reveal=smooth((p-j*.15)/.5);card.position.x=1.62-.5*reveal;card.position.z=-.91;card.scale.setScalar(.6+.4*reveal);});
+      cards.forEach((card,j)=>{const reveal=smooth((p-j*.12)/.45);card.position.x=1.05;card.position.y=1.9-j*.27+.08*(1-reveal);card.position.z=-1.018;card.scale.setScalar(.96+.04*reveal);card.visible=id==='result'&&p>=j*.12;});
     }
     const showPair=cabinetMode||id==='match'||id==='inspect'||id==='review';
     models.forEach((model,j)=>{

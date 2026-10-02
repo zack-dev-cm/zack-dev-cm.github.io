@@ -86,21 +86,21 @@ export function cabinet(code,widthIn,m,finish='oak'){
   return {root,parts,width:w,height:h,depth:d,update,doors,drawers};
 }
 export function line(points,color=0x97d8ea){return new T.Line(new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(...p))),new T.LineBasicMaterial({color,transparent:true,opacity:.6}));}
-export function textSprite(text,color='#97d8ea',width=.5){
-  const c=document.createElement('canvas');c.width=512;c.height=100;const x=c.getContext('2d');x.font='500 46px system-ui';const font=Math.min(46,46*470/x.measureText(text).width);x.font='500 '+font+'px system-ui';x.textAlign='center';x.textBaseline='middle';x.fillStyle=color;x.fillText(text,256,50);
-  const texture=new T.CanvasTexture(c);texture.colorSpace=T.SRGBColorSpace;const s=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:false}));s.scale.set(width,width*100/512,1);return s;
+export function textSprite(text,color='#97d8ea',width=.5,background=null){
+  const c=document.createElement('canvas');c.width=512;c.height=100;const x=c.getContext('2d');if(background){x.fillStyle=background;x.beginPath();x.roundRect(16,10,480,80,12);x.fill();}x.font='500 46px system-ui';const font=Math.min(46,46*470/x.measureText(text).width);x.font='500 '+font+'px system-ui';x.textAlign='center';x.textBaseline='middle';x.fillStyle=color;x.fillText(text,256,50);
+  const texture=new T.CanvasTexture(c);texture.colorSpace=T.SRGBColorSpace;const s=new T.Sprite(new T.SpriteMaterial({map:texture,transparent:true,depthTest:true,depthWrite:Boolean(background),alphaTest:.02}));s.scale.set(width,width*100/512,1);return s;
 }
 export function dimensions(w,h,d,widthIn){
   const group=new T.Group();group.name='Selected nominal dimensions';
   const y=.015,z=d/2+.15;
   group.add(line([[-w/2,y,z],[w/2,y,z]]));
   for(const x of [-w/2,w/2])group.add(line([[x,y-.025,z],[x,y+.025,z]]));
-  const label=textSprite(widthIn+' in W');label.position.set(0,-.075,z);group.add(label);
+  const label=textSprite(widthIn+' in W','#97d8ea',.5,'#11161c');label.position.set(0,.075,d/2+.28);group.add(label);
   group.add(line([[-w/2-.11,0,0],[-w/2-.11,h,0]]));
   for(const y of [0,h])group.add(line([[-w/2-.13,y,0],[-w/2-.09,y,0]]));
-  const height=textSprite('34 in H');height.position.set(-w/2-.18,h/2,.025);group.add(height);
+  const height=textSprite('34 in H','#97d8ea',.5,'#11161c');height.position.set(-w/2-.18,h/2,.025);group.add(height);
   group.add(line([[w/2+.1,0,-d/2],[w/2+.1,0,d/2]]));
-  const depth=textSprite('24 in D');depth.position.set(w/2+.19,.02,0);group.add(depth);
+  const depth=textSprite('24 in D','#97d8ea',.5,'#11161c');depth.position.set(w/2+.23,.13,d/2+.16);group.add(depth);
   return group;
 }
 export function elevationLines(width,height,drawerCount){

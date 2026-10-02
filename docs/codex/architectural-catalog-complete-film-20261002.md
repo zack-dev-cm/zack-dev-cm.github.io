@@ -1,5 +1,9 @@
 # Complete architectural catalog film — 2 October 2026
 
+This records the earlier complete-film release. The subsequent independent
+visual review, regenerated film and real drawing intake are documented in
+[the film polish and drawing-intake note](architectural-catalog-visual-upload-20261002.md).
+
 The 3D story now follows eight distinct stages through the final room: original
 drawing scan, native-text extraction, exact catalog match, exploded inspection,
 evidence/dimension review, recorded ImageGen reveal, room construction and fit,
