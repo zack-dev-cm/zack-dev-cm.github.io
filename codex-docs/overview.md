@@ -10,6 +10,8 @@ This repository publishes a portfolio for Zakhar Pashkin as an ML and computer v
 
 ## Repo landmarks
 
+Current release context: [portfolio and profile refresh, 7 October 2026](portfolio-refresh-20261007.md).
+
 - App shell: `App.tsx`
 - Portfolio data: `constants.ts`
 - Shared UI: `components/`

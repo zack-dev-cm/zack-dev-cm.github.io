@@ -1,14 +1,21 @@
 {
-  "verifiedAt": "2026-09-25",
+  "verifiedAt": "2026-10-07",
   "projects": [
     {
       "name": "Neuralink",
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Prevents lost query rows, fixes generated filters and makes setup reproducible.",
+      "benefit": "Prevents lost query rows, keeps refreshed credentials coherent and makes setup reproducible.",
       "account": "zack-dev-cm",
       "pullRequests": [
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/74",
+          "number": 74,
+          "title": "Keep storage credential tuples coherent during refresh",
+          "status": "merged",
+          "mergedAt": "2026-10-05T22:20:32Z"
+        },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/68",
           "number": 68,
@@ -109,6 +116,40 @@
       ]
     },
     {
+      "name": "Astropy",
+      "project": "reproject",
+      "logo": "images/contributions/astropy.png",
+      "logoSource": "https://github.com/astropy.png?size=96",
+      "benefit": "Rejects undefined inverse coordinates so invalid sky-image pixels receive zero footprint.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/astropy/reproject/pull/630",
+          "number": 630,
+          "title": "Reject undefined inverse coordinates during round-trip validation",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
+      "name": "LSST DESC",
+      "project": "CCL",
+      "logo": "images/contributions/lsstdesc.png",
+      "logoSource": "https://github.com/LSSTDESC.png?size=96",
+      "benefit": "Corrects the integration range and component quadrature used in cosmology calculations.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/LSSTDESC/CCL/pull/1310",
+          "number": 1310,
+          "title": "Correct FKEM integration range and component quadrature",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
       "name": "UNSW",
       "project": "Nempy",
       "logo": "images/contributions/unsw.png",
@@ -134,16 +175,23 @@
     },
     {
       "name": "pydicom",
-      "project": "Display lookup tables",
+      "project": "Display & modality lookup tables",
       "logo": "images/contributions/pydicom.png",
       "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Prevents integer overflow when mapping pixel values through display lookup tables.",
+      "benefit": "Prevents integer overflow when mapping pixel values through display and modality lookup tables.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
           "url": "https://github.com/pydicom/pydicom/pull/2378",
           "number": 2378,
           "title": "Prevent overflow in VOI LUT index calculation",
+          "status": "open",
+          "mergedAt": null
+        },
+        {
+          "url": "https://github.com/pydicom/pydicom/pull/2379",
+          "number": 2379,
+          "title": "Prevent overflow in Modality LUT index calculation",
           "status": "open",
           "mergedAt": null
         }
@@ -156,11 +204,10 @@
       "logoSource": "https://github.com/pydicom.png?size=96",
       "benefit": "Preserves one-bit image pixels during compression.",
       "account": "zack-dev-cm",
-      "scope": "Contributor branch",
       "pullRequests": [
         {
-          "url": "https://github.com/asaraog/pydicom/pull/1",
-          "number": 1,
+          "url": "https://github.com/pydicom/pydicom/pull/2380",
+          "number": 2380,
           "title": "Normalize packed one-bit OW data before frame encoding",
           "status": "open",
           "mergedAt": null

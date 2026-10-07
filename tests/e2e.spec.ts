@@ -424,10 +424,11 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page).toHaveURL(/#contributed-to$/);
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeInViewport();
   await expect(contributedSection.locator('.contribution-project').first()).toContainText('Neuralink');
-  await expect(contributedSection.locator('.contribution-project').first()).toContainText('5 merged PRs');
+  await expect(contributedSection.locator('.contribution-project').first()).toContainText('6 merged PRs');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('Tesla');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('4 open PRs');
-  await expect(contributedSection.getByText('Contributor branch', { exact: true })).toBeVisible();
+  await expect(contributedSection.getByRole('link', { name: 'Follow a sky pixel in 3D' })).toBeVisible();
+  await expect(contributedSection.getByRole('link', { name: '#2380' })).toHaveAttribute('href', 'https://github.com/pydicom/pydicom/pull/2380');
   for (const project of OPEN_SOURCE_PROJECTS) {
     const row = contributedSection.locator('.contribution-project').filter({ has: page.getByRole('heading', { name: `${project.name} · ${project.project}`, exact: true }) });
     await expect(row).toContainText(project.benefit);
@@ -440,7 +441,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await contributedSection.locator('.contribution-participation > summary').click();
   await expect(contributedSection.locator('a[href*="github.com/"]')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
   await expect(contributedSection.getByRole('link', { name: 'Explore empty selections in 3D' })).toHaveAttribute('href', '/docs/contribution-lab/');
-  await expect(contributedSection.getByRole('link', { name: 'Play the lookup-table example' })).toHaveAttribute('href', '/docs/contribution-lab/pydicom.html');
+  await expect(contributedSection.getByRole('link', { name: 'Play the display lookup example' })).toHaveAttribute('href', '/docs/contribution-lab/pydicom.html');
   await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
   for (const contribution of OPEN_SOURCE_CONTRIBUTIONS.filter((item) => item.evidenceLabel.startsWith('Issue'))) {
     const row = contributedSection.locator(`a[href="${contribution.sourceUrl}"]`);

@@ -21,7 +21,7 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
-- [Architectural Drawing and Interior Catalog Matching](https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/): Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.
+- [Architectural Drawing and Interior Catalog Matching](https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/): Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.
 - [Vehicle Lab: A Reusable Engineering Notebook](https://zack-dev-cm.github.io/projects/vehicle-lab-a-reusable-engineering-notebook/): Built and released an engineering notebook connecting CAD inspection, digital prototyping, revision decisions and recorded simulation, with a reusable Python CLI and interactive 3D viewer.
 - [SectionCheck - Image Registration Review](https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review/): A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.
 - [Dermaself Flutter Skin Analysis App](https://zack-dev-cm.github.io/projects/dermaself-flutter-skin-analysis-app/): Skin-analysis computer vision for Dermaself, connecting guided mobile capture with pore and wrinkle segmentation and usable results.
@@ -30,6 +30,27 @@ The ML Papers, Read for Builders feed has 11 source-neutral English ML paper rev
 - [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Projects (Full Details)
+### Camera Kit Scanner Reproducer
+Summary: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.
+Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-07.
+Project URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer/
+Markdown URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer.md
+Key Features:
+- Public GitHub repository with README-backed source references
+- Public GitHub API snapshot captured on 2026-10-07
+- Kotlin code surface is visible in repository metadata
+Tech Stack:
+- Kotlin
+- GitHub
+- Open Source
+Benchmarks & Analytics:
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-07)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-07)
+- Created: 2026-09-14 (public GitHub repository metadata)
+- Last push: 2026-09-14 (public GitHub repository metadata)
+Links:
+- GitHub: https://github.com/zack-dev-cm/camera-kit-scanner-reproducer
+
 ### SectionCheck - Image Registration Review
 Summary: A CPU prototype for inspecting a proposed affine image transform, reviewing polygon annotations and verifying decision-bound exports on synthetic data.
 Details: I built a Python CLI that makes a proposed image transform inspectable: validate the coordinate contract, render source and target regions, record an explicit decision and verify the exported annotations against the bound inputs. Version 0.2.1.dev0 includes a self-contained HTML report and a reproducible synthetic workflow. This is independent research tooling developed alongside the Neuralink contribution work, with AI assistance. Only authored synthetic data is supported; researcher usefulness, VALIS integration and external-viewer interoperability remain unconfirmed.
@@ -263,8 +284,8 @@ Benchmarks & Analytics:
 - Public posture: sanitized (no raw patient images, private labels, or model weights published)
 
 ### Architectural Drawing and Interior Catalog Matching
-Summary: Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.
-Details: The working MVP accepts new PDF, PNG or JPEG drawings and furniture catalogs, using a Codex Mode 1 agent with GPT-6.1 sol and max reasoning to choose page searches, selective OCR, visual inspection and supported catalog candidates. The agent reviews nominal width, height and depth against optional available-space constraints, directs built-in ImageGen to stage the selected furniture in a furnished room, visually reviews the actual result and packages hash-verified artifacts. Three real source sets include an annotated Case Systems elevation with its 306-page catalog, IKEA ENHET manufacturer combinations and Herman Miller OE1 technical drawings. Manufacturer example drawings are not independent measured rooms. Unmatched items and revision conflicts stay visible. The 64-second interactive companion explains eight stages and places the cabinet between adjoining units under a continuous counter, with upper storage, a worktable, chairs and a courtyard. Exact nominal width fit, infill and a blocked oversized placement have distinct behavior. Installed geometry, quantities, prices and installation tolerances still require supporting evidence.
+Summary: Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.
+Details: Live generation is currently paused. The public eight-stage 3D guide, recorded source examples and downloadable film remain available. The implemented MVP accepts new PDF, PNG or JPEG drawings and furniture catalogs, using a Codex Mode 1 agent with GPT-6.1 sol and max reasoning to choose page searches, selective OCR, visual inspection and supported catalog candidates. The agent reviews nominal width, height and depth against optional available-space constraints, directs built-in ImageGen to stage the selected furniture in a furnished room, visually reviews the actual result and packages hash-verified artifacts. Three real source sets include an annotated Case Systems elevation with its 306-page catalog, IKEA ENHET manufacturer combinations and Herman Miller OE1 technical drawings. Manufacturer example drawings are not independent measured rooms. Unmatched items and revision conflicts stay visible. The 64-second interactive companion explains eight stages and places the cabinet between adjoining units under a continuous counter, with upper storage, a worktable, chairs and a courtyard. Exact nominal width fit, infill and a blocked oversized placement have distinct behavior. Installed geometry, quantities, prices and installation tolerances still require supporting evidence.
 Project URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/
 Markdown URL: https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md
 Key Features:
@@ -294,7 +315,6 @@ Benchmarks & Analytics:
 - Completed full examples: 120.75 / 144.15 s (Measured B3000/B3100 36-inch oak runs; includes fresh ImageGen and review)
 - Playable study: 8 chapters (Same procedural scene drives the interactive controls and 64-second film)
 Links:
-- Run the full workflow: https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace
 - Explore catalog in 3D: https://zack-dev-cm.github.io/docs/architectural-catalog/
 - Watch the complete film: https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4
 - Catalog source notes: https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html
@@ -2155,10 +2175,10 @@ Tech Stack:
 - Markdown Reports
 - Open-source Analytics
 Benchmarks & Analytics:
-- Tracked ClawHub downloads: 35,849 (public ClawHub owner profile, 2026-08-06 across 53 skills)
-- Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-08-06)
-- CV Repro Lab downloads: 2,102 total (1,145 data-science-cv-repro-lab + 957 sota-agent, 2026-08-06)
-- Strongest skill: 2,656 downloads (gstack-review-stack public listing, 2026-08-06)
+- Tracked ClawHub downloads: 46,300 (public ClawHub owner profile, 2026-10-07 across 53 skills)
+- Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-07)
+- CV Repro Lab downloads: 2,565 total (1,394 data-science-cv-repro-lab + 1,171 sota-agent, 2026-10-07)
+- Strongest skill: 3,355 downloads (gstack-review-stack public listing, 2026-10-07)
 - Report outputs: 3 (text, JSON, Markdown)
 - Projection horizon: 30 days (pace and peer-conversion upside scenarios)
 Links:

@@ -50,6 +50,7 @@ try {
   await copyRequiredFile(source, destination);
 
   await copyRequiredFile(manifestSource, manifestDestination);
+  await copyRequiredFile(resolve(rootDir, 'scripts/fixtures/export-reproject.py'), resolve(outDir, 'contribution-lab/export-reproject.py'));
 
   await Promise.all(
     hiddenPublishedSurfaces.map(async (fileOrDirectory) => {

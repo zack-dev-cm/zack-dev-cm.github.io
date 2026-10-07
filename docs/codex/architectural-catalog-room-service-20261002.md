@@ -1,6 +1,10 @@
 # Architectural catalog: furnished fit and general-document service
 
-The project now links to the working general workspace at https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace. Visitors can load a new drawing and furniture catalog as bounded PDF/PNG/JPEG documents. Viewing an example or validating uploads starts no provider task; Run project admits an owner-scoped Codex Mode 1 CLI task using gpt-6.1-sol with max reasoning and built-in ImageGen.
+Availability update, 7 October: live generation is paused. The portfolio now
+links to the [static 3D guide](https://zack-dev-cm.github.io/docs/architectural-catalog/)
+and film. The service description below records the implemented October 2 flow.
+
+The general document workspace implemented drawing and catalog intake as bounded PDF/PNG/JPEG documents. Viewing an example or validating uploads starts no provider task; Run project admits an owner-scoped Codex Mode 1 CLI task using gpt-6.1-sol with max reasoning and built-in ImageGen. Live generation is currently paused; the public project links to the working 3D guide and recorded film.
 
 ## Real source examples
 

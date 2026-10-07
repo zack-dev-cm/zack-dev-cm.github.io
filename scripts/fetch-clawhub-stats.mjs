@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import ts from 'typescript';
+import { updateStatsSource } from './stats-source.mjs';
 
 const DEFAULT_OWNER = 'zack-dev-cm';
 const CLAWHUB_SITE_URL = 'https://clawhub.ai';
@@ -45,30 +46,31 @@ const getRetryDelayMs = (response, attempt) => {
   return response.status === 429 ? attempt * 4000 : attempt * 2000;
 };
 
-const fetchWithTimeout = async (url, options = {}) => {
+const fetchWithTimeout = async (url, options = {}, timeoutMs = REQUEST_TIMEOUT_MS) => {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    return await fetch(url, { ...options, signal: controller.signal });
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    return { response, text: await response.text() };
   } finally {
     clearTimeout(timeout);
   }
 };
 
-const fetchWithRetry = async (url, options, attempts = REQUEST_ATTEMPTS) => {
+export const fetchWithRetry = async (url, options = {}, attempts = REQUEST_ATTEMPTS, timeoutMs = REQUEST_TIMEOUT_MS) => {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetchWithTimeout(url, options);
+      const result = await fetchWithTimeout(url, options, timeoutMs);
+      const { response } = result;
       if (!isRetryableHttpStatus(response.status) || attempt === attempts) {
-        return response;
+        return result;
       }
-      await response.text().catch(() => '');
       await sleep(getRetryDelayMs(response, attempt));
     } catch (error) {
       lastError =
         error?.name === 'AbortError'
-          ? new Error(`ClawHub request timed out after ${REQUEST_TIMEOUT_MS}ms: ${url}`, { cause: error })
+          ? new Error(`ClawHub request timed out after ${timeoutMs}ms: ${url}`, { cause: error })
           : error;
       if (attempt === attempts) break;
       await sleep(attempt * 750);
@@ -118,7 +120,7 @@ Options:
 };
 
 const convexQuery = async (pathName, args) => {
-  const response = await fetchWithRetry(`${CLAWHUB_CONVEX_URL}/api/query`, {
+  const { response, text } = await fetchWithRetry(`${CLAWHUB_CONVEX_URL}/api/query`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -126,7 +128,6 @@ const convexQuery = async (pathName, args) => {
     },
     body: JSON.stringify({ path: pathName, args, format: 'json' })
   });
-  const text = await response.text();
   if (!response.ok) {
     throw new Error(`ClawHub Convex query ${pathName} failed with HTTP ${response.status}: ${text}`);
   }
@@ -151,14 +152,15 @@ const getPublicDisplayName = ({ slug, displayName, fallbackDisplayName }) => {
   return PUBLIC_DISPLAY_NAME_OVERRIDES.get(slug) ?? displayName ?? fallbackDisplayName ?? slug;
 };
 
-const fetchSkillDetail = async ({ owner, slug, fallback }) => {
-  const response = await fetchWithRetry(`${CLAWHUB_HTTP_API_URL}/skills/${encodeURIComponent(slug)}`, {
+export const fetchSkillDetail = async ({ owner, slug, fallback }) => {
+  const url = new URL(`${CLAWHUB_HTTP_API_URL}/skills/${encodeURIComponent(slug)}`);
+  url.searchParams.set('ownerHandle', owner);
+  const { response, text } = await fetchWithRetry(url, {
     headers: {
       accept: 'application/json',
       'user-agent': 'portfolio-clawhub-stats/2.0'
     }
   });
-  const text = await response.text();
   if (!response.ok) {
     throw new Error(`Skill detail ${slug} failed with HTTP ${response.status}: ${text}`);
   }
@@ -306,7 +308,7 @@ const replaceRequired = (source, pattern, replacement, label) => {
   return source.replace(pattern, replacement);
 };
 
-const updateConstantsSource = (source, stats) => {
+export const updateConstantsSource = (source, stats) => {
   const totalDownloads = stats.reduce((sum, stat) => sum + stat.downloads, 0);
   const checkedAt = stats[0]?.checkedAt ?? new Date().toISOString().slice(0, 10);
   const summary = `${formatInteger(totalDownloads)} tracked ClawHub downloads across ${stats.length} public skills as of ${checkedAt}`;
@@ -317,15 +319,15 @@ const updateConstantsSource = (source, stats) => {
   let nextSource = replaceRequired(
     source,
     /export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat\[] = \[[\s\S]*?\n\];/,
-    `export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = ${renderStatsArray(stats)};`,
+    () => `export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = ${renderStatsArray(stats)};`,
     'CLAWHUB_DOWNLOAD_STATS block'
   );
 
-  nextSource = replaceRequired(
-    nextSource,
+  // This sentence was retired from the editorial project summary. Update it
+  // if present in an older checkout; required metrics below still fail closed.
+  nextSource = nextSource.replace(
     /\d[\d,]* tracked ClawHub downloads across \d+ public (?:packages|skills) as of \d{4}-\d{2}-\d{2}/g,
-    summary,
-    'ClawHub public summary copy'
+    summary
   );
   nextSource = replaceRequired(
     nextSource,
@@ -371,7 +373,7 @@ const updateConstantsSource = (source, stats) => {
     const currentStats = parseConstantsStatsFromSource(source);
     const statsMatch =
       JSON.stringify(normalizeForCompare(currentStats)) === JSON.stringify(normalizeForCompare(stats));
-    if (statsMatch && source.includes(summary) && source.includes(latestUpdateSummary)) {
+    if (statsMatch && source.includes(latestUpdateSummary)) {
       return source;
     }
     throw new Error('constants.ts was not updated; expected ClawHub stats block or summary copy was not found.');
@@ -473,17 +475,20 @@ const main = async () => {
   }
 
   const { stats } = await fetchClawHubStats(options.owner);
+  // Retain the actual fetched snapshot for diagnostics even if source drift
+  // prevents the all-or-nothing write below.
+  console.log(JSON.stringify(stats, null, 2));
 
   if (options.write) {
-    const source = await fs.readFile(CONSTANTS_PATH, 'utf8');
-    await fs.writeFile(CONSTANTS_PATH, updateConstantsSource(source, stats));
+    await updateStatsSource(CONSTANTS_PATH, (source) => updateConstantsSource(source, stats));
   }
 
   if (options.verifyConstants) {
     await verifyConstants(stats);
   }
 
-  console.log(JSON.stringify(stats, null, 2));
 };
 
-await main();
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  await main();
+}

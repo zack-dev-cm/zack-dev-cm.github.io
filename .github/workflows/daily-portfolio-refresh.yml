@@ -38,19 +38,41 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Refresh stats and public update feed
+      - name: Refresh ClawHub snapshot
+        id: clawhub
+        continue-on-error: true
+        run: npm run stats:clawhub -- --write
+
+      - name: Refresh public GitHub update feed
+        id: github-feed
+        continue-on-error: true
         env:
           DEV_CM_GITHUB_TOKEN: ${{ secrets.DEV_CM_GITHUB_TOKEN || github.token }}
+        run: npm run sync:github -- --write
+
+      - name: Refresh paper review
+        id: papers
+        continue-on-error: true
+        run: npm run papers:review -- --write --allow-noop
+
+      - name: Report refresh results
+        env:
+          CLAWHUB_RESULT: ${{ steps.clawhub.outcome }}
+          GITHUB_FEED_RESULT: ${{ steps.github-feed.outcome }}
+          PAPER_RESULT: ${{ steps.papers.outcome }}
         run: |
-          npm run stats:clawhub -- --write
-          npm run sync:github -- --write
-          npm run papers:review -- --write --allow-noop
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          const results = [['ClawHub', process.env.CLAWHUB_RESULT], ['GitHub feed', process.env.GITHUB_FEED_RESULT], ['Paper review', process.env.PAPER_RESULT]];
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '| Source | Result |\n| --- | --- |\n' + results.map(([name, result]) => `| ${name} | ${result} |`).join('\n') + '\n\nFailed sources retain their previous dated snapshot. Successful sources proceed through all release checks.\n');
+          if (results.every(([, result]) => result !== 'success')) process.exit(1);
+          JS
 
       - name: Validate portfolio source
         run: npm run validate
 
       - name: Check catalogue and deployment regressions
-        run: node --test tests/project-catalog.test.mjs tests/project-search.test.mjs tests/stage-pages.test.mjs tests/disclosure-guard.test.mjs
+        run: node --test tests/project-catalog.test.mjs tests/project-search.test.mjs tests/stage-pages.test.mjs tests/disclosure-guard.test.mjs tests/clawhub-stats.test.mjs tests/daily-refresh.test.mjs tests/refresh-reliability.test.mjs
 
       - name: Build site
         run: npm run build
@@ -72,10 +94,6 @@ jobs:
 
       - name: Commit refreshed public files
         run: |
-          if git diff --quiet; then
-            echo "No source-backed portfolio changes."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A constants.ts public/portfolio-updates.json public/paper-reviews.json docs projects

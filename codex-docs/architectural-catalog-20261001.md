@@ -1,5 +1,11 @@
 # Architectural catalog scene
 
+Current scope and availability are recorded in the
+[7 October portfolio refresh](portfolio-refresh-20261007.md). The generalized
+intake has three recorded source sets and an eight-stage tour. Live generation
+is currently paused; the static guide and film remain available. The two-family
+functional service described below records the initial implementation.
+
 Source: recovered Case Systems catalog, pages 27/28, and original elevation callouts. Public media contains a procedural cabinet explanation and minimal catalog facts, not raw client sheets or full manufacturer catalogs. Cabinet dimensions are selected catalog variants; construction/finish details are illustrative.
 
 The prior 25 September portfolio animation workflow used DESIGN.md, Three.js r180, deterministic browser capture, media receipts and playable controls. This addition reuses that workflow in `public/architectural-catalog/` and `scripts/media/architectural-catalog/`.

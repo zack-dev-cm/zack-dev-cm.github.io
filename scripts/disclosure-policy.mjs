@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
+import { createReadStream } from 'node:fs';
 import path from 'node:path';
 
 export const sha256 = (value) => createHash('sha256').update(value).digest('hex');
@@ -62,6 +63,24 @@ export const containsWithdrawnCopy = (text, policy) => {
   return false;
 };
 
+const readPublishedText = async (file) => {
+  const decoder = new TextDecoder('utf-8', { fatal: true });
+  const chunks = [];
+  let bytes = 0;
+  try {
+    for await (const chunk of createReadStream(file, { highWaterMark: 64 * 1024 })) {
+      chunks.push(decoder.decode(chunk, { stream: true }));
+      bytes += chunk.length;
+      if (bytes > 16 * 1024 * 1024) return { tooLarge: true };
+    }
+    chunks.push(decoder.decode());
+    return { text: chunks.join('') };
+  } catch (error) {
+    if (error.code === 'ERR_ENCODING_INVALID_ENCODED_DATA') return { text: null };
+    throw error;
+  }
+};
+
 // Inspect published assets independently of names and extensions. Exact byte
 // identities also cover images and PDFs; canonical JSON ignores key ordering
 // and formatting. These checks recognize known withdrawn content, not every
@@ -91,19 +110,20 @@ export const scanPublishedAssets = async ({ rootDir, roots, files = [], policy }
     if (!stat.isFile()) return;
     const checkBytes = policy.assetSizes.has(stat.size);
     const checkJson = stat.size <= 2 * 1024 * 1024;
-    if (!checkBytes && !checkJson) return;
-    const data = await fs.readFile(absolutePath);
-    if (checkBytes && policy.assetHashes.has(sha256(data))) {
+    if (checkBytes && policy.assetHashes.has(sha256(await fs.readFile(absolutePath)))) {
       errors.push(`${relativePath}: contains a withdrawn asset (content identity)`);
       return;
     }
-    if (!checkJson) return;
-    let text;
-    try { text = new TextDecoder('utf-8', { fatal: true }).decode(data); } catch { return; }
+    const { text, tooLarge } = await readPublishedText(absolutePath);
+    if (tooLarge) {
+      errors.push(`${relativePath}: published text exceeds the 16 MiB disclosure scan limit`);
+      return;
+    }
+    if (text === null) return;
     if (containsWithdrawnCopy(text, policy)) {
       errors.push(`${relativePath}: contains withdrawn project copy (content fingerprint)`);
     }
-    if (/^\s*[\[{]/.test(text)) {
+    if (checkJson && /^\s*[\[{]/.test(text)) {
       let value;
       try { value = JSON.parse(text); } catch { return; }
       if (policy.jsonHashes.has(canonicalJsonHash(value))) {

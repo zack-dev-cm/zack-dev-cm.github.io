@@ -1,5 +1,5 @@
 ---
-version: "2026-09"
+version: "2026-10-07"
 name: Zakhar Pashkin — Technical Portfolio
 summary: An editorial portfolio organized around maintained systems and inspectable work.
 colors:
@@ -152,7 +152,7 @@ physical assembly or driving, which remain unverified.
 Open-source evidence groups contributions by project, ranked by practical impact
 and upstream acceptance. Each row pairs the project's GitHub logo with one short
 benefit, accurate merged/open counts and direct PR links. Neuralink leads with
-five merged changes; substantial pending fixes follow before smaller documentation
+six merged changes; substantial pending fixes follow before smaller documentation
 changes. Mark contributor-branch work explicitly. Keep bug reports in a disclosure.
 The hero includes an Open-source contributions button linking to this section.
 
@@ -244,6 +244,25 @@ The standalone Skill Wind page keeps its existing deep ink, copper, parchment,
 animated wind currents, and transformation artwork. It is a separate visual
 piece and does not dictate the portfolio layout. Preserve its reduced-motion
 behavior and the existing discreet header navigation gesture.
+
+## Reproject coordinate lesson — October 7
+
+Retain the contribution-first page and its charcoal/cyan identity. The new
+reproject lesson compares actual two-pixel outputs from the upstream regression.
+Considered directions: a sky photograph, a flat coordinate diagram, and three
+linked coordinate planes with a guided numerical readout. Use the third; a sky
+photograph would obscure this linear WCS fixture. Added depth separates frames.
+
+Keep play/pause, restart, seeking, chapters and manual pixel/version inspection.
+Use semantic HTML for every coordinate, decision, image value and footprint;
+the model supports the explanation and has a complete text fallback. Never
+plot an undefined inverse as a finite point. Keep the source PR and downloadable
+fixture/exporter beside the numerical explanation. Start paused and retain
+visible keyboard focus and 46px controls. Inspect 360, 390, 768 and 1440px.
+
+The catalog service is currently paused. Its portfolio links lead to the
+available 3D guide and film. This availability supersedes the live-workspace
+links described in the earlier catalog design notes below.
 
 ## Catalog matching lesson — October 2026
 

@@ -55,6 +55,23 @@ test('published symlinks fail closed without reading their targets', async (t) =
   assert.match((await scanPublishedAssets({ rootDir, roots: ['public/'], policy }))[0], /symlink cannot be verified/);
 });
 
+test('large renamed UTF-8 artifacts are checked beyond 2 MiB and across read boundaries', async (t) => {
+  const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'disclosure-large-'));
+  t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(rootDir, 'public'));
+  const padding = ' '.repeat(2 * 1024 * 1024 + 64 * 1024 - 17);
+  await fs.writeFile(path.join(rootDir, 'public/large.dat'), padding + paragraph);
+  assert.match((await scanPublishedAssets({ rootDir, roots: ['public/'], policy }))[0], /content fingerprint/);
+});
+
+test('text beyond the bounded disclosure scan fails closed', async (t) => {
+  const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'disclosure-limit-'));
+  t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(rootDir, 'public'));
+  await fs.writeFile(path.join(rootDir, 'public/large.txt'), ' '.repeat(16 * 1024 * 1024 + 1));
+  assert.match((await scanPublishedAssets({ rootDir, roots: ['public/'], policy }))[0], /exceeds the 16 MiB/);
+});
+
 test('invalid or empty fingerprint policies cannot silently disable the gate', () => {
   for (const value of [{}, { ...policyData, wordCount: 0 }, { ...policyData, textHashes: [] },
     { ...policyData, assets: [] }, { ...policyData, jsonHashes: ['invalid'] }]) {

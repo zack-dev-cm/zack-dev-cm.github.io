@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import ts from 'typescript';
+import { updateStatsSource } from './stats-source.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,7 +31,8 @@ const decodeHtml = (value) =>
 const stripTags = (value) => decodeHtml(String(value || '').replace(/<[^>]+>/g, ' '));
 
 const parseNumber = (value) => {
-  const clean = String(value || '').replace(/,/g, '').trim();
+  const clean = String(value ?? '').replace(/,/g, '').trim();
+  if (!clean) return null;
   const parsed = Number(clean);
   return Number.isFinite(parsed) ? parsed : null;
 };
@@ -88,19 +90,26 @@ const readChromeStats = async () => {
   return { sourceText, stats: parseLiteral(initializer) };
 };
 
-const fetchText = async (url) => {
+export const fetchText = async (url, timeoutMs = 15000) => {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
   const response = await fetch(url, {
     headers: {
       'User-Agent': USER_AGENT,
       Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Accept-Language': 'en-US,en;q=0.9',
     },
+    signal: controller.signal,
   });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.text();
+  return await response.text();
+  } finally {
+    clearTimeout(timeout);
+  }
 };
 
-const parseDetailPage = (html) => {
+export const parseDetailPage = (html) => {
   const text = stripTags(html);
   const usersMatch = html.match(/>\s*([\d,]+)\s+users?\s*</i) || text.match(/\b([\d,]+)\s+users?\b/i);
   const ratingCountMatch = html.match(/>\s*([\d,]+)\s+ratings?\s*</i) || text.match(/\b([\d,]+)\s+ratings?\b/i);
@@ -123,7 +132,7 @@ const parseDetailPage = (html) => {
   };
 };
 
-const updateExtensionRows = async (stats) => {
+export const updateExtensionRows = async (stats) => {
   const today = new Date().toISOString().slice(0, 10);
   const warnings = [];
   const extensions = [];
@@ -191,7 +200,7 @@ const updateExtensionRows = async (stats) => {
   };
 };
 
-const writeChromeStats = async (sourceText, stats) => {
+export const writeChromeStats = async (stats, file = CONSTANTS_PATH) => updateStatsSource(file, (sourceText) => {
   const { declaration, initializer } = findChromeStatsNode(sourceText);
   const statement = declaration.parent?.parent;
   if (!statement || !ts.isVariableStatement(statement)) {
@@ -200,8 +209,8 @@ const writeChromeStats = async (sourceText, stats) => {
   const prefix = sourceText.slice(statement.pos, initializer.pos);
   const replacement = `${prefix}${JSON.stringify(stats, null, 2)};`;
   const updated = `${sourceText.slice(0, statement.pos)}${replacement}${sourceText.slice(statement.end)}`;
-  await fs.writeFile(CONSTANTS_PATH, updated, 'utf8');
-};
+  return updated;
+});
 
 const normalizeForCompare = (stats) => ({
   checkedAt: stats.checkedAt,
@@ -222,7 +231,7 @@ const normalizeForCompare = (stats) => ({
 });
 
 const main = async () => {
-  const { sourceText, stats } = await readChromeStats();
+  const { stats } = await readChromeStats();
   const { nextStats, warnings } = await updateExtensionRows(stats);
 
   if (shouldVerify && JSON.stringify(normalizeForCompare(stats)) !== JSON.stringify(normalizeForCompare(nextStats))) {
@@ -230,7 +239,7 @@ const main = async () => {
   }
 
   if (shouldWrite) {
-    await writeChromeStats(sourceText, nextStats);
+    await writeChromeStats(nextStats);
   }
 
   console.log(
@@ -252,7 +261,7 @@ const main = async () => {
   );
 };
 
-main().catch((error) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) main().catch((error) => {
   console.error(error?.message || error);
   process.exitCode = 1;
 });

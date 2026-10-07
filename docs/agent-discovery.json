@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-10-02",
+  "generatedAt": "2026-10-07",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -395,7 +395,7 @@
           "title": "Architectural Drawing and Interior Catalog Matching",
           "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
           "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-          "summary": "Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.",
+          "summary": "Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.",
           "kind": "case-study",
           "tags": [
             "computer-vision",
@@ -461,10 +461,6 @@
             }
           ],
           "links": [
-            {
-              "label": "Run the full workflow",
-              "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
-            },
             {
               "label": "Explore catalog in 3D",
               "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
@@ -1077,7 +1073,7 @@
       "title": "Architectural Drawing and Interior Catalog Matching",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-      "summary": "Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.",
+      "summary": "Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.",
       "kind": "case-study",
       "tags": [
         "computer-vision",
@@ -1143,10 +1139,6 @@
         }
       ],
       "links": [
-        {
-          "label": "Run the full workflow",
-          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
-        },
         {
           "label": "Explore catalog in 3D",
           "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
@@ -1489,6 +1481,51 @@
     }
   ],
   "allProjects": [
+    {
+      "id": 1370350349,
+      "title": "Camera Kit Scanner Reproducer",
+      "url": "https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer.md",
+      "summary": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.",
+      "kind": "open-source",
+      "tags": [
+        "open-source"
+      ],
+      "aliases": [],
+      "techStack": [
+        "Kotlin",
+        "GitHub",
+        "Open Source"
+      ],
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-10-07"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-10-07"
+        },
+        {
+          "label": "Created",
+          "value": "2026-09-14",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-09-14",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/zack-dev-cm/camera-kit-scanner-reproducer"
+        }
+      ]
+    },
     {
       "id": 84,
       "title": "SectionCheck - Image Registration Review",
@@ -1955,7 +1992,7 @@
       "title": "Architectural Drawing and Interior Catalog Matching",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md",
-      "summary": "Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.",
+      "summary": "Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.",
       "kind": "case-study",
       "tags": [
         "computer-vision",
@@ -2021,10 +2058,6 @@
         }
       ],
       "links": [
-        {
-          "label": "Run the full workflow",
-          "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
-        },
         {
           "label": "Explore catalog in 3D",
           "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
@@ -5516,23 +5549,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "35,849",
-          "context": "public ClawHub owner profile, 2026-08-06 across 53 skills"
+          "value": "46,300",
+          "context": "public ClawHub owner profile, 2026-10-07 across 53 skills"
         },
         {
           "label": "Tracked public skills",
           "value": "53",
-          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-08-06"
+          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-07"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "2,102 total",
-          "context": "1,145 data-science-cv-repro-lab + 957 sota-agent, 2026-08-06"
+          "value": "2,565 total",
+          "context": "1,394 data-science-cv-repro-lab + 1,171 sota-agent, 2026-10-07"
         },
         {
           "label": "Strongest skill",
-          "value": "2,656 downloads",
-          "context": "gstack-review-stack public listing, 2026-08-06"
+          "value": "3,355 downloads",
+          "context": "gstack-review-stack public listing, 2026-10-07"
         },
         {
           "label": "Report outputs",

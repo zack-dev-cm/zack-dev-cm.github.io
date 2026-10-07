@@ -39,7 +39,7 @@
     <section class="context"><div><p class="eyebrow">Why the change matters</p><h2>The index needs its own width.</h2><p>An 8-bit output does not require an 8-bit lookup index. In the reported example, converting offset 256 to an 8-bit index makes it 0 before clipping can help. The result is 10 instead of 40.</p></div><div><p>The proposed integer path stores indices as <code>uint16</code>, selects the endpoints for out-of-range inputs, and subtracts in <code>int32</code> only for in-range inputs. The PR also covers larger tables and integer extremes; floating-input behavior is unchanged.</p><a href="https://github.com/pydicom/pydicom/pull/2378/files">Inspect the implementation and regression tests ↗</a></div></section>
     <noscript><p class="no-js">JavaScript is needed for playback and sliders. The documented example uses an 8-bit output LUT [10, 20, 30, 40] starting at 0. Input 256 wraps to index 0 and output 10 in the baseline; the proposed correction chooses index 3 and output 40. The source link and explanation remain available.</p></noscript>
   </main>
-  <footer><a href="./">Play the netCDF4 shape lesson →</a><a href="/#contributed-to">All contributions ↗</a></footer>
+  <footer><a href="./">Play the netCDF4 shape lesson →</a><a href="reproject.html">Follow a pixel through reproject →</a><a href="/#contributed-to">All contributions ↗</a></footer>
   <script type="module" src="pydicom.js"></script>
 </body>
 </html>

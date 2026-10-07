@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "source": "https://github.com/astropy/reproject/pull/630",
+  "regression": "test_reproject_undefined_inverse",
+  "input": [
+    [
+      1.0,
+      2.0
+    ]
+  ],
+  "shapeOut": [
+    1,
+    2
+  ],
+  "interpolation": "nearest-neighbor",
+  "coordinateMeaning": "Output grid to source grid, then inverse back to output grid. World coordinates are the linear WCS regression values, not sky degrees.",
+  "provenance": "Actual installed-package execution; transformation module hashes match the pinned upstream base and submitted PR head. Package versions are recorded separately. This verifies the two-pixel fixture, not the full upstream suite.",
+  "baseline": {
+    "transformationModuleSha256": "2049ba8a5b1400023c6dbeef74b926cb975b9f05456116894e9ec18574641fd1",
+    "dependencies": {
+      "reproject": "0.21.1.dev174+ga8a2eb458",
+      "numpy": "2.5.3",
+      "astropy": "8.0.1"
+    },
+    "output": [
+      [
+        1.0,
+        2.0
+      ]
+    ],
+    "footprint": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "pixels": [
+      {
+        "outputPixel": [
+          0.0,
+          0.0
+        ],
+        "world": [
+          1.0,
+          1.0
+        ],
+        "sourcePixel": [
+          0.0,
+          0.0
+        ],
+        "inverseOutputPixel": [
+          0.0,
+          0.0
+        ],
+        "validatedSourcePixel": [
+          0.0,
+          0.0
+        ],
+        "distanceRejects": false,
+        "inverseFinite": true,
+        "accepted": true
+      },
+      {
+        "outputPixel": [
+          1.0,
+          0.0
+        ],
+        "world": [
+          2.0,
+          1.0
+        ],
+        "sourcePixel": [
+          1.0,
+          0.0
+        ],
+        "inverseOutputPixel": [
+          "NaN",
+          0.0
+        ],
+        "validatedSourcePixel": [
+          1.0,
+          0.0
+        ],
+        "distanceRejects": false,
+        "inverseFinite": false,
+        "accepted": true
+      }
+    ],
+    "transformationSourceCommit": "a8a2eb458f89114dd531f2767871c4d7d665dcc0"
+  },
+  "proposed": {
+    "transformationModuleSha256": "3e90979dd7b6bc6bc6a4ca0745b64e266f015a88a2b1961060b32fb6f82fee2e",
+    "dependencies": {
+      "reproject": "0.21.1.dev175+g4db1e7bb7.d20260925",
+      "numpy": "2.5.3",
+      "astropy": "8.0.1"
+    },
+    "output": [
+      [
+        1.0,
+        "NaN"
+      ]
+    ],
+    "footprint": [
+      [
+        1.0,
+        0.0
+      ]
+    ],
+    "pixels": [
+      {
+        "outputPixel": [
+          0.0,
+          0.0
+        ],
+        "world": [
+          1.0,
+          1.0
+        ],
+        "sourcePixel": [
+          0.0,
+          0.0
+        ],
+        "inverseOutputPixel": [
+          0.0,
+          0.0
+        ],
+        "validatedSourcePixel": [
+          0.0,
+          0.0
+        ],
+        "distanceRejects": false,
+        "inverseFinite": true,
+        "accepted": true
+      },
+      {
+        "outputPixel": [
+          1.0,
+          0.0
+        ],
+        "world": [
+          2.0,
+          1.0
+        ],
+        "sourcePixel": [
+          1.0,
+          0.0
+        ],
+        "inverseOutputPixel": [
+          "NaN",
+          0.0
+        ],
+        "validatedSourcePixel": [
+          "NaN",
+          "NaN"
+        ],
+        "distanceRejects": false,
+        "inverseFinite": false,
+        "accepted": false
+      }
+    ],
+    "transformationSourceCommit": "2ecb4b18997b9435f3c518f4462a34e68cffd4aa"
+  }
+}

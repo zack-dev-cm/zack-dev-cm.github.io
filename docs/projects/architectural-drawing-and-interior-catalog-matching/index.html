@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Architectural Drawing and Interior Catalog Matching | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets." />
+    <meta name="description" content="Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Architectural Drawing and Interior Catalog Matching" />
-    <meta property="og:description" content="Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow." />
+    <meta property="og:description" content="Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Architectural Drawing and Interior Catalog Matching" />
-    <meta name="twitter:description" content="Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow." />
+    <meta name="twitter:description" content="Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused." />
     <meta property="og:image" content="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-poster.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="B3000 cabinet fitted between adjoining units under a continuous counter in a furnished workroom with a courtyard" />
@@ -27,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/#case-study",
       "headline": "Architectural Drawing and Interior Catalog Matching",
       "name": "Architectural Drawing and Interior Catalog Matching",
-      "description": "Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.",
+      "description": "Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.",
       "url": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/architectural-drawing-and-interior-catalog-matching/",
       "author": {
@@ -113,11 +113,6 @@
       "workExample": [
             {
                   "@type": "CreativeWork",
-                  "name": "Run the full workflow",
-                  "url": "https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace"
-            },
-            {
-                  "@type": "CreativeWork",
                   "name": "Explore catalog in 3D",
                   "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/"
             },
@@ -125,6 +120,11 @@
                   "@type": "CreativeWork",
                   "name": "Watch the complete film",
                   "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Catalog source notes",
+                  "url": "https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html"
             }
       ]
 }
@@ -148,18 +148,18 @@
         <header class="hero">
           <p class="eyebrow">Case study</p>
           <h1>Architectural Drawing and Interior Catalog Matching</h1>
-          <p class="lede">Upload a drawing and furniture catalog. Compare supported matches, check dimensions and see selected furniture in a furnished room. Three real source sets and an interactive 3D film show the complete flow.</p>
-          <nav class="research-actions" aria-label="Project actions"><a class="research-action research-action--primary" href="https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace">Run the full workflow</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/architectural-catalog/">Explore catalog in 3D</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4">Watch the complete film</a></nav>
+          <p class="lede">Explore drawing-to-catalog matching, dimension checks and a furnished-room fit in an eight-stage 3D guide. Three recorded source sets show the workflow; live generation is currently paused.</p>
+          <nav class="research-actions" aria-label="Project actions"><a class="research-action research-action--primary" href="https://zack-dev-cm.github.io/docs/architectural-catalog/">Explore catalog in 3D</a><a class="research-action" href="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4">Watch the complete film</a></nav>
           <figure><video class="visual" controls playsinline preload="none" poster="/docs/architectural-catalog/media/catalog-poster.jpg" aria-label="From drawing and catalog through cabinet storage, size and finish to a furnished room"><source src="/docs/architectural-catalog/media/catalog-film.mp4" type="video/mp4" /><track kind="captions" src="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog.vtt" srclang="en" label="English" /><a href="/docs/architectural-catalog/media/catalog-film.mp4">Open video</a></video><figcaption>Eight stages explain choosing a cabinet, checking its size and fitting it between neighbouring units. A gentle final orbit shows the whole room.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>The working MVP accepts new PDF, PNG or JPEG drawings and furniture catalogs, using a Codex Mode 1 agent with GPT-6.1 sol and max reasoning to choose page searches, selective OCR, visual inspection and supported catalog candidates. The agent reviews nominal width, height and depth against optional available-space constraints, directs built-in ImageGen to stage the selected furniture in a furnished room, visually reviews the actual result and packages hash-verified artifacts. Three real source sets include an annotated Case Systems elevation with its 306-page catalog, IKEA ENHET manufacturer combinations and Herman Miller OE1 technical drawings. Manufacturer example drawings are not independent measured rooms. Unmatched items and revision conflicts stay visible. The 64-second interactive companion explains eight stages and places the cabinet between adjoining units under a continuous counter, with upper storage, a worktable, chairs and a courtyard. Exact nominal width fit, infill and a blocked oversized placement have distinct behavior. Installed geometry, quantities, prices and installation tolerances still require supporting evidence.</p>
+          <p>Live generation is currently paused. The public eight-stage 3D guide, recorded source examples and downloadable film remain available. The implemented MVP accepts new PDF, PNG or JPEG drawings and furniture catalogs, using a Codex Mode 1 agent with GPT-6.1 sol and max reasoning to choose page searches, selective OCR, visual inspection and supported catalog candidates. The agent reviews nominal width, height and depth against optional available-space constraints, directs built-in ImageGen to stage the selected furniture in a furnished room, visually reviews the actual result and packages hash-verified artifacts. Three real source sets include an annotated Case Systems elevation with its 306-page catalog, IKEA ENHET manufacturer combinations and Herman Miller OE1 technical drawings. Manufacturer example drawings are not independent measured rooms. Unmatched items and revision conflicts stay visible. The 64-second interactive companion explains eight stages and places the cabinet between adjoining units under a continuous counter, with upper storage, a worktable, chairs and a courtyard. Exact nominal width fit, infill and a blocked oversized placement have distinct behavior. Installed geometry, quantities, prices and installation tolerances still require supporting evidence.</p>
         </section>
         <section><h2>A grounded example</h2><p>B3000 appears on page 1 of the original elevation template and resolves to page 27 of the recovered catalog: one upper drawer, two hinged doors and one adjustable shelf. B3100 appears on page 3 and resolves to page 28: two side-by-side upper drawers above the same two-door lower compartment. The 3D study makes this difference visible and lets visitors open, separate and select the components.</p></section>
 <section><h2>Dimensions and review</h2><p>The initial model uses a catalog-allowed 36 W x 34 H x 24 D inch configuration. The width control explores a reviewed subset of allowed variants. Installed sizes still need drawing evidence; repeated callouts across views do not establish physical quantity. Finish, hardware and movement are illustrative. The recovered mapping also contains useful failure cases: W0100 is a two-door wall cabinet, and R1000 is a wall scribing filler.</p></section>
-<section><h2>A functional full workflow</h2><p>A real Codex Mode 1 CLI agent uses GPT-6.1 sol with max reasoning and the installed ImageGen, design and PDF drawing-reading skills. It chooses the matching strategy, inspects actual document pixels and native/OCR text, reviews evidence, generates a furnished-room concept and packages the result. Independent tools verify original hashes, quotations, page coordinates, nominal fit arithmetic and phase receipts. The Mac executes the agent through this project&#39;s own reverse SSH bridge; Hypnos runs the owner-scoped API without loading a GPU model. Completed examples remain available when the Mac is offline.</p></section>
-<section><h2>Bring your files</h2><p>Choose one drawing and one catalog as PDF, PNG or JPEG, up to 16 MiB each: 32 drawing pages or 500 catalog pages. Match &amp; render validates both files and starts processing in one action. Room direction, finish and available width, height and depth are optional. Processing updates, elapsed time and completed outputs appear on the same page. An optional preview action lets you inspect the files first. Review the matches and fit, then download the room PNG, draft BOM CSV and full ZIP. Original files stay private and are excluded from exports; source access expires after 24 hours.</p></section>
+<section><h2>A functional full workflow</h2><p>A real Codex Mode 1 CLI agent uses GPT-6.1 sol with max reasoning and the installed ImageGen, design and PDF drawing-reading skills. It chooses the matching strategy, inspects actual document pixels and native/OCR text, reviews evidence, generates a furnished-room concept and packages the result. Independent tools verify original hashes, quotations, page coordinates, nominal fit arithmetic and phase receipts. The Mac executes the agent through this project&#39;s own reverse SSH bridge; Hypnos runs the owner-scoped API without loading a GPU model. The public 3D guide and film remain available while live generation is paused.</p></section>
+<section><h2>Document intake when generation is active</h2><p>Live generation is currently paused. The implemented intake accepts one drawing and one catalog as PDF, PNG or JPEG, up to 16 MiB each: 32 drawing pages or 500 catalog pages. Match &amp; render validates both files and starts processing in one action. Room direction, finish and available width, height and depth are optional. Processing updates, elapsed time and completed outputs appear on the same page. An optional preview action lets you inspect the files first. Review the matches and fit, then download the room PNG, draft BOM CSV and full ZIP. Original files stay private and are excluded from exports; source access expires after 24 hours.</p></section>
 <section><h2>Three grounded source sets</h2><p>The recovered annotated Case Systems elevation includes red W0100 revisions over black W2052 labels, which require a revision check. IKEA ENHET uses actual combination drawings from the March 2026 buying guide; Herman Miller OE1 uses its actual dimension drawings and product sheet. The latter two drawings come from their respective catalog documents, so their room staging is authored rather than a recovered site measurement. The original B3000/B3100 casework walkthrough remains available beside the general workspace.</p></section>
         <section aria-label="Additional project figures"><h2>Project figures</h2><div class="figure-gallery"><figure><a class="figure-link" href="/docs/architectural-catalog/media/catalog-open.jpg" aria-label="Open full-size figure 2: B3000 and B3100 cabinets with doors and drawers open and components separated"><img class="visual" src="/docs/architectural-catalog/media/catalog-open.jpg" alt="B3000 and B3100 cabinets with doors and drawers open and components separated" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Inspect the drawer, door and shelf facts from catalog pages 27 and 28.</figcaption></figure><figure><a class="figure-link" href="/docs/architectural-catalog/media/b3000-interior.webp" aria-label="Open full-size figure 3: Actual ImageGen output from the B3000 grounded full workflow, showing one upper drawer and two lower doors"><img class="visual" src="/docs/architectural-catalog/media/b3000-interior.webp" alt="Actual ImageGen output from the B3000 grounded full workflow, showing one upper drawer and two lower doors" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded B3000 run: original drawing p. 1, catalog p. 27, agent review and fresh ImageGen. Illustrative oak finish; nominal 36-inch variant.</figcaption></figure><figure><a class="figure-link" href="/docs/architectural-catalog/media/b3100-interior.webp" aria-label="Open full-size figure 4: Actual ImageGen output from the B3100 grounded full workflow, showing two upper drawers side by side and two lower doors"><img class="visual" src="/docs/architectural-catalog/media/b3100-interior.webp" alt="Actual ImageGen output from the B3100 grounded full workflow, showing two upper drawers side by side and two lower doors" loading="lazy" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Recorded B3100 run: original drawing p. 3, catalog p. 28, agent review and fresh ImageGen. Inspect every phase and download the result in the live demo.</figcaption></figure></div></section>
         <section>
@@ -203,7 +203,6 @@
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/workspace">Run the full workflow</a></li>
         <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/">Explore catalog in 3D</a></li>
         <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4">Watch the complete film</a></li>
         <li><a href="https://zack-dev-cm.github.io/docs/architectural-catalog/sources.html">Catalog source notes</a></li>

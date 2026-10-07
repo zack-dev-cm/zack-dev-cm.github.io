@@ -62,4 +62,6 @@ film's self-review for the regenerated media; the GitHub activity feed was not
 changed.
 
 Open the [interactive story](https://zack-dev-cm.github.io/docs/architectural-catalog/)
-or [functional demo](https://architectural-catalog-demo.arch-catalog-demo-20261001.workers.dev/).
+and [complete film](https://zack-dev-cm.github.io/docs/architectural-catalog/media/catalog-film.mp4).
+Live generation is currently paused; the functional service described in this
+dated note records the earlier implementation.

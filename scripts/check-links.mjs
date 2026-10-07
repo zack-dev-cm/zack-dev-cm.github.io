@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { classifyLinkResults } from './link-results.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -100,9 +101,6 @@ for (const file of urlSourceFiles) {
 }
 const urls = [...new Set(urlMatches)].sort();
 
-const warningStatuses = new Set([401, 403, 429, 999]);
-const botGatedWarningStatuses = new Set([401, 403, 429, 503, 999]);
-const botGatedHosts = ['chrome-stats.com', 'linkedin.com', 't.me', 'twitter.com', 'x.com'];
 const siteHost = 'zack-dev-cm.github.io';
 const ignoredUrls = new Set([
   'https://fonts.googleapis.com',
@@ -207,22 +205,6 @@ const checkUrl = async (url) => {
   }
 };
 
-const isBotGatedHost = (url) => {
-  try {
-    const hostname = new URL(url).hostname.toLowerCase().replace(/^www\./, '');
-    return botGatedHosts.some((host) => hostname === host || hostname.endsWith(`.${host}`));
-  } catch {
-    return false;
-  }
-};
-
-const requiresManualReview = (result) => {
-  if (result.status === 'error' && isBotGatedHost(result.url)) return true;
-  if (typeof result.status !== 'number') return false;
-  if (warningStatuses.has(result.status)) return true;
-  return botGatedWarningStatuses.has(result.status) && isBotGatedHost(result.url);
-};
-
 if (urls.length === 0) {
   console.log('No external links found to check.');
   process.exitCode = process.exitCode || 0;
@@ -243,15 +225,7 @@ if (urls.length === 0) {
 
   await Promise.all(Array.from({ length: Math.min(concurrency, queue.length) }, () => worker()));
 
-  const warnings = results.filter(requiresManualReview);
-  const failures = results.filter((result) => {
-    if (result.status === 'error' || result.status === 'invalid') return true;
-    if (typeof result.status === 'number') {
-      if (requiresManualReview(result)) return false;
-      return result.status >= 400;
-    }
-    return false;
-  });
+  const { warnings, failures } = classifyLinkResults(results);
 
   if (warnings.length > 0) {
     console.warn('Links requiring manual review:');

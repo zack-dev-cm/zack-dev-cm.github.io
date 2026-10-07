@@ -11,13 +11,14 @@ import {chromium} from 'playwright';
 import {publishFiles} from '../engineering-studies/publish.mjs';
 import {chaptersFor,DURATION} from '../../../public/architectural-catalog/timeline.js';
 import {checkComposition} from './composition-review.mjs';
+import {isPublicOutput} from './output-path.mjs';
 
 const PUBLIC=fileURLToPath(new URL('../../../public/',import.meta.url));
 const ROOT=path.join(PUBLIC,'architectural-catalog');
 const language=process.argv.includes('--lang=ru')?'ru':'en',outputIndex=process.argv.indexOf('--output');
 assert(outputIndex<0||process.argv[outputIndex+1],'Provide an output directory');
 const OUTPUT=outputIndex<0?ROOT:path.resolve(process.argv[outputIndex+1]);
-assert(language!=='ru'||(outputIndex>=0&&!OUTPUT.startsWith(PUBLIC)),'Save the Russian version outside the public portfolio');
+assert(language!=='ru'||(outputIndex>=0&&!isPublicOutput(OUTPUT,PUBLIC)),'Save the Russian version outside the public portfolio');
 const CHAPTERS=chaptersFor(language);
 fs.mkdirSync(path.join(OUTPUT,'media'),{recursive:true});
 fs.mkdirSync(path.join(OUTPUT,'models'),{recursive:true});

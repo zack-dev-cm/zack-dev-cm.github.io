@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A pixel needs a way back — reproject contribution lab</title>
+  <meta name="description" content="Follow two image pixels through a coordinate round trip. Play, seek and inspect the source-verified regression behind Astropy reproject PR #630.">
+  <link rel="canonical" href="https://zack-dev-cm.github.io/docs/contribution-lab/reproject.html">
+  <link rel="icon" href="../engineering-studies/icon.svg"><link rel="stylesheet" href="reproject.css">
+  <script type="importmap">{"imports":{"three":"../engineering-studies/vendor/three.module.min.js","three/addons/controls/OrbitControls.js":"../engineering-studies/vendor/OrbitControls.js"}}</script>
+</head>
+<body>
+  <a class="skip" href="#explore">Skip to pixel controls</a>
+  <header><a href="/#contributed-to">ZP / Contributions</a><a href="https://github.com/astropy/reproject/pull/630">Astropy reproject · PR #630 ↗</a></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">Contribution lab / Coordinate round trips</p><h1>A pixel needs<br><em>a way back.</em></h1></div><p class="lede">Two neighboring image pixels map forward. One cannot return. Follow their coordinates, then compare the old check with the proposed correction.</p></section>
+    <div class="workbench">
+      <section class="stage" aria-label="Guided coordinate example">
+        <div class="transport"><button type="button" id="play" class="primary">Play example</button><button type="button" id="restart">Restart</button><span id="play-state" role="status">Paused · ready to play</span></div>
+        <div class="timeline"><div class="range-label"><label for="timeline">Example timeline</label><output id="time">0:00 / 0:36</output></div><input id="timeline" type="range" min="0" max="36" step="0.05" value="0" aria-valuetext="0 seconds: Two pixels"></div>
+        <div class="scene-head"><span>Output grid → source image → return check</span><b>Two-pixel regression</b></div>
+        <canvas id="coordinate-scene" hidden aria-label="Linked output, source and inverse coordinate planes. All coordinates and results are also available as text below."></canvas>
+        <p id="scene-status" role="status">Loading the 3D view. The coordinate readout and result grid work without it.</p>
+        <p class="scene-note">Depth separates coordinate frames. An undefined return has no plotted point.</p>
+        <div class="camera" hidden><button type="button" id="reset-view">Reset view</button><button type="button" id="front-view">Front view</button><span>Drag to orbit · scroll to zoom</span></div>
+        <div class="chapters" aria-label="Example chapters"><button type="button" data-chapter="0" aria-current="step">01 · Two pixels</button><button type="button" data-chapter="1">02 · Valid return</button><button type="button" data-chapter="2">03 · Missing return</button><button type="button" data-chapter="3">04 · Old check</button><button type="button" data-chapter="4">05 · Correction</button><button type="button" data-chapter="5">06 · Result</button></div>
+        <section id="explore" tabindex="-1" class="explore" aria-labelledby="explore-title"><h2 id="explore-title">Inspect either pixel</h2><p>Your selection pauses the tour.</p><div class="pixel-controls"><button type="button" data-pixel="0" aria-pressed="true"><b>Pixel 0</b><span>Valid return · source value 1</span></button><button type="button" data-pixel="1" aria-pressed="false"><b>Pixel 1</b><span>Undefined return · source value 2</span></button></div><div class="modes" aria-label="Validation version"><button type="button" data-mode="baseline" aria-pressed="true">Baseline</button><button type="button" data-mode="proposed" aria-pressed="false">Proposed correction</button></div></section>
+      </section>
+      <section class="explanation" aria-label="Coordinates and numerical result">
+        <div class="narration"><p class="eyebrow" id="stage-label">01 / Two neighboring pixels</p><h2 id="stage-title">Start on the output grid.</h2><p id="stage-copy">Reprojection asks which source value belongs at each output pixel. Both forward mappings are finite in this regression.</p></div>
+        <ol class="coordinate-steps"><li><span>Output pixel</span><strong id="output-coordinate">(0, 0)</strong></li><li><span>World coordinate</span><strong id="world-coordinate">(1, 1)</strong></li><li><span>Source pixel</span><strong id="source-coordinate">(0, 0)</strong></li><li><span>Inverse output pixel</span><strong id="inverse-coordinate">(0, 0)</strong></li></ol>
+        <div class="checks"><p><span>Distance check rejects?</span><b id="distance-check">false</b></p><p><span>Inverse coordinate finite?</span><b id="finite-check">true</b></p><p><span id="decision-version">Baseline decision</span><b id="decision">Accepted</b></p><code id="check-math">abs(0 − 0) &gt; 1 → false</code></div>
+        <div class="results"><h2 id="result-title">Baseline result</h2><p>Image values <span>Input [1, 2]</span></p><div class="result-grid" aria-label="Output image values"><div data-result="0"><span>Pixel 0</span><b id="value-0">1</b></div><div data-result="1"><span>Pixel 1</span><b id="value-1">2</b></div></div><p>Footprint <span>1 = mapped · 0 = unmapped</span></p><div class="result-grid footprint" aria-label="Footprint values"><div><b id="footprint-0">1</b></div><div><b id="footprint-1">1</b></div></div><p class="outcome" id="outcome">The valid pixel is retained.</p></div>
+        <p class="coordinate-note">These are the actual linear WCS values from the PR regression. They are coordinate-test values, not sky angles.</p>
+      </section>
+    </div>
+    <section class="context"><div><p class="eyebrow">Why the change matters</p><h2>NaN defeats a distance-only check.</h2><p>The original check asks whether a returned coordinate moved by more than one pixel. For the undefined neighbor, <code>abs(NaN − 1) &gt; 1</code> is false, so the invalid mapping survives.</p></div><div><p>The proposed change also rejects a nonfinite inverse coordinate. Pixel 1 then becomes <code>NaN</code> with a zero footprint, while pixel 0 keeps value 1. The two modes here replay actual Python outputs from the same two-pixel fixture.</p><a href="https://github.com/astropy/reproject/pull/630/files">Inspect the change and regression ↗</a><details><summary>Source and reproduction</summary><p>PR #630 remains open. This lesson verifies its two-pixel regression. The submitted PR still has an outstanding solar-reference comparison; full-suite validation is described in the PR.</p><p><a href="reproject-fixture.json">Recorded coordinates, arrays and package versions</a> · <a href="export-reproject.py">Fixture exporter</a></p><p>The exporter checks the transformation module against the upstream base and submitted head. The recorded package versions are listed separately.</p></details></div></section>
+    <noscript><p>The regression input is [1, 2]. Baseline output is [1, 2] with footprint [1, 1]. The proposed output is [1, NaN] with footprint [1, 0]. Pixel 1 has inverse coordinate (NaN, 0). JavaScript enables playback and selection; the source and recorded fixture remain readable.</p></noscript>
+  </main>
+  <footer><a href="./">Explore the netCDF4 shape lesson →</a><a href="pydicom.html">Play the pydicom lookup lesson →</a><a href="/#contributed-to">All contributions ↗</a></footer>
+  <script type="module" src="reproject.js"></script>
+</body>
+</html>
