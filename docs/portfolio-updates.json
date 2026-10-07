@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-10-07T16:09:27.123Z",
+  "lastSyncedAt": "2026-10-07T16:43:58.857Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-10-07",
-    "syncedAt": "2026-10-07T16:09:27.123Z",
+    "syncedAt": "2026-10-07T16:43:58.857Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",

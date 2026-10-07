@@ -176,18 +176,28 @@
     "title": "ML Papers, Read for Builders",
     "url": "https://zack-dev-cm.github.io/papers/",
     "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-    "reviewCount": 11,
-    "updatedAt": "2026-06-15T09:31:56.842Z",
-    "summary": "The ML Papers, Read for Builders feed has 11 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation; Arbor: Tree Search as a Cognition Layer for Autonomous Agents.",
+    "reviewCount": 12,
+    "updatedAt": "2026-10-07T16:44:00.226Z",
+    "summary": "The ML Papers, Read for Builders feed has 12 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities; TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation.",
     "latest": [
+      {
+        "title": "Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities",
+        "arxivId": "2610.03894",
+        "tags": [
+          "agents",
+          "runtime",
+          "evaluation",
+          "cs.AI"
+        ],
+        "paperUrl": "https://arxiv.org/abs/2610.03894"
+      },
       {
         "title": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
         "arxivId": "2606.13714",
         "tags": [
           "computer-vision",
           "multimodal",
-          "evaluation",
-          "cs.CV"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.13714"
       },
@@ -210,16 +220,6 @@
           "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.11337"
-      },
-      {
-        "title": "Business World Model",
-        "arxivId": "2606.10044",
-        "tags": [
-          "agents",
-          "runtime",
-          "evaluation"
-        ],
-        "paperUrl": "https://arxiv.org/abs/2606.10044"
       }
     ]
   },

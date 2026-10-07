@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-06-15T09:31:56.842Z",
+  "updatedAt": "2026-10-07T16:44:00.226Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -23,7 +23,7 @@
       "id": "yannic-kilcher-cvpr",
       "label": "Yannic Kilcher / CVPR source watch",
       "status": "watch-only",
-      "checkedAt": "2026-06-15",
+      "checkedAt": "2026-10-07",
       "note": "Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.",
       "sources": [
         {
@@ -38,6 +38,66 @@
     }
   ],
   "reviews": [
+    {
+      "id": "proxy-confidence-auditing-black-box-llm-agents-with-a-surrogate-s-log-probabilities-2610-03894",
+      "title": "Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities",
+      "dek": "The useful contract is operational: can agent leave enough state for another engineer to debug the next run?",
+      "language": "en",
+      "selectedAt": "2026-10-07T16:44:00.226Z",
+      "paperUrl": "https://arxiv.org/abs/2610.03894",
+      "pdfUrl": "https://arxiv.org/pdf/2610.03894",
+      "arxivId": "2610.03894",
+      "authors": [
+        "Yikai Zhao",
+        "Saurabh Pandey",
+        "Pradeep Kumar Misra"
+      ],
+      "publishedAt": "Wed, 07 Oct 2026 00:00:00 -0400",
+      "updatedAt": "Wed, 07 Oct 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation",
+        "cs.AI"
+      ],
+      "selectionScore": 218,
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "The paper is worth a builder's time because it turns agent into a mechanism a team can test: A deployed LLM agent emits tool calls, queries, and code that can be silently wrong -- by the time the error surfaces, the action has run. The weak spot to inspect: We recover the missing signal from a low-cost open-weight surrogate run in parallel.",
+      "whatItClaims": "Yikai Zhao, Saurabh Pandey, Pradeep Kumar Misra frame Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities around this core move: A deployed LLM agent emits tool calls, queries, and code that can be silently wrong -- by the time the error surfaces, the action has run.",
+      "technicalHinge": "The hinge is the cognition layer around agent: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
+      "productionAngle": "Prototype Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. The abstract already hints at pressure to test: We recover the missing signal from a low-cost open-weight surrogate run in parallel. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "readingPath": [
+        "Start with the problem sentence: what limitation in current practice does Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities actually attack?",
+        "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
+        "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "A deployed LLM agent emits tool calls, queries, and code that can be silently wrong -- by the time the error surfaces, the action has run.",
+      "claimAtoms": [
+        "agent",
+        "agents",
+        "proxy confidence",
+        "auditing black",
+        "generative likelihood localizes"
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2610.03894"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2610.03894"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
     {
       "id": "tsa-temporal-slot-activation-for-persistent-object-centric-video-representation-2606-13714",
       "title": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
@@ -66,11 +126,10 @@
       "tags": [
         "computer-vision",
         "multimodal",
-        "evaluation",
-        "cs.CV"
+        "evaluation"
       ],
       "selectionScore": 220,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "The paper is worth a builder's time because it turns representation into a mechanism a team can test: We show that this design violates a basic lifecycle requirement for persistent slots: when an object is absent or fully occluded, its slot should preserve its previous state and avoid. The weak spot to inspect: Instead, unconditional propagation creates two failure pathways: update-induced state drift, where current-frame evidence overwrites the absent.",
       "whatItClaims": "Duc Nguyen, Sieu Tran, Hao Vo and 6 more frame TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation around this core move: We show that this design violates a basic lifecycle requirement for persistent slots: when an object is absent or fully occluded, its slot should preserve its previous state and avoid explaining unrelated visible content.",
       "technicalHinge": "The hinge is evidence routing around representation: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.",
@@ -80,14 +139,6 @@
         "Start with the problem sentence: what limitation in current practice does TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation actually attack?",
         "Find the ablation or comparison that isolates representation. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "Unsupervised video object-centric learning aims to decompose dynamic scenes into temporally persistent entity representations.",
-      "claimAtoms": [
-        "representation",
-        "temporal slot activation for persistent object",
-        "centric video representation",
-        "when",
-        "decoder-induced reconstruction interference"
       ],
       "sourceLedger": [
         {
