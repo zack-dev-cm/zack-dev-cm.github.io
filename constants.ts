@@ -238,7 +238,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "imagegen",
     displayName: "Image Gen",
-    downloads: 1338,
+    downloads: 1339,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/imagegen",
@@ -364,7 +364,7 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "agentic-video-production-publisher",
     displayName: "Agentic Video Production Reviewer",
-    downloads: 892,
+    downloads: 893,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentic-video-production-publisher",
@@ -729,7 +729,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "rating": 3.5,
       "ratingCount": 2,
       "version": "4.1.3",
-      "lastUpdated": "2026-06-17",
+      "lastUpdated": "2026-06-18",
       "category": "Workflow & Planning",
       "sizeKb": 102
     },
@@ -746,7 +746,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "dataIngestedAt": "2026-10-08",
       "rating": 0,
       "version": "0.1.8",
-      "lastUpdated": "2026-06-15",
+      "lastUpdated": "2026-06-16",
       "category": "Just for Fun",
       "sizeKb": 52.37
     },
@@ -774,7 +774,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "dataIngestedAt": "2026-10-08",
       "rating": 0,
       "version": "0.1.0",
-      "lastUpdated": "2026-05-04",
+      "lastUpdated": "2026-05-05",
       "category": "Workflow & Planning",
       "sizeKb": 65.36
     },
@@ -799,12 +799,12 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/soviet-time-retro-filter/chnepoacmffbmhgjgfjoeffemnngcpgi?hl=en",
       "users": 21,
       "usersSource": "Chrome Web Store detail page",
+      "dataIngestedAt": "2026-10-08",
       "rating": 0,
       "version": "0.1.3",
-      "lastUpdated": "2026-06-05",
+      "lastUpdated": "2026-06-06",
       "category": "Just for Fun",
-      "sizeKb": 12.07,
-      "dataIngestedAt": "2026-10-08"
+      "sizeKb": 12.07
     },
     {
       "description": "Summarizes GitHub repository structure and README context for faster code review.",
@@ -826,7 +826,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "rating": 5,
       "ratingCount": 3,
       "version": "1.4.2",
-      "lastUpdated": "2025-07-02",
+      "lastUpdated": "2025-07-03",
       "category": "Developer Tools",
       "sizeKb": 63.09
     },
@@ -957,7 +957,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 46,511 downloads across 53 public skills on 2026-10-08 and refreshed the Chrome Web Store snapshot to 443 visible reported users across 10 observed public listings / 8 displayed rows from 2026-10-08.",
+    description: "Updated the public ClawHub tracker to 46,513 downloads across 53 public skills on 2026-10-08 and refreshed the Chrome Web Store snapshot to 443 visible reported users across 10 observed public listings / 8 displayed rows from 2026-10-08.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -2924,7 +2924,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "46,511", context: "public ClawHub owner profile, 2026-10-08 across 53 skills" },
+      { label: "Tracked ClawHub downloads", value: "46,513", context: "public ClawHub owner profile, 2026-10-08 across 53 skills" },
       { label: "Tracked public skills", value: "53", context: "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-08" },
       { label: "CV Repro Lab downloads", value: "2,574 total", context: "1,400 data-science-cv-repro-lab + 1,174 sota-agent, 2026-10-08" },
       { label: "Strongest skill", value: "3,360 downloads", context: "gstack-review-stack public listing, 2026-10-08" },

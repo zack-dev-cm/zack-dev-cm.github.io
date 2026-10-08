@@ -14,10 +14,10 @@ Topics: Machine Learning, Computer Vision, Document AI, OCR, Segmentation, Objec
 
 ## Research Review Feed
 The ML Papers, Read for Builders feed has 13 automated abstract triage notes with suggested evaluation checks and primary-source links. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities. Human page: https://zack-dev-cm.github.io/papers/. Machine feed: https://zack-dev-cm.github.io/docs/paper-reviews.json.
-- VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness. arXiv: 2610.08936. Tags: computer-vision, robustness, evaluation, cs.CV. Source: https://arxiv.org/abs/2610.08936
-- Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities. arXiv: 2610.03894. Tags: agents, runtime, evaluation, cs.AI, cs.CL, cs.LG. Source: https://arxiv.org/abs/2610.03894
-- TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation. arXiv: 2606.13714. Tags: computer-vision, evaluation, cs.CV. Source: https://arxiv.org/abs/2606.13714
-- Arbor: Tree Search as a Cognition Layer for Autonomous Agents. arXiv: 2606.12563. Tags: agents, runtime, evaluation, cs.AI. Source: https://arxiv.org/abs/2606.12563
+- VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness. arXiv: 2610.08936. Tags: computer-vision, robustness, evaluation. Source: https://arxiv.org/abs/2610.08936
+- Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities. arXiv: 2610.03894. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2610.03894
+- TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation. arXiv: 2606.13714. Tags: computer-vision, evaluation. Source: https://arxiv.org/abs/2606.13714
+- Arbor: Tree Search as a Cognition Layer for Autonomous Agents. arXiv: 2606.12563. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.12563
 
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
@@ -2175,7 +2175,7 @@ Tech Stack:
 - Markdown Reports
 - Open-source Analytics
 Benchmarks & Analytics:
-- Tracked ClawHub downloads: 46,511 (public ClawHub owner profile, 2026-10-08 across 53 skills)
+- Tracked ClawHub downloads: 46,513 (public ClawHub owner profile, 2026-10-08 across 53 skills)
 - Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-08)
 - CV Repro Lab downloads: 2,574 total (1,400 data-science-cv-repro-lab + 1,174 sota-agent, 2026-10-08)
 - Strongest skill: 3,360 downloads (gstack-review-stack public listing, 2026-10-08)

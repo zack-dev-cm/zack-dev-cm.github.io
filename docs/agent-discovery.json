@@ -186,8 +186,7 @@
         "tags": [
           "computer-vision",
           "robustness",
-          "evaluation",
-          "cs.CV"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2610.08936"
       },
@@ -197,10 +196,7 @@
         "tags": [
           "agents",
           "runtime",
-          "evaluation",
-          "cs.AI",
-          "cs.CL",
-          "cs.LG"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2610.03894"
       },
@@ -209,8 +205,7 @@
         "arxivId": "2606.13714",
         "tags": [
           "computer-vision",
-          "evaluation",
-          "cs.CV"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.13714"
       },
@@ -220,8 +215,7 @@
         "tags": [
           "agents",
           "runtime",
-          "evaluation",
-          "cs.AI"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.12563"
       }
@@ -5553,7 +5547,7 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "46,511",
+          "value": "46,513",
           "context": "public ClawHub owner profile, 2026-10-08 across 53 skills"
         },
         {
