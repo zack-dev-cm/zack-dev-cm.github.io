@@ -176,18 +176,28 @@
     "title": "ML Papers, Read for Builders",
     "url": "https://zack-dev-cm.github.io/papers/",
     "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-    "reviewCount": 12,
-    "updatedAt": "2026-10-07T16:44:00.226Z",
-    "summary": "The ML Papers, Read for Builders feed has 12 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities; TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation.",
+    "reviewCount": 13,
+    "updatedAt": "2026-10-08T05:16:42.259Z",
+    "summary": "The ML Papers, Read for Builders feed has 13 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities.",
     "latest": [
+      {
+        "title": "VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness",
+        "arxivId": "2610.08936",
+        "tags": [
+          "computer-vision",
+          "multimodal",
+          "evaluation",
+          "cs.CV"
+        ],
+        "paperUrl": "https://arxiv.org/abs/2610.08936"
+      },
       {
         "title": "Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities",
         "arxivId": "2610.03894",
         "tags": [
           "agents",
           "runtime",
-          "evaluation",
-          "cs.AI"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2610.03894"
       },
@@ -210,16 +220,6 @@
           "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.12563"
-      },
-      {
-        "title": "Can AI Agents Synthesize Scientific Conclusions?",
-        "arxivId": "2606.11337",
-        "tags": [
-          "agents",
-          "runtime",
-          "evaluation"
-        ],
-        "paperUrl": "https://arxiv.org/abs/2606.11337"
       }
     ]
   },

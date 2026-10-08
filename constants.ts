@@ -716,7 +716,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
     {
       "description": "Seamlessly jump, refine, and sync prompts across AI chat tools.",
       "version": "4.1.3",
-      "lastUpdated": "2026-06-17",
+      "lastUpdated": "2026-06-18",
       "category": "Workflow & Planning",
       "id": "jnoonpeekddinkiecaonhocaflcgbhap",
       "name": "AI Chat Navigator",
@@ -732,6 +732,23 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "rating": 3.5,
       "ratingCount": 2,
       "sizeKb": 102
+    },
+    {
+      "description": "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
+      "version": "0.1.8",
+      "lastUpdated": "2026-06-16",
+      "category": "Just for Fun",
+      "id": "dejokbjghdjlhhlddflgolheejdmbgea",
+      "name": "Tab Time Machine",
+      "users": 113,
+      "usersSource": "Chrome Web Store detail page",
+      "createdAt": "2026-05-30",
+      "chromeStatsUrl": "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
+      "productUrl": "https://getgeofix.xyz/",
+      "dataIngestedAt": "2026-10-08",
+      "rating": 0,
+      "sizeKb": 52.37
     },
     {
       "description": "Audits public Skool positioning with local benchmarks and optional Chrome built-in AI critique.",
@@ -750,7 +767,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
     {
       "description": "Exports ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
       "version": "0.1.0",
-      "lastUpdated": "2026-05-04",
+      "lastUpdated": "2026-05-05",
       "category": "Workflow & Planning",
       "id": "pmofpiclpglbdnjgkgijlolefiojjomn",
       "name": "ChatArchive - ChatGPT Exporter",
@@ -760,23 +777,6 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "dataIngestedAt": "2026-10-08",
       "rating": 0,
       "sizeKb": 65.36
-    },
-    {
-      "description": "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
-      "version": "0.1.8",
-      "lastUpdated": "2026-06-15",
-      "category": "Just for Fun",
-      "id": "dejokbjghdjlhhlddflgolheejdmbgea",
-      "name": "Tab Time Machine",
-      "users": 113,
-      "usersSource": "Chrome Web Store detail page",
-      "createdAt": "2026-05-30",
-      "chromeStatsUrl": "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
-      "productUrl": "https://getgeofix.xyz/",
-      "dataIngestedAt": "2026-10-08",
-      "rating": 0,
-      "sizeKb": 52.37
     },
     {
       "description": "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
@@ -795,7 +795,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
     {
       "description": "Saves local browser session snapshots, restores tabs, and exports portable backups.",
       "version": "0.1.9",
-      "lastUpdated": "2026-06-12",
+      "lastUpdated": "2026-06-13",
       "category": "Workflow & Planning",
       "id": "hoklaadapaobdbkeiacebnnciponcmnf",
       "name": "Session Rescue",
@@ -810,7 +810,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
     {
       "description": "Summarizes GitHub repository structure and README context for faster code review.",
       "version": "1.4.2",
-      "lastUpdated": "2025-07-02",
+      "lastUpdated": "2025-07-03",
       "category": "Developer Tools",
       "id": "ccikgbjalcbokaalidnfcjhhbhjoljfm",
       "name": "GitHub Repo Summarizer",

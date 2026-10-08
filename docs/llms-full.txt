@@ -13,11 +13,11 @@ Topics: Machine Learning, Computer Vision, Document AI, OCR, Segmentation, Objec
 - **Inference and delivery:** Profiling, model packaging, evaluation and deployment across cloud and mobile. Examples: [Agnitra - ML Profiling & Optimization](https://zack-dev-cm.github.io/projects/agnitra-ml-profiling-optimization/), [CV Repro Lab Skills](https://zack-dev-cm.github.io/projects/cv-repro-lab-skills/).
 
 ## Research Review Feed
-The ML Papers, Read for Builders feed has 12 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities; TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation. Human page: https://zack-dev-cm.github.io/papers/. Machine feed: https://zack-dev-cm.github.io/docs/paper-reviews.json.
-- Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities. arXiv: 2610.03894. Tags: agents, runtime, evaluation, cs.AI. Source: https://arxiv.org/abs/2610.03894
+The ML Papers, Read for Builders feed has 13 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities. Human page: https://zack-dev-cm.github.io/papers/. Machine feed: https://zack-dev-cm.github.io/docs/paper-reviews.json.
+- VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness. arXiv: 2610.08936. Tags: computer-vision, multimodal, evaluation, cs.CV. Source: https://arxiv.org/abs/2610.08936
+- Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities. arXiv: 2610.03894. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2610.03894
 - TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation. arXiv: 2606.13714. Tags: computer-vision, multimodal, evaluation. Source: https://arxiv.org/abs/2606.13714
 - Arbor: Tree Search as a Cognition Layer for Autonomous Agents. arXiv: 2606.12563. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.12563
-- Can AI Agents Synthesize Scientific Conclusions?. arXiv: 2606.11337. Tags: agents, runtime, evaluation. Source: https://arxiv.org/abs/2606.11337
 
 ## Selected projects
 - [Document AI](https://zack-dev-cm.github.io/projects/document-ai/): R&D for source-linked specialist review: document extraction, deterministic checks and retrieval over reference material.
