@@ -8,9 +8,10 @@ import { fetchWithRetry, updateConstantsSource } from '../scripts/fetch-clawhub-
 import { fetchText, parseDetailPage, parsePublisherListings, updateExtensionRows, writeChromeStats } from '../scripts/fetch-chrome-extension-stats.mjs';
 import { updateStatsSource } from '../scripts/stats-source.mjs';
 import { classifyLinkResults } from '../scripts/link-results.mjs';
-import { isPublicOutput } from '../scripts/media/architectural-catalog/output-path.mjs';
-import { assertDecodedOutput } from '../scripts/media/architectural-catalog/decoded-output.mjs';
+import { assertPreviewDestination, assertPrivateLanguageOutput, isPublicOutput } from '../scripts/media/architectural-catalog/output-path.mjs';
+import { assertDecodedOutput, decodeFreshOutput } from '../scripts/media/architectural-catalog/decoded-output.mjs';
 import { buildMarkdown } from '../scripts/generate-project-markdown.mjs';
+import { fetchText as fetchPaperText } from '../scripts/update-paper-reviews.mjs';
 
 test('stalled response bodies terminate and ClawHub retries are bounded for 200 and 503', { timeout: 10000 }, async (t) => {
   let requests = 0;
@@ -29,6 +30,7 @@ test('stalled response bodies terminate and ClawHub retries are bounded for 200 
     assert.equal(requests - before, 2);
   }
   await assert.rejects(fetchText(`${url}/ok`, 500), { name: 'AbortError' });
+  await assert.rejects(fetchPaperText(`${url}/ok`, 500), { name: 'AbortError' });
 });
 
 test('missing store markup preserves cached metrics and reports a warning', async (t) => {
@@ -46,7 +48,7 @@ test('missing store markup preserves cached metrics and reports a warning', asyn
 test('a partial store refresh excludes stale counts and missing ratings from current totals', async (t) => {
   t.mock.method(globalThis, 'fetch', async (url) => new Response(url.endsWith('/measured') ? '<h1>Measured</h1><span>10 users</span>' : '<h1>No public count</h1>'));
   const { nextStats, warnings, measuredRows } = await updateExtensionRows({ totalPublished: 2, checkedAt: '2026-06-15', extensions: [
-    { id: 'measured', name: 'Measured', chromeWebStoreUrl: 'https://example.test/measured', users: 1, rating: 5, ratingCount: 8 },
+    { id: 'measured', name: 'Measured', chromeWebStoreUrl: 'https://example.test/measured', users: 1, rating: 5, ratingCount: 8, version: 'OLD', lastUpdated: '2026-06-15', category: 'OLD' },
     { id: 'missing', name: 'Missing', chromeWebStoreUrl: 'https://example.test/missing', users: 999, rating: 5, ratingCount: 20 },
   ] });
   assert.equal(measuredRows, 1);
@@ -54,6 +56,7 @@ test('a partial store refresh excludes stale counts and missing ratings from cur
   assert.equal(nextStats.extensions.length, 1);
   assert.equal(nextStats.extensions[0].id, 'measured');
   assert.equal(nextStats.extensions[0].rating, undefined);
+  for (const field of ['version', 'lastUpdated', 'category']) assert.equal(nextStats.extensions[0][field], '');
   assert.equal(nextStats.ratingCount, 0);
   assert.equal(warnings.length, 1);
 });
@@ -98,6 +101,39 @@ test('private-language output cannot enter docs or a symlink to deployed assets'
   await fs.symlink(docsRoot, alias);
   for (const output of [docsRoot, path.join(docsRoot, 'new/nested'), alias, path.join(alias, 'new/nested')]) assert.equal(isPublicOutput(output, publicRoot), true);
   assert.equal(isPublicOutput(path.join(directory, 'private'), publicRoot), false);
+});
+
+test('child media and model symlinks cannot redirect private-language output into public assets', async (t) => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'output-child-containment-'));
+  t.after(() => fs.rm(directory, { recursive: true, force: true }));
+  const publicRoot = path.join(directory, 'public'), docsRoot = path.join(directory, 'docs');
+  await fs.mkdir(publicRoot); await fs.mkdir(docsRoot);
+  for (const child of ['media', 'models']) {
+    const output = path.join(directory, `private-${child}`);
+    await fs.mkdir(output);
+    await fs.symlink(child === 'media' ? publicRoot : docsRoot, path.join(output, child));
+    assert.throws(() => assertPrivateLanguageOutput(output, publicRoot), /outside the public portfolio/);
+  }
+});
+
+test('preview generation cannot overwrite a complete capture and leave its receipt stale', async (t) => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'preview-generation-'));
+  t.after(() => fs.rm(directory, { recursive: true, force: true }));
+  await fs.mkdir(path.join(directory, 'media'));
+  const receipt = path.join(directory, 'media/catalog-capture.json');
+  await fs.writeFile(receipt, 'complete capture receipt');
+  assert.throws(() => assertPreviewDestination(directory), /separate destination/);
+  assert.equal(await fs.readFile(receipt, 'utf8'), 'complete capture receipt');
+  assert.doesNotThrow(() => assertPreviewDestination(path.join(directory, 'fresh-preview')));
+});
+
+test('a successful decoder that writes no new frame cannot reuse an older PNG', async (t) => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'decoded-stale-'));
+  t.after(() => fs.rm(directory, { recursive: true, force: true }));
+  const output = path.join(directory, 'frame.png');
+  await fs.writeFile(output, 'old frame');
+  assert.throws(() => decodeFreshOutput(output, () => ({ status: 0 })), /ENOENT/);
+  await assert.rejects(fs.access(output), { code: 'ENOENT' });
 });
 
 test('explicit zero metrics are measured values, and other absent fields remain null', () => {

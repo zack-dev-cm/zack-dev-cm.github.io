@@ -162,7 +162,7 @@ const normalizePositioningText = (value) => {
 const normalizeTopicTag = (topic) => slugify(normalizePositioningText(topic));
 
 const isPrivateHostname = (hostname) => {
-  const normalized = hostname.trim().toLowerCase();
+  const normalized = hostname.trim().toLowerCase().replace(/^\[|\]$/g, '');
   if (!normalized) return true;
   if (
     normalized === 'localhost' ||
@@ -170,6 +170,11 @@ const isPrivateHostname = (hostname) => {
     normalized === '::1' ||
     normalized.endsWith('.local')
   ) {
+    return true;
+  }
+  if (normalized.includes(':')) {
+    // Public repository homepages use DNS names; literal IPv6 destinations are
+    // omitted rather than risking loopback, link-local or mapped private hosts.
     return true;
   }
   if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(normalized)) {
@@ -183,7 +188,7 @@ const isPrivateHostname = (hostname) => {
   return false;
 };
 
-const isSafePublicUrl = (value) => {
+export const isSafePublicUrl = (value) => {
   if (!value) return false;
   try {
     const parsed = new URL(value);

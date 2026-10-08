@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: daily-portfolio-refresh
+  group: pages-production
   cancel-in-progress: false
 
 jobs:
@@ -102,7 +102,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A constants.ts public/portfolio-updates.json public/paper-reviews.json public/chrome-extension-stats.json docs projects
+          git add -A constants.ts index.html llms.txt llms-full.txt agent-context.md agent-discovery.json geo.txt schema.jsonld sitemap.xml metadata.json public/portfolio-updates.json public/paper-reviews.json public/chrome-extension-stats.json public/images/project-social public/images/portfolio-social-card-ml-ai-products.png docs projects
           if git diff --cached --quiet; then
             echo "Only non-public files changed; skipping commit."
             exit 0
@@ -117,6 +117,17 @@ jobs:
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: .site
+
+      - name: Verify publication is still current
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          expected_publication_sha=$(git rev-parse HEAD)
+          current_publication_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')
+          if [ "$expected_publication_sha" != "$current_publication_sha" ]; then
+            echo "A newer main commit superseded this artifact; refusing to publish it."
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         id: deployment

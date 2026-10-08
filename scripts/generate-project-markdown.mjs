@@ -99,7 +99,7 @@ const readPaperReviewSnapshot = async () => {
 
 const formatPaperReviewSummary = () => {
   if (!paperReviewSnapshot.reviewCount) {
-    return 'The ML Papers, Read for Builders feed publishes source-neutral English ML paper reviews with production tests and source ledgers.';
+    return 'The ML Papers, Read for Builders feed publishes automated abstract triage with suggested evaluation checks and primary-source links.';
   }
   const latestTitles = paperReviewSnapshot.latest
     .slice(0, 2)
@@ -107,7 +107,7 @@ const formatPaperReviewSummary = () => {
     .filter(Boolean)
     .join('; ');
   const latestClause = latestTitles ? ` Latest reviews include ${latestTitles}.` : '';
-  return `The ML Papers, Read for Builders feed has ${paperReviewSnapshot.reviewCount} source-neutral English ML paper reviews with production tests and primary source ledgers.${latestClause}`;
+  return `The ML Papers, Read for Builders feed has ${paperReviewSnapshot.reviewCount} automated abstract triage notes with suggested evaluation checks and primary-source links.${latestClause}`;
 };
 
 const KNOWS_ABOUT = [

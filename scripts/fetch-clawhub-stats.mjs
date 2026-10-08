@@ -171,13 +171,9 @@ export const fetchSkillDetail = async ({ owner, slug, fallback }) => {
   }
 
   const stats = detail.skill?.stats ?? {};
-  const counters = {
-    downloads: Number(stats.downloads ?? fallback.downloads ?? 0),
-    versions: Number(stats.versions ?? 0),
-    stars: Number(stats.stars ?? fallback.stars ?? 0)
-  };
+  const counters = { downloads: stats.downloads, versions: stats.versions, stars: stats.stars };
   for (const [field, value] of Object.entries(counters)) {
-    if (!Number.isSafeInteger(value) || value < 0) throw new Error(`Skill detail ${slug} has invalid ${field}: ${value}`);
+    if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < 0) throw new Error(`Skill detail ${slug} has invalid ${field}: ${value}`);
   }
   return {
     slug,

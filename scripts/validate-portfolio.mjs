@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import ts from 'typescript';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -140,14 +140,13 @@ const getPropertyValue = (objectNode, key) => {
   return property.initializer;
 };
 
-const parseLinks = (node) => {
+export const parseLinks = (node) => {
   if (!node || !ts.isArrayLiteralExpression(node)) return [];
   return node.elements
     .map((element) => {
-      if (!ts.isObjectLiteralExpression(element)) return null;
+      if (!ts.isObjectLiteralExpression(element)) return { text: '', url: '' };
       const text = parseString(getPropertyValue(element, 'text'));
       const url = parseString(getPropertyValue(element, 'url'));
-      if (!text || !url) return null;
       return { text, url };
     })
     .filter(Boolean);
@@ -801,4 +800,4 @@ const main = async () => {
   console.log('Portfolio validation passed.');
 };
 
-await main();
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) await main();

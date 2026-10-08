@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: pages-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'production' }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -71,6 +71,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Verify publication is still current
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          current_publication_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')
+          if [ "$GITHUB_SHA" != "$current_publication_sha" ]; then
+            echo "A newer main commit superseded this artifact; refusing to publish it."
+            exit 1
+          fi
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5.0.0

@@ -240,7 +240,7 @@
     },
     {
       "name": "Open CLIP",
-      "project": "CoCa example",
+      "project": "CoCa example · lucidrains fork",
       "logo": "images/contributions/open-clip.jpg",
       "logoSource": "https://github.com/lucidrains.png?size=96",
       "benefit": "Makes the CoCa text-generation example call the correct model factory.",

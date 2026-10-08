@@ -77,9 +77,15 @@
   "projects": [
     {
       "name": "Neuralink datarepo",
-      "status": "Independent open-source contributions | 3 open PRs",
+      "status": "Independent open-source contributions | 7 merged PRs",
       "url": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/",
-      "text": "Submitted fixes for ClickHouse null filtering, a runnable local quick start and Python wheel compatibility. Published patches and real-backend regression evidence; awaiting upstream review as of 8 Sep 2026."
+      "text": "Contributed merged fixes for query row identity, Parquet partition pruning, null filtering, generated Python literals and credential refresh, plus reproducible setup and wheel compatibility. Status checked 8 Oct 2026."
+    },
+    {
+      "name": "Unidata netCDF4",
+      "status": "Independent open-source contribution | 1 merged PR",
+      "url": "https://github.com/Unidata/netcdf4-python/pull/1499",
+      "text": "Preserved array dimensions and scalar-axis behavior for empty orthogonal indexing, with regression coverage for scientific-data selections. Status checked 8 Oct 2026."
     },
     {
       "name": "InQuest",
@@ -95,9 +101,9 @@
     },
     {
       "name": "LigninQC",
-      "status": "Research tooling | In progress",
+      "status": "Released research tooling | v1.0.0",
       "url": "https://zack-dev-cm.github.io/projects/ligninqc-reproducible-scientific-research-workflows/",
-      "text": "Built a reproducible literature-discovery and audit pipeline for computational lignin research, with publication-version grouping and traceable extraction schemas."
+      "text": "Released an offline Python package reanalysing two published chemistry cases, with attributed source tables, explicit assumptions and reproducible reports. The package checks selected published data; it does not independently validate the experiments."
     },
     {
       "name": "Vehicle Lab",
@@ -121,5 +127,5 @@
     }
   ],
   "education": "Siberian Federal University | Computer Science & Microelectronic Engineering | 2007-2012",
-  "updated": "2026-09-08"
+  "updated": "2026-10-08"
 }

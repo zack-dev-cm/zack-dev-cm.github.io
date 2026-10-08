@@ -6,7 +6,7 @@
     <title>ML Papers, Read for Builders | Zakhar Pashkin</title>
     <meta
       name="description"
-      content="Source-neutral English ML paper reviews for builders: editor verdicts, production tests, skepticism, and primary paper source ledgers."
+      content="ML paper abstract triage for builders: source excerpts, suggested evaluation checks, and primary paper links."
     />
     <link rel="canonical" href="https://zack-dev-cm.github.io/papers/" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -464,8 +464,8 @@
           <p class="eyebrow">Research digest</p>
           <h1>ML Papers, Read for Builders.</h1>
           <p class="lead">
-            A source-neutral review feed for turning fresh ML papers into implementation judgment:
-            what the paper claims, what would matter in production, and what to verify before trusting it.
+            Automated abstract triage for fresh ML papers: a short source excerpt,
+            evaluation questions and suggested checks to guide a closer reading.
           </p>
         </div>
       </section>
@@ -477,7 +477,7 @@
         </div>
         <div class="proof">
           <strong>Primary sources</strong>
-          <span>paper and PDF links only</span>
+          <span>paper and PDF linked</span>
         </div>
         <div class="proof">
           <strong>Daily refresh</strong>
@@ -594,6 +594,7 @@
             <h2>${escapeHtml(review.title)}</h2>
             <p class="dek">${escapeHtml(review.dek)}</p>
             <p class="meta">${escapeHtml(authors)}${escapeHtml(more)}</p>
+            <p class="meta">${review.readingScope === 'abstract' ? 'Automated abstract triage · suggested checks are unrun' : 'Reading scope unrecorded'}</p>
             <div class="chips">${tags}</div>
           </div>
           <div class="article-body">
@@ -602,15 +603,15 @@
             </section>
             <div class="article-grid">
               <section class="note">
-                <h3>What the paper claims</h3>
+                <h3>Abstract claim excerpt</h3>
                 <p>${escapeHtml(review.whatItClaims)}</p>
               </section>
               <section class="note">
-                <h3>Technical hinge</h3>
+                <h3>Evaluation question</h3>
                 <p>${escapeHtml(review.technicalHinge)}</p>
               </section>
               <section class="note">
-                <h3>Production test</h3>
+                <h3>Suggested test · unrun</h3>
                 <p>${escapeHtml(review.productionAngle)}</p>
               </section>
               <section class="note">
@@ -669,7 +670,7 @@
             (item) => `
               <div class="archive-item" role="group">
                 <strong>${escapeHtml(item.label)}</strong>
-                <span>${escapeHtml(item.status || 'watch-only')} / checked ${escapeHtml(formatDate(item.checkedAt))}</span>
+                <span>${escapeHtml(item.status || 'watch-only')}${item.checkedAt ? ` / checked ${escapeHtml(formatDate(item.checkedAt))}` : ' / reference links'}</span>
                 <p class="muted">${escapeHtml(item.note)}</p>
                 <div class="link-row">${renderLinks(item.sources)}</div>
               </div>

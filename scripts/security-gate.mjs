@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { compilePolicy, containsWithdrawnCopy, scanPublishedAssets } from './disclosure-policy.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,10 +24,7 @@ const SKIP_UNTRACKED_DIRECTORIES = new Set([
   '.site',
 ]);
 
-const SKIP_PREFIXES = [
-  'public/images/',
-  'public/company-logos/',
-];
+const SKIP_PREFIXES = [];
 
 const TEXT_EXTENSIONS = new Set([
   '.css',
@@ -202,16 +199,16 @@ const isTrackedDirectory = (relativePath) => {
   return false;
 };
 
-const collectFiles = async (directory) => {
+export const collectFiles = async (directory, rootDir = ROOT_DIR) => {
   const entries = await fs.readdir(directory, { withFileTypes: true });
   const files = [];
   for (const entry of entries) {
     const absolutePath = path.join(directory, entry.name);
-    const relativePath = toRelative(absolutePath);
+    const relativePath = path.relative(rootDir, absolutePath).split(path.sep).join('/');
     if (entry.isDirectory()) {
       if (SKIP_DIRECTORIES.has(entry.name) || isSkipped(`${relativePath}/`)) continue;
       if (SKIP_UNTRACKED_DIRECTORIES.has(entry.name) && !isTrackedDirectory(relativePath)) continue;
-      files.push(...await collectFiles(absolutePath));
+      files.push(...await collectFiles(absolutePath, rootDir));
       continue;
     }
     if (!entry.isFile()) continue;
@@ -244,13 +241,31 @@ const collectPublicPdfs = async (directory) => {
 
 const lineNumberForIndex = (text, index) => text.slice(0, index).split('\n').length;
 
-const scanPatterns = (relativePath, text, patterns) => {
+const findPatternViolations = (relativePath, text, patterns) => {
+  const violations = [];
   for (const [label, pattern] of patterns) {
     pattern.lastIndex = 0;
     const match = pattern.exec(text);
     if (match) {
-      errors.push(`${relativePath}:${lineNumberForIndex(text, match.index)} contains ${label}`);
+      violations.push(`${relativePath}:${lineNumberForIndex(text, match.index)} contains ${label}`);
     }
+  }
+  return violations;
+};
+
+export const getSecretViolations = (relativePath, text) => findPatternViolations(relativePath, text, SECRET_PATTERNS);
+const scanPatterns = (relativePath, text, patterns) => errors.push(...findPatternViolations(relativePath, text, patterns));
+
+export const readFileForLeakScan = async (file) => {
+  try {
+    return await fs.readFile(file.absolutePath, 'utf8');
+  } catch (error) {
+    const detail = error?.message || 'read failed';
+    if (isPublicSurface(file.relativePath) || isTrackedFile(file.relativePath) || isSecretBearingPath(file.relativePath)) {
+      throw new Error(`${file.relativePath}: could not read tracked, public or secret-bearing file for leak scan (${detail})`);
+    }
+    console.warn(`${file.relativePath}: skipped unreadable non-public file (${detail})`);
+    return null;
   }
 };
 
@@ -352,10 +367,35 @@ const assertHiddenPublishingSurfacesAreNotPublished = async () => {
   }
 };
 
+export const validateCsp = (value) => {
+  const violations = [];
+  const directives = new Map();
+  for (const part of String(value).split(';')) {
+    const [name, ...sources] = part.trim().split(/\s+/);
+    if (!name) continue;
+    const key = name.toLowerCase();
+    if (directives.has(key)) violations.push(`duplicate ${key} directive`);
+    else directives.set(key, sources);
+  }
+  if (!directives.get('default-src')?.length) violations.push('missing default-src sources');
+  for (const name of ['object-src', 'frame-ancestors']) {
+    const sources = directives.get(name);
+    if (sources?.length !== 1 || sources[0] !== "'none'") violations.push(`${name} must be exactly 'none'`);
+  }
+  if (!directives.has('upgrade-insecure-requests') || directives.get('upgrade-insecure-requests').length) {
+    violations.push('upgrade-insecure-requests must be a valueless directive');
+  }
+  return violations;
+};
+
 const assertHeaderValue = (sourceLabel, headerMap, headerName) => {
   const value = headerMap.get(headerName);
   if (!value) {
     errors.push(`${sourceLabel}: missing ${headerName}`);
+    return;
+  }
+  if (headerName === 'Content-Security-Policy') {
+    errors.push(...validateCsp(value).map(detail => `${sourceLabel}: ${headerName}: ${detail}`));
     return;
   }
   for (const requiredFragment of REQUIRED_SECURITY_HEADERS.get(headerName) || []) {
@@ -491,16 +531,12 @@ const main = async () => {
   for (const file of files) {
     let text;
     try {
-      text = await fs.readFile(file.absolutePath, 'utf8');
+      text = await readFileForLeakScan(file);
     } catch (error) {
-      const detail = error?.message || 'read failed';
-      if (isPublicSurface(file.relativePath) || await isTrackedFile(file.relativePath)) {
-        errors.push(`${file.relativePath}: could not read tracked or public surface file for leak scan (${detail})`);
-      } else {
-        console.warn(`${file.relativePath}: skipped unreadable non-public file (${detail})`);
-      }
+      errors.push(error.message);
       continue;
     }
+    if (text === null) continue;
     scanPatterns(file.relativePath, text, SECRET_PATTERNS);
     if (isPublicSurface(file.relativePath)) {
       scanPatterns(file.relativePath, text, PUBLIC_LEAK_PATTERNS);
@@ -535,4 +571,4 @@ const main = async () => {
   console.log('Security gate passed.');
 };
 
-await main();
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) await main();

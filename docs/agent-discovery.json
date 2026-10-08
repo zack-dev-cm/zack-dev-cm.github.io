@@ -177,15 +177,15 @@
     "url": "https://zack-dev-cm.github.io/papers/",
     "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
     "reviewCount": 13,
-    "updatedAt": "2026-10-08T05:16:42.259Z",
-    "summary": "The ML Papers, Read for Builders feed has 13 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities.",
+    "updatedAt": "2026-10-08T12:33:46.719Z",
+    "summary": "The ML Papers, Read for Builders feed has 13 automated abstract triage notes with suggested evaluation checks and primary-source links. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities.",
     "latest": [
       {
         "title": "VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness",
         "arxivId": "2610.08936",
         "tags": [
           "computer-vision",
-          "multimodal",
+          "robustness",
           "evaluation",
           "cs.CV"
         ],
@@ -197,7 +197,10 @@
         "tags": [
           "agents",
           "runtime",
-          "evaluation"
+          "evaluation",
+          "cs.AI",
+          "cs.CL",
+          "cs.LG"
         ],
         "paperUrl": "https://arxiv.org/abs/2610.03894"
       },
@@ -206,8 +209,8 @@
         "arxivId": "2606.13714",
         "tags": [
           "computer-vision",
-          "multimodal",
-          "evaluation"
+          "evaluation",
+          "cs.CV"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.13714"
       },
@@ -217,7 +220,8 @@
         "tags": [
           "agents",
           "runtime",
-          "evaluation"
+          "evaluation",
+          "cs.AI"
         ],
         "paperUrl": "https://arxiv.org/abs/2606.12563"
       }
@@ -2227,7 +2231,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "777",
+          "value": "781",
           "context": "public ClawHub listing, 2026-10-08 (research-claim-ledger)"
         },
         {
@@ -2396,7 +2400,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,186",
+          "value": "1,187",
           "context": "public ClawHub listing, 2026-10-08 (github-clawhub-launcher)"
         },
         {
@@ -3082,7 +3086,7 @@
         },
         {
           "label": "Reported snapshot users",
-          "value": "427",
+          "value": "443",
           "context": "8 detail pages with visible counts from the observed publisher search, 2026-10-08"
         },
         {
@@ -3507,7 +3511,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "984",
+          "value": "985",
           "context": "public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi)"
         },
         {
@@ -3794,7 +3798,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,264",
+          "value": "1,265",
           "context": "public ClawHub listing, 2026-10-08 (openclaw-cws-publisher)"
         },
         {
@@ -5069,7 +5073,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "2,570 total",
+          "value": "2,574 total",
           "context": "public ClawHub listings, 2026-10-08 (data-science-cv-repro-lab + sota-agent)"
         },
         {
@@ -5220,7 +5224,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "968",
+          "value": "969",
           "context": "public ClawHub listing, 2026-10-08 (browser-proof)"
         },
         {
@@ -5283,7 +5287,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "944",
+          "value": "945",
           "context": "public ClawHub listing, 2026-10-08 (public-surface-review)"
         },
         {
@@ -5348,7 +5352,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,045",
+          "value": "1,047",
           "context": "public ClawHub listing, 2026-10-08 (youtube-creator-ops)"
         },
         {
@@ -5412,7 +5416,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "978",
+          "value": "979",
           "context": "public ClawHub listing, 2026-10-08 (artifact-redactor)"
         },
         {
@@ -5476,7 +5480,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,019",
+          "value": "1,020",
           "context": "public ClawHub listing, 2026-10-08 (artifact-deck)"
         },
         {
@@ -5549,7 +5553,7 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "46,425",
+          "value": "46,511",
           "context": "public ClawHub owner profile, 2026-10-08 across 53 skills"
         },
         {
@@ -5559,12 +5563,12 @@
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "2,570 total",
-          "context": "1,397 data-science-cv-repro-lab + 1,173 sota-agent, 2026-10-08"
+          "value": "2,574 total",
+          "context": "1,400 data-science-cv-repro-lab + 1,174 sota-agent, 2026-10-08"
         },
         {
           "label": "Strongest skill",
-          "value": "3,358 downloads",
+          "value": "3,360 downloads",
           "context": "gstack-review-stack public listing, 2026-10-08"
         },
         {
@@ -5641,7 +5645,7 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "985",
+          "value": "986",
           "context": "public ClawHub listing, 2026-10-08 (hh-openclaw-agent)"
         },
         {

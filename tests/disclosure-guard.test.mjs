@@ -55,6 +55,18 @@ test('published symlinks fail closed without reading their targets', async (t) =
   assert.match((await scanPublishedAssets({ rootDir, roots: ['public/'], policy }))[0], /symlink cannot be verified/);
 });
 
+test('malformed UTF-8 before or after readable copy cannot disable disclosure inspection', async (t) => {
+  const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'disclosure-encoding-'));
+  t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(rootDir, 'public'));
+  for (const [name, parts] of [['before.dat', [Buffer.from([255]), Buffer.from(paragraph)]], ['after.dat', [Buffer.from(paragraph), Buffer.from([255])]], ['late.dat', [Buffer.from([255]), Buffer.from(' '.repeat(2 * 1024 * 1024)), Buffer.from(paragraph)]]]) {
+    await fs.writeFile(path.join(rootDir, 'public', name), Buffer.concat(parts));
+  }
+  const errors = await scanPublishedAssets({ rootDir, roots: ['public/'], policy });
+  assert.equal(errors.length, 3);
+  assert.ok(errors.every(error => error.includes('content fingerprint')));
+});
+
 test('large renamed UTF-8 artifacts are checked beyond 2 MiB and across read boundaries', async (t) => {
   const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'disclosure-large-'));
   t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
@@ -70,6 +82,30 @@ test('text beyond the bounded disclosure scan fails closed', async (t) => {
   await fs.mkdir(path.join(rootDir, 'public'));
   await fs.writeFile(path.join(rootDir, 'public/large.txt'), ' '.repeat(16 * 1024 * 1024 + 1));
   assert.match((await scanPublishedAssets({ rootDir, roots: ['public/'], policy }))[0], /exceeds the 16 MiB/);
+});
+
+test('malformed padding cannot disguise oversized HTML or unknown artifacts as binary media', async (t) => {
+  const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'disclosure-oversized-encoding-'));
+  t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(rootDir, 'public'));
+  const content = Buffer.concat([Buffer.from('<html><!--'), Buffer.alloc(1024, 255), Buffer.from('-->' + ' '.repeat(17 * 1024 * 1024) + paragraph + '</html>')]);
+  for (const name of ['example.html', 'unknown.dat']) await fs.writeFile(path.join(rootDir, 'public', name), content);
+  const errors = await scanPublishedAssets({ rootDir, roots: ['public/'], policy });
+  assert.equal(errors.length, 2);
+  assert.ok(errors.every(error => error.includes('exceeds the 16 MiB')));
+});
+
+test('large binary releases require a reviewed complete byte identity', async (t) => {
+  const rootDir = await fs.mkdtemp(path.join(os.tmpdir(), 'disclosure-reviewed-binary-'));
+  t.after(() => fs.rm(rootDir, { recursive: true, force: true }));
+  await fs.mkdir(path.join(rootDir, 'public'));
+  const approved = Buffer.alloc(17 * 1024 * 1024, 255);
+  const reviewed = compilePolicy({ ...policyData, largeBinaryAssets: [{ bytes: approved.length, sha256: sha256(approved) }] });
+  await fs.writeFile(path.join(rootDir, 'public/release.bin'), approved);
+  assert.deepEqual(await scanPublishedAssets({ rootDir, roots: ['public/'], policy: reviewed }), []);
+  approved[approved.length - 1] = 0;
+  await fs.writeFile(path.join(rootDir, 'public/release.bin'), approved);
+  assert.match((await scanPublishedAssets({ rootDir, roots: ['public/'], policy: reviewed }))[0], /exceeds the 16 MiB/);
 });
 
 test('invalid or empty fingerprint policies cannot silently disable the gate', () => {

@@ -133,9 +133,9 @@
       "@id": "https://zack-dev-cm.github.io/papers/#webpage",
       "url": "https://zack-dev-cm.github.io/papers/",
       "name": "ML Papers, Read for Builders",
-      "description": "The ML Papers, Read for Builders feed has 13 source-neutral English ML paper reviews with production tests and primary source ledgers. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities.",
+      "description": "The ML Papers, Read for Builders feed has 13 automated abstract triage notes with suggested evaluation checks and primary-source links. Latest reviews include VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness; Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities.",
       "inLanguage": "en",
-      "dateModified": "2026-10-08T05:16:42.259Z",
+      "dateModified": "2026-10-08T12:33:46.719Z",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -145,28 +145,28 @@
           "name": "VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness",
           "url": "https://arxiv.org/abs/2610.08936",
           "identifier": "2610.08936",
-          "keywords": "computer-vision, multimodal, evaluation, cs.CV"
+          "keywords": "computer-vision, robustness, evaluation, cs.CV"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities",
           "url": "https://arxiv.org/abs/2610.03894",
           "identifier": "2610.03894",
-          "keywords": "agents, runtime, evaluation"
+          "keywords": "agents, runtime, evaluation, cs.AI, cs.CL, cs.LG"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
           "url": "https://arxiv.org/abs/2606.13714",
           "identifier": "2606.13714",
-          "keywords": "computer-vision, multimodal, evaluation"
+          "keywords": "computer-vision, evaluation, cs.CV"
         },
         {
           "@type": "ScholarlyArticle",
           "name": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
           "url": "https://arxiv.org/abs/2606.12563",
           "identifier": "2606.12563",
-          "keywords": "agents, runtime, evaluation"
+          "keywords": "agents, runtime, evaluation, cs.AI"
         }
       ],
       "isAccessibleForFree": true

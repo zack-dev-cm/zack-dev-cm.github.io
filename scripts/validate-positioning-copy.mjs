@@ -57,7 +57,7 @@ const positioningRules = [
   },
   {
     name: 'Evidence label in generated public copy',
-    pattern: /\bEvidence:\b/
+    pattern: /\bEvidence:/
   },
   {
     name: 'public evidence framing',

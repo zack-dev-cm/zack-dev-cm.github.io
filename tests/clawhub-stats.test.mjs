@@ -30,12 +30,23 @@ test('an unresolved ambiguity fails instead of manufacturing refreshed statistic
 
 test('malformed listing counters fail before a refreshed snapshot can be written', async (t) => {
   for (const field of ['downloads', 'versions', 'stars']) {
-    for (const value of ['invalid', 'Infinity', -1, 1.5]) {
+    for (const value of ['invalid', 'Infinity', -1, 1.5, undefined, null, false, '', '0']) {
       t.mock.method(globalThis, 'fetch', async () => Response.json({ owner: { handle: 'zack-dev-cm' }, skill: { stats: { downloads: 12, versions: 2, stars: 1, [field]: value } } }));
       await assert.rejects(fetchSkillDetail({ owner: 'zack-dev-cm', slug: 'example', fallback: {} }), new RegExp(`invalid ${field}`));
       t.mock.restoreAll();
     }
   }
+});
+
+test('missing detail counters cannot be replaced by listing fallbacks or freshly dated zeros', async (t) => {
+  t.mock.method(globalThis, 'fetch', async () => Response.json({ owner: { handle: 'zack-dev-cm' }, skill: { stats: { downloads: 12 } } }));
+  await assert.rejects(fetchSkillDetail({ owner: 'zack-dev-cm', slug: 'example', fallback: { downloads: 12, stars: 0 } }), /invalid versions/);
+});
+
+test('explicit zero detail counters are valid measurements', async (t) => {
+  t.mock.method(globalThis, 'fetch', async () => Response.json({ owner: { handle: 'zack-dev-cm' }, skill: { stats: { downloads: 0, versions: 0, stars: 0 } } }));
+  const row = await fetchSkillDetail({ owner: 'zack-dev-cm', slug: 'example', fallback: {} });
+  for (const field of ['downloads', 'versions', 'stars']) assert.equal(row[field], 0);
 });
 
 test('current editorial copy can refresh without the retired download-summary sentence', async () => {

@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-10-08T05:16:42.259Z",
+  "updatedAt": "2026-10-08T12:33:46.719Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -16,14 +16,13 @@
       "arXiv stat.ML"
     ],
     "selection": "The selector favors primary papers with strong fit for agents, computer vision, retrieval, reasoning, representation learning, and deployable ML systems.",
-    "writing": "Reviews are original English editorial notes written around one concrete claim, one useful verification test, and one skeptical failure mode. Abstracts are used only to ground the critique; they are not republished."
+    "writing": "Automated abstract triage uses primary-source metadata and a short claim excerpt. Topic-based questions and suggested tests are unrun; full-text reading, code inspection and reproduction are not implied."
   },
   "reviewSourceWatch": [
     {
       "id": "yannic-kilcher-cvpr",
       "label": "Yannic Kilcher / CVPR source watch",
       "status": "watch-only",
-      "checkedAt": "2026-10-08",
       "note": "Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.",
       "sources": [
         {
@@ -41,8 +40,12 @@
     {
       "id": "vcr-bench-a-modular-open-source-benchmark-for-video-classification-robustness-2610-08936",
       "title": "VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness",
-      "dek": "The promise is evidence routing: can benchmark show the visual fact that made the answer possible?",
+      "dek": "For VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness, compare clean and perturbed predictions under the same preprocessing and sampling contract.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "vision-robustness",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-10-08T05:16:42.259Z",
       "paperUrl": "https://arxiv.org/abs/2610.08936",
       "pdfUrl": "https://arxiv.org/pdf/2610.08936",
@@ -54,30 +57,30 @@
         "Dmitriy S. Vatolin",
         "Anastasia Antsiferova"
       ],
-      "publishedAt": "Thu, 08 Oct 2026 00:00:00 -0400",
-      "updatedAt": "Thu, 08 Oct 2026 00:00:00 -0400",
+      "publishedAt": "2026-10-06T18:03:58Z",
+      "updatedAt": "2026-10-06T18:03:58Z",
       "categories": [
         "cs.CV"
       ],
       "tags": [
         "computer-vision",
-        "multimodal",
+        "robustness",
         "evaluation",
         "cs.CV"
       ],
       "selectionScore": 216,
       "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
-      "editorVerdict": "The paper is worth a builder's time because it turns benchmark into a mechanism a team can test: Therefore, robustness for video classifiers is studied across scattered, incompatible implementations, making reported numbers hard to reproduce and analyze.",
-      "whatItClaims": "Maksim Plinskiy, Aleksandr Gushchin, Sergey Lavrushkin and 2 more frame VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness around this core move: Therefore, robustness for video classifiers is studied across scattered, incompatible implementations, making reported numbers hard to reproduce and analyze.",
-      "technicalHinge": "The hinge is evidence routing around benchmark: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.",
-      "productionAngle": "Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.",
-      "skepticism": "This is still a source-led triage note from cs.CV, not a reproduction. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "editorVerdict": "For teams evaluating visual classifiers under distribution shift and adversarial inputs, compare the declared task, baseline and failure cases before deciding whether VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness informs an implementation choice.",
+      "whatItClaims": "Maksim Plinskiy, Aleksandr Gushchin, Sergey Lavrushkin and 2 more report in the abstract: \"We introduce VCR-Bench, a modular open-source benchmark framework that standardizes video loading, wrappers for classifiers, adversarial attacks and defenses, perceptual…\"",
+      "technicalHinge": "How sensitive are the classifier results to preprocessing, temporal sampling, perturbation budgets and metric aggregation?",
+      "productionAngle": "Suggested test (unrun): Pin model weights, video preprocessing, frame sampling, attack budgets and metric aggregation. Compare clean and perturbed classification metrics with the same configuration; record runtime and memory separately.",
+      "skepticism": "This automated note uses the cs.CV abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness actually attack?",
         "Find the ablation or comparison that isolates benchmark. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
       ],
-      "abstractExcerpt": "Robustness of image classification has several benchmarks, but their video counterparts are absent.",
+      "abstractExcerpt": "",
       "claimAtoms": [
         "benchmark",
         "bench",
@@ -105,6 +108,10 @@
       "title": "Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities",
       "dek": "The useful contract is operational: can agent leave enough state for another engineer to debug the next run?",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-10-07T16:44:00.226Z",
       "paperUrl": "https://arxiv.org/abs/2610.03894",
       "pdfUrl": "https://arxiv.org/pdf/2610.03894",
@@ -114,27 +121,40 @@
         "Saurabh Pandey",
         "Pradeep Kumar Misra"
       ],
-      "publishedAt": "Wed, 07 Oct 2026 00:00:00 -0400",
-      "updatedAt": "Wed, 07 Oct 2026 00:00:00 -0400",
+      "publishedAt": "2026-10-02T18:09:00Z",
+      "updatedAt": "2026-10-02T18:09:00Z",
       "categories": [
-        "cs.AI"
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
       ],
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
       ],
       "selectionScore": 218,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns agent into a mechanism a team can test: A deployed LLM agent emits tool calls, queries, and code that can be silently wrong -- by the time the error surfaces, the action has run. The weak spot to inspect: We recover the missing signal from a low-cost open-weight surrogate run in parallel.",
-      "whatItClaims": "Yikai Zhao, Saurabh Pandey, Pradeep Kumar Misra frame Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities around this core move: A deployed LLM agent emits tool calls, queries, and code that can be silently wrong -- by the time the error surfaces, the action has run.",
-      "technicalHinge": "The hinge is the cognition layer around agent: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. The abstract already hints at pressure to test: We recover the missing signal from a low-cost open-weight surrogate run in parallel. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities informs an implementation choice.",
+      "whatItClaims": "Yikai Zhao, Saurabh Pandey, Pradeep Kumar Misra report in the abstract: \"A deployed LLM agent emits tool calls, queries, and code that can be silently wrong -- by the time the…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about agent?",
+      "productionAngle": "Suggested test (unrun): Prototype Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI, cs.CL, cs.LG abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does Proxy Confidence: Auditing Black-Box LLM Agents with a Surrogate's Log-Probabilities actually attack?",
         "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "agent",
+        "agents",
+        "proxy confidence",
+        "auditing black",
+        "generative likelihood localizes"
       ],
       "sourceLedger": [
         {
@@ -154,8 +174,12 @@
     {
       "id": "tsa-temporal-slot-activation-for-persistent-object-centric-video-representation-2606-13714",
       "title": "TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation",
-      "dek": "The promise is evidence routing: can representation show the visual fact that made the answer possible?",
+      "dek": "The evaluation question for TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation: which task metrics survive a change in inputs or conditions?",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "computer-vision",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-15T09:31:56.842Z",
       "paperUrl": "https://arxiv.org/abs/2606.13714",
       "pdfUrl": "https://arxiv.org/pdf/2606.13714",
@@ -171,27 +195,35 @@
         "Long Mai",
         "Ngan Le"
       ],
-      "publishedAt": "Mon, 15 Jun 2026 00:00:00 -0400",
-      "updatedAt": "Mon, 15 Jun 2026 00:00:00 -0400",
+      "publishedAt": "2026-06-10T20:54:45Z",
+      "updatedAt": "2026-07-27T19:26:04Z",
       "categories": [
         "cs.CV"
       ],
       "tags": [
         "computer-vision",
-        "multimodal",
-        "evaluation"
+        "evaluation",
+        "cs.CV"
       ],
       "selectionScore": 220,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns representation into a mechanism a team can test: We show that this design violates a basic lifecycle requirement for persistent slots: when an object is absent or fully occluded, its slot should preserve its previous state and avoid. The weak spot to inspect: Instead, unconditional propagation creates two failure pathways: update-induced state drift, where current-frame evidence overwrites the absent.",
-      "whatItClaims": "Duc Nguyen, Sieu Tran, Hao Vo and 6 more frame TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation around this core move: We show that this design violates a basic lifecycle requirement for persistent slots: when an object is absent or fully occluded, its slot should preserve its previous state and avoid explaining unrelated visible content.",
-      "technicalHinge": "The hinge is evidence routing around representation: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.",
-      "productionAngle": "Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.",
-      "skepticism": "This is still a source-led triage note from cs.CV, not a reproduction. The abstract already hints at pressure to test: Instead, unconditional propagation creates two failure pathways: update-induced state drift, where current-frame evidence overwrites the absent object's representation, and. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For teams evaluating image and video models, compare the declared task, baseline and failure cases before deciding whether TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation informs an implementation choice.",
+      "whatItClaims": "Duc Nguyen, Sieu Tran, Hao Vo and 6 more report in the abstract: \"We propose Temporal Slot Activation (TSA), a mechanism that learns a per-slot, per-frame activation score $α_{k,t} \\in (0, 1)$ without…\"",
+      "technicalHinge": "Which task-specific metrics and difficult image or video cases would distinguish an improvement from the declared baseline?",
+      "productionAngle": "Suggested test (unrun): Select metrics for the stated prediction task. Compare a fixed baseline on held-out examples, domain shift and occlusion; retain failures and the configuration needed to repeat the comparison.",
+      "skepticism": "This automated note uses the cs.CV abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does TSA: Temporal Slot Activation for Persistent Object-Centric Video Representation actually attack?",
         "Find the ablation or comparison that isolates representation. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "representation",
+        "temporal slot activation for persistent object",
+        "centric video representation",
+        "when",
+        "decoder-induced reconstruction interference"
       ],
       "sourceLedger": [
         {
@@ -213,6 +245,10 @@
       "title": "Arbor: Tree Search as a Cognition Layer for Autonomous Agents",
       "dek": "Useful for agent teams if tree search changes what gets logged, compared, and repaired between runs.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-12T08:47:28.932Z",
       "paperUrl": "https://arxiv.org/abs/2606.12563",
       "pdfUrl": "https://arxiv.org/pdf/2606.12563",
@@ -235,19 +271,28 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns tree search into a mechanism a team can test: Arbor is a multi-agent framework that introduces structured tree search as a cognition layer for autonomous agents operating in large, stateful action spaces.",
-      "whatItClaims": "Neha Prakriya, Chaojun Hou, Zheng Gong and 5 more frame Arbor: Tree Search as a Cognition Layer for Autonomous Agents around this core move: Arbor is a multi-agent framework that introduces structured tree search as a cognition layer for autonomous agents operating in large, stateful action spaces.",
-      "technicalHinge": "The hinge is the cognition layer around tree search: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype Arbor: Tree Search as a Cognition Layer for Autonomous Agents as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Arbor: Tree Search as a Cognition Layer for Autonomous Agents informs an implementation choice.",
+      "whatItClaims": "Neha Prakriya, Chaojun Hou, Zheng Gong and 5 more report in the abstract: \"Arbor is a multi-agent framework that introduces structured tree search as a cognition layer for autonomous agents operating in large,…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about tree search?",
+      "productionAngle": "Suggested test (unrun): Prototype Arbor: Tree Search as a Cognition Layer for Autonomous Agents as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does Arbor: Tree Search as a Cognition Layer for Autonomous Agents actually attack?",
         "Find the ablation or comparison that isolates tree search. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "tree search",
+        "cognition layer",
+        "autonomous agents",
+        "agent",
+        "inference throughput-latency pareto"
       ],
       "sourceLedger": [
         {
@@ -269,6 +314,10 @@
       "title": "Can AI Agents Synthesize Scientific Conclusions?",
       "dek": "Can AI Agents Synthesize Scientific Conclusions? is strongest when it treats scientific conclusions as runtime evidence, not a polished demo transcript.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-11T08:56:33.785Z",
       "paperUrl": "https://arxiv.org/abs/2606.11337",
       "pdfUrl": "https://arxiv.org/pdf/2606.11337",
@@ -293,19 +342,30 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI",
+        "cs.CL",
+        "cs.CY"
       ],
       "selectionScore": 218,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns scientific conclusions into a mechanism a team can test: We introduce SciConBench, a large-scale live benchmark of 9.11K questions and expert-written conclusions from systematic reviews to evaluate open-domain scientific conclusion synthesis. The weak spot to inspect: Overall, our results show that reliable synthesis of scientific conclusions remains an open challenge, and that clean-room evaluation is essential.",
-      "whatItClaims": "Hayoung Jung, Pedro Viana Diniz, José Reinaldo Corrêa Roveda and 5 more frame Can AI Agents Synthesize Scientific Conclusions? around this core move: We introduce SciConBench, a large-scale live benchmark of 9.11K questions and expert-written conclusions from systematic reviews to evaluate open-domain scientific conclusion synthesis.",
-      "technicalHinge": "The hinge is the cognition layer around scientific conclusions: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype Can AI Agents Synthesize Scientific Conclusions? as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, cs.CL, cs.CY, not a reproduction. The abstract already hints at pressure to test: Overall, our results show that reliable synthesis of scientific conclusions remains an open challenge, and that clean-room evaluation is essential for assessing open-domain AI. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Can AI Agents Synthesize Scientific Conclusions? informs an implementation choice.",
+      "whatItClaims": "Hayoung Jung, Pedro Viana Diniz, José Reinaldo Corrêa Roveda and 5 more report in the abstract: \"We introduce SciConBench, a large-scale live benchmark of 9.11K questions and expert-written conclusions from systematic reviews to evaluate open-domain scientific…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about scientific conclusions?",
+      "productionAngle": "Suggested test (unrun): Prototype Can AI Agents Synthesize Scientific Conclusions? as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI, cs.CL, cs.CY abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does Can AI Agents Synthesize Scientific Conclusions? actually attack?",
         "Find the ablation or comparison that isolates scientific conclusions. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "scientific conclusions",
+        "agent",
+        "agents",
+        "can ai agents synthesize scientific conclusions",
+        "expert-validated automated evaluation"
       ],
       "sourceLedger": [
         {
@@ -327,6 +387,10 @@
       "title": "Business World Model",
       "dek": "Read it for the audit trail: business world model matters only if a team can replay choices, dead branches, and tool calls after a failed run.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-10T08:39:57.080Z",
       "paperUrl": "https://arxiv.org/abs/2606.10044",
       "pdfUrl": "https://arxiv.org/pdf/2606.10044",
@@ -336,26 +400,35 @@
         "Hiroki Sayama"
       ],
       "publishedAt": "2026-06-08T18:16:04Z",
-      "updatedAt": "2026-06-08T18:16:04Z",
+      "updatedAt": "2026-06-28T13:25:07Z",
       "categories": [
         "cs.AI"
       ],
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns business world model into a mechanism a team can test: We propose a business-semantics-centric formulation in which business states, dynamics and actions are linked to key business entities.",
-      "whatItClaims": "Cecil Pang, Hiroki Sayama frame Business World Model around this core move: We propose a business-semantics-centric formulation in which business states, dynamics and actions are linked to key business entities.",
-      "technicalHinge": "The hinge is the cognition layer around business world model: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype Business World Model as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Business World Model informs an implementation choice.",
+      "whatItClaims": "Cecil Pang, Hiroki Sayama report in the abstract: \"We propose a business-semantics-centric formulation in which states, dynamics, and actions are linked to key business entities, their attributes, and…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about business world model?",
+      "productionAngle": "Suggested test (unrun): Prototype Business World Model as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does Business World Model actually attack?",
         "Find the ablation or comparison that isolates business world model. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "business world model",
+        "world model",
+        "physical",
+        "planning",
+        "business-semantics-centric formulation"
       ],
       "sourceLedger": [
         {
@@ -377,6 +450,10 @@
       "title": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow",
       "dek": "PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow is strongest when it treats agent as runtime evidence, not a polished demo transcript.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-09T08:34:27.681Z",
       "paperUrl": "https://arxiv.org/abs/2606.07549",
       "pdfUrl": "https://arxiv.org/pdf/2606.07549",
@@ -400,19 +477,29 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI",
+        "cs.MA"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns agent into a mechanism a team can test: We propose PathoSage, a three-stage framework that explicitly separates knowledge retrieval, evidence collection, and evidence adjudication for patch-level pathology multimodal reasoning. The weak spot to inspect: Our results highlight explicit evidence adjudication and reliability-aware tool modeling as key ingredients for robust pathology agents.",
-      "whatItClaims": "Chengyang Zhang, Wenchuan Zhang, Bo Li and 5 more frame PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow around this core move: We propose PathoSage, a three-stage framework that explicitly separates knowledge retrieval, evidence collection, and evidence adjudication for patch-level pathology multimodal reasoning.",
-      "technicalHinge": "The hinge is the cognition layer around agent: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, cs.MA, not a reproduction. The abstract already hints at pressure to test: Our results highlight explicit evidence adjudication and reliability-aware tool modeling as key ingredients for robust pathology agents. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow informs an implementation choice.",
+      "whatItClaims": "Chengyang Zhang, Wenchuan Zhang, Bo Li and 5 more report in the abstract: \"We propose PathoSage, a three-stage framework that explicitly separates knowledge retrieval, evidence collection, and evidence adjudication for patch-level pathology multimodal…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about agent?",
+      "productionAngle": "Suggested test (unrun): Prototype PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI, cs.MA abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow actually attack?",
         "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "agent",
+        "pathosage",
+        "towards multi",
+        "source evidence adjudication in pathology via experience",
+        "evidence adjudication"
       ],
       "sourceLedger": [
         {
@@ -431,9 +518,13 @@
     },
     {
       "id": "gopagen-motion-aware-and-efficient-agentic-long-video-understanding-with-structural-memory-2606-06532",
-      "title": "GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning",
-      "dek": "The useful contract is operational: can reasoning leave enough state for another engineer to debug the next run?",
+      "title": "GOPAgen: Codec-Aware Agentic Long-Video Understanding with Structured Memory",
+      "dek": "Read it for the audit trail: agent matters only if a team can replay choices, dead branches, and tool calls after a failed run.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-08T09:01:58.967Z",
       "paperUrl": "https://arxiv.org/abs/2606.06532",
       "pdfUrl": "https://arxiv.org/pdf/2606.06532",
@@ -444,26 +535,35 @@
         "Yadong Mu"
       ],
       "publishedAt": "2026-06-03T17:47:49Z",
-      "updatedAt": "2026-06-03T17:47:49Z",
+      "updatedAt": "2026-10-04T01:59:28Z",
       "categories": [
         "cs.CV"
       ],
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.CV"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns reasoning into a mechanism a team can test: In this paper, we propose GOPAgen, a novel approach that first integrates video codec into the video understanding framework via a meticulously designed motion agent trained on Groups of.",
-      "whatItClaims": "Haozhe Chi, Yang Jin, Yadong Mu frame GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning around this core move: In this paper, we propose GOPAgen, a novel approach that first integrates video codec into the video understanding framework via a meticulously designed motion agent trained on Groups of Pictures (GOPs) from video codec.",
-      "technicalHinge": "The hinge is the cognition layer around reasoning: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.CV, not a reproduction. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether GOPAgen: Codec-Aware Agentic Long-Video Understanding with Structured Memory informs an implementation choice.",
+      "whatItClaims": "Haozhe Chi, Yang Jin, Yadong Mu report in the abstract: \"We introduce GOPAgen, a framework that integrates codec-native Groups of Pictures (GOPs) and motion vectors into an agentic retrieval pipeline.\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about agent?",
+      "productionAngle": "Suggested test (unrun): Prototype GOPAgen: Codec-Aware Agentic Long-Video Understanding with Structured Memory as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.CV abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
-        "Start with the problem sentence: what limitation in current practice does GOPAgen: Motion-Aware and Efficient Agentic Long-Video Understanding with Structural Memory and Hierarchical Reasoning actually attack?",
-        "Find the ablation or comparison that isolates reasoning. If it is missing, treat the result as a hypothesis, not guidance.",
+        "Start with the problem sentence: what limitation in current practice does GOPAgen: Codec-Aware Agentic Long-Video Understanding with Structured Memory actually attack?",
+        "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "agent",
+        "gopagen",
+        "codec",
+        "aware agentic long",
+        "containing complementary appearance"
       ],
       "sourceLedger": [
         {
@@ -485,6 +585,10 @@
       "title": "I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition",
       "dek": "A useful vision read if i know what you meme, even if it emerged today ties answers back to inspectable pixels, frames, or regions.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "vision-language",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-06T04:18:26.431Z",
       "paperUrl": "https://arxiv.org/abs/2606.05316",
       "pdfUrl": "https://arxiv.org/pdf/2606.05316",
@@ -503,19 +607,28 @@
       "tags": [
         "computer-vision",
         "multimodal",
-        "evaluation"
+        "evaluation",
+        "cs.AI"
       ],
       "selectionScore": 192,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns i know what you meme, even if it emerged today into a mechanism a team can test: We introduce Query Retrieve Conclude, a zero shot framework that identifies missing knowledge, retrieves open web evidence, and synthesizes evidence grounded background knowledge for meme.",
-      "whatItClaims": "Shanhong Liu, Rui Cao, Pai Chet Ng and 1 more frame I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition around this core move: We introduce Query Retrieve Conclude, a zero shot framework that identifies missing knowledge, retrieves open web evidence, and synthesizes evidence grounded background knowledge for meme understanding and detection.",
-      "technicalHinge": "The hinge is evidence routing around i know what you meme, even if it emerged today: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.",
-      "productionAngle": "Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.",
-      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For computer vision and multimodal product teams, compare the declared task, baseline and failure cases before deciding whether I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition informs an implementation choice.",
+      "whatItClaims": "Shanhong Liu, Rui Cao, Pai Chet Ng and 1 more report in the abstract: \"We introduce Query Retrieve Conclude, a zero shot framework that identifies missing knowledge, retrieves open web evidence, and synthesizes evidence…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about i know what you meme, even if it emerged today?",
+      "productionAngle": "Suggested test (unrun): Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.",
+      "skepticism": "This automated note uses the cs.AI abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does I Know What You Meme, Even If it Emerged Today: Understanding Evolving Memes through Open-World Knowledge Acquisition actually attack?",
         "Find the ablation or comparison that isolates i know what you meme, even if it emerged today. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "i know what you meme, even if it emerged today",
+        "understanding evolving memes through open",
+        "world knowledge acquisition",
+        "meme understanding",
+        "synthesizes evidence grounded"
       ],
       "sourceLedger": [
         {
@@ -537,6 +650,10 @@
       "title": "Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction",
       "dek": "Worth attention if world model gives builders a concrete way to inspect the reasoning path, not just the final answer.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "reasoning",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-05T09:39:30.000Z",
       "paperUrl": "https://arxiv.org/abs/2605.15466",
       "pdfUrl": "https://arxiv.org/pdf/2605.15466",
@@ -552,19 +669,28 @@
       "tags": [
         "reasoning",
         "verification",
-        "small-models"
+        "small-models",
+        "cs.CV"
       ],
       "selectionScore": 236,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns world model into a mechanism a team can test: We propose Interaction-Aware JEPA (IA-JEPA), which utilizes a self-supervised motion-centric masking strategy to prioritize physical interactions. The weak spot to inspect: Learning predictive world models from unlabelled video is a foundational challenge in artificial intelligence.",
-      "whatItClaims": "Santosh Kumar Paidi frame Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction around this core move: We propose Interaction-Aware JEPA (IA-JEPA), which utilizes a self-supervised motion-centric masking strategy to prioritize physical interactions.",
-      "technicalHinge": "The hinge is intermediate state around world model: the method should make invalid paths cheaper to catch than a final-answer-only prompt would.",
-      "productionAngle": "Build a tiny counterexample suite. The method earns trust only if it fails visibly on invalid chains instead of laundering them into a confident answer.",
-      "skepticism": "This is still a source-led triage note from cs.CV, not a reproduction. The abstract already hints at pressure to test: Learning predictive world models from unlabelled video is a foundational challenge in artificial intelligence. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For builders who need inspectable reasoning, compare the declared task, baseline and failure cases before deciding whether Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction informs an implementation choice.",
+      "whatItClaims": "Santosh Kumar Paidi report in the abstract: \"We propose Interaction-Aware JEPA (IA-JEPA), which utilizes a self-supervised motion-centric masking strategy to prioritize physical interactions.\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about world model?",
+      "productionAngle": "Suggested test (unrun): Build a tiny counterexample suite. The method earns trust only if it fails visibly on invalid chains instead of laundering them into a confident answer.",
+      "skepticism": "This automated note uses the cs.CV abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does Entity-Centric World Models: Interaction-Aware Masking for Causal Video Prediction actually attack?",
         "Find the ablation or comparison that isolates world model. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "world model",
+        "causal video prediction",
+        "interaction-aware masking",
+        "entity-centric",
+        "self-supervised motion-centric masking"
       ],
       "sourceLedger": [
         {
@@ -586,6 +712,10 @@
       "title": "UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning",
       "dek": "The useful angle is failure visibility: does evidence-grounded reasoning make a bad chain cheap to find and reject?",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "reasoning",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-05T09:39:00.000Z",
       "paperUrl": "https://arxiv.org/abs/2606.05576",
       "pdfUrl": "https://arxiv.org/pdf/2606.05576",
@@ -609,19 +739,28 @@
       "tags": [
         "reasoning",
         "verification",
-        "small-models"
+        "small-models",
+        "cs.CV"
       ],
       "selectionScore": 232,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns evidence-grounded reasoning into a mechanism a team can test: We introduce UltraVR, a diagnostic benchmark for evidence-grounded visual reasoning over ultra-resolution images.",
-      "whatItClaims": "Gexin Huang, Yanting Yang, Myeongkyun Kang and 6 more frame UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning around this core move: We introduce UltraVR, a diagnostic benchmark for evidence-grounded visual reasoning over ultra-resolution images.",
-      "technicalHinge": "The hinge is intermediate state around evidence-grounded reasoning: the method should make invalid paths cheaper to catch than a final-answer-only prompt would.",
-      "productionAngle": "Build a tiny counterexample suite. The method earns trust only if it fails visibly on invalid chains instead of laundering them into a confident answer.",
-      "skepticism": "This is still a source-led triage note from cs.CV, not a reproduction. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For builders who need inspectable reasoning, compare the declared task, baseline and failure cases before deciding whether UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning informs an implementation choice.",
+      "whatItClaims": "Gexin Huang, Yanting Yang, Myeongkyun Kang and 6 more report in the abstract: \"We introduce UltraVR, a diagnostic benchmark for evidence-grounded visual reasoning over ultra-resolution images.\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about evidence-grounded reasoning?",
+      "productionAngle": "Suggested test (unrun): Build a tiny counterexample suite. The method earns trust only if it fails visibly on invalid chains instead of laundering them into a confident answer.",
+      "skepticism": "This automated note uses the cs.CV abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does UltraVR: A Diagnostic Ultra-Resolution Image-VQA Benchmark for Evidence-Grounded Reasoning actually attack?",
         "Find the ablation or comparison that isolates evidence-grounded reasoning. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "evidence-grounded reasoning",
+        "reasoning",
+        "benchmark",
+        "ultravr",
+        "local perception"
       ],
       "sourceLedger": [
         {
@@ -643,6 +782,10 @@
       "title": "SentinelBench: A Benchmark for Long-Running Monitoring Agents",
       "dek": "SentinelBench: A Benchmark for Long-Running Monitoring Agents is strongest when it treats benchmark as runtime evidence, not a polished demo transcript.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-05T08:52:51.251Z",
       "paperUrl": "https://arxiv.org/abs/2606.05342",
       "pdfUrl": "https://arxiv.org/pdf/2606.05342",
@@ -665,19 +808,28 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI"
       ],
       "selectionScore": 218,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns benchmark into a mechanism a team can test: This is the wrong approach for many long-running tasks, which are better served by a strategy of sustained attention. The weak spot to inspect: SentinelBench measures task completion, reaction time, and resource use, exposing the tradeoff between responsiveness and cost.",
-      "whatItClaims": "Matheus Kunzler Maldaner, Adam Fourney, Amanda Swearngin and 5 more frame SentinelBench: A Benchmark for Long-Running Monitoring Agents around this core move: This is the wrong approach for many long-running tasks, which are better served by a strategy of sustained attention.",
-      "technicalHinge": "The hinge is the cognition layer around benchmark: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype SentinelBench: A Benchmark for Long-Running Monitoring Agents as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. The abstract already hints at pressure to test: SentinelBench measures task completion, reaction time, and resource use, exposing the tradeoff between responsiveness and cost. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether SentinelBench: A Benchmark for Long-Running Monitoring Agents informs an implementation choice.",
+      "whatItClaims": "Matheus Kunzler Maldaner, Adam Fourney, Amanda Swearngin and 5 more report in the abstract: \"To measure progress on this class of tasks, we introduce SentinelBench, an open-source benchmark for time-evolving monitoring tasks.\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about benchmark?",
+      "productionAngle": "Suggested test (unrun): Prototype SentinelBench: A Benchmark for Long-Running Monitoring Agents as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does SentinelBench: A Benchmark for Long-Running Monitoring Agents actually attack?",
         "Find the ablation or comparison that isolates benchmark. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "benchmark",
+        "agent",
+        "agents",
+        "sentinelbench",
+        "agent behavior"
       ],
       "sourceLedger": [
         {
@@ -699,6 +851,10 @@
       "title": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems",
       "dek": "What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems is strongest when it treats multi-agent as runtime evidence, not a polished demo transcript.",
       "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
       "selectedAt": "2026-06-05T08:37:15.376Z",
       "paperUrl": "https://arxiv.org/abs/2606.05304",
       "pdfUrl": "https://arxiv.org/pdf/2606.05304",
@@ -716,19 +872,28 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation"
+        "evaluation",
+        "cs.AI"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
-      "editorVerdict": "The paper is worth a builder's time because it turns multi-agent into a mechanism a team can test: We analyze five common inter-agent communication strategies across two MAS topologies, finding that no fixed strategy is universally optimal. The weak spot to inspect: this free-form communication can rapidly inflate token usage, consume the shared context window, and ultimately affect both system.",
-      "whatItClaims": "Chen Huang, Yuhao Wu, Wenxuan Zhang frame What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems around this core move: We analyze five common inter-agent communication strategies across two MAS topologies, finding that no fixed strategy is universally optimal.",
-      "technicalHinge": "The hinge is the cognition layer around multi-agent: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.",
-      "productionAngle": "Prototype What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
-      "skepticism": "This is still a source-led triage note from cs.AI, not a reproduction. The abstract already hints at pressure to test: this free-form communication can rapidly inflate token usage, consume the shared context window, and ultimately affect both system performance and inference cost. I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.",
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems informs an implementation choice.",
+      "whatItClaims": "Chen Huang, Yuhao Wu, Wenxuan Zhang report in the abstract: \"Building on this, we propose the PACT (Protocolized Action-state Communication and Transmission), which treats inter-agent communication as a public state-update…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about multi-agent?",
+      "productionAngle": "Suggested test (unrun): Prototype What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
       "readingPath": [
         "Start with the problem sentence: what limitation in current practice does What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems actually attack?",
         "Find the ablation or comparison that isolates multi-agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "multi-agent",
+        "agent",
+        "agents",
+        "what should agents say action",
+        "topologies"
       ],
       "sourceLedger": [
         {

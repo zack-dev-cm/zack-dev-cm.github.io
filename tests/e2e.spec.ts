@@ -1281,6 +1281,10 @@ test('daily ML paper reviews page renders English feed with source ledgers', asy
   expect(JSON.stringify(feed)).not.toMatch(new RegExp(`\\bN\\/A\\b|AQ\\.Ab8RN6I55tmuy2eY0kXBTk2xsR47rdSufEw5xW1iF-zJGNSSSQ|${forbiddenSourceName}|${forbiddenSourceUrl}`, 'i'));
 
   const latest = feed.reviews[0];
+  expect(latest.readingScope).toBe('abstract');
+  expect(latest.proposedTestsRun).toBe(false);
+  await expect(page.getByText('Automated abstract triage · suggested checks are unrun', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Suggested test · unrun', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: latest.title })).toBeVisible({ timeout: 15000 });
   await expect(page.getByRole('link', { name: 'Primary paper' })).toHaveAttribute('href', latest.paperUrl);
   await expect(page.getByRole('link', { name: 'PDF' })).toHaveAttribute('href', latest.pdfUrl);

@@ -851,5 +851,31 @@
       "bytes": 70586,
       "sha256": "fce22cdbb56857935bf1aeb4b0ac897cafa3227a48c3a9b1ba3dfff7f2a406d7"
     }
+  ],
+  "largeBinaryAssets": [
+    {
+      "bytes": 17839301,
+      "sha256": "a6dd272d74da09c8f6015360846ef5f237e3b22b840266419e9ef1f7277dfab0"
+    },
+    {
+      "bytes": 18494408,
+      "sha256": "3825d83ed9a40445f01aeb9ff1b919e60ad66bc1619b67c77f7581cfa0d0c48a"
+    },
+    {
+      "bytes": 22087428,
+      "sha256": "528520f9f55462c49aa55b08faec89d81e5ec692f241dd192b512ce3c1ca0b75"
+    },
+    {
+      "bytes": 40398432,
+      "sha256": "6d37347cb5039c3dbced0d07becad7b163fce00600393054c048767f74702018"
+    },
+    {
+      "bytes": 55869059,
+      "sha256": "3f1533ff7a981d345820b05fa176e1adc1821bf101e54649cda5b8c2aee5b81a"
+    },
+    {
+      "bytes": 89823972,
+      "sha256": "318be59e726181a055b0a97d56365653ce141ba6758754db4688896f7ff6c26a"
+    }
   ]
 }

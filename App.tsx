@@ -190,15 +190,15 @@ const renderChromeExtensionStatCard = (extension: ChromeExtensionStat) => {
         )}
         <span>
           <strong>Version</strong>
-          {extension.version}
+          {extension.version || 'Not reported'}
         </span>
         <span>
           <strong>Updated</strong>
-          {extension.lastUpdated}
+          {extension.lastUpdated || 'Not reported'}
         </span>
         <span>
           <strong>Category</strong>
-          {extension.category}
+          {extension.category || 'Not reported'}
         </span>
         {hasPermissions && (
           <span>

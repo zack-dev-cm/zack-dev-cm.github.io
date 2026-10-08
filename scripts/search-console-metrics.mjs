@@ -44,16 +44,16 @@ export function buildSearchConsoleReportFromCsv(text, inputPath = 'search-consol
   for (const [offset, row] of rows.slice(1).entries()) {
     const rowNumber = offset + 2;
     const page = clean(row[pageIndex]);
-    if (!page) continue;
     const query = queryIndex >= 0 ? clean(row[queryIndex]) : '';
-    const clicks = clicksIndex >= 0 ? parseOptionalNumber(row[clicksIndex], 0) : 0;
+    const clicks = clicksIndex >= 0 ? parseRequiredNumber(row[clicksIndex]) : 0;
     const impressions = parseRequiredNumber(row[impressionsIndex]);
     const position = parseRequiredNumber(row[positionIndex]);
     const rowIssues = [];
+    if (!page) rowIssues.push('missing-page');
     if (options.requireQuery && !query) rowIssues.push('missing-query');
     if (!Number.isFinite(clicks) || clicks < 0) rowIssues.push('invalid-clicks');
     if (!Number.isFinite(impressions) || impressions < 0) rowIssues.push('invalid-impressions');
-    if (Number.isFinite(impressions) && impressions > 0 && (!Number.isFinite(position) || position < 1)) {
+    if (!Number.isFinite(position) || position < 0 || (impressions > 0 && position < 1)) {
       rowIssues.push('invalid-position');
     }
     if (rowIssues.length) {
@@ -150,7 +150,42 @@ export function buildSearchConsoleReportFromCsv(text, inputPath = 'search-consol
 
 export async function readSearchConsoleReportFile(inputPath) {
   const resolvedPath = path.resolve(ROOT_DIR, inputPath);
-  return JSON.parse(await fs.readFile(resolvedPath, 'utf8'));
+  return validateSearchConsoleReport(JSON.parse(await fs.readFile(resolvedPath, 'utf8')));
+}
+
+export function validateSearchConsoleReport(report) {
+  const invalid = (detail) => { const error = new Error(`Invalid Search Console report: ${detail}`); error.code = 'invalid-export'; throw error; };
+  if (!report || !Array.isArray(report.pages) || !Array.isArray(report.queries)) invalid('pages and queries must be arrays');
+  for (const [collection, entries] of [['pages', report.pages], ['queries', report.queries]]) {
+    const seen = new Set();
+    for (const entry of entries) {
+      if (!entry || typeof entry.page !== 'string' || !entry.page.trim() || entry.kind !== classifyPage(entry.page)) invalid(`${collection}: invalid page or resource kind`);
+      if (collection === 'queries' && (typeof entry.query !== 'string' || !entry.query.trim())) invalid('missing query');
+      const key = collection === 'queries' ? `${entry.page}\n${entry.query}` : entry.page;
+      if (seen.has(key)) invalid(`duplicate ${collection} entry`);
+      seen.add(key);
+      for (const field of ['clicks', 'impressions', 'weightedPosition', 'averagePosition']) {
+        if (typeof entry[field] !== 'number' || !Number.isFinite(entry[field]) || entry[field] < 0) invalid(`${collection}: missing or invalid ${field}`);
+      }
+      if (entry.impressions <= 0 || entry.averagePosition < 1 || entry.weightedPosition < entry.impressions) invalid(`${collection}: invalid positive-impression position`);
+      if (Math.abs(entry.averagePosition - entry.weightedPosition / entry.impressions) > 0.011) invalid(`${collection}: inconsistent average and weighted position`);
+    }
+  }
+  if (!report.rows || !Number.isSafeInteger(report.rows.valid) || report.rows.valid < 0 || !Number.isSafeInteger(report.rows.invalid) || report.rows.invalid < 0 || !Array.isArray(report.rows.invalidRows)) invalid('invalid row counts');
+  const totals = report.totals;
+  if (!totals || totals.pages !== report.pages.length) invalid('inconsistent page total');
+  for (const field of ['clicks', 'impressions', 'weightedPosition']) {
+    const expected = sum(report.pages, field);
+    if (typeof totals[field] !== 'number' || !Number.isFinite(totals[field]) || !Number.isFinite(expected) || Math.abs(totals[field] - expected) > 0.011) invalid(`inconsistent ${field} total`);
+  }
+  const average = totals.weightedPosition / Math.max(1, totals.impressions);
+  if (typeof totals.averagePosition !== 'number' || !Number.isFinite(totals.averagePosition) || Math.abs(totals.averagePosition - average) > 0.011) invalid('inconsistent average position total');
+  for (const page of report.pages) {
+    const entries = report.queries.filter(query => query.page === page.page);
+    for (const field of ['clicks', 'impressions', 'weightedPosition']) if (sum(entries, field) > page[field] + 0.011) invalid(`query ${field} exceeds page total`);
+  }
+  if (report.queries.some(query => !report.pages.some(page => page.page === query.page))) invalid('query has no matching page');
+  return report;
 }
 
 export async function writeJsonReport(relativePath, report) {
@@ -270,13 +305,9 @@ function clean(value) {
 
 function parseRequiredNumber(value) {
   const normalized = clean(value).replace(/%$/, '').replace(/,/g, '');
+  if (!/^(?:\d+(?:\.\d+)?|\.\d+)$/.test(normalized)) return Number.NaN;
   const number = Number(normalized);
   return Number.isFinite(number) ? number : Number.NaN;
-}
-
-function parseOptionalNumber(value, fallback) {
-  const number = parseRequiredNumber(value);
-  return Number.isFinite(number) ? number : fallback;
 }
 
 function safePathname(value) {

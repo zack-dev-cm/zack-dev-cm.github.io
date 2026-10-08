@@ -43,7 +43,9 @@ export const compilePolicy = (data) => {
     || !Array.isArray(data.textHashes) || !data.textHashes.length || !data.textHashes.every((item) => hash.test(item))
     || !Array.isArray(data.jsonHashes) || !data.jsonHashes.every((item) => hash.test(item))
     || !Array.isArray(data.assets) || !data.assets.length
-    || !data.assets.every((item) => Number.isSafeInteger(item.bytes) && item.bytes > 0 && hash.test(item.sha256))) {
+    || !data.assets.every((item) => Number.isSafeInteger(item.bytes) && item.bytes > 0 && hash.test(item.sha256))
+    || (data.largeBinaryAssets !== undefined && (!Array.isArray(data.largeBinaryAssets)
+      || !data.largeBinaryAssets.every(item => Number.isSafeInteger(item.bytes) && item.bytes > 16 * 1024 * 1024 && hash.test(item.sha256))))) {
     throw new Error('Invalid disclosure fingerprint policy');
   }
   return {
@@ -52,6 +54,8 @@ export const compilePolicy = (data) => {
     jsonHashes: new Set(data.jsonHashes),
     assetHashes: new Set(data.assets.map((item) => item.sha256)),
     assetSizes: new Set(data.assets.map((item) => item.bytes)),
+    largeBinaryHashes: new Set((data.largeBinaryAssets || []).map(item => item.sha256)),
+    largeBinarySizes: new Set((data.largeBinaryAssets || []).map(item => item.bytes)),
   };
 };
 
@@ -64,21 +68,22 @@ export const containsWithdrawnCopy = (text, policy) => {
 };
 
 const readPublishedText = async (file) => {
-  const decoder = new TextDecoder('utf-8', { fatal: true });
+  const decoder = new TextDecoder('utf-8');
   const chunks = [];
   let bytes = 0;
-  try {
-    for await (const chunk of createReadStream(file, { highWaterMark: 64 * 1024 })) {
-      chunks.push(decoder.decode(chunk, { stream: true }));
-      bytes += chunk.length;
-      if (bytes > 16 * 1024 * 1024) return { tooLarge: true };
-    }
-    chunks.push(decoder.decode());
-    return { text: chunks.join('') };
-  } catch (error) {
-    if (error.code === 'ERR_ENCODING_INVALID_ENCODED_DATA') return { text: null };
-    throw error;
+  for await (const chunk of createReadStream(file, { highWaterMark: 64 * 1024 })) {
+    chunks.push(decoder.decode(chunk, { stream: true }));
+    bytes += chunk.length;
+    if (bytes > 16 * 1024 * 1024) return { text: chunks.join(''), tooLarge: true };
   }
+  chunks.push(decoder.decode());
+  return { text: chunks.join('') };
+};
+
+const fileHash = async (file) => {
+  const hash = createHash('sha256');
+  for await (const chunk of createReadStream(file)) hash.update(chunk);
+  return hash.digest('hex');
 };
 
 // Inspect published assets independently of names and extensions. Exact byte
@@ -88,6 +93,7 @@ const readPublishedText = async (file) => {
 export const scanPublishedAssets = async ({ rootDir, roots, files = [], policy }) => {
   const errors = [];
   const seen = new Set();
+  const inspectedText = new Map();
   const inspect = async (relativePath) => {
     if (seen.has(relativePath)) return;
     seen.add(relativePath);
@@ -114,13 +120,23 @@ export const scanPublishedAssets = async ({ rootDir, roots, files = [], policy }
       errors.push(`${relativePath}: contains a withdrawn asset (content identity)`);
       return;
     }
+    // Previously reviewed large binary releases are allowed by their complete
+    // byte identity. Altered bytes, suffixes and renamed text cannot inherit
+    // this exception from an extension, signature or decoding failure.
+    if (policy.largeBinarySizes.has(stat.size) && policy.largeBinaryHashes.has(await fileHash(absolutePath))) return;
     const { text, tooLarge } = await readPublishedText(absolutePath);
     if (tooLarge) {
       errors.push(`${relativePath}: published text exceeds the 16 MiB disclosure scan limit`);
       return;
     }
     if (text === null) return;
-    if (containsWithdrawnCopy(text, policy)) {
+    const textIdentity = sha256(text);
+    let withdrawnCopy = inspectedText.get(textIdentity);
+    if (withdrawnCopy === undefined) {
+      withdrawnCopy = containsWithdrawnCopy(text, policy);
+      inspectedText.set(textIdentity, withdrawnCopy);
+    }
+    if (withdrawnCopy) {
       errors.push(`${relativePath}: contains withdrawn project copy (content fingerprint)`);
     }
     if (checkJson && /^\s*[\[{]/.test(text)) {

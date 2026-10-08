@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,8 +19,15 @@ const shouldRewriteExisting = args.has('--rewrite-existing');
 
 const TOPIC_RULES = [
   {
+    id: 'vision-robustness',
+    match: /(?=[\s\S]*\b(video|image|visual)\b)(?=[\s\S]*\b(robustness|adversarial)\b)(?=[\s\S]*\b(benchmark|classification|classifiers?)\b)/i,
+    tags: ['computer-vision', 'robustness', 'evaluation'],
+    reader: 'teams evaluating visual classifiers under distribution shift and adversarial inputs',
+    productionTest: 'Pin preprocessing, frame sampling, attack budgets and aggregation before comparing clean and perturbed task metrics.',
+  },
+  {
     id: 'continual-rl',
-    match: /\b(reinforcement learning|policy gradient|policy|continual|deployed rl|deployed reinforcement|rl)\b/i,
+    match: /\b(reinforcement learning|policy gradient|deployed rl|deployed reinforcement|rl)\b/i,
     tags: ['reinforcement-learning', 'continual-learning', 'deployment'],
     reader: 'teams deploying adaptive decision systems',
     verdict:
@@ -71,13 +78,20 @@ const TOPIC_RULES = [
   },
   {
     id: 'vision-language',
-    match: /\b(video|vision|visual|image|camera|multimodal|segmentation|detection|retinal|font|generation|vqa)\b/i,
+    match: /\b(vision[- ]language|visual question answering|multimodal|vqa)\b/i,
     tags: ['computer-vision', 'multimodal', 'evaluation'],
     reader: 'computer vision and multimodal product teams',
     verdict:
       'The paper matters if it changes what the system can verify about an image or video, not just what the model can caption after the fact.',
     productionTest:
       'Build a failure gallery before a demo gallery: occlusion, domain shift, ambiguous prompts, and outputs that look plausible but are wrong.',
+  },
+  {
+    id: 'computer-vision',
+    match: /\b(video|vision|visual|image|camera|segmentation|detection|retinal|font)\b/i,
+    tags: ['computer-vision', 'evaluation'],
+    reader: 'teams evaluating image and video models',
+    productionTest: 'Choose task-specific metrics, then compare domain shift, occlusion and other failures with a fixed baseline.',
   },
   {
     id: 'retrieval',
@@ -126,7 +140,7 @@ const decodeXml = (value) =>
     .trim();
 
 const stripTags = (value) =>
-  decodeXml(String(value || '').replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ' '));
+  decodeXml(String(value || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1').replace(/<br\s*\/?>/gi, ' ').replace(/<\/?[A-Za-z][^>]*>/g, ' '));
 
 const slugify = (value) =>
   String(value || '')
@@ -164,14 +178,13 @@ const defaultFeed = () => ({
     selection:
       'The selector favors primary papers with strong fit for agents, computer vision, retrieval, reasoning, representation learning, and deployable ML systems.',
     writing:
-      'Reviews are original English editorial notes written around one concrete claim, one useful verification test, and one skeptical failure mode. Abstracts are used only to ground the critique; they are not republished.',
+      'Automated abstract triage uses primary-source metadata and a short claim excerpt. Topic-based questions and suggested tests are unrun; full-text reading, code inspection and reproduction are not implied.',
   },
   reviewSourceWatch: [
     {
       id: 'yannic-kilcher-cvpr',
       label: 'Yannic Kilcher / CVPR source watch',
       status: 'watch-only',
-      checkedAt: new Date().toISOString().slice(0, 10),
       note:
         'Track Yannic Kilcher public paper-analysis sources alongside official CVPR/CVF sources. Do not claim a specific Yannic CVPR review unless a public source ledger confirms it.',
       sources: [
@@ -183,7 +196,7 @@ const defaultFeed = () => ({
   reviews: [],
 });
 
-const sanitizeLegacyReview = (review) => {
+export const sanitizeLegacyReview = (review) => {
   const paperUrl = review.paperUrl || (review.arxivId ? `https://arxiv.org/abs/${review.arxivId}` : '');
   const pdfUrl = review.pdfUrl || (review.arxivId ? `https://arxiv.org/pdf/${review.arxivId}` : '');
   const categories = Array.isArray(review.categories) ? review.categories : [];
@@ -199,6 +212,10 @@ const sanitizeLegacyReview = (review) => {
       review.dek ||
       'A research note on when a paper changes the engineering contract, not only the benchmark headline.',
     language: 'en',
+    readingScope: review.readingScope || 'unrecorded',
+    topicId: review.topicId || '',
+    fullTextReviewed: review.fullTextReviewed === true,
+    proposedTestsRun: review.proposedTestsRun === true,
     selectedAt: review.selectedAt,
     paperUrl,
     pdfUrl,
@@ -216,10 +233,10 @@ const sanitizeLegacyReview = (review) => {
       'The paper is most useful as a prompt for inspectable reasoning: constrain the intermediate state, then test whether failures become visible enough to gate.',
     whatItClaims:
       review.whatItClaims ||
-      'It explores a recurrent transformer design with an explicit constraint layer over latent state, aiming to make deduction-like behavior more controlled than a free-form next-token loop.',
+      'No abstract claim was recorded for this note; inspect the primary source.',
     technicalHinge:
       review.technicalHinge ||
-      'The hinge is the interface between neural iteration and symbolic pressure. If the constraint step is too weak, the model can still drift; if it is too rigid, the architecture may only work on tidy tasks.',
+      'Which task, baseline and intermediate outputs would let you check the stated claim?',
     productionAngle:
       review.productionAngle ||
       'For builders, the takeaway is a test shape: small reasoning modules should expose intermediate states and invalid paths before they are trusted inside a larger agent workflow.',
@@ -232,10 +249,11 @@ const sanitizeLegacyReview = (review) => {
       'Look for failure cases where the model is confidently invalid.',
     ],
     sourceLedger: [
+      ...existingSourceLinks.filter(link => link && typeof link.label === 'string' && typeof link.url === 'string' && /^https:\/\//i.test(link.url)),
       ...(paperUrl ? [{ label: 'Primary paper', url: paperUrl }] : []),
       ...(pdfUrl ? [{ label: 'PDF', url: pdfUrl }] : []),
       ...(feedUrl && feedLabel ? [{ label: feedLabel, url: feedUrl }] : []),
-    ],
+    ].filter((link, index, links) => links.findIndex(candidate => candidate.url === link.url) === index),
   };
 };
 
@@ -253,17 +271,24 @@ const loadExistingFeed = async () => {
   }
 };
 
-const fetchText = async (url) => {
+export const fetchText = async (url, timeoutMs = 15000) => {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
   const response = await fetch(url, {
     headers: {
       'User-Agent': USER_AGENT,
       Accept: 'application/rss+xml,application/xml,text/xml;q=0.9,*/*;q=0.8',
     },
+    signal: controller.signal,
   });
   if (!response.ok) {
     throw new Error(`Failed to fetch ${url}: ${response.status}`);
   }
-  return response.text();
+  return await response.text();
+  } finally {
+    clearTimeout(timeout);
+  }
 };
 
 const extractTag = (block, tag) => {
@@ -272,12 +297,15 @@ const extractTag = (block, tag) => {
 };
 
 const extractDescription = (block) => {
-  const raw = extractTag(block, 'description');
+  const raw = block.match(/<description(?:\s[^>]*)?>([\s\S]*?)<\/description>/i)?.[1] || '';
   const text = stripTags(raw).replace(/^arXiv:[^ ]+\s+Announce Type:\s+\w+\s+/i, '');
   return text.replace(/^Abstract:\s*/i, '').trim();
 };
 
-const parseRssItems = (xml, category) => {
+export const parseRssItems = (xml, category) => {
+  if (!/<rss(?:\s|>)/i.test(xml) || !/<channel(?:\s|>)/i.test(xml)) {
+    throw new Error(`Unrecognized primary paper feed for ${category}`);
+  }
   return [...String(xml || '').matchAll(/<item>([\s\S]*?)<\/item>/g)]
     .map((match, index) => {
       const item = match[1];
@@ -308,10 +336,16 @@ const parseRssItems = (xml, category) => {
     .filter(Boolean);
 };
 
-const fetchCandidates = async () => {
+export const fetchCandidates = async () => {
   const results = await Promise.allSettled(
     FEED_CATEGORIES.map(async (category) => parseRssItems(await fetchText(`https://rss.arxiv.org/rss/${category}`), category))
   );
+  if (results.every((result) => result.status === 'rejected')) {
+    throw new Error('All primary paper feeds failed; keeping the previous dated feed');
+  }
+  for (const [index, result] of results.entries()) {
+    if (result.status === 'rejected') console.warn(`Paper feed ${FEED_CATEGORIES[index]} unavailable: ${result.reason?.message || result.reason}`);
+  }
   const candidates = results.flatMap((result) => (result.status === 'fulfilled' ? result.value : []));
   const byId = new Map();
   for (const candidate of candidates) {
@@ -360,12 +394,12 @@ const parseAtomEntries = (xml) => {
     .filter(Boolean);
 };
 
-const fetchArxivMetadataByIds = async (ids) => {
+export const fetchArxivMetadataByIds = async (ids) => {
   const uniqueIds = unique(ids).filter(Boolean);
   const byId = new Map();
   for (let index = 0; index < uniqueIds.length; index += 20) {
     const batch = uniqueIds.slice(index, index + 20);
-    const xml = await fetchText(`https://export.arxiv.org/api/query?id_list=${batch.join(',')}`);
+    const xml = await fetchText(`https://export.arxiv.org/api/query?id_list=${batch.join(',')}&max_results=${batch.length}`);
     for (const paper of parseAtomEntries(xml)) {
       byId.set(paper.arxivId, paper);
     }
@@ -373,7 +407,7 @@ const fetchArxivMetadataByIds = async (ids) => {
   return byId;
 };
 
-const inferTopic = (paper) => {
+export const inferTopic = (paper) => {
   const haystack = `${paper.title} ${paper.summary} ${(paper.categories || []).join(' ')}`;
   return TOPIC_RULES.find((rule) => rule.match.test(haystack)) || {
     id: 'frontier-ml',
@@ -441,6 +475,7 @@ const firstAbstractSentence = (paper) =>
 const contributionSentence = (paper) => {
   const sentences = abstractSentences(paper);
   return (
+    sentences.find((sentence) => /\b(propose|introduce|present|develop)\b/i.test(sentence)) ||
     sentences.find((sentence) =>
       /\b(propose|introduce|present|develop|show|demonstrate|benchmark|evaluate|study|analy[sz]e|framework|method|dataset|approach)\b/i.test(
         sentence
@@ -599,6 +634,16 @@ const makeDek = (paper, topic) => {
   const hook = cleanHook(phrases[0], topic.id.replace(/-/g, ' '));
   const subject = titleSubject(paper);
   const templatesByTopic = {
+    'vision-robustness': [
+      `Read ${subject} through its classifier setup, perturbation budgets and reproducible task metrics.`,
+      `For ${subject}, compare clean and perturbed predictions under the same preprocessing and sampling contract.`,
+      `${subject} invites a robustness check: which configuration choices affect the reported comparison?`,
+    ],
+    'computer-vision': [
+      `Read ${subject} through the stated image or video task, baseline and difficult examples.`,
+      `The evaluation question for ${subject}: which task metrics survive a change in inputs or conditions?`,
+      `For ${subject}, inspect the prediction task and failure cases before adapting the method.`,
+    ],
     'agent-systems': [
       `Read it for the audit trail: ${hook} matters only if a team can replay choices, dead branches, and tool calls after a failed run.`,
       `${subject} is strongest when it treats ${hook} as runtime evidence, not a polished demo transcript.`,
@@ -657,36 +702,28 @@ const makeDek = (paper, topic) => {
 };
 
 const makeClaim = (paper, topic) => {
-  const subject = titleSubject(paper);
-  const contribution = compactSentence(contributionSentence(paper), 260);
+  const words = contributionSentence(paper).split(/\s+/);
+  const contribution = words.slice(0, 20).join(' ') + (words.length > 20 ? '…' : '');
   const byline = authorLine(paper.authors);
-  return `${byline} frame ${subject} around this core move: ${contribution}`;
+  return `${byline} report in the abstract: "${contribution}"`;
 };
 
 const makeEditorVerdict = (paper, topic) => {
-  const concrete = phraseCandidates(paper)[0] || topic.reader;
-  const contribution = compactSentence(contributionSentence(paper), 190);
-  const limit = limitationSentence(paper);
-  const limitClause = limit ? ` The weak spot to inspect: ${cleanLimitationSentence(limit, 150)}` : '';
-  return `The paper is worth a builder's time because it turns ${concrete} into a mechanism a team can test: ${contribution}${limitClause}`;
+  return `For ${topic.reader}, compare the declared task, baseline and failure cases before deciding whether ${titleSubject(paper)} informs an implementation choice.`;
 };
 
 const makeTechnicalHinge = (paper, topic) => {
   const phrases = phraseCandidates(paper);
   const target = phrases[0] || topic.id.replace(/-/g, ' ');
-  if (topic.id === 'agent-safety') return `The hinge is behavioral evidence around ${target}: message sequence, goal pressure, disclosure, and the point where the system stops instead of continuing to optimize.`;
-  if (topic.id === 'continual-rl') return `The hinge is update control around ${target}: every post-launch change needs an observable trigger, a rollback rule, and a signal that is harder to game than reward alone.`;
-  if (topic.id === 'agent-systems') return `The hinge is the cognition layer around ${target}: if the tree, plan, memory, or monitor cannot be replayed after a failed run, it is decoration rather than infrastructure.`;
-  if (topic.id === 'physical-world-models') return `The hinge is whether ${target} tracks the moment physical state changes: contact, occlusion, object identity, trajectory, and causal interaction.`;
-  if (topic.id === 'vision-language') return `The hinge is evidence routing around ${target}: a convincing answer should expose the crop, region, frame, or visual fact that made the answer possible.`;
-  if (topic.id === 'retrieval') return `The hinge is recall under pressure around ${target}: near-duplicates, stale facts, missing citations, and adversarial neighbors should reveal what the index forgot.`;
-  if (topic.id === 'reasoning') return `The hinge is intermediate state around ${target}: the method should make invalid paths cheaper to catch than a final-answer-only prompt would.`;
-  if (topic.id === 'representation') return `The hinge is the ablation around ${target}: remove the claimed bottleneck or objective, then check whether the gain survives without storytelling.`;
-  return `The hinge is reproducibility around ${target}: enough setup detail, negative cases, and measurement hooks to repeat the result outside the paper's comfort zone.`;
+  if (topic.id === 'vision-robustness') return 'How sensitive are the classifier results to preprocessing, temporal sampling, perturbation budgets and metric aggregation?';
+  if (topic.id === 'computer-vision') return 'Which task-specific metrics and difficult image or video cases would distinguish an improvement from the declared baseline?';
+  return `Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about ${target}?`;
 };
 
 const makeProductionAngle = (paper, topic) => {
   const subject = titleSubject(paper);
+  if (topic.id === 'vision-robustness') return 'Pin model weights, video preprocessing, frame sampling, attack budgets and metric aggregation. Compare clean and perturbed classification metrics with the same configuration; record runtime and memory separately.';
+  if (topic.id === 'computer-vision') return 'Select metrics for the stated prediction task. Compare a fixed baseline on held-out examples, domain shift and occlusion; retain failures and the configuration needed to repeat the comparison.';
   if (topic.id === 'agent-systems') return `Prototype ${subject} as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.`;
   if (topic.id === 'vision-language') return `Use it on an inspection set with answerable and unanswerable images. Require each answer to point to the exact region or frame; fluent unsupported answers should count as failures.`;
   if (topic.id === 'retrieval') return `Turn the claim into a retrieval bake-off: stale documents, near-neighbor distractors, and citation-required answers before any dashboard demo.`;
@@ -700,9 +737,7 @@ const makeProductionAngle = (paper, topic) => {
 
 const makeSkepticism = (paper, topic) => {
   const source = (paper.categories || []).join(', ') || 'arXiv';
-  const limit = limitationSentence(paper);
-  const limitText = limit ? ` The abstract already hints at pressure to test: ${cleanLimitationSentence(limit, 180)}` : '';
-  return `This is still a source-led triage note from ${source}, not a reproduction.${limitText} I would hold back adoption until code, data conditions, ablations, and failure examples match the deployment setting.`;
+  return `This automated note uses the ${source} abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.`;
 };
 
 const makeReadingPath = (paper, topic) => {
@@ -753,7 +788,8 @@ const qualityCheckFeed = (reviews) => {
   }
 };
 
-const buildReviewEntry = (paper, score, overrides = {}) => {
+export const buildReviewEntry = (paper, score, overrides = {}) => {
+  if (!String(paper.summary || '').trim()) throw new Error(`Missing primary abstract for ${paper.arxivId}`);
   const topic = inferTopic(paper);
   const id = overrides.id || `${slugify(paper.title)}-${paper.arxivId.replace('.', '-')}`;
   const review = {
@@ -761,6 +797,10 @@ const buildReviewEntry = (paper, score, overrides = {}) => {
     title: paper.title,
     dek: makeDek(paper, topic),
     language: 'en',
+    readingScope: 'abstract',
+    topicId: topic.id,
+    fullTextReviewed: false,
+    proposedTestsRun: false,
     selectedAt: overrides.selectedAt || new Date().toISOString(),
     paperUrl: paper.paperUrl,
     pdfUrl: paper.pdfUrl,
@@ -776,29 +816,31 @@ const buildReviewEntry = (paper, score, overrides = {}) => {
     editorVerdict: makeEditorVerdict(paper, topic),
     whatItClaims: makeClaim(paper, topic),
     technicalHinge: makeTechnicalHinge(paper, topic),
-    productionAngle: makeProductionAngle(paper, topic),
+    productionAngle: `Suggested test (unrun): ${makeProductionAngle(paper, topic)}`,
     skepticism: makeSkepticism(paper, topic),
     readingPath: makeReadingPath(paper, topic),
-    abstractExcerpt: abstractExcerpt(paper),
+    abstractExcerpt: '',
     claimAtoms: phraseCandidates(paper).slice(0, 5),
     sourceLedger: [
+      ...(overrides.sourceLedger || []),
       { label: 'Primary paper', url: paper.paperUrl },
       { label: 'PDF', url: paper.pdfUrl },
       { label: `${paper.categories[0] || 'arXiv'} research feed`, url: paper.feedUrl },
-    ],
+    ].filter((link, index, links) => links.findIndex(candidate => candidate.url === link.url) === index),
   };
   qualityCheckReview(review);
   return review;
 };
 
-const paperFromReview = (review, metadataById) => {
-  const metadata = metadataById.get(review.arxivId) || {};
+export const paperFromReview = (review, metadataById) => {
+  const metadata = metadataById.get(review.arxivId);
+  if (!metadata?.summary?.trim()) throw new Error(`Missing primary abstract for ${review.arxivId}; keeping the previous note`);
   const categories = Array.isArray(metadata.categories) && metadata.categories.length ? metadata.categories : review.categories || [];
   const feedCategory = categories.find((category) => FEED_CATEGORIES.includes(category));
   return {
     arxivId: review.arxivId,
     title: metadata.title || review.title,
-    summary: metadata.summary || review.abstractExcerpt || review.dek || '',
+    summary: metadata.summary,
     authors: metadata.authors?.length ? metadata.authors : review.authors || [],
     categories,
     publishedAt: metadata.publishedAt || review.publishedAt || '',
@@ -821,6 +863,7 @@ const rewriteExistingReviews = async (reviews) => {
     buildReviewEntry(paperFromReview(review, metadataById), review.selectionScore || 0, {
       id: review.id,
       selectedAt: review.selectedAt,
+      sourceLedger: review.sourceLedger,
     })
   );
 };
@@ -871,7 +914,7 @@ const updateFeed = async () => {
   return { feed: nextFeed, selected: nextReview, changed: true, candidates: candidates.length, rewritten: shouldRewriteExisting };
 };
 
-updateFeed()
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) updateFeed()
   .then((result) => {
     console.log(
       JSON.stringify(

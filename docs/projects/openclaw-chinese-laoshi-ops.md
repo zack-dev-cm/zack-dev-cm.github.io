@@ -23,7 +23,7 @@ https://zack-dev-cm.github.io/projects/openclaw-chinese-laoshi-ops.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 984 (public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi))
+- ClawHub downloads: 985 (public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi))
 - Published versions: 7 (public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi))
 - ClawHub stars: 1 (public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi))
 - Clean release: 1.0.9 (public README release marker)

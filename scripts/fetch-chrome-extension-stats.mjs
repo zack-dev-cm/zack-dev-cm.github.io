@@ -160,7 +160,7 @@ export const updateExtensionRows = async (stats) => {
         warnings.push(`${extension.name}: no visible user count parsed`);
         continue;
       }
-      const { rating, ratingCount, sizeKb, ...cached } = extension;
+      const { rating, ratingCount, sizeKb, version, lastUpdated, category, ...cached } = extension;
       extensions.push({
         ...cached,
         name: parsed.name || extension.name,
@@ -168,9 +168,9 @@ export const updateExtensionRows = async (stats) => {
         usersSource: 'Chrome Web Store detail page',
         ...(parsed.rating !== null ? { rating: parsed.rating } : {}),
         ...(parsed.ratingCount !== null ? { ratingCount: parsed.ratingCount } : {}),
-        ...(parsed.version ? { version: parsed.version } : {}),
-        ...(parsed.lastUpdated ? { lastUpdated: parsed.lastUpdated } : {}),
-        ...(parsed.category ? { category: parsed.category } : {}),
+        version: parsed.version,
+        lastUpdated: parsed.lastUpdated,
+        category: parsed.category,
         ...(parsed.sizeKb !== null ? { sizeKb: parsed.sizeKb } : {}),
         dataIngestedAt: today,
       });
