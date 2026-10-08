@@ -171,6 +171,14 @@ export const fetchSkillDetail = async ({ owner, slug, fallback }) => {
   }
 
   const stats = detail.skill?.stats ?? {};
+  const counters = {
+    downloads: Number(stats.downloads ?? fallback.downloads ?? 0),
+    versions: Number(stats.versions ?? 0),
+    stars: Number(stats.stars ?? fallback.stars ?? 0)
+  };
+  for (const [field, value] of Object.entries(counters)) {
+    if (!Number.isSafeInteger(value) || value < 0) throw new Error(`Skill detail ${slug} has invalid ${field}: ${value}`);
+  }
   return {
     slug,
     displayName: getPublicDisplayName({
@@ -178,9 +186,7 @@ export const fetchSkillDetail = async ({ owner, slug, fallback }) => {
       displayName: detail.skill?.displayName,
       fallbackDisplayName: fallback.displayName
     }),
-    downloads: Number(stats.downloads ?? fallback.downloads ?? 0),
-    versions: Number(stats.versions ?? 0),
-    stars: Number(stats.stars ?? fallback.stars ?? 0),
+    ...counters,
     url: `${CLAWHUB_SITE_URL}/${owner}/${slug}`,
     checkedAt: new Date().toISOString().slice(0, 10)
   };
@@ -369,6 +375,8 @@ export const updateConstantsSource = (source, stats) => {
     );
   }
 
+  nextSource = updateProjectListingMetrics(nextSource, stats);
+
   if (nextSource === source) {
     const currentStats = parseConstantsStatsFromSource(source);
     const statsMatch =
@@ -406,6 +414,49 @@ const parseLiteralString = (node) => {
 const parseLiteralNumber = (node) => {
   if (!node || !ts.isNumericLiteral(node)) return 0;
   return Number(node.text);
+};
+
+// Project pages use the same fetched listing snapshot as the main tracker.
+// Keep historical release and experiment metrics separate from live counts.
+const updateProjectListingMetrics = (source, stats) => {
+  const byUrl = new Map(stats.map((stat) => [stat.url, stat]));
+  const sourceFile = ts.createSourceFile(CONSTANTS_PATH, source, ts.ScriptTarget.ESNext, true, ts.ScriptKind.TS);
+  const replacements = [];
+  const visit = (node) => {
+    if (ts.isVariableDeclaration(node) && node.name.getText() === 'PROJECTS' && ts.isArrayLiteralExpression(node.initializer)) {
+      for (const project of node.initializer.elements) {
+        if (!ts.isObjectLiteralExpression(project)) continue;
+        const links = getPropertyValue(project, 'links');
+        const benchmarks = getPropertyValue(project, 'benchmarks');
+        if (!links || !benchmarks || !ts.isArrayLiteralExpression(links) || !ts.isArrayLiteralExpression(benchmarks)) continue;
+        const urls = [...new Set(links.elements.filter(ts.isObjectLiteralExpression)
+          .map((link) => parseLiteralString(getPropertyValue(link, 'url')))
+          .filter((url) => /^https:\/\/clawhub\.ai\/[^/]+\/[^/?#]+$/.test(url)))];
+        if (!urls.length || urls.some((url) => !byUrl.has(url))) continue;
+        const rows = urls.map((url) => byUrl.get(url));
+        if (new Set(rows.map((row) => row.checkedAt)).size !== 1) continue;
+        const fields = { 'ClawHub downloads': 'downloads', 'Published versions': 'versions', 'ClawHub stars': 'stars' };
+        for (const benchmark of benchmarks.elements) {
+          if (!ts.isObjectLiteralExpression(benchmark)) continue;
+          const field = fields[parseLiteralString(getPropertyValue(benchmark, 'label'))];
+          const value = getPropertyValue(benchmark, 'value');
+          const context = getPropertyValue(benchmark, 'context');
+          if (!field || !value || !context || !/^public ClawHub listings?, \d{4}-\d{2}-\d{2}/.test(parseLiteralString(context))) continue;
+          const total = rows.reduce((sum, row) => sum + row[field], 0);
+          const nextValue = `${formatInteger(total)}${rows.length > 1 ? ' total' : ''}`;
+          const nextContext = `public ClawHub listing${rows.length > 1 ? 's' : ''}, ${rows[0].checkedAt} (${rows.map((row) => row.slug).join(' + ')})`;
+          replacements.push({ start: value.getStart(sourceFile), end: value.end, text: JSON.stringify(nextValue) });
+          replacements.push({ start: context.getStart(sourceFile), end: context.end, text: JSON.stringify(nextContext) });
+        }
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+  for (const replacement of replacements.sort((a, b) => b.start - a.start)) {
+    source = source.slice(0, replacement.start) + replacement.text + source.slice(replacement.end);
+  }
+  return source;
 };
 
 const parseConstantsStatsFromSource = (sourceText) => {

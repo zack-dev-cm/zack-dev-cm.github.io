@@ -8,7 +8,7 @@ import {createHash} from 'node:crypto';
 import {spawn,spawnSync} from 'node:child_process';
 import {once} from 'node:events';
 import {chromium} from 'playwright';
-import {publishFiles} from '../engineering-studies/publish.mjs';
+import {publishFileGroups} from '../engineering-studies/publish.mjs';
 import {chaptersFor,DURATION} from '../../../public/architectural-catalog/timeline.js';
 import {checkComposition} from './composition-review.mjs';
 import {isPublicOutput} from './output-path.mjs';
@@ -63,9 +63,10 @@ try{
   const teaserCrop='crop=1306:1080:614:0,scale=870:720,pad=1280:720:205:0:color=0x090c10,setsar=1';
   const posterCrop=spawnSync('ffmpeg',['-hide_banner','-loglevel','error','-y','-i',path.join(staging,'catalog-poster.jpg'),'-vf',teaserCrop,'-frames:v','1',path.join(staging,'catalog-teaser.jpg')],{encoding:'utf8'});if(posterCrop.status!==0)throw Error(posterCrop.stderr);
   if(process.argv.includes('--preview')){
-    const dir=path.join(OUTPUT,'media');fs.mkdirSync(dir,{recursive:true});
-    for(const n of ['poster','compare','open','dimensions','drawing','extract','review','render','room','result','teaser'])fs.copyFileSync(path.join(staging,`catalog-${n}.jpg`),path.join(dir,`catalog-${n}.jpg`));
-    publishFiles(staging,path.join(OUTPUT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
+    publishFileGroups([
+      {staging,destination:path.join(OUTPUT,'media'),names:['poster','compare','open','dimensions','drawing','extract','review','render','room','result','teaser'].map(n=>`catalog-${n}.jpg`)},
+      {staging,destination:path.join(OUTPUT,'models'),names:['catalog-cabinets.glb','catalog-cabinets.json']}
+    ]);
     console.log(JSON.stringify({preview:true,renderer,meshes:gltf.meshes.length,errors}));
   }else{
     const film=path.join(staging,'catalog-film.mp4');
@@ -108,8 +109,10 @@ try{
     const mediaNames=['catalog-film.mp4','catalog-loop.mp4','catalog-poster.jpg','catalog-teaser.jpg','catalog-compare.jpg','catalog-open.jpg','catalog-dimensions.jpg','catalog-drawing.jpg','catalog-extract.jpg','catalog-review.jpg','catalog-render.jpg','catalog-room.jpg','catalog-result.jpg','catalog.vtt'];
     const outputs=Object.fromEntries([...mediaNames,'catalog-cabinets.glb','catalog-cabinets.json'].map(n=>{const b=fs.readFileSync(path.join(staging,n));return [n,{bytes:b.length,sha256:digest(b)}];}));
     fs.writeFileSync(path.join(staging,'catalog-capture.json'),JSON.stringify({kind:'DETERMINISTIC_BROWSER_CAPTURE',language,width:1920,height:1080,fps:24,duration:DURATION,frameCount:frames.length,renderer,stableCanvasReadbacks:2,compositionReview:composition,sourceSha256:Object.fromEntries([...frozen].map(([n,b])=>[n,digest(b)])),toolSha256:Object.fromEntries([...frozenTools].map(([n,b])=>[n,digest(b)])),outputs,pageErrors:errors,scope:sourceFacts.scope,frames},null,2)+'\n');
-    publishFiles(staging,path.join(OUTPUT,'media'),[...mediaNames,'catalog-capture.json']);
-    publishFiles(staging,path.join(OUTPUT,'models'),['catalog-cabinets.glb','catalog-cabinets.json']);
+    publishFileGroups([
+      {staging,destination:path.join(OUTPUT,'media'),names:[...mediaNames,'catalog-capture.json']},
+      {staging,destination:path.join(OUTPUT,'models'),names:['catalog-cabinets.glb','catalog-cabinets.json']}
+    ]);
     console.log(JSON.stringify({completed:true,language,output:OUTPUT,outputs,renderer}));
   }
 }finally{

@@ -388,7 +388,12 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(
     chromeStatsSection.locator('.metric-chip').filter({ hasText: 'reported users as of' }).locator('strong')
   ).toHaveText(CHROME_EXTENSION_STATS.totalUsers.toLocaleString('en-US'));
-  await expect(chromeStatsSection.getByText('GitHub Repo Summarizer')).toBeVisible();
+  await expect(chromeStatsSection.getByRole('heading', { name: CHROME_EXTENSION_STATS.extensions[0].name, exact: true })).toBeVisible();
+  const remainingExtensions = chromeStatsSection.locator('.compact-disclosure--extensions');
+  if (await remainingExtensions.count()) await remainingExtensions.locator(':scope > summary').click();
+  for (const extension of CHROME_EXTENSION_STATS.extensions) {
+    await expect(chromeStatsSection.getByRole('heading', { name: extension.name, exact: true })).toBeVisible();
+  }
   await expect(chromeStatsSection.getByRole('link', { name: 'JSON snapshot' })).toHaveAttribute(
     'href',
     '/docs/chrome-extension-stats.json'
@@ -424,7 +429,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page).toHaveURL(/#contributed-to$/);
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeInViewport();
   await expect(contributedSection.locator('.contribution-project').first()).toContainText('Neuralink');
-  await expect(contributedSection.locator('.contribution-project').first()).toContainText('6 merged PRs');
+  await expect(contributedSection.locator('.contribution-project').first()).toContainText('7 merged PRs');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('Tesla');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('4 open PRs');
   await expect(contributedSection.getByRole('link', { name: 'Follow a sky pixel in 3D' })).toBeVisible();
@@ -499,7 +504,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(page).toHaveURL(/\/projects\/sourcepack-chrome-extension-wave\/$/);
   await expect(page).not.toHaveURL(/\?project=/);
-  await expect(page.getByRole('dialog').getByText('Current publisher users')).toBeVisible();
+  await expect(page.getByRole('dialog').getByText('Reported snapshot users')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toBeHidden();
 

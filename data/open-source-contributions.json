@@ -1,14 +1,21 @@
 {
-  "verifiedAt": "2026-10-07",
+  "verifiedAt": "2026-10-08",
   "projects": [
     {
       "name": "Neuralink",
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Prevents lost query rows, keeps refreshed credentials coherent and makes setup reproducible.",
+      "benefit": "Preserves query results and literals, keeps refreshed credentials coherent and makes setup reproducible.",
       "account": "zack-dev-cm",
       "pullRequests": [
+        {
+          "url": "https://github.com/neuralinkcorp/datarepo/pull/73",
+          "number": 73,
+          "title": "Preserve Python literals in generated catalog queries",
+          "status": "merged",
+          "mergedAt": "2026-10-07T22:30:43Z"
+        },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/74",
           "number": 74,
@@ -50,13 +57,6 @@
           "title": "Declare Python 3.10 minimum and verify installed wheels",
           "status": "merged",
           "mergedAt": "2026-09-16T20:14:26Z"
-        },
-        {
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/73",
-          "number": 73,
-          "title": "Preserve Python literals in generated catalog queries",
-          "status": "open",
-          "mergedAt": null
         }
       ]
     },
@@ -110,8 +110,8 @@
           "url": "https://github.com/Unidata/netcdf4-python/pull/1499",
           "number": 1499,
           "title": "Preserve dimensions for empty orthogonal indexing",
-          "status": "open",
-          "mergedAt": null
+          "status": "merged",
+          "mergedAt": "2026-10-07T16:29:27Z"
         }
       ]
     },
@@ -239,6 +239,23 @@
       ]
     },
     {
+      "name": "Open CLIP",
+      "project": "CoCa example",
+      "logo": "images/contributions/open-clip.jpg",
+      "logoSource": "https://github.com/lucidrains.png?size=96",
+      "benefit": "Makes the CoCa text-generation example call the correct model factory.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/lucidrains/open_clip/pull/2",
+          "number": 2,
+          "title": "Fix the CoCa example model factory name",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
       "name": "OpenClaw",
       "project": "ClawPatch",
       "logo": "images/contributions/openclaw.jpg",
@@ -273,6 +290,30 @@
       ]
     },
     {
+      "name": "Mobile marking detector",
+      "project": "PyTorch Lite",
+      "logo": "images/contributions/mobile-marking.jpg",
+      "logoSource": "https://github.com/AndreyPetrovv.png?size=96",
+      "benefit": "Updates Android inference to PyTorch Lite and its correct model loader.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/AndreyPetrovv/MobileDetectionOfSideFrameMarking/pull/1",
+          "number": 1,
+          "title": "Updated pytorch_android dependencies",
+          "status": "merged",
+          "mergedAt": "2021-06-25T12:16:35Z"
+        },
+        {
+          "url": "https://github.com/AndreyPetrovv/MobileDetectionOfSideFrameMarking/pull/2",
+          "number": 2,
+          "title": "updated import org.pytorch.LiteModuleLoader",
+          "status": "merged",
+          "mergedAt": "2021-06-25T12:16:15Z"
+        }
+      ]
+    },
+    {
       "name": "Toloka",
       "project": "Python SDK",
       "logo": "images/contributions/toloka.png",
@@ -286,6 +327,64 @@
           "title": "Replace undefined var \"op\" to \"operation\"",
           "status": "merged",
           "mergedAt": "2022-06-22T15:53:14Z"
+        }
+      ]
+    },
+    {
+      "name": "CompTech",
+      "project": "who-signed",
+      "logo": "images/contributions/comptech.png",
+      "logoSource": "https://github.com/comptech-winter-school.png?size=96",
+      "benefit": "Adds Telegram photo intake and signature storage for a verification prototype.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/comptech-winter-school/who-signed/pull/2",
+          "number": 2,
+          "title": "Bot",
+          "status": "merged",
+          "mergedAt": "2022-02-01T12:23:09Z"
+        },
+        {
+          "url": "https://github.com/comptech-winter-school/who-signed/pull/3",
+          "number": 3,
+          "title": "Bot",
+          "status": "merged",
+          "mergedAt": "2022-02-05T13:47:12Z"
+        }
+      ]
+    },
+    {
+      "name": "Random Face",
+      "project": "Colab setup",
+      "logo": "images/contributions/random-face.jpg",
+      "logoSource": "https://github.com/bes-dev.png?size=96",
+      "benefit": "Repairs model downloads and adds a runnable Colab entry point.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/bes-dev/random_face/pull/1",
+          "number": 1,
+          "title": "fixed gdown issue",
+          "status": "merged",
+          "mergedAt": "2021-04-13T15:04:08Z"
+        }
+      ]
+    },
+    {
+      "name": "YParser",
+      "project": "English documentation",
+      "logo": "images/contributions/yparser.jpg",
+      "logoSource": "https://github.com/asromahin.png?size=96",
+      "benefit": "Makes image-collection setup and usage available in English.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/asromahin/yparser/pull/1",
+          "number": 1,
+          "title": "README_en.md",
+          "status": "merged",
+          "mergedAt": "2020-09-09T11:27:28Z"
         }
       ]
     }

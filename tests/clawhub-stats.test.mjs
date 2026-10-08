@@ -28,6 +28,16 @@ test('an unresolved ambiguity fails instead of manufacturing refreshed statistic
   await assert.rejects(fetchSkillDetail({ owner: 'zack-dev-cm', slug: 'example', fallback: { downloads: 5 } }), /HTTP 409/);
 });
 
+test('malformed listing counters fail before a refreshed snapshot can be written', async (t) => {
+  for (const field of ['downloads', 'versions', 'stars']) {
+    for (const value of ['invalid', 'Infinity', -1, 1.5]) {
+      t.mock.method(globalThis, 'fetch', async () => Response.json({ owner: { handle: 'zack-dev-cm' }, skill: { stats: { downloads: 12, versions: 2, stars: 1, [field]: value } } }));
+      await assert.rejects(fetchSkillDetail({ owner: 'zack-dev-cm', slug: 'example', fallback: {} }), new RegExp(`invalid ${field}`));
+      t.mock.restoreAll();
+    }
+  }
+});
+
 test('current editorial copy can refresh without the retired download-summary sentence', async () => {
   const source = await readFile(new URL('../constants.ts', import.meta.url), 'utf8');
   const stats = [
@@ -38,8 +48,23 @@ test('current editorial copy can refresh without the retired download-summary se
   assert.match(updated, /Updated the public ClawHub tracker to 20 downloads across 2 public skills on 2026-10-07/);
   assert.match(updated, /label: "Tracked ClawHub downloads", value: "20"/);
   assert.match(updated, /label: "CV Repro Lab downloads", value: "20 total"/);
+  assert.match(updated, /label: "ClawHub downloads", value: "20 total", context: "public ClawHub listings, 2026-10-07 \(data-science-cv-repro-lab \+ sota-agent\)"/);
+  assert.match(updated, /label: "Published versions", value: "3 total", context: "public ClawHub listings, 2026-10-07/);
   assert.equal(updateConstantsSource(updated, stats), updated);
   assert.throws(() => updateConstantsSource(source.replace('Tracked public skills', 'Removed metric'), stats), /Tracked public skills metric row/);
+});
+
+test('missing linked skills cannot redatestamp a partial project total', async () => {
+  const source = await readFile(new URL('../constants.ts', import.meta.url), 'utf8');
+  const stats = [{ slug: 'data-science-cv-repro-lab', displayName: 'CV Repro Lab', downloads: 12, versions: 2, stars: 1, url: 'https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab', checkedAt: '2030-01-01' }];
+  const updated = updateConstantsSource(source, stats);
+  const project = (text) => {
+    const projectsStart = text.indexOf('export const PROJECTS');
+    return text.slice(text.indexOf('title: "CV Repro Lab Skills"', projectsStart), text.indexOf('title: "OpenClaw Sales Manager Automation', projectsStart));
+  };
+  const metrics = (text) => project(text).match(/benchmarks: \[[\s\S]*?\n    \]/)?.[0];
+  assert.ok(metrics(source));
+  assert.equal(metrics(updated), metrics(source));
 });
 
 test('public display names containing replacement tokens remain literal valid TypeScript', async () => {

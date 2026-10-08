@@ -33,7 +33,7 @@ const FEATURED_PROJECT_CONTEXT: Record<number, {
   77: {
     label: 'Document AI · Working interior demo',
     title: 'From drawing to catalog',
-    summary: 'Follow real drawing and catalog evidence through agent review, a recorded render and an adjustable 3D room fit. Play all eight stages, then run the complete workflow and inspect its results.',
+    summary: 'Follow real drawing and catalog evidence through agent review, a recorded render and an adjustable 3D room fit. Explore all eight recorded stages; live generation is paused.',
     previewVideo: '/docs/architectural-catalog/media/catalog-loop.mp4',
     previewPoster: '/docs/architectural-catalog/media/catalog-teaser.jpg',
     figureLabel: 'Original evidence → recorded render → illustrative room fit',
@@ -1654,7 +1654,7 @@ const App: React.FC = () => {
               <div className="metric-grid metric-grid--compact chrome-stats__summary" aria-label="Chrome extension publisher summary">
                 <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.totalPublished}</strong>
-                  <em>published extensions</em>
+                  <em>public listings observed</em>
                 </div>
                 <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.totalUsers.toLocaleString()}</strong>
@@ -1676,7 +1676,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="metric-chip metric-chip--compact">
                   <strong>{CHROME_EXTENSION_STATS.averageUsersPerExtension}</strong>
-                  <em>average reported users per extension</em>
+                  <em>average users per measured row</em>
                 </div>
               </div>
 

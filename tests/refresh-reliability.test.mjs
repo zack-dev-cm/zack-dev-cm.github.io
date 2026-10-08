@@ -5,10 +5,12 @@ import path from 'node:path';
 import os from 'node:os';
 import http from 'node:http';
 import { fetchWithRetry, updateConstantsSource } from '../scripts/fetch-clawhub-stats.mjs';
-import { fetchText, parseDetailPage, updateExtensionRows, writeChromeStats } from '../scripts/fetch-chrome-extension-stats.mjs';
+import { fetchText, parseDetailPage, parsePublisherListings, updateExtensionRows, writeChromeStats } from '../scripts/fetch-chrome-extension-stats.mjs';
 import { updateStatsSource } from '../scripts/stats-source.mjs';
 import { classifyLinkResults } from '../scripts/link-results.mjs';
 import { isPublicOutput } from '../scripts/media/architectural-catalog/output-path.mjs';
+import { assertDecodedOutput } from '../scripts/media/architectural-catalog/decoded-output.mjs';
+import { buildMarkdown } from '../scripts/generate-project-markdown.mjs';
 
 test('stalled response bodies terminate and ClawHub retries are bounded for 200 and 503', { timeout: 10000 }, async (t) => {
   let requests = 0;
@@ -32,9 +34,70 @@ test('stalled response bodies terminate and ClawHub retries are bounded for 200 
 test('missing store markup preserves cached metrics and reports a warning', async (t) => {
   t.mock.method(globalThis, 'fetch', async () => new Response('<html>New store layout</html>'));
   const extension = { name: 'Example', chromeWebStoreUrl: 'https://example.test/store', users: 23, rating: 4.5, ratingCount: 8, sizeKb: 12 };
-  const { nextStats, warnings } = await updateExtensionRows({ extensions: [extension] });
+  const stats = { checkedAt: '2026-06-15', totalUsers: 23, extensions: [extension] };
+  const { nextStats, warnings, measuredRows } = await updateExtensionRows(stats);
   for (const field of ['users', 'rating', 'ratingCount', 'sizeKb']) assert.equal(nextStats.extensions[0][field], extension[field]);
   assert.match(warnings[0], /no visible user count/);
+  assert.equal(nextStats.checkedAt, '2026-06-15');
+  assert.equal(measuredRows, 0);
+  assert.deepEqual(nextStats, stats);
+});
+
+test('a partial store refresh excludes stale counts and missing ratings from current totals', async (t) => {
+  t.mock.method(globalThis, 'fetch', async (url) => new Response(url.endsWith('/measured') ? '<h1>Measured</h1><span>10 users</span>' : '<h1>No public count</h1>'));
+  const { nextStats, warnings, measuredRows } = await updateExtensionRows({ totalPublished: 2, checkedAt: '2026-06-15', extensions: [
+    { id: 'measured', name: 'Measured', chromeWebStoreUrl: 'https://example.test/measured', users: 1, rating: 5, ratingCount: 8 },
+    { id: 'missing', name: 'Missing', chromeWebStoreUrl: 'https://example.test/missing', users: 999, rating: 5, ratingCount: 20 },
+  ] });
+  assert.equal(measuredRows, 1);
+  assert.equal(nextStats.totalUsers, 10);
+  assert.equal(nextStats.extensions.length, 1);
+  assert.equal(nextStats.extensions[0].id, 'measured');
+  assert.equal(nextStats.extensions[0].rating, undefined);
+  assert.equal(nextStats.ratingCount, 0);
+  assert.equal(warnings.length, 1);
+});
+
+test('publisher discovery uses rendered result identities and titles, with duplicate results collapsed', () => {
+  const id = 'abcdefghijklmnopabcdefghijklmnop';
+  const card = `<div data-item-id="${id}"><a href="./detail/research-radar/${id}"></a><h2>Research &amp; notes</h2></div>`;
+  assert.deepEqual(parsePublisherListings(card + card), [{ id, name: 'Research & notes', chromeWebStoreUrl: `https://chromewebstore.google.com/detail/research-radar/${id}?hl=en` }]);
+});
+
+test('an unrecognized publisher page fails discovery before any dated snapshot can be written', () => {
+  assert.throws(() => parsePublisherListings('<html>Publisher temporarily unavailable</html>'), /No visible publisher listings/);
+});
+
+test('project Markdown preserves paragraphs and indented code blocks', () => {
+  for (const body of ["First paragraph.\n\nSecond paragraph.\n\n```python\n    print('ok')\n```", "    print('first')\n    print('next')"]) {
+    const markdown = buildMarkdown({ title: 'Example', description: 'Example description', longDescription: body, keyFeatures: [], techStack: [], links: [], caseStudySections: [{ title: 'Details', body }] }, 'https://example.test/project.md');
+    assert.ok(markdown.includes(`## Summary\n${body}`));
+    assert.ok(markdown.includes(`## Details\n${body}`));
+  }
+});
+
+test('decoded frame acceptance requires a successful process and actual nonempty output', async (t) => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'decoded-frame-'));
+  t.after(() => fs.rm(directory, { recursive: true, force: true }));
+  const output = path.join(directory, 'frame.png');
+  assert.throws(() => assertDecodedOutput({ status: null, error: new Error('ENOENT') }, output), /ENOENT/);
+  assert.throws(() => assertDecodedOutput({ status: null, signal: 'SIGTERM' }, output), /SIGTERM/);
+  assert.throws(() => assertDecodedOutput({ status: 0 }, output), /ENOENT/);
+  await fs.writeFile(output, '');
+  assert.throws(() => assertDecodedOutput({ status: 0 }, output), /Missing decoded frame content/);
+  await fs.writeFile(output, 'decoded bytes');
+  assert.doesNotThrow(() => assertDecodedOutput({ status: 0 }, output));
+});
+
+test('private-language output cannot enter docs or a symlink to deployed assets', async (t) => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'output-containment-'));
+  t.after(() => fs.rm(directory, { recursive: true, force: true }));
+  const publicRoot = path.join(directory, 'public'), docsRoot = path.join(directory, 'docs');
+  await fs.mkdir(publicRoot); await fs.mkdir(docsRoot);
+  const alias = path.join(directory, 'private-looking-alias');
+  await fs.symlink(docsRoot, alias);
+  for (const output of [docsRoot, path.join(docsRoot, 'new/nested'), alias, path.join(alias, 'new/nested')]) assert.equal(isPublicOutput(output, publicRoot), true);
+  assert.equal(isPublicOutput(path.join(directory, 'private'), publicRoot), false);
 });
 
 test('explicit zero metrics are measured values, and other absent fields remain null', () => {
@@ -59,7 +122,7 @@ test('overlapping Chrome and ClawHub writers preserve both updated source blocks
     return updateConstantsSource(source, [{ slug: 'data-science-cv-repro-lab', displayName: 'CV Lab', downloads: 12, versions: 2, stars: 1, url: 'https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab', checkedAt: '2026-10-07' }]);
   });
   await entered;
-  const second = writeChromeStats({ totalUsers: 123, extensions: [] }, file);
+  const second = writeChromeStats({ totalUsers: 123, totalPublished: 1, checkedAt: '2026-10-08', averageRating: 4.5, ratingCount: 2, extensions: [] }, file);
   release();
   await Promise.all([first, second]);
   const result = await fs.readFile(file, 'utf8');

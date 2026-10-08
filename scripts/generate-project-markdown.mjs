@@ -542,10 +542,10 @@ const buildAliasMarkdown = (project, canonicalUrl) => {
   return lines.join('\n');
 };
 
-const buildMarkdown = (project, markdownUrl) => {
+export const buildMarkdown = (project, markdownUrl) => {
   const title = toAscii(project.title);
   const description = toAscii(project.description);
-  const longDescription = toAscii(project.longDescription);
+  const longDescription = toAsciiBlock(project.longDescription);
   const keyFeatures = project.keyFeatures.map((item) => toAscii(item));
   const techStack = project.techStack.map((item) => toAscii(item));
   const links = project.links.map((link) => ({
@@ -578,7 +578,7 @@ const buildMarkdown = (project, markdownUrl) => {
     if (workflow.expectedOutput) lines.push('', toAscii(workflow.expectedOutput));
   }
   for (const section of project.caseStudySections || []) {
-    lines.push('', `## ${toAscii(section.title)}`, toAscii(section.body));
+    lines.push('', `## ${toAscii(section.title)}`, toAsciiBlock(section.body));
   }
   if (project.images?.length) {
     lines.push('', '## Project Figures');
@@ -1157,7 +1157,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '    <ul class="crawlable-shell__link-list">',
     ...CONTRIBUTION_DATA.projects.map((project) => `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)}${project.scope ? ` (${escapeHtml(project.scope)})` : ''} ${project.pullRequests.map((pr) => `<a href="${escapeHtml(pr.url)}">#${pr.number} (${escapeHtml(pr.status)})</a>`).join(' · ')}</li>`),
     '    </ul>',
-    '    <p>Playable examples: <a href="/docs/contribution-lab/">netCDF4 empty selections</a> · <a href="/docs/contribution-lab/pydicom.html">pydicom lookup-table indexing</a>.</p>',
+    '    <p>Playable examples: <a href="/docs/contribution-lab/">netCDF4 empty selections</a> · <a href="/docs/contribution-lab/pydicom.html">pydicom lookup-table indexing</a> · <a href="/docs/contribution-lab/reproject.html">reproject coordinate round trips</a>.</p>',
     '  </section>',
     '  <section id="projects" class="crawlable-shell__section">',
     '    <h2>Project archive</h2>',

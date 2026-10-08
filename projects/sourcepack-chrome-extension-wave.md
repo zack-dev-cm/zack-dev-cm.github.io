@@ -3,7 +3,7 @@
 > Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.
 
 ## Summary
-SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus focused Chrome extensions for visible table/list/card extraction, YouTube transcript exports, local source-pack libraries, ChatGPT conversation exports, browser-run receipts, and support packets. The delivery work included CWS listing contracts, public product pages, privacy/support pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking. Current public links are limited to listings visible in the Chrome Web Store publisher search.
+SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus focused Chrome extensions for visible table/list/card extraction, YouTube transcript exports, local source-pack libraries, ChatGPT conversation exports, browser-run receipts, and support packets. The delivery work included CWS listing contracts, public product pages, privacy/support pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking. Public product pages and dated publisher-search snapshots provide release context.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
@@ -24,9 +24,9 @@ https://zack-dev-cm.github.io/projects/sourcepack-chrome-extension-wave.md
 - Chrome Web Store
 
 ## Benchmarks & Analytics
-- Current public publisher listings: 18 (Chrome Web Store detail pages and live developer dashboard, 2026-06-15)
-- Current publisher users: 253 (Chrome Web Store detail pages and dashboard proof across 15 displayed rows, 2026-06-15)
-- Average rating: 5.00 (4 reported Chrome Web Store ratings, 2026-06-15)
+- Observed publisher listings: 10 (public publisher search page, 2026-10-08)
+- Reported snapshot users: 427 (8 detail pages with visible counts from the observed publisher search, 2026-10-08)
+- Average rating: 4.40 (5 reported Chrome Web Store ratings, 2026-10-08)
 - Visible SourcePack products: 4 (Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-15)
 
 ## Links

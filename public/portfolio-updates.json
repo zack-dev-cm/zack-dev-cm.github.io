@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-10-07T16:43:58.857Z",
+  "lastSyncedAt": "2026-10-08T04:36:47.598Z",
   "review": {
     "status": "PASS",
-    "checkedAt": "2026-10-07",
-    "syncedAt": "2026-10-07T16:43:58.857Z",
+    "checkedAt": "2026-10-08",
+    "syncedAt": "2026-10-08T04:36:47.598Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -41,7 +41,7 @@
       "createdAt": "2026-09-14T18:07:03Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -70,7 +70,7 @@
       "createdAt": "2026-09-08T08:22:40Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -103,7 +103,7 @@
       "createdAt": "2026-09-08T03:47:52Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -124,7 +124,7 @@
       "id": 1370350349,
       "title": "Camera Kit Scanner Reproducer",
       "description": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.",
-      "longDescription": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-07.",
+      "longDescription": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-08.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -132,7 +132,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-07",
+        "Public GitHub API snapshot captured on 2026-10-08",
         "Kotlin code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -157,12 +157,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-07"
+          "context": "public GitHub API snapshot, 2026-10-08"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-07"
+          "context": "public GitHub API snapshot, 2026-10-08"
         },
         {
           "label": "Created",
@@ -183,7 +183,7 @@
       "createdAt": "2026-09-14T18:07:03Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -205,7 +205,7 @@
       "id": 1360954516,
       "title": "Sectioncheck",
       "description": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated.",
-      "longDescription": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-07.",
+      "longDescription": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-08.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -213,7 +213,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-07",
+        "Public GitHub API snapshot captured on 2026-10-08",
         "Python code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -238,12 +238,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-07"
+          "context": "public GitHub API snapshot, 2026-10-08"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-07"
+          "context": "public GitHub API snapshot, 2026-10-08"
         },
         {
           "label": "Created",
@@ -264,7 +264,7 @@
       "createdAt": "2026-09-08T08:22:40Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -286,7 +286,7 @@
       "id": 1359484305,
       "title": "Vehicle Lab",
       "description": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references.",
-      "longDescription": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-07.",
+      "longDescription": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-08.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -300,7 +300,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-07",
+        "Public GitHub API snapshot captured on 2026-10-08",
         "Python code surface is visible in repository metadata",
         "Repository topics include 3d Visualization, Cad, Engineering, Python",
         "Public homepage or listing is linked from repository metadata"
@@ -336,12 +336,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-07"
+          "context": "public GitHub API snapshot, 2026-10-08"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-07"
+          "context": "public GitHub API snapshot, 2026-10-08"
         },
         {
           "label": "Created",
@@ -363,7 +363,7 @@
       "createdAt": "2026-09-08T03:47:52Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -545,7 +545,7 @@
       "sourceId": "clearml-experiment-tracking-for-dermaself",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -1843,7 +1843,7 @@
       "sourceId": "agnitra-ai-inference-optimizer",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-07",
+        "checkedAt": "2026-10-08",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",

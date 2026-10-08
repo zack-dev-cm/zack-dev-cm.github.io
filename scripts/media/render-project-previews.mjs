@@ -7,6 +7,7 @@ import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import { pipeline } from 'node:stream/promises';
 import { createCanvas, loadImage, GlobalFonts } from '@napi-rs/canvas';
+import { publishFiles } from './engineering-studies/publish.mjs';
 
 const previews = [
   ['agnitra-layers', agnitra, 1.1], ['dermaself-workflow', dermaself, 5.8],
@@ -219,9 +220,7 @@ for (const [name, render, posterTime] of previews.filter(([name]) => !chosen.len
       const gif = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', movie, '-filter_complex', 'fps=8,scale=640:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse=dither=bayer:bayer_scale=4', '-loop', '0', path.join(work, gifName)], { stdio: ['ignore', 'ignore', 'inherit'] });
       const [gifCode] = await once(gif, 'close'); if (gifCode !== 0) throw new Error(`GIF failed: ${name}`);
     }
-    for (const filename of postersOnly ? [poster] : [poster, movieName, gifName]) {
-      await fs.rename(path.join(work, filename), path.join(out, filename));
-    }
+    publishFiles(work, out, postersOnly ? [poster] : [poster, movieName, gifName]);
     console.log(`${name}: ${postersOnly ? 'poster' : 'poster, 12-second MP4 and GIF'}`);
   } finally {
     await fs.rm(work, { recursive: true, force: true });

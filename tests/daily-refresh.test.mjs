@@ -21,7 +21,7 @@ for (const newOutput of [false, true]) {
       git('config', 'user.name', 'Fixture'); git('config', 'user.email', 'fixture@example.test');
       execFileSync('git', ['init', '-q', '--bare', remote]);
       for (const dir of ['public', 'docs', 'projects']) await mkdir(path.join(repo, dir));
-      for (const file of ['constants.ts', 'public/portfolio-updates.json', 'public/paper-reviews.json', 'docs/index.html', 'projects/index.md']) await writeFile(path.join(repo, file), 'fixture\n');
+      for (const file of ['constants.ts', 'public/portfolio-updates.json', 'public/paper-reviews.json', 'public/chrome-extension-stats.json', 'docs/index.html', 'projects/index.md']) await writeFile(path.join(repo, file), 'fixture\n');
       git('add', '.'); git('commit', '-qm', 'Initial'); git('remote', 'add', 'origin', remote); git('push', '-qu', 'origin', 'main');
       // Private notes must never make it into the public-path commit.
       await writeFile(path.join(repo, 'private-notes.txt'), 'local fixture\n');

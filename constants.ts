@@ -220,761 +220,630 @@ export const CLAWHUB_DOWNLOAD_STATS: ClawHubDownloadStat[] = [
   {
     slug: "gstack-review-stack",
     displayName: "GStack Review Stack",
-    downloads: 3355,
+    downloads: 3358,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/gstack-review-stack",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "data-science-cv-repro-lab",
     displayName: "Data Science CV Repro Reviewer",
-    downloads: 1394,
+    downloads: 1397,
     versions: 12,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/data-science-cv-repro-lab",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "imagegen",
     displayName: "Image Gen",
-    downloads: 1329,
+    downloads: 1333,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/imagegen",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "agentic-codex-dev",
     displayName: "Agentic Codex Dev Reviewer",
-    downloads: 1318,
+    downloads: 1320,
     versions: 13,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/agentic-codex-dev",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "openclaw-cws-publisher",
     displayName: "OpenClaw CWS Publisher",
-    downloads: 1261,
+    downloads: 1264,
     versions: 14,
     stars: 3,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-cws-publisher",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "github-clawhub-launcher",
     displayName: "GitHub ClawHub Release Reviewer",
-    downloads: 1184,
+    downloads: 1186,
     versions: 9,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/github-clawhub-launcher",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "sota-agent",
     displayName: "SOTA Agent",
-    downloads: 1171,
+    downloads: 1173,
     versions: 12,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/sota-agent",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "doubt-driven-development",
     displayName: "Doubt Driven Development",
-    downloads: 1114,
+    downloads: 1115,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/doubt-driven-development",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "youtube-creator-ops",
     displayName: "OpenClaw YouTube Publisher",
-    downloads: 1043,
+    downloads: 1045,
     versions: 13,
     stars: 2,
     url: "https://clawhub.ai/zack-dev-cm/youtube-creator-ops",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "artifact-deck",
     displayName: "Artifact Deck",
-    downloads: 1017,
+    downloads: 1019,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/artifact-deck",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "hh-openclaw-agent",
     displayName: "HH OpenClaw Agent",
-    downloads: 982,
+    downloads: 985,
     versions: 8,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-agent",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "openclaw-agent-chinese-laoshi",
     displayName: "OpenClaw Chinese Laoshi Ops",
-    downloads: 982,
+    downloads: 984,
     versions: 7,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/openclaw-agent-chinese-laoshi",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "artifact-redactor",
     displayName: "Artifact Redactor",
-    downloads: 974,
+    downloads: 978,
     versions: 8,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/artifact-redactor",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "browser-proof",
     displayName: "Browser QA Report Pack",
-    downloads: 966,
+    downloads: 968,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/browser-proof",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "public-surface-review",
     displayName: "Publish Guard",
-    downloads: 942,
+    downloads: 944,
     versions: 6,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/public-surface-review",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "telegram-miniapp-security-auditor",
     displayName: "Telegram Mini App Security Auditor",
-    downloads: 929,
+    downloads: 931,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/telegram-miniapp-security-auditor",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "agentic-video-production-publisher",
     displayName: "Agentic Video Production Reviewer",
-    downloads: 887,
+    downloads: 890,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentic-video-production-publisher",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "affiliate-video-campaign-operator",
     displayName: "Affiliate Video Campaign Reviewer",
-    downloads: 871,
+    downloads: 874,
     versions: 9,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-video-campaign-operator",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "hh-openclaw-proposal-submitter",
     displayName: "HH Application Packet Reviewer",
-    downloads: 867,
+    downloads: 870,
     versions: 4,
     stars: 1,
     url: "https://clawhub.ai/zack-dev-cm/hh-openclaw-proposal-submitter",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "ai-video-scene-director",
     displayName: "AI Video Scene Director",
-    downloads: 840,
+    downloads: 842,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/ai-video-scene-director",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "youtube-openclaw-creator",
     displayName: "YouTube Publish Reviewer",
-    downloads: 836,
+    downloads: 838,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/youtube-openclaw-creator",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "agentmemory-adapter",
     displayName: "AgentMemory Adapter",
-    downloads: 831,
+    downloads: 835,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agentmemory-adapter",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "avito-outreach-manager",
     displayName: "Avito Message QA Reviewer",
-    downloads: 817,
+    downloads: 820,
     versions: 4,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/avito-outreach-manager",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "meshmcp-remotescreen",
     displayName: "Screen Support Review Planner",
-    downloads: 812,
+    downloads: 814,
     versions: 6,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-remotescreen",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "random-coffee-best-fit-outreach",
     displayName: "Random Coffee Outreach",
-    downloads: 795,
+    downloads: 798,
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/random-coffee-best-fit-outreach",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "research-claim-ledger",
     displayName: "Research Claim Ledger",
-    downloads: 775,
+    downloads: 777,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/research-claim-ledger",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "affiliate-ugc-test-planner",
     displayName: "Affiliate UGC Test Planner",
-    downloads: 751,
+    downloads: 754,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/affiliate-ugc-test-planner",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "meshmcp-offline-chat",
     displayName: "Offline Message Test Planner",
-    downloads: 747,
+    downloads: 749,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/meshmcp-offline-chat",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skool-growth-teardown-poster",
     displayName: "Skool Growth Teardown Poster",
-    downloads: 747,
+    downloads: 749,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-growth-teardown-poster",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "spec-plan-build-review",
     displayName: "Spec Plan Build Review",
-    downloads: 734,
+    downloads: 736,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/spec-plan-build-review",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "chrome-extension-studio",
     displayName: "Chrome Extension Studio",
-    downloads: 732,
+    downloads: 735,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/chrome-extension-studio",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "open-feed-recsys-lab",
     displayName: "Open Feed Recsys Reviewer",
-    downloads: 730,
+    downloads: 732,
     versions: 5,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/open-feed-recsys-lab",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skill-sprint-pack-builder",
     displayName: "Skill Sprint Pack Builder",
-    downloads: 721,
+    downloads: 723,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-sprint-pack-builder",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "trusted-clawhub-install-gate",
     displayName: "Trusted ClawHub Install Gate",
-    downloads: 721,
+    downloads: 723,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "community-topic-scout",
     displayName: "Community Topic Scout",
-    downloads: 719,
+    downloads: 721,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/community-topic-scout",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "x-algo-claim-auditor",
     displayName: "X Algo Claim Reviewer",
-    downloads: 703,
+    downloads: 705,
     versions: 3,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/x-algo-claim-auditor",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "design-md-ui-designer",
     displayName: "DESIGN.md UI Designer",
-    downloads: 677,
+    downloads: 681,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/design-md-ui-designer",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skool-member-activation-concierge",
     displayName: "Skool Member Activation Concierge",
-    downloads: 676,
+    downloads: 678,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-member-activation-concierge",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skill-package-doctor",
     displayName: "Skill Package Doctor",
-    downloads: 673,
+    downloads: 675,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-package-doctor",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "interactive-doc-mapper",
     displayName: "Interactive Doc Mapper",
-    downloads: 671,
+    downloads: 673,
     versions: 2,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/interactive-doc-mapper",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skill-install-bridge",
     displayName: "Skill Install Bridge",
-    downloads: 665,
+    downloads: 668,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skill-install-bridge",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "proof-card-forge",
     displayName: "Signal Card Forge",
-    downloads: 663,
+    downloads: 666,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/proof-card-forge",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "codex-claude-clawhub-skill-bridge",
     displayName: "Codex Claude ClawHub Skill Bridge",
-    downloads: 662,
+    downloads: 664,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/codex-claude-clawhub-skill-bridge",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skool-trust-ladder-builder",
     displayName: "Skool Trust Ladder Builder",
-    downloads: 644,
+    downloads: 646,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-trust-ladder-builder",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "product-share-trigger-reviewer",
     displayName: "Product Share Trigger Reviewer",
-    downloads: 643,
+    downloads: 645,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/product-share-trigger-reviewer",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skool-challenge-launcher",
     displayName: "Skool Challenge Launcher",
-    downloads: 640,
+    downloads: 642,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-challenge-launcher",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "skool-discovery-page-optimizer",
     displayName: "Skool Discovery Page Optimizer",
-    downloads: 638,
+    downloads: 640,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/skool-discovery-page-optimizer",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "stowecraft-artisan-concierge",
     displayName: "StoweCraft Artisan Concierge",
-    downloads: 638,
+    downloads: 640,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/stowecraft-artisan-concierge",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "tinytroupe-feed-research-lab",
     displayName: "TinyTroupe Feed Research Lab",
-    downloads: 634,
+    downloads: 635,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/tinytroupe-feed-research-lab",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "agent-skills-portability-auditor",
     displayName: "Agent Skills Portability Auditor",
-    downloads: 618,
+    downloads: 620,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/agent-skills-portability-auditor",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "using-agent-skills-router",
     displayName: "Using Agent Skills Router",
-    downloads: 602,
+    downloads: 604,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/using-agent-skills-router",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "chrome-extension-maintainer",
     displayName: "Chrome Extension Maintainer",
-    downloads: 485,
+    downloads: 488,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/chrome-extension-maintainer",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   },
   {
     slug: "unitree-hermes-colab",
     displayName: "Unitree Hermes Colab",
-    downloads: 474,
+    downloads: 475,
     versions: 1,
     stars: 0,
     url: "https://clawhub.ai/zack-dev-cm/unitree-hermes-colab",
-    checkedAt: "2026-10-07"
+    checkedAt: "2026-10-08"
   }
 ];
 
 export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
   "publisherName": "kaisenaiko",
   "publisherUrl": "https://chromewebstore.google.com/search/kaisenaiko",
-  "checkedAt": "2026-06-15",
-  "sourceName": "Chrome Web Store detail pages and live developer dashboard",
+  "checkedAt": "2026-10-08",
+  "sourceName": "Chrome Web Store public publisher search and detail pages",
   "sourceUrl": "https://chromewebstore.google.com/search/kaisenaiko?hl=en",
-  "totalPublished": 18,
-  "totalUsers": 253,
-  "averageUsersPerExtension": 16.9,
-  "averageRating": 5,
-  "ratingCount": 4,
+  "totalPublished": 10,
+  "totalUsers": 427,
+  "averageUsersPerExtension": 53.4,
+  "averageRating": 4.4,
+  "ratingCount": 5,
   "notes": [
-    "Chrome Web Store publisher tracker kept 16 public listings for kaisenaiko on 2026-06-12; 13 known detail pages exposed visible user counts.",
-    "Live Chrome Web Store Developer Dashboard proof on 2026-06-15 added Reforest Radar and Autograph Radar as published-public listings, bringing the tracked published count to 18.",
-    "Chrome Web Store detail pages and dashboard proof showed 253 explicitly reported users across 15 displayed rows, 16.9 users per displayed row, and 5.00 average rating from 4 reported ratings on 2026-06-15.",
-    "New listings without a visible public user count are listed as 0 with a dashboard-proof source instead of invented estimates. Chrome-Stats links remain secondary metadata and are not used for current counts."
+    "The public publisher search showed 10 listings on 2026-10-08; this is the observed search page, not a complete developer-dashboard total. 8 detail pages exposed visible user counts.",
+    "Chrome Web Store detail pages showed 427 explicitly reported users across 8 measured rows, 53.4 reported users per measured row, and 4.40 average rating from 5 reported ratings on 2026-10-08.",
+    "Only listings observed in the current publisher search with a visible detail-page count appear in this snapshot. Missing counts and unavailable pages are omitted; cached numbers are not added to current totals. Chrome-Stats links are secondary references."
   ],
   "extensions": [
     {
-      "id": "ccikgbjalcbokaalidnfcjhhbhjoljfm",
-      "name": "GitHub Repo Summarizer",
-      "description": "Summarizes GitHub repository structure and README context for faster code review.",
-      "users": 131,
-      "usersSource": "Chrome Web Store detail page",
-      "rating": 5,
-      "ratingCount": 3,
-      "version": "1.4.2",
-      "lastUpdated": "2025-07-02",
-      "createdAt": "2025-06-21",
-      "category": "Developer Tools",
-      "permissions": [
-        "storage",
-        "activeTab",
-        "scripting",
-        "downloads"
-      ],
-      "sizeKb": 63.09,
-      "chromeStatsUrl": "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm?hl=en",
-      "productUrl": "https://zack-dev-cm.github.io/github-repo-sum.github.io/",
-      "dataIngestedAt": "2026-06-12"
-    },
-    {
+      "description": "Seamlessly jump, refine, and sync prompts across AI chat tools.",
+      "version": "4.1.3",
+      "lastUpdated": "2026-06-17",
+      "category": "Workflow & Planning",
       "id": "jnoonpeekddinkiecaonhocaflcgbhap",
       "name": "AI Chat Navigator",
-      "description": "Seamlessly jump, refine, and sync prompts across AI chat tools.",
-      "users": 78,
+      "users": 108,
       "usersSource": "Chrome Web Store detail page",
-      "rating": 5,
-      "ratingCount": 1,
-      "version": "4.1.0",
-      "lastUpdated": "2025-07-25",
       "createdAt": "2025-07-20",
-      "category": "Workflow & Planning",
       "permissions": [
         "storage"
       ],
-      "sizeKb": 126,
       "chromeStatsUrl": "https://chrome-stats.com/d/jnoonpeekddinkiecaonhocaflcgbhap",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/ai-chat-navigator/jnoonpeekddinkiecaonhocaflcgbhap?hl=en",
-      "dataIngestedAt": "2026-06-12"
+      "dataIngestedAt": "2026-10-08",
+      "rating": 3.5,
+      "ratingCount": 2,
+      "sizeKb": 102
     },
     {
-      "id": "djpopfjjomcablecmpeebmbccidcipkb",
-      "name": "Reforest Radar",
-      "description": "Fill one green square on a real forest map in your new tab.",
-      "users": 0,
-      "usersSource": "Chrome Web Store Developer Dashboard live proof; no visible public user count yet",
-      "version": "0.1.1",
-      "lastUpdated": "2026-06-15",
-      "createdAt": "2026-06-15",
-      "category": "Education",
-      "permissions": [
-        "storage"
-      ],
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/reforest-radar/djpopfjjomcablecmpeebmbccidcipkb?hl=en",
-      "productUrl": "https://getgeofix.xyz/",
-      "dataIngestedAt": "2026-06-15",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "fcohhalbijjnondfpodngkdogmkijjfa",
-      "name": "Autograph Radar",
-      "description": "Check whether a verified autograph source exists for the star you are viewing.",
-      "users": 0,
-      "usersSource": "Chrome Web Store Developer Dashboard live proof; no visible public user count yet",
-      "version": "0.1.0",
-      "lastUpdated": "2026-06-15",
-      "createdAt": "2026-06-15",
-      "category": "Shopping",
-      "permissions": [
-        "activeTab",
-        "contextMenus",
-        "storage"
-      ],
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/autograph-radar/fcohhalbijjnondfpodngkdogmkijjfa?hl=en",
-      "productUrl": "https://getgeofix.xyz/",
-      "dataIngestedAt": "2026-06-15",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "dejokbjghdjlhhlddflgolheejdmbgea",
-      "name": "Tab Time Machine",
-      "description": "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
-      "users": 13,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.7",
-      "lastUpdated": "2026-06-09",
-      "createdAt": "2026-05-30",
-      "category": "Just for Fun",
-      "sizeKb": 29.5,
-      "chromeStatsUrl": "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
-      "productUrl": "https://getgeofix.xyz/",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
-      "name": "Web2CSV - Table & List Extractor",
-      "description": "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
-      "users": 3,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.0",
-      "lastUpdated": "2026-05-02",
-      "category": "Tools",
-      "sizeKb": 65.47,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/web2csv-table-list-extrac/egjcdmlfdnkpgkmffkhfdooacmglnjbc?hl=en",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "lacnenopgbimijabjaadkgeoldoogein",
-      "name": "GTA 6 Countdown",
-      "description": "Simple unofficial countdown to the announced GTA VI release date.",
-      "users": 9,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.1",
-      "lastUpdated": "2026-05-28",
-      "category": "Just for Fun",
-      "sizeKb": 44.76,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/gta-6-countdown/lacnenopgbimijabjaadkgeoldoogein?hl=en",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "hlbflaklicefinhckdkbamhhkfklmgao",
-      "name": "SourcePack Hub - Local AI Research Library",
-      "description": "Saves and exports local AI research source packs from the current page.",
-      "users": 3,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.0",
-      "lastUpdated": "2026-05-02",
-      "category": "Workflow & Planning",
-      "sizeKb": 65.36,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-r/hlbflaklicefinhckdkbamhhkfklmgao?hl=en",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "dlhhfacpkohmojegdpmmnmoapcpphfbh",
-      "name": "Browser Run Receipt",
-      "description": "Captures manual browser-work steps, redacts details, and exports a local run receipt.",
-      "users": 3,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.0",
-      "lastUpdated": "2026-05-13",
-      "category": "Workflow & Planning",
-      "sizeKb": 39.71,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/browser-run-receipt/dlhhfacpkohmojegdpmmnmoapcpphfbh?hl=en",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "glcecbjpdknkmlpcbnbpikjjclboeglo",
-      "name": "LocalArchive",
-      "description": "Local-first reader archive for pages, selections, Pocket imports, and portable Markdown/HTML/JSON exports.",
-      "users": 2,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.1",
-      "lastUpdated": "2026-04-22",
-      "createdAt": "2026-04-23",
-      "category": "Tools",
-      "permissions": [
-        "storage",
-        "activeTab",
-        "scripting",
-        "downloads"
-      ],
-      "sizeKb": 18.41,
-      "chromeStatsUrl": "https://chrome-stats.com/d/glcecbjpdknkmlpcbnbpikjjclboeglo",
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/localarchive/glcecbjpdknkmlpcbnbpikjjclboeglo?hl=en",
-      "productUrl": "https://localarchive.pages.dev/",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "pmofpiclpglbdnjgkgijlolefiojjomn",
-      "name": "ChatArchive - ChatGPT Exporter",
-      "description": "Exports ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
-      "users": 2,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.0",
-      "lastUpdated": "2026-05-04",
-      "category": "Workflow & Planning",
-      "sizeKb": 65.36,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-expor/pmofpiclpglbdnjgkgijlolefiojjomn?hl=en",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "kpjokdophleoefolidphajjllaaddnpj",
-      "name": "Evidence Pack Capture",
-      "description": "Captures a visible tab, redacts sensitive details locally, and exports a support-ready evidence packet.",
-      "users": 2,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.0",
-      "lastUpdated": "2026-05-13",
-      "category": "Workflow & Planning",
-      "sizeKb": 40.67,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/evidence-pack-capture/kpjokdophleoefolidphajjllaaddnpj?hl=en",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "hoklaadapaobdbkeiacebnnciponcmnf",
-      "name": "Session Rescue",
-      "description": "Saves local browser session snapshots, restores tabs, and exports portable backups.",
-      "users": 4,
-      "usersSource": "Chrome Web Store detail page",
-      "version": "0.1.5",
-      "lastUpdated": "2026-06-11",
-      "category": "Workflow & Planning",
-      "sizeKb": 19.32,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf?hl=en",
-      "productUrl": "https://session-rescue.pages.dev/",
-      "dataIngestedAt": "2026-06-12",
-      "rating": 0,
-      "ratingCount": 0
-    },
-    {
-      "id": "dphlhifhafonbolljmdlpecpcicnpjen",
-      "name": "Skool Discovery Positioning Lens",
       "description": "Audits public Skool positioning with local benchmarks and optional Chrome built-in AI critique.",
-      "users": 2,
-      "usersSource": "Chrome Web Store detail page",
       "version": "0.1.1",
       "lastUpdated": "2026-05-14",
       "category": "Workflow & Planning",
-      "sizeKb": 21.96,
+      "id": "dphlhifhafonbolljmdlpecpcicnpjen",
+      "name": "Skool Discovery Positioning Lens",
+      "users": 2,
+      "usersSource": "Chrome Web Store detail page",
       "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/skool-discovery-positioni/dphlhifhafonbolljmdlpecpcicnpjen?hl=en",
-      "dataIngestedAt": "2026-06-12",
+      "dataIngestedAt": "2026-10-08",
       "rating": 0,
-      "ratingCount": 0
+      "sizeKb": 21.96
     },
     {
-      "id": "hjfdpklldhofiehpcfcfdonjppdkmgoh",
-      "name": "Video2Source - YouTube Transcript Exporter",
-      "description": "Saves visible YouTube transcript text, timestamps, and notes as local source pack files.",
-      "users": 1,
+      "description": "Exports ChatGPT conversations to local Markdown, JSON, CSV, and SourcePack files.",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-04",
+      "category": "Workflow & Planning",
+      "id": "pmofpiclpglbdnjgkgijlolefiojjomn",
+      "name": "ChatArchive - ChatGPT Exporter",
+      "users": 3,
       "usersSource": "Chrome Web Store detail page",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/chatarchive-chatgpt-expor/pmofpiclpglbdnjgkgijlolefiojjomn?hl=en",
+      "dataIngestedAt": "2026-10-08",
+      "rating": 0,
+      "sizeKb": 65.36
+    },
+    {
+      "description": "Applies reversible web-era visual filters and optional Internet Archive shortcuts to the current tab.",
+      "version": "0.1.8",
+      "lastUpdated": "2026-06-15",
+      "category": "Just for Fun",
+      "id": "dejokbjghdjlhhlddflgolheejdmbgea",
+      "name": "Tab Time Machine",
+      "users": 113,
+      "usersSource": "Chrome Web Store detail page",
+      "createdAt": "2026-05-30",
+      "chromeStatsUrl": "https://chrome-stats.com/d/dejokbjghdjlhhlddflgolheejdmbgea",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/tab-time-machine/dejokbjghdjlhhlddflgolheejdmbgea?hl=en",
+      "productUrl": "https://getgeofix.xyz/",
+      "dataIngestedAt": "2026-10-08",
+      "rating": 0,
+      "sizeKb": 52.37
+    },
+    {
+      "description": "Extracts visible tables, lists, and repeated cards into CSV, JSON, Markdown, and SourcePack files.",
+      "version": "0.1.0",
+      "lastUpdated": "2026-05-02",
+      "category": "Tools",
+      "id": "egjcdmlfdnkpgkmffkhfdooacmglnjbc",
+      "name": "Web2CSV - Table & List Extractor",
+      "users": 6,
+      "usersSource": "Chrome Web Store detail page",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/web2csv-table-list-extrac/egjcdmlfdnkpgkmffkhfdooacmglnjbc?hl=en",
+      "dataIngestedAt": "2026-10-08",
+      "rating": 0,
+      "sizeKb": 65.47
+    },
+    {
+      "description": "Saves local browser session snapshots, restores tabs, and exports portable backups.",
+      "version": "0.1.9",
+      "lastUpdated": "2026-06-12",
+      "category": "Workflow & Planning",
+      "id": "hoklaadapaobdbkeiacebnnciponcmnf",
+      "name": "Session Rescue",
+      "users": 5,
+      "usersSource": "Chrome Web Store detail page",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/session-rescue/hoklaadapaobdbkeiacebnnciponcmnf?hl=en",
+      "productUrl": "https://session-rescue.pages.dev/",
+      "dataIngestedAt": "2026-10-08",
+      "rating": 0,
+      "sizeKb": 24.63
+    },
+    {
+      "description": "Summarizes GitHub repository structure and README context for faster code review.",
+      "version": "1.4.2",
+      "lastUpdated": "2025-07-02",
+      "category": "Developer Tools",
+      "id": "ccikgbjalcbokaalidnfcjhhbhjoljfm",
+      "name": "GitHub Repo Summarizer",
+      "users": 185,
+      "usersSource": "Chrome Web Store detail page",
+      "createdAt": "2025-06-21",
+      "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "downloads"
+      ],
+      "chromeStatsUrl": "https://chrome-stats.com/d/ccikgbjalcbokaalidnfcjhhbhjoljfm",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm?hl=en",
+      "productUrl": "https://zack-dev-cm.github.io/github-repo-sum.github.io/",
+      "dataIngestedAt": "2026-10-08",
+      "rating": 5,
+      "ratingCount": 3,
+      "sizeKb": 63.09
+    },
+    {
+      "description": "Saves and exports local AI research source packs from the current page.",
       "version": "0.1.0",
       "lastUpdated": "2026-05-02",
       "category": "Workflow & Planning",
-      "sizeKb": 65.08,
-      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/video2source-youtube-tran/hjfdpklldhofiehpcfcfdonjppdkmgoh?hl=en",
-      "dataIngestedAt": "2026-06-12",
+      "id": "hlbflaklicefinhckdkbamhhkfklmgao",
+      "name": "SourcePack Hub - Local AI Research Library",
+      "users": 5,
+      "usersSource": "Chrome Web Store detail page",
+      "chromeWebStoreUrl": "https://chromewebstore.google.com/detail/sourcepack-hub-local-ai-r/hlbflaklicefinhckdkbamhhkfklmgao?hl=en",
+      "dataIngestedAt": "2026-10-08",
       "rating": 0,
-      "ratingCount": 0
+      "sizeKb": 65.36
     }
   ]
 };
@@ -1089,7 +958,7 @@ export const LATEST_UPDATES: LatestUpdate[] = [
   },
   {
     title: "Marketplace Stats Refresh",
-    description: "Updated the public ClawHub tracker to 46,300 downloads across 53 public skills on 2026-10-07 and refreshed the Chrome Web Store snapshot to 253 visible reported users across 18 current listings / 15 displayed rows from 2026-06-15.",
+    description: "Updated the public ClawHub tracker to 46,425 downloads across 53 public skills on 2026-10-08 and refreshed the Chrome Web Store snapshot to 427 visible reported users across 10 observed public listings / 8 displayed rows from 2026-10-08.",
     links: [
       { text: "Open ClawHub tracker", url: "https://zack-dev-cm.github.io/#clawhub" },
       { text: "Open Chrome Web Store tracker", url: "https://zack-dev-cm.github.io/#chrome-stats" }
@@ -2759,8 +2628,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "OpenClaw Skills", "Python", "PyTorch", "Computer Vision", "Google Colab", "Kaggle", "MLOps", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "1,439 total", context: "public ClawHub listings, 2026-06-04 (783 data-science-cv-repro-lab + 656 sota-agent)" },
-      { label: "Published versions", value: "24 total", context: "public ClawHub listings, 2026-06-04 (12 + 12 packages)" },
+      { label: "ClawHub downloads", value: "2,570 total", context: "public ClawHub listings, 2026-10-08 (data-science-cv-repro-lab + sota-agent)" },
+      { label: "Published versions", value: "24 total", context: "public ClawHub listings, 2026-10-08 (data-science-cv-repro-lab + sota-agent)" },
       { label: "Live packages", value: "2", context: "data-science-cv-repro-lab + sota-agent" },
       { label: "Execution surfaces", value: "3", context: "semantic, runtime, and product-surface promotion gates" },
       { label: "Structured helpers", value: "29 scripts", context: "manifests, scorecards, summaries, and claim-review tools" }
@@ -2856,8 +2725,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "GitHub CLI", "Python", "Release Engineering", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "646", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "9", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "1,186", context: "public ClawHub listing, 2026-10-08 (github-clawhub-launcher)" },
+      { label: "Published versions", value: "9", context: "public ClawHub listing, 2026-10-08 (github-clawhub-launcher)" },
       { label: "Public release", value: "v1.0.7", context: "GitHub release, 2026-05-14" },
       { label: "Bundled scripts", value: "4", context: "manifest, check, notes, commands" },
       { label: "Publish surfaces", value: "2", context: "GitHub repo + ClawHub package" },
@@ -2887,8 +2756,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Browser QA", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "475", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "968", context: "public ClawHub listing, 2026-10-08 (browser-proof)" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-10-08 (browser-proof)" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, append, check, render" },
       { label: "Artifact fields", value: "5", context: "screenshot, dom, console, network, video" },
@@ -2917,8 +2786,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Release Engineering", "OpenClaw Skills", "GitHub"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "463", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "944", context: "public ClawHub listing, 2026-10-08 (public-surface-review)" },
+      { label: "Published versions", value: "6", context: "public ClawHub listing, 2026-10-08 (public-surface-review)" },
       { label: "Public release", value: "v1.0.2", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "leaks, surface, copy score, report" },
       { label: "Audit outputs", value: "4", context: "2 scans, 1 score, 1 markdown audit" },
@@ -2953,8 +2822,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "YouTube Studio", "OpenClaw", "Midjourney", "Suno", "GitHub Actions"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "530", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "1,045", context: "public ClawHub listing, 2026-10-08 (youtube-creator-ops)" },
+      { label: "Published versions", value: "13", context: "public ClawHub listing, 2026-10-08 (youtube-creator-ops)" },
       { label: "Public release", value: "v1.1.3", context: "GitHub + ClawHub" },
       { label: "Platform", value: "YouTube Studio", context: "browser-based publish flow" },
       { label: "Modes", value: "dry_run + live", context: "same manifest, different publish intent" },
@@ -2984,8 +2853,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Privacy", "Redaction", "OpenClaw Skills", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "447", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "978", context: "public ClawHub listing, 2026-10-08 (artifact-redactor)" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-10-08 (artifact-redactor)" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "scan, redact, check, report" },
       { label: "Pattern families", value: "6", context: "restricted URL, path, secret, email, phone, public-url query cleanup" },
@@ -3019,8 +2888,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "python-pptx", "OpenClaw Skills", "PPTX", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "499", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "1,019", context: "public ClawHub listing, 2026-10-08 (artifact-deck)" },
+      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-10-08 (artifact-deck)" },
       { label: "Public release", value: "v1.0.3", context: "GitHub + ClawHub" },
       { label: "Bundled scripts", value: "4", context: "init, check, build, render" },
       { label: "Primary output", value: "PPTX", context: "deterministic local deck build" },
@@ -3056,10 +2925,10 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Python", "CLI", "GitHub API", "ClawHub Convex", "JSON Snapshots", "Markdown Reports", "Open-source Analytics"],
     benchmarks: [
-      { label: "Tracked ClawHub downloads", value: "46,300", context: "public ClawHub owner profile, 2026-10-07 across 53 skills" },
-      { label: "Tracked public skills", value: "53", context: "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-07" },
-      { label: "CV Repro Lab downloads", value: "2,565 total", context: "1,394 data-science-cv-repro-lab + 1,171 sota-agent, 2026-10-07" },
-      { label: "Strongest skill", value: "3,355 downloads", context: "gstack-review-stack public listing, 2026-10-07" },
+      { label: "Tracked ClawHub downloads", value: "46,425", context: "public ClawHub owner profile, 2026-10-08 across 53 skills" },
+      { label: "Tracked public skills", value: "53", context: "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-08" },
+      { label: "CV Repro Lab downloads", value: "2,570 total", context: "1,397 data-science-cv-repro-lab + 1,173 sota-agent, 2026-10-08" },
+      { label: "Strongest skill", value: "3,358 downloads", context: "gstack-review-stack public listing, 2026-10-08" },
       { label: "Report outputs", value: "3", context: "text, JSON, Markdown" },
       { label: "Projection horizon", value: "30 days", context: "pace and peer-conversion upside scenarios" }
     ],
@@ -3188,9 +3057,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["OpenClaw", "ClawHub", "Google Drive", "Language Learning", "Markdown", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "480", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-06-04" },
-      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "984", context: "public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi)" },
+      { label: "Published versions", value: "7", context: "public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi)" },
+      { label: "ClawHub stars", value: "1", context: "public ClawHub listing, 2026-10-08 (openclaw-agent-chinese-laoshi)" },
       { label: "Clean release", value: "1.0.9", context: "public README release marker" },
       { label: "Public posture", value: "sanitized", context: "lesson operations without private student data" }
     ],
@@ -3373,8 +3242,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "Chrome Web Store", "Playwright", "Release Engineering", "Security Review"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "676", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "14", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "1,264", context: "public ClawHub listing, 2026-10-08 (openclaw-cws-publisher)" },
+      { label: "Published versions", value: "14", context: "public ClawHub listing, 2026-10-08 (openclaw-cws-publisher)" },
       { label: "Release checks", value: "7", context: "ZIP, listing, leaks, E2E, design, Chrome Stable, competitors" }
     ],
     links: [
@@ -3685,7 +3554,7 @@ Operations Layer (Console, Alerts, Runbooks)`
     },
     aliases: ["sourcepack suite", "web2csv", "video2source", "sourcepack hub", "chatarchive", "browser run receipt", "support packet"],
     description: "Chrome Web Store wave for local research exports, transcript capture, AI chat export, source-pack libraries, and receipt utilities.",
-    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus focused Chrome extensions for visible table/list/card extraction, YouTube transcript exports, local source-pack libraries, ChatGPT conversation exports, browser-run receipts, and support packets. The delivery work included CWS listing contracts, public product pages, privacy/support pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking. Current public links are limited to listings visible in the Chrome Web Store publisher search.",
+    longDescription: "SourcePack Chrome Extension Wave packages a reusable Manifest V3 runtime plus focused Chrome extensions for visible table/list/card extraction, YouTube transcript exports, local source-pack libraries, ChatGPT conversation exports, browser-run receipts, and support packets. The delivery work included CWS listing contracts, public product pages, privacy/support pages, real-browser E2E artifacts, media gates, package ZIPs, and Chrome Web Store tracking. Public product pages and dated publisher-search snapshots provide release context.",
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web", "automation", "release-engineering"],
     keyFeatures: [
@@ -3696,9 +3565,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["Chrome Extension", "Manifest V3", "React", "TypeScript", "SourcePack", "Playwright", "Chrome Web Store"],
     benchmarks: [
-      { label: "Current public publisher listings", value: "18", context: "Chrome Web Store detail pages and live developer dashboard, 2026-06-15" },
-      { label: "Current publisher users", value: "253", context: "Chrome Web Store detail pages and dashboard proof across 15 displayed rows, 2026-06-15" },
-      { label: "Average rating", value: "5.00", context: "4 reported Chrome Web Store ratings, 2026-06-15" },
+      { label: "Observed publisher listings", value: "10", context: "public publisher search page, 2026-10-08" },
+      { label: "Reported snapshot users", value: "427", context: "8 detail pages with visible counts from the observed publisher search, 2026-10-08" },
+      { label: "Average rating", value: "4.40", context: "5 reported Chrome Web Store ratings, 2026-10-08" },
       { label: "Visible SourcePack products", value: "4", context: "Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-15" }
     ],
     links: [
@@ -4179,8 +4048,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Codex Skills", "Research QA", "Citation Review", "Markdown", "Release Engineering"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "198", context: "public ClawHub listing, 2026-06-04" },
-      { label: "Published versions", value: "1", context: "public ClawHub listing, 2026-06-04" },
+      { label: "ClawHub downloads", value: "777", context: "public ClawHub listing, 2026-10-08 (research-claim-ledger)" },
+      { label: "Published versions", value: "1", context: "public ClawHub listing, 2026-10-08 (research-claim-ledger)" },
       { label: "Verdict labels", value: "9", context: "supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review" },
       { label: "Release posture", value: "instruction-only", context: "SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow" }
     ],
@@ -4212,8 +4081,8 @@ Operations Layer (Console, Alerts, Runbooks)`
     ],
     techStack: ["ClawHub", "Python", "OpenClaw Skills"],
     benchmarks: [
-      { label: "ClawHub downloads", value: "487", context: "public ClawHub listing, 2026-06-09" },
-      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-06-09" },
+      { label: "ClawHub downloads", value: "985", context: "public ClawHub listing, 2026-10-08 (hh-openclaw-agent)" },
+      { label: "Published versions", value: "8", context: "public ClawHub listing, 2026-10-08 (hh-openclaw-agent)" },
       { label: "Public release", value: "v1.0.5", context: "GitHub + ClawHub" },
       { label: "Public posture", value: "name-only", context: "portfolio copy intentionally keeps only the skill name" }
     ],

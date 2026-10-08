@@ -1,5 +1,5 @@
 ---
-version: "2026-10-07"
+version: "2026-10-08"
 name: Zakhar Pashkin — Technical Portfolio
 summary: An editorial portfolio organized around maintained systems and inspectable work.
 colors:
@@ -152,7 +152,7 @@ physical assembly or driving, which remain unverified.
 Open-source evidence groups contributions by project, ranked by practical impact
 and upstream acceptance. Each row pairs the project's GitHub logo with one short
 benefit, accurate merged/open counts and direct PR links. Neuralink leads with
-six merged changes; substantial pending fixes follow before smaller documentation
+seven merged changes; substantial pending fixes follow before smaller documentation
 changes. Mark contributor-branch work explicitly. Keep bug reports in a disclosure.
 The hero includes an Open-source contributions button linking to this section.
 
@@ -388,3 +388,19 @@ Show actual geometry alignment, floor contact and numeric width/height/depth
 checks. Keep the selected oak cabinet dominant against quieter adjoining units.
 Retain stable framing and separate caption rows. Recheck both families, all
 nominal widths, exact/wider/narrower openings, responsive views and actual film.
+
+## Complete contribution review — 8 October 2026
+
+The curated snapshot covers both public contributor accounts, including earlier
+merged mobile-inference, signature-bot and documentation work. Neuralink has
+seven merged PRs and the netCDF4 correction is merged. All public open or merged
+PRs found in the complete external-repository searches are represented. Personal
+repository avatars identify the contribution source alongside existing company
+logos; they do not indicate employment or endorsement. The GitHub profile keeps
+earlier small contributions in one native disclosure so recent ML work remains
+easy to scan. Its current experience and research descriptions match the portfolio.
+
+Chrome statistics describe the observed public publisher-search page and only
+current detail-page rows with a visible count. The count of observed listings is
+not a complete developer-dashboard total. Unavailable counts are omitted from
+current totals; a failed source retains its previous dated snapshot.

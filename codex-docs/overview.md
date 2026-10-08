@@ -28,3 +28,5 @@ Current release context: [portfolio and profile refresh, 7 October 2026](portfol
 - Public-surface gate: `npm run security:gate`
 - UI smoke: `PLAYWRIGHT_SKIP_BUILD=true npm run test:e2e`
 - Link audit: `npm run check:links`
+
+- [Contribution and profile review — 8 October 2026](portfolio-full-review-20261008.md)

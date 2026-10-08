@@ -55,15 +55,21 @@ jobs:
         continue-on-error: true
         run: npm run papers:review -- --write --allow-noop
 
+      - name: Refresh Chrome Web Store snapshot
+        id: chrome-store
+        continue-on-error: true
+        run: npm run stats:chrome -- --write
+
       - name: Report refresh results
         env:
           CLAWHUB_RESULT: ${{ steps.clawhub.outcome }}
           GITHUB_FEED_RESULT: ${{ steps.github-feed.outcome }}
           PAPER_RESULT: ${{ steps.papers.outcome }}
+          CHROME_STORE_RESULT: ${{ steps.chrome-store.outcome }}
         run: |
           node --input-type=module - <<'JS'
           import fs from 'node:fs';
-          const results = [['ClawHub', process.env.CLAWHUB_RESULT], ['GitHub feed', process.env.GITHUB_FEED_RESULT], ['Paper review', process.env.PAPER_RESULT]];
+          const results = [['ClawHub', process.env.CLAWHUB_RESULT], ['GitHub feed', process.env.GITHUB_FEED_RESULT], ['Paper review', process.env.PAPER_RESULT], ['Chrome Web Store', process.env.CHROME_STORE_RESULT]];
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '| Source | Result |\n| --- | --- |\n' + results.map(([name, result]) => `| ${name} | ${result} |`).join('\n') + '\n\nFailed sources retain their previous dated snapshot. Successful sources proceed through all release checks.\n');
           if (results.every(([, result]) => result !== 'success')) process.exit(1);
           JS
@@ -96,7 +102,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A constants.ts public/portfolio-updates.json public/paper-reviews.json docs projects
+          git add -A constants.ts public/portfolio-updates.json public/paper-reviews.json public/chrome-extension-stats.json docs projects
           if git diff --cached --quiet; then
             echo "Only non-public files changed; skipping commit."
             exit 0

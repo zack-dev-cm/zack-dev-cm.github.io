@@ -122,6 +122,7 @@ export const parseDetailPage = (html) => {
   const categoryMatch = html.match(/category\/extensions\/[^"]+[^>]*>\s*([^<]+)\s*<\/a>/i);
 
   return {
+    name: stripTags(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''),
     users: parseNumber(usersMatch?.[1]),
     rating: parseNumber(ratingMatch?.[1]),
     ratingCount: parseNumber(ratingCountMatch?.[1]),
@@ -130,6 +131,20 @@ export const parseDetailPage = (html) => {
     sizeKb: parseNumber(sizeMatch?.[1]),
     category: decodeHtml(categoryMatch?.[1] || ''),
   };
+};
+
+export const parsePublisherListings = (html) => {
+  const listings = new Map();
+  for (const match of html.matchAll(/data-item-id="([a-p]{32})"/g)) {
+    const id = match[1];
+    const end = html.indexOf('data-item-id=', match.index + match[0].length);
+    const card = html.slice(match.index, end < 0 ? undefined : end);
+    const route = card.match(new RegExp(`(?:\\./|/)detail/[^"\\s<>]+/${id}`))?.[0];
+    const name = stripTags(card.match(/<h2\b[^>]*>([\s\S]*?)<\/h2>/i)?.[1] || '');
+    if (route && name) listings.set(id, { id, name, chromeWebStoreUrl: `https://chromewebstore.google.com/${route.replace(/^\.?\//, '')}?hl=en` });
+  }
+  if (!listings.size) throw new Error('No visible publisher listings found; keeping the previous dated snapshot');
+  return [...listings.values()];
 };
 
 export const updateExtensionRows = async (stats) => {
@@ -143,11 +158,12 @@ export const updateExtensionRows = async (stats) => {
       const parsed = parseDetailPage(html);
       if (parsed.users === null) {
         warnings.push(`${extension.name}: no visible user count parsed`);
-        extensions.push({ ...extension, dataIngestedAt: today });
         continue;
       }
+      const { rating, ratingCount, sizeKb, ...cached } = extension;
       extensions.push({
-        ...extension,
+        ...cached,
+        name: parsed.name || extension.name,
         users: parsed.users,
         usersSource: 'Chrome Web Store detail page',
         ...(parsed.rating !== null ? { rating: parsed.rating } : {}),
@@ -160,9 +176,11 @@ export const updateExtensionRows = async (stats) => {
       });
     } catch (error) {
       warnings.push(`${extension.name}: ${error?.message || error}`);
-      extensions.push({ ...extension, dataIngestedAt: today });
     }
   }
+
+  // A failed fetch cannot turn cached figures into a freshly checked snapshot.
+  if (!extensions.length) return { nextStats: stats, warnings, measuredRows: 0 };
 
   const measuredRows = extensions.filter((extension) => Number.isFinite(extension.users));
   const totalUsers = measuredRows.reduce((sum, extension) => sum + extension.users, 0);
@@ -188,15 +206,16 @@ export const updateExtensionRows = async (stats) => {
       averageRating,
       ratingCount,
       notes: [
-        `Chrome Web Store publisher tracker keeps ${stats.totalPublished} current public listings for ${stats.publisherName}; ${measuredRows.length} known detail pages exposed visible user counts on ${today}.`,
+        `The public publisher search showed ${stats.totalPublished} listings on ${today}; this is the observed search page, not a complete developer-dashboard total. ${measuredRows.length} detail pages exposed visible user counts.`,
         `Chrome Web Store detail pages showed ${totalUsers.toLocaleString('en-US')} explicitly reported users across ${measuredRows.length} measured rows, ${(
           measuredRows.length ? totalUsers / measuredRows.length : 0
         ).toFixed(1)} reported users per measured row, and ${averageRating.toFixed(2)} average rating from ${ratingCount} reported ratings on ${today}.`,
-        'Listings without a known or visible Chrome Web Store detail-page count are omitted from row-level published data; Chrome-Stats links remain secondary metadata and are not used for current counts.',
+        'Only listings observed in the current publisher search with a visible detail-page count appear in this snapshot. Missing counts and unavailable pages are omitted; cached numbers are not added to current totals. Chrome-Stats links are secondary references.',
       ],
       extensions,
     },
     warnings,
+    measuredRows: measuredRows.length,
   };
 };
 
@@ -208,7 +227,23 @@ export const writeChromeStats = async (stats, file = CONSTANTS_PATH) => updateSt
   }
   const prefix = sourceText.slice(statement.pos, initializer.pos);
   const replacement = `${prefix}${JSON.stringify(stats, null, 2)};`;
-  const updated = `${sourceText.slice(0, statement.pos)}${replacement}${sourceText.slice(statement.end)}`;
+  let updated = `${sourceText.slice(0, statement.pos)}${replacement}${sourceText.slice(statement.end)}`;
+  updated = updated.replace(
+    /and refreshed the Chrome Web Store snapshot to \d[\d,]* visible reported users across \d+ (?:current listings|observed public listings) \/ \d+ displayed rows from \d{4}-\d{2}-\d{2}/g,
+    () => `and refreshed the Chrome Web Store snapshot to ${stats.totalUsers.toLocaleString('en-US')} visible reported users across ${stats.totalPublished} observed public listings / ${stats.extensions.length} displayed rows from ${stats.checkedAt}`
+  );
+  const metric = (labels, label, value, context) => {
+    const pattern = new RegExp(`\\{ label: "(?:${labels.join('|')})", value: "[^"]*", context: "[^"]*" \\},`, 'g');
+    updated = updated.replace(pattern, () => `{ label: ${JSON.stringify(label)}, value: ${JSON.stringify(String(value))}, context: ${JSON.stringify(context)} },`);
+  };
+  metric(['Current public publisher listings', 'Observed publisher listings'], 'Observed publisher listings', stats.totalPublished, `public publisher search page, ${stats.checkedAt}`);
+  metric(['Current publisher users', 'Reported snapshot users'], 'Reported snapshot users', stats.totalUsers, `${stats.extensions.length} detail pages with visible counts from the observed publisher search, ${stats.checkedAt}`);
+  // Only the Chrome Web Store rating row has this source context.
+  updated = updated.replace(/\{ label: "Average rating", value: "[^"]*", context: "\d+ reported Chrome Web Store ratings, \d{4}-\d{2}-\d{2}" \},/g,
+    () => `{ label: "Average rating", value: "${stats.averageRating.toFixed(2)}", context: "${stats.ratingCount} reported Chrome Web Store ratings, ${stats.checkedAt}" },`);
+  const sourcePackIds = new Set(['egjcdmlfdnkpgkmffkhfdooacmglnjbc', 'hjfdpklldhofiehpcfcfdonjppdkmgoh', 'hlbflaklicefinhckdkbamhhkfklmgao', 'pmofpiclpglbdnjgkgijlolefiojjomn']);
+  const sourcePackRows = stats.extensions.filter(row => sourcePackIds.has(row.id));
+  metric(['Visible SourcePack products', 'Observed SourcePack rows'], 'Observed SourcePack rows', sourcePackRows.length, `${sourcePackRows.map(row => row.name).join(', ')} in the measured public snapshot, ${stats.checkedAt}`);
   return updated;
 });
 
@@ -232,7 +267,17 @@ const normalizeForCompare = (stats) => ({
 
 const main = async () => {
   const { stats } = await readChromeStats();
-  const { nextStats, warnings } = await updateExtensionRows(stats);
+  const listings = parsePublisherListings(await fetchText(stats.sourceUrl));
+  const known = new Map(stats.extensions.map(extension => [extension.id, extension]));
+  const candidates = listings.map(listing => ({
+    description: 'Public Chrome Web Store listing.', version: '', lastUpdated: '', category: '',
+    ...known.get(listing.id), ...listing,
+  }));
+  const { nextStats, warnings, measuredRows } = await updateExtensionRows({
+    ...stats, totalPublished: listings.length,
+    sourceName: 'Chrome Web Store public publisher search and detail pages', extensions: candidates,
+  });
+  if (!measuredRows) throw new Error('No current public user counts could be verified; keeping the previous dated snapshot');
 
   if (shouldVerify && JSON.stringify(normalizeForCompare(stats)) !== JSON.stringify(normalizeForCompare(nextStats))) {
     throw new Error('constants.ts Chrome Web Store stats are stale; run npm run stats:chrome -- --write');
@@ -249,7 +294,7 @@ const main = async () => {
         verify: shouldVerify,
         checkedAt: nextStats.checkedAt,
         totalPublished: nextStats.totalPublished,
-        measuredRows: nextStats.extensions.length,
+        measuredRows,
         totalUsers: nextStats.totalUsers,
         averageRating: nextStats.averageRating,
         ratingCount: nextStats.ratingCount,
