@@ -760,7 +760,7 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
       "dataIngestedAt": "2026-10-08",
       "rating": 0,
       "version": "0.1.1",
-      "lastUpdated": "2026-05-14",
+      "lastUpdated": "2026-05-15",
       "category": "Workflow & Planning",
       "sizeKb": 21.96
     },
