@@ -89,7 +89,7 @@ export const COMPANIES: Company[] = [
   { name: "Curv Innovation", logoUrl: `${LOCAL_COMPANY_LOGO_BASE}/curv.png` }
 ];
 
-export const OPEN_SOURCE_PROJECTS: Array<(typeof contributionData.projects)[number] & { scope?: string }> = contributionData.projects;
+export const OPEN_SOURCE_PROJECTS: Array<Omit<(typeof contributionData.projects)[number], 'scope'> & { scope?: string }> = contributionData.projects;
 export const OPEN_SOURCE_VERIFIED_AT = contributionData.verifiedAt;
 
 export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
@@ -2162,13 +2162,13 @@ export const PROJECTS: Project[] = [
   {
     id: 26,
     title: "MCP-Server – Base Multitool",
-    description: "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
-    longDescription: "Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.",
-    keyFeatures: ["Declarative AI pipelines", "Autoscaling infrastructure", "Real-time event monitoring"],
-    techStack: ["VLM/LLMs", "Cloud Infrastructure", "Autoscaling", "DevOps"],
+    description: "Service-layer prototype for AI tools and demo agents.",
+    longDescription: "Prototype workflow for connecting AI tools and demo agents through an MCP service layer.",
+    keyFeatures: ["AI tool integration", "Prototype service workflow"],
+    techStack: ["MCP", "VLM/LLMs", "DevOps"],
     links: [],
-    images: [{ url: `${LOCAL_IMG_BASE}/mcp_server.png`, alt: "MCP server architecture" }],
-    thumbnail: `${LOCAL_IMG_BASE}/mcp_server.png`
+    images: [{ url: `${LOCAL_IMG_BASE}/mcp-service-prototype.svg`, alt: "Conceptual workflow connecting a client, an MCP service and demo tools", caption: "Conceptual workflow for the prototype." }],
+    thumbnail: `${LOCAL_IMG_BASE}/mcp-service-prototype.svg`
   },
   {
     id: 27,

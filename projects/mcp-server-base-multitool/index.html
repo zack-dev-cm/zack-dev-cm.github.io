@@ -4,22 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MCP-Server - Base Multitool | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling. Zakhar Pashkin case study." />
+    <meta name="description" content="Service-layer prototype for AI tools and demo agents. Zakhar Pashkin case study." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="MCP-Server - Base Multitool" />
-    <meta property="og:description" content="Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling." />
+    <meta property="og:description" content="Service-layer prototype for AI tools and demo agents." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MCP-Server - Base Multitool" />
-    <meta name="twitter:description" content="Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling." />
-    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/mcp_server.png" />
+    <meta name="twitter:description" content="Service-layer prototype for AI tools and demo agents." />
+    <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/project-social/mcp-server-base-multitool.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="MCP server architecture" />
-    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/mcp_server.png" />
-    <meta name="twitter:image:alt" content="MCP server architecture" />
+    <meta property="og:image:alt" content="Conceptual workflow connecting a client, an MCP service and demo tools" />
+    <meta name="twitter:image" content="https://zack-dev-cm.github.io/docs/images/project-social/mcp-server-base-multitool.png" />
+    <meta name="twitter:image:alt" content="Conceptual workflow connecting a client, an MCP service and demo tools" />
     <script type="application/ld+json">
 {
       "@context": "https://schema.org",
@@ -27,7 +29,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/#case-study",
       "headline": "MCP-Server - Base Multitool",
       "name": "MCP-Server - Base Multitool",
-      "description": "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
+      "description": "Service-layer prototype for AI tools and demo agents.",
       "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/",
       "author": {
@@ -41,21 +43,17 @@
             "url": "https://zack-dev-cm.github.io"
       },
       "genre": "case-study",
-      "keywords": "VLM/LLMs, Cloud Infrastructure, Autoscaling, DevOps",
-      "image": "https://zack-dev-cm.github.io/docs/images/mcp_server.png",
+      "keywords": "MCP, VLM/LLMs, DevOps",
+      "image": "https://zack-dev-cm.github.io/docs/images/project-social/mcp-server-base-multitool.png",
       "isAccessibleForFree": true,
       "about": [
             {
                   "@type": "Thing",
+                  "name": "MCP"
+            },
+            {
+                  "@type": "Thing",
                   "name": "VLM/LLMs"
-            },
-            {
-                  "@type": "Thing",
-                  "name": "Cloud Infrastructure"
-            },
-            {
-                  "@type": "Thing",
-                  "name": "Autoscaling"
             },
             {
                   "@type": "Thing",
@@ -84,29 +82,27 @@
         <header class="hero">
           <p class="eyebrow">Portfolio project</p>
           <h1>MCP-Server - Base Multitool</h1>
-          <p class="lede">Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.</p>
-          <figure><a class="figure-link" href="/docs/images/mcp_server.png" aria-label="Open full-size figure 1: MCP server architecture"><img class="visual" src="/docs/images/mcp_server.png" alt="MCP server architecture" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
+          <p class="lede">Service-layer prototype for AI tools and demo agents.</p>
+          <figure><a class="figure-link" href="/docs/images/mcp-service-prototype.svg" aria-label="Open full-size figure 1: Conceptual workflow connecting a client, an MCP service and demo tools"><img class="visual" src="/docs/images/mcp-service-prototype.svg" alt="Conceptual workflow connecting a client, an MCP service and demo tools" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a><figcaption>Conceptual workflow for the prototype.</figcaption></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.</p>
+          <p>Prototype workflow for connecting AI tools and demo agents through an MCP service layer.</p>
         </section>
 
 
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Declarative AI pipelines</li>
-        <li>Autoscaling infrastructure</li>
-        <li>Real-time event monitoring</li>
+        <li>AI tool integration</li>
+        <li>Prototype service workflow</li>
           </ul>
         </section>
         <section>
           <h2>Stack And Topics</h2>
           <ul class="stack">
+        <li>MCP</li>
         <li>VLM/LLMs</li>
-        <li>Cloud Infrastructure</li>
-        <li>Autoscaling</li>
         <li>DevOps</li>
           </ul>
         </section>

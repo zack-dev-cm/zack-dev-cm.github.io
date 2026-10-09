@@ -1558,18 +1558,16 @@ Tech Stack:
 - Computer Vision
 
 ### MCP-Server - Base Multitool
-Summary: Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
-Details: Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.
+Summary: Service-layer prototype for AI tools and demo agents.
+Details: Prototype workflow for connecting AI tools and demo agents through an MCP service layer.
 Project URL: https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/
 Markdown URL: https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md
 Key Features:
-- Declarative AI pipelines
-- Autoscaling infrastructure
-- Real-time event monitoring
+- AI tool integration
+- Prototype service workflow
 Tech Stack:
+- MCP
 - VLM/LLMs
-- Cloud Infrastructure
-- Autoscaling
 - DevOps
 
 ### Tool-Calls Demo - Material Chat Playground

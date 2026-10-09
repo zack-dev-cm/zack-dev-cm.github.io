@@ -30,3 +30,4 @@ Current release context: [portfolio and profile refresh, 7 October 2026](portfol
 - Link audit: `npm run check:links`
 
 - [Contribution and profile review — 8 October 2026](portfolio-full-review-20261008.md)
+- [Contribution status corrections, 9 October 2026](contribution-status-20261009.md)

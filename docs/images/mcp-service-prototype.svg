@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540" role="img" aria-labelledby="title description">
+  <title id="title">MCP service prototype</title>
+  <desc id="description">Conceptual workflow connecting a client, an MCP service and demo tools.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#84dedb"/>
+    </marker>
+  </defs>
+  <rect width="900" height="540" fill="#0d1420"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="60" y="80" fill="#84dedb" font-size="16" letter-spacing="2">PROTOTYPE</text>
+    <text x="60" y="132" fill="#edf3f8" font-size="34" font-weight="700">MCP service workflow</text>
+    <g fill="#172333" stroke="#486073" stroke-width="2">
+      <rect x="60" y="220" width="200" height="124" rx="16"/>
+      <rect x="350" y="220" width="200" height="124" rx="16"/>
+      <rect x="640" y="220" width="200" height="124" rx="16"/>
+    </g>
+    <g fill="#edf3f8" font-size="24" text-anchor="middle">
+      <text x="160" y="289">Client</text>
+      <text x="450" y="289">MCP service</text>
+      <text x="740" y="289">Demo tools</text>
+    </g>
+    <g fill="none" stroke="#84dedb" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M 271 282 H 334"/>
+      <path d="M 561 282 H 624"/>
+    </g>
+    <path d="M 740 357 V 398 H 160 V 357" fill="none" stroke="#84dedb" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="450" y="430" fill="#b6c5d5" font-size="18" text-anchor="middle">Results returned to the client</text>
+    <text x="60" y="495" fill="#b6c5d5" font-size="16">Conceptual workflow for the prototype.</text>
+  </g>
+</svg>

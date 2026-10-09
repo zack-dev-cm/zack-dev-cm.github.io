@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-08",
+  "verifiedAt": "2026-10-09",
   "projects": [
     {
       "name": "Neuralink",
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Preserves query results and literals, keeps refreshed credentials coherent and makes setup reproducible.",
+      "benefit": "Merged query, literal, credential-refresh and packaging changes. #73 and #74 await a containing release.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -47,7 +47,7 @@
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/58",
           "number": 58,
-          "title": "Make the README quick start runnable with local synthetic data",
+          "title": "Make the README quick start runnable with local synthetic data (later reverted)",
           "status": "merged",
           "mergedAt": "2026-09-16T20:14:22Z"
         },
@@ -58,14 +58,15 @@
           "status": "merged",
           "mergedAt": "2026-09-16T20:14:26Z"
         }
-      ]
+      ],
+      "scope": "#58 later reverted"
     },
     {
       "name": "Tesla",
       "project": "Camera Kit",
       "logo": "images/contributions/tesla.png",
       "logoSource": "https://github.com/teslamotors.png?size=96",
-      "benefit": "Fixes Android scan accuracy, resource leaks and camera reuse.",
+      "benefit": "Proposed fixes for Android scan accuracy, resource leaks and camera reuse.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -103,7 +104,7 @@
       "project": "netCDF4",
       "logo": "images/contributions/unidata.png",
       "logoSource": "https://github.com/Unidata.png?size=96",
-      "benefit": "Preserves array dimensions when scientific-data selections are empty.",
+      "benefit": "Merged shape correction for empty selections; awaiting a containing release.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -120,7 +121,7 @@
       "project": "reproject",
       "logo": "images/contributions/astropy.png",
       "logoSource": "https://github.com/astropy.png?size=96",
-      "benefit": "Rejects undefined inverse coordinates so invalid sky-image pixels receive zero footprint.",
+      "benefit": "Proposes rejecting undefined inverse coordinates; solar-reference behavior remains under review.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -137,7 +138,7 @@
       "project": "CCL",
       "logo": "images/contributions/lsstdesc.png",
       "logoSource": "https://github.com/LSSTDESC.png?size=96",
-      "benefit": "Corrects the integration range and component quadrature used in cosmology calculations.",
+      "benefit": "Proposed FKEM integration-range and quadrature changes, pending numerical review.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -154,7 +155,7 @@
       "project": "Nempy",
       "logo": "images/contributions/unsw.png",
       "logoSource": "https://github.com/UNSW-CEEM.png?size=96",
-      "benefit": "Corrects battery dispatch inputs and prevents Linux solver crashes.",
+      "benefit": "Proposed corrections to battery dispatch inputs and Linux solver compatibility.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -178,7 +179,7 @@
       "project": "Display & modality lookup tables",
       "logo": "images/contributions/pydicom.png",
       "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Prevents integer overflow when mapping pixel values through display and modality lookup tables.",
+      "benefit": "Proposed overflow fixes for display and modality lookup-table indexing.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -202,7 +203,7 @@
       "project": "Pixel encoding",
       "logo": "images/contributions/pydicom.png",
       "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Preserves one-bit image pixels during compression.",
+      "benefit": "Proposed preservation of one-bit image pixels during compression.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -219,7 +220,7 @@
       "project": "Teleoperation & SDK",
       "logo": "images/contributions/unitree.jpg",
       "logoSource": "https://github.com/unitreerobotics.png?size=96",
-      "benefit": "Repairs teleoperation stop calls and documents DDS security.",
+      "benefit": "Proposed teleoperation stop-call fix and DDS security documentation.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -243,7 +244,7 @@
       "project": "CoCa example · lucidrains fork",
       "logo": "images/contributions/open-clip.jpg",
       "logoSource": "https://github.com/lucidrains.png?size=96",
-      "benefit": "Makes the CoCa text-generation example call the correct model factory.",
+      "benefit": "Proposes a corrected model-factory call in the CoCa text-generation example.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {

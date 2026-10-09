@@ -1330,7 +1330,7 @@ const App: React.FC = () => {
             id="contributed-to"
             eyebrow="Open Source"
             title="Open-source contributions"
-            description="Independent contributions, ordered by impact. Each links to the actual change."
+            description="Contributions to public projects. Each links to the proposed or merged change."
           >
             <ul className="contribution-list contribution-projects">
               {OPEN_SOURCE_PROJECTS.map((project) => {

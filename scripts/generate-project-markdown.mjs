@@ -1153,7 +1153,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '  </section>',
     '  <section id="contributed-to" class="crawlable-shell__section">',
     '    <h2>Open-source contributions</h2>',
-    `    <p>Independent contributions. Status checked ${escapeHtml(CONTRIBUTION_DATA.verifiedAt)}.</p>`,
+    `    <p>Contributions to public projects. Status checked ${escapeHtml(CONTRIBUTION_DATA.verifiedAt)}.</p>`,
     '    <ul class="crawlable-shell__link-list">',
     ...CONTRIBUTION_DATA.projects.map((project) => `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)}${project.scope ? ` (${escapeHtml(project.scope)})` : ''} ${project.pullRequests.map((pr) => `<a href="${escapeHtml(pr.url)}">#${pr.number} (${escapeHtml(pr.status)})</a>`).join(' · ')}</li>`),
     '    </ul>',

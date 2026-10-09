@@ -1,24 +1,24 @@
 # MCP-Server - Base Multitool
 
-> Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.
+> Service-layer prototype for AI tools and demo agents.
 
 ## Summary
-Service layer exposing pipeline configs, autoscaling workers, and real-time event feeds that other demos plug into via MCP mesh.
+Prototype workflow for connecting AI tools and demo agents through an MCP service layer.
 
 ## Project Figures
 
-![MCP server architecture](https://zack-dev-cm.github.io/docs/images/mcp_server.png)
+![Conceptual workflow connecting a client, an MCP service and demo tools](https://zack-dev-cm.github.io/docs/images/mcp-service-prototype.svg)
+
+Conceptual workflow for the prototype.
 
 ## Project Link
 https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md
 
 ## Key Features
-- Declarative AI pipelines
-- Autoscaling infrastructure
-- Real-time event monitoring
+- AI tool integration
+- Prototype service workflow
 
 ## Tech Stack
+- MCP
 - VLM/LLMs
-- Cloud Infrastructure
-- Autoscaling
 - DevOps

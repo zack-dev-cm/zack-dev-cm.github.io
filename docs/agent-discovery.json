@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-10-08",
+  "generatedAt": "2026-10-09",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -4479,14 +4479,13 @@
       "title": "MCP-Server - Base Multitool",
       "url": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/mcp-server-base-multitool.md",
-      "summary": "Backbone for orchestrating VLM/LLM demo agents with declarative pipelines and autoscaling.",
+      "summary": "Service-layer prototype for AI tools and demo agents.",
       "kind": "case-study",
       "tags": [],
       "aliases": [],
       "techStack": [
+        "MCP",
         "VLM/LLMs",
-        "Cloud Infrastructure",
-        "Autoscaling",
         "DevOps"
       ],
       "benchmarks": [],
