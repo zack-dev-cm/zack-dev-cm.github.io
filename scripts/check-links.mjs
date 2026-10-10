@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifyLinkResults } from './link-results.mjs';
+import { fetchLinkWithRetry } from './link-fetch.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -108,7 +109,6 @@ const ignoredUrls = new Set([
 ]);
 const userAgent =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const resolveExistingPageFile = (candidate) => {
   if (!fs.existsSync(candidate)) return null;
@@ -161,21 +161,6 @@ const fetchWithTimeout = async (url, timeoutMs = 15000) => {
   }
 };
 
-const fetchWithRetry = async (url, attempts = 3) => {
-  let lastError = null;
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    try {
-      return await fetchWithTimeout(url);
-    } catch (error) {
-      lastError = error;
-      if (attempt < attempts) {
-        await sleep(750 * attempt);
-      }
-    }
-  }
-  throw lastError;
-};
-
 const checkUrl = async (url) => {
   let parsed;
   try {
@@ -194,7 +179,7 @@ const checkUrl = async (url) => {
   }
 
   try {
-    const response = await fetchWithRetry(url);
+    const response = await fetchLinkWithRetry(url, fetchWithTimeout);
     const { status } = response;
     if (response.body?.cancel) {
       await response.body.cancel();

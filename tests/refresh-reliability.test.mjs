@@ -8,10 +8,70 @@ import { fetchWithRetry, updateConstantsSource } from '../scripts/fetch-clawhub-
 import { fetchText, parseDetailPage, parsePublisherListings, updateExtensionRows, writeChromeStats } from '../scripts/fetch-chrome-extension-stats.mjs';
 import { updateStatsSource } from '../scripts/stats-source.mjs';
 import { classifyLinkResults } from '../scripts/link-results.mjs';
+import { fetchLinkWithRetry } from '../scripts/link-fetch.mjs';
 import { assertPreviewDestination, assertPrivateLanguageOutput, isPublicOutput } from '../scripts/media/architectural-catalog/output-path.mjs';
 import { assertDecodedOutput, decodeFreshOutput } from '../scripts/media/architectural-catalog/decoded-output.mjs';
 import { buildMarkdown } from '../scripts/generate-project-markdown.mjs';
 import { fetchText as fetchPaperText } from '../scripts/update-paper-reviews.mjs';
+
+const serveLinkStatus = async (t, statusForRequest) => {
+  let requests = 0;
+  const server = http.createServer((req, res) => {
+    res.writeHead(statusForRequest(++requests));
+    res.end('link response');
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => { server.closeAllConnections(); server.close(); });
+  return { url: `http://127.0.0.1:${server.address().port}/link`, requests: () => requests };
+};
+
+test('link checking recovers from transient gateway responses within its retry budget', async (t) => {
+  const link = await serveLinkStatus(t, (attempt) => [502, 503, 200][attempt - 1]);
+  const waits = [];
+  const response = await fetchLinkWithRetry(link.url, fetch, { sleep: async (ms) => waits.push(ms) });
+  assert.equal(response.status, 200);
+  assert.equal(await response.text(), 'link response');
+  assert.equal(link.requests(), 3);
+  assert.deepEqual(waits, [750, 1500]);
+});
+
+test('persistent gateway failures remain failed links after bounded retries', async (t) => {
+  const link = await serveLinkStatus(t, () => 503);
+  const response = await fetchLinkWithRetry(link.url, fetch, { sleep: async () => {} });
+  await response.body.cancel();
+  const result = { url: link.url, status: response.status };
+  assert.equal(link.requests(), 3);
+  assert.deepEqual(classifyLinkResults([result]), { warnings: [], failures: [result] });
+});
+
+test('missing pages fail immediately without a server-error retry', async (t) => {
+  const link = await serveLinkStatus(t, () => 404);
+  const response = await fetchLinkWithRetry(link.url, fetch, { sleep: async () => assert.fail('404 must not retry') });
+  await response.body.cancel();
+  const result = { url: link.url, status: response.status };
+  assert.equal(link.requests(), 1);
+  assert.deepEqual(classifyLinkResults([result]), { warnings: [], failures: [result] });
+});
+
+test('link network failures retain their error and bounded request count', async () => {
+  const failure = new Error('connection unavailable');
+  let requests = 0;
+  await assert.rejects(fetchLinkWithRetry('https://example.test', async () => {
+    requests++;
+    throw failure;
+  }, { sleep: async () => {} }), (error) => error === failure);
+  assert.equal(requests, 3);
+});
+
+test('link checking can recover from a connection error without changing successful responses', async () => {
+  let requests = 0;
+  const response = await fetchLinkWithRetry('https://example.test', async () => {
+    if (++requests === 1) throw new Error('connection unavailable');
+    return new Response('recovered');
+  }, { sleep: async () => {} });
+  assert.equal(await response.text(), 'recovered');
+  assert.equal(requests, 2);
+});
 
 test('stalled response bodies terminate and ClawHub retries are bounded for 200 and 503', { timeout: 10000 }, async (t) => {
   let requests = 0;
