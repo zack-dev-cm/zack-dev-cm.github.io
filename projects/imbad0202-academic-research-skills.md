@@ -25,8 +25,8 @@ https://zack-dev-cm.github.io/projects/research-claim-ledger.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 781 (public ClawHub listing, 2026-10-08 (research-claim-ledger))
-- Published versions: 1 (public ClawHub listing, 2026-10-08 (research-claim-ledger))
+- ClawHub downloads: 791 (public ClawHub listing, 2026-10-10 (research-claim-ledger))
+- Published versions: 1 (public ClawHub listing, 2026-10-10 (research-claim-ledger))
 - Verdict labels: 9 (supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review)
 - Release posture: instruction-only (SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow)
 
