@@ -29,6 +29,17 @@ test('small datarepo contributions stay out of the project catalogue and automat
   assert.deepEqual(selectReviewedFeedProjects(makeFeed(stale), exclusions), []);
 });
 
+test('resume project links resolve against the current catalogue without the deployed site', async () => {
+  const routes = new Set((await readProjectCatalogue()).flatMap(getProjectRouteSlugs));
+  const resume = JSON.parse(await fs.readFile(new URL('scripts/resume/resume-content.json', root), 'utf8'));
+  for (const project of resume.projects) {
+    const url = new URL(project.url);
+    if (url.hostname !== 'zack-dev-cm.github.io' || !url.pathname.startsWith('/projects/')) continue;
+    const slug = url.pathname.slice('/projects/'.length).replace(/\/$/, '');
+    assert.ok(routes.has(slug), `Resume links to a missing project: ${project.name} (${url.pathname})`);
+  }
+});
+
 test('the page generator includes every reviewed runtime project and its shared canonical route', async () => {
   const catalogue = await readProjectCatalogue();
   const reviewed = selectReviewedFeedProjects(feed, ['zack-dev-cm/zack-dev-cm.github.io', 'zack-dev-cm/antirot', 'zack-dev-cm/neuralink-contributions']);

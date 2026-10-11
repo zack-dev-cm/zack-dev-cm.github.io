@@ -6,7 +6,7 @@
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Merged query, literal, credential-refresh and packaging changes. #73 and #74 await a containing release.",
+      "benefit": "Merged changes to query correctness, Python literals, credential refresh and packaging.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -104,7 +104,7 @@
       "project": "netCDF4",
       "logo": "images/contributions/unidata.png",
       "logoSource": "https://github.com/Unidata.png?size=96",
-      "benefit": "Merged shape correction for empty selections; awaiting a containing release.",
+      "benefit": "Merged fix for array dimensions when scientific-data selections are empty.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -121,7 +121,7 @@
       "project": "reproject",
       "logo": "images/contributions/astropy.png",
       "logoSource": "https://github.com/astropy.png?size=96",
-      "benefit": "Proposes rejecting undefined inverse coordinates; solar-reference behavior remains under review.",
+      "benefit": "Proposed validation of inverse coordinates in image reprojection.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -138,7 +138,7 @@
       "project": "CCL",
       "logo": "images/contributions/lsstdesc.png",
       "logoSource": "https://github.com/LSSTDESC.png?size=96",
-      "benefit": "Proposed FKEM integration-range and quadrature changes, pending numerical review.",
+      "benefit": "Proposed integration-range and quadrature fixes for cosmology calculations.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {

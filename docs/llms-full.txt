@@ -47,7 +47,6 @@ Benchmarks & Analytics:
 Links:
 - View on Chrome Web Store: https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm
 - View on GitHub: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin
-- Review locale draft #28: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin/pull/28
 
 ### Mcp Server
 Summary: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.
@@ -864,7 +863,6 @@ Benchmarks & Analytics:
 - Verification model: receipt-aware (installed hash and approved verdict must match receipt)
 Links:
 - Source on GitHub: https://github.com/zack-dev-cm/trusted-clawhub-install-gate
-- Review analysis draft #1: https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1
 
 ### Agnitra - ML Profiling & Optimization
 Summary: A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
@@ -1597,7 +1595,7 @@ Tech Stack:
 
 ### Tool-Calls Demo - Material Chat Playground
 Summary: Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy.
-Details: Material-themed playground for streaming function arguments, tool execution and voice output. Draft #43 fixes cancellation, reconnect and retry cleanup. Fourteen lifecycle tests and six Worker tests pass; browser source fixtures use simulated media and Realtime transport. The actual authenticated voice and tool flow, current Realtime contract and dependency remediation remain pending.
+Details: Material-themed playground for streaming function arguments, tool execution and voice output, with a serverless session proxy.
 Project URL: https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/
 Markdown URL: https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md
 Key Features:
@@ -1611,7 +1609,6 @@ Tech Stack:
 - Text-to-Speech
 Links:
 - Source on GitHub: https://github.com/zack-dev-cm/tool_calls
-- Review connection draft #43: https://github.com/zack-dev-cm/tool_calls/pull/43
 
 ### ZackAutoStack Automation Stack
 Summary: Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.

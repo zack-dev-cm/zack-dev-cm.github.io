@@ -10,7 +10,6 @@ import {
   PROJECTS,
   OPEN_SOURCE_CONTRIBUTIONS,
   OPEN_SOURCE_PROJECTS,
-  OPEN_SOURCE_VERIFIED_AT,
   LATEST_UPDATES,
   SOCIAL_LINKS,
   PORTFOLIO_UPDATE_REPO_EXCLUSIONS,
@@ -1358,7 +1357,6 @@ const App: React.FC = () => {
                 );
               })}
             </ul>
-            <p className="contribution-verified">Status checked <time dateTime={OPEN_SOURCE_VERIFIED_AT}>{new Date(`${OPEN_SOURCE_VERIFIED_AT}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</time>.</p>
             <details className="contribution-participation">
               <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
               <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>

@@ -67,11 +67,6 @@
                   "@type": "CreativeWork",
                   "name": "Source on GitHub",
                   "url": "https://github.com/zack-dev-cm/tool_calls"
-            },
-            {
-                  "@type": "CreativeWork",
-                  "name": "Review connection draft #43",
-                  "url": "https://github.com/zack-dev-cm/tool_calls/pull/43"
             }
       ]
 }
@@ -100,9 +95,9 @@
         </header>
         <section>
           <h2>Overview</h2>
-          <p>Material-themed playground for streaming function arguments, tool execution and voice output. Draft #43 fixes cancellation, reconnect and retry cleanup. Fourteen lifecycle tests and six Worker tests pass; browser source fixtures use simulated media and Realtime transport. The actual authenticated voice and tool flow, current Realtime contract and dependency remediation remain pending.</p>
+          <p>Material-themed playground for streaming function arguments, tool execution and voice output, with a serverless session proxy.</p>
         </section>
-        <section><h2>Connection recovery in review</h2><p>A cancelled connection cannot complete later, retries clean up the previous attempt, and late events cannot attach to a new session. The published draft contains the tests and observed failure cases. Passing lifecycle and Worker checks does not establish a working live Realtime session.</p></section>
+
 
         <section>
           <h2>What It Covers</h2>
@@ -126,7 +121,6 @@
           <h2>References</h2>
           <ul>
         <li><a href="https://github.com/zack-dev-cm/tool_calls">Source on GitHub</a></li>
-        <li><a href="https://github.com/zack-dev-cm/tool_calls/pull/43">Review connection draft #43</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md">Plain-text case study</a></li>
           </ul>
         </section>

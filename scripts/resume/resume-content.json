@@ -78,14 +78,14 @@
     {
       "name": "Neuralink datarepo",
       "status": "Independent open-source contributions | 7 merged PRs",
-      "url": "https://zack-dev-cm.github.io/projects/neuralink-datarepo-contributions/",
-      "text": "Contributed merged fixes for query row identity, Parquet partition pruning, null filtering, generated Python literals and credential refresh, plus reproducible setup and wheel compatibility. Status checked 8 Oct 2026."
+      "url": "https://github.com/neuralinkcorp/datarepo",
+      "text": "Contributed merged fixes for query row identity, Parquet partition pruning, null filtering, generated Python literals, credential refresh and wheel compatibility."
     },
     {
       "name": "Unidata netCDF4",
       "status": "Independent open-source contribution | 1 merged PR",
       "url": "https://github.com/Unidata/netcdf4-python/pull/1499",
-      "text": "Preserved array dimensions and scalar-axis behavior for empty orthogonal indexing, with regression coverage for scientific-data selections. Status checked 8 Oct 2026."
+      "text": "Preserved array dimensions and scalar-axis behavior for empty orthogonal indexing, with regression coverage for scientific-data selections."
     },
     {
       "name": "InQuest",
@@ -127,5 +127,5 @@
     }
   ],
   "education": "Siberian Federal University | Computer Science & Microelectronic Engineering | 2007-2012",
-  "updated": "2026-10-08"
+  "updated": "2026-10-11"
 }
