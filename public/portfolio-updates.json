@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-10-10T04:49:17.263Z",
+  "lastSyncedAt": "2026-10-11T13:04:13.842Z",
   "review": {
     "status": "PASS",
-    "checkedAt": "2026-10-10",
-    "syncedAt": "2026-10-10T04:49:17.263Z",
+    "checkedAt": "2026-10-11",
+    "syncedAt": "2026-10-11T13:04:13.842Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -28,6 +28,72 @@
   },
   "latestUpdates": [
     {
+      "title": "GitHub Repo Sum Chrome Plugin",
+      "description": "github-repo-sum-chrome-plugin",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/github-repo-sum-chrome-plugin",
+      "repoId": 894416036,
+      "createdAt": "2026-10-10T14:06:18Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-10-11",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 894416036
+    },
+    {
+      "title": "Trusted ClawHub Install Gate",
+      "description": "Local-first install gate for ClawHub and OpenClaw skills.",
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
+        }
+      ],
+      "repoFullName": "zack-dev-cm/trusted-clawhub-install-gate",
+      "repoId": 1232823211,
+      "createdAt": "2026-10-10T13:27:20Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-10-11",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "projectId": 1232823211
+    },
+    {
       "title": "Mcp Server",
       "description": "A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.",
       "links": [
@@ -38,10 +104,10 @@
       ],
       "repoFullName": "zack-dev-cm/mcp_server",
       "repoId": 995792187,
-      "createdAt": "2026-10-10T04:43:14Z",
+      "createdAt": "2026-10-10T06:00:31Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -70,7 +136,7 @@
       "createdAt": "2026-09-14T18:07:03Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -99,7 +165,7 @@
       "createdAt": "2026-09-08T08:22:40Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -132,7 +198,7 @@
       "createdAt": "2026-09-08T03:47:52Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -150,10 +216,10 @@
   ],
   "projects": [
     {
-      "id": 995792187,
-      "title": "Mcp Server",
-      "description": "A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.",
-      "longDescription": "A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-10.",
+      "id": 894416036,
+      "title": "GitHub Repo Sum Chrome Plugin",
+      "description": "github-repo-sum-chrome-plugin",
+      "longDescription": "github-repo-sum-chrome-plugin This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -161,7 +227,199 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-10",
+        "Public GitHub API snapshot captured on 2026-10-11",
+        "JavaScript code surface is visible in repository metadata",
+        "Public homepage or listing is linked from repository metadata"
+      ],
+      "techStack": [
+        "JavaScript",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin"
+        },
+        {
+          "text": "Public homepage",
+          "url": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "GitHub Repo Sum Chrome Plugin preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-10-11"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-10-11"
+        },
+        {
+          "label": "Created",
+          "value": "2024-11-26",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-10-10",
+          "context": "public GitHub repository metadata"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin",
+        "website": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm"
+      },
+      "repoFullName": "zack-dev-cm/github-repo-sum-chrome-plugin",
+      "repoId": 894416036,
+      "createdAt": "2026-10-10T14:06:18Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-10-11",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "legacySlugs": [
+        "zack-dev-cm-github-repo-sum-chrome-plugin"
+      ],
+      "aliases": []
+    },
+    {
+      "id": 1232823211,
+      "title": "Trusted ClawHub Install Gate",
+      "description": "Local-first install gate for ClawHub and OpenClaw skills.",
+      "longDescription": "Local-first install gate for ClawHub and OpenClaw skills. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-10-11.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source",
+        "clawhub",
+        "openclaw",
+        "security"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source references",
+        "Public GitHub API snapshot captured on 2026-10-11",
+        "Python code surface is visible in repository metadata",
+        "Repository topics include ClawHub, OpenClaw, Security",
+        "Public homepage or listing is linked from repository metadata",
+        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
+      ],
+      "techStack": [
+        "Python",
+        "ClawHub",
+        "OpenClaw",
+        "Security",
+        "GitHub",
+        "Open Source"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
+        },
+        {
+          "text": "ClawHub",
+          "url": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
+        }
+      ],
+      "images": [
+        {
+          "url": "images/project-placeholder.svg",
+          "alt": "Trusted ClawHub Install Gate preview"
+        }
+      ],
+      "thumbnail": "images/project-placeholder.svg",
+      "benchmarks": [
+        {
+          "label": "GitHub stars",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-10-11"
+        },
+        {
+          "label": "GitHub forks",
+          "value": "0",
+          "context": "public GitHub API snapshot, 2026-10-11"
+        },
+        {
+          "label": "Created",
+          "value": "2026-05-08",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "Last push",
+          "value": "2026-10-10",
+          "context": "public GitHub repository metadata"
+        },
+        {
+          "label": "ClawHub downloads",
+          "value": "733",
+          "context": "public ClawHub listing, 2026-10-10"
+        },
+        {
+          "label": "ClawHub versions",
+          "value": "3",
+          "context": "public ClawHub listing, 2026-10-10"
+        }
+      ],
+      "canonicalLinks": {
+        "github": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate",
+        "website": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
+      },
+      "repoFullName": "zack-dev-cm/trusted-clawhub-install-gate",
+      "repoId": 1232823211,
+      "createdAt": "2026-10-10T13:27:20Z",
+      "review": {
+        "status": "PASS",
+        "checkedAt": "2026-10-11",
+        "gateVersion": 2,
+        "gates": [
+          "public-github-api-only",
+          "private-repo-default-off",
+          "safe-public-links-only",
+          "readme-code-blocks-stripped",
+          "leak-pattern-scan",
+          "instruction-bleed-scan",
+          "clawhub-stat-crosslink",
+          "clawpatch-review-ready"
+        ]
+      },
+      "legacySlugs": [
+        "zack-dev-cm-trusted-clawhub-install-gate"
+      ],
+      "aliases": []
+    },
+    {
+      "id": 995792187,
+      "title": "Mcp Server",
+      "description": "A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.",
+      "longDescription": "A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.",
+      "projectKind": "open-source",
+      "surfaceTags": [
+        "open-source"
+      ],
+      "mobileReady": false,
+      "keyFeatures": [
+        "Public GitHub repository with README-backed source references",
+        "Public GitHub API snapshot captured on 2026-10-11",
         "Python code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -186,12 +444,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "Created",
@@ -209,10 +467,10 @@
       },
       "repoFullName": "zack-dev-cm/mcp_server",
       "repoId": 995792187,
-      "createdAt": "2026-10-10T04:43:14Z",
+      "createdAt": "2026-10-10T06:00:31Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -224,13 +482,17 @@
           "clawhub-stat-crosslink",
           "clawpatch-review-ready"
         ]
-      }
+      },
+      "legacySlugs": [
+        "zack-dev-cm-mcp-server"
+      ],
+      "aliases": []
     },
     {
       "id": 1370350349,
       "title": "Camera Kit Scanner Reproducer",
       "description": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.",
-      "longDescription": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-10.",
+      "longDescription": "Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -238,7 +500,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-10",
+        "Public GitHub API snapshot captured on 2026-10-11",
         "Kotlin code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -263,12 +525,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "Created",
@@ -289,7 +551,7 @@
       "createdAt": "2026-09-14T18:07:03Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -311,7 +573,7 @@
       "id": 1360954516,
       "title": "Sectioncheck",
       "description": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated.",
-      "longDescription": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-10.",
+      "longDescription": "Independent synthetic CPU prototype for affine transform review, explicit ROI decisions and verified local export. Research usefulness unvalidated. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source"
@@ -319,7 +581,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-10",
+        "Public GitHub API snapshot captured on 2026-10-11",
         "Python code surface is visible in repository metadata"
       ],
       "techStack": [
@@ -344,12 +606,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "Created",
@@ -370,7 +632,7 @@
       "createdAt": "2026-09-08T08:22:40Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -392,7 +654,7 @@
       "id": 1359484305,
       "title": "Vehicle Lab",
       "description": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references.",
-      "longDescription": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-10.",
+      "longDescription": "A reusable engineering notebook for 3D inspection, revision decisions, and recorded simulation references. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.",
       "projectKind": "open-source",
       "surfaceTags": [
         "open-source",
@@ -406,7 +668,7 @@
       "mobileReady": false,
       "keyFeatures": [
         "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-10-10",
+        "Public GitHub API snapshot captured on 2026-10-11",
         "Python code surface is visible in repository metadata",
         "Repository topics include 3d Visualization, Cad, Engineering, Python",
         "Public homepage or listing is linked from repository metadata"
@@ -442,12 +704,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "Created",
@@ -469,7 +731,7 @@
       "createdAt": "2026-09-08T03:47:52Z",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "public-github-api-only",
@@ -651,7 +913,7 @@
       "sourceId": "clearml-experiment-tracking-for-dermaself",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",
@@ -926,107 +1188,6 @@
       "repoFullName": "zack-dev-cm/tutorial-to-skill-free-pack",
       "repoId": 1244370879,
       "createdAt": "2026-05-21T04:46:36Z",
-      "review": {
-        "status": "PASS",
-        "checkedAt": "2026-08-06",
-        "gateVersion": 2,
-        "gates": [
-          "public-github-api-only",
-          "private-repo-default-off",
-          "safe-public-links-only",
-          "readme-code-blocks-stripped",
-          "leak-pattern-scan",
-          "instruction-bleed-scan",
-          "clawhub-stat-crosslink",
-          "clawpatch-review-ready"
-        ]
-      }
-    },
-    {
-      "id": 1232823211,
-      "title": "Trusted ClawHub Install Gate",
-      "description": "Local-first install gate for ClawHub and OpenClaw skills.",
-      "longDescription": "Local-first install gate for ClawHub and OpenClaw skills. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps, and matched ClawHub public listing data checked on 2026-08-06.",
-      "projectKind": "open-source",
-      "surfaceTags": [
-        "open-source",
-        "clawhub",
-        "openclaw",
-        "security"
-      ],
-      "mobileReady": false,
-      "keyFeatures": [
-        "Public GitHub repository with README-backed source references",
-        "Public GitHub API snapshot captured on 2026-08-06",
-        "Python code surface is visible in repository metadata",
-        "Repository topics include ClawHub, OpenClaw, Security",
-        "Public homepage or listing is linked from repository metadata",
-        "OpenClaw, ClawHub, or Codex workflow scope is explicit in the public source"
-      ],
-      "techStack": [
-        "Python",
-        "ClawHub",
-        "OpenClaw",
-        "Security",
-        "GitHub",
-        "Open Source"
-      ],
-      "links": [
-        {
-          "text": "GitHub",
-          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
-        },
-        {
-          "text": "ClawHub",
-          "url": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
-        }
-      ],
-      "images": [
-        {
-          "url": "images/project-placeholder.svg",
-          "alt": "Trusted ClawHub Install Gate preview"
-        }
-      ],
-      "thumbnail": "images/project-placeholder.svg",
-      "benchmarks": [
-        {
-          "label": "GitHub stars",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-08-06"
-        },
-        {
-          "label": "GitHub forks",
-          "value": "0",
-          "context": "public GitHub API snapshot, 2026-08-06"
-        },
-        {
-          "label": "Created",
-          "value": "2026-05-08",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "Last push",
-          "value": "2026-05-15",
-          "context": "public GitHub repository metadata"
-        },
-        {
-          "label": "ClawHub downloads",
-          "value": "552",
-          "context": "public ClawHub listing, 2026-08-06"
-        },
-        {
-          "label": "ClawHub versions",
-          "value": "3",
-          "context": "public ClawHub listing, 2026-08-06"
-        }
-      ],
-      "canonicalLinks": {
-        "github": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate",
-        "website": "https://clawhub.ai/zack-dev-cm/trusted-clawhub-install-gate"
-      },
-      "repoFullName": "zack-dev-cm/trusted-clawhub-install-gate",
-      "repoId": 1232823211,
-      "createdAt": "2026-05-15T23:58:30Z",
       "review": {
         "status": "PASS",
         "checkedAt": "2026-08-06",
@@ -1949,7 +2110,7 @@
       "sourceId": "agnitra-ai-inference-optimizer",
       "review": {
         "status": "PASS",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "gateVersion": 2,
         "gates": [
           "portfolio-static-source-backed",

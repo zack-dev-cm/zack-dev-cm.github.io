@@ -7,6 +7,9 @@
 ## Summary
 Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and workspace paths supplied explicitly.
 
+## Bounded analysis candidate
+Draft #1 bounds compile-call analysis in each scanned file. It stops after 100 matching calls or before accumulated context exceeds 300,000 characters, and conservatively reports REVIEW when the budget is exhausted. All 53 candidate tests pass. The budget change is an open draft and has not been installed or published to a registry.
+
 ## Project Link
 https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md
 
@@ -28,3 +31,7 @@ https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md
 - Verdict states: 3 (PASS, REVIEW, BLOCK in project contract)
 - Default unsafe install policy: deny (REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review)
 - Verification model: receipt-aware (installed hash and approved verdict must match receipt)
+
+## Links
+- [Source on GitHub](https://github.com/zack-dev-cm/trusted-clawhub-install-gate)
+- [Review analysis draft #1](https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1)

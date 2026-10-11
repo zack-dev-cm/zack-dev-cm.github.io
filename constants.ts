@@ -849,6 +849,47 @@ export const CHROME_EXTENSION_STATS: ChromeExtensionStatsSnapshot ={
 
 export const LATEST_UPDATES: LatestUpdate[] = [
   {
+    title: "Repo Summarizer: four-language popup in review",
+    description: "Draft #28 adds English, Arabic, Hebrew and Simplified Chinese popup text with right-to-left layouts. Locale fixture tests pass; installed-extension checks remain pending.",
+    links: [
+      { text: "Review locale draft", url: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin/pull/28" },
+      { text: "Read the case study", url: "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/" }
+    ],
+    projectId: 15,
+    repoFullName: "zack-dev-cm/github-repo-sum-chrome-plugin",
+    createdAt: "2026-10-10"
+  },
+  {
+    title: "Tool Calls: cancellation and retry draft",
+    description: "Draft #43 fixes cancelled connections and retry cleanup in the Realtime playground. Lifecycle and Worker tests pass; the authenticated voice and tool flow still needs acceptance.",
+    links: [
+      { text: "Review connection draft", url: "https://github.com/zack-dev-cm/tool_calls/pull/43" }
+    ],
+    projectId: 27,
+    repoFullName: "zack-dev-cm/tool_calls",
+    createdAt: "2026-10-10"
+  },
+  {
+    title: "Install Gate: bounded compile-call analysis draft",
+    description: "Draft #1 limits compile-call analysis and returns REVIEW when the budget is exhausted. Its 53 tests pass; the candidate is not a published release.",
+    links: [
+      { text: "Review analysis draft", url: "https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1" },
+      { text: "Read the case study", url: "https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate/" }
+    ],
+    projectId: 69,
+    repoFullName: "zack-dev-cm/trusted-clawhub-install-gate",
+    createdAt: "2026-10-10"
+  },
+  {
+    title: "Cookbook fork: Responses harness draft",
+    description: "Draft #3 aligns the agent harness with the current SDK and adds 17 contract tests. Those tests pass; the inherited MCP evaluator fails without credentials, and live acceptance remains pending.",
+    links: [
+      { text: "Review harness draft", url: "https://github.com/zack-dev-cm/openai-cookbook/pull/3" }
+    ],
+    repoFullName: "zack-dev-cm/openai-cookbook",
+    createdAt: "2026-10-10"
+  },
+  {
     title: "SectionCheck: inspect a proposed image transform",
     description: "A released synthetic prototype for affine and ROI review, explicit decisions and verified annotation export. Explore the actual authored fixture and self-contained report.",
     links: [
@@ -1357,7 +1398,7 @@ export const PROJECTS: Project[] = [
       { text: "Open synthetic report", url: "https://zack-dev-cm.github.io/sectioncheck/" },
       { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/sectioncheck" },
       { text: "Prerelease 0.2.1.dev0", url: "https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0" },
-      { text: "Coordinate and ROI workflow", url: "https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md" }
+      { text: "Coordinate and ROI workflow (Markdown)", url: "https://raw.githubusercontent.com/zack-dev-cm/sectioncheck/main/WORKFLOW.md" }
     ],
     images: [
       { url: "/docs/neural-engineering/media/sectioncheck-loop.mp4", alt: "Inspect the original geometry in 3D", autoPlay: true, caption: "Original synthetic image and ROI coordinates; added depth explains the 2D geometry." },
@@ -2003,6 +2044,9 @@ export const PROJECTS: Project[] = [
     aliases: ["gce", "github chrome extension", "github repo summarizer"],
     description: "Privacy-first Chrome extension that summarizes repo structure locally.",
     longDescription: "Fetches GitHub repo trees with the user's token and summarizes structure locally—no external servers involved.",
+    caseStudySections: [
+      { title: "Locale update in review", body: "Draft #28 consolidates two earlier popup proposals. It adds English, Arabic, Hebrew and Simplified Chinese captions, right-to-left layouts, readable fallbacks and localized validation while preserving controls and generated source text. Seventeen source fixture tests pass. Actual installed-extension behavior, native locale selection, downloads and clipboard acceptance remain pending; this draft is not the published store version." }
+    ],
     projectKind: "user-product",
     surfaceTags: ["browser-extension", "web"],
     keyFeatures: ["Privacy-first (local token usage)", "Automated repository structure summarization"],
@@ -2012,7 +2056,8 @@ export const PROJECTS: Project[] = [
     ],
     links: [
       { text: "View on Chrome Web Store", url: "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm" },
-      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin" }
+      { text: "View on GitHub", url: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin" },
+      { text: "Review locale draft #28", url: "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin/pull/28" }
     ],
     images: [{ url: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`, alt: "GitHub repo summarizer UI" }],
     thumbnail: `${LOCAL_IMG_BASE}/github_repo_summarizer_ext.png`,
@@ -2173,11 +2218,17 @@ export const PROJECTS: Project[] = [
   {
     id: 27,
     title: "Tool-Calls Demo – Material Chat Playground",
-    description: "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
-    longDescription: "Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.",
-    keyFeatures: ["Streaming tool calls", "Multi-voice TTS", "Secure serverless architecture"],
+    description: "Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy.",
+    longDescription: "Material-themed playground for streaming function arguments, tool execution and voice output. Draft #43 fixes cancellation, reconnect and retry cleanup. Fourteen lifecycle tests and six Worker tests pass; browser source fixtures use simulated media and Realtime transport. The actual authenticated voice and tool flow, current Realtime contract and dependency remediation remain pending.",
+    caseStudySections: [
+      { title: "Connection recovery in review", body: "A cancelled connection cannot complete later, retries clean up the previous attempt, and late events cannot attach to a new session. The published draft contains the tests and observed failure cases. Passing lifecycle and Worker checks does not establish a working live Realtime session." }
+    ],
+    keyFeatures: ["Streaming tool-call prototype", "Voice output prototype", "Serverless session proxy"],
     techStack: ["OpenAI API", "Serverless", "JavaScript", "Text-to-Speech"],
-    links: [],
+    links: [
+      { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/tool_calls" },
+      { text: "Review connection draft #43", url: "https://github.com/zack-dev-cm/tool_calls/pull/43" }
+    ],
     images: [{ url: `${LOCAL_IMG_BASE}/tool_calls.png`, alt: "Tool calling playground" }],
     thumbnail: `${LOCAL_IMG_BASE}/tool_calls.png`
   },
@@ -3595,6 +3646,9 @@ Operations Layer (Console, Alerts, Runbooks)`
     aliases: ["trusted clawhub gate", "clawhub install gate", "openclaw skill installer review"],
     description: "Skill-build case study for a local-first ClawHub/OpenClaw install wrapper that inspects skill artifacts before install and writes receipts.",
     longDescription: "Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and workspace paths supplied explicitly.",
+    caseStudySections: [
+      { title: "Bounded analysis candidate", body: "Draft #1 bounds compile-call analysis in each scanned file. It stops after 100 matching calls or before accumulated context exceeds 300,000 characters, and conservatively reports REVIEW when the budget is exhausted. All 53 candidate tests pass. The budget change is an open draft and has not been installed or published to a registry." }
+    ],
     projectKind: "case-study",
     surfaceTags: ["security", "automation", "release-engineering"],
     keyFeatures: [
@@ -3609,7 +3663,10 @@ Operations Layer (Console, Alerts, Runbooks)`
       { label: "Default unsafe install policy", value: "deny", context: "REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review" },
       { label: "Verification model", value: "receipt-aware", context: "installed hash and approved verdict must match receipt" }
     ],
-    links: [],
+    links: [
+      { text: "Source on GitHub", url: "https://github.com/zack-dev-cm/trusted-clawhub-install-gate" },
+      { text: "Review analysis draft #1", url: "https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1" }
+    ],
     images: [],
     thumbnail: "",
     hideImages: true,

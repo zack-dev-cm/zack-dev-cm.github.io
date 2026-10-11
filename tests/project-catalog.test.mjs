@@ -150,3 +150,16 @@ test('aging the news window preserves reviewed project routes and dates, excludi
   assert.equal(merged.projects[0].description, current.description);
   assert.equal(merged.projects[0].createdAt, current.createdAt);
 });
+
+test('a newly added feed project verifies without changing on the next refresh', () => {
+  const project = { ...example, createdAt: '2026-10-11' };
+  const updates = { review: example.review, projects: [project], latestUpdates: [] };
+  const first = JSON.parse(JSON.stringify(preserveReviewedProjectArchive(updates, null)));
+  const repeated = JSON.parse(JSON.stringify(preserveReviewedProjectArchive(updates, first)));
+  assert.deepEqual(repeated, first, 'Unchanged public metadata must not make the saved feed stale');
+  assert.deepEqual(getProjectRouteSlugs(first.projects[0]), [
+    'interactive-doc-mapper', 'zack-dev-cm-interactive-doc-mapper',
+  ]);
+  assert.equal(project.aliases, undefined, 'The input API record must remain unchanged');
+  assert.equal(project.legacySlugs, undefined);
+});

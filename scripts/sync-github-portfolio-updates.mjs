@@ -593,7 +593,12 @@ const getStaticExclusions = async (owner) => {
 // project routes. Retained records keep their original activity/review dates.
 export const preserveReviewedProjectArchive = (updates, previous, excludedRepos = []) => ({
   ...updates,
-  projects: mergeProjects(updates.projects, selectReviewedFeedProjects(previous, excludedRepos)),
+  // Give new records their route metadata on the first refresh as well as later
+  // archive merges, so an unchanged API snapshot verifies immediately.
+  projects: mergeProjects(
+    mergeProjects(updates.projects, updates.projects),
+    selectReviewedFeedProjects(previous, excludedRepos),
+  ),
 });
 
 const buildEntries = async (repo, checkedAt, shouldPromote, clawHubStat) => {

@@ -84,7 +84,18 @@
                   "name": "Receipt Verification"
             }
       ],
-      "workExample": []
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Source on GitHub",
+                  "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Review analysis draft #1",
+                  "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1"
+            }
+      ]
 }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,7 +124,7 @@
           <h2>Overview</h2>
           <p>Trusted ClawHub Install Gate is a local-first skill-build project for reducing blind trust in ClawHub/OpenClaw skill installation. It inspects an unpacked local skill directory, classifies the artifact as PASS, REVIEW, or BLOCK, refuses install by default unless the artifact is clean or explicitly approved for review-level risk, writes a receipt for what was inspected and installed, and later verifies installed content against that receipt. The public case study keeps the scope narrow: local directories only, no claim of complete runtime security, and workspace paths supplied explicitly.</p>
         </section>
-
+        <section><h2>Bounded analysis candidate</h2><p>Draft #1 bounds compile-call analysis in each scanned file. It stops after 100 matching calls or before accumulated context exceeds 300,000 characters, and conservatively reports REVIEW when the budget is exhausted. All 53 candidate tests pass. The budget change is an open draft and has not been installed or published to a registry.</p></section>
 
         <section>
           <h2>What It Covers</h2>
@@ -146,7 +157,8 @@
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+        <li><a href="https://github.com/zack-dev-cm/trusted-clawhub-install-gate">Source on GitHub</a></li>
+        <li><a href="https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1">Review analysis draft #1</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/trusted-clawhub-install-gate.md">Plain-text case study</a></li>
           </ul>
         </section>

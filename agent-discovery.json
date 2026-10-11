@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-10-10",
+  "generatedAt": "2026-10-11",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -1290,8 +1290,8 @@
           "url": "https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0"
         },
         {
-          "label": "Coordinate and ROI workflow",
-          "url": "https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md"
+          "label": "Coordinate and ROI workflow (Markdown)",
+          "url": "https://raw.githubusercontent.com/zack-dev-cm/sectioncheck/main/WORKFLOW.md"
         }
       ]
     },
@@ -1480,6 +1480,49 @@
   ],
   "allProjects": [
     {
+      "id": 15,
+      "title": "GitHub Repo Summarizer (Chrome Extension)",
+      "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/",
+      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
+      "summary": "Privacy-first Chrome extension that summarizes repo structure locally.",
+      "kind": "user-product",
+      "tags": [
+        "browser-extension",
+        "web"
+      ],
+      "aliases": [
+        "gce",
+        "github chrome extension",
+        "github repo summarizer"
+      ],
+      "techStack": [
+        "Chrome Extension",
+        "JavaScript",
+        "GitHub API"
+      ],
+      "benchmarks": [
+        {
+          "label": "Public Chrome Web Store users",
+          "value": "130",
+          "context": "Chrome Web Store detail page, 2026-06-05"
+        }
+      ],
+      "links": [
+        {
+          "label": "View on Chrome Web Store",
+          "url": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm"
+        },
+        {
+          "label": "View on GitHub",
+          "url": "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin"
+        },
+        {
+          "label": "Review locale draft #28",
+          "url": "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin/pull/28"
+        }
+      ]
+    },
+    {
       "id": 995792187,
       "title": "Mcp Server",
       "url": "https://zack-dev-cm.github.io/projects/mcp-server/",
@@ -1499,12 +1542,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "Created",
@@ -1544,12 +1587,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-10"
+          "context": "public GitHub API snapshot, 2026-10-11"
         },
         {
           "label": "Created",
@@ -1618,8 +1661,8 @@
           "url": "https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0"
         },
         {
-          "label": "Coordinate and ROI workflow",
-          "url": "https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md"
+          "label": "Coordinate and ROI workflow (Markdown)",
+          "url": "https://raw.githubusercontent.com/zack-dev-cm/sectioncheck/main/WORKFLOW.md"
         }
       ]
     },
@@ -3208,7 +3251,16 @@
           "context": "installed hash and approved verdict must match receipt"
         }
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Source on GitHub",
+          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate"
+        },
+        {
+          "label": "Review analysis draft #1",
+          "url": "https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1"
+        }
+      ]
     },
     {
       "id": 81,
@@ -4274,45 +4326,6 @@
       ]
     },
     {
-      "id": 15,
-      "title": "GitHub Repo Summarizer (Chrome Extension)",
-      "url": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/",
-      "markdownUrl": "https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md",
-      "summary": "Privacy-first Chrome extension that summarizes repo structure locally.",
-      "kind": "user-product",
-      "tags": [
-        "browser-extension",
-        "web"
-      ],
-      "aliases": [
-        "gce",
-        "github chrome extension",
-        "github repo summarizer"
-      ],
-      "techStack": [
-        "Chrome Extension",
-        "JavaScript",
-        "GitHub API"
-      ],
-      "benchmarks": [
-        {
-          "label": "Public Chrome Web Store users",
-          "value": "130",
-          "context": "Chrome Web Store detail page, 2026-06-05"
-        }
-      ],
-      "links": [
-        {
-          "label": "View on Chrome Web Store",
-          "url": "https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm"
-        },
-        {
-          "label": "View on GitHub",
-          "url": "https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin"
-        }
-      ]
-    },
-    {
       "id": 16,
       "title": "ChatGPT/Deepseek/AIStudio Navigator",
       "url": "https://zack-dev-cm.github.io/projects/chatgpt-deepseek-aistudio-navigator/",
@@ -4541,7 +4554,7 @@
       "title": "Tool-Calls Demo - Material Chat Playground",
       "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/",
       "markdownUrl": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md",
-      "summary": "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
+      "summary": "Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy.",
       "kind": "case-study",
       "tags": [],
       "aliases": [],
@@ -4552,7 +4565,16 @@
         "Text-to-Speech"
       ],
       "benchmarks": [],
-      "links": []
+      "links": [
+        {
+          "label": "Source on GitHub",
+          "url": "https://github.com/zack-dev-cm/tool_calls"
+        },
+        {
+          "label": "Review connection draft #43",
+          "url": "https://github.com/zack-dev-cm/tool_calls/pull/43"
+        }
+      ]
     },
     {
       "id": 28,

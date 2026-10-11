@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tool-Calls Demo - Material Chat Playground | Zakhar Pashkin Case Study</title>
-    <meta name="description" content="OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy. Zakhar Pashkin case study." />
+    <meta name="description" content="Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy. Zakhar Pashkin case study." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href="https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/" />
     <link rel="alternate" type="text/markdown" href="https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Tool-Calls Demo - Material Chat Playground" />
-    <meta property="og:description" content="OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy." />
+    <meta property="og:description" content="Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy." />
     <meta property="og:url" content="https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tool-Calls Demo - Material Chat Playground" />
-    <meta name="twitter:description" content="OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy." />
+    <meta name="twitter:description" content="Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy." />
     <meta property="og:image" content="https://zack-dev-cm.github.io/docs/images/tool_calls.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="Tool calling playground" />
@@ -27,7 +27,7 @@
       "@id": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/#case-study",
       "headline": "Tool-Calls Demo - Material Chat Playground",
       "name": "Tool-Calls Demo - Material Chat Playground",
-      "description": "OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.",
+      "description": "Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy.",
       "url": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/",
       "mainEntityOfPage": "https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/",
       "author": {
@@ -62,7 +62,18 @@
                   "name": "Text-to-Speech"
             }
       ],
-      "workExample": []
+      "workExample": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "Source on GitHub",
+                  "url": "https://github.com/zack-dev-cm/tool_calls"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Review connection draft #43",
+                  "url": "https://github.com/zack-dev-cm/tool_calls/pull/43"
+            }
+      ]
 }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,21 +95,21 @@
         <header class="hero">
           <p class="eyebrow">Portfolio project</p>
           <h1>Tool-Calls Demo - Material Chat Playground</h1>
-          <p class="lede">OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.</p>
+          <p class="lede">Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy.</p>
           <figure><a class="figure-link" href="/docs/images/tool_calls.png" aria-label="Open full-size figure 1: Tool calling playground"><img class="visual" src="/docs/images/tool_calls.png" alt="Tool calling playground" loading="eager" decoding="async" /><span class="image-action" aria-hidden="true">Open full size ↗</span></a></figure>
         </header>
         <section>
           <h2>Overview</h2>
-          <p>Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.</p>
+          <p>Material-themed playground for streaming function arguments, tool execution and voice output. Draft #43 fixes cancellation, reconnect and retry cleanup. Fourteen lifecycle tests and six Worker tests pass; browser source fixtures use simulated media and Realtime transport. The actual authenticated voice and tool flow, current Realtime contract and dependency remediation remain pending.</p>
         </section>
-
+        <section><h2>Connection recovery in review</h2><p>A cancelled connection cannot complete later, retries clean up the previous attempt, and late events cannot attach to a new session. The published draft contains the tests and observed failure cases. Passing lifecycle and Worker checks does not establish a working live Realtime session.</p></section>
 
         <section>
           <h2>What It Covers</h2>
           <ul>
-        <li>Streaming tool calls</li>
-        <li>Multi-voice TTS</li>
-        <li>Secure serverless architecture</li>
+        <li>Streaming tool-call prototype</li>
+        <li>Voice output prototype</li>
+        <li>Serverless session proxy</li>
           </ul>
         </section>
         <section>
@@ -114,7 +125,8 @@
         <section>
           <h2>References</h2>
           <ul>
-        <li><a href="https://zack-dev-cm.github.io/">Return to the portfolio overview</a></li>
+        <li><a href="https://github.com/zack-dev-cm/tool_calls">Source on GitHub</a></li>
+        <li><a href="https://github.com/zack-dev-cm/tool_calls/pull/43">Review connection draft #43</a></li>
             <li><a href="https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md">Plain-text case study</a></li>
           </ul>
         </section>

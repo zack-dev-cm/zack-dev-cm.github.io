@@ -55,4 +55,4 @@ https://zack-dev-cm.github.io/projects/sectioncheck-image-registration-review.md
 - [Open synthetic report](https://zack-dev-cm.github.io/sectioncheck/)
 - [Source on GitHub](https://github.com/zack-dev-cm/sectioncheck)
 - [Prerelease 0.2.1.dev0](https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0)
-- [Coordinate and ROI workflow](https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md)
+- [Coordinate and ROI workflow (Markdown)](https://raw.githubusercontent.com/zack-dev-cm/sectioncheck/main/WORKFLOW.md)

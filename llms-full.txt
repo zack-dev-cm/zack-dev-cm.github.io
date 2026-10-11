@@ -30,22 +30,41 @@ The ML Papers, Read for Builders feed has 13 automated abstract triage notes wit
 - [Multimodal Video Search Platform](https://zack-dev-cm.github.io/projects/multimodal-video-search-platform/): Video search case study combining keyframes, ASR/OCR, object and face signals, visual embeddings, transcript embeddings, and hybrid retrieval.
 
 ## Projects (Full Details)
+### GitHub Repo Summarizer (Chrome Extension)
+Summary: Privacy-first Chrome extension that summarizes repo structure locally.
+Details: Fetches GitHub repo trees with the user's token and summarizes structure locally - no external servers involved.
+Project URL: https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/
+Markdown URL: https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md
+Key Features:
+- Privacy-first (local token usage)
+- Automated repository structure summarization
+Tech Stack:
+- Chrome Extension
+- JavaScript
+- GitHub API
+Benchmarks & Analytics:
+- Public Chrome Web Store users: 130 (Chrome Web Store detail page, 2026-06-05)
+Links:
+- View on Chrome Web Store: https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm
+- View on GitHub: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin
+- Review locale draft #28: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin/pull/28
+
 ### Mcp Server
 Summary: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.
-Details: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-10.
+Details: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.
 Project URL: https://zack-dev-cm.github.io/projects/mcp-server/
 Markdown URL: https://zack-dev-cm.github.io/projects/mcp-server.md
 Key Features:
 - Public GitHub repository with README-backed source references
-- Public GitHub API snapshot captured on 2026-10-10
+- Public GitHub API snapshot captured on 2026-10-11
 - Python code surface is visible in repository metadata
 Tech Stack:
 - Python
 - GitHub
 - Open Source
 Benchmarks & Analytics:
-- GitHub stars: 0 (public GitHub API snapshot, 2026-10-10)
-- GitHub forks: 0 (public GitHub API snapshot, 2026-10-10)
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-11)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-11)
 - Created: 2025-06-04 (public GitHub repository metadata)
 - Last push: 2026-10-10 (public GitHub repository metadata)
 Links:
@@ -53,20 +72,20 @@ Links:
 
 ### Camera Kit Scanner Reproducer
 Summary: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.
-Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-10.
+Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-11.
 Project URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer/
 Markdown URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer.md
 Key Features:
 - Public GitHub repository with README-backed source references
-- Public GitHub API snapshot captured on 2026-10-10
+- Public GitHub API snapshot captured on 2026-10-11
 - Kotlin code surface is visible in repository metadata
 Tech Stack:
 - Kotlin
 - GitHub
 - Open Source
 Benchmarks & Analytics:
-- GitHub stars: 0 (public GitHub API snapshot, 2026-10-10)
-- GitHub forks: 0 (public GitHub API snapshot, 2026-10-10)
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-11)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-11)
 - Created: 2026-09-14 (public GitHub repository metadata)
 - Last push: 2026-09-14 (public GitHub repository metadata)
 Links:
@@ -97,7 +116,7 @@ Links:
 - Open synthetic report: https://zack-dev-cm.github.io/sectioncheck/
 - Source on GitHub: https://github.com/zack-dev-cm/sectioncheck
 - Prerelease 0.2.1.dev0: https://github.com/zack-dev-cm/sectioncheck/releases/tag/v0.2.1.dev0
-- Coordinate and ROI workflow: https://github.com/zack-dev-cm/sectioncheck/blob/main/WORKFLOW.md
+- Coordinate and ROI workflow (Markdown): https://raw.githubusercontent.com/zack-dev-cm/sectioncheck/main/WORKFLOW.md
 
 ### AAC Search Visibility Diagnostic
 Summary: A source-based browser harness reproducing a mismatch between vocabulary items visible in an AAC grid and items returned by search.
@@ -843,6 +862,9 @@ Benchmarks & Analytics:
 - Verdict states: 3 (PASS, REVIEW, BLOCK in project contract)
 - Default unsafe install policy: deny (REVIEW and BLOCK require explicit handling or are refused in the 2026-05-07 source review)
 - Verification model: receipt-aware (installed hash and approved verdict must match receipt)
+Links:
+- Source on GitHub: https://github.com/zack-dev-cm/trusted-clawhub-install-gate
+- Review analysis draft #1: https://github.com/zack-dev-cm/trusted-clawhub-install-gate/pull/1
 
 ### Agnitra - ML Profiling & Optimization
 Summary: A published Python SDK and CLI for inspecting model runtime and applying inference optimizations within existing ML workflows.
@@ -1407,24 +1429,6 @@ Tech Stack:
 Links:
 - YouTube Presentation: https://www.youtube.com/watch?v=jJnyj0OH0lk&t=285s&ab_channel=TolokaAI
 
-### GitHub Repo Summarizer (Chrome Extension)
-Summary: Privacy-first Chrome extension that summarizes repo structure locally.
-Details: Fetches GitHub repo trees with the user's token and summarizes structure locally - no external servers involved.
-Project URL: https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension/
-Markdown URL: https://zack-dev-cm.github.io/projects/github-repo-summarizer-chrome-extension.md
-Key Features:
-- Privacy-first (local token usage)
-- Automated repository structure summarization
-Tech Stack:
-- Chrome Extension
-- JavaScript
-- GitHub API
-Benchmarks & Analytics:
-- Public Chrome Web Store users: 130 (Chrome Web Store detail page, 2026-06-05)
-Links:
-- View on Chrome Web Store: https://chromewebstore.google.com/detail/github-repo-summarizer/ccikgbjalcbokaalidnfcjhhbhjoljfm
-- View on GitHub: https://github.com/zack-dev-cm/github-repo-sum-chrome-plugin
-
 ### ChatGPT/Deepseek/AIStudio Navigator
 Summary: Chrome extension with keyboard scrollbar, prompt autocomplete, and sharing.
 Details: Adds a keyboard-driven scrollbar with message dots, lightweight prompt autocomplete, and prompt sharing/ranking for ChatGPT/Deepseek/Google AI Studio.
@@ -1592,19 +1596,22 @@ Tech Stack:
 - DevOps
 
 ### Tool-Calls Demo - Material Chat Playground
-Summary: OpenAI tool-calling demo with streaming args, multi-voice TTS, and secure token proxy.
-Details: Material-themed chat playground showing streaming function arguments, tool execution, and multiple voice outputs with a serverless token proxy.
+Summary: Chat and voice tool-calling prototype with streaming arguments and a serverless session proxy.
+Details: Material-themed playground for streaming function arguments, tool execution and voice output. Draft #43 fixes cancellation, reconnect and retry cleanup. Fourteen lifecycle tests and six Worker tests pass; browser source fixtures use simulated media and Realtime transport. The actual authenticated voice and tool flow, current Realtime contract and dependency remediation remain pending.
 Project URL: https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground/
 Markdown URL: https://zack-dev-cm.github.io/projects/tool-calls-demo-material-chat-playground.md
 Key Features:
-- Streaming tool calls
-- Multi-voice TTS
-- Secure serverless architecture
+- Streaming tool-call prototype
+- Voice output prototype
+- Serverless session proxy
 Tech Stack:
 - OpenAI API
 - Serverless
 - JavaScript
 - Text-to-Speech
+Links:
+- Source on GitHub: https://github.com/zack-dev-cm/tool_calls
+- Review connection draft #43: https://github.com/zack-dev-cm/tool_calls/pull/43
 
 ### ZackAutoStack Automation Stack
 Summary: Ready-to-launch Telegram bot + Mini App + lead funnel powered by AI automation.
