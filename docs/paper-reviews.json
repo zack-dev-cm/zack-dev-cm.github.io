@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-10-08T12:33:46.719Z",
+  "updatedAt": "2026-10-12T16:53:43.116Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -37,6 +37,73 @@
     }
   ],
   "reviews": [
+    {
+      "id": "spirebench-evaluating-long-horizon-strategic-play-of-agentic-models-with-slay-the-spire-2610-12596",
+      "title": "SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire",
+      "dek": "SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire is strongest when it treats agent as runtime evidence, not a polished demo transcript.",
+      "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
+      "selectedAt": "2026-10-12T16:53:43.116Z",
+      "paperUrl": "https://arxiv.org/abs/2610.12596",
+      "pdfUrl": "https://arxiv.org/pdf/2610.12596",
+      "arxivId": "2610.12596",
+      "authors": [
+        "Scott C. Lowe",
+        "Sander W. Keemink"
+      ],
+      "publishedAt": "Mon, 12 Oct 2026 00:00:00 -0400",
+      "updatedAt": "Mon, 12 Oct 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.CL"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation",
+        "cs.AI",
+        "cs.LG",
+        "cs.CL"
+      ],
+      "selectionScore": 222,
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire informs an implementation choice.",
+      "whatItClaims": "Scott C. Lowe, Sander W. Keemink report in the abstract: \"We introduce SpireBench, in which models play the complete commercial deck-builder Slay the Spire (StS), where early decisions decide long-term…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about agent?",
+      "productionAngle": "Suggested test (unrun): Prototype SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI, cs.LG, cs.CL abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
+      "readingPath": [
+        "Start with the problem sentence: what limitation in current practice does SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire actually attack?",
+        "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
+        "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "agent",
+        "spirebench",
+        "evaluating long",
+        "horizon strategic play of agentic models with slay the spire",
+        "first"
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2610.12596"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2610.12596"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
     {
       "id": "vcr-bench-a-modular-open-source-benchmark-for-video-classification-robustness-2610-08936",
       "title": "VCR-Bench: A Modular Open-Source Benchmark for Video Classification Robustness",
