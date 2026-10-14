@@ -39,6 +39,8 @@ All three support pause, restart, chapter selection, scrubbing and manual explor
 
 [Validation notes](https://zack-dev-cm.github.io/docs/oss-validation/) record local MuJoCo mesh-sign checks, a BlueOS export reproduction and public-package delivery checks. They include exact source revisions, test skips and remaining work. MuJoCo's correction is credited to its existing author. BlueOS still needs an agreed export scope and reliable closed-file state.
 
+The [14 October contribution review](https://zack-dev-cm.github.io/docs/oss-validation/#status) verifies the selected PR catalogue and records upstream workflow failures, pending approvals and the next step for each of eight contribution paths.
+
 ## Development
 
 Requires Node.js 22. Install Poppler for PDF text checks. The public source/artifact audit uses the repository's existing Node dependencies.
