@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "lastSyncedAt": "2026-10-14T06:49:20.875Z",
+  "lastSyncedAt": "2026-10-14T13:00:23.534Z",
   "review": {
     "status": "PASS",
     "checkedAt": "2026-10-14",
-    "syncedAt": "2026-10-14T06:49:20.875Z",
+    "syncedAt": "2026-10-14T13:00:23.534Z",
     "gateVersion": 2,
     "gates": [
       "public-github-api-only",
@@ -371,13 +371,13 @@
         },
         {
           "label": "ClawHub downloads",
-          "value": "742",
-          "context": "public ClawHub listing, 2026-10-13"
+          "value": "746",
+          "context": "public ClawHub listing, 2026-10-14"
         },
         {
           "label": "ClawHub versions",
           "value": "3",
-          "context": "public ClawHub listing, 2026-10-13"
+          "context": "public ClawHub listing, 2026-10-14"
         }
       ],
       "canonicalLinks": {
