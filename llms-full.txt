@@ -50,20 +50,20 @@ Links:
 
 ### Mcp Server
 Summary: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.
-Details: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-13.
+Details: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-14.
 Project URL: https://zack-dev-cm.github.io/projects/mcp-server/
 Markdown URL: https://zack-dev-cm.github.io/projects/mcp-server.md
 Key Features:
 - Public GitHub repository with README-backed source references
-- Public GitHub API snapshot captured on 2026-10-13
+- Public GitHub API snapshot captured on 2026-10-14
 - Python code surface is visible in repository metadata
 Tech Stack:
 - Python
 - GitHub
 - Open Source
 Benchmarks & Analytics:
-- GitHub stars: 0 (public GitHub API snapshot, 2026-10-13)
-- GitHub forks: 0 (public GitHub API snapshot, 2026-10-13)
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-14)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-14)
 - Created: 2025-06-04 (public GitHub repository metadata)
 - Last push: 2026-10-10 (public GitHub repository metadata)
 Links:
@@ -71,20 +71,20 @@ Links:
 
 ### Camera Kit Scanner Reproducer
 Summary: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.
-Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-13.
+Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-14.
 Project URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer/
 Markdown URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer.md
 Key Features:
 - Public GitHub repository with README-backed source references
-- Public GitHub API snapshot captured on 2026-10-13
+- Public GitHub API snapshot captured on 2026-10-14
 - Kotlin code surface is visible in repository metadata
 Tech Stack:
 - Kotlin
 - GitHub
 - Open Source
 Benchmarks & Analytics:
-- GitHub stars: 0 (public GitHub API snapshot, 2026-10-13)
-- GitHub forks: 0 (public GitHub API snapshot, 2026-10-13)
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-14)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-14)
 - Created: 2026-09-14 (public GitHub repository metadata)
 - Last push: 2026-09-14 (public GitHub repository metadata)
 Links:

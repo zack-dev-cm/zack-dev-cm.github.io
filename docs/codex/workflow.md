@@ -128,6 +128,19 @@ HTML snapshot until a reviewer confirms:
 
 ## GitHub Project Feed Loop
 
+Contribution labels use a separate read-only check: `npm run check:contributions`.
+It verifies every listed PR's public repository, author, state and merge date.
+Both publication workflows stop on confirmed drift or unavailable API data;
+these outcomes are reported separately and never counted as a current snapshot.
+The check does not change contribution wording, historical revert context or
+claim that a merged correction is released or used downstream.
+
+Use `--report` with a new file outside the repository for private observations.
+Workflow reports live in the runner's temporary directory and are uploaded as
+separate diagnostic artifacts, including failed checks. They are excluded from
+the Pages artifact. Reviewed catalogue changes must update
+`data/open-source-contributions.json` and rebuild generated public output.
+
 1. Refresh: run `npm run sync:github -- --write` to rebuild `public/portfolio-updates.json` and `docs/portfolio-updates.json` from public GitHub metadata.
 2. Review gates: require PASS review metadata on every synced update and project; the sync gate blocks unsafe URLs, secret-shaped text, local paths, private URLs, and instruction-bleed phrases.
 3. Verify freshness: run `npm run sync:github:verify` before publishing so the generated feed is not stale against the current GitHub API snapshot.

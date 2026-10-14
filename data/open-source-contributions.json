@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-11",
+  "verifiedAt": "2026-10-14",
   "projects": [
     {
       "name": "Neuralink",
@@ -203,15 +203,15 @@
       "project": "Pixel encoding",
       "logo": "images/contributions/pydicom.png",
       "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Proposed preservation of one-bit image pixels during compression.",
+      "benefit": "Merged fix preserving packed one-bit pixels from big-endian OW input during compression.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
           "url": "https://github.com/pydicom/pydicom/pull/2380",
           "number": 2380,
           "title": "Normalize packed one-bit OW data before frame encoding",
-          "status": "open",
-          "mergedAt": null
+          "status": "merged",
+          "mergedAt": "2026-10-13T18:33:27Z"
         }
       ]
     },

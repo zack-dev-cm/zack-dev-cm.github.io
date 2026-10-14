@@ -10,7 +10,7 @@ const match = workflow.match(/- name: Commit refreshed public files\s+run: \|\n(
 assert.ok(match, 'The actual workflow commit step must be present');
 const script = match[1].split('\n').map(line => line.replace(/^          /, '')).join('\n');
 
-for (const change of ['unchanged', 'new-page', 'discovery']) {
+for (const change of ['unchanged', 'new-page', 'discovery', 'contribution']) {
   test(`daily commit step handles ${change} without staging private notes`, async () => {
     const temp = await mkdtemp(path.join(os.tmpdir(), 'portfolio-daily-'));
     try {
@@ -20,13 +20,14 @@ for (const change of ['unchanged', 'new-page', 'discovery']) {
       git('init', '-q', '--initial-branch=main');
       git('config', 'user.name', 'Fixture'); git('config', 'user.email', 'fixture@example.test');
       execFileSync('git', ['init', '-q', '--bare', remote]);
-      for (const dir of ['public/images/project-social', 'docs', 'projects']) await mkdir(path.join(repo, dir), { recursive: true });
+      for (const dir of ['public/images/project-social', 'data', 'docs', 'projects']) await mkdir(path.join(repo, dir), { recursive: true });
       const rootArtifacts = ['index.html', 'llms.txt', 'llms-full.txt', 'agent-context.md', 'agent-discovery.json', 'geo.txt', 'schema.jsonld', 'sitemap.xml', 'metadata.json'];
-      for (const file of [...rootArtifacts, 'constants.ts', 'public/portfolio-updates.json', 'public/paper-reviews.json', 'public/chrome-extension-stats.json', 'public/images/portfolio-social-card-ml-ai-products.png', 'public/images/project-social/existing.png', 'docs/index.html', 'projects/index.md']) await writeFile(path.join(repo, file), 'fixture\n');
+      for (const file of [...rootArtifacts, 'constants.ts', 'data/open-source-contributions.json', 'public/portfolio-updates.json', 'public/paper-reviews.json', 'public/chrome-extension-stats.json', 'public/images/portfolio-social-card-ml-ai-products.png', 'public/images/project-social/existing.png', 'docs/index.html', 'projects/index.md']) await writeFile(path.join(repo, file), 'fixture\n');
       git('add', '.'); git('commit', '-qm', 'Initial'); git('remote', 'add', 'origin', remote); git('push', '-qu', 'origin', 'main');
       // Private notes must never make it into the public-path commit.
       await writeFile(path.join(repo, 'private-notes.txt'), 'local fixture\n');
       if (change === 'new-page') await writeFile(path.join(repo, 'docs/new-page.html'), '<p>New public output</p>\n');
+      if (change === 'contribution') await writeFile(path.join(repo, 'data/open-source-contributions.json'), 'reviewed merged contribution\n');
       if (change === 'discovery') {
         for (const file of rootArtifacts) await writeFile(path.join(repo, file), 'current public snapshot\n');
         await writeFile(path.join(repo, 'public/images/project-social/new-project.png'), 'new public card\n');
@@ -34,6 +35,7 @@ for (const change of ['unchanged', 'new-page', 'discovery']) {
       execFileSync('/bin/sh', ['-c', script], { cwd: repo, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
       assert.equal(Number(git('rev-list', '--count', 'HEAD')), change === 'unchanged' ? 1 : 2);
       assert.equal(git('ls-files', 'docs/new-page.html'), change === 'new-page' ? 'docs/new-page.html' : '');
+      if (change === 'contribution') assert.equal(git('show', 'HEAD:data/open-source-contributions.json'), 'reviewed merged contribution');
       if (change === 'discovery') {
         for (const file of rootArtifacts) assert.equal(git('show', `HEAD:${file}`), 'current public snapshot');
         assert.equal(git('show', 'HEAD:public/images/project-social/new-project.png'), 'new public card');
