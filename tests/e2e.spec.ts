@@ -2,6 +2,29 @@ import { test, expect, type Locator, type Page } from '@playwright/test';
 import { createHash } from 'node:crypto';
 import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, OPEN_SOURCE_CONTRIBUTIONS, OPEN_SOURCE_PROJECTS } from '../constants';
 
+test('independent validation notes retain attribution, skips and authored artifact identity', async ({ page }) => {
+  await page.goto('/docs/oss-validation/');
+  await expect(page.getByRole('heading', { name: 'Independent OSS validation', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: "pranay172's #3689" })).toHaveAttribute('href',
+    'https://github.com/google-deepmind/mujoco/pull/3689');
+  await expect(page.getByRole('cell', { name: '98 passed, five skipped', exact: true })).toBeVisible();
+  await expect(page.getByText(/Production inclusion needs an agreed scope/)).toBeVisible();
+  const response = await page.request.get('/docs/oss-validation/results.json');
+  expect(response.ok()).toBeTruthy();
+  const result = await response.json();
+  expect(result.mujoco.implementation_author).toBe('pranay172');
+  expect(result.mujoco.candidate_sha).toBe('89733a51f207c7fedafc855d22ffd4c38caa793a');
+  expect(result.blueos.source_sha).toBe('224b80ca07156be8238ece4a096dca33dc1db775');
+  expect(result.datarepo.installed).toBe(false);
+  for (const artifact of result.authored_artifacts) {
+    const download = await page.request.get(`/docs/oss-validation/artifacts/${artifact.name}`);
+    expect(download.ok()).toBeTruthy();
+    const bytes = await download.body();
+    expect(bytes.length).toBe(artifact.bytes);
+    expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
+  }
+});
+
 const clawHubDownloadTotal = CLAWHUB_DOWNLOAD_STATS.reduce((sum, stat) => sum + stat.downloads, 0);
 const clawHubDownloadText = clawHubDownloadTotal.toLocaleString('en-US');
 const clawHubSkillCount = CLAWHUB_DOWNLOAD_STATS.length;
@@ -235,7 +258,7 @@ test('SEO and answer-engine signals stay focused above the fold', async ({ page 
   const heroCopy = await page.locator('#intro').innerText();
   expect(heroCopy).toMatch(/Computer vision/i);
   expect(heroCopy).toMatch(/Document AI/i);
-  expect(heroCopy).toMatch(/Agentic systems/i);
+  await expect(page.locator('#intro .hero__eyebrow')).toHaveText('Computer vision · Document AI · ML software');
   expect(heroCopy).not.toMatch(/Riverstart/i);
   expect(heroCopy).not.toMatch(/daily active|case.stud(?:y|ies).*\d|ClawHub|downloads across/i);
   await expect(page.locator('#intro').getByRole('link', { name: 'Selected work' })).toBeInViewport();
@@ -340,7 +363,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
 
   await expect(page.getByRole('heading', { name: 'Systems, tools, and products' })).toBeVisible({ timeout: 15000 });
   await expect(page.getByRole('heading', { name: 'A career in applied ML' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Research depth. Engineering follow-through.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Computer vision, document AI and delivery' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Recent work & releases' })).toBeVisible();
   await expect(page.locator('#featured .featured-card')).toHaveCount(8);
   await expect(page.locator('#experience')).toContainText('Riverstart');
@@ -429,7 +452,8 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page).toHaveURL(/#contributed-to$/);
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeInViewport();
   await expect(contributedSection.locator('.contribution-project').first()).toContainText('Neuralink');
-  await expect(contributedSection.locator('.contribution-project').first()).toContainText('7 merged PRs');
+  await expect(contributedSection.locator('.contribution-project').first()).toContainText('6 merged PRs · 1 reverted PR');
+  await expect(contributedSection.getByRole('link', { name: 'Read the validation notes' })).toHaveAttribute('href', '/docs/oss-validation/');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('Tesla');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('4 open PRs');
   await expect(contributedSection.getByRole('link', { name: 'Follow a sky pixel in 3D' })).toBeVisible();

@@ -135,6 +135,12 @@ these outcomes are reported separately and never counted as a current snapshot.
 The check does not change contribution wording, historical revert context or
 claim that a merged correction is released or used downstream.
 
+Keep recorded reverts separate from accepted merge totals. `revertedBy` preserves
+the original merged state and links the later revert; the shared summary formatter
+uses it in both the React section and static snapshot. Independent validation of
+another author's contribution needs clear credit, source revisions and execution
+limits. Publish only authored or explicitly cleared evidence artifacts.
+
 Use `--report` with a new file outside the repository for private observations.
 Workflow reports live in the runner's temporary directory and are uploaded as
 separate diagnostic artifacts, including failed checks. They are excluded from

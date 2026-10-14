@@ -63,7 +63,7 @@ const COLAB_CVDL_PROTOTYPE_ARCHIVE_IMAGE = {
 export const AUTHOR_INFO: AuthorInfo = {
   name: "Zakhar Pashkin",
   title: "Senior ML Engineer",
-  bio: "Computer vision, document AI and agentic systems — from R&D to maintained products."
+  bio: "Computer vision and document AI software, from model development to deployment."
 };
 
 export const SOCIAL_LINKS: SocialLinks = {

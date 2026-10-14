@@ -1,6 +1,6 @@
-# Zakhar Pashkin — Applied Machine Learning
+# Zakhar Pashkin, applied machine learning
 
-The source for my engineering portfolio: computer vision, document AI, agentic systems, maintained services, and released ML tools.
+The source for my portfolio of computer vision and document AI software, maintained services and published ML tools.
 
 [Portfolio](https://zack-dev-cm.github.io/) · [Resume PDF](https://zack-dev-cm.github.io/resume/zakhar-pashkin-senior-ml-engineer.pdf) · [GitHub profile](https://github.com/zack-dev-cm)
 
@@ -34,6 +34,10 @@ Three playable contribution lessons connect code changes to editable examples:
 - [reproject coordinate round trips](https://zack-dev-cm.github.io/docs/contribution-lab/reproject.html): follow two pixels through their coordinates and compare the original and proposed NaN/footprint results.
 
 All three support pause, restart, chapter selection, scrubbing and manual exploration.
+
+## Independent OSS validation
+
+[Validation notes](https://zack-dev-cm.github.io/docs/oss-validation/) record local MuJoCo mesh-sign checks, a BlueOS export reproduction and public-package delivery checks. They include exact source revisions, test skips and remaining work. MuJoCo's correction is credited to its existing author. BlueOS still needs an agreed export scope and reliable closed-file state.
 
 ## Development
 

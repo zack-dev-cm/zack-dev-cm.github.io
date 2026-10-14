@@ -1,3 +1,4 @@
+import { contributionSummary } from './utils/contribution-summary.mjs';
 import React, { useMemo, useState, useEffect, useRef, useCallback, useDeferredValue } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Sidebar } from './components/Sidebar';
@@ -994,10 +995,10 @@ const App: React.FC = () => {
         <main id="main-content" className="content-column">
           <section id="intro" className="hero">
             <div className="hero__copy">
-              <p className="hero__eyebrow">Computer vision · Document AI · Agentic systems</p>
+              <p className="hero__eyebrow">Computer vision · Document AI · ML software</p>
               <h1 className="hero__title">Zakhar Pashkin<span aria-hidden="true">.</span></h1>
               <p className="hero__role">Senior ML Engineer</p>
-              <p className="hero__lead">From R&D to maintained products.<br />Previously shipped computer vision at Carb Manager and built document recognition at CFT.</p>
+              <p className="hero__lead">I build computer vision and document AI software.<br />Previously shipped mobile and cloud vision at Carb Manager and built document recognition at CFT.</p>
               <div className="hero__actions">
                 <a href="#featured" className="button button--primary">Selected work <span aria-hidden="true">↓</span></a>
                 <a href={SOCIAL_LINKS.resume} download="zakhar-pashkin-senior-ml-engineer.pdf" className="button button--ghost">
@@ -1035,7 +1036,7 @@ const App: React.FC = () => {
             <aside className="hero__current" aria-label="Current work">
               <p className="current-label"><span aria-hidden="true" /> Currently</p>
               <h2>Document AI{' '}<br />& applied ML R&D</h2>
-              <p>Document intelligence and source-linked workflows for expert teams.</p>
+              <p>Document extraction and retrieval for specialist review.</p>
               <a href="#experience" className="text-link">View experience <span aria-hidden="true">↗</span></a>
               <figure className="hero__study">
                 <div className="hero__study-media">
@@ -1116,7 +1117,7 @@ const App: React.FC = () => {
             <a href={SOCIAL_LINKS.resume} className="text-link career-resume" download="zakhar-pashkin-senior-ml-engineer.pdf">Full experience in the resume <span aria-hidden="true">↗</span></a>
           </Section>
 
-          <Section id="about" eyebrow="03 / Approach" title="Research depth. Engineering follow-through." description="I work across the model and the surrounding software, with an emphasis on systems a team can evaluate and maintain.">
+          <Section id="about" eyebrow="03 / Approach" title="Computer vision, document AI and delivery" description="I work across the model and the surrounding software, with an emphasis on systems a team can evaluate and maintain.">
             <div className="expertise-grid">
               <article id="computer-vision" className="expertise-block">
                 <span className="expertise-number">01</span><h3>Computer vision</h3>
@@ -1334,8 +1335,7 @@ const App: React.FC = () => {
             <ul className="contribution-list contribution-projects">
               {OPEN_SOURCE_PROJECTS.map((project) => {
                 const merged = project.pullRequests.filter((pr) => pr.status === 'merged').length;
-                const open = project.pullRequests.filter((pr) => pr.status === 'open').length;
-                const status = [merged && `${merged} merged ${merged === 1 ? 'PR' : 'PRs'}`, open && `${open} open ${open === 1 ? 'PR' : 'PRs'}`].filter(Boolean).join(' · ');
+                const status = contributionSummary(project.pullRequests);
                 return (
                   <li className="contribution-project" key={`${project.name}-${project.project}`}>
                     <img className="contribution-project__logo" src={resolveAssetUrl(project.logo)} alt="" width="48" height="48" loading="lazy" />
@@ -1357,6 +1357,7 @@ const App: React.FC = () => {
                 );
               })}
             </ul>
+            <p className="section-description">Recent independent checks cover MuJoCo mesh signs and BlueOS recording exports. <a href="/docs/oss-validation/" className="text-link">Read the validation notes <span aria-hidden="true">↗</span></a></p>
             <details className="contribution-participation">
               <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
               <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>

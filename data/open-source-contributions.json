@@ -6,7 +6,7 @@
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Merged changes to query correctness, Python literals, credential refresh and packaging.",
+      "benefit": "Six merged fixes for query correctness, generated Python literals, credential refresh and Python packaging.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -49,7 +49,8 @@
           "number": 58,
           "title": "Make the README quick start runnable with local synthetic data (later reverted)",
           "status": "merged",
-          "mergedAt": "2026-09-16T20:14:22Z"
+          "mergedAt": "2026-09-16T20:14:22Z",
+          "revertedBy": "https://github.com/neuralinkcorp/datarepo/pull/72"
         },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/59",
@@ -59,7 +60,7 @@
           "mergedAt": "2026-09-16T20:14:26Z"
         }
       ],
-      "scope": "#58 later reverted"
+      "scope": "#58 documentation change reverted in #72"
     },
     {
       "name": "Tesla",

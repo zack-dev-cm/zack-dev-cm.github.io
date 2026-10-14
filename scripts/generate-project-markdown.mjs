@@ -1,3 +1,4 @@
+import { contributionSummary } from '../utils/contribution-summary.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -42,7 +43,7 @@ const PROJECT_SOCIAL_IMAGE_HEIGHT = 630;
 const AUTHOR_DESCRIPTION =
   'Senior ML Engineer working on document intelligence and engineering analysis. Previously shipped mobile and cloud computer vision at Carb Manager and developed financial-document recognition at CFT.';
 const PORTFOLIO_TAGLINE =
-  'Computer vision, document AI and agentic systems, from R&D to maintained products.';
+  'Computer vision and document AI software, from model development to deployment.';
 const PRIMARY_STACK_LINE =
   'Python, PyTorch, OpenMMLab, OpenCV, ONNX Runtime, FastAPI, OCR, retrieval, LLM/VLM systems, Docker, ClearML, Cloud Run';
 const RESUME_URL = `${SITE_BASE}/resume/zakhar-pashkin-senior-ml-engineer.pdf`;
@@ -1145,7 +1146,7 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '    </div>',
     '  </section>',
     '  <section id="about" class="crawlable-shell__section">',
-    '    <h2>Research depth. Engineering follow-through.</h2>',
+    '    <h2>Computer vision, document AI and delivery</h2>',
     '    <div class="crawlable-shell__cards">',
     ...focusMarkup,
     '    </div>',
@@ -1155,8 +1156,9 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '    <h2>Open-source contributions</h2>',
     `    <p>Contributions to public projects. Each links to the proposed or merged change.</p>`,
     '    <ul class="crawlable-shell__link-list">',
-    ...CONTRIBUTION_DATA.projects.map((project) => `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)}${project.scope ? ` (${escapeHtml(project.scope)})` : ''} ${project.pullRequests.map((pr) => `<a href="${escapeHtml(pr.url)}">#${pr.number} (${escapeHtml(pr.status)})</a>`).join(' · ')}</li>`),
+    ...CONTRIBUTION_DATA.projects.map((project) => `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)} ${escapeHtml(contributionSummary(project.pullRequests))}.${project.scope ? ` (${escapeHtml(project.scope)})` : ''} ${project.pullRequests.map((pr) => `<a href="${escapeHtml(pr.url)}">#${pr.number} (${escapeHtml(pr.status)})</a>`).join(' · ')}</li>`),
     '    </ul>',
+    '    <p>Recent independent checks cover MuJoCo mesh signs and BlueOS recording exports. <a href="/docs/oss-validation/">Read the validation notes</a>.</p>',
     '    <p>Playable examples: <a href="/docs/contribution-lab/">netCDF4 empty selections</a> · <a href="/docs/contribution-lab/pydicom.html">pydicom lookup-table indexing</a> · <a href="/docs/contribution-lab/reproject.html">reproject coordinate round trips</a>.</p>',
     '  </section>',
     '  <section id="projects" class="crawlable-shell__section">',
