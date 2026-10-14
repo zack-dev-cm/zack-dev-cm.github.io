@@ -12,6 +12,14 @@ This repo uses a small public-surface loop for portfolio work.
 6. Verify: run the documented checks.
 7. Report: summarize changed surfaces and residual risks.
 
+Privacy reviews cover rendered copy, crawlable files, download members and
+binary metadata. Inspect capture identifiers, device details, timestamps and
+location fields before publishing media. Keep required attribution intact.
+When removing material, check public Git history and refs separately; a clean
+current site does not establish that earlier versions are inaccessible. Keep
+private audit evidence outside the publishing repository. For metadata-only
+changes, verify decoded pixels or encoded packets and timestamps stay identical.
+
 ## Publish and Live-Site Verification
 
 GitHub Pages does not read local `docs/` edits. The site updates only after the
