@@ -41,6 +41,8 @@ All three support pause, restart, chapter selection, scrubbing and manual explor
 
 The [14 October contribution review](https://zack-dev-cm.github.io/docs/oss-validation/#status) verifies the selected PR catalogue and records upstream workflow failures, pending approvals and the next step for each of eight contribution paths.
 
+The installed `data-repository` 0.1.0 wheel still drops the null predicates corrected in merged #57. The [delivery check](https://zack-dev-cm.github.io/docs/oss-validation/#delivery) records generated SQL, artifact identity and its limits; no database queries ran.
+
 ## Development
 
 Requires Node.js 22. Install Poppler for PDF text checks. The public source/artifact audit uses the repository's existing Node dependencies.

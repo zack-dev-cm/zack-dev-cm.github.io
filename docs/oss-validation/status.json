@@ -372,8 +372,8 @@
         "https://github.com/neuralinkcorp/datarepo",
         "https://pypi.org/project/data-repository/0.1.0/"
       ],
-      "status": "Six accepted fixes remain merged. PyPI still lists data-repository 0.1.0, which predates them.",
-      "next": "Map accepted contracts to a published artifact and test them outside the source checkout."
+      "status": "Six accepted fixes remain merged. Installed public 0.1.0 still drops the null predicates corrected in #57.",
+      "next": "Track delivery of the accepted correction in a published artifact; keep the other five contracts unverified."
     },
     {
       "scope": "PD-CONT",
@@ -443,9 +443,150 @@
   "limitations": [
     "Successful workflow runs are for recorded submitted commits; no fresh composition against current main was tested.",
     "No returned upstream workflow run is not a passing check and does not describe runs in another repository.",
-    "The inspected reproject ARM job failed test_coadd_solar_map; a parent comparison has not established causation.",
     "Failed-job lists for the inspected CameraKit and Nempy runs were empty; their failure causes remain unconfirmed.",
     "No workflow approval, rerun, upstream comment or PR edit was performed.",
-    "Published package metadata was refreshed; no new public wheel was installed or imported."
-  ]
+    "Reproject baseline and geometry evidence is historical, with pinned fork artifacts independently checked; no new target-library test ran.",
+    "Data-repository 0.1.0 was installed and its query construction tested. No backend query ran; the other five accepted contracts remain untested.",
+    "No pydicom public artifact containing #2380 has been verified."
+  ],
+  "follow_up_reviewed_at": "2026-10-14T20:49:52.105127+00:00",
+  "release_behavior_checks": {
+    "data-repository": {
+      "version": 1,
+      "checked_at": "2026-10-14T20:43:17.057590+00:00",
+      "distribution": {
+        "name": "data-repository",
+        "version": "0.1.0",
+        "url": "https://pypi.org/project/data-repository/0.1.0/",
+        "wheel_filename": "data_repository-0.1.0-py3-none-any.whl",
+        "wheel_sha256": "033438832783370e70e4127e7b07e2ddf22486d66297f9455f782651d99d8edf",
+        "requires_python": ">=3.8"
+      },
+      "accepted_change": "https://github.com/neuralinkcorp/datarepo/pull/57",
+      "source_retention": {
+        "commit": "12d3b33946a83272d7eb5c3f92e4b69ac63b4de1",
+        "file": "src/datarepo/core/tables/clickhouse_table.py",
+        "url": "https://github.com/neuralinkcorp/datarepo/blob/12d3b33946a83272d7eb5c3f92e4b69ac63b4de1/src/datarepo/core/tables/clickhouse_table.py",
+        "review": "The source retains unary null predicates and unsupported-operator rejection.",
+        "runtime_tested": false
+      },
+      "environment": {
+        "python": "3.12.3",
+        "platform": "macOS arm64",
+        "dependencies": {
+          "boto3": "1.43.114",
+          "pyarrow": "26.0.0",
+          "clickhouse-connect": "1.10.0",
+          "polars": "1.12.0",
+          "deltalake": "0.25.5"
+        }
+      },
+      "verification": {
+        "isolated_python": true,
+        "outside_source_checkout": true,
+        "loaded_module_bytes_match_wheel": true,
+        "passed": 2,
+        "failed": 5,
+        "skipped": 0,
+        "backend_queries_executed": 0,
+        "python_socket_attempts_observed": 0
+      },
+      "cases": [
+        {
+          "name": "no_filter_control",
+          "expected_query": "SELECT `id` FROM `default`.`contract_rows`",
+          "expected_exception": null,
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows`",
+          "actual_exception": null,
+          "passed": true
+        },
+        {
+          "name": "comparison_control",
+          "expected_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`id` = 2)",
+          "expected_exception": null,
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`id` = 2)",
+          "actual_exception": null,
+          "passed": true
+        },
+        {
+          "name": "is_null",
+          "expected_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`x` IS NULL)",
+          "expected_exception": null,
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows`",
+          "actual_exception": null,
+          "passed": false
+        },
+        {
+          "name": "is_not_null",
+          "expected_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`x` IS NOT NULL)",
+          "expected_exception": null,
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows`",
+          "actual_exception": null,
+          "passed": false
+        },
+        {
+          "name": "null_and_id",
+          "expected_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`x` IS NULL AND `id` = 1)",
+          "expected_exception": null,
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`id` = 1)",
+          "actual_exception": null,
+          "passed": false
+        },
+        {
+          "name": "null_or_id",
+          "expected_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`x` IS NULL) OR (`id` = 2)",
+          "expected_exception": null,
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows` WHERE (`id` = 2)",
+          "actual_exception": null,
+          "passed": false
+        },
+        {
+          "name": "reject_unsupported_operator",
+          "expected_query": null,
+          "expected_exception": "ValueError",
+          "actual_query": "SELECT `id` FROM `default`.`contract_rows`",
+          "actual_exception": null,
+          "passed": false
+        }
+      ],
+      "limitations": [
+        "These checks exercise the installed package's generated SQL; no ClickHouse backend ran.",
+        "The other five accepted change contracts were not tested in this artifact check.",
+        "Current source retention was reviewed separately; this is not a source-build runtime result.",
+        "A public release containing the accepted correction has not been verified."
+      ]
+    }
+  },
+  "reproject_review": {
+    "submitted_head": "2ecb4b18997b9435f3c518f4462a34e68cffd4aa",
+    "pre_change_upstream_base": "a8a2eb458f89114dd531f2767871c4d7d665dcc0",
+    "historical_baseline_and_geometry_evidence_restored": true,
+    "new_target_tests_run": false,
+    "known_excluded_mappings": 9,
+    "recorded_fork_validation": [
+      {
+        "url": "https://github.com/zack-dev-cm/reproject/actions/runs/36973929134",
+        "platform": "Linux x86_64",
+        "python": "3.12"
+      },
+      {
+        "url": "https://github.com/zack-dev-cm/reproject/actions/runs/36977616533",
+        "platform": "Windows",
+        "python": "3.12"
+      }
+    ],
+    "submitted_suite_each": {
+      "passed": 2145,
+      "failed": 1,
+      "skipped": 467
+    },
+    "reference_candidate_suite_each": {
+      "passed": 2146,
+      "failed": 0,
+      "skipped": 467
+    },
+    "reference_candidate": "28cf7bfe3849f60fd138ac7db5c0f9e7954e9a2d",
+    "next": "Await the maintainer's reference-output decision; keep the simplified submitted branch stable.",
+    "limits": "The candidate is separate from the PR. Recorded fork validation does not make upstream CI pass or establish maintainer acceptance."
+  }
 }
