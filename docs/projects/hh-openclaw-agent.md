@@ -15,8 +15,8 @@ https://zack-dev-cm.github.io/projects/hh-openclaw-agent.md
 - OpenClaw Skills
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 1,013 (public ClawHub listing, 2026-10-14 (hh-openclaw-agent))
-- Published versions: 8 (public ClawHub listing, 2026-10-14 (hh-openclaw-agent))
+- ClawHub downloads: 1,016 (public ClawHub listing, 2026-10-15 (hh-openclaw-agent))
+- Published versions: 8 (public ClawHub listing, 2026-10-15 (hh-openclaw-agent))
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Public posture: name-only (portfolio copy intentionally keeps only the skill name)
 
