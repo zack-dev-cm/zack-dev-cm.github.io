@@ -43,15 +43,6 @@ jobs:
           DEV_CM_GITHUB_TOKEN: ${{ secrets.DEV_CM_GITHUB_TOKEN || github.token }}
         run: npm run check:contributions -- --report "${RUNNER_TEMP}/contribution-status.json"
 
-      - name: Preserve contribution status observations
-        if: always()
-        uses: actions/upload-artifact@v7.0.2
-        with:
-          name: contribution-status-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/contribution-status.json
-          if-no-files-found: warn
-          retention-days: 14
-
       - name: Refresh ClawHub snapshot
         id: clawhub
         continue-on-error: true

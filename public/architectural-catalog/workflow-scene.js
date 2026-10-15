@@ -3,7 +3,7 @@ import {line,textSprite} from './cabinets.js';
 import {smooth,CHAPTERS,translate} from './timeline.js';
 import {roomContext,ROOM} from './room-context.js';
 
-const EVIDENCE_SHA256='26401084a0874e6ebfc19c02e04e9156dc795f8d3b047149542980a4102d587a';
+const EVIDENCE_SHA256='ecf7e1733ccc346f7f5d1ba22780f4e8a7b9b91da3679b7ced6378e95d104aa7';
 const sha=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
 async function verified(url,expected){const r=await fetch(url);if(!r.ok)throw Error('Workflow evidence unavailable');const b=await r.arrayBuffer();if(await sha(b)!==expected)throw Error('Workflow evidence checksum mismatch');return b;}
 export async function workflowScene(scene,materials){

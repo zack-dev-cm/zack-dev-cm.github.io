@@ -4,6 +4,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { compilePolicy, containsWithdrawnCopy, scanPublishedAssets } from './disclosure-policy.mjs';
+import { assertPrivateReviewSurfacesAbsent, privateOperationalFields, linksToPrivateReviews } from './publication-boundary.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -145,8 +146,6 @@ const REQUIRED_SECURITY_HEADERS = new Map([
 ]);
 
 const errors = [];
-const CODEX_DOCS_SOURCE = 'codex-docs';
-const CODEX_DOCS_OUTPUT = 'docs/codex';
 const SKIP_PDF_TEXT_SCAN = process.env.SKIP_PDF_TEXT_SCAN === 'true';
 let trackedFilePaths = new Set();
 let untrackedFilePaths = new Set();
@@ -304,53 +303,6 @@ const assertPublicUpdatesDoNotExposePrivateMetadata = async () => {
           errors.push(`${relativePath}: ${group} contains suspicious repoFullName "${item.repoFullName}"`);
         }
       }
-    }
-  }
-};
-
-const readDirectoryFileMap = async (relativeDirectory) => {
-  const absoluteDirectory = path.join(ROOT_DIR, relativeDirectory);
-  let entries;
-  try {
-    entries = await fs.readdir(absoluteDirectory, { withFileTypes: true });
-  } catch (error) {
-    if (error && error.code === 'ENOENT') {
-      errors.push(`${relativeDirectory}: required directory is missing`);
-      return null;
-    }
-    throw error;
-  }
-
-  const fileMap = new Map();
-  for (const entry of entries) {
-    if (!entry.isFile()) continue;
-    const relativePath = `${relativeDirectory}/${entry.name}`;
-    fileMap.set(entry.name, await fs.readFile(path.join(ROOT_DIR, relativePath), 'utf8'));
-  }
-  return fileMap;
-};
-
-const assertCodexDocsAreInSync = async () => {
-  const sourceFiles = await readDirectoryFileMap(CODEX_DOCS_SOURCE);
-  const outputFiles = await readDirectoryFileMap(CODEX_DOCS_OUTPUT);
-  if (!sourceFiles || !outputFiles) return;
-
-  const sourceNames = new Set(sourceFiles.keys());
-  const outputNames = new Set(outputFiles.keys());
-
-  for (const name of sourceNames) {
-    if (!outputNames.has(name)) {
-      errors.push(`${CODEX_DOCS_OUTPUT}/${name}: generated Codex doc is missing`);
-      continue;
-    }
-    if (sourceFiles.get(name) !== outputFiles.get(name)) {
-      errors.push(`${CODEX_DOCS_OUTPUT}/${name}: generated Codex doc is out of sync with ${CODEX_DOCS_SOURCE}/${name}`);
-    }
-  }
-
-  for (const name of outputNames) {
-    if (!sourceNames.has(name)) {
-      errors.push(`${CODEX_DOCS_OUTPUT}/${name}: generated Codex doc has no source file`);
     }
   }
 };
@@ -542,6 +494,16 @@ const main = async () => {
       scanPatterns(file.relativePath, text, PUBLIC_LEAK_PATTERNS);
       scanPatterns(file.relativePath, text, PUBLIC_INSTRUCTION_BLEED_PATTERNS);
       scanWithdrawnCopy(file.relativePath, text);
+      if (linksToPrivateReviews(text)) errors.push(`${file.relativePath}: links to private review material`);
+      if (path.extname(file.relativePath) === '.json') {
+        try {
+          for (const field of privateOperationalFields(JSON.parse(text))) {
+            errors.push(`${file.relativePath}: private generation record at ${field}`);
+          }
+        } catch {
+          errors.push(`${file.relativePath}: public JSON could not be checked for private generation records`);
+        }
+      }
     }
     if (isPublishedOutput(file.relativePath)) {
       scanPatterns(file.relativePath, text, PUBLIC_DRAFT_SURFACE_PATTERNS);
@@ -550,7 +512,8 @@ const main = async () => {
 
   await assertPrivateRepoSyncFailsClosed();
   await assertPublicUpdatesDoNotExposePrivateMetadata();
-  await assertCodexDocsAreInSync();
+  try { await assertPrivateReviewSurfacesAbsent(ROOT_DIR); }
+  catch (error) { errors.push(error.message); }
   await assertHiddenPublishingSurfacesAreNotPublished();
   await assertWithdrawnProjectAssetsAreAbsent();
   errors.push(...await scanPublishedAssets({

@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { assertPrivateReviewSurfacesAbsent } from './publication-boundary.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT_FILES = [
@@ -21,6 +22,7 @@ const readResume = async (directory) => {
 };
 
 export const verifyStagedPages = async (outputDir) => {
+  await assertPrivateReviewSurfacesAbsent(outputDir, { pages: true });
   const canonical = await readResume(path.join(outputDir, 'resume'));
   const alias = await readResume(path.join(outputDir, 'docs', 'resume'));
   if (!canonical.pdf.equals(alias.pdf) || !canonical.html.equals(alias.html)) {
@@ -78,6 +80,7 @@ export const stagePages = async ({ rootDir = ROOT_DIR, outputDir = path.join(roo
     if (entries.length) throw new Error(`External staging directory must be new or empty: ${outputDir}`);
   }
   // Check the built inputs before clearing any previous artifact.
+  await assertPrivateReviewSurfacesAbsent(rootDir);
   await readResume(path.join(rootDir, 'docs', 'resume'));
   await Promise.all([...ROOT_FILES, 'docs/404.html', 'docs/paper-reviews.json', 'docs/papers', 'docs/agent-discovery.json', 'projects']
     .map((file) => fs.access(path.join(rootDir, file))));

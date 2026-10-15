@@ -35,14 +35,6 @@ Three playable contribution lessons connect code changes to editable examples:
 
 All three support pause, restart, chapter selection, scrubbing and manual exploration.
 
-## Independent OSS validation
-
-[Validation notes](https://zack-dev-cm.github.io/docs/oss-validation/) record local MuJoCo mesh-sign checks, a BlueOS export reproduction and public-package delivery checks. They include exact source revisions, test skips and remaining work. MuJoCo's correction is credited to its existing author. BlueOS still needs an agreed export scope and reliable closed-file state.
-
-The [14 October contribution review](https://zack-dev-cm.github.io/docs/oss-validation/#status) verifies the selected PR catalogue and records upstream workflow failures, pending approvals and the next step for each of eight contribution paths.
-
-The installed `data-repository` 0.1.0 wheel still drops the null predicates corrected in merged #57. The [delivery check](https://zack-dev-cm.github.io/docs/oss-validation/#delivery) records generated SQL, artifact identity and its limits; no database queries ran.
-
 ## Development
 
 Requires Node.js 22. Install Poppler for PDF text checks. The public source/artifact audit uses the repository's existing Node dependencies.
@@ -68,9 +60,12 @@ npm run audit:public
 
 `audit:public` runs source, security, metadata and catalogue/deployment checks.
 Browser, link and ClawPatch/source review remain separate checks. The old
-`audit:codex` command is a compatibility alias; the unavailable `codex_harness`
-dependency and its score were retired. See [the audit migration](codex-docs/evals.md)
-for the scope and rationale.
+`audit:codex` command is a compatibility alias. These checks do not replace
+scientific review or user acceptance of individual projects.
+
+Keep private review notes, incident records and raw generation logs outside this
+public repository. The build and deployment checks reject private review
+directories and generation prompts or token-usage fields in public JSON.
 
 ## Publishing
 

@@ -12,10 +12,6 @@ const sourceFiles = [
   'components/ProjectModal.tsx',
   'DESIGN.md',
   'scripts/generate-project-markdown.mjs',
-  'codex-docs/overview.md',
-  'codex-docs/architecture.md',
-  'codex-docs/workflow.md',
-  'codex-docs/evals.md',
   '.codex/agents/architect.toml',
   '.codex/agents/reviewer.toml',
   '.codex/agents/evolver.toml',
@@ -179,9 +175,6 @@ const run = async () => {
   const files = new Set(sourceFiles);
   if (process.env.POSITIONING_SCAN_DOCS === 'true') {
     docsFiles.forEach((file) => files.add(file));
-    for (const file of await collectMarkdownFiles('docs/codex')) {
-      files.add(file);
-    }
   }
 
   const failures = [];

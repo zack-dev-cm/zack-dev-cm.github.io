@@ -38,7 +38,6 @@ const PUBLIC_URL_SOURCE_FILES = [
 ];
 const PUBLIC_URL_SOURCE_DIRECTORIES = [
   'projects',
-  'codex-docs',
   'public',
   'docs',
 ];

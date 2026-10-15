@@ -88,30 +88,14 @@
           "Physical quantity",
           "Specified finish; SSM-01 schedule and TMI catalog not recovered",
           "Price"
-        ],
-        "render_prompt": "Use the supplied B3000 manufacturer diagram as structural reference. Create one beautiful photorealistic interior concept of a single B3000 cabinet at nominal 36-inch width, 34-inch height and 24-inch depth. Exactly ONE full-width upper drawer in ONE horizontal row above exactly TWO equal lower hinged doors, one concealed adjustable shelf. All drawer and doors CLOSED, unlike the open reference. Illustrative natural oak finish, recessed black plinth, thin white countertop, subtle dark pulls. Three-quarter architectural photograph, full cabinet in frame, minimal plaster room, soft window daylight, stone floor. No extra cabinets, stacked drawers, open shelves, sink, text, logos or watermark. Preserve the confirmed structure; this is a concept, not certified installed geometry."
+        ]
       },
       "producer": {
         "mode": 1,
         "engine": "codex_cli",
         "model": "gpt-6.1-sol",
         "image_method": "built-in ImageGen",
-        "usage": {
-          "input_tokens": 156258,
-          "cached_input_tokens": 126336,
-          "cache_write_input_tokens": 0,
-          "output_tokens": 1456,
-          "reasoning_output_tokens": 22
-        },
-        "seconds": 120.75,
-        "instruction_sha256": "e79b28b318a0e3dad6cda35feacc824a69aaf788386e1e4a7c30a58b1298d608",
-        "image_copy_receipts": [
-          {
-            "command_sha256": "eef108dccee45d561672889c19201cb6cec047a5a03ad234ad140338b99bcf01",
-            "exit_code": 0
-          }
-        ],
-        "image_tool_trace": "Codex JSONL records the generated-image copy; internal ImageGen calls are not emitted by this CLI version."
+        "seconds": 120.75
       },
       "renderRole": "Recorded ImageGen interior concept; 36-inch nominal width and illustrative oak; not measured geometry.",
       "assets": {
@@ -224,30 +208,14 @@
           "Specified finish; oak is requested illustrative finish only",
           "Price",
           "SSM-01 finish schedule and TMI catalog unavailable"
-        ],
-        "render_prompt": "Use the supplied B3100 manufacturer diagram as a structural reference only. Create one beautiful photorealistic interior concept of a single CASE Systems B3100 cabinet at nominal 36-inch width, 34-inch cabinet height and 24-inch depth. Exactly two equal upper drawers side by side in ONE horizontal row above exactly TWO lower hinged doors, one concealed adjustable shelf. All drawers and doors CLOSED, unlike the reference's open doors. Natural oak illustrative finish, restrained small dark pulls, recessed black plinth, thin white countertop. Three-quarter architectural photograph, full cabinet in frame in a minimal warm plaster room, soft window daylight and stone floor. Preserve the diagram's cabinet structure and proportions. No extra cabinets, stacked drawers, open shelves, sink, text, logos or watermark. Concept only, not certified fabrication geometry."
+        ]
       },
       "producer": {
         "mode": 1,
         "engine": "codex_cli",
         "model": "gpt-6.1-sol",
         "image_method": "built-in ImageGen",
-        "usage": {
-          "input_tokens": 185207,
-          "cached_input_tokens": 165504,
-          "cache_write_input_tokens": 0,
-          "output_tokens": 1796,
-          "reasoning_output_tokens": 106
-        },
-        "seconds": 144.15,
-        "instruction_sha256": "1a6d87724418188cae72d3006ac0bcbd758815bd56100b90299aae115e6b490a",
-        "image_copy_receipts": [
-          {
-            "command_sha256": "9dbce5a243ea707e5dca60b6491ab06a7ddf93d899a1e0a013120e643ebcf1c6",
-            "exit_code": 0
-          }
-        ],
-        "image_tool_trace": "Codex JSONL records the generated-image copy; internal ImageGen calls are not emitted by this CLI version."
+        "seconds": 144.15
       },
       "renderRole": "Recorded ImageGen interior concept; 36-inch nominal width and illustrative oak; not measured geometry.",
       "assets": {

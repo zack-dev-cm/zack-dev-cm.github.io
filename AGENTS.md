@@ -7,16 +7,13 @@ This repository publishes Zakhar Pashkin's portfolio, project case studies, craw
 - Restate the user goal and name the verification step before editing files.
 - Keep diffs surgical. Do not refactor adjacent modules unless the task needs it.
 - Treat generated portfolio artifacts as public surface. New docs, project pages, resume text, and crawlable files must clear leak and bleed checks.
-- Keep durable project knowledge in `docs/codex/`; the source copy lives in `codex-docs/` because Vite rebuilds `docs/`.
+- Keep private review notes, incident details and session handoffs outside this public repository. Build output must contain only reviewed portfolio content.
 - Use the custom agents in `.codex/agents/` when the user explicitly asks for delegation or parallel agent work.
 
 ## Repo map
 
-- [Overview](docs/codex/overview.md)
-- [Architecture](docs/codex/architecture.md)
-- [Workflow](docs/codex/workflow.md)
-- [Evals](docs/codex/evals.md)
-- [Cleanup](docs/codex/cleanup.md)
+- [Project overview and development](README.md)
+- [Security and publication checks](SECURITY.md)
 
 ## Main code paths
 
@@ -27,7 +24,7 @@ This repository publishes Zakhar Pashkin's portfolio, project case studies, craw
 - `public/`: Static images, company logos, resume source assets, and static routes copied by Vite.
 - `projects/`: Generated public Markdown case studies.
 - `docs/`: GitHub Pages output. Vite rebuilds this directory; do not hand-edit generated files without updating the source.
-- `codex-docs/`: Source for the `docs/codex/` agent knowledge files restored after each build.
+- `scripts/publication-boundary.mjs`: Prevents private review material and generation records from entering publication.
 
 ## Default verification
 

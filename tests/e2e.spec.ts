@@ -2,26 +2,12 @@ import { test, expect, type Locator, type Page } from '@playwright/test';
 import { createHash } from 'node:crypto';
 import { CHROME_EXTENSION_STATS, CLAWHUB_DOWNLOAD_STATS, OPEN_SOURCE_CONTRIBUTIONS, OPEN_SOURCE_PROJECTS } from '../constants';
 
-test('independent validation notes retain attribution, skips and authored artifact identity', async ({ page }) => {
-  await page.goto('/docs/oss-validation/');
-  await expect(page.getByRole('heading', { name: 'Independent OSS validation', exact: true })).toBeVisible();
-  await expect(page.getByRole('link', { name: "pranay172's #3689" })).toHaveAttribute('href',
-    'https://github.com/google-deepmind/mujoco/pull/3689');
-  await expect(page.getByRole('cell', { name: '98 passed, five skipped', exact: true })).toBeVisible();
-  await expect(page.getByText(/Production inclusion needs an agreed scope/)).toBeVisible();
-  const response = await page.request.get('/docs/oss-validation/results.json');
-  expect(response.ok()).toBeTruthy();
-  const result = await response.json();
-  expect(result.mujoco.implementation_author).toBe('pranay172');
-  expect(result.mujoco.candidate_sha).toBe('89733a51f207c7fedafc855d22ffd4c38caa793a');
-  expect(result.blueos.source_sha).toBe('224b80ca07156be8238ece4a096dca33dc1db775');
-  expect(result.datarepo.installed).toBe(false);
-  for (const artifact of result.authored_artifacts) {
-    const download = await page.request.get(`/docs/oss-validation/artifacts/${artifact.name}`);
-    expect(download.ok()).toBeTruthy();
-    const bytes = await download.body();
-    expect(bytes.length).toBe(artifact.bytes);
-    expect(createHash('sha256').update(bytes).digest('hex')).toBe(artifact.sha256);
+test('private reviews, agent notes and validation downloads are not served', async ({ request }) => {
+  for (const route of ['/docs/oss-validation/', '/docs/oss-validation/status.json',
+    '/docs/oss-validation/results.json', '/docs/oss-validation/datarepo-release.json',
+    '/docs/oss-validation/artifacts/blueos-ordinary.zip', '/docs/codex/workflow.md']) {
+    const response = await request.get(route);
+    expect(response.status(), route).toBe(404);
   }
 });
 
@@ -453,7 +439,7 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeInViewport();
   await expect(contributedSection.locator('.contribution-project').first()).toContainText('Neuralink');
   await expect(contributedSection.locator('.contribution-project').first()).toContainText('6 merged PRs · 1 reverted PR');
-  await expect(contributedSection.getByRole('link', { name: 'Read the validation notes' })).toHaveAttribute('href', '/docs/oss-validation/');
+  await expect(contributedSection.getByRole('link', { name: 'Read the validation notes' })).toHaveCount(0);
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('Tesla');
   await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('4 open PRs');
   await expect(contributedSection.getByRole('link', { name: 'Follow a sky pixel in 3D' })).toBeVisible();

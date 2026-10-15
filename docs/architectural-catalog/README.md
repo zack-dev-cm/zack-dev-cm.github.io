@@ -39,4 +39,3 @@ widths, caption separation, clipping, depth tests and room framing, then decodes
 40 real film frames. Capture runs its own composition preflight. An independent
 visual reviewer separately inspects the exported film, preview, JPEGs and
 chapter transitions; bounds checks alone do not establish visual quality.
-See the dated visual/upload verification note in `codex-docs/` for scope.

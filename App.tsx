@@ -1357,7 +1357,6 @@ const App: React.FC = () => {
                 );
               })}
             </ul>
-            <p className="section-description">Recent independent checks cover MuJoCo mesh signs and BlueOS recording exports. <a href="/docs/oss-validation/" className="text-link">Read the validation notes <span aria-hidden="true">↗</span></a></p>
             <details className="contribution-participation">
               <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
               <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>

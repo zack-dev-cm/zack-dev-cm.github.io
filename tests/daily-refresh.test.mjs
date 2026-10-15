@@ -47,6 +47,13 @@ for (const change of ['unchanged', 'new-page', 'discovery', 'contribution']) {
 }
 
 for (const filename of ['daily-portfolio-refresh.yml', 'deploy-pages.yml']) {
+  test(`${filename} keeps raw contribution reports off public workflow artifacts`, async () => {
+    const source = await readFile(new URL(`../.github/workflows/${filename}`, import.meta.url), 'utf8');
+    assert.match(source, /check:contributions -- --report/);
+    assert.doesNotMatch(source, /uses:\s*actions\/upload-artifact@/);
+    assert.match(source, /uses:\s*actions\/upload-pages-artifact@/);
+  });
+
   test(`${filename} rejects a built artifact after main advances`, async () => {
     const source = await readFile(new URL(`../.github/workflows/${filename}`, import.meta.url), 'utf8');
     const guard = source.match(/- name: Verify publication is still current[\s\S]*?run: \|\n([\s\S]*?)(?=\n      - name:)/);

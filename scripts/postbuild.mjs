@@ -1,6 +1,7 @@
 import { copyFile, cp, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { assertPrivateReviewSurfacesAbsent } from './publication-boundary.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = resolve(__filename, '..');
@@ -25,7 +26,6 @@ const extraFiles = [
 ];
 const extraDirectories = [
   { source: 'projects', destination: 'projects' },
-  { source: 'codex-docs', destination: 'codex' },
   { source: 'ai-chat-navigator-privacy', destination: 'ai-chat-navigator-privacy' }
 ];
 const hiddenPublishedSurfaces = [
@@ -47,6 +47,7 @@ const copyRequiredFile = async (src, dest) => {
 };
 
 try {
+  await assertPrivateReviewSurfacesAbsent(rootDir);
   await copyRequiredFile(source, destination);
 
   await copyRequiredFile(manifestSource, manifestDestination);
