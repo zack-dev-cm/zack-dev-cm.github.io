@@ -32,8 +32,8 @@ https://zack-dev-cm.github.io/projects/cv-repro-lab-skills.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 2,648 total (public ClawHub listings, 2026-10-16 (data-science-cv-repro-lab + sota-agent))
-- Published versions: 24 total (public ClawHub listings, 2026-10-16 (data-science-cv-repro-lab + sota-agent))
+- ClawHub downloads: 2,656 total (public ClawHub listings, 2026-10-17 (data-science-cv-repro-lab + sota-agent))
+- Published versions: 24 total (public ClawHub listings, 2026-10-17 (data-science-cv-repro-lab + sota-agent))
 - Live packages: 2 (data-science-cv-repro-lab + sota-agent)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)

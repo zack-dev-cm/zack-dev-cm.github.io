@@ -4,7 +4,7 @@
   "title": "ML Papers, Read for Builders",
   "siteUrl": "https://zack-dev-cm.github.io/papers/",
   "dataUrl": "https://zack-dev-cm.github.io/docs/paper-reviews.json",
-  "updatedAt": "2026-10-16T12:38:34.101Z",
+  "updatedAt": "2026-10-17T11:44:45.558Z",
   "selectionPolicy": {
     "cadence": "Daily refresh; a new review is published when a fresh primary paper clears the selection gate.",
     "sources": [
@@ -38,6 +38,72 @@
   ],
   "reviews": [
     {
+      "id": "evaluating-model-capabilities-after-benchmark-saturation-2610-20667",
+      "title": "Evaluating Model Capabilities After Benchmark Saturation",
+      "dek": "Read it for the audit trail: benchmark matters only if a team can replay choices, dead branches, and tool calls after a failed run.",
+      "language": "en",
+      "readingScope": "abstract",
+      "topicId": "agent-systems",
+      "fullTextReviewed": false,
+      "proposedTestsRun": false,
+      "selectedAt": "2026-10-17T11:44:45.558Z",
+      "paperUrl": "https://arxiv.org/abs/2610.20667",
+      "pdfUrl": "https://arxiv.org/pdf/2610.20667",
+      "arxivId": "2610.20667",
+      "authors": [
+        "Morio Hamada",
+        "Jehyeok Yeon",
+        "Matteo Migliarini",
+        "Justin Olive",
+        "Magda Dubois"
+      ],
+      "publishedAt": "Sat, 17 Oct 2026 00:00:00 -0400",
+      "updatedAt": "Sat, 17 Oct 2026 00:00:00 -0400",
+      "categories": [
+        "cs.AI"
+      ],
+      "tags": [
+        "agents",
+        "runtime",
+        "evaluation",
+        "cs.AI"
+      ],
+      "selectionScore": 214,
+      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Evaluating Model Capabilities After Benchmark Saturation informs an implementation choice.",
+      "whatItClaims": "Morio Hamada, Jehyeok Yeon, Matteo Migliarini and 2 more report in the abstract: \"Once several models approach perfect scores, a benchmark loses its power to differentiate between them, and with it its utility…\"",
+      "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about benchmark?",
+      "productionAngle": "Suggested test (unrun): Prototype Evaluating Model Capabilities After Benchmark Saturation as a trace experiment first: run a small agent task twice, then inspect whether tree states, tool choices, and failed branches make the second run easier to repair.",
+      "skepticism": "This automated note uses the cs.AI abstract. Full-text reading and code reproduction remain pending. Check the setup, ablations and failure cases against the intended task before making an adoption decision.",
+      "readingPath": [
+        "Start with the problem sentence: what limitation in current practice does Evaluating Model Capabilities After Benchmark Saturation actually attack?",
+        "Find the ablation or comparison that isolates benchmark. If it is missing, treat the result as a hypothesis, not guidance.",
+        "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
+      ],
+      "abstractExcerpt": "",
+      "claimAtoms": [
+        "benchmark",
+        "evaluating model capabilities after benchmark saturation",
+        "capabilities",
+        "evaluate representative contemporary",
+        "simulate saturation retrospectively"
+      ],
+      "sourceLedger": [
+        {
+          "label": "Primary paper",
+          "url": "https://arxiv.org/abs/2610.20667"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2610.20667"
+        },
+        {
+          "label": "cs.AI research feed",
+          "url": "https://rss.arxiv.org/rss/cs.AI"
+        }
+      ]
+    },
+    {
       "id": "the-world-won-t-wait-evaluating-and-teaching-agents-under-a-live-clock-2610-20665",
       "title": "The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock",
       "dek": "Worth saving for the postmortem question: what did agent make visible when the agent took the wrong turn?",
@@ -66,11 +132,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 226,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock informs an implementation choice.",
       "whatItClaims": "Ningxin Pan, Hanyu Li, Yeqing Shen and 3 more report in the abstract: \"We introduce RealtimeBench, with 180 tasks across six game types, to evaluate agents while games continue running during inference.\"",
       "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about agent?",
@@ -80,14 +145,6 @@
         "Start with the problem sentence: what limitation in current practice does The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock actually attack?",
         "Find the ablation or comparison that isolates agent. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "",
-      "claimAtoms": [
-        "agent",
-        "agents",
-        "the world won't wait",
-        "evaluating and teaching agents under a live clock",
-        "game types"
       ],
       "sourceLedger": [
         {
