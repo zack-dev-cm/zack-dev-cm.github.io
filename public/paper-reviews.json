@@ -65,11 +65,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.AI"
+        "evaluation"
       ],
       "selectionScore": 214,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Evaluating Model Capabilities After Benchmark Saturation informs an implementation choice.",
       "whatItClaims": "Morio Hamada, Jehyeok Yeon, Matteo Migliarini and 2 more report in the abstract: \"Once several models approach perfect scores, a benchmark loses its power to differentiate between them, and with it its utility…\"",
       "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about benchmark?",
@@ -79,14 +78,6 @@
         "Start with the problem sentence: what limitation in current practice does Evaluating Model Capabilities After Benchmark Saturation actually attack?",
         "Find the ablation or comparison that isolates benchmark. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "",
-      "claimAtoms": [
-        "benchmark",
-        "evaluating model capabilities after benchmark saturation",
-        "capabilities",
-        "evaluate representative contemporary",
-        "simulate saturation retrospectively"
       ],
       "sourceLedger": [
         {

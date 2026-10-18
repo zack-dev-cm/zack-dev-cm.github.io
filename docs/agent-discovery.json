@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2026-09-05",
-  "generatedAt": "2026-10-17",
+  "generatedAt": "2026-10-18",
   "entity": {
     "name": "Zakhar Pashkin",
     "role": "Senior ML Engineer",
@@ -186,8 +186,7 @@
         "tags": [
           "agents",
           "runtime",
-          "evaluation",
-          "cs.AI"
+          "evaluation"
         ],
         "paperUrl": "https://arxiv.org/abs/2610.20667"
       },
@@ -1540,12 +1539,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-17"
+          "context": "public GitHub API snapshot, 2026-10-18"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-17"
+          "context": "public GitHub API snapshot, 2026-10-18"
         },
         {
           "label": "Created",
@@ -1585,12 +1584,12 @@
         {
           "label": "GitHub stars",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-17"
+          "context": "public GitHub API snapshot, 2026-10-18"
         },
         {
           "label": "GitHub forks",
           "value": "0",
-          "context": "public GitHub API snapshot, 2026-10-17"
+          "context": "public GitHub API snapshot, 2026-10-18"
         },
         {
           "label": "Created",
@@ -2311,13 +2310,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "810",
-          "context": "public ClawHub listing, 2026-10-17 (research-claim-ledger)"
+          "value": "813",
+          "context": "public ClawHub listing, 2026-10-18 (research-claim-ledger)"
         },
         {
           "label": "Published versions",
           "value": "1",
-          "context": "public ClawHub listing, 2026-10-17 (research-claim-ledger)"
+          "context": "public ClawHub listing, 2026-10-18 (research-claim-ledger)"
         },
         {
           "label": "Verdict labels",
@@ -2480,13 +2479,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,225",
-          "context": "public ClawHub listing, 2026-10-17 (github-clawhub-launcher)"
+          "value": "1,230",
+          "context": "public ClawHub listing, 2026-10-18 (github-clawhub-launcher)"
         },
         {
           "label": "Published versions",
           "value": "9",
-          "context": "public ClawHub listing, 2026-10-17 (github-clawhub-launcher)"
+          "context": "public ClawHub listing, 2026-10-18 (github-clawhub-launcher)"
         },
         {
           "label": "Public release",
@@ -3162,17 +3161,17 @@
         {
           "label": "Observed publisher listings",
           "value": "10",
-          "context": "public publisher search page, 2026-10-17"
+          "context": "public publisher search page, 2026-10-18"
         },
         {
           "label": "Reported snapshot users",
-          "value": "451",
-          "context": "8 detail pages with visible counts from the observed publisher search, 2026-10-17"
+          "value": "448",
+          "context": "10 detail pages with visible counts from the observed publisher search, 2026-10-18"
         },
         {
           "label": "Average rating",
           "value": "4.40",
-          "context": "5 reported Chrome Web Store ratings, 2026-10-17"
+          "context": "5 reported Chrome Web Store ratings, 2026-10-18"
         },
         {
           "label": "Visible SourcePack products",
@@ -3596,18 +3595,18 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,019",
-          "context": "public ClawHub listing, 2026-10-17 (openclaw-agent-chinese-laoshi)"
+          "value": "1,023",
+          "context": "public ClawHub listing, 2026-10-18 (openclaw-agent-chinese-laoshi)"
         },
         {
           "label": "Published versions",
           "value": "7",
-          "context": "public ClawHub listing, 2026-10-17 (openclaw-agent-chinese-laoshi)"
+          "context": "public ClawHub listing, 2026-10-18 (openclaw-agent-chinese-laoshi)"
         },
         {
           "label": "ClawHub stars",
           "value": "1",
-          "context": "public ClawHub listing, 2026-10-17 (openclaw-agent-chinese-laoshi)"
+          "context": "public ClawHub listing, 2026-10-18 (openclaw-agent-chinese-laoshi)"
         },
         {
           "label": "Clean release",
@@ -3883,13 +3882,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,304",
-          "context": "public ClawHub listing, 2026-10-17 (openclaw-cws-publisher)"
+          "value": "1,307",
+          "context": "public ClawHub listing, 2026-10-18 (openclaw-cws-publisher)"
         },
         {
           "label": "Published versions",
           "value": "14",
-          "context": "public ClawHub listing, 2026-10-17 (openclaw-cws-publisher)"
+          "context": "public ClawHub listing, 2026-10-18 (openclaw-cws-publisher)"
         },
         {
           "label": "Release checks",
@@ -5123,13 +5122,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "2,656 total",
-          "context": "public ClawHub listings, 2026-10-17 (data-science-cv-repro-lab + sota-agent)"
+          "value": "2,670 total",
+          "context": "public ClawHub listings, 2026-10-18 (data-science-cv-repro-lab + sota-agent)"
         },
         {
           "label": "Published versions",
           "value": "24 total",
-          "context": "public ClawHub listings, 2026-10-17 (data-science-cv-repro-lab + sota-agent)"
+          "context": "public ClawHub listings, 2026-10-18 (data-science-cv-repro-lab + sota-agent)"
         },
         {
           "label": "Live packages",
@@ -5274,13 +5273,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,004",
-          "context": "public ClawHub listing, 2026-10-17 (browser-proof)"
+          "value": "1,007",
+          "context": "public ClawHub listing, 2026-10-18 (browser-proof)"
         },
         {
           "label": "Published versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-10-17 (browser-proof)"
+          "context": "public ClawHub listing, 2026-10-18 (browser-proof)"
         },
         {
           "label": "Public release",
@@ -5337,13 +5336,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "980",
-          "context": "public ClawHub listing, 2026-10-17 (public-surface-review)"
+          "value": "984",
+          "context": "public ClawHub listing, 2026-10-18 (public-surface-review)"
         },
         {
           "label": "Published versions",
           "value": "6",
-          "context": "public ClawHub listing, 2026-10-17 (public-surface-review)"
+          "context": "public ClawHub listing, 2026-10-18 (public-surface-review)"
         },
         {
           "label": "Public release",
@@ -5402,13 +5401,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,086",
-          "context": "public ClawHub listing, 2026-10-17 (youtube-creator-ops)"
+          "value": "1,091",
+          "context": "public ClawHub listing, 2026-10-18 (youtube-creator-ops)"
         },
         {
           "label": "Published versions",
           "value": "13",
-          "context": "public ClawHub listing, 2026-10-17 (youtube-creator-ops)"
+          "context": "public ClawHub listing, 2026-10-18 (youtube-creator-ops)"
         },
         {
           "label": "Public release",
@@ -5466,13 +5465,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,019",
-          "context": "public ClawHub listing, 2026-10-17 (artifact-redactor)"
+          "value": "1,022",
+          "context": "public ClawHub listing, 2026-10-18 (artifact-redactor)"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-10-17 (artifact-redactor)"
+          "context": "public ClawHub listing, 2026-10-18 (artifact-redactor)"
         },
         {
           "label": "Public release",
@@ -5530,13 +5529,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,054",
-          "context": "public ClawHub listing, 2026-10-17 (artifact-deck)"
+          "value": "1,057",
+          "context": "public ClawHub listing, 2026-10-18 (artifact-deck)"
         },
         {
           "label": "Published versions",
           "value": "7",
-          "context": "public ClawHub listing, 2026-10-17 (artifact-deck)"
+          "context": "public ClawHub listing, 2026-10-18 (artifact-deck)"
         },
         {
           "label": "Public release",
@@ -5603,23 +5602,23 @@
       "benchmarks": [
         {
           "label": "Tracked ClawHub downloads",
-          "value": "48,173",
-          "context": "public ClawHub owner profile, 2026-10-17 across 53 skills"
+          "value": "48,360",
+          "context": "public ClawHub owner profile, 2026-10-18 across 53 skills"
         },
         {
           "label": "Tracked public skills",
           "value": "53",
-          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-17"
+          "context": "53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-18"
         },
         {
           "label": "CV Repro Lab downloads",
-          "value": "2,656 total",
-          "context": "1,440 data-science-cv-repro-lab + 1,216 sota-agent, 2026-10-17"
+          "value": "2,670 total",
+          "context": "1,449 data-science-cv-repro-lab + 1,221 sota-agent, 2026-10-18"
         },
         {
           "label": "Strongest skill",
-          "value": "3,395 downloads",
-          "context": "gstack-review-stack public listing, 2026-10-17"
+          "value": "3,398 downloads",
+          "context": "gstack-review-stack public listing, 2026-10-18"
         },
         {
           "label": "Report outputs",
@@ -5695,13 +5694,13 @@
       "benchmarks": [
         {
           "label": "ClawHub downloads",
-          "value": "1,025",
-          "context": "public ClawHub listing, 2026-10-17 (hh-openclaw-agent)"
+          "value": "1,029",
+          "context": "public ClawHub listing, 2026-10-18 (hh-openclaw-agent)"
         },
         {
           "label": "Published versions",
           "value": "8",
-          "context": "public ClawHub listing, 2026-10-17 (hh-openclaw-agent)"
+          "context": "public ClawHub listing, 2026-10-18 (hh-openclaw-agent)"
         },
         {
           "label": "Public release",

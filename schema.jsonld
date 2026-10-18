@@ -83,7 +83,7 @@
       "name": "Zakhar Pashkin | Senior ML Engineer - Computer Vision & Agentic AI",
       "description": "Senior ML Engineer. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.",
       "inLanguage": "en",
-      "dateModified": "2026-10-17",
+      "dateModified": "2026-10-18",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -145,7 +145,7 @@
           "name": "Evaluating Model Capabilities After Benchmark Saturation",
           "url": "https://arxiv.org/abs/2610.20667",
           "identifier": "2610.20667",
-          "keywords": "agents, runtime, evaluation, cs.AI"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
