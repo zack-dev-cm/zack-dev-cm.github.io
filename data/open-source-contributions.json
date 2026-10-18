@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-14",
+  "verifiedAt": "2026-10-18",
   "projects": [
     {
       "name": "Neuralink",
@@ -105,7 +105,7 @@
       "project": "netCDF4",
       "logo": "images/contributions/unidata.png",
       "logoSource": "https://github.com/Unidata.png?size=96",
-      "benefit": "Merged fix for array dimensions when scientific-data selections are empty.",
+      "benefit": "Merged fix for array dimensions when scientific-data selections are empty, included in the netCDF4 1.7.5 source release.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -114,6 +114,24 @@
           "title": "Preserve dimensions for empty orthogonal indexing",
           "status": "merged",
           "mergedAt": "2026-10-07T16:29:27Z"
+        }
+      ]
+    },
+    {
+      "name": "HDTN",
+      "project": "TCPCLv3 transport",
+      "logo": "images/contributions/hdtn.svg",
+      "logoSource": "https://github.com/nasa/HDTN",
+      "benefit": "Draft fix for a stalled send pipeline when a TCPCLv3 peer does not request acknowledgments. Completion follows the local TCP write and preserves each bundle's metadata across reconnections.",
+      "scope": "Draft PR",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/nasa/HDTN/pull/78",
+          "number": 78,
+          "title": "Draft: release TCPCLv3 bundles when segment ACKs are not negotiated",
+          "status": "open",
+          "mergedAt": null
         }
       ]
     },
@@ -180,7 +198,7 @@
       "project": "Display & modality lookup tables",
       "logo": "images/contributions/pydicom.png",
       "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Proposed overflow fixes for display and modality lookup-table indexing.",
+      "benefit": "Earlier overflow proposals for display and modality lookup tables. SID-6921's merged #2382 now covers the common cases; these two PRs remain open.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {

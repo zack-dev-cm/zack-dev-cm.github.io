@@ -11,7 +11,7 @@ function inspect(index) {
   if (index === null) text('#entry-detail', 'Select a bar or an index button to inspect its mapping.');
   else {
     const range = index === 0 ? `at or below ${first}` : index === 3 ? `at or above ${first + 3}` : `equal to ${first + index}`;
-    text('#entry-detail', `Index ${index} stores ${LUT[index]}. The proposed mapping sends integer inputs ${range} here. Height represents this output value.`);
+    text('#entry-detail', `Index ${index} stores ${LUT[index]}. The safe model sends integer inputs ${range} here. Height represents this output value.`);
   }
 }
 function update() {
@@ -24,7 +24,7 @@ function update() {
   text('#before-output', mapping.before); text('#after-output', mapping.after);
   text('#scene-readout', `Input ${input} · Before ${mapping.before} → After ${mapping.after}`);
   text('#before-index', `Index ${mapping.beforeIndex}`); text('#after-index', `Index ${mapping.afterIndex}`);
-  text('#comparison-note', mapping.differs ? `The same input maps to ${mapping.before} before and ${mapping.after} with the proposed correction.` : 'Both select the same table entry.');
+  text('#comparison-note', mapping.differs ? `The same input maps to ${mapping.before} before and ${mapping.after} with the safe model.` : 'Both select the same table entry.');
   text('#before-math', input < first
     ? `${input} < ${first} → index 0 → LUT[0] = 10`
     : `${input} − (${first}) = ${mapping.offset} → uint8: ${mapping.narrowed} → clip: ${mapping.beforeIndex} → LUT[${mapping.beforeIndex}] = ${mapping.before}`);
@@ -36,12 +36,12 @@ function update() {
   const stages = [
     ['One input. One table entry.', 'The first mapped input is 0. Input 2 selects index 2, whose output is 30. Both paths agree.'],
     ['Watch 255 become 256.', `The baseline narrows the offset to 8 bits before clipping. At 256 that offset becomes 0. The current input is ${input}: ${mapping.differs ? 'the baseline has wrapped to output 10.' : 'both paths still select output 40.'}`],
-    ['Keep large values at the top.', 'Input 256 is above the table’s range. The proposed integer path selects the last index directly: 3 → 40. It does not narrow 256 into an 8-bit index.'],
-    ['The offset is what matters.', 'Move the first mapped input to 100. Input 356 still has offset 256: the baseline wraps to 0, while the proposed path keeps the final output 40.']
+    ['Keep large values at the top.', 'Input 256 is above the table’s range. The safe model selects the last index directly: 3 → 40. It does not narrow 256 into an 8-bit index.'],
+    ['The offset is what matters.', 'Move the first mapped input to 100. Input 356 still has offset 256: the baseline wraps to 0, while the safe model keeps the final output 40.']
   ];
   text('#stage-label', manual ? 'Explore / Your values' : `${String(frame.chapter + 1).padStart(2, '0')} / ${CHAPTERS[frame.chapter].title}`);
   text('#stage-title', manual ? (mapping.differs ? 'The paths choose different entries.' : 'The paths agree here.') : stages[frame.chapter][0]);
-  text('#stage-copy', manual ? `Input ${input}, first mapped input ${first}. ${input < first ? 'Below-range inputs use the first entry.' : input >= first + 4 ? `The proposed mapping uses the last entry. The baseline first narrows offset ${mapping.offset} to ${mapping.narrowed}, then clips the index.` : 'This input falls within the four-entry table, so its offset is its index.'}` : stages[frame.chapter][1]);
+  text('#stage-copy', manual ? `Input ${input}, first mapped input ${first}. ${input < first ? 'Below-range inputs use the first entry.' : input >= first + 4 ? `The safe model uses the last entry. The baseline first narrows offset ${mapping.offset} to ${mapping.narrowed}, then clips the index.` : 'This input falls within the four-entry table, so its offset is its index.'}` : stages[frame.chapter][1]);
   $('#timeline').value = time;
   $('#timeline').setAttribute('aria-valuetext', `${time.toFixed(1)} seconds: ${CHAPTERS[frame.chapter].title}`);
   text('#time', `${clockText(time)} / 0:24`);
