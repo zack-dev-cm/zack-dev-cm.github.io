@@ -83,7 +83,7 @@
       "name": "Zakhar Pashkin | Senior ML Engineer - Computer Vision & Agentic AI",
       "description": "Senior ML Engineer. Computer vision, document AI, agentic systems, maintained nutrition software and published ML optimization tools.",
       "inLanguage": "en",
-      "dateModified": "2026-10-20",
+      "dateModified": "2026-10-21",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
@@ -133,19 +133,26 @@
       "@id": "https://zack-dev-cm.github.io/papers/#webpage",
       "url": "https://zack-dev-cm.github.io/papers/",
       "name": "ML Papers, Read for Builders",
-      "description": "The ML Papers, Read for Builders feed has 19 automated abstract triage notes with suggested evaluation checks and primary-source links. Latest reviews include Doing Less with More: A First-Principles Exploration of the Suitability of Agentic Computing over Alternative Architectural Choices; Evaluating Model Capabilities After Benchmark Saturation.",
+      "description": "The ML Papers, Read for Builders feed has 20 automated abstract triage notes with suggested evaluation checks and primary-source links. Latest reviews include Beckmann World Models: Direct Terminal-Map Learning for One-Step Action-Conditioned Prediction; Doing Less with More: A First-Principles Exploration of the Suitability of Agentic Computing over Alternative Architectural Choices.",
       "inLanguage": "en",
-      "dateModified": "2026-10-20T12:52:53.413Z",
+      "dateModified": "2026-10-21T13:06:09.758Z",
       "isPartOf": {
         "@id": "https://zack-dev-cm.github.io/#website"
       },
       "about": [
         {
           "@type": "ScholarlyArticle",
+          "name": "Beckmann World Models: Direct Terminal-Map Learning for One-Step Action-Conditioned Prediction",
+          "url": "https://arxiv.org/abs/2610.26903",
+          "identifier": "2610.26903",
+          "keywords": "agents, runtime, evaluation, cs.CV"
+        },
+        {
+          "@type": "ScholarlyArticle",
           "name": "Doing Less with More: A First-Principles Exploration of the Suitability of Agentic Computing over Alternative Architectural Choices",
           "url": "https://arxiv.org/abs/2610.23921",
           "identifier": "2610.23921",
-          "keywords": "agents, runtime, evaluation, cs.AI"
+          "keywords": "agents, runtime, evaluation"
         },
         {
           "@type": "ScholarlyArticle",
@@ -160,13 +167,6 @@
           "url": "https://arxiv.org/abs/2610.20665",
           "identifier": "2610.20665",
           "keywords": "agents, runtime, evaluation"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "WorldMemBench: A Comprehensive Benchmark for Memory of Video World Models",
-          "url": "https://arxiv.org/abs/2610.19063",
-          "identifier": "2610.19063",
-          "keywords": "physical-ai, world-models, computer-vision"
         }
       ],
       "isAccessibleForFree": true
