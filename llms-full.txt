@@ -50,20 +50,20 @@ Links:
 
 ### Mcp Server
 Summary: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground.
-Details: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-23.
+Details: A minimal reference implementation of the Model Context Protocol (MCP) with a few mock tools and an optional Gradio playground. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-24.
 Project URL: https://zack-dev-cm.github.io/projects/mcp-server/
 Markdown URL: https://zack-dev-cm.github.io/projects/mcp-server.md
 Key Features:
 - Public GitHub repository with README-backed source references
-- Public GitHub API snapshot captured on 2026-10-23
+- Public GitHub API snapshot captured on 2026-10-24
 - Python code surface is visible in repository metadata
 Tech Stack:
 - Python
 - GitHub
 - Open Source
 Benchmarks & Analytics:
-- GitHub stars: 0 (public GitHub API snapshot, 2026-10-23)
-- GitHub forks: 0 (public GitHub API snapshot, 2026-10-23)
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-24)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-24)
 - Created: 2025-06-04 (public GitHub repository metadata)
 - Last push: 2026-10-10 (public GitHub repository metadata)
 Links:
@@ -71,20 +71,20 @@ Links:
 
 ### Camera Kit Scanner Reproducer
 Summary: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions.
-Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-23.
+Details: Minimal React Native reproduction for Camera Kit issue 811 with native ownership regressions. This synced portfolio card is limited to public GitHub metadata, public README text, repository topics, language, stars, forks, timestamps checked on 2026-10-24.
 Project URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer/
 Markdown URL: https://zack-dev-cm.github.io/projects/camera-kit-scanner-reproducer.md
 Key Features:
 - Public GitHub repository with README-backed source references
-- Public GitHub API snapshot captured on 2026-10-23
+- Public GitHub API snapshot captured on 2026-10-24
 - Kotlin code surface is visible in repository metadata
 Tech Stack:
 - Kotlin
 - GitHub
 - Open Source
 Benchmarks & Analytics:
-- GitHub stars: 0 (public GitHub API snapshot, 2026-10-23)
-- GitHub forks: 0 (public GitHub API snapshot, 2026-10-23)
+- GitHub stars: 0 (public GitHub API snapshot, 2026-10-24)
+- GitHub forks: 0 (public GitHub API snapshot, 2026-10-24)
 - Created: 2026-09-14 (public GitHub repository metadata)
 - Last push: 2026-09-14 (public GitHub repository metadata)
 Links:
@@ -434,8 +434,8 @@ Tech Stack:
 - Markdown
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 829 (public ClawHub listing, 2026-10-23 (research-claim-ledger))
-- Published versions: 1 (public ClawHub listing, 2026-10-23 (research-claim-ledger))
+- ClawHub downloads: 834 (public ClawHub listing, 2026-10-24 (research-claim-ledger))
+- Published versions: 1 (public ClawHub listing, 2026-10-24 (research-claim-ledger))
 - Verdict labels: 9 (supported, weakly-supported, overclaimed, wrong-source, missing-locator, stale-source, inaccessible, unsupported, needs-human-review)
 - Release posture: instruction-only (SKILL.md and agent config first release; scripts deferred until example ledgers validate the workflow)
 Links:
@@ -514,8 +514,8 @@ Tech Stack:
 - Release Engineering
 - OpenClaw Skills
 Benchmarks & Analytics:
-- ClawHub downloads: 1,249 (public ClawHub listing, 2026-10-23 (github-clawhub-launcher))
-- Published versions: 9 (public ClawHub listing, 2026-10-23 (github-clawhub-launcher))
+- ClawHub downloads: 1,253 (public ClawHub listing, 2026-10-24 (github-clawhub-launcher))
+- Published versions: 9 (public ClawHub listing, 2026-10-24 (github-clawhub-launcher))
 - Public release: v1.0.7 (GitHub release, 2026-05-14)
 - Bundled scripts: 4 (manifest, check, notes, commands)
 - Publish surfaces: 2 (GitHub repo + ClawHub package)
@@ -828,9 +828,9 @@ Tech Stack:
 - Playwright
 - Chrome Web Store
 Benchmarks & Analytics:
-- Observed publisher listings: 10 (public publisher search page, 2026-10-23)
-- Reported snapshot users: 448 (8 detail pages with visible counts from the observed publisher search, 2026-10-23)
-- Average rating: 4.40 (5 reported Chrome Web Store ratings, 2026-10-23)
+- Observed publisher listings: 10 (public publisher search page, 2026-10-24)
+- Reported snapshot users: 478 (10 detail pages with visible counts from the observed publisher search, 2026-10-24)
+- Average rating: 4.40 (5 reported Chrome Web Store ratings, 2026-10-24)
 - Visible SourcePack products: 4 (Web2CSV, Video2Source, SourcePack Hub, ChatArchive in public publisher results, 2026-06-15)
 Links:
 - SourcePack product pages: https://sourcepack-tools.pages.dev/
@@ -1031,9 +1031,9 @@ Tech Stack:
 - Markdown
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 1,039 (public ClawHub listing, 2026-10-23 (openclaw-agent-chinese-laoshi))
-- Published versions: 7 (public ClawHub listing, 2026-10-23 (openclaw-agent-chinese-laoshi))
-- ClawHub stars: 1 (public ClawHub listing, 2026-10-23 (openclaw-agent-chinese-laoshi))
+- ClawHub downloads: 1,043 (public ClawHub listing, 2026-10-24 (openclaw-agent-chinese-laoshi))
+- Published versions: 7 (public ClawHub listing, 2026-10-24 (openclaw-agent-chinese-laoshi))
+- ClawHub stars: 1 (public ClawHub listing, 2026-10-24 (openclaw-agent-chinese-laoshi))
 - Clean release: 1.0.9 (public README release marker)
 - Public posture: sanitized (lesson operations without private student data)
 Links:
@@ -1158,8 +1158,8 @@ Tech Stack:
 - Release Engineering
 - Security Review
 Benchmarks & Analytics:
-- ClawHub downloads: 1,324 (public ClawHub listing, 2026-10-23 (openclaw-cws-publisher))
-- Published versions: 14 (public ClawHub listing, 2026-10-23 (openclaw-cws-publisher))
+- ClawHub downloads: 1,329 (public ClawHub listing, 2026-10-24 (openclaw-cws-publisher))
+- Published versions: 14 (public ClawHub listing, 2026-10-24 (openclaw-cws-publisher))
 - Release checks: 7 (ZIP, listing, leaks, E2E, design, Chrome Stable, competitors)
 Links:
 - View on GitHub: https://github.com/zack-dev-cm/openclaw-cws-publisher
@@ -1973,8 +1973,8 @@ Tech Stack:
 - MLOps
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 2,711 total (public ClawHub listings, 2026-10-23 (data-science-cv-repro-lab + sota-agent))
-- Published versions: 24 total (public ClawHub listings, 2026-10-23 (data-science-cv-repro-lab + sota-agent))
+- ClawHub downloads: 2,724 total (public ClawHub listings, 2026-10-24 (data-science-cv-repro-lab + sota-agent))
+- Published versions: 24 total (public ClawHub listings, 2026-10-24 (data-science-cv-repro-lab + sota-agent))
 - Live packages: 2 (data-science-cv-repro-lab + sota-agent)
 - Execution surfaces: 3 (semantic, runtime, and product-surface promotion gates)
 - Structured helpers: 29 scripts (manifests, scorecards, summaries, and claim-review tools)
@@ -2049,8 +2049,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 1,023 (public ClawHub listing, 2026-10-23 (browser-proof))
-- Published versions: 6 (public ClawHub listing, 2026-10-23 (browser-proof))
+- ClawHub downloads: 1,027 (public ClawHub listing, 2026-10-24 (browser-proof))
+- Published versions: 6 (public ClawHub listing, 2026-10-24 (browser-proof))
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Artifact fields: 5 (screenshot, dom, console, network, video)
@@ -2077,8 +2077,8 @@ Tech Stack:
 - OpenClaw Skills
 - GitHub
 Benchmarks & Analytics:
-- ClawHub downloads: 1,003 (public ClawHub listing, 2026-10-23 (public-surface-review))
-- Published versions: 6 (public ClawHub listing, 2026-10-23 (public-surface-review))
+- ClawHub downloads: 1,007 (public ClawHub listing, 2026-10-24 (public-surface-review))
+- Published versions: 6 (public ClawHub listing, 2026-10-24 (public-surface-review))
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (leaks, surface, copy score, report)
 - Audit outputs: 4 (2 scans, 1 score, 1 markdown audit)
@@ -2108,8 +2108,8 @@ Tech Stack:
 - Suno
 - GitHub Actions
 Benchmarks & Analytics:
-- ClawHub downloads: 1,110 (public ClawHub listing, 2026-10-23 (youtube-creator-ops))
-- Published versions: 13 (public ClawHub listing, 2026-10-23 (youtube-creator-ops))
+- ClawHub downloads: 1,115 (public ClawHub listing, 2026-10-24 (youtube-creator-ops))
+- Published versions: 13 (public ClawHub listing, 2026-10-24 (youtube-creator-ops))
 - Public release: v1.1.3 (GitHub + ClawHub)
 - Platform: YouTube Studio (browser-based publish flow)
 - Modes: dry_run + live (same manifest, different publish intent)
@@ -2138,8 +2138,8 @@ Tech Stack:
 - OpenClaw Skills
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 1,041 (public ClawHub listing, 2026-10-23 (artifact-redactor))
-- Published versions: 8 (public ClawHub listing, 2026-10-23 (artifact-redactor))
+- ClawHub downloads: 1,046 (public ClawHub listing, 2026-10-24 (artifact-redactor))
+- Published versions: 8 (public ClawHub listing, 2026-10-24 (artifact-redactor))
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Bundled scripts: 4 (scan, redact, check, report)
 - Pattern families: 6 (restricted URL, path, secret, email, phone, public-url query cleanup)
@@ -2168,8 +2168,8 @@ Tech Stack:
 - PPTX
 - Release Engineering
 Benchmarks & Analytics:
-- ClawHub downloads: 1,077 (public ClawHub listing, 2026-10-23 (artifact-deck))
-- Published versions: 7 (public ClawHub listing, 2026-10-23 (artifact-deck))
+- ClawHub downloads: 1,081 (public ClawHub listing, 2026-10-24 (artifact-deck))
+- Published versions: 7 (public ClawHub listing, 2026-10-24 (artifact-deck))
 - Public release: v1.0.3 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, check, build, render)
 - Primary output: PPTX (deterministic local deck build)
@@ -2198,10 +2198,10 @@ Tech Stack:
 - Markdown Reports
 - Open-source Analytics
 Benchmarks & Analytics:
-- Tracked ClawHub downloads: 49,177 (public ClawHub owner profile, 2026-10-23 across 53 skills)
-- Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-23)
-- CV Repro Lab downloads: 2,711 total (1,468 data-science-cv-repro-lab + 1,243 sota-agent, 2026-10-23)
-- Strongest skill: 3,414 downloads (gstack-review-stack public listing, 2026-10-23)
+- Tracked ClawHub downloads: 49,422 (public ClawHub owner profile, 2026-10-24 across 53 skills)
+- Tracked public skills: 53 (53 rows from live ClawHub publisher profile and paginated published-skill query, 2026-10-24)
+- CV Repro Lab downloads: 2,724 total (1,475 data-science-cv-repro-lab + 1,249 sota-agent, 2026-10-24)
+- Strongest skill: 3,418 downloads (gstack-review-stack public listing, 2026-10-24)
 - Report outputs: 3 (text, JSON, Markdown)
 - Projection horizon: 30 days (pace and peer-conversion upside scenarios)
 Links:
@@ -2242,8 +2242,8 @@ Tech Stack:
 - Python
 - OpenClaw Skills
 Benchmarks & Analytics:
-- ClawHub downloads: 1,049 (public ClawHub listing, 2026-10-23 (hh-openclaw-agent))
-- Published versions: 8 (public ClawHub listing, 2026-10-23 (hh-openclaw-agent))
+- ClawHub downloads: 1,054 (public ClawHub listing, 2026-10-24 (hh-openclaw-agent))
+- Published versions: 8 (public ClawHub listing, 2026-10-24 (hh-openclaw-agent))
 - Public release: v1.0.5 (GitHub + ClawHub)
 - Public posture: name-only (portfolio copy intentionally keeps only the skill name)
 Links:
