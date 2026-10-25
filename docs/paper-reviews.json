@@ -63,11 +63,10 @@
       "tags": [
         "agents",
         "runtime",
-        "evaluation",
-        "cs.CV"
+        "evaluation"
       ],
       "selectionScore": 222,
-      "selectionReason": "Selected from primary ML research feeds because it has a recent source link, a concrete technical claim, and a verification question builders can test.",
+      "selectionReason": "Selected because the paper has a primary source link and a clear implementation question for agents, CV, retrieval, reasoning, or ML systems.",
       "editorVerdict": "For engineers building agent runtimes, compare the declared task, baseline and failure cases before deciding whether Beckmann World Models: Direct Terminal-Map Learning for One-Step Action-Conditioned Prediction informs an implementation choice.",
       "whatItClaims": "Adam Lee, Shobhit Agarwal, June Pyo Suh report in the abstract: \"We introduce Beckmann World Models (BWM), which learn a direct map from noise, visual history, and actions to future frames…\"",
       "technicalHinge": "Which inputs, intermediate outputs and task-specific comparisons would let you test the abstract's claim about world model?",
@@ -77,14 +76,6 @@
         "Start with the problem sentence: what limitation in current practice does Beckmann World Models: Direct Terminal-Map Learning for One-Step Action-Conditioned Prediction actually attack?",
         "Find the ablation or comparison that isolates world model. If it is missing, treat the result as a hypothesis, not guidance.",
         "Read failure cases before the leaderboard table; the most useful papers make their limits operational."
-      ],
-      "abstractExcerpt": "",
-      "claimAtoms": [
-        "world model",
-        "beckmann world models",
-        "direct terminal",
-        "map learning for one",
-        "policy evaluation"
       ],
       "sourceLedger": [
         {
