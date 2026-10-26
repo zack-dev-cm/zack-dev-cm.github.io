@@ -23,8 +23,8 @@ https://zack-dev-cm.github.io/projects/openclaw-cws-publisher.md
 - Security Review
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 1,333 (public ClawHub listing, 2026-10-25 (openclaw-cws-publisher))
-- Published versions: 14 (public ClawHub listing, 2026-10-25 (openclaw-cws-publisher))
+- ClawHub downloads: 1,338 (public ClawHub listing, 2026-10-26 (openclaw-cws-publisher))
+- Published versions: 14 (public ClawHub listing, 2026-10-26 (openclaw-cws-publisher))
 - Release checks: 7 (ZIP, listing, leaks, E2E, design, Chrome Stable, competitors)
 
 ## Links
