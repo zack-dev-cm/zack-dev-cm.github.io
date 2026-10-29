@@ -24,8 +24,8 @@ https://zack-dev-cm.github.io/projects/browser-qa-report-pack.md
 - Release Engineering
 
 ## Benchmarks & Analytics
-- ClawHub downloads: 1,044 (public ClawHub listing, 2026-10-28 (browser-proof))
-- Published versions: 6 (public ClawHub listing, 2026-10-28 (browser-proof))
+- ClawHub downloads: 1,050 (public ClawHub listing, 2026-10-29 (browser-proof))
+- Published versions: 6 (public ClawHub listing, 2026-10-29 (browser-proof))
 - Public release: v1.0.2 (GitHub + ClawHub)
 - Bundled scripts: 4 (init, append, check, render)
 - Artifact fields: 5 (screenshot, dom, console, network, video)
