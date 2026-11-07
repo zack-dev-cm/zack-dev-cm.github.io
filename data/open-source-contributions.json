@@ -424,6 +424,23 @@
       ]
     },
     {
+      "name": "Thermobar",
+      "project": "Olivine-liquid matching",
+      "logo": "images/contributions/thermobar.png",
+      "logoSource": "https://github.com/PennyWieser.png?size=128",
+      "benefit": "Proposed fix for missing temperature outputs in olivine-liquid matching, with checks for conflicting column names.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/PennyWieser/Thermobar/pull/57",
+          "number": 57,
+          "title": "Restore calculated outputs from olivine-liquid matching",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
       "name": "CompTech",
       "project": "who-signed",
       "logo": "images/contributions/comptech.png",
