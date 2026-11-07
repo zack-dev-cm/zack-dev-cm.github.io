@@ -99,7 +99,7 @@ export const OPEN_SOURCE_CONTRIBUTIONS: OpenSourceContribution[] = [
     avatarUrl: resolveAssetUrl(project.logo),
     repo: new URL(pr.url).pathname.split('/').slice(1, 3).join('/'),
     contribution: pr.title,
-    evidenceLabel: pr.status === 'merged' ? 'Merged PR' : 'Open PR',
+    evidenceLabel: 'PR',
     sourceUrl: pr.url,
     account: project.account as OpenSourceContribution['account']
   }))),

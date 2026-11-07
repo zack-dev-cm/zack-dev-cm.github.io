@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-18",
+  "verifiedAt": "2026-11-07",
   "projects": [
     {
       "name": "Neuralink",
       "project": "datarepo",
       "logo": "images/contributions/neuralink.png",
       "logoSource": "https://github.com/neuralinkcorp.png?size=96",
-      "benefit": "Six merged fixes for query correctness, generated Python literals, credential refresh and Python packaging.",
+      "benefit": "Merged fixes for query correctness, Python literals, credential refresh and packaging.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -14,53 +14,219 @@
           "number": 73,
           "title": "Preserve Python literals in generated catalog queries",
           "status": "merged",
-          "mergedAt": "2026-10-07T22:30:43Z"
+          "mergedAt": "2026-10-07T22:30:43Z",
+          "mergedBy": "saarthak2002"
         },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/74",
           "number": 74,
           "title": "Keep storage credential tuples coherent during refresh",
           "status": "merged",
-          "mergedAt": "2026-10-05T22:20:32Z"
+          "mergedAt": "2026-10-05T22:20:32Z",
+          "mergedBy": "saarthak2002"
         },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/68",
           "number": 68,
           "title": "Preserve complete ClickHouse row identity during projected reads",
           "status": "merged",
-          "mergedAt": "2026-09-16T20:14:35Z"
+          "mergedAt": "2026-09-16T20:14:35Z",
+          "mergedBy": "saarthak2002"
         },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/67",
           "number": 67,
           "title": "Preserve satisfied OR branches during Parquet partition pruning",
           "status": "merged",
-          "mergedAt": "2026-09-16T20:14:31Z"
+          "mergedAt": "2026-09-16T20:14:31Z",
+          "mergedBy": "saarthak2002"
         },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/57",
           "number": 57,
           "title": "Fix ClickHouse null predicates and reject unsupported filters",
           "status": "merged",
-          "mergedAt": "2026-09-08T08:26:28Z"
-        },
-        {
-          "url": "https://github.com/neuralinkcorp/datarepo/pull/58",
-          "number": 58,
-          "title": "Make the README quick start runnable with local synthetic data (later reverted)",
-          "status": "merged",
-          "mergedAt": "2026-09-16T20:14:22Z",
-          "revertedBy": "https://github.com/neuralinkcorp/datarepo/pull/72"
+          "mergedAt": "2026-09-08T08:26:28Z",
+          "mergedBy": "saarthak2002"
         },
         {
           "url": "https://github.com/neuralinkcorp/datarepo/pull/59",
           "number": 59,
           "title": "Declare Python 3.10 minimum and verify installed wheels",
           "status": "merged",
-          "mergedAt": "2026-09-16T20:14:26Z"
+          "mergedAt": "2026-09-16T20:14:26Z",
+          "mergedBy": "saarthak2002"
         }
-      ],
-      "scope": "#58 documentation change reverted in #72"
+      ]
+    },
+    {
+      "name": "Unidata",
+      "project": "netCDF4",
+      "logo": "images/contributions/unidata.png",
+      "logoSource": "https://github.com/Unidata.png?size=96",
+      "benefit": "Fixed array dimensions when scientific-data selections are empty. Included in the netCDF4 1.7.5 source release.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/Unidata/netcdf4-python/pull/1499",
+          "number": 1499,
+          "title": "Preserve dimensions for empty orthogonal indexing",
+          "status": "merged",
+          "mergedAt": "2026-10-07T16:29:27Z",
+          "mergedBy": "jswhit"
+        }
+      ]
+    },
+    {
+      "name": "pydicom",
+      "project": "Pixel encoding",
+      "logo": "images/contributions/pydicom.png",
+      "logoSource": "https://github.com/pydicom.png?size=96",
+      "benefit": "Preserved packed one-bit pixels from big-endian OW input during compression.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/pydicom/pydicom/pull/2380",
+          "number": 2380,
+          "title": "Normalize packed one-bit OW data before frame encoding",
+          "status": "merged",
+          "mergedAt": "2026-10-13T18:33:27Z",
+          "mergedBy": "darcymason"
+        }
+      ]
+    },
+    {
+      "name": "GPlates",
+      "project": "GPlately",
+      "logo": "images/contributions/gplates.png",
+      "logoSource": "https://github.com/GPlates.png?size=128",
+      "benefit": "Clarified reconstruction coordinate order and return shapes.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/GPlates/gplately/pull/471",
+          "number": 471,
+          "title": "Clarify Points.reconstruct return order and tuple shapes",
+          "status": "merged",
+          "mergedAt": "2026-11-06T13:08:53Z",
+          "mergedBy": "jcannon-gplates"
+        }
+      ]
+    },
+    {
+      "name": "OpenClaw",
+      "project": "ClawPatch",
+      "logo": "images/contributions/openclaw.jpg",
+      "logoSource": "https://github.com/openclaw.png?size=96",
+      "benefit": "Fixes crawler access and adds website checks.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/openclaw/clawpatch/pull/95",
+          "number": 95,
+          "title": "[codex] fix site crawler checks",
+          "status": "merged",
+          "mergedAt": "2026-05-22T09:33:12Z",
+          "mergedBy": "steipete"
+        }
+      ]
+    },
+    {
+      "name": "Keras",
+      "project": "Examples",
+      "logo": "images/contributions/keras.jpg",
+      "logoSource": "https://github.com/keras-team.png?size=96",
+      "benefit": "Adds missing setup dependencies for a documentation example.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/keras-team/keras-io/pull/520",
+          "number": 520,
+          "title": "Updated add dependencies",
+          "status": "merged",
+          "mergedAt": "2021-06-27T20:47:14Z",
+          "mergedBy": "fchollet"
+        }
+      ]
+    },
+    {
+      "name": "Toloka",
+      "project": "Python SDK",
+      "logo": "images/contributions/toloka.png",
+      "logoSource": "https://github.com/Toloka.png?size=96",
+      "benefit": "Fixes the pool analytics code example.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/Toloka/toloka-kit/pull/55",
+          "number": 55,
+          "title": "Replace undefined var \"op\" to \"operation\"",
+          "status": "merged",
+          "mergedAt": "2022-06-22T15:53:14Z",
+          "mergedBy": "DrhF"
+        }
+      ]
+    },
+    {
+      "name": "Mobile marking detector",
+      "project": "PyTorch Lite",
+      "logo": "images/contributions/mobile-marking.jpg",
+      "logoSource": "https://github.com/AndreyPetrovv.png?size=96",
+      "benefit": "Updates Android inference to PyTorch Lite and its correct model loader.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/AndreyPetrovv/MobileDetectionOfSideFrameMarking/pull/1",
+          "number": 1,
+          "title": "Updated pytorch_android dependencies",
+          "status": "merged",
+          "mergedAt": "2021-06-25T12:16:35Z",
+          "mergedBy": "AndreyPetrovv"
+        },
+        {
+          "url": "https://github.com/AndreyPetrovv/MobileDetectionOfSideFrameMarking/pull/2",
+          "number": 2,
+          "title": "updated import org.pytorch.LiteModuleLoader",
+          "status": "merged",
+          "mergedAt": "2021-06-25T12:16:15Z",
+          "mergedBy": "AndreyPetrovv"
+        }
+      ]
+    },
+    {
+      "name": "Random Face",
+      "project": "Colab setup",
+      "logo": "images/contributions/random-face.jpg",
+      "logoSource": "https://github.com/bes-dev.png?size=96",
+      "benefit": "Repairs model downloads and adds a runnable Colab entry point.",
+      "account": "ZackPashkin",
+      "pullRequests": [
+        {
+          "url": "https://github.com/bes-dev/random_face/pull/1",
+          "number": 1,
+          "title": "fixed gdown issue",
+          "status": "merged",
+          "mergedAt": "2021-04-13T15:04:08Z",
+          "mergedBy": "bes-dev"
+        }
+      ]
+    },
+    {
+      "name": "HDTN",
+      "project": "TCPCLv3 transport",
+      "logo": "images/contributions/nasa.png",
+      "logoSource": "https://github.com/nasa.png?size=128",
+      "benefit": "Proposed fix for a stalled send pipeline when the peer does not request acknowledgments.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/nasa/HDTN/pull/78",
+          "number": 78,
+          "title": "Fix TCPCLv3 pipeline stalls when segment ACKs are not negotiated",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
     },
     {
       "name": "Tesla",
@@ -94,42 +260,7 @@
         {
           "url": "https://github.com/teslamotors/react-native-camera-kit/pull/816",
           "number": 816,
-          "title": "Fix iOS CI toolchain drift and default-branch triggers",
-          "status": "open",
-          "mergedAt": null
-        }
-      ]
-    },
-    {
-      "name": "Unidata",
-      "project": "netCDF4",
-      "logo": "images/contributions/unidata.png",
-      "logoSource": "https://github.com/Unidata.png?size=96",
-      "benefit": "Merged fix for array dimensions when scientific-data selections are empty, included in the netCDF4 1.7.5 source release.",
-      "account": "zack-dev-cm",
-      "pullRequests": [
-        {
-          "url": "https://github.com/Unidata/netcdf4-python/pull/1499",
-          "number": 1499,
-          "title": "Preserve dimensions for empty orthogonal indexing",
-          "status": "merged",
-          "mergedAt": "2026-10-07T16:29:27Z"
-        }
-      ]
-    },
-    {
-      "name": "HDTN",
-      "project": "TCPCLv3 transport",
-      "logo": "images/contributions/hdtn.svg",
-      "logoSource": "https://github.com/nasa/HDTN",
-      "benefit": "Draft fix for a stalled send pipeline when a TCPCLv3 peer does not request acknowledgments. Completion follows the local TCP write and preserves each bundle's metadata across reconnections.",
-      "scope": "Draft PR",
-      "account": "zack-dev-cm",
-      "pullRequests": [
-        {
-          "url": "https://github.com/nasa/HDTN/pull/78",
-          "number": 78,
-          "title": "Draft: release TCPCLv3 bundles when segment ACKs are not negotiated",
+          "title": "Fix Linux CI, pin Xcode and run Android regressions",
           "status": "open",
           "mergedAt": null
         }
@@ -198,7 +329,7 @@
       "project": "Display & modality lookup tables",
       "logo": "images/contributions/pydicom.png",
       "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Earlier overflow proposals for display and modality lookup tables. SID-6921's merged #2382 now covers the common cases; these two PRs remain open.",
+      "benefit": "Earlier overflow proposals. SID-6921's follow-up covers the common cases.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
@@ -214,23 +345,6 @@
           "title": "Prevent overflow in Modality LUT index calculation",
           "status": "open",
           "mergedAt": null
-        }
-      ]
-    },
-    {
-      "name": "pydicom",
-      "project": "Pixel encoding",
-      "logo": "images/contributions/pydicom.png",
-      "logoSource": "https://github.com/pydicom.png?size=96",
-      "benefit": "Merged fix preserving packed one-bit pixels from big-endian OW input during compression.",
-      "account": "zack-dev-cm",
-      "pullRequests": [
-        {
-          "url": "https://github.com/pydicom/pydicom/pull/2380",
-          "number": 2380,
-          "title": "Normalize packed one-bit OW data before frame encoding",
-          "status": "merged",
-          "mergedAt": "2026-10-13T18:33:27Z"
         }
       ]
     },
@@ -276,77 +390,19 @@
       ]
     },
     {
-      "name": "OpenClaw",
-      "project": "ClawPatch",
-      "logo": "images/contributions/openclaw.jpg",
-      "logoSource": "https://github.com/openclaw.png?size=96",
-      "benefit": "Fixes crawler access and adds website checks.",
+      "name": "GuidedSAM-Plume",
+      "project": "Dataset export",
+      "logo": "images/contributions/guidedsam.png",
+      "logoSource": "https://github.com/tad-damo.png?size=128",
+      "benefit": "Proposed ImageFolder export for the released plume dataset.",
       "account": "zack-dev-cm",
       "pullRequests": [
         {
-          "url": "https://github.com/openclaw/clawpatch/pull/95",
-          "number": 95,
-          "title": "[codex] fix site crawler checks",
-          "status": "merged",
-          "mergedAt": "2026-05-22T09:33:12Z"
-        }
-      ]
-    },
-    {
-      "name": "Keras",
-      "project": "Examples",
-      "logo": "images/contributions/keras.jpg",
-      "logoSource": "https://github.com/keras-team.png?size=96",
-      "benefit": "Adds missing setup dependencies for a documentation example.",
-      "account": "ZackPashkin",
-      "pullRequests": [
-        {
-          "url": "https://github.com/keras-team/keras-io/pull/520",
-          "number": 520,
-          "title": "Updated add dependencies",
-          "status": "merged",
-          "mergedAt": "2021-06-27T20:47:14Z"
-        }
-      ]
-    },
-    {
-      "name": "Mobile marking detector",
-      "project": "PyTorch Lite",
-      "logo": "images/contributions/mobile-marking.jpg",
-      "logoSource": "https://github.com/AndreyPetrovv.png?size=96",
-      "benefit": "Updates Android inference to PyTorch Lite and its correct model loader.",
-      "account": "ZackPashkin",
-      "pullRequests": [
-        {
-          "url": "https://github.com/AndreyPetrovv/MobileDetectionOfSideFrameMarking/pull/1",
-          "number": 1,
-          "title": "Updated pytorch_android dependencies",
-          "status": "merged",
-          "mergedAt": "2021-06-25T12:16:35Z"
-        },
-        {
-          "url": "https://github.com/AndreyPetrovv/MobileDetectionOfSideFrameMarking/pull/2",
+          "url": "https://github.com/tad-damo/GuidedSAM-Plume/pull/2",
           "number": 2,
-          "title": "updated import org.pytorch.LiteModuleLoader",
-          "status": "merged",
-          "mergedAt": "2021-06-25T12:16:15Z"
-        }
-      ]
-    },
-    {
-      "name": "Toloka",
-      "project": "Python SDK",
-      "logo": "images/contributions/toloka.png",
-      "logoSource": "https://github.com/Toloka.png?size=96",
-      "benefit": "Fixes the pool analytics code example.",
-      "account": "ZackPashkin",
-      "pullRequests": [
-        {
-          "url": "https://github.com/Toloka/toloka-kit/pull/55",
-          "number": 55,
-          "title": "Replace undefined var \"op\" to \"operation\"",
-          "status": "merged",
-          "mergedAt": "2022-06-22T15:53:14Z"
+          "title": "Add ImageFolder export for the released dataset",
+          "status": "open",
+          "mergedAt": null
         }
       ]
     },
@@ -363,31 +419,16 @@
           "number": 2,
           "title": "Bot",
           "status": "merged",
-          "mergedAt": "2022-02-01T12:23:09Z"
+          "mergedAt": "2022-02-01T12:23:09Z",
+          "mergedBy": "ZackPashkin"
         },
         {
           "url": "https://github.com/comptech-winter-school/who-signed/pull/3",
           "number": 3,
           "title": "Bot",
           "status": "merged",
-          "mergedAt": "2022-02-05T13:47:12Z"
-        }
-      ]
-    },
-    {
-      "name": "Random Face",
-      "project": "Colab setup",
-      "logo": "images/contributions/random-face.jpg",
-      "logoSource": "https://github.com/bes-dev.png?size=96",
-      "benefit": "Repairs model downloads and adds a runnable Colab entry point.",
-      "account": "ZackPashkin",
-      "pullRequests": [
-        {
-          "url": "https://github.com/bes-dev/random_face/pull/1",
-          "number": 1,
-          "title": "fixed gdown issue",
-          "status": "merged",
-          "mergedAt": "2021-04-13T15:04:08Z"
+          "mergedAt": "2022-02-05T13:47:12Z",
+          "mergedBy": "ZackPashkin"
         }
       ]
     },
@@ -404,7 +445,8 @@
           "number": 1,
           "title": "README_en.md",
           "status": "merged",
-          "mergedAt": "2020-09-09T11:27:28Z"
+          "mergedAt": "2020-09-09T11:27:28Z",
+          "mergedBy": "ZackPashkin"
         }
       ]
     }

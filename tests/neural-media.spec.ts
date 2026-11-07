@@ -3,9 +3,10 @@ import { test, expect } from '@playwright/test';
 test('datarepo stays in contributions, with retired project and 3D links redirected', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#featured')).not.toContainText(/datarepo/i);
-  for (const number of [57, 58, 59]) {
+  for (const number of [57, 59, 67, 68, 73, 74]) {
     await expect(page.locator(`#contributed-to a[href="https://github.com/neuralinkcorp/datarepo/pull/${number}"]`)).toHaveCount(1);
   }
+  await expect(page.locator('#contributed-to a[href="https://github.com/neuralinkcorp/datarepo/pull/58"]')).toHaveCount(0);
   const discovery = await (await page.request.get('/agent-discovery.json')).json();
   expect([...discovery.featuredProjects, ...discovery.allProjects].some((project: { id: number; title: string }) =>
     project.id === 83 || /neuralink.*contributions/i.test(project.title))).toBe(false);

@@ -1,4 +1,4 @@
-import { contributionSummary } from '../utils/contribution-summary.mjs';
+import { contributionSummary, isMaintainerMerged } from '../utils/contribution-summary.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -1155,9 +1155,13 @@ const buildStaticHomeSnapshot = (projects, topProjects) => {
     '  <section id="contributed-to" class="crawlable-shell__section">',
     '    <h2>Open-source contributions</h2>',
     `    <p>Contributions to public projects. Each links to the proposed or merged change.</p>`,
-    '    <ul class="crawlable-shell__link-list">',
-    ...CONTRIBUTION_DATA.projects.map((project) => `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)} ${escapeHtml(contributionSummary(project.pullRequests))}.${project.scope ? ` (${escapeHtml(project.scope)})` : ''} ${project.pullRequests.map((pr) => `<a href="${escapeHtml(pr.url)}">#${pr.number} (${escapeHtml(pr.status)})</a>`).join(' · ')}</li>`),
-    '    </ul>',
+    ...['Merged contributions', 'Other contributions'].flatMap((heading, index) => [
+      `    <h3>${heading}</h3>`,
+      '    <ul class="crawlable-shell__link-list">',
+      ...CONTRIBUTION_DATA.projects.filter(project => isMaintainerMerged(project) === (index === 0)).map(project =>
+        `      <li><strong>${escapeHtml(project.name)} · ${escapeHtml(project.project)}</strong> — ${escapeHtml(project.benefit)}${index === 0 ? ` ${escapeHtml(contributionSummary(project.pullRequests))}.` : ''} ${project.pullRequests.map(pr => `<a href="${escapeHtml(pr.url)}">#${pr.number}</a>`).join(' · ')}${project.name === 'pydicom' && project.project === 'Display & modality lookup tables' ? ' <a href="https://github.com/pydicom/pydicom/pull/2382">Follow-up by SID-6921 · #2382</a>' : ''}</li>`),
+      '    </ul>',
+    ]),
     '    <p>Playable examples: <a href="/docs/contribution-lab/">netCDF4 empty selections</a> · <a href="/docs/contribution-lab/pydicom.html">pydicom lookup-table indexing</a> · <a href="/docs/contribution-lab/reproject.html">reproject coordinate round trips</a>.</p>',
     '  </section>',
     '  <section id="projects" class="crawlable-shell__section">',

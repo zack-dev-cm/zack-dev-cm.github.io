@@ -1,4 +1,4 @@
-import { contributionSummary } from './utils/contribution-summary.mjs';
+import { isMaintainerMerged } from './utils/contribution-summary.mjs';
 import React, { useMemo, useState, useEffect, useRef, useCallback, useDeferredValue } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { Sidebar } from './components/Sidebar';
@@ -6,6 +6,7 @@ import { ArchiveProjectCard as ProjectCard } from './components/ArchiveProjectCa
 import { ProjectModal } from './components/ProjectModal';
 import { PreviewVideo } from './components/PreviewVideo';
 import { Section } from './components/Section';
+import { ContributionProject } from './components/ContributionProject';
 import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, TelegramIcon, XSocialIcon } from './components/Icons';
 import {
   PROJECTS,
@@ -26,6 +27,8 @@ import type { ChromeExtensionStat, Project, PortfolioUpdates, LatestUpdate } fro
 const FEATURED_PROJECT_IDS = [101, 77, 82, 84, 63, 81, 11, 72] as const;
 const FEATURED_PROJECT_INDEX: Map<number, number> = new Map(FEATURED_PROJECT_IDS.map((id, index) => [id, index]));
 const ENABLE_VERCEL_ANALYTICS = import.meta.env.VITE_ENABLE_VERCEL_ANALYTICS === 'true';
+const MERGED_CONTRIBUTIONS = OPEN_SOURCE_PROJECTS.filter(isMaintainerMerged);
+const OTHER_CONTRIBUTIONS = OPEN_SOURCE_PROJECTS.filter(project => !isMaintainerMerged(project));
 
 const FEATURED_PROJECT_CONTEXT: Record<number, {
   label: string; title: string; summary: string; imageIndex?: number; previewVideo?: string; previewPoster?: string; figureLabel?: string; artifact?: { heading: string; lines: string[]; footer: string };
@@ -101,7 +104,7 @@ const COMPUTER_VISION_PRIORITY_IDS = [70, 72, 71, 76, 77, 73, 74, 63, 80, 41, 10
 const AI_SYSTEM_PRIORITY_IDS = [66, 44, 78, 79, 81, 72, 70, 77, 76, 71, 74, 80, 40, 65, 67, 28, 26, 1, 2, 5, 35, 56, 53, 45, 75, 69, 68, 64, 62, 60, 61, 57, 58, 46, 47, 48, 49, 51, 52, 31, 30, 39, 38, 36, 29, 23, 24, 27, 3, 11, 43] as const;
 const PROJECT_ARCHIVE_INITIAL_LIMIT = 9;
 const ISSUE_PARTICIPATION = OPEN_SOURCE_CONTRIBUTIONS
-  .filter((item) => item.evidenceLabel !== 'Merged PR' && item.evidenceLabel !== 'Open PR');
+  .filter(item => item.evidenceLabel.startsWith('Issue'));
 
 const renderContribution = (item: (typeof OPEN_SOURCE_CONTRIBUTIONS)[number]) => (
   <li key={item.sourceUrl}>
@@ -1332,31 +1335,24 @@ const App: React.FC = () => {
             title="Open-source contributions"
             description="Contributions to public projects. Each links to the proposed or merged change."
           >
-            <ul className="contribution-list contribution-projects">
-              {OPEN_SOURCE_PROJECTS.map((project) => {
-                const merged = project.pullRequests.filter((pr) => pr.status === 'merged').length;
-                const status = contributionSummary(project.pullRequests);
-                return (
-                  <li className="contribution-project" key={`${project.name}-${project.project}`}>
-                    <img className="contribution-project__logo" src={resolveAssetUrl(project.logo)} alt="" width="48" height="48" loading="lazy" />
-                    <div className="contribution-project__body">
-                      <div className="contribution-card__heading">
-                        <h3 className="contribution-project__name">{project.name} <span>· {project.project}</span></h3>
-                        <span className={`contribution-card__status${merged === project.pullRequests.length ? ' is-merged' : ''}`}>{status}</span>
-                        {project.scope && <span className="contribution-card__status">{project.scope}</span>}
-                      </div>
-                      <p className="contribution-card__description">{project.benefit}</p>
-                      {project.name === 'Unidata' && <a href="/docs/contribution-lab/" className="contribution-card__action">Explore empty selections in 3D <span aria-hidden="true">↗</span></a>}
-                      {project.name === 'pydicom' && project.project === 'Display & modality lookup tables' && <a href="/docs/contribution-lab/pydicom.html" className="contribution-card__action">Play the display lookup example <span aria-hidden="true">↗</span></a>}
-                      {project.name === 'Astropy' && <a href="/docs/contribution-lab/reproject.html" className="contribution-card__action">Follow a sky pixel in 3D <span aria-hidden="true">↗</span></a>}
-                    </div>
-                    <div className="contribution-project__links" aria-label={`${project.name} pull requests`}>
-                      {project.pullRequests.map((pr) => <a key={pr.url} href={pr.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} #${pr.number}: ${pr.title} (${pr.status})`} title={pr.title}>#{pr.number}<span aria-hidden="true">↗</span></a>)}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="contribution-group" aria-labelledby="merged-contributions">
+              <h3 id="merged-contributions" className="contribution-group__title">Merged contributions</h3>
+              <ul className="contribution-list contribution-featured">
+                {MERGED_CONTRIBUTIONS.slice(0, 4).map(project => <ContributionProject key={`${project.name}-${project.project}`} project={project} merged />)}
+              </ul>
+              <details className="contribution-participation contribution-more-merged">
+                <summary>More merged contributions <span aria-hidden="true">+</span></summary>
+                <ul className="contribution-list">
+                  {MERGED_CONTRIBUTIONS.slice(4).map(project => <ContributionProject key={`${project.name}-${project.project}`} project={project} merged />)}
+                </ul>
+              </details>
+            </div>
+            <div className="contribution-group" aria-labelledby="other-contributions">
+              <h3 id="other-contributions" className="contribution-group__title">Other contributions</h3>
+              <ul className="contribution-list contribution-other">
+                {OTHER_CONTRIBUTIONS.map(project => <ContributionProject key={`${project.name}-${project.project}`} project={project} />)}
+              </ul>
+            </div>
             <details className="contribution-participation">
               <summary>Bug reports &amp; issue discussions <span aria-hidden="true">+</span></summary>
               <ul className="contribution-list">{ISSUE_PARTICIPATION.map(renderContribution)}</ul>

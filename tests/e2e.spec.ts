@@ -438,10 +438,18 @@ test('homepage renders core sections and project discovery controls', async ({ p
   await expect(page).toHaveURL(/#contributed-to$/);
   await expect(contributedSection.getByRole('heading', { name: 'Open-source contributions' })).toBeInViewport();
   await expect(contributedSection.locator('.contribution-project').first()).toContainText('Neuralink');
-  await expect(contributedSection.locator('.contribution-project').first()).toContainText('6 merged PRs · 1 reverted PR');
+  await expect(contributedSection.locator('.contribution-project').first()).toContainText('6 merged PRs');
   await expect(contributedSection.getByRole('link', { name: 'Read the validation notes' })).toHaveCount(0);
-  await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('Tesla');
-  await expect(contributedSection.locator('.contribution-project').nth(1)).toContainText('4 open PRs');
+  await expect(contributedSection.locator('.contribution-featured > li')).toHaveCount(4);
+  await expect(contributedSection.locator('.contribution-featured > li').nth(1)).toContainText('Unidata');
+  await expect(contributedSection.locator('.contribution-featured > li').nth(2)).toContainText('Pixel encoding');
+  await expect(contributedSection.locator('.contribution-featured > li').nth(3)).toContainText('GPlates');
+  const otherContributions = contributedSection.locator('.contribution-other');
+  await expect(contributedSection.getByRole('heading', { name: 'Other contributions', exact: true })).toBeVisible();
+  await expect(otherContributions.locator('.contribution-card__status')).toHaveCount(0);
+  await expect(otherContributions).not.toContainText(/\d+ open PRs?|open proposals|\breverted\b/i);
+  await expect(contributedSection.locator('a[href="https://github.com/neuralinkcorp/datarepo/pull/58"]')).toHaveCount(0);
+  await contributedSection.locator('.contribution-more-merged > summary').click();
   await expect(contributedSection.getByRole('link', { name: 'Follow a sky pixel in 3D' })).toBeVisible();
   await expect(contributedSection.getByRole('link', { name: '#2380' })).toHaveAttribute('href', 'https://github.com/pydicom/pydicom/pull/2380');
   for (const project of OPEN_SOURCE_PROJECTS) {
@@ -449,12 +457,19 @@ test('homepage renders core sections and project discovery controls', async ({ p
     await expect(row).toContainText(project.benefit);
     await expectImageLoaded(row.locator('img'), `${project.name} logo`);
     for (const pr of project.pullRequests) {
-      await expect(row.locator(`a[href="${pr.url}"]`)).toHaveAccessibleName(`${project.name} #${pr.number}: ${pr.title} (${pr.status})`);
+      await expect(row.locator(`a[href="${pr.url}"]`)).toHaveAccessibleName(`${project.name} #${pr.number}: ${pr.title}`);
     }
   }
-  await expect(contributedSection.locator('.contribution-participation')).not.toHaveAttribute('open', '');
-  await contributedSection.locator('.contribution-participation > summary').click();
-  await expect(contributedSection.locator('a[href*="github.com/"]')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length);
+  const issueParticipation = contributedSection.locator('.contribution-participation').last();
+  await expect(issueParticipation).not.toHaveAttribute('open', '');
+  await issueParticipation.locator('summary').click();
+  await expect(issueParticipation.locator('a')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.filter(item => item.evidenceLabel.startsWith('Issue')).length);
+  for (const project of OPEN_SOURCE_PROJECTS) {
+    for (const pr of project.pullRequests) {
+      await expect(issueParticipation.locator(`a[href="${pr.url}"]`)).toHaveCount(0);
+    }
+  }
+  await expect(contributedSection.locator('a[href*="github.com/"]')).toHaveCount(OPEN_SOURCE_CONTRIBUTIONS.length + 1);
   await expect(contributedSection.getByRole('link', { name: 'Explore empty selections in 3D' })).toHaveAttribute('href', '/docs/contribution-lab/');
   await expect(contributedSection.getByRole('link', { name: 'Play the display lookup example' })).toHaveAttribute('href', '/docs/contribution-lab/pydicom.html');
   await expect(contributedSection.getByText(/Real GitHub organizations/i)).toHaveCount(0);
