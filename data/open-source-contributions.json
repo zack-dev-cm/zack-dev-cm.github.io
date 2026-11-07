@@ -407,6 +407,23 @@
       ]
     },
     {
+      "name": "VESIcal",
+      "project": "Data import",
+      "logo": "images/contributions/vesical.png",
+      "logoSource": "https://raw.githubusercontent.com/kaylai/VESIcal/60745d84fd18f1b651b8f2adfbc152fb2d4f49b6/docs/img/logo.png",
+      "benefit": "Proposed import warnings for unrecognized oxide headers, with guidance for checking extracted compositions.",
+      "account": "zack-dev-cm",
+      "pullRequests": [
+        {
+          "url": "https://github.com/kaylai/VESIcal/pull/226",
+          "number": 226,
+          "title": "Warn about unrecognized oxide-like headers before sample indexing",
+          "status": "open",
+          "mergedAt": null
+        }
+      ]
+    },
+    {
       "name": "CompTech",
       "project": "who-signed",
       "logo": "images/contributions/comptech.png",
